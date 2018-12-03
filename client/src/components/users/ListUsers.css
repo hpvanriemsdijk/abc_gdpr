@@ -1,0 +1,16 @@
+.search-filter-dropdown {
+  padding: 0px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+}
+
+.search-filter-dropdown-btns{
+	border-top: 1px solid #e8e8e8;
+	padding: 7px 8px;
+	overflow: hidden;
+}
+
+.highlight {
+  color: #f50;
+}
