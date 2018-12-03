@@ -21,6 +21,15 @@ For now ABC GDPR helps with your records of processing activities, and whats's c
 * Download ABC GDPR
 
 ### Get the Graph.cool service up and running
+* Move into the graphql directory
+* Install all dependencies
+```
+npm install
+```
+* deploy the graph server
+```
+graphcool deploy
+```
 
 ### Get the frond-end up and running
 * Move into the client directory
