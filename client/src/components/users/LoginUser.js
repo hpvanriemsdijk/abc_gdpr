@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import { Form, Icon, Input, Button, Checkbox, Card, Spin, message } from 'antd';
-import { userQueries } from 'queries/UserQueries';
+import { userQueries } from '../../queries/UserQueries';
 
 const FormItem = Form.Item;
 

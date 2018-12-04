@@ -101,4 +101,16 @@ type Application @model {
   
   # Relations
   processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivitiesApplications")
+  data: [Data!]! @relation(name: "ApplicatonData")
+}
+
+type Data @model {
+  id: ID! @isUnique
+  name: String
+  description: String
+  pii: Boolean
+  spii: Boolean
+  
+  # Relations
+  application: [Application!]! @relation(name: "ApplicatonData")
 }

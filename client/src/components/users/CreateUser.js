@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
-import { userQueries } from 'queries/UserQueries';
+import { userQueries } from '../../queries/UserQueries';
 import { Modal, Form, Input, Icon, Checkbox, notification } from 'antd';
 
 const FormItem = Form.Item;

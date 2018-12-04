@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col, Card } from 'antd';
 import { graphql } from 'react-apollo'
-import { userQueries } from 'queries/UserQueries';
+import { userQueries } from '../../queries/UserQueries';
 
 class viewUser extends React.Component {
 	render () {

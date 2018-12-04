@@ -2,8 +2,8 @@ import React from 'react'
 import { Layout, Menu, Icon, Spin } from 'antd';
 import { Link } from 'react-router-dom'
 import { graphql } from 'react-apollo'
-import { userQueries } from 'queries/UserQueries';
-import { logout } from 'services/Actions'
+import { userQueries } from '../../queries/UserQueries';
+import { logout } from '../../services/Actions'
 
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;

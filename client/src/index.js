@@ -12,8 +12,10 @@ import registerServiceWorker from './registerServiceWorker';
 import { logout } from './services/Actions'
 import App from './components/App'
 
+console.log(process.env);
+
 const httpLink = createHttpLink({ 
-  uri: 'https://api.graph.cool/simple/v1/cjdt97ve802y20137v8iwkyaj'
+  uri: process.env.REACT_APP_GRAPH_SIMPLE 
 })
 
 const middlewareLink = new ApolloLink((operation, forward) => {

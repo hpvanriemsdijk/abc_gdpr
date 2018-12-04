@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import { Layout, Spin, Table, Divider, Input, Card, Tag } from 'antd';
-import { userQueries } from 'queries/UserQueries';
+import { userQueries } from '../../queries/UserQueries';
 import ViewUser from './ViewUser'
 import CreateUser from './CreateUser'
 
@@ -125,7 +125,7 @@ class listUsers extends React.Component {
       ],
       filteredValue: filteredInfo.active || null,
       filterMultiple: false,
-      onFilter: (value, record) => record.active == value,
+      onFilter: (value, record) => record.active === value,
     },{
       title: 'E-mail',
       dataIndex: 'email',

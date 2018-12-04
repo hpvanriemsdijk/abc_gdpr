@@ -1,4 +1,4 @@
-import { client } from 'index';
+import { client } from '../index';
 
 export const logout = () => {
 		localStorage.removeItem('graphcoolToken')
