@@ -21,14 +21,18 @@ For now ABC GDPR helps with your records of processing activities, and whats's c
 * Download ABC GDPR
 
 ### Get the Graph.cool service up and running
+* Move into the graphql directory
+* Install all dependencies `npm install`
+* deploy the graph server `graphcool deploy`
+* Take note of the graph server uri's, we need them later
+* Create your admin user by typing `graphcool playground` and excecuring the following query
+```
+mutation{
+	signupUser(email:"admin@test.com", password:"secret"){id}
+}
+```
 
 ### Get the frond-end up and running
 * Move into the client directory
-* Install all dependencies
-```
-npm install
-```
-* start using npm
-```
-npm start
-```
+* Install all dependencies `npm install`
+* start using npm `npm start`
