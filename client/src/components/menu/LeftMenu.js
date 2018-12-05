@@ -19,14 +19,14 @@ class LeftMenu extends React.Component {
         onClick={this.handleClick}
         onSelect={this.handleSelect}
         selectedKeys={[location.pathname]}
-        defaultOpenKeys={['org']}
         style={{ height: '100%', borderRight: 0 }}
       >
+        <Menu.Item key="/"><span><Icon type="home" />Home</span></Menu.Item>
         <SubMenu key="org" title={<span><Icon type="user" />Organisation</span>}>
-          <Menu.Item key="/">home</Menu.Item>
-          <Menu.Item key="2">option2</Menu.Item>
-          <Menu.Item key="3">option3</Menu.Item>
-          <Menu.Item key="4">option4</Menu.Item>
+          <Menu.Item key="/units">units</Menu.Item>
+          <Menu.Item key="/roles">roles</Menu.Item>
+          <Menu.Item key="/processes">processes</Menu.Item>
+          <Menu.Item key="/applications">applications</Menu.Item>
         </SubMenu>
         <SubMenu key="cont" title={<span><Icon type="laptop" />Controls</span>}>
           <Menu.Item key="5">option5</Menu.Item>

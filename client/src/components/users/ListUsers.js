@@ -142,26 +142,14 @@ class listUsers extends React.Component {
           filterDropdownVisible: visible,
         }, () => this.searchInput && this.searchInput.focus());
       },
-    }, {
-      title: 'First Name',
-      dataIndex: 'First Name',
-      key: 'firstName',
-      sorter: (a, b) => a.firstName.length - b.firstName.length,
-      sortOrder: sortedInfo.columnKey === 'firstName' && sortedInfo.order,
-    }, {
-      title: 'Last Name',
-      dataIndex: 'lastName',
-      key: 'lastName',
-      sorter: (a, b) => a.lastName - b.lastName,
-      sortOrder: sortedInfo.columnKey === 'lastName' && sortedInfo.order,
     },{
 	  title: 'Permissions',
-	  key: 'permissions',
-	  dataIndex: 'permissions',
-	  render: permissions => (
+	  key: 'specialPermissions',
+	  dataIndex: 'specialPermissions',
+	  render: specialPermissions => (
 			<span>
-			  { permissions
-					? permissions.map(permission => <Tag color="blue" key={permission}>{permission}</Tag>)
+			  { specialPermissions
+					? specialPermissions.map(permission => <Tag color="blue" key={permission}>{permission}</Tag>)
 					: ""
 			  }
 			</span>

@@ -2,7 +2,8 @@
 # ENUMS
 #
 enum PERMISSION {
-  ADMIN
+  ADMIN, 
+  AUDIT
 }
 
 enum RACI {
@@ -19,6 +20,7 @@ type User @model {
   id: ID! @isUnique
   email: String! @isUnique
   password: String!
+  active: Boolean
   specialPermissions: PERMISSION
   createdAt: DateTime! 
   updatedAt: DateTime! 

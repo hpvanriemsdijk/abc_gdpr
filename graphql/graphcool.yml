@@ -19,12 +19,6 @@ types: ./types.graphql
 
 
 functions:
-  signup:
-    type: resolver
-    schema: src/email-password/signup.graphql
-    handler:
-      code: src/email-password/signup.ts
- 
   authenticate:
     type: resolver
     schema: src/email-password/authenticate.graphql
@@ -36,13 +30,6 @@ functions:
     schema: src/email-password/loggedInUser.graphql
     handler:
       code: src/email-password/loggedInUser.ts
-
-  hello:
-    handler:
-      code: src/hello.js
-    type: resolver
-    schema: src/hello.graphql
-
 
 # Model/Relation permissions are used to limit the API access
 # To take the burden of thinking about those while development, we

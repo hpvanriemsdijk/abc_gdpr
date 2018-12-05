@@ -1,10 +1,18 @@
 import gql from 'graphql-tag'
 
+export const userEnums = {
+	specialPermissions: [
+		{ label: 'Administrator', value: 'ADMIN' },
+		{ label: 'Auditor', value: 'AUDIT' }
+	]
+}
+
 export const userQueries = {
 	loggedIn: gql`
 		query LoggedInUserQuery {
 			loggedInUser {
 				id
+				email
 			}
 		}`,
 	all: gql`
@@ -13,15 +21,16 @@ export const userQueries = {
 					id
 					active
 					email
-					lastName
-					firstName
-					permissions
+					specialPermissions
 			}
 		}`, 
 	view: gql`
 		query viewUserQuery ($userId: ID!) { 
 			User(id: $userId) {
+				id
+				active
 				email
+				specialPermissions
 			}
 		}`,
 	authenticate: gql`
@@ -31,8 +40,8 @@ export const userQueries = {
 			}
 		}`,
 	create: gql`
-		mutation CreateUserMutation ($email: String!, $firstName: String, $lastName: String, $permissions: [SpecialPermissions!]) {
-			createUser(email: $email, firstName: $firstName, lastName: $lastName, permissions: $permissions) {
+		mutation CreateUserMutation ($email: String!, $specialPermissions: [SpecialPermissions!]) {
+			createUser(email: $email, specialPermissions: $specialPermissions) {
 				id
 			}
 		}`

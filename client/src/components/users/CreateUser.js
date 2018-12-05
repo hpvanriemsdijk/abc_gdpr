@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
-import { userQueries } from '../../queries/UserQueries';
+import { userQueries, userEnums } from '../../queries/UserQueries';
 import { Modal, Form, Input, Icon, Checkbox, notification } from 'antd';
 
 const FormItem = Form.Item;
@@ -15,12 +15,6 @@ const CheckboxGroup = Checkbox.Group;
 
   permissions: [SpecialPermissions!] @migrationValue(value: [])
 */
-
-const permissionOptions = [
-  { label: 'Administrator', value: 'ADMIN' },
-  { label: 'Auditor', value: 'AUDIT' },
-];
-
 const CollectionCreateForm = Form.create()(
   class extends React.Component {
     render() {
@@ -45,18 +39,13 @@ const CollectionCreateForm = Form.create()(
                 <Input />
               )}
             </FormItem>
-            <FormItem label="First name">
-              {getFieldDecorator('firstName')(<Input />)}
-            </FormItem>
-            <FormItem label="Last name">
-              {getFieldDecorator('lastName')(<Input />)}
-            </FormItem>
-            <FormItem label="Permissions">
-              {getFieldDecorator('permissions', {
+          
+            <FormItem label="Special permissions">
+              {getFieldDecorator('specialPermissions', {
                 valuePropName: 'checked',
                 initialValue: true,
                 })(
-                  <CheckboxGroup options={permissionOptions} />
+                  <CheckboxGroup options={userEnums.specialPermissions} />
                 )}              
             </FormItem>
           </Form>

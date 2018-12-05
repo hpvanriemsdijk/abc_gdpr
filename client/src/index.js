@@ -12,8 +12,6 @@ import registerServiceWorker from './registerServiceWorker';
 import { logout } from './services/Actions'
 import App from './components/App'
 
-console.log(process.env);
-
 const httpLink = createHttpLink({ 
   uri: process.env.REACT_APP_GRAPH_SIMPLE 
 })
