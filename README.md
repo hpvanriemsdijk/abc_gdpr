@@ -28,9 +28,11 @@ For now ABC GDPR helps with your records of processing activities, and whats's c
 * Create your admin user by typing `graphcool playground` and excecuring the following query
 ```
 mutation{
-	signupUser(email:"admin@test.com", password:"secret"){id}
+	signupUser(email:"your@mailadres.com", password:"your personal secret"){id}
 }
 ```
+
+> Note you are running your graphQl server in a public cloud instance of Graphcool Inc. Read there documententation on how to get up and running with your local instance.
 
 ### Get the frond-end up and running
 * Move into the client directory
