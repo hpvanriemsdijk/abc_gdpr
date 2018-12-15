@@ -21,7 +21,7 @@ type User @model {
   email: String! @isUnique
   password: String!
   active: Boolean
-  specialPermissions: PERMISSION
+  specialPermissions: [PERMISSION!]!
   createdAt: DateTime! 
   updatedAt: DateTime! 
 
