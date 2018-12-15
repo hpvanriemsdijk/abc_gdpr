@@ -1,16 +1,14 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import { graphql, compose } from 'react-apollo'
-import { Layout, Spin, Table, Divider, Input, Card, Tag } from 'antd';
-import { userQueries } from '../../queries/UserQueries';
-import ViewUser from './ViewUser'
+import { Link } from 'react-router-dom'
+import { Query } from 'react-apollo'
+import { Table, Divider, Input, Card, Tag, Icon, Form, Switch } from 'antd';
+import { ALL_USERS } from '../../queries/UserQueries';
 import CreateUser from './CreateUser'
-
+import UpdateUser from './UpdateUser'
+import SetUserState from './SetUserState'
 import './ListUsers.css';
 
-const { Content } = Layout;
-
-class listUsers extends React.Component {
+class UserTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,12 +17,13 @@ class listUsers extends React.Component {
       filterDropdownVisible: false,
       searchText: '',
       filtered: false,
-      userData: null,
+      activeAccounts: {active:true}
     };
   }
 
   handleChange = (pagination, filters, sorter) => {
     console.log('Various parameters', pagination, filters, sorter);
+
     this.setState({
       filteredInfo: filters,
       sortedInfo: sorter,
@@ -40,12 +39,13 @@ class listUsers extends React.Component {
   }
 
   onSearch = () => {
+    console.log(this.props.users);
     const { searchText } = this.state;
     const reg = new RegExp(searchText, 'gi');
     this.setState({
       filterDropdownVisible: false,
       filtered: !!searchText,
-      userData: this.props.AllUsers.allUsers.map((record) => {
+      userData: this.props.users.map((record) => {
         const match = record.email.match(reg);
         if (!match) {
           return null;
@@ -92,40 +92,56 @@ class listUsers extends React.Component {
     )
   }
 
+  userStateOptions  = (record) => {
+    if( record.active ){
+      return(
+        <span>
+          <UpdateUser user={record}/>
+          <Divider type="vertical" />
+          <SetUserState user={record} />
+        </span>
+      )
+    }else{
+      return(
+        <span>
+          <SetUserState user={record} />
+          <Divider type="vertical" />
+          Delete
+        </span>
+      )
+    }
+  }
+
+  handleToggle = (checked) => {
+    let activeAccounts = null;
+    if (checked) activeAccounts = {active:true};
+
+    this.setState({
+      activeAccounts: activeAccounts
+    });
+
+    console.log("active", activeAccounts );
+  }
+
   render () {
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
 
-    if (this.props.AllUsers.loading) {
-      return (<div><Spin /> Loading</div>)
-    }
-
-    if (this.props.AllUsers.error) {
-      console.log(this.props.AllUsers.error)
-      return (<div>An unexpected error occurred</div>)
-    }
-
     const columns = [{
       title: 'Active',
       dataIndex: 'active',
       key: 'active',
+      width: 100,
       sorter: (a, b) => a.active - b.active,
       sortOrder: sortedInfo.columnKey === 'active' && sortedInfo.order,
       render: (text) => {
         if (text) {
-          return "Yes";
+          return <Icon type="check-circle" theme="twoTone" />;
         }else{
-          return "No";
+          return <Icon type="stop" theme="twoTone" />;
         }
-      },
-      filters: [
-        { text: 'Yes', value: true },
-        { text: 'No', value: false },
-      ],
-      filteredValue: filteredInfo.active || null,
-      filterMultiple: false,
-      onFilter: (value, record) => record.active === value,
+      }
     },{
       title: 'E-mail',
       dataIndex: 'email',
@@ -160,33 +176,45 @@ class listUsers extends React.Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          <a href="#">Edit </a>
-          <Divider type="vertical" />
-          <a href="#">Delete</a>
+          {this.userStateOptions(record)}
         </span>
       ),
     }];
-
+    
     return (
       <div>
-        <Card title="Application users" extra={<CreateUser />} style={{ background: '#fff' }}>
-          <Table columns={columns} 
-              dataSource={this.state.userData || this.props.AllUsers.allUsers}
-              rowKey="id" 
-              onChange={this.handleChange} />
-        </Card>
-        {this.props.match.params.userId &&
-          <Content style={{ marginTop: 24 }}>
-            <ViewUser userId={this.props.match.params.userId} />
-          </Content>
-          }
+        <Query
+          query = { ALL_USERS }
+          variables= {{ active: this.state.activeAccounts }}
+          >
+          {({ loading, data }) => {
+            const dataSource = data.allUsers || [];
+
+            return(
+              <React.Fragment>  
+                <Card title="Application users" extra={<CreateUser />} style={{ background: '#fff' }}>
+                <Form layout="inline">
+                  <Form.Item label="Active accounts">
+                    <Switch 
+                      checked={this.state.activeAccounts != null} 
+                      onChange={this.handleToggle} 
+                      />
+                  </Form.Item>
+                </Form>
+                <Table 
+                  loading={loading}
+                  rowKey={record => record.id}
+                  dataSource={dataSource}
+                  columns={columns} 
+                  onChange={this.handleChange} 
+                  />
+                </Card>
+              </React.Fragment>  
+            )}}
+        </Query>
       </div>
     )
   }
 }
 
-export default compose(
-  graphql(userQueries.all, {
-    name: 'AllUsers'
-  })
-)(withRouter(listUsers))
+export default UserTable

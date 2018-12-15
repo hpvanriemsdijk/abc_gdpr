@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom'
 import { ApolloClient } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import { createHttpLink } from 'apollo-link-http'
-import { ApolloLink} from 'apollo-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
+import { ApolloLink} from 'apollo-link'
 import { onError } from 'apollo-link-error'
 
 import registerServiceWorker from './registerServiceWorker';
@@ -49,9 +49,11 @@ const httpLinkWithAuthToken = ApolloLink.from([
   httpLink,
 ]);
 
+const cache = new InMemoryCache().restore(window.__APOLLO_STATE__)
+
 export const client = new ApolloClient({ 
   link: httpLinkWithAuthToken,
-  cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
+  cache: cache
 })
 
 ReactDOM.render((

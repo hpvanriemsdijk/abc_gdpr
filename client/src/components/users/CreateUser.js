@@ -1,111 +1,117 @@
 import React from 'react'
-import { graphql, compose } from 'react-apollo'
-import { userQueries, userEnums } from '../../queries/UserQueries';
-import { Modal, Form, Input, Icon, Checkbox, notification } from 'antd';
+import { Mutation } from 'react-apollo'
+import { CREATE_USER } from '../../queries/UserQueries';
+import { Modal, Form, Input, Button, notification } from 'antd';
 
-const FormItem = Form.Item;
-const CheckboxGroup = Checkbox.Group;
-
-/*
-  firstName: String
-  lastName: String
-  email: String! @isUnique
-  active: Boolean! @defaultValue(value: true) @migrationValue(value: true)
-  password: String!
-
-  permissions: [SpecialPermissions!] @migrationValue(value: [])
-*/
-const CollectionCreateForm = Form.create()(
-  class extends React.Component {
-    render() {
-      const { visible, onCancel, onCreate, form } = this.props;
-      const { getFieldDecorator } = form;
-      return (
-        <Modal
-          visible={visible}
-          title="Add new user"
-          okText="Create"
-          onCancel={onCancel}
-          onOk={onCreate}
-        >
-          <Form layout="vertical">
-           <FormItem label="E-mail">
-              {getFieldDecorator('email', {
-                rules: [
-                  { type: 'email', message: 'The input is not valid E-mail!' }, 
-                  { required: true, message: 'Please enter an e-mail adress!' }
-                  ],
-              })(
-                <Input />
-              )}
-            </FormItem>
-          
-            <FormItem label="Special permissions">
-              {getFieldDecorator('specialPermissions', {
-                valuePropName: 'checked',
-                initialValue: true,
-                })(
-                  <CheckboxGroup options={userEnums.specialPermissions} />
-                )}              
-            </FormItem>
-          </Form>
-        </Modal>
-      );
-    }
-  }
-);
-
-class CreateUser extends React.Component {
+class CreateUserModal extends React.Component {
   state = {
-    visible: false,
+    confirmDirty: false,
+    modalVisible: false
   };
-  showModal = () => {
-    this.setState({ visible: true });
+
+  handleConfirmBlur = (e) => {
+    const value = e.target.value;
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
-  handleCancel = () => {
-    const form = this.formRef.props.form;
-    form.resetFields();
-    this.setState({ visible: false });
-  }
-  handleCreate = async () => {
-    const form = this.formRef.props.form;
-    form.validateFields((err, values) => {
-      if (err) {
-        return;
-      }
-      console.log('Received values of form: ', values);
-    })
-    try {
-      const user = await this.props.CreateUserMutation({variables: form})
-      form.resetFields();
-      this.setState({ visible: false });
-    } catch (e) {
-      console.log(e.message)
-      notification['warning']({
-        message: "Could not create user",
-        description: e.message,
-        duration: 10
-      });
+
+  compareToFirstPassword = (rule, value, callback) => {      
+    const form = this.props.form;
+    if (value && value !== form.getFieldValue('password')) {
+      callback('Two passwords that you enter is inconsistent!');
+    } else {
+      callback();
     }
   }
-  saveFormRef = (formRef) => {
-    this.formRef = formRef;
+
+  validateToNextPassword = (rule, value, callback) => {
+    const form = this.props.form;
+    if (value && this.state.confirmDirty) {
+      form.validateFields(['confirm'], { force: true });
+    }
+    callback();
   }
+
+  showModal = () => {
+    this.setState({ modalVisible: true });
+  };
+
+  closeModal = () => {
+    this.setState({ modalVisible: false });
+  };
+
+  // Modal
+  onCreateUser = createUser => {
+    const { form } = this.props;
+    form.validateFields(async (err, values) => {
+      if (!err) {
+        await createUser({ variables: {
+          email: values.email,
+          password: values.password
+        }}).catch( res => {
+          notification['warning']({
+            message: "Could not create user",
+            description: res.message,
+            duration: 5
+          });
+        });
+        this.closeModal();
+        form.resetFields();
+      }
+    });
+  };
+
   render() {
+    const { form } = this.props;
+
     return (
-      <div>
-        <a onClick={this.showModal}><Icon type="user-add" />Add user</a>
-        <CollectionCreateForm
-          wrappedComponentRef={this.saveFormRef}
-          visible={this.state.visible}
-          onCancel={this.handleCancel}
-          onCreate={this.handleCreate}
-        />
-      </div>
+      <React.Fragment>
+        <Mutation 
+          mutation={CREATE_USER}
+          refetchQueries={["GetUsers"]}
+          >
+          {(createUser, { loading, error, data }) => {
+            return (
+              <Modal
+                onOk={e => this.onCreateUser(createUser)}
+                onCancel={this.closeModal}
+                title="Create User"
+                confirmLoading={loading}
+                visible={this.state.modalVisible}
+              >
+                <Form>
+                  <Form.Item label="E-mail">
+                    {form.getFieldDecorator('email', {
+                      rules: [
+                        { type: 'email', message: 'The input is not valid E-mail!' }, 
+                        { required: true, message: 'Please enter an e-mail adress!' }
+                        ],
+                    })(<Input />)}
+                  </Form.Item>                        
+                  <Form.Item label="Password">
+                    {form.getFieldDecorator('password', {
+                      rules: [
+                        { validator: this.validateToNextPassword }
+                      ],
+                    })(<Input type="password" />)}
+                  </Form.Item>
+                  <Form.Item label="Confirm Password">
+                    {form.getFieldDecorator('confirm', {
+                      rules: [
+                        { validator: this.compareToFirstPassword }
+                      ],
+                    })(<Input type="password" onBlur={this.handleConfirmBlur} />)}
+                  </Form.Item> 
+                </Form>
+              </Modal>
+            );
+          }}
+        </Mutation>
+        <Button onClick={this.showModal} type="primary">
+          New User
+        </Button>
+      </React.Fragment>
     );
   }
 }
 
-export default compose(
-  graphql(userQueries.create, {name: 'CreateUserMutation'}),
-)(CreateUser)
+export default Form.create()(CreateUserModal);

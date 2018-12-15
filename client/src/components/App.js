@@ -2,11 +2,12 @@ import React from 'react'
 import {BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
 
 import { Layout, Row, Breadcrumb, Spin } from 'antd';
 import 'antd/dist/antd.css';
 import '../index.css';
+
+import { userQueries } from '../queries/UserQueries';
 
 import error_404 from './generic/error_404'
 import landingPage from './generic/landingPage'
@@ -104,7 +105,7 @@ class App extends React.Component {
     }
 
     if (this.props.loggedInUserQuery.error) {
-      console.log(this.props.AllUsers.error)
+      console.log(this.props.loggedInUserQuery.error)
       return (<div>An unexpected error occurred</div>)
     }
 
@@ -112,15 +113,7 @@ class App extends React.Component {
   }
 }
 
-const LOGGED_IN_USER_QUERY = gql`
-  query LoggedInUserQuery {
-    loggedInUser {
-      id
-    }
-  }
-`
-
-export default graphql(LOGGED_IN_USER_QUERY, {
+export default graphql(userQueries.loggedIn, {
   name: 'loggedInUserQuery',
   options: {fetchPolicy: 'network-only'}
 })(App)
