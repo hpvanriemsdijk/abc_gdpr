@@ -11,6 +11,8 @@ ABC GDPR is build on some pretty cool other opensource projects:
 * Graph.cool GraphQL backend
 
 ## What can it do?
+>Note ABC-GDPR is in a pre-alpha stage and under heavy development. I would not advice anyone to do anything serious with ABC-GDPR at this point.
+
 For now ABC GDPR helps with your records of processing activities, and whats's come with it:
 * organization
 * processes and processing activities
