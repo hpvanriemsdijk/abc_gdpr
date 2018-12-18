@@ -40,4 +40,5 @@ mutation{
 ### Get the frond-end up and running
 * Move into the client directory
 * Install all dependencies `npm install`
+* copy .env.example to .env and add the graphql server values we've got from `graphcool deploy`
 * start using npm `npm start`
