@@ -27,14 +27,15 @@ For now ABC GDPR helps with your records of processing activities, and whats's c
 * Install all dependencies `npm install`
 * deploy the graph server `graphcool deploy`
 * Take note of the graph server uri's, we need them later
-* Create your admin user by typing `graphcool playground` and excecuring the following query
+* Create your admin user by typing `graphcool playground` by excecuting the following query
 ```
 mutation{
 	signupUser(email:"your@mailadres.com", password:"your personal secret"){id}
 }
 ```
 
-> Note you are running your graphQl server in a public cloud instance of Graphcool Inc. Read there documententation on how to get up and running with your local instance.
+> * you are running your graphQl server in a public cloud instance of Graphcool Inc. Read there documententation on how to get up and running with your local instance.
+* In the current versions, there is no authenttication on the backend server. Consider everything you do with AVC-GDPR public for now.
 
 ### Get the frond-end up and running
 * Move into the client directory
