@@ -71,7 +71,11 @@ class SetUserState extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={SET_USER_STATE}
-            refetchQueries={["GetUsers"]}
+            refetchQueries={[
+              //{query: ALL_USERS}, //--> Changes state on both list, does note remove item from active list
+              'GetUsers' //--> Removes item from the active list, does not change state on inactive list
+              //Somehow need both to get good result.
+            ]}
             >
             {(UpdateUser, { loading }) => {
               return (
@@ -96,7 +100,10 @@ class SetUserState extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={SET_USER_STATE}
-            refetchQueries={["GetUsers"]}          
+            refetchQueries={[
+              //{query: ALL_USERS},  //Updates inactive list, does not update active list 
+              'GetUsers'// --> Updates normalised value, does noet update active list
+            ]}
             >
             {(UpdateUser, { loading }) => {
               return (

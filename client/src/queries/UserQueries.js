@@ -8,9 +8,9 @@ export const userEnums = {
 };
 
 export const ALL_USERS = gql`
-	query GetUsers ($active: UserFilter) {
+	query GetUsers ($userFilter: UserFilter) {
 		allUsers(
-			filter:$active
+			filter:$userFilter
 		) {
 			id
 			active
@@ -55,6 +55,14 @@ export const SET_USER_STATE = gql`
 	}
 `;
 
+export const DELETE_USER = gql`
+	mutation DeleteUser ($id: ID!) {
+		deleteUser(id: $id) {
+			id
+		}
+	}
+`;
+
 export const userQueries = {
 	loggedIn: gql`
 		query LoggedInUserQuery {
@@ -75,6 +83,7 @@ export const userQueries = {
 	authenticate: gql`
 		mutation AuthenticateUserMutation ($email: String!, $password: String!) { 
 			authenticateUser(email: $email, password: $password) {
+				id
 				token
 			}
 		}`,

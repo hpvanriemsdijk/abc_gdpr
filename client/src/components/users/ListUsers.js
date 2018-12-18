@@ -1,75 +1,52 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Input, Card, Tag, Icon, Form, Switch } from 'antd';
+import { Table, Divider, Input, Card, Tag, Icon, Form, Switch, Button } from 'antd';
 import { ALL_USERS } from '../../queries/UserQueries';
 import CreateUser from './CreateUser'
 import UpdateUser from './UpdateUser'
 import SetUserState from './SetUserState'
+import DeleteUser from './DeleteUser'
 import './ListUsers.css';
 
 class UserTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filteredInfo: null,
       sortedInfo: null, 
       filterDropdownVisible: false,
       searchText: '',
+      searchBoxText: '',
       filtered: false,
       activeAccounts: {active:true}
     };
   }
 
   handleChange = (pagination, filters, sorter) => {
-    console.log('Various parameters', pagination, filters, sorter);
-
     this.setState({
-      filteredInfo: filters,
       sortedInfo: sorter,
     });
   }
 
-  clearFilters = () => {
-    this.setState({ filteredInfo: null });
-  }
-
   onInputChange = (e) => {
-    this.setState({ searchText: e.target.value });
+    this.setState({ searchBoxText: e.target.value });
   }
 
   onSearch = () => {
-    console.log(this.props.users);
-    const { searchText } = this.state;
-    const reg = new RegExp(searchText, 'gi');
+    const searchText = this.state.searchBoxText;
     this.setState({
       filterDropdownVisible: false,
+      searchText: searchText,
       filtered: !!searchText,
-      userData: this.props.users.map((record) => {
-        const match = record.email.match(reg);
-        if (!match) {
-          return null;
-        }
-        return {
-          ...record,
-          name: (
-            <span>
-              {record.email.split(reg).map((text, i) => (
-                i > 0 ? [<span className="highlight">{match[0]}</span>, text] : text
-              ))}
-            </span>
-          ),
-        };
-      }).filter(record => !!record),
-    });
+    })
   }
 
   clearSearch = () => {
     this.setState({
-            searchText: ''
-        }, () => {
-            this.onSearch()
-        });
+      searchText: '',
+      searchBoxText: ''
+    }, () => {
+      this.onSearch()
+    });
   }
 
   filterDropdown(){
@@ -79,14 +56,16 @@ class UserTable extends React.Component {
           <Input
             ref={ele => this.searchInput = ele}
             placeholder="Search e-mail"
-            value={this.state.searchText}
+            value={this.state.searchBoxText}
             onChange={this.onInputChange}
             onPressEnter={this.onSearch}
           />
         </div>
         <div className="search-filter-dropdown-btns" >
-          <a style={{ float: 'left', minWidth: '50px' }} onClick={this.onSearch} >OK</a>
-          <a style={{ float: 'left', minWidth: '50px' }} onClick={this.clearSearch}>Clear</a>
+          <div>
+          <Button style={{ margin:1 }} type="primary" onClick={this.onSearch} size="small">Search</Button>
+          <Button style={{ margin:1 }} onClick={this.clearSearch} size="small">Reset</Button>
+          </div>
         </div>
       </div>
     )
@@ -106,27 +85,24 @@ class UserTable extends React.Component {
         <span>
           <SetUserState user={record} />
           <Divider type="vertical" />
-          Delete
+          <DeleteUser user={record} />
         </span>
       )
     }
   }
 
   handleToggle = (checked) => {
-    let activeAccounts = null;
+    let activeAccounts = {};
     if (checked) activeAccounts = {active:true};
 
     this.setState({
       activeAccounts: activeAccounts
     });
-
-    console.log("active", activeAccounts );
   }
 
   render () {
-    let { sortedInfo, filteredInfo } = this.state;
+    let { sortedInfo } = this.state;
     sortedInfo = sortedInfo || {};
-    filteredInfo = filteredInfo || {};
 
     const columns = [{
       title: 'Active',
@@ -148,9 +124,9 @@ class UserTable extends React.Component {
       key: 'email',
       sorter: (a, b) => a.email.length - b.email.length,
       sortOrder: sortedInfo.columnKey === 'email' && sortedInfo.order,
-      render: (text, record) => (
-        <Link to={`/users/${record.id}`}>{text}</Link>
-      ),
+      //render: (text, record) => (
+      //  <Link to={`/users/${record.id}`}>{text}</Link>
+      //),
       filterDropdown: this.filterDropdown(),
       filterDropdownVisible: this.state.filterDropdownVisible,
       onFilterDropdownVisibleChange: (visible) => {
@@ -185,7 +161,13 @@ class UserTable extends React.Component {
       <div>
         <Query
           query = { ALL_USERS }
-          variables= {{ active: this.state.activeAccounts }}
+          fetchPolicy="cache-and-network"
+          variables= {{ userFilter: 
+            { AND: [
+              this.state.activeAccounts,
+              {email_contains: this.state.searchText}
+            ]}
+          }}
           >
           {({ loading, data }) => {
             const dataSource = data.allUsers || [];
@@ -196,7 +178,7 @@ class UserTable extends React.Component {
                 <Form layout="inline">
                   <Form.Item label="Active accounts">
                     <Switch 
-                      checked={this.state.activeAccounts != null} 
+                      checked={this.state.activeAccounts.active} 
                       onChange={this.handleToggle} 
                       />
                   </Form.Item>
