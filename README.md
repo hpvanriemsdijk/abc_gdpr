@@ -34,8 +34,8 @@ mutation{
 }
 ```
 
-> * you are running your graphQl server in a public cloud instance of Graphcool Inc. Read there documententation on how to get up and running with your local instance.
-* In the current versions, there is no authenttication on the backend server. Consider everything you do with AVC-GDPR public for now.
+> you are running your graphQl server in a public cloud instance of Graphcool Inc. Read there documententation on how to get up and running with your local instance.
+> In the current versions, there is no authenttication on the GraphQL server. Consider everything you do with AVC-GDPR public for now.
 
 ### Get the frond-end up and running
 * Move into the client directory
