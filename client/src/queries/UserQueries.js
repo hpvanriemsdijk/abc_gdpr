@@ -40,7 +40,7 @@ export const GET_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-	mutation UpdateUser ($id: ID!, $active: Boolean!, $email: String!, $specialPermissions: [PERMISSION!]) {
+	mutation UpdateUser ($id: ID!, $active: Boolean, $email: String!, $specialPermissions: [PERMISSION!]) {
 		updateUser(id: $id, active: $active, email: $email, specialPermissions: $specialPermissions) {
 			id
 		}
