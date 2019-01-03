@@ -21,6 +21,7 @@ class viewProcess extends React.Component {
                   title={`Process: ${dataSource.name}`} 
                   style={{ background: '#fff' }}>
                   <div>{dataSource.description}</div>
+
                 </Card>
               </React.Fragment>  
             )}}
