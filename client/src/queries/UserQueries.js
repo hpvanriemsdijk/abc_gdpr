@@ -7,10 +7,19 @@ export const userEnums = {
 	]
 };
 
+export const LOGGEDIN_USER = gql`
+	query LoggedInUser {
+		loggedInUser {
+			id
+			email
+		}
+	}
+`;
+
 export const ALL_USERS = gql`
-	query GetUsers ($userFilter: UserFilter) {
+	query AllUsers ($filter: UserFilter) {
 		allUsers(
-			filter:$userFilter
+			filter:$filter
 		) {
 			id
 			active
@@ -29,8 +38,8 @@ export const CREATE_USER = gql`
 `;
 
 export const GET_USER = gql`
-	query ViewUser ($userId: ID!) { 
-		User(id: $userId) {
+	query User ($userId: ID!) { 
+		user(id: $userId) {
 			id
 			active
 			email
@@ -71,15 +80,6 @@ export const userQueries = {
 				email
 			}
 		}`,
-	view: gql`
-		query viewUserQuery ($userId: ID!) { 
-			User(id: $userId) {
-				id
-				active
-				email
-				specialPermissions
-			}
-		}`,
 	authenticate: gql`
 		mutation AuthenticateUserMutation ($email: String!, $password: String!) { 
 			authenticateUser(email: $email, password: $password) {
@@ -87,17 +87,5 @@ export const userQueries = {
 				token
 			}
 		}`,
-	create: gql`
-		mutation CreateUserMutation ($email: String!, $password: String!) {
-			signupUser(email: $email, password: $password) {
-				id
-			}
-		}`,
-	update: gql`
-		mutation UpdateUserMutation ($id: ID!, $email: String!, $specialPermissions: [PERMISSION!]) {
-			updateUser(id: $id, email: $email, specialPermissions: $specialPermissions) {
-				id
-			}
-		}`
 };
 

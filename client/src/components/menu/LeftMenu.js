@@ -12,31 +12,23 @@ class LeftMenu extends React.Component {
 
   render() {
     const { location } = this.props;
+    const module = '/'+location.pathname.split("/")[1];
 
-    return ( 
+    return (
       <Menu
         mode="inline"
         onClick={this.handleClick}
         onSelect={this.handleSelect}
-        selectedKeys={[location.pathname]}
+        selectedKeys={[module]}
         style={{ height: '100%', borderRight: 0 }}
       >
         <Menu.Item key="/"><span><Icon type="home" />Home</span></Menu.Item>
         <SubMenu key="org" title={<span><Icon type="user" />Organisation</span>}>
-          <Menu.Item key="/units">units</Menu.Item>
-          <Menu.Item key="/roles">roles</Menu.Item>
-          <Menu.Item key="/processes">processes</Menu.Item>
-          <Menu.Item key="/applications">applications</Menu.Item>
-        </SubMenu>
-        <SubMenu key="cont" title={<span><Icon type="laptop" />Controls</span>}>
-          <Menu.Item key="5">option5</Menu.Item>
-          <Menu.Item key="6">option6</Menu.Item>
-          <Menu.Item key="7">option7</Menu.Item>
-          <Menu.Item key="8">option8</Menu.Item>
+          <Menu.Item key="/units">Organizational units</Menu.Item>
+          <Menu.Item key="/processes">Processes</Menu.Item>
         </SubMenu>
         <SubMenu key="Conf" title={<span><Icon type="notification" />Configuration</span>}>
           <Menu.Item key="/users">User</Menu.Item>
-          <Menu.Item key="/settings">Settings</Menu.Item>
         </SubMenu>
       </Menu>
     )

@@ -26,17 +26,17 @@ type User @model {
   updatedAt: DateTime! 
 
   # Relations
-  employee: Employee @relation(name: "UserEmployee")
+  person: Person @relation(name: "UserPerson")
 }
 
-type Employee @model {
+type Person @model {
   id: ID! @isUnique
   name: String
   surname: String
   
   # Relations
-  user: User @relation(name: "UserEmployee")
-  roles: [BusinessRole!]! @relation(name: "RolesEmployee")
+  user: User @relation(name: "UserPerson")
+  roles: [BusinessRole!]! @relation(name: "RolesPerson")
 }
 
 type BusinessRole @model {
@@ -49,7 +49,7 @@ type BusinessRole @model {
   raciExecutive: RACI
   
   # Relations
-  employee: Employee @relation(name: "RolesEmployee")
+  person: Person @relation(name: "RolesPerson")
   organizationalUnit: [OrganizationalUnit!]! @relation(name: "BusinessRoleOU")
   process: [Process!]! @relation(name: "BusinessRoleProcess")
 }

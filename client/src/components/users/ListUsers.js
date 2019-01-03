@@ -122,7 +122,7 @@ class UserTable extends React.Component {
       title: 'E-mail',
       dataIndex: 'email',
       key: 'email',
-      sorter: (a, b) => a.email.length - b.email.length,
+      sorter: (a, b) => { return a.email.localeCompare(b.email)},
       sortOrder: sortedInfo.columnKey === 'email' && sortedInfo.order,
       //render: (text, record) => (
       //  <Link to={`/users/${record.id}`}>{text}</Link>
@@ -162,7 +162,7 @@ class UserTable extends React.Component {
         <Query
           query = { ALL_USERS }
           fetchPolicy="cache-and-network"
-          variables= {{ userFilter: 
+          variables= {{ filter: 
             { AND: [
               this.state.activeAccounts,
               {email_contains: this.state.searchText}

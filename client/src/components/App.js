@@ -15,6 +15,10 @@ import HeaderMenu from './menu/HeaderMenu'
 import LeftMenu from './menu/LeftMenu'
 import LoginUser from './users/LoginUser'
 import listUsers from './users/ListUsers'
+import listOUs from './organizationalUnits/ListOUs'
+import viewOU from './organizationalUnits/ViewOU'
+import listProcesses from './processes/ListProcesses'
+import viewProcess from './processes/ViewProcess'
 
 const { Footer, Sider } = Layout;
 
@@ -89,6 +93,10 @@ class App extends React.Component {
         <div>
           <Switch>
             <PublicRoute path='/login' layout={ this.AnonymousLayout } component={LoginUser} />
+            <AppRoute path='/units/:ouId' layout={ this.AuthenticatedLayout } component={viewOU} />
+            <AppRoute path='/units' layout={ this.AuthenticatedLayout } component={listOUs} />
+            <AppRoute path='/processes/:processId' layout={ this.AuthenticatedLayout } component={viewProcess} />
+            <AppRoute path='/processes' layout={ this.AuthenticatedLayout } component={listProcesses} />
             <AppRoute path='/users/:userId' layout={ this.AuthenticatedLayout } component={listUsers} />
             <AppRoute path='/users' layout={ this.AuthenticatedLayout } component={listUsers} />
             <AppRoute exact path='/' layout={ this.AuthenticatedLayout } component={landingPage} />
@@ -101,7 +109,7 @@ class App extends React.Component {
 
   render () {
     if (this.props.loggedInUserQuery.loading) {
-      return (<div><Spin /> Loading</div>)
+      return (<div className="loader"><Spin /> Loading</div>)
     }
 
     if (this.props.loggedInUserQuery.error) {
