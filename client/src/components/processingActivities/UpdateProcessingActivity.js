@@ -1,9 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { UPDATE_PROCESS } from '../../queries/ProcessQueries';
+import { UPDATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
 import { Modal, Form, Input, notification } from 'antd';
 
-class UpdateProcess extends React.Component {
+class UpdateProcessingActivity extends React.Component {
   state = {
     confirmDirty: false,
     modalVisible: false
@@ -23,18 +23,18 @@ class UpdateProcess extends React.Component {
   };
 
   // Modal
-  onUpdateProcess = updateProcess => {
+  onUpdateProcessingActivity = updateProcessingActivity => {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
-        await updateProcess({ variables: {
-          id: this.props.process.id,
+        await updateProcessingActivity({ variables: {
+          id: this.props.processingActivity.id,
           name: values.name,
           description: values.description,
-          legalEntity: values.legalEntity
+          purpose: values.purpose,
         }}).catch( res => {
           notification['warning']({
-            message: "Could not update Process",
+            message: "Could not update processing activity",
             description: res.message,
             duration: 5
           });
@@ -48,27 +48,27 @@ class UpdateProcess extends React.Component {
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
-    const ProcessData = this.props.process
+    const ProcessingActivityData = this.props.processingActivity
 
     return (
       <React.Fragment>
         <Mutation 
-          mutation={UPDATE_PROCESS}
-          refetchQueries={["AllProcesses"]}
+          mutation={UPDATE_PROCESSING_ACTIVITY}
+          refetchQueries={["AllProcessingActivities"]}
           >
-          {(updateProcess, { loading, error, data }) => {
+          {(updateProcessingActivity, { loading, error, data }) => {
             return (
               <Modal
-                onOk={e => this.onUpdateProcess(updateProcess)}
+                onOk={e => this.onUpdateProcessingActivity(updateProcessingActivity)}
                 onCancel={this.closeModal}
-                title="Update process"
+                title="Update processing activity"
                 confirmLoading={loading}
                 visible={this.state.modalVisible}
               >
                 <Form >
                   <Form.Item label="Name">
                     {form.getFieldDecorator('name', {
-                      initialValue: ProcessData.name,
+                      initialValue: ProcessingActivityData.name,
                       rules: [
                         { required: true, message: 'Please enter a name!' }
                         ],
@@ -77,13 +77,21 @@ class UpdateProcess extends React.Component {
                   
                   <Form.Item label="Description">
                     {form.getFieldDecorator('description', {
-                      initialValue: ProcessData.description,
+                      initialValue: ProcessingActivityData.description,
                       rules: [
                         { required: true, message: 'Please enter a description!' }
                         ],
                     })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                   </Form.Item>  
-
+                  
+                  <Form.Item label="Purpose">
+                    {form.getFieldDecorator('purpose', {
+                      initialValue: ProcessingActivityData.purpose,
+                      rules: [
+                        { required: true, message: 'Please enter a purpose!' }
+                      ],
+                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                  </Form.Item>
                 </Form>
               </Modal>
             );
@@ -95,4 +103,4 @@ class UpdateProcess extends React.Component {
   }
 }
 
-export default Form.create()(UpdateProcess);
+export default Form.create()(UpdateProcessingActivity);

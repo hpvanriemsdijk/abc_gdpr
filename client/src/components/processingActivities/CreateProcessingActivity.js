@@ -1,9 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { UPDATE_PROCESS } from '../../queries/ProcessQueries';
-import { Modal, Form, Input, notification } from 'antd';
+import { CREATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
+import { Modal, Form, Input, Button, notification } from 'antd';
 
-class UpdateProcess extends React.Component {
+class CreateProcessingActivityModal extends React.Component {
   state = {
     confirmDirty: false,
     modalVisible: false
@@ -14,7 +14,7 @@ class UpdateProcess extends React.Component {
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
 
-  showModal = () => {
+   showModal = () => {
     this.setState({ modalVisible: true });
   };
 
@@ -23,18 +23,18 @@ class UpdateProcess extends React.Component {
   };
 
   // Modal
-  onUpdateProcess = updateProcess => {
+  onCreateProcessingActivity = createProcessingActivity => {
     const { form } = this.props;
+   
     form.validateFields(async (err, values) => {
       if (!err) {
-        await updateProcess({ variables: {
-          id: this.props.process.id,
+        await createProcessingActivity({ variables: {
           name: values.name,
           description: values.description,
-          legalEntity: values.legalEntity
+          purpose: values.purpose,
         }}).catch( res => {
           notification['warning']({
-            message: "Could not update Process",
+            message: "Could not create Processing activity",
             description: res.message,
             duration: 5
           });
@@ -48,51 +48,55 @@ class UpdateProcess extends React.Component {
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
-    const ProcessData = this.props.process
 
     return (
       <React.Fragment>
         <Mutation 
-          mutation={UPDATE_PROCESS}
-          refetchQueries={["AllProcesses"]}
+          mutation={CREATE_PROCESSING_ACTIVITY}
+          refetchQueries={["AllProcessingActivities"]}
           >
-          {(updateProcess, { loading, error, data }) => {
+          {(createProcessingActivity, { loading, error, data }) => {
             return (
               <Modal
-                onOk={e => this.onUpdateProcess(updateProcess)}
+                onOk={e => this.onCreateProcessingActivity(createProcessingActivity)}
                 onCancel={this.closeModal}
-                title="Update process"
+                title="Create processing activity"
                 confirmLoading={loading}
                 visible={this.state.modalVisible}
               >
-                <Form >
+                <Form layout="horizontal">
                   <Form.Item label="Name">
                     {form.getFieldDecorator('name', {
-                      initialValue: ProcessData.name,
                       rules: [
                         { required: true, message: 'Please enter a name!' }
-                        ],
+                      ],
                     })(<Input />)}
                   </Form.Item>                        
-                  
                   <Form.Item label="Description">
                     {form.getFieldDecorator('description', {
-                      initialValue: ProcessData.description,
                       rules: [
                         { required: true, message: 'Please enter a description!' }
-                        ],
+                      ],
                     })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                  </Form.Item>  
-
+                  </Form.Item>
+                  <Form.Item label="Purpose">
+                    {form.getFieldDecorator('purpose', {
+                      rules: [
+                        { required: true, message: 'Please enter a purpose!' }
+                      ],
+                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                  </Form.Item>
                 </Form>
               </Modal>
             );
           }}
         </Mutation>
-        <a onClick={this.showModal}>Edit</a>
+        <Button onClick={this.showModal} type="primary">
+          New processing activity
+        </Button>
       </React.Fragment>
     );
   }
 }
 
-export default Form.create()(UpdateProcess);
+export default Form.create()(CreateProcessingActivityModal);

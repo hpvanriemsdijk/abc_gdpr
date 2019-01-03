@@ -1,9 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { UPDATE_PROCESS } from '../../queries/ProcessQueries';
+import { UPDATE_PERSON } from '../../queries/PersonQueries';
 import { Modal, Form, Input, notification } from 'antd';
 
-class UpdateProcess extends React.Component {
+class UpdatePerson extends React.Component {
   state = {
     confirmDirty: false,
     modalVisible: false
@@ -23,18 +23,17 @@ class UpdateProcess extends React.Component {
   };
 
   // Modal
-  onUpdateProcess = updateProcess => {
+  onUpdatePerson = updatePerson => {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
-        await updateProcess({ variables: {
-          id: this.props.process.id,
+        await updatePerson({ variables: {
+          id: this.props.organizationalUnit.id,
           name: values.name,
           description: values.description,
-          legalEntity: values.legalEntity
         }}).catch( res => {
           notification['warning']({
-            message: "Could not update Process",
+            message: "Could not update Person",
             description: res.message,
             duration: 5
           });
@@ -47,41 +46,40 @@ class UpdateProcess extends React.Component {
 
   render() {
     const { form } = this.props;
-    const { TextArea } = Input;
-    const ProcessData = this.props.process
+    const PersonData = this.props.person
 
     return (
       <React.Fragment>
         <Mutation 
-          mutation={UPDATE_PROCESS}
-          refetchQueries={["AllProcesses"]}
+          mutation={UPDATE_PERSON}
+          refetchQueries={["AllPersons"]}
           >
-          {(updateProcess, { loading, error, data }) => {
+          {(updatePerson, { loading, error, data }) => {
             return (
               <Modal
-                onOk={e => this.onUpdateProcess(updateProcess)}
+                onOk={e => this.onUpdatePerson(updatePerson)}
                 onCancel={this.closeModal}
-                title="Update process"
+                title="Update Person"
                 confirmLoading={loading}
                 visible={this.state.modalVisible}
               >
                 <Form >
                   <Form.Item label="Name">
                     {form.getFieldDecorator('name', {
-                      initialValue: ProcessData.name,
+                      initialValue: PersonData.name,
                       rules: [
                         { required: true, message: 'Please enter a name!' }
                         ],
                     })(<Input />)}
                   </Form.Item>                        
                   
-                  <Form.Item label="Description">
-                    {form.getFieldDecorator('description', {
-                      initialValue: ProcessData.description,
+                  <Form.Item label="Surname">
+                    {form.getFieldDecorator('surname', {
+                      initialValue: PersonData.surname,
                       rules: [
-                        { required: true, message: 'Please enter a description!' }
+                        { required: true, message: 'Please enter a surname!' }
                         ],
-                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                    })(<Input />)}
                   </Form.Item>  
 
                 </Form>
@@ -95,4 +93,4 @@ class UpdateProcess extends React.Component {
   }
 }
 
-export default Form.create()(UpdateProcess);
+export default Form.create()(UpdatePerson);

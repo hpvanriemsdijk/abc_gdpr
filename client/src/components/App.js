@@ -19,6 +19,12 @@ import listOUs from './organizationalUnits/ListOUs'
 import viewOU from './organizationalUnits/ViewOU'
 import listProcesses from './processes/ListProcesses'
 import viewProcess from './processes/ViewProcess'
+import listPersons from './persons/ListPersons'
+import viewPerson from './persons/ViewPerson'
+import listBusinessRoles from './businessRoles/ListBusinessRoles'
+import viewBusinessRole from './businessRoles/ViewBusinessRole'
+import listProcessingActivities from './processingActivities/ListProcessingActivities'
+import viewProcessingActivity from './processingActivities/ViewProcessingActivity'
 
 const { Footer, Sider } = Layout;
 
@@ -97,6 +103,12 @@ class App extends React.Component {
             <AppRoute path='/units' layout={ this.AuthenticatedLayout } component={listOUs} />
             <AppRoute path='/processes/:processId' layout={ this.AuthenticatedLayout } component={viewProcess} />
             <AppRoute path='/processes' layout={ this.AuthenticatedLayout } component={listProcesses} />
+            <AppRoute path='/persons/:personId' layout={ this.AuthenticatedLayout } component={viewPerson} />
+            <AppRoute path='/persons' layout={ this.AuthenticatedLayout } component={listPersons} />
+            <AppRoute path='/businessRoles/:businessRoleId' layout={ this.AuthenticatedLayout } component={viewBusinessRole} />
+            <AppRoute path='/businessRoles' layout={ this.AuthenticatedLayout } component={listBusinessRoles} />
+            <AppRoute path='/processingActivities/:processingActivityId' layout={ this.AuthenticatedLayout } component={viewProcessingActivity} />
+            <AppRoute path='/processingActivities' layout={ this.AuthenticatedLayout } component={listProcessingActivities} />
             <AppRoute path='/users/:userId' layout={ this.AuthenticatedLayout } component={listUsers} />
             <AppRoute path='/users' layout={ this.AuthenticatedLayout } component={listUsers} />
             <AppRoute exact path='/' layout={ this.AuthenticatedLayout } component={landingPage} />

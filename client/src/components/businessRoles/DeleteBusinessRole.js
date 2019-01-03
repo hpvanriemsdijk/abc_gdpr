@@ -1,9 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { DELETE_OU } from '../../queries/OUQueries';
+import { DELETE_BUSINESS_ROLE } from '../../queries/BusinessRoleQueries';
 import { Modal, notification } from 'antd';
 
-class DeleteOU extends React.Component {
+class DeleteBusinessRole extends React.Component {
   state = {
     modalVisible: false
   }; 
@@ -17,14 +17,14 @@ class DeleteOU extends React.Component {
   };
 
   // Modal
-  onDeleteOU = DeleteOU => {
-    DeleteOU({ variables: {
-      id: this.props.organizationalUnit.id
+  onDeleteBusinessRole = DeleteBusinessRole => {
+    DeleteBusinessRole({ variables: {
+      id: this.props.businessRole.id
     }}).catch( res => {
       if ( res.graphQLErrors ) {
         console.log('Received error: ', res.message);
         notification['warning']({
-          message: "Could not delete organizational unit",
+          message: "Could not delete business role",
           description: res.message,
           duration: 10
         });
@@ -32,8 +32,8 @@ class DeleteOU extends React.Component {
     });
 
     notification['success']({
-      message: "Organizational unit deleted",
-      description: "Organizational unit " + this.props.organizationalUnit.name + " is deleted",
+      message: "Business role deleted",
+      description: "Business role " + this.props.businessRole.name + " is deleted",
       duration: 5
     });
 
@@ -44,20 +44,20 @@ class DeleteOU extends React.Component {
       return (
         <React.Fragment>
           <Mutation 
-            mutation={DELETE_OU}
-            refetchQueries={["AllOrganizationalUnits"]}
+            mutation={DELETE_BUSINESS_ROLE}
+            refetchQueries={["AllBusinessRoles"]}
             >
-            {(DeleteOU, { loading }) => {
+            {(DeleteBusinessRole, { loading }) => {
               return (
                 <Modal
-                  onOk={e => this.onDeleteOU(DeleteOU)}
+                  onOk={e => this.onDeleteBusinessRole(DeleteBusinessRole)}
                   okType = 'danger'
                   onCancel={this.closeModal}
-                  title= { "Are you sure you what to delete " + this.props.organizationalUnit.name}
+                  title= { "Are you sure you what to delete " + this.props.businessRole.name}
                   confirmLoading={loading}
                   visible={this.state.modalVisible}
                 >
-                <div>By deleting this organizational unit, {this.props.organizationalUnit.name} will be removed from and system, this is unrecoverable.</div>               
+                <div>By deleting this role, {this.props.businessRole.name} will be removed from and system, this is unrecoverable.</div>               
                 </Modal>
               );
             }}
@@ -68,4 +68,4 @@ class DeleteOU extends React.Component {
 
     }
   }
-export default DeleteOU;
+export default DeleteBusinessRole;

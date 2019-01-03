@@ -6,7 +6,6 @@ import { ALL_PROCESSES } from '../../queries/ProcessQueries';
 import CreateProcess from './CreateProcess'
 import UpdateProcess from './UpdateProcess'
 import DeleteProcess from './DeleteProcess'
-import './ListProcesses.css';
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
 
 class ProcessTable extends React.Component {
@@ -42,9 +41,9 @@ class ProcessTable extends React.Component {
   rowActions  = (record) => {
     return(
     <span>
-      <UpdateProcess organizationalUnit={record} />
+      <UpdateProcess process={record} />
       <Divider type="vertical" />
-      <DeleteProcess organizationalUnit={record} />
+      <DeleteProcess process={record} />
     </span>
     )
   }

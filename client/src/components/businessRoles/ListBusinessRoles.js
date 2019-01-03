@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Tag } from 'antd';
-import { ALL_OUS } from '../../queries/OUQueries';
-import CreateOU from './CreateOU'
-import UpdateOU from './UpdateOU'
-import DeleteOU from './DeleteOU'
+import { Table, Divider, Card } from 'antd';
+import { ALL_BUSINESS_ROLES } from '../../queries/BusinessRoleQueries';
+import CreateBusinessRole from './CreateBusinessRole'
+import UpdateBusinessRole from './UpdateBusinessRole'
+import DeleteBusinessRole from './DeleteBusinessRole'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
 
-class OUTable extends React.Component {
+class BusinessRoleTable extends React.Component {
   constructor(props) {
     super(props);
 
@@ -41,9 +41,9 @@ class OUTable extends React.Component {
   rowActions  = (record) => {
     return(
     <span>
-      <UpdateOU organizationalUnit={record} />
+      <UpdateBusinessRole businessRole={record} />
       <Divider type="vertical" />
-      <DeleteOU organizationalUnit={record} />
+      <DeleteBusinessRole businessRole={record} />
     </span>
     )
   }
@@ -59,36 +59,13 @@ class OUTable extends React.Component {
       sorter: (a, b) => { return a.name.localeCompare(b.name)},
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
       ...clientSideFilter('name', this.handleSearch, this.handleReset),
-      render: (text, record) => <Link to={`/units/${record.id}`}>{text}</Link>,
+      render: (text, record) => <Link to={`/BusinessRoles/${record.id}`}>{text}</Link>,
     },{
       title: 'Description',
       key: 'description',
       dataIndex: 'description',
       ...clientSideFilter('description', this.handleSearch, this.handleReset),
       ...filterHighlighter( this.state.searchText )
-    },{
-      title: 'Legal Entity',
-      key: 'legalEntity',
-      dataIndex: 'legalEntity',
-      sorter: (a, b) => a.legalEntity - b.legalEntity,
-      sortOrder: sortedInfo.columnKey === 'legalEntity' && sortedInfo.order,
-      render: (text) => {
-        if (text) {
-          return (
-            <Tag color="blue">yes</Tag>
-            );
-        }else{
-          return (
-            <Tag color="blue">No</Tag>
-            );
-        }
-      }
-    },{
-      title: 'Processes',
-      key: 'processes',
-      dataIndex: '_processesMeta.count',
-      sorter: (a, b) => a.processes - b.processes,
-      sortOrder: sortedInfo.columnKey === 'processes' && sortedInfo.order,
     },{
       title: 'Action',
       dataIndex: 'action',
@@ -102,14 +79,14 @@ class OUTable extends React.Component {
     
     return (
         <Query
-          query = { ALL_OUS }
+          query = { ALL_BUSINESS_ROLES}
           >
           {({ loading, data }) => {
-            const dataSource = data.allOrganizationalUnits || [];
+            const dataSource = data.allBusinessRoles || [];
 
             return(
               <React.Fragment>  
-                <Card title="Organizational units" extra={<CreateOU />} style={{ background: '#fff' }}>
+                <Card title="Business roles" extra={<CreateBusinessRole />} style={{ background: '#fff' }}>
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
@@ -125,4 +102,4 @@ class OUTable extends React.Component {
   }
 }
 
-export default OUTable
+export default BusinessRoleTable

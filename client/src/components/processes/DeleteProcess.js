@@ -19,12 +19,12 @@ class DeleteProcess extends React.Component {
   // Modal
   onDeleteProcess = DeleteProcess => {
     DeleteProcess({ variables: {
-      id: this.props.organizationalUnit.id
+      id: this.props.process.id
     }}).catch( res => {
       if ( res.graphQLErrors ) {
         console.log('Received error: ', res.message);
         notification['warning']({
-          message: "Could not delete organizational unit",
+          message: "Could not delete process",
           description: res.message,
           duration: 10
         });
@@ -32,8 +32,8 @@ class DeleteProcess extends React.Component {
     });
 
     notification['success']({
-      message: "Organizational unit deleted",
-      description: "Organizational unit " + this.props.organizationalUnit.name + " is deleted",
+      message: "Process unit deleted",
+      description: "Process " + this.props.process.name + " is deleted",
       duration: 5
     });
 
@@ -53,11 +53,11 @@ class DeleteProcess extends React.Component {
                   onOk={e => this.onDeleteProcess(DeleteProcess)}
                   okType = 'danger'
                   onCancel={this.closeModal}
-                  title= { "Are you sure you what to delete " + this.props.organizationalUnit.name}
+                  title= { "Are you sure you what to delete " + this.props.process.name}
                   confirmLoading={loading}
                   visible={this.state.modalVisible}
                 >
-                <div>By deleting this account, {this.props.organizationalUnit.name} will be removed from and system, this is unrecoverable.</div>               
+                <div>By deleting this process, {this.props.process.name} will be removed from and system, this is unrecoverable.</div>               
                 </Modal>
               );
             }}

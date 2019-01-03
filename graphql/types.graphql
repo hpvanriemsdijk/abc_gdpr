@@ -31,7 +31,7 @@ type User @model {
 
 type Person @model {
   id: ID! @isUnique
-  name: String
+  name: String!
   surname: String
   
   # Relations
@@ -41,7 +41,7 @@ type Person @model {
 
 type BusinessRole @model {
   id: ID! @isUnique
-  name: String
+  name: String!
   description: String
   raciPrivacy: RACI
   raciSecurity: RACI
@@ -56,7 +56,7 @@ type BusinessRole @model {
 
 type OrganizationalUnit @model {
   id: ID! @isUnique
-  name: String
+  name: String!
   description: String
   legalEntity: Boolean
   
@@ -67,7 +67,7 @@ type OrganizationalUnit @model {
 
 type Process @model {
   id: ID! @isUnique
-  name: String
+  name: String!
   description: String
   
   # Relations
@@ -79,7 +79,7 @@ type Process @model {
 
 type ProcessingActivity @model {
   id: ID! @isUnique
-  name: String
+  name: String!
   description: String
   purpose: String
   #controller_id
@@ -98,7 +98,8 @@ type ProcessingActivity @model {
 
 type Application @model {
   id: ID! @isUnique
-  name: String
+  name: String!
+  alias: [String]
   description: String
   
   # Relations
@@ -108,7 +109,7 @@ type Application @model {
 
 type Data @model {
   id: ID! @isUnique
-  name: String
+  name: String!
   description: String
   pii: Boolean
   spii: Boolean

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { DELETE_OU } from '../../queries/OUQueries';
+import { DELETE_PERSON } from '../../queries/PersonQueries';
 import { Modal, notification } from 'antd';
 
-class DeleteOU extends React.Component {
+class DeletePerson extends React.Component {
   state = {
     modalVisible: false
   }; 
@@ -17,14 +17,14 @@ class DeleteOU extends React.Component {
   };
 
   // Modal
-  onDeleteOU = DeleteOU => {
-    DeleteOU({ variables: {
-      id: this.props.organizationalUnit.id
+  onDeletePerson = DeletePerson => {
+    DeletePerson({ variables: {
+      id: this.props.person.id
     }}).catch( res => {
       if ( res.graphQLErrors ) {
         console.log('Received error: ', res.message);
         notification['warning']({
-          message: "Could not delete organizational unit",
+          message: "Could not delete person",
           description: res.message,
           duration: 10
         });
@@ -32,8 +32,8 @@ class DeleteOU extends React.Component {
     });
 
     notification['success']({
-      message: "Organizational unit deleted",
-      description: "Organizational unit " + this.props.organizationalUnit.name + " is deleted",
+      message: "Person deleted",
+      description: "Person " + this.props.person.name + " is deleted",
       duration: 5
     });
 
@@ -44,20 +44,20 @@ class DeleteOU extends React.Component {
       return (
         <React.Fragment>
           <Mutation 
-            mutation={DELETE_OU}
-            refetchQueries={["AllOrganizationalUnits"]}
+            mutation={DELETE_PERSON}
+            refetchQueries={["AllPersons"]}
             >
-            {(DeleteOU, { loading }) => {
+            {(DeletePerson, { loading }) => {
               return (
                 <Modal
-                  onOk={e => this.onDeleteOU(DeleteOU)}
+                  onOk={e => this.onDeletePerson(DeletePerson)}
                   okType = 'danger'
                   onCancel={this.closeModal}
-                  title= { "Are you sure you what to delete " + this.props.organizationalUnit.name}
+                  title= { "Are you sure you what to delete " + this.props.person.surname + " " + this.props.person.name}
                   confirmLoading={loading}
                   visible={this.state.modalVisible}
                 >
-                <div>By deleting this organizational unit, {this.props.organizationalUnit.name} will be removed from and system, this is unrecoverable.</div>               
+                <div>By deleting this person, {this.props.person.surname} {this.props.person.name} will be removed from and system, this is unrecoverable.</div>               
                 </Modal>
               );
             }}
@@ -68,4 +68,4 @@ class DeleteOU extends React.Component {
 
     }
   }
-export default DeleteOU;
+export default DeletePerson;

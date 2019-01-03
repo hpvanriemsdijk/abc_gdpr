@@ -89,7 +89,7 @@ class UpdateUser extends React.Component {
             );
           }}
         </Mutation>
-        <a onClick={this.showModal}>edit</a>
+        <a onClick={this.showModal}>Edit</a>
       </React.Fragment>
     );
   }
