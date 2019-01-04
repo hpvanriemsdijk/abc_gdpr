@@ -29,6 +29,8 @@ class LeftMenu extends React.Component {
           <Menu.Item key="/persons">Persons</Menu.Item>
           <Menu.Item key="/businessRoles">Business roles</Menu.Item>
           <Menu.Item key="/processingActivities">Processing Activities</Menu.Item>
+          <Menu.Item key="/applications">Applications</Menu.Item>
+          <Menu.Item key="/dataTypes">Data types</Menu.Item>
         </SubMenu>
         <SubMenu key="Conf" title={<span><Icon type="notification" />Configuration</span>}>
           <Menu.Item key="/users">User</Menu.Item>

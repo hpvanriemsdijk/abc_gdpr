@@ -99,15 +99,15 @@ type ProcessingActivity @model {
 type Application @model {
   id: ID! @isUnique
   name: String!
-  alias: [String]
+  alias: [String!]
   description: String
   
   # Relations
   processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivitiesApplications")
-  data: [Data!]! @relation(name: "ApplicatonData")
+  dataType: [DataType!]! @relation(name: "ApplicatonData")
 }
 
-type Data @model {
+type DataType @model {
   id: ID! @isUnique
   name: String!
   description: String

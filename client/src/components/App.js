@@ -25,6 +25,10 @@ import listBusinessRoles from './businessRoles/ListBusinessRoles'
 import viewBusinessRole from './businessRoles/ViewBusinessRole'
 import listProcessingActivities from './processingActivities/ListProcessingActivities'
 import viewProcessingActivity from './processingActivities/ViewProcessingActivity'
+import listApplications from './applications/ListApplications'
+import viewApplication from './applications/ViewApplication'
+import listDataTypes from './dataTypes/ListDataTypes'
+import viewDataType from './dataTypes/ViewDataType'
 
 const { Footer, Sider } = Layout;
 
@@ -109,6 +113,10 @@ class App extends React.Component {
             <AppRoute path='/businessRoles' layout={ this.AuthenticatedLayout } component={listBusinessRoles} />
             <AppRoute path='/processingActivities/:processingActivityId' layout={ this.AuthenticatedLayout } component={viewProcessingActivity} />
             <AppRoute path='/processingActivities' layout={ this.AuthenticatedLayout } component={listProcessingActivities} />
+            <AppRoute path='/applications/:applicationId' layout={ this.AuthenticatedLayout } component={viewApplication} />
+            <AppRoute path='/applications' layout={ this.AuthenticatedLayout } component={listApplications} />
+            <AppRoute path='/dataTypes/:dataTypeId' layout={ this.AuthenticatedLayout } component={viewDataType} />
+            <AppRoute path='/dataTypes' layout={ this.AuthenticatedLayout } component={listDataTypes} />
             <AppRoute path='/users/:userId' layout={ this.AuthenticatedLayout } component={listUsers} />
             <AppRoute path='/users' layout={ this.AuthenticatedLayout } component={listUsers} />
             <AppRoute exact path='/' layout={ this.AuthenticatedLayout } component={landingPage} />

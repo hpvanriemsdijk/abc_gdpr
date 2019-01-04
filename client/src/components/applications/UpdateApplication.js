@@ -1,9 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { UPDATE_PROCESS } from '../../queries/ProcessQueries';
-import { Modal, Form, Input, notification } from 'antd';
+import { UPDATE_APPLICATION } from '../../queries/ApplicationQueries';
+import { Modal, Form, Input, notification, Select } from 'antd';
 
-class UpdateProcess extends React.Component {
+class UpdateApplication extends React.Component {
   state = {
     confirmDirty: false,
     modalVisible: false
@@ -23,17 +23,18 @@ class UpdateProcess extends React.Component {
   };
 
   // Modal
-  onUpdateProcess = updateProcess => {
+  onUpdateApplication = updateApplication => {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
-        await updateProcess({ variables: {
-          id: this.props.process.id,
+        await updateApplication({ variables: {
+          id: this.props.application.id,
           name: values.name,
           description: values.description,
+          alias: values.alias
         }}).catch( res => {
           notification['warning']({
-            message: "Could not update Process",
+            message: "Could not update Application",
             description: res.message,
             duration: 5
           });
@@ -47,36 +48,49 @@ class UpdateProcess extends React.Component {
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
-    const ProcessData = this.props.process
+    const ApplicationData = this.props.application
 
     return (
       <React.Fragment>
         <Mutation 
-          mutation={UPDATE_PROCESS}
-          refetchQueries={["AllProcesses"]}
+          mutation={UPDATE_APPLICATION}
+          refetchQueries={["AllApplications"]}
           >
-          {(updateProcess, { loading, error, data }) => {
+          {(updateApplication, { loading, error, data }) => {
             return (
               <Modal
-                onOk={e => this.onUpdateProcess(updateProcess)}
+                onOk={e => this.onUpdateApplication(updateApplication)}
                 onCancel={this.closeModal}
-                title="Update process"
+                title="Update Application"
                 confirmLoading={loading}
                 visible={this.state.modalVisible}
               >
                 <Form >
                   <Form.Item label="Name">
                     {form.getFieldDecorator('name', {
-                      initialValue: ProcessData.name,
+                      initialValue: ApplicationData.name,
                       rules: [
                         { required: true, message: 'Please enter a name!' }
                         ],
                     })(<Input />)}
-                  </Form.Item>                        
+                  </Form.Item>       
+
+                  <Form.Item 
+                    label="Alias"
+                    extra="Seperate alisasses with the , character.">
+                    {form.getFieldDecorator('alias',{
+                      initialValue: ApplicationData.alias})(
+                      <Select
+                        mode="tags"
+                        style={{ width: '100%' }}
+                        tokenSeparators={[',']}
+                      ></Select>
+                      )}
+                  </Form.Item>                  
                   
                   <Form.Item label="Description">
                     {form.getFieldDecorator('description', {
-                      initialValue: ProcessData.description,
+                      initialValue: ApplicationData.description,
                       rules: [
                         { required: true, message: 'Please enter a description!' }
                         ],
@@ -94,4 +108,4 @@ class UpdateProcess extends React.Component {
   }
 }
 
-export default Form.create()(UpdateProcess);
+export default Form.create()(UpdateApplication);
