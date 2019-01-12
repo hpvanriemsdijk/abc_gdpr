@@ -1,7 +1,8 @@
 import React from 'react'
-import { Mutation, Query } from 'react-apollo'
-import { CREATE_PROCESS, PROCESSES_OPTIONS_TREE } from '../../queries/ProcessQueries';
-import { Modal, Form, Input, Button, notification, TreeSelect } from 'antd';
+import { Mutation } from 'react-apollo'
+import { CREATE_PROCESS } from '../../queries/ProcessQueries';
+import { ProcessesParentTree } from '../generic/treeHelpers'
+import { Modal, Form, Input, Button, notification } from 'antd';
 
 class CreateProcessModal extends React.Component {
   state = {
@@ -80,25 +81,11 @@ class CreateProcessModal extends React.Component {
                           })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                         </Form.Item>
 
-                        <Query query = { PROCESSES_OPTIONS_TREE } >
-                          {({ loading, data }) => {      
-                            const processTree = data.allProcesses;
-                            console.log(data);
-                            return (
-                              <Form.Item label="Parent proces">
-                                {form.getFieldDecorator('parent', {})(
-                                  <TreeSelect
-                                    placeholder="No parent"
-                                    allowClear
-                                    treeDefaultExpandAll
-                                    treeData={processTree}
-                                    >
-                                  </TreeSelect>
-                                )}
-                              </Form.Item>
-                            )
-                          }}
-                        </Query>
+                        <Form.Item 
+                          label="Parent proces"
+                          extra="Can't select yourself, childeren in own line or result in 3+ levels.">
+                          { <ProcessesParentTree form={form} /> }
+                        </Form.Item>
                       </Form>
                     </Modal>
                   );

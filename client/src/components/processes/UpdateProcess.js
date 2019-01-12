@@ -1,8 +1,8 @@
 import React from 'react'
-import { Mutation, Query } from 'react-apollo'
-import { UPDATE_PROCESS, PROCESSES_OPTIONS_TREE } from '../../queries/ProcessQueries';
-import { prepOptionsTree } from '../generic/treeHelpers'
-import { Modal, Form, Input, notification, TreeSelect } from 'antd';
+import { Mutation, } from 'react-apollo'
+import { UPDATE_PROCESS  } from '../../queries/ProcessQueries';
+import { ProcessesParentTree } from '../generic/treeHelpers'
+import { Modal, Form, Input, notification } from 'antd';
 
 class UpdateProcess extends React.Component {
   state = {
@@ -61,56 +61,37 @@ class UpdateProcess extends React.Component {
           >
           {(updateProcess, { updating, error, data }) => {
             return (
-              <Query query = { PROCESSES_OPTIONS_TREE } >
-                {({ loading, data }) => {      
-                  const rawOptionsTree = data.allProcesses;
-                  const optionsTree = prepOptionsTree(rawOptionsTree, ProcessData.id);
-
-                  return (
-                    <Modal
-                      onOk={e => this.onUpdateProcess(updateProcess)}
-                      onCancel={this.closeModal}
-                      title="Update process"
-                      confirmLoading={loading}
-                      visible={this.state.modalVisible}
-                    >
-                      <Form >
-                        <Form.Item label="Name">
-                          {form.getFieldDecorator('name', {
-                            initialValue: ProcessData.name,
-                            rules: [
-                              { required: true, message: 'Please enter a name!' }
-                              ],
-                          })(<Input />)}
-                        </Form.Item>                        
-                        
-                        <Form.Item label="Description">
-                          {form.getFieldDecorator('description', {
-                            initialValue: ProcessData.description,
-                            rules: [
-                              { required: true, message: 'Please enter a description!' }
-                              ],
-                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                        </Form.Item>  
-                        <Form.Item 
-                          label="Parent proces"
-                          extra="Can't select yourself, childeren in own line or result in 3+ levels.">
-                          {form.getFieldDecorator('parent', {
-                            initialValue: this.getParentId(ProcessData),
-                          })(
-                            <TreeSelect
-                              placeholder="No parent"
-                              allowClear
-                              treeData={optionsTree}
-                              >
-                            </TreeSelect>
-                            )}
-                        </Form.Item>
-                      </Form>
-                    </Modal>
-                  )
-                }}
-              </Query>
+              <Modal
+                onOk={e => this.onUpdateProcess(updateProcess)}
+                onCancel={this.closeModal}
+                title="Update process"
+                confirmLoading={updating}
+                visible={this.state.modalVisible}
+              >
+                <Form >
+                  <Form.Item label="Name">
+                    {form.getFieldDecorator('name', {
+                      initialValue: ProcessData.name,
+                      rules: [
+                        { required: true, message: 'Please enter a name!' }
+                      ],
+                    })(<Input />)}
+                  </Form.Item>    
+                  <Form.Item label="Description">
+                    {form.getFieldDecorator('description', {
+                      initialValue: ProcessData.description,
+                      rules: [
+                        { required: true, message: 'Please enter a description!' }
+                      ],
+                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                  </Form.Item>  
+                  <Form.Item 
+                    label="Parent proces"
+                    extra="Can't select yourself, childeren in own line or result in 3+ levels.">
+                    { <ProcessesParentTree form={form} parentId={this.getParentId(ProcessData)} ownKey={ProcessData.id}/> }
+                  </Form.Item>
+                </Form>
+              </Modal>
             );
           }}
         </Mutation>     
