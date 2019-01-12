@@ -7,6 +7,7 @@ import CreateProcess from './CreateProcess'
 import UpdateProcess from './UpdateProcess'
 import DeleteProcess from './DeleteProcess'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
+import { ApolloError } from '../generic/apolloError'
 
 class ProcessTable extends React.Component {
   constructor(props) {
@@ -81,8 +82,9 @@ class ProcessTable extends React.Component {
         <Query
           query = { ALL_PROCESSES_TREE }
           >
-          {({ loading, data }) => {
-            const dataSource = data.allProcesses || [];
+          {({ loading, error, data }) => {
+            if(error) return <ApolloError error={error} />
+            const dataSource = data.allProcesses || [];          
 
             return(
               <React.Fragment>  
