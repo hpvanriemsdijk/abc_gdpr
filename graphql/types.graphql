@@ -69,13 +69,15 @@ type Process @model {
   id: ID! @isUnique
   name: String!
   description: String
+  createdAt: DateTime! 
+  updatedAt: DateTime! 
   
   # Relations
-  organizationalUnit: OrganizationalUnit @relation(name: "OUProces")
   children: [Process!]! @relation(name: "ProcessToProcess")
   parent: Process @relation(name: "ProcessToProcess")
+  organizationalUnit: OrganizationalUnit @relation(name: "OUProces")
   processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivities")
-  businessRoles: [BusinessRole!]! @relation(name: "BusinessRoleProcess")
+  processOwner: [BusinessRole!]! @relation(name: "BusinessRoleProcess")
 }
 
 type ProcessingActivity @model {
