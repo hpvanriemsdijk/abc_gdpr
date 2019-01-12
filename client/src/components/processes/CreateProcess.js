@@ -1,7 +1,7 @@
 import React from 'react'
-import { Mutation } from 'react-apollo'
-import { CREATE_PROCESS } from '../../queries/ProcessQueries';
-import { Modal, Form, Input, Button, notification } from 'antd';
+import { Mutation, Query } from 'react-apollo'
+import { CREATE_PROCESS, PROCESSES_OPTIONS_TREE } from '../../queries/ProcessQueries';
+import { Modal, Form, Input, Button, notification, TreeSelect } from 'antd';
 
 class CreateProcessModal extends React.Component {
   state = {
@@ -31,6 +31,7 @@ class CreateProcessModal extends React.Component {
         await createProcess({ variables: {
           name: values.name,
           description: values.description,
+          parent: values.parent
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Process",
@@ -50,39 +51,59 @@ class CreateProcessModal extends React.Component {
 
     return (
       <React.Fragment>
-        <Mutation 
-          mutation={CREATE_PROCESS}
-          refetchQueries={["AllProcesses"]}
-          >
-          {(createProcess, { loading, error, data }) => {
-            return (
-              <Modal
-                onOk={e => this.onCreateProcess(createProcess)}
-                onCancel={this.closeModal}
-                title="Create process"
-                confirmLoading={loading}
-                visible={this.state.modalVisible}
-              >
-                <Form layout="horizontal">
-                  <Form.Item label="Name">
-                    {form.getFieldDecorator('name', {
-                      rules: [
-                        { required: true, message: 'Please enter a name!' }
-                      ],
-                    })(<Input />)}
-                  </Form.Item>                        
-                  <Form.Item label="Description">
-                    {form.getFieldDecorator('description', {
-                      rules: [
-                        { required: true, message: 'Please enter a description!' }
-                      ],
-                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                  </Form.Item>
-                </Form>
-              </Modal>
-            );
-          }}
-        </Mutation>
+              <Mutation 
+                mutation={CREATE_PROCESS}
+                refetchQueries={["AllProcesses"]}
+                >
+                {(createProcess, { loading, error, data }) => {
+                  return (
+                    <Modal
+                      onOk={e => this.onCreateProcess(createProcess)}
+                      onCancel={this.closeModal}
+                      title="Create process"
+                      confirmLoading={loading}
+                      visible={this.state.modalVisible}
+                    >
+                      <Form layout="horizontal">
+                        <Form.Item label="Name">
+                          {form.getFieldDecorator('name', {
+                            rules: [
+                              { required: true, message: 'Please enter a name!' }
+                            ],
+                          })(<Input />)}
+                        </Form.Item>                        
+                        <Form.Item label="Description">
+                          {form.getFieldDecorator('description', {
+                            rules: [
+                              { required: true, message: 'Please enter a description!' }
+                            ],
+                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                        </Form.Item>
+
+                        <Query query = { PROCESSES_OPTIONS_TREE } >
+                          {({ loading, data }) => {      
+                            const processTree = data.allProcesses;
+                            console.log(data);
+                            return (
+                              <Form.Item label="Parent proces">
+                                {form.getFieldDecorator('parent', {})(
+                                  <TreeSelect
+                                    placeholder="No parent"
+                                    allowClear
+                                    treeDefaultExpandAll
+                                    treeData={processTree}
+                                    >
+                                  </TreeSelect>
+                                )}
+                              </Form.Item>
+                            )
+                          }}
+                        </Query>
+                      </Form>
+                    </Modal>
+                  );
+                }}
+              </Mutation>
         <Button onClick={this.showModal} type="primary">
           New Process
         </Button>

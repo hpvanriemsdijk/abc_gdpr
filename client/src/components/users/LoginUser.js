@@ -68,7 +68,7 @@ class LoginUser extends React.Component {
             })(
               <Checkbox>Remember me</Checkbox>
             )}
-            <a className="login-form-forgot" href="">Forgot password</a>
+            <Button className="login-form-forgot" href="">Forgot password</Button>
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button>

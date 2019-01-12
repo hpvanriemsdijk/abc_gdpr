@@ -22,3 +22,19 @@
    height: 100%;
    z-index: 9999;
  }
+
+button.link {
+  background-color: transparent;
+  color: #40a9ff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+button.link:hover,
+button.link:focus {
+  text-decoration: none;
+}

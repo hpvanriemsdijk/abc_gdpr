@@ -37,6 +37,12 @@ functions:
     handler:
       code: src/email-password/loggedInUser.ts
 
+#  processTree:
+#    type: operationBefore
+#    operation: Process.create
+#    handler:
+#      code: src/process-tree/setChild.js
+
 # Model/Relation permissions are used to limit the API access
 # To take the burden of thinking about those while development, we
 # preconfigured the wildcard ("*") permission that allows everything

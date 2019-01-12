@@ -1,18 +1,13 @@
 import React from 'react'
-import { Mutation } from 'react-apollo'
-import { UPDATE_PROCESS } from '../../queries/ProcessQueries';
-import { Modal, Form, Input, notification } from 'antd';
+import { Mutation, Query } from 'react-apollo'
+import { UPDATE_PROCESS, PROCESSES_OPTIONS_TREE } from '../../queries/ProcessQueries';
+import { prepOptionsTree } from '../generic/treeHelpers'
+import { Modal, Form, Input, notification, TreeSelect } from 'antd';
 
 class UpdateProcess extends React.Component {
   state = {
-    confirmDirty: false,
     modalVisible: false
   };
-
-  handleConfirmBlur = (e) => {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
 
   showModal = () => {
     this.setState({ modalVisible: true });
@@ -31,6 +26,7 @@ class UpdateProcess extends React.Component {
           id: this.props.process.id,
           name: values.name,
           description: values.description,
+          parent: values.parent || null
         }}).catch( res => {
           notification['warning']({
             message: "Could not update Process",
@@ -44,6 +40,14 @@ class UpdateProcess extends React.Component {
     });
   };
 
+  getParentId = (record) => {
+    if(record.parent){
+      return record.parent.id || []
+    }else{
+      return []
+    }
+  }
+
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
@@ -55,40 +59,62 @@ class UpdateProcess extends React.Component {
           mutation={UPDATE_PROCESS}
           refetchQueries={["AllProcesses"]}
           >
-          {(updateProcess, { loading, error, data }) => {
+          {(updateProcess, { updating, error, data }) => {
             return (
-              <Modal
-                onOk={e => this.onUpdateProcess(updateProcess)}
-                onCancel={this.closeModal}
-                title="Update process"
-                confirmLoading={loading}
-                visible={this.state.modalVisible}
-              >
-                <Form >
-                  <Form.Item label="Name">
-                    {form.getFieldDecorator('name', {
-                      initialValue: ProcessData.name,
-                      rules: [
-                        { required: true, message: 'Please enter a name!' }
-                        ],
-                    })(<Input />)}
-                  </Form.Item>                        
-                  
-                  <Form.Item label="Description">
-                    {form.getFieldDecorator('description', {
-                      initialValue: ProcessData.description,
-                      rules: [
-                        { required: true, message: 'Please enter a description!' }
-                        ],
-                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                  </Form.Item>  
+              <Query query = { PROCESSES_OPTIONS_TREE } >
+                {({ loading, data }) => {      
+                  const rawOptionsTree = data.allProcesses;
+                  const optionsTree = prepOptionsTree(rawOptionsTree, ProcessData.id);
 
-                </Form>
-              </Modal>
+                  return (
+                    <Modal
+                      onOk={e => this.onUpdateProcess(updateProcess)}
+                      onCancel={this.closeModal}
+                      title="Update process"
+                      confirmLoading={loading}
+                      visible={this.state.modalVisible}
+                    >
+                      <Form >
+                        <Form.Item label="Name">
+                          {form.getFieldDecorator('name', {
+                            initialValue: ProcessData.name,
+                            rules: [
+                              { required: true, message: 'Please enter a name!' }
+                              ],
+                          })(<Input />)}
+                        </Form.Item>                        
+                        
+                        <Form.Item label="Description">
+                          {form.getFieldDecorator('description', {
+                            initialValue: ProcessData.description,
+                            rules: [
+                              { required: true, message: 'Please enter a description!' }
+                              ],
+                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                        </Form.Item>  
+                        <Form.Item 
+                          label="Parent proces"
+                          extra="Can't select yourself, childeren in own line or result in 3+ levels.">
+                          {form.getFieldDecorator('parent', {
+                            initialValue: this.getParentId(ProcessData),
+                          })(
+                            <TreeSelect
+                              placeholder="No parent"
+                              allowClear
+                              treeData={optionsTree}
+                              >
+                            </TreeSelect>
+                            )}
+                        </Form.Item>
+                      </Form>
+                    </Modal>
+                  )
+                }}
+              </Query>
             );
           }}
-        </Mutation>
-        <a onClick={this.showModal}>Edit</a>
+        </Mutation>     
+        <button className="link" onClick={this.showModal}>Edit</button>
       </React.Fragment>
     );
   }

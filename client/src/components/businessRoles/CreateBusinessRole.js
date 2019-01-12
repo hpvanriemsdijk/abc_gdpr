@@ -58,6 +58,7 @@ class CreateBusinessRoleModal extends React.Component {
           mutation={CREATE_BUSINESS_ROLE}
           refetchQueries={["AllBusinessRoles"]}
           >
+          
           {(createBusinessRole, { loading, error, data }) => {
             return (
               <Modal
@@ -66,7 +67,8 @@ class CreateBusinessRoleModal extends React.Component {
                 title="Create Business role"
                 confirmLoading={loading}
                 visible={this.state.modalVisible}
-              >
+                >
+
                 <Form layout="horizontal">
                   <Form.Item label="Name">
                     {form.getFieldDecorator('name', {

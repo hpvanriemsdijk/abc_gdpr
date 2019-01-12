@@ -9,7 +9,7 @@ const clientSideFilter = (dataIndex, handleSearch, handleReset) => ({
       <div className="search-filter-dropdown">
         <div style={{ padding:8 }}>
           <Input
-            ref={node => { this.searchInput = node; }}
+            //ref={node => { this.searchInput = node; }}
             placeholder={`Search ${dataIndex}`}
             value={selectedKeys[0]}
             onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
@@ -41,7 +41,7 @@ const clientSideFilter = (dataIndex, handleSearch, handleReset) => ({
     onFilter: (value, record) => record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
     onFilterDropdownVisibleChange: (visible) => {
       if (visible) {
-        setTimeout(() => this.searchInput.select());
+        //setTimeout(() => this.searchInput.select());
       }
     }
   })

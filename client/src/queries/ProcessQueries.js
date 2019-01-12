@@ -12,9 +12,58 @@ export const ALL_PROCESSES = gql`
 	}
 `;
 
+export const ALL_PROCESSES_TREE = gql`
+	fragment processTreeAllInfo on Process {
+		id
+		name
+		description
+		parent { id }
+	}
+	
+	query AllProcesses {
+		allProcesses(
+			filter:{parent: null}
+		){
+		...processTreeAllInfo
+			children {
+			...processTreeAllInfo
+				children {
+					...processTreeAllInfo
+				}
+			}
+		}
+	}
+`;
+
+//Max 3 levels
+export const PROCESSES_OPTIONS_TREE = gql`
+	fragment processTreeInfo on Process {
+		value: id
+		title: name
+	}
+	
+	query ProcessTree {
+		allProcesses(
+			filter:{parent: null}
+		){
+		...processTreeInfo
+			children {
+			...processTreeInfo
+				children {
+					...processTreeInfo
+				}
+			}
+		}
+	}
+`;
+
 export const CREATE_PROCESS = gql`
-	mutation CreateProcess ($name: String!, $description: String) {
-		createProcess(name: $name, description: $description) {
+	mutation CreateProcess ($name: String!, $description: String, $parent: ID ) {
+		createProcess(	
+			name: $name, 
+			description: $description, 
+			parentId: $parent
+		){
 			id
 		}
 	}
@@ -26,13 +75,19 @@ export const GET_PROCESS = gql`
 			id
 			name
 			description
+			parent { id }
 		}
 	}
 `;
 
 export const UPDATE_PROCESS = gql`
-	mutation UpdateProcess ($id: ID!, $name: String!, $description: String) {
-		updateProcess(id: $id, name: $name, description: $description) {
+	mutation UpdateProcess ($id: ID!, $name: String!, $description: String, $parent: ID) {
+		updateProcess(
+			id: $id, 
+			name: $name, 
+			description: $description,
+			parentId: $parent
+		) {
 			id
 		}
 	}

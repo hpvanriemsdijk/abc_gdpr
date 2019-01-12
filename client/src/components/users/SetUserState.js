@@ -92,7 +92,7 @@ class SetUserState extends React.Component {
               );
             }}
           </Mutation>
-          <a onClick={this.showModal}>Deactivate</a>  
+          <button className="link" onClick={this.showModal}>Deactivate</button>  
         </React.Fragment>
       );
     }else{
@@ -107,7 +107,7 @@ class SetUserState extends React.Component {
             >
             {(UpdateUser, { loading }) => {
               return (
-                <a onClick={e => this.onActivateUser(UpdateUser)}>Activate</a> 
+                <button className="link" onClick={e => this.onActivateUser(UpdateUser)}>Activate</button> 
               );
             }}
           </Mutation>

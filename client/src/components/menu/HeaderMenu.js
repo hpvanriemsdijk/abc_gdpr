@@ -30,7 +30,7 @@ class HeaderMenu extends React.Component {
                   >
                   <SubMenu title={<span><Icon type="user" />{data.loggedInUser.email} </span>} >
                       <Menu.Item> 
-                        <a className='dib bg-red white pa3 pointer dim' onClick={this._logout}>Logout</a> 
+                        <button className='dib bg-red white pa3 pointer dim' onClick={this._logout}>Logout</button> 
                       </Menu.Item>
                       <Menu.Item>
                         <Link to="/users">My profile</Link>

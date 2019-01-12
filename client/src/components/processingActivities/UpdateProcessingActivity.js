@@ -97,7 +97,7 @@ class UpdateProcessingActivity extends React.Component {
             );
           }}
         </Mutation>
-        <a onClick={this.showModal}>Edit</a>
+        <button className="link" onClick={this.showModal}>Edit</button>
       </React.Fragment>
     );
   }

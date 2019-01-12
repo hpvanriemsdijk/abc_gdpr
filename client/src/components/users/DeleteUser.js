@@ -62,7 +62,7 @@ class DeleteUser extends React.Component {
               );
             }}
           </Mutation>
-          <a onClick={this.showModal}>Delete</a>  
+          <button className="link" onClick={this.showModal}>Delete</button>  
         </React.Fragment>
       );
 

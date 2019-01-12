@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { Table, Divider, Card } from 'antd';
-import { ALL_PROCESSES } from '../../queries/ProcessQueries';
+import { ALL_PROCESSES_TREE } from '../../queries/ProcessQueries';
 import CreateProcess from './CreateProcess'
 import UpdateProcess from './UpdateProcess'
 import DeleteProcess from './DeleteProcess'
@@ -79,7 +79,7 @@ class ProcessTable extends React.Component {
     
     return (
         <Query
-          query = { ALL_PROCESSES }
+          query = { ALL_PROCESSES_TREE }
           >
           {({ loading, data }) => {
             const dataSource = data.allProcesses || [];

@@ -72,7 +72,8 @@ type Process @model {
   
   # Relations
   organizationalUnit: OrganizationalUnit @relation(name: "OUProces")
-  subproces: [Process!]! @relation(name: "SubProces")
+  children: [Process!]! @relation(name: "ProcessToProcess")
+  parent: Process @relation(name: "ProcessToProcess")
   processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivities")
   businessRoles: [BusinessRole!]! @relation(name: "BusinessRoleProcess")
 }
