@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mutation, } from 'react-apollo'
 import { UPDATE_PROCESS  } from '../../queries/ProcessQueries';
-import { ProcessesParentTree } from '../generic/treeHelpers'
+import { ProcessesParentTree } from '../processes/ProcessesParentTree'
 import { Modal, Form, Input, notification } from 'antd';
 
 class UpdateProcess extends React.Component {
