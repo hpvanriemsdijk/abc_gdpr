@@ -77,7 +77,7 @@ type Process @model {
   parent: Process @relation(name: "ProcessToProcess")
   organizationalUnit: OrganizationalUnit @relation(name: "OUProces")
   processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivities")
-  processOwner: [BusinessRole!]! @relation(name: "BusinessRoleProcess")
+  processOwner: BusinessRole @relation(name: "BusinessRoleProcess")
 }
 
 type ProcessingActivity @model {

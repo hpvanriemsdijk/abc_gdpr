@@ -2,6 +2,7 @@ import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_PROCESS } from '../../queries/ProcessQueries';
 import { ProcessesParentTree } from '../processes/ProcessesParentTree'
+import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
 import { Modal, Form, Input, Button, notification } from 'antd';
 
 class CreateProcessModal extends React.Component {
@@ -32,7 +33,8 @@ class CreateProcessModal extends React.Component {
         await createProcess({ variables: {
           name: values.name,
           description: values.description,
-          parent: values.parent
+          parent: values.parent,
+          processOwner: values.processOwner
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Process",
@@ -85,6 +87,11 @@ class CreateProcessModal extends React.Component {
                           label="Parent proces"
                           extra="Can't select yourself, childeren in own line or result in 3+ levels.">
                           { <ProcessesParentTree form={form} /> }
+                        </Form.Item>
+                        
+                        <Form.Item 
+                          label="Process owner">
+                          { <BusinessRolessOptionsList form={form} /> }
                         </Form.Item>
                       </Form>
                     </Modal>

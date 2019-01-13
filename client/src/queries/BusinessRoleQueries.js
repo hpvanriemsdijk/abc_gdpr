@@ -26,6 +26,17 @@ export const ALL_BUSINESS_ROLES = gql`
 	}
 `;
 
+export const BUSINESS_ROLES_OPTIONS_LIST = gql`
+	query AllBusinessRoles ($filter: BusinessRoleFilter) {
+		allBusinessRoles(
+			filter:$filter
+		) {
+			value: id
+			title: name
+		}
+	}
+`;
+
 export const CREATE_BUSINESS_ROLE = gql`
 	mutation CreateBusinessRole ($name: String!, $description: String, $raciPrivacy: RACI, $raciSecurity: RACI, $raciFinancial: RACI, $raciExecutive: RACI) {
 		createBusinessRole(name: $name, description: $description, raciPrivacy: $raciPrivacy, raciSecurity: $raciSecurity, raciFinancial: $raciFinancial, raciExecutive: $raciExecutive) {

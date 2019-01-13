@@ -8,6 +8,7 @@ export const ALL_PROCESSES = gql`
 			id
 			name
 			description
+			processOwner { id }
 		}
 	}
 `;
@@ -18,6 +19,7 @@ export const ALL_PROCESSES_TREE = gql`
 		name
 		description
 		parent { id }
+		processOwner { id }
 	}
 	
 	query AllProcesses {
@@ -58,11 +60,12 @@ export const PROCESSES_OPTIONS_TREE = gql`
 `;
 
 export const CREATE_PROCESS = gql`
-	mutation CreateProcess ($name: String!, $description: String, $parent: ID ) {
+	mutation CreateProcess ($name: String!, $description: String, $parent: ID, $processOwner: ID ) {
 		createProcess(	
 			name: $name, 
 			description: $description, 
 			parentId: $parent
+			processOwnerId: $processOwner
 		){
 			id
 		}
@@ -81,12 +84,13 @@ export const GET_PROCESS = gql`
 `;
 
 export const UPDATE_PROCESS = gql`
-	mutation UpdateProcess ($id: ID!, $name: String!, $description: String, $parent: ID) {
+	mutation UpdateProcess ($id: ID!, $name: String!, $description: String, $parent: ID, $processOwner: ID) {
 		updateProcess(
 			id: $id, 
 			name: $name, 
 			description: $description,
 			parentId: $parent
+			processOwnerId: $processOwner
 		) {
 			id
 		}

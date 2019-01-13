@@ -2,6 +2,7 @@ import React from 'react'
 import { Mutation, } from 'react-apollo'
 import { UPDATE_PROCESS  } from '../../queries/ProcessQueries';
 import { ProcessesParentTree } from '../processes/ProcessesParentTree'
+import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
 import { Modal, Form, Input, notification } from 'antd';
 
 class UpdateProcess extends React.Component {
@@ -26,7 +27,8 @@ class UpdateProcess extends React.Component {
           id: this.props.process.id,
           name: values.name,
           description: values.description,
-          parent: values.parent || null
+          parent: values.parent || null,
+          processOwner: values.processOwner || null
         }}).catch( res => {
           notification['warning']({
             message: "Could not update Process",
@@ -42,9 +44,9 @@ class UpdateProcess extends React.Component {
 
   getParentId = (record) => {
     if(record.parent){
-      return record.parent.id || []
+      return record.parent.id || null
     }else{
-      return []
+      return null
     }
   }
 
@@ -60,6 +62,8 @@ class UpdateProcess extends React.Component {
           refetchQueries={["AllProcesses"]}
           >
           {(updateProcess, { updating, error, data }) => {
+            const processOwnerId = ProcessData.processOwner ? ProcessData.processOwner.id : null
+
             return (
               <Modal
                 onOk={e => this.onUpdateProcess(updateProcess)}
@@ -89,6 +93,10 @@ class UpdateProcess extends React.Component {
                     label="Parent proces"
                     extra="Can't select yourself, childeren in own line or result in 3+ levels.">
                     { <ProcessesParentTree form={form} parentId={this.getParentId(ProcessData)} ownKey={ProcessData.id}/> }
+                  </Form.Item>
+                  <Form.Item 
+                    label="Process owner">
+                    { <BusinessRolessOptionsList form={form} id={processOwnerId}/> }
                   </Form.Item>
                 </Form>
               </Modal>
