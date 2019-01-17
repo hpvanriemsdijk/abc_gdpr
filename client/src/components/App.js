@@ -129,7 +129,11 @@ class App extends React.Component {
 
   render () {
     if (this.props.loggedInUserQuery.loading) {
-      return (<div className="loader"><Spin /> Loading</div>)
+      return (
+        <div className='w-100 pa4 flex justify-center'>
+          <div><Spin /> Loading</div>
+        </div>
+      )
     }
 
     if (this.props.loggedInUserQuery.error) {
