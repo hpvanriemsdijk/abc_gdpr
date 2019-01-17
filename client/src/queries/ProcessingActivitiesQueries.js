@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 export const ALL_PROCESSING_ACTIVITIES = gql`
 	query AllProcessingActivities ($filter: ProcessingActivityFilter) {
 		allProcessingActivities(
-			filter:$filter
+			filter: $filter
 		) {
 			id
 			name
@@ -14,8 +14,13 @@ export const ALL_PROCESSING_ACTIVITIES = gql`
 `;
 
 export const CREATE_PROCESSING_ACTIVITY = gql`
-	mutation CreateProcessingActivity ($name: String!, $description: String, $purpose: String) {
-		createProcessingActivity(name: $name, description: $description, purpose: $purpose) {
+	mutation CreateProcessingActivity ($name: String!, $description: String, $purpose: String, $process: ID) {
+		createProcessingActivity(
+			name: $name, 
+			description: $description, 
+			purpose: $purpose, 
+			processId: $process
+		) {
 			id
 		}
 	}
@@ -28,13 +33,21 @@ export const GET_PROCESSING_ACTIVITY = gql`
 			name
 			description
 			purpose
+			process { id }
 		}
 	}
 `;
 
 export const UPDATE_PROCESSING_ACTIVITY = gql`
-	mutation UpdateProcessingActivity ($id: ID!, $name: String!, $description: String, $purpose: String) {
-		updateProcessingActivity(id: $id, name: $name, description: $description, purpose: $purpose) {
+	mutation UpdateProcessingActivity ($id: ID!, $name: String!, $description: String, $purpose: String, $process: ID) {
+		updateProcessingActivity(
+			id: $id, 
+			name: $name, 
+			description: 
+			$description, 
+			purpose: $purpose, 
+			processId: $process
+		) {
 			id
 		}
 	}

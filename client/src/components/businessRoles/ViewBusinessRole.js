@@ -4,11 +4,11 @@ import { Card } from 'antd';
 import { GET_BUSINESS_ROLE } from '../../queries/BusinessRoleQueries';
 
 class viewBusinessRole extends React.Component {
-  render () {   
+  render () {  
     return (
         <Query
           query = { GET_BUSINESS_ROLE }
-          variables= {{ id: this.props.match.params.businessRoleId }}
+          variables= {{ id: this.props.id || this.props.match.params.businessRoleId }}
           >
 
           {({ loading, data }) => {

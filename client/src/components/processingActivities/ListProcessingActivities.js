@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card } from 'antd';
+import { Table, Divider, Card, Row } from 'antd';
 import { ALL_PROCESSING_ACTIVITIES } from '../../queries/ProcessingActivitiesQueries';
 import CreateProcessingActivity from './CreateProcessingActivity'
 import UpdateProcessingActivity from './UpdateProcessingActivity'
@@ -38,7 +38,7 @@ class ProcessingActivityTable extends React.Component {
     })
   }
 
-  rowActions  = (record) => {
+  rowActions = (record) => {
     return(
     <span>
       <UpdateProcessingActivity processingActivity={record} />
@@ -46,6 +46,11 @@ class ProcessingActivityTable extends React.Component {
       <DeleteProcessingActivity ProcessingActivity={record} />
     </span>
     )
+  }
+
+  getFilter = (props) =>{
+    if(props.processId) return { filter: { process: { id: props.processId } } }
+    return null
   }
 
   render () {
@@ -80,9 +85,28 @@ class ProcessingActivityTable extends React.Component {
     return (
         <Query
           query = { ALL_PROCESSING_ACTIVITIES }
+          variables = { this.getFilter(this.props) }
           >
           {({ loading, data }) => {
             const dataSource = data.allProcessingActivities || [];
+
+            //Component called from process details vieuw
+            if(this.props.processId) return(
+              <span>
+                <Row style={{ marginBottom: 16 }} type="flex" justify="end">
+                  <CreateProcessingActivity processId={this.props.processId}/>
+                </Row>
+                <Row>
+                  <Table 
+                    loading={loading}
+                    rowKey={record => record.id}
+                    dataSource={dataSource}
+                    columns={columns} 
+                    onChange={this.handleChange} 
+                    />
+                </Row>
+              </span>
+            )
 
             return(
               <React.Fragment>  

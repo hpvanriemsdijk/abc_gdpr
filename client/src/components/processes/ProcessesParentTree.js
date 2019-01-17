@@ -16,17 +16,17 @@ export class ProcessesParentTree extends React.Component {
     return (
       <Query query = { PROCESSES_OPTIONS_TREE } >
         {({ loading, data }) => {     
-          if (loading) return (
-            <TreeSelect placeholder="Loading..." />
-          )
+          if (loading) return <TreeSelect placeholder="Loading..." />
+          const isDisabled = this.props.disabled || false;
 
           return(
-            this.props.form.getFieldDecorator('parent', {
+            this.props.form.getFieldDecorator('process', {
               initialValue: this.props.parentId,
+              hidden: isDisabled
             })(
               <TreeSelect
-                placeholder="No parent"
-                allowClear
+                placeholder="No process..."
+                disabled={isDisabled}
                 treeData={prepOptionsTree(data.allProcesses, this.props.ownKey)}
                 >
             </TreeSelect>

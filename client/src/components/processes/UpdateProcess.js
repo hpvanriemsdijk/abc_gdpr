@@ -27,7 +27,7 @@ class UpdateProcess extends React.Component {
           id: this.props.process.id,
           name: values.name,
           description: values.description,
-          parent: values.parent || null,
+          parent: values.process || null,
           processOwner: values.processOwner || null
         }}).catch( res => {
           notification['warning']({
@@ -59,7 +59,7 @@ class UpdateProcess extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={UPDATE_PROCESS}
-          refetchQueries={["AllProcesses"]}
+          refetchQueries={["AllProcesses", "Process"]}
           >
           {(updateProcess, { updating, error, data }) => {
             const processOwnerId = ProcessData.processOwner ? ProcessData.processOwner.id : null

@@ -59,6 +59,32 @@ export const PROCESSES_OPTIONS_TREE = gql`
 	}
 `;
 
+export const PROCESSES_BRANCH = gql`
+	fragment processBranchInfo on Process {
+		id
+		name
+	}
+
+	query ProcessBranch ($id: ID!) { 
+		Process(id: $id) {
+			...processBranchInfo
+			parent { 
+				...processBranchInfo
+				parent{
+					...processBranchInfo
+				}	
+			}
+			children { 
+				...processBranchInfo
+				children { 
+					...processBranchInfo
+				}
+			}
+		}
+	}
+`;
+
+
 export const CREATE_PROCESS = gql`
 	mutation CreateProcess ($name: String!, $description: String, $parent: ID, $processOwner: ID ) {
 		createProcess(	
@@ -79,6 +105,9 @@ export const GET_PROCESS = gql`
 			name
 			description
 			parent { id }
+			processOwner { id, name }
+			createdAt
+			updatedAt
 		}
 	}
 `;

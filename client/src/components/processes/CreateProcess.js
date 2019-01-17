@@ -33,7 +33,7 @@ class CreateProcessModal extends React.Component {
         await createProcess({ variables: {
           name: values.name,
           description: values.description,
-          parent: values.parent,
+          parent: values.process,
           processOwner: values.processOwner
         }}).catch( res => {
           notification['warning']({
@@ -54,50 +54,50 @@ class CreateProcessModal extends React.Component {
 
     return (
       <React.Fragment>
-              <Mutation 
-                mutation={CREATE_PROCESS}
-                refetchQueries={["AllProcesses"]}
+          <Mutation 
+            mutation={CREATE_PROCESS}
+            refetchQueries={["AllProcesses"]}
+            >
+            {(createProcess, { loading, error, data }) => {
+              return (
+                <Modal
+                  onOk={e => this.onCreateProcess(createProcess)}
+                  onCancel={this.closeModal}
+                  title="Create process"
+                  confirmLoading={loading}
+                  visible={this.state.modalVisible}
                 >
-                {(createProcess, { loading, error, data }) => {
-                  return (
-                    <Modal
-                      onOk={e => this.onCreateProcess(createProcess)}
-                      onCancel={this.closeModal}
-                      title="Create process"
-                      confirmLoading={loading}
-                      visible={this.state.modalVisible}
-                    >
-                      <Form layout="horizontal">
-                        <Form.Item label="Name">
-                          {form.getFieldDecorator('name', {
-                            rules: [
-                              { required: true, message: 'Please enter a name!' }
-                            ],
-                          })(<Input />)}
-                        </Form.Item>                        
-                        <Form.Item label="Description">
-                          {form.getFieldDecorator('description', {
-                            rules: [
-                              { required: true, message: 'Please enter a description!' }
-                            ],
-                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                        </Form.Item>
+                  <Form layout="horizontal">
+                    <Form.Item label="Name">
+                      {form.getFieldDecorator('name', {
+                        rules: [
+                          { required: true, message: 'Please enter a name!' }
+                        ],
+                      })(<Input />)}
+                    </Form.Item>                        
+                    <Form.Item label="Description">
+                      {form.getFieldDecorator('description', {
+                        rules: [
+                          { required: true, message: 'Please enter a description!' }
+                        ],
+                      })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                    </Form.Item>
 
-                        <Form.Item 
-                          label="Parent proces"
-                          extra="Can't select yourself, childeren in own line or result in 3+ levels.">
-                          { <ProcessesParentTree form={form} /> }
-                        </Form.Item>
-                        
-                        <Form.Item 
-                          label="Process owner">
-                          { <BusinessRolessOptionsList form={form} /> }
-                        </Form.Item>
-                      </Form>
-                    </Modal>
-                  );
-                }}
-              </Mutation>
+                    <Form.Item 
+                      label="Parent proces"
+                      extra="Can't select yourself, childeren in own line or result in 3+ levels.">
+                      { <ProcessesParentTree form={form} /> }
+                    </Form.Item>
+                    
+                    <Form.Item 
+                      label="Process owner">
+                      { <BusinessRolessOptionsList form={form} /> }
+                    </Form.Item>
+                  </Form>
+                </Modal>
+              );
+            }}
+          </Mutation>
         <Button onClick={this.showModal} type="primary">
           New Process
         </Button>

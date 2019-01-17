@@ -1,6 +1,7 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
+import { ProcessesParentTree } from '../processes/ProcessesParentTree'
 import { Modal, Form, Input, Button, notification } from 'antd';
 
 class CreateProcessingActivityModal extends React.Component {
@@ -32,6 +33,7 @@ class CreateProcessingActivityModal extends React.Component {
           name: values.name,
           description: values.description,
           purpose: values.purpose,
+          process: values.process || this.props.processId || undefined
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Processing activity",
@@ -44,6 +46,10 @@ class CreateProcessingActivityModal extends React.Component {
       }
     });
   };
+
+  parentProces = (form, props) => {
+    if(!props.processId) return <Form.Item label="Parent proces" ><ProcessesParentTree form={form} /> </Form.Item>
+  }
 
   render() {
     const { form } = this.props;
@@ -86,6 +92,7 @@ class CreateProcessingActivityModal extends React.Component {
                       ],
                     })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                   </Form.Item>
+                  {this.parentProces(form, this.props)}
                 </Form>
               </Modal>
             );
