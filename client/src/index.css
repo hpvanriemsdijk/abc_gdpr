@@ -38,3 +38,7 @@ button.link:hover,
 button.link:focus {
   text-decoration: none;
 }
+
+.ant-table-title{
+  text-align: right !important;
+}

@@ -38,16 +38,6 @@ class ProcessingActivityTable extends React.Component {
     })
   }
 
-  rowActions = (record) => {
-    return(
-    <span>
-      <UpdateProcessingActivity processingActivity={record} />
-      <Divider type="vertical" />
-      <DeleteProcessingActivity ProcessingActivity={record} />
-    </span>
-    )
-  }
-
   getFilter = (props) =>{
     if(props.processId) return { filter: { process: { id: props.processId } } }
     return null
@@ -64,7 +54,7 @@ class ProcessingActivityTable extends React.Component {
       sorter: (a, b) => { return a.name.localeCompare(b.name)},
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
       ...clientSideFilter('name', this.handleSearch, this.handleReset),
-      render: (text, record) => <Link to={`/processingActivities/${record.id}`}>{text}</Link>,
+      //render: (text, record) => <Link to={`/processingActivities/${record.id}`}>{text}</Link>,
     },{
       title: 'Description',
       key: 'description',
@@ -77,7 +67,11 @@ class ProcessingActivityTable extends React.Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          {this.rowActions(record)}
+          <Link to={`/processingActivities/${record.id}`}>Details</Link>
+          <Divider type="vertical" />
+          <UpdateProcessingActivity processingActivity={record} />
+          <Divider type="vertical" />
+          <DeleteProcessingActivity ProcessingActivity={record} />
         </span>
       ),
     }];
@@ -93,9 +87,6 @@ class ProcessingActivityTable extends React.Component {
             //Component called from process details vieuw
             if(this.props.processId) return(
               <span>
-                <Row style={{ marginBottom: 16 }} type="flex" justify="end">
-                  <CreateProcessingActivity processId={this.props.processId}/>
-                </Row>
                 <Row>
                   <Table 
                     loading={loading}
@@ -103,6 +94,7 @@ class ProcessingActivityTable extends React.Component {
                     dataSource={dataSource}
                     columns={columns} 
                     onChange={this.handleChange} 
+                    title={() => <CreateProcessingActivity processId={this.props.processId}/>}
                     />
                 </Row>
               </span>
