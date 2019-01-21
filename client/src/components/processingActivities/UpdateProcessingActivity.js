@@ -55,9 +55,12 @@ class UpdateProcessingActivity extends React.Component {
       <React.Fragment>
         <Query
           query = { GET_PROCESSING_ACTIVITY }
-          variables= {{ id: this.props.processingActivity.id }}
+          variables = {{ id: this.props.processingActivity.id }}
+          skip = { !this.state.modalVisible}
           >
           {({ loading, data }) => {
+            if( !this.state.modalVisible ) return null
+            
             const processingActivity = data.ProcessingActivity || [];
             const process = processingActivity.process || [];
             var loadingProcessingActivity = loading;
