@@ -38,16 +38,6 @@ class OUTable extends React.Component {
     })
   }
 
-  rowActions  = (record) => {
-    return(
-    <span>
-      <UpdateOU organizationalUnit={record} />
-      <Divider type="vertical" />
-      <DeleteOU organizationalUnit={record} />
-    </span>
-    )
-  }
-
   render () {
     let { sortedInfo } = this.state;
     sortedInfo = sortedInfo || {};
@@ -59,7 +49,7 @@ class OUTable extends React.Component {
       sorter: (a, b) => { return a.name.localeCompare(b.name)},
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
       ...clientSideFilter('name', this.handleSearch, this.handleReset),
-      render: (text, record) => <Link to={`/units/${record.id}`}>{text}</Link>,
+      ...filterHighlighter( this.state.searchText )
     },{
       title: 'Description',
       key: 'description',
@@ -95,7 +85,11 @@ class OUTable extends React.Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          {this.rowActions(record)}
+          <Link to={`/units/${record.id}`}>Details</Link>
+          <Divider type="vertical" />
+          <UpdateOU organizationalUnit={record} />
+          <Divider type="vertical" />
+          <DeleteOU organizationalUnit={record} />
         </span>
       ),
     }];

@@ -54,7 +54,7 @@ class ProcessingActivityTable extends React.Component {
       sorter: (a, b) => { return a.name.localeCompare(b.name)},
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
       ...clientSideFilter('name', this.handleSearch, this.handleReset),
-      //render: (text, record) => <Link to={`/processingActivities/${record.id}`}>{text}</Link>,
+      ...filterHighlighter( this.state.searchText )
     },{
       title: 'Description',
       key: 'description',
@@ -109,6 +109,11 @@ class ProcessingActivityTable extends React.Component {
                   dataSource={dataSource}
                   columns={columns} 
                   onChange={this.handleChange} 
+                  //onRow={(record, index) => ({
+                  //  onClick: (event) => { 
+                  //    console.log("click", record)
+                  //   } 
+                  //})}
                   />
                 </Card>
               </React.Fragment>  

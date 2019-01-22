@@ -37,17 +37,7 @@ class PersonTable extends React.Component {
       searchText: '',
     })
   }
-
-  rowActions  = (record) => {
-    return(
-    <span>
-      <UpdatePerson person={record} />
-      <Divider type="vertical" />
-      <DeletePerson person={record} />
-    </span>
-    )
-  }
-
+  
   render () {
     let { sortedInfo } = this.state;
     sortedInfo = sortedInfo || {};
@@ -59,7 +49,7 @@ class PersonTable extends React.Component {
       sorter: (a, b) => { return a.name.localeCompare(b.name)},
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
       ...clientSideFilter('name', this.handleSearch, this.handleReset),
-      render: (text, record) => <Link to={`/persons/${record.id}`}>{text}</Link>,
+      ...filterHighlighter( this.state.searchText )
     },{
       title: 'Surname',
       key: 'surname',
@@ -74,7 +64,11 @@ class PersonTable extends React.Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          {this.rowActions(record)}
+          <Link to={`/persons/${record.id}`}>Details</Link>
+          <Divider type="vertical" />
+          <UpdatePerson person={record} />
+          <Divider type="vertical" />
+          <DeletePerson person={record} />
         </span>
       ),
     }];

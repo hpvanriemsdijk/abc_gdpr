@@ -6,7 +6,7 @@ import { ALL_DATA_TYPES } from '../../queries/DataTypeQueries';
 import CreateDataType from './CreateDataType'
 import UpdateDataType from './UpdateDataType'
 import DeleteDataType from './DeleteDataType'
-import { clientSideFilter } from '../generic/tableHelpers'
+import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
 
 class DataTypeTable extends React.Component {
   constructor(props) {
@@ -38,16 +38,6 @@ class DataTypeTable extends React.Component {
     })
   }
 
-  rowActions  = (record) => {
-    return(
-    <span>
-      <UpdateDataType dataType={record} />
-      <Divider type="vertical" />
-      <DeleteDataType dataType={record} />
-    </span>
-    )
-  }
-
   render () {
     let { sortedInfo } = this.state;
     sortedInfo = sortedInfo || {};
@@ -59,7 +49,7 @@ class DataTypeTable extends React.Component {
       sorter: (a, b) => { return a.name.localeCompare(b.name)},
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
       ...clientSideFilter('name', this.handleSearch, this.handleReset),
-      render: (text, record) => <Link to={`/DataTypes/${record.id}`}>{text}</Link>,
+      ...filterHighlighter( this.state.searchText )
     },{
       title: 'Classifications',
       key: 'classifications',
@@ -81,7 +71,11 @@ class DataTypeTable extends React.Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          {this.rowActions(record)}
+          <Link to={`/DataTypes/${record.id}`}>Details</Link>
+          <Divider type="vertical" />
+          <UpdateDataType dataType={record} />
+          <Divider type="vertical" />
+          <DeleteDataType dataType={record} />
         </span>
       ),
     }];
