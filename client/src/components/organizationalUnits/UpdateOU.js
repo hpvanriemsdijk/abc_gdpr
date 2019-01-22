@@ -1,6 +1,6 @@
 import React from 'react'
-import { Mutation } from 'react-apollo'
-import { UPDATE_OU } from '../../queries/OUQueries';
+import { Query, Mutation } from 'react-apollo'
+import { GET_OU, UPDATE_OU } from '../../queries/OUQueries';
 import { Modal, Form, Input, notification, Checkbox } from 'antd';
 
 class UpdateOU extends React.Component {
@@ -48,54 +48,67 @@ class UpdateOU extends React.Component {
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
-    const OUData = this.props.organizationalUnit
 
     return (
       <React.Fragment>
-        <Mutation 
-          mutation={UPDATE_OU}
-          refetchQueries={["AllOrganizationalUnits"]}
+        <Query
+          query = { GET_OU }
+          variables = {{ id: this.props.organizationalUnit.id }}
+          skip = { !this.state.modalVisible}
           >
-          {(updateOU, { loading, error, data }) => {
-            return (
-              <Modal
-                onOk={e => this.onUpdateOU(updateOU)}
-                onCancel={this.closeModal}
-                title="Update organizational unit"
-                confirmLoading={loading}
-                visible={this.state.modalVisible}
-              >
-                <Form >
-                  <Form.Item label="Name">
-                    {form.getFieldDecorator('name', {
-                      initialValue: OUData.name,
-                      rules: [
-                        { required: true, message: 'Please enter a name!' }
-                        ],
-                    })(<Input />)}
-                  </Form.Item>                        
-                  
-                  <Form.Item label="Description">
-                    {form.getFieldDecorator('description', {
-                      initialValue: OUData.description,
-                      rules: [
-                        { required: true, message: 'Please enter a description!' }
-                        ],
-                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                  </Form.Item>  
+          {({ loading, data }) => {
+            if( !this.state.modalVisible ) return null
+          
+            const OUData = data.OrganizationalUnit || [];
+            var loadingOU = loading;
+            return(
+              <Mutation 
+                mutation={UPDATE_OU}
+                refetchQueries={["AllOrganizationalUnits"]}
+                >
+                {(updateOU, { loading, error, data }) => {
+                  return (
+                    <Modal
+                      onOk={e => this.onUpdateOU(updateOU)}
+                      onCancel={this.closeModal}
+                      title="Update organizational unit"
+                      confirmLoading={loading}
+                      loading={loadingOU}
+                      visible={this.state.modalVisible}
+                    >
+                      <Form >
+                        <Form.Item label="Name">
+                          {form.getFieldDecorator('name', {
+                            initialValue: OUData.name,
+                            rules: [
+                              { required: true, message: 'Please enter a name!' }
+                              ],
+                          })(<Input />)}
+                        </Form.Item>                        
+                        
+                        <Form.Item label="Description">
+                          {form.getFieldDecorator('description', {
+                            initialValue: OUData.description,
+                            rules: [
+                              { required: true, message: 'Please enter a description!' }
+                              ],
+                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                        </Form.Item>  
 
-                  <Form.Item label="Legal entity">
-                    {form.getFieldDecorator('legalEntity', {
-                      valuePropName: "checked",
-                      initialValue : OUData.legalEntity
-                    })(<Checkbox />)}
-                  </Form.Item>  
+                        <Form.Item label="Legal entity">
+                          {form.getFieldDecorator('legalEntity', {
+                            valuePropName: "checked",
+                            initialValue : OUData.legalEntity
+                          })(<Checkbox />)}
+                        </Form.Item>  
 
-                </Form>
-              </Modal>
-            );
-          }}
-        </Mutation>
+                      </Form>
+                    </Modal>
+                  );
+                }}
+              </Mutation>
+            )}}
+         </Query>
         <button className="link" onClick={this.showModal}>Edit</button>
       </React.Fragment>
     );

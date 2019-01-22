@@ -18,10 +18,6 @@ export const ALL_BUSINESS_ROLES = gql`
 			id
 			name
 			description
-			raciPrivacy
-			raciSecurity
-			raciFinancial
-			raciExecutive
 		}
 	}
 `;

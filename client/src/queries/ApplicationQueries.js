@@ -8,7 +8,6 @@ export const ALL_APPLICATIONS = gql`
 			id
 			name
 			alias
-			description
 		}
 	}
 `;

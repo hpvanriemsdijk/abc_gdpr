@@ -1,6 +1,6 @@
 import React from 'react'
-import { Mutation } from 'react-apollo'
-import { UPDATE_DATA_TYPE } from '../../queries/DataTypeQueries';
+import { Query, Mutation } from 'react-apollo'
+import { GET_DATA_TYPE, UPDATE_DATA_TYPE } from '../../queries/DataTypeQueries';
 import { Modal, Form, Input, notification, Checkbox } from 'antd';
 
 class UpdateDataType extends React.Component {
@@ -49,60 +49,73 @@ class UpdateDataType extends React.Component {
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
-    const DataTypeData = this.props.dataType
 
     return (
       <React.Fragment>
-        <Mutation 
-          mutation={UPDATE_DATA_TYPE}
-          refetchQueries={["AllDataTypes"]}
+        <Query
+          query = { GET_DATA_TYPE }
+          variables = {{ id: this.props.dataType.id }}
+          skip = { !this.state.modalVisible}
           >
-          {(updateDataType, { loading, error, data }) => {
-            return (
-              <Modal
-                onOk={e => this.onUpdateDataType(updateDataType)}
-                onCancel={this.closeModal}
-                title="Update data type"
-                confirmLoading={loading}
-                visible={this.state.modalVisible}
-              >
-                <Form >
-                  <Form.Item label="Name">
-                    {form.getFieldDecorator('name', {
-                      initialValue: DataTypeData.name,
-                      rules: [
-                        { required: true, message: 'Please enter a name!' }
-                        ],
-                    })(<Input />)}
-                  </Form.Item>   
-                  
-                  <Form.Item label="Description">
-                    {form.getFieldDecorator('description', {
-                      initialValue: DataTypeData.description,
-                      rules: [
-                        { required: true, message: 'Please enter a description!' }
-                        ],
-                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                  </Form.Item>  
+          {({ loading, data }) => {
+            if( !this.state.modalVisible ) return null
+            
+            const DataTypeData = data.DataType || [];
+            var loadingDataType = loading;
+            return(
+              <Mutation 
+                mutation={UPDATE_DATA_TYPE}
+                refetchQueries={["AllDataTypes"]}
+                >
+                {(updateDataType, { loading, error, data }) => {
+                  return (
+                    <Modal
+                      onOk={e => this.onUpdateDataType(updateDataType)}
+                      onCancel={this.closeModal}
+                      title="Update data type"
+                      confirmLoading={loading}
+                      loading={loadingDataType}
+                      visible={this.state.modalVisible}
+                    >
+                      <Form >
+                        <Form.Item label="Name">
+                          {form.getFieldDecorator('name', {
+                            initialValue: DataTypeData.name,
+                            rules: [
+                              { required: true, message: 'Please enter a name!' }
+                              ],
+                          })(<Input />)}
+                        </Form.Item>   
+                        
+                        <Form.Item label="Description">
+                          {form.getFieldDecorator('description', {
+                            initialValue: DataTypeData.description,
+                            rules: [
+                              { required: true, message: 'Please enter a description!' }
+                              ],
+                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                        </Form.Item>  
 
-                  <Form.Item label="Personal data">
-                    {form.getFieldDecorator('pii', {
-                      valuePropName: "checked",
-                      initialValue : DataTypeData.pii
-                    })(<Checkbox />)}
-                  </Form.Item>  
-                  <Form.Item label="Sensitive personal data">
-                    {form.getFieldDecorator('spii', {
-                      valuePropName: "checked",
-                      initialValue : DataTypeData.spii
-                    })(<Checkbox />)}
-                  </Form.Item>  
+                        <Form.Item label="Personal data">
+                          {form.getFieldDecorator('pii', {
+                            valuePropName: "checked",
+                            initialValue : DataTypeData.pii
+                          })(<Checkbox />)}
+                        </Form.Item>  
+                        <Form.Item label="Sensitive personal data">
+                          {form.getFieldDecorator('spii', {
+                            valuePropName: "checked",
+                            initialValue : DataTypeData.spii
+                          })(<Checkbox />)}
+                        </Form.Item>  
 
-                </Form>
-              </Modal>
-            );
-          }}
-        </Mutation>
+                      </Form>
+                    </Modal>
+                  );
+                }}
+              </Mutation>
+            )}}
+          </Query>
         <button className="link" onClick={this.showModal}>Edit</button>
       </React.Fragment>
     );

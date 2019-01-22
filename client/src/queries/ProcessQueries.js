@@ -18,7 +18,6 @@ export const ALL_PROCESSES_TREE = gql`
 		id
 		name
 		description
-		parent { id }
 		processOwner { id }
 	}
 	

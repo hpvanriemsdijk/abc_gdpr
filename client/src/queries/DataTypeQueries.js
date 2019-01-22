@@ -7,7 +7,6 @@ export const ALL_DATA_TYPES = gql`
 		) {
 			id
 			name
-			description
 			pii
 			spii
 		}

@@ -10,7 +10,6 @@ export const ALL_OUS = gql`
 			description
 			legalEntity
 			_processesMeta{count}
-			_businessRolesMeta{count}
 		}
 	}
 `;

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Mutation } from 'react-apollo'
-import { UPDATE_PERSON } from '../../queries/PersonQueries';
+import { Query, Mutation } from 'react-apollo'
+import { GET_PERSON, UPDATE_PERSON } from '../../queries/PersonQueries';
 import { Modal, Form, Input, notification } from 'antd';
 
 class UpdatePerson extends React.Component {
@@ -46,47 +46,60 @@ class UpdatePerson extends React.Component {
 
   render() {
     const { form } = this.props;
-    const PersonData = this.props.person
 
     return (
-      <React.Fragment>
-        <Mutation 
-          mutation={UPDATE_PERSON}
-          refetchQueries={["AllPersons"]}
-          >
-          {(updatePerson, { loading, error, data }) => {
-            return (
-              <Modal
-                onOk={e => this.onUpdatePerson(updatePerson)}
-                onCancel={this.closeModal}
-                title="Update Person"
-                confirmLoading={loading}
-                visible={this.state.modalVisible}
-              >
-                <Form >
-                  <Form.Item label="Name">
-                    {form.getFieldDecorator('name', {
-                      initialValue: PersonData.name,
-                      rules: [
-                        { required: true, message: 'Please enter a name!' }
-                        ],
-                    })(<Input />)}
-                  </Form.Item>                        
-                  
-                  <Form.Item label="Surname">
-                    {form.getFieldDecorator('surname', {
-                      initialValue: PersonData.surname,
-                      rules: [
-                        { required: true, message: 'Please enter a surname!' }
-                        ],
-                    })(<Input />)}
-                  </Form.Item>  
+    <React.Fragment>
+      <Query
+        query = { GET_PERSON }
+        variables = {{ id: this.props.person.id }}
+        skip = { !this.state.modalVisible}
+        >
+        {({ loading, data }) => {
+          if( !this.state.modalVisible ) return null
 
-                </Form>
-              </Modal>
-            );
-          }}
-        </Mutation>
+          const PersonData = data.Person || [];
+          var loadingPerson = loading;
+          return(
+            <Mutation 
+              mutation={UPDATE_PERSON}
+              refetchQueries={["AllPersons"]}
+              >
+              {(updatePerson, { loading, error, data }) => {
+                return (
+                  <Modal
+                    onOk={e => this.onUpdatePerson(updatePerson)}
+                    onCancel={this.closeModal}
+                    title="Update Person"
+                    confirmLoading={loading}
+                    loading={loadingPerson}
+                    visible={this.state.modalVisible}
+                  >
+                    <Form >
+                      <Form.Item label="Name">
+                        {form.getFieldDecorator('name', {
+                          initialValue: PersonData.name,
+                          rules: [
+                            { required: true, message: 'Please enter a name!' }
+                            ],
+                        })(<Input />)}
+                      </Form.Item>                        
+                      
+                      <Form.Item label="Surname">
+                        {form.getFieldDecorator('surname', {
+                          initialValue: PersonData.surname,
+                          rules: [
+                            { required: true, message: 'Please enter a surname!' }
+                            ],
+                        })(<Input />)}
+                      </Form.Item>  
+
+                    </Form>
+                  </Modal>
+                );
+              }}
+            </Mutation>
+            )}}
+          </Query>
         <button className="link" onClick={this.showModal}>Edit</button>
       </React.Fragment>
     );

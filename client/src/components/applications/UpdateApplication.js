@@ -1,6 +1,6 @@
 import React from 'react'
-import { Mutation } from 'react-apollo'
-import { UPDATE_APPLICATION } from '../../queries/ApplicationQueries';
+import { Query, Mutation } from 'react-apollo'
+import { GET_APPLICATION, UPDATE_APPLICATION } from '../../queries/ApplicationQueries';
 import { Modal, Form, Input, notification, Select } from 'antd';
 
 class UpdateApplication extends React.Component {
@@ -48,60 +48,73 @@ class UpdateApplication extends React.Component {
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
-    const ApplicationData = this.props.application
 
     return (
       <React.Fragment>
-        <Mutation 
-          mutation={UPDATE_APPLICATION}
-          refetchQueries={["AllApplications"]}
+        <Query
+          query = { GET_APPLICATION }
+          variables = {{ id: this.props.application.id }}
+          skip = { !this.state.modalVisible}
           >
-          {(updateApplication, { loading, error, data }) => {
-            return (
-              <Modal
-                onOk={e => this.onUpdateApplication(updateApplication)}
-                onCancel={this.closeModal}
-                title="Update Application"
-                confirmLoading={loading}
-                visible={this.state.modalVisible}
+          {({ loading, data }) => {
+            if( !this.state.modalVisible ) return null
+            const ApplicationData = data.Application || [];
+            var loadingApplication = loading;
+
+            return(
+            <Mutation 
+              mutation={UPDATE_APPLICATION}
+              refetchQueries={["AllApplications"]}
               >
-                <Form >
-                  <Form.Item label="Name">
-                    {form.getFieldDecorator('name', {
-                      initialValue: ApplicationData.name,
-                      rules: [
-                        { required: true, message: 'Please enter a name!' }
-                        ],
-                    })(<Input />)}
-                  </Form.Item>       
+              {(updateApplication, { loading, error, data }) => {
+                return (
+                  <Modal
+                    onOk={e => this.onUpdateApplication(updateApplication)}
+                    onCancel={this.closeModal}
+                    title="Update Application"
+                    confirmLoading={loading}
+                    loading={loadingApplication}
+                    visible={this.state.modalVisible}
+                  >
+                    <Form >
+                      <Form.Item label="Name">
+                        {form.getFieldDecorator('name', {
+                          initialValue: ApplicationData.name,
+                          rules: [
+                            { required: true, message: 'Please enter a name!' }
+                            ],
+                        })(<Input />)}
+                      </Form.Item>       
 
-                  <Form.Item 
-                    label="Alias"
-                    extra="Seperate alisasses with the , character.">
-                    {form.getFieldDecorator('alias',{
-                      initialValue: ApplicationData.alias})(
-                      <Select
-                        mode="tags"
-                        style={{ width: '100%' }}
-                        tokenSeparators={[',']}
-                      ></Select>
-                      )}
-                  </Form.Item>                  
-                  
-                  <Form.Item label="Description">
-                    {form.getFieldDecorator('description', {
-                      initialValue: ApplicationData.description,
-                      rules: [
-                        { required: true, message: 'Please enter a description!' }
-                        ],
-                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                  </Form.Item>  
+                      <Form.Item 
+                        label="Alias"
+                        extra="Seperate alisasses with the , character.">
+                        {form.getFieldDecorator('alias',{
+                          initialValue: ApplicationData.alias})(
+                          <Select
+                            mode="tags"
+                            style={{ width: '100%' }}
+                            tokenSeparators={[',']}
+                          ></Select>
+                          )}
+                      </Form.Item>                  
+                      
+                      <Form.Item label="Description">
+                        {form.getFieldDecorator('description', {
+                          initialValue: ApplicationData.description,
+                          rules: [
+                            { required: true, message: 'Please enter a description!' }
+                            ],
+                        })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                      </Form.Item>  
 
-                </Form>
-              </Modal>
-            );
-          }}
-        </Mutation>
+                    </Form>
+                  </Modal>
+                );
+              }}
+            </Mutation>
+          )}}
+          </Query>
         <button className="link" onClick={this.showModal}>Edit</button>
       </React.Fragment>
     );
