@@ -48,13 +48,13 @@ class BusinessRoleTable extends React.Component {
       dataIndex: 'name',
       sorter: (a, b) => { return a.name.localeCompare(b.name)},
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
-      ...clientSideFilter('name', this.handleSearch, this.handleReset),
+      ...clientSideFilter('name', this.searchInput, this.handleSearch, this.handleReset),
       ...filterHighlighter( this.state.searchText )
     },{
       title: 'Description',
       key: 'description',
       dataIndex: 'description',
-      ...clientSideFilter('description', this.handleSearch, this.handleReset),
+      ...clientSideFilter('description', this.searchInput, this.handleSearch, this.handleReset),
       ...filterHighlighter( this.state.searchText )
     },{
       title: 'Action',
