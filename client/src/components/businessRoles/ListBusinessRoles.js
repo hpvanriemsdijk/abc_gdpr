@@ -14,33 +14,30 @@ class BusinessRoleTable extends React.Component {
 
     this.state = {
       sortedInfo: null, 
-      searchText: '',
+      filteredInfo: null
     };
   }
 
   handleChange = (pagination, filters, sorter) => {
     this.setState({
+      filteredInfo: filters,
       sortedInfo: sorter,
     });
   }
 
-  handleSearch = (selectedKeys, confirm) => {
+  handleSearch = (confirm) => {
     confirm();
-    this.setState({
-      searchText: selectedKeys[0],
-    })
   }
 
   handleReset = (clearFilters) => {
     clearFilters();
-    this.setState({
-      searchText: '',
-    })
+    this.setState({ filteredInfo: null });
   }
 
   render () {
-    let { sortedInfo } = this.state;
+    let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
+    filteredInfo = filteredInfo || {};
 
     const columns = [{
       title: 'Name',
@@ -49,13 +46,13 @@ class BusinessRoleTable extends React.Component {
       sorter: (a, b) => { return a.name.localeCompare(b.name)},
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
       ...clientSideFilter('name', this.searchInput, this.handleSearch, this.handleReset),
-      ...filterHighlighter( this.state.searchText )
+      ...filterHighlighter( 'name', filteredInfo )
     },{
       title: 'Description',
       key: 'description',
       dataIndex: 'description',
       ...clientSideFilter('description', this.searchInput, this.handleSearch, this.handleReset),
-      ...filterHighlighter( this.state.searchText )
+      ...filterHighlighter( 'description', filteredInfo )
     },{
       title: 'Action',
       dataIndex: 'action',

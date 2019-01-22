@@ -51,7 +51,6 @@ class UpdateBusinessRole extends React.Component {
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
-    const BusinessRoleData = this.props.businessRole
 
     return (
       <React.Fragment>

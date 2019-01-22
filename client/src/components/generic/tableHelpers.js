@@ -14,14 +14,14 @@ const clientSideFilter = (dataIndex, searchInput, handleSearch, handleReset) => 
             placeholder={`Search ${dataIndex}`}
             value={selectedKeys[0]}
             onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-            onPressEnter={() => handleSearch(selectedKeys, confirm)}
+            onPressEnter={() => handleSearch(confirm)}
             style={{ width: 188, marginBottom: 8, display: 'block' }}
           />
         </div>
         <div className="search-filter-dropdown-btns" >
           <Button
             type="primary"
-            onClick={() => handleSearch(selectedKeys, confirm)}
+            onClick={() => handleSearch(confirm)}
             icon="search"
             size="small"
             style={{ width: 90, marginRight: 8 }}
@@ -47,15 +47,19 @@ const clientSideFilter = (dataIndex, searchInput, handleSearch, handleReset) => 
     }
   })
 
-  const filterHighlighter = (searchText) => ({
-    render: (text) => (
-      <Highlighter
-        highlightStyle={{ backgroundColor: '#ffffb8', padding: 0 }}
-        searchWords={[searchText]}
-        autoEscape
-        textToHighlight={text.toString()}
-      />
-    ),
+  const filterHighlighter = (dataIndex, searchInput) => ({
+    render: (text) => {
+      let searchText = searchInput[dataIndex] || [null]
+
+      return(
+        <Highlighter
+          highlightStyle={{ backgroundColor: '#ffffb8', padding: 0 }}
+          searchWords={[searchText[0]]}
+          autoEscape
+          textToHighlight={text.toString()}
+        />
+      )
+    },
   })
 
 
