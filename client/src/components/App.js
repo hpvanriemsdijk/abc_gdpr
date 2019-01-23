@@ -75,7 +75,20 @@ class App extends React.Component {
     )
   }
 
-  appRouter(){
+  render () {
+    if (this.props.loggedInUserQuery.loading) {
+      return (
+        <div className='w-100 pa4 flex justify-center'>
+          <div><Spin /> Loading</div>
+        </div>
+      )
+    }
+
+    if (this.props.loggedInUserQuery.error) {
+      console.log(this.props.loggedInUserQuery.error)
+      return (<div>An unexpected error occurred</div>)
+    }
+
     const PublicRoute = ({ component: Component, layout: Layout, ...rest }) => (
       <Route {...rest} render={props => (
         this.isLoggedin() === false
@@ -99,49 +112,28 @@ class App extends React.Component {
     )
 
     return (
-      <Router>
-        <div>
-          <Switch>
-            <PublicRoute path='/login' layout={ this.AnonymousLayout } component={LoginUser} />
-            <AppRoute path='/units/:ouId' layout={ this.AuthenticatedLayout } component={viewOU} />
-            <AppRoute path='/units' layout={ this.AuthenticatedLayout } component={listOUs} />
-            <AppRoute path='/processes/:processId' layout={ this.AuthenticatedLayout } component={viewProcess} />
-            <AppRoute path='/processes' layout={ this.AuthenticatedLayout } component={listProcesses} />
-            <AppRoute path='/persons/:personId' layout={ this.AuthenticatedLayout } component={viewPerson} />
-            <AppRoute path='/persons' layout={ this.AuthenticatedLayout } component={listPersons} />
-            <AppRoute path='/businessRoles/:businessRoleId' layout={ this.AuthenticatedLayout } component={viewBusinessRole} />
-            <AppRoute path='/businessRoles' layout={ this.AuthenticatedLayout } component={listBusinessRoles} />
-            <AppRoute path='/processingActivities/:processingActivityId' layout={ this.AuthenticatedLayout } component={viewProcessingActivity} />
-            <AppRoute path='/processingActivities' layout={ this.AuthenticatedLayout } component={listProcessingActivities} />
-            <AppRoute path='/applications/:applicationId' layout={ this.AuthenticatedLayout } component={viewApplication} />
-            <AppRoute path='/applications' layout={ this.AuthenticatedLayout } component={listApplications} />
-            <AppRoute path='/dataTypes/:dataTypeId' layout={ this.AuthenticatedLayout } component={viewDataType} />
-            <AppRoute path='/dataTypes' layout={ this.AuthenticatedLayout } component={listDataTypes} />
-            <AppRoute path='/users/:userId' layout={ this.AuthenticatedLayout } component={listUsers} />
-            <AppRoute path='/users' layout={ this.AuthenticatedLayout } component={listUsers} />
-            <AppRoute exact path='/' layout={ this.AuthenticatedLayout } component={landingPage} />
-            <Route path="*" component={error_404}/>
-          </Switch>
-        </div>
-      </Router>
+      <Switch>
+        <PublicRoute path='/login' layout={ this.AnonymousLayout } component={LoginUser} />
+        <AppRoute path='/units/:ouId' layout={ this.AuthenticatedLayout } component={viewOU} />
+        <AppRoute path='/units' layout={ this.AuthenticatedLayout } component={listOUs} />
+        <AppRoute path='/processes/:processId' layout={ this.AuthenticatedLayout } component={viewProcess} />
+        <AppRoute path='/processes' layout={ this.AuthenticatedLayout } component={listProcesses} />
+        <AppRoute path='/persons/:personId' layout={ this.AuthenticatedLayout } component={viewPerson} />
+        <AppRoute path='/persons' layout={ this.AuthenticatedLayout } component={listPersons} />
+        <AppRoute path='/businessRoles/:businessRoleId' layout={ this.AuthenticatedLayout } component={viewBusinessRole} />
+        <AppRoute path='/businessRoles' layout={ this.AuthenticatedLayout } component={listBusinessRoles} />
+        <AppRoute path='/processingActivities/:processingActivityId' layout={ this.AuthenticatedLayout } component={viewProcessingActivity} />
+        <AppRoute path='/processingActivities' layout={ this.AuthenticatedLayout } component={listProcessingActivities} />
+        <AppRoute path='/applications/:applicationId' layout={ this.AuthenticatedLayout } component={viewApplication} />
+        <AppRoute path='/applications' layout={ this.AuthenticatedLayout } component={listApplications} />
+        <AppRoute path='/dataTypes/:dataTypeId' layout={ this.AuthenticatedLayout } component={viewDataType} />
+        <AppRoute path='/dataTypes' layout={ this.AuthenticatedLayout } component={listDataTypes} />
+        <AppRoute path='/users/:userId' layout={ this.AuthenticatedLayout } component={listUsers} />
+        <AppRoute path='/users' layout={ this.AuthenticatedLayout } component={listUsers} />
+        <AppRoute exact path='/' layout={ this.AuthenticatedLayout } component={landingPage} />
+        <Route path="*" component={error_404}/>
+      </Switch>
     )
-  }
-
-  render () {
-    if (this.props.loggedInUserQuery.loading) {
-      return (
-        <div className='w-100 pa4 flex justify-center'>
-          <div><Spin /> Loading</div>
-        </div>
-      )
-    }
-
-    if (this.props.loggedInUserQuery.error) {
-      console.log(this.props.loggedInUserQuery.error)
-      return (<div>An unexpected error occurred</div>)
-    }
-
-    return (this.appRouter())
   }
 }
 
