@@ -55,7 +55,7 @@ class CreateApplicationModal extends React.Component {
           mutation={CREATE_APPLICATION}
           refetchQueries={["AllApplications"]}
           >
-          {(createApplication, { loading, error, data }) => {
+          {(createApplication, { loading }) => {
             return (
               <Modal
                 onOk={e => this.onCreateApplication(createApplication)}

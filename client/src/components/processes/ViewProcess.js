@@ -1,6 +1,6 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card, Row, Col } from 'antd';
+import { Card, Row, Col, Empty } from 'antd';
 import { GET_PROCESS, PROCESSES_BRANCH } from '../../queries/ProcessQueries';
 import ViewBusinessRole from '../businessRoles/ViewBusinessRole'
 import ViewOU from '../organizationalUnits/ViewOU'
@@ -47,9 +47,8 @@ class ProcesInfoCard extends React.Component {
         variables= {{ id: this.props.id }}
         >
         {({ loading, data, error }) => {
+          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
           const dataSource = data.Process || [];
-
-          if(error) return "Some error..."
 
           return(
             <Card 
@@ -137,7 +136,9 @@ class ProcesBranchCard extends React.Component {
         query = { query }
         variables= {{ id: id }}
         >
-        {({ loading, data }) => {
+        {({ loading, data, error }) => {
+          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+
           const dataSource = data.Process || [];
           const orderedBranch = this.orderBranch(dataSource)
           

@@ -2,7 +2,7 @@ import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_PROCESSING_ACTIVITY, UPDATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
 import { ProcessesParentTree } from '../processes/ProcessesParentTree'
-import { Modal, Form, Input, notification } from 'antd';
+import { Modal, Form, Input, notification, Spin } from 'antd';
 
 class UpdateProcessingActivity extends React.Component {
   state = {
@@ -58,65 +58,66 @@ class UpdateProcessingActivity extends React.Component {
           variables = {{ id: this.props.processingActivity.id }}
           skip = { !this.state.modalVisible}
           >
-          {({ loading, data }) => {
-            if( !this.state.modalVisible ) return null
-            
+          {({ loading, data, error }) => {
+            if( !this.state.modalVisible || error ) return null
             const processingActivity = data.ProcessingActivity || [];
             const process = processingActivity.process || [];
-            var loadingProcessingActivity = loading;
-              return(
-                <Mutation 
-                  mutation={UPDATE_PROCESSING_ACTIVITY}
-                  refetchQueries={["AllProcessingActivities", "ProcessingActivity"]}
-                  >
-                  {(updateProcessingActivity, { loading, error, data }) => {
-                    return (
-                      <Modal
-                        onOk={e => this.onUpdateProcessingActivity(updateProcessingActivity)}
-                        onCancel={this.closeModal}
-                        title="Update processing activity"
-                        confirmLoading={loading}
-                        loading={loadingProcessingActivity}
-                        visible={this.state.modalVisible}
-                        >
-                      <Form >
-                        <Form.Item label="Name">
-                          {form.getFieldDecorator('name', {
-                            initialValue: processingActivity.name,
-                            rules: [
-                              { required: true, message: 'Please enter a name!' }
-                              ],
-                          })(<Input />)}
-                        </Form.Item>                        
-                        
-                        <Form.Item label="Description">
-                          {form.getFieldDecorator('description', {
-                            initialValue: processingActivity.description,
-                            rules: [
-                              { required: true, message: 'Please enter a description!' }
-                              ],
-                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                        </Form.Item>  
-                        
-                        <Form.Item label="Purpose">
-                          {form.getFieldDecorator('purpose', {
-                            initialValue: processingActivity.purpose,
-                            rules: [
-                              { required: true, message: 'Please enter a purpose!' }
-                            ],
-                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                        </Form.Item>
+            const loadingData = loading;
 
-                        <Form.Item 
-                          label="Parent proces">
-                          { <ProcessesParentTree form={form} parentId={ process.id } /> }
-                        </Form.Item>
-                      </Form>
-                </Modal>
+            return(
+              <Mutation 
+                mutation={UPDATE_PROCESSING_ACTIVITY}
+                refetchQueries={["AllProcessingActivities", "ProcessingActivity"]}
+                >
+                {(updateProcessingActivity, { loading }) => {
+                  return (
+                    <Modal
+                      onOk={e => this.onUpdateProcessingActivity(updateProcessingActivity)}
+                      onCancel={this.closeModal}
+                      title="Update processing activity"
+                      confirmLoading={loading}
+                      visible={this.state.modalVisible}
+                      >
+                      <Spin tip="Loading..." spinning={loadingData}>
+                        <Form >
+                          <Form.Item label="Name">
+                            {form.getFieldDecorator('name', {
+                              initialValue: processingActivity.name,
+                              rules: [
+                                { required: true, message: 'Please enter a name!' }
+                                ],
+                            })(<Input />)}
+                          </Form.Item>                        
+                          
+                          <Form.Item label="Description">
+                            {form.getFieldDecorator('description', {
+                              initialValue: processingActivity.description,
+                              rules: [
+                                { required: true, message: 'Please enter a description!' }
+                                ],
+                            })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                          </Form.Item>  
+                          
+                          <Form.Item label="Purpose">
+                            {form.getFieldDecorator('purpose', {
+                              initialValue: processingActivity.purpose,
+                              rules: [
+                                { required: true, message: 'Please enter a purpose!' }
+                              ],
+                            })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                          </Form.Item>
+
+                          <Form.Item 
+                            label="Parent proces">
+                            { <ProcessesParentTree form={form} parentId={ process.id } /> }
+                          </Form.Item>
+                        </Form>
+                      </Spin>
+                    </Modal>
+                  )}}
+                </Mutation>
               )}}
-            </Mutation>
-            )}}
-          </Query>
+        </Query>
         <button className="link" onClick={this.showModal}>Edit</button>
       </React.Fragment>
     );

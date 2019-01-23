@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Row } from 'antd';
+import { Table, Divider, Card, Row, Empty } from 'antd';
 import { ALL_PROCESSING_ACTIVITIES } from '../../queries/ProcessingActivitiesQueries';
 import CreateProcessingActivity from './CreateProcessingActivity'
 import UpdateProcessingActivity from './UpdateProcessingActivity'
@@ -78,7 +78,8 @@ class ProcessingActivityTable extends React.Component {
           query = { ALL_PROCESSING_ACTIVITIES }
           variables = { this.getFilter(this.props) }
           >
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.allProcessingActivities || [];
 
             //Component called from process details vieuw

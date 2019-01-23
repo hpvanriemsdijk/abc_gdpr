@@ -1,9 +1,7 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-
+import {Route, Switch, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
-
-import { Layout, Row, Breadcrumb, Spin } from 'antd';
+import { Layout, Row, Breadcrumb } from 'antd';
 import 'antd/dist/antd.css';
 import '../index.css';
 
@@ -68,27 +66,14 @@ class App extends React.Component {
   AnonymousLayout(props){
     return (
       <Layout style={{height:"100vh", padding: 24}}>
-      <Row type="flex" justify="center">
-        {props.children}
-      </Row>
+        <Row type="flex" justify="center">
+          {props.children}
+        </Row>
       </Layout>
     )
   }
 
   render () {
-    if (this.props.loggedInUserQuery.loading) {
-      return (
-        <div className='w-100 pa4 flex justify-center'>
-          <div><Spin /> Loading</div>
-        </div>
-      )
-    }
-
-    if (this.props.loggedInUserQuery.error) {
-      console.log(this.props.loggedInUserQuery.error)
-      return (<div>An unexpected error occurred</div>)
-    }
-
     const PublicRoute = ({ component: Component, layout: Layout, ...rest }) => (
       <Route {...rest} render={props => (
         this.isLoggedin() === false

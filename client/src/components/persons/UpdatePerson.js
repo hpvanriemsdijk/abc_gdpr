@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_PERSON, UPDATE_PERSON } from '../../queries/PersonQueries';
-import { Modal, Form, Input, notification } from 'antd';
+import { Modal, Form, Input, notification, Spin } from 'antd';
 
 class UpdatePerson extends React.Component {
   state = {
@@ -54,46 +54,47 @@ class UpdatePerson extends React.Component {
         variables = {{ id: this.props.person.id }}
         skip = { !this.state.modalVisible}
         >
-        {({ loading, data }) => {
-          if( !this.state.modalVisible ) return null
-
+        {({ loading, data, error }) => {
+          if( !this.state.modalVisible || error ) return null
           const PersonData = data.Person || [];
-          var loadingPerson = loading;
+          const loadingData = loading;
+          
           return(
             <Mutation 
               mutation={UPDATE_PERSON}
               refetchQueries={["AllPersons"]}
               >
-              {(updatePerson, { loading, error, data }) => {
+              {(updatePerson, { loading }) => {
                 return (
                   <Modal
                     onOk={e => this.onUpdatePerson(updatePerson)}
                     onCancel={this.closeModal}
                     title="Update Person"
                     confirmLoading={loading}
-                    loading={loadingPerson}
                     visible={this.state.modalVisible}
                   >
-                    <Form >
-                      <Form.Item label="Name">
-                        {form.getFieldDecorator('name', {
-                          initialValue: PersonData.name,
-                          rules: [
-                            { required: true, message: 'Please enter a name!' }
-                            ],
-                        })(<Input />)}
-                      </Form.Item>                        
-                      
-                      <Form.Item label="Surname">
-                        {form.getFieldDecorator('surname', {
-                          initialValue: PersonData.surname,
-                          rules: [
-                            { required: true, message: 'Please enter a surname!' }
-                            ],
-                        })(<Input />)}
-                      </Form.Item>  
+                    <Spin tip="Loading..." spinning={loadingData}>
+                      <Form >
+                        <Form.Item label="Name">
+                          {form.getFieldDecorator('name', {
+                            initialValue: PersonData.name,
+                            rules: [
+                              { required: true, message: 'Please enter a name!' }
+                              ],
+                          })(<Input />)}
+                        </Form.Item>                        
+                        
+                        <Form.Item label="Surname">
+                          {form.getFieldDecorator('surname', {
+                            initialValue: PersonData.surname,
+                            rules: [
+                              { required: true, message: 'Please enter a surname!' }
+                              ],
+                          })(<Input />)}
+                        </Form.Item>  
 
-                    </Form>
+                      </Form>
+                    </Spin>
                   </Modal>
                 );
               }}

@@ -56,7 +56,7 @@ class CreateDataTypeModal extends React.Component {
           mutation={CREATE_DATA_TYPE}
           refetchQueries={["AllDataTypes"]}
           >
-          {(createDataType, { loading, error, data }) => {
+          {(createDataType, { loading }) => {
             return (
               <Modal
                 onOk={e => this.onCreateDataType(createDataType)}

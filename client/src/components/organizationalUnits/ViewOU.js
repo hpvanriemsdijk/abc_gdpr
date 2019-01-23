@@ -1,6 +1,6 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card } from 'antd';
+import { Card, Empty } from 'antd';
 import { GET_OU } from '../../queries/OUQueries';
 
 class viewOU extends React.Component {
@@ -11,7 +11,8 @@ class viewOU extends React.Component {
           variables= {{ id: this.props.match.params.ouId }}
           >
 
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.OrganizationalUnit || [];
 
             return(

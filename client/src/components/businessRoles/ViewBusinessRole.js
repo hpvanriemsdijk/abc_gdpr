@@ -1,6 +1,6 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card } from 'antd';
+import { Card, Empty } from 'antd';
 import { GET_BUSINESS_ROLE } from '../../queries/BusinessRoleQueries';
 
 class viewBusinessRole extends React.Component {
@@ -10,8 +10,8 @@ class viewBusinessRole extends React.Component {
           query = { GET_BUSINESS_ROLE }
           variables= {{ id: this.props.id || this.props.match.params.businessRoleId }}
           >
-
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.BusinessRole || [];
 
             return(

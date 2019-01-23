@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Tag } from 'antd';
+import { Table, Divider, Card, Tag, Empty } from 'antd';
 import { ALL_OUS } from '../../queries/OUQueries';
 import CreateOU from './CreateOU'
 import UpdateOU from './UpdateOU'
@@ -95,7 +95,8 @@ class OUTable extends React.Component {
         <Query
           query = { ALL_OUS }
           >
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.allOrganizationalUnits || [];
 
             return(

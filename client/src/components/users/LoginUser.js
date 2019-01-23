@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import { Form, Icon, Input, Button, Checkbox, Card, Spin, message } from 'antd';
 import { userQueries } from '../../queries/UserQueries';
@@ -35,7 +35,6 @@ class LoginUser extends React.Component {
 
   render () {
     const { getFieldDecorator } = this.props.form;
-
     if (this.props.loggedInUserQuery.loading) {
       return (
         <div className='w-100 pa4 flex justify-center'>
@@ -68,11 +67,9 @@ class LoginUser extends React.Component {
             })(
               <Checkbox>Remember me</Checkbox>
             )}
-            <Button className="login-form-forgot" href="">Forgot password</Button>
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button>
-            Or <Link to="/signup">register now!</Link>
           </FormItem>
         </Form>
       </Card>

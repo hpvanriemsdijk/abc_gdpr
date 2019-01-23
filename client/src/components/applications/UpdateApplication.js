@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_APPLICATION, UPDATE_APPLICATION } from '../../queries/ApplicationQueries';
-import { Modal, Form, Input, notification, Select } from 'antd';
+import { Modal, Form, Input, notification, Select, Spin } from 'antd';
 
 class UpdateApplication extends React.Component {
   state = {
@@ -56,26 +56,26 @@ class UpdateApplication extends React.Component {
           variables = {{ id: this.props.application.id }}
           skip = { !this.state.modalVisible}
           >
-          {({ loading, data }) => {
-            if( !this.state.modalVisible ) return null
+          {({ loading, data, error }) => {
+            if( !this.state.modalVisible || error) return null
             const ApplicationData = data.Application || [];
-            var loadingApplication = loading;
+            const loadingData = loading;
 
             return(
             <Mutation 
               mutation={UPDATE_APPLICATION}
               refetchQueries={["AllApplications"]}
               >
-              {(updateApplication, { loading, error, data }) => {
+              {(updateApplication, { loading }) => {
                 return (
                   <Modal
                     onOk={e => this.onUpdateApplication(updateApplication)}
                     onCancel={this.closeModal}
                     title="Update Application"
                     confirmLoading={loading}
-                    loading={loadingApplication}
                     visible={this.state.modalVisible}
                   >
+                  <Spin tip="Loading..." spinning={loadingData}>
                     <Form >
                       <Form.Item label="Name">
                         {form.getFieldDecorator('name', {
@@ -109,6 +109,7 @@ class UpdateApplication extends React.Component {
                       </Form.Item>  
 
                     </Form>
+                    </Spin>
                   </Modal>
                 );
               }}

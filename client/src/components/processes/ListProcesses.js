@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card } from 'antd';
+import { Table, Divider, Card, Empty } from 'antd';
 import { ALL_PROCESSES_TREE } from '../../queries/ProcessQueries';
 import CreateProcess from './CreateProcess'
 import UpdateProcess from './UpdateProcess'
 import DeleteProcess from './DeleteProcess'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
-import { ApolloError } from '../generic/apolloError'
 
 class ProcessTable extends React.Component {
   constructor(props) {
@@ -74,7 +73,7 @@ class ProcessTable extends React.Component {
           query = { ALL_PROCESSES_TREE }
           >
           {({ loading, error, data }) => {
-            if(error) return <ApolloError error={error} />
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.allProcesses || [];          
 
             return(

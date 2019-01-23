@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Tag } from 'antd';
+import { Table, Divider, Card, Tag, Empty } from 'antd';
 import { ALL_DATA_TYPES } from '../../queries/DataTypeQueries';
 import CreateDataType from './CreateDataType'
 import UpdateDataType from './UpdateDataType'
@@ -81,7 +81,8 @@ class DataTypeTable extends React.Component {
         <Query
           query = { ALL_DATA_TYPES }
           >
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.allDataTypes || [];
 
             return(

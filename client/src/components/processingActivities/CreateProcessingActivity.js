@@ -61,7 +61,7 @@ class CreateProcessingActivityModal extends React.Component {
           mutation={CREATE_PROCESSING_ACTIVITY}
           refetchQueries={["AllProcessingActivities"]}
           >
-          {(createProcessingActivity, { loading, error, data }) => {
+          {(createProcessingActivity, { loading }) => {
             return (
               <Modal
                 onOk={e => this.onCreateProcessingActivity(createProcessingActivity)}

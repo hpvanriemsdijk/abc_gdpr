@@ -1,6 +1,6 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card } from 'antd';
+import { Card, Empty } from 'antd';
 import { GET_APPLICATION } from '../../queries/ApplicationQueries';
 
 class viewApplication extends React.Component {
@@ -10,8 +10,8 @@ class viewApplication extends React.Component {
           query = { GET_APPLICATION }
           variables= {{ id: this.props.match.params.applicationId }}
           >
-
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.Application || [];
 
             return(

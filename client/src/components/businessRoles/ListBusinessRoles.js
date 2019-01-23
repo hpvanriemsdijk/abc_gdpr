@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card } from 'antd';
+import { Table, Divider, Card, Empty } from 'antd';
 import { ALL_BUSINESS_ROLES } from '../../queries/BusinessRoleQueries';
 import CreateBusinessRole from './CreateBusinessRole'
 import UpdateBusinessRole from './UpdateBusinessRole'
@@ -72,7 +72,8 @@ class BusinessRoleTable extends React.Component {
         <Query
           query = { ALL_BUSINESS_ROLES}
           >
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.allBusinessRoles || [];
 
             return(

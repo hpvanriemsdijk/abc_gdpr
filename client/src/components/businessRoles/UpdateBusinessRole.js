@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_BUSINESS_ROLE, UPDATE_BUSINESS_ROLE, businessRolesEnums } from '../../queries/BusinessRoleQueries';
-import { Modal, Form, Input, notification, Radio } from 'antd';
+import { Modal, Form, Input, notification, Radio, Spin } from 'antd';
 
 class UpdateBusinessRole extends React.Component {
   state = {
@@ -59,86 +59,86 @@ class UpdateBusinessRole extends React.Component {
           variables = {{ id: this.props.businessRole.id }}
           skip = { !this.state.modalVisible}
           >
-          {({ loading, data }) => {
-            if( !this.state.modalVisible ) return null
-          
+          {({ loading, data, error }) => {
+            if( !this.state.modalVisible || error ) return null
             const BusinessRoleData = data.BusinessRole || [];
-            var loadingBusinessRole = loading;
+            const loadingData = loading;
+
             return(
               <Mutation 
                 mutation={UPDATE_BUSINESS_ROLE}
                 refetchQueries={["AllBusinessRoles"]}
                 >
-                {(updateBusinessRole, { loading, error, data }) => {
+                {(updateBusinessRole, { loading }) => {
                   return (
                     <Modal
                       onOk={e => this.onUpdateBusinessRole(updateBusinessRole)}
                       onCancel={this.closeModal}
                       title="Update Business role"
                       confirmLoading={loading}
-                      loading={loadingBusinessRole}
                       visible={this.state.modalVisible}
-                    >
-                      <Form >
-                        <Form.Item label="Name">
-                          {form.getFieldDecorator('name', {
-                            initialValue: BusinessRoleData.name,
-                            rules: [
-                              { required: true, message: 'Please enter a name!' }
-                              ],
-                          })(<Input />)}
-                        </Form.Item>                        
-                        
-                        <Form.Item label="Description">
-                          {form.getFieldDecorator('description', {
-                            initialValue: BusinessRoleData.description,
-                            rules: [
-                              { required: true, message: 'Please enter a description!' }
-                              ],
-                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                        </Form.Item> 
+                      >
+                      <Spin tip="Loading..." spinning={loadingData}>
+                        <Form >
+                          <Form.Item label="Name">
+                            {form.getFieldDecorator('name', {
+                              initialValue: BusinessRoleData.name,
+                              rules: [
+                                { required: true, message: 'Please enter a name!' }
+                                ],
+                            })(<Input />)}
+                          </Form.Item>                        
+                          
+                          <Form.Item label="Description">
+                            {form.getFieldDecorator('description', {
+                              initialValue: BusinessRoleData.description,
+                              rules: [
+                                { required: true, message: 'Please enter a description!' }
+                                ],
+                            })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                          </Form.Item> 
 
-                        <Form.Item label="Executive responsibility">
-                          {form.getFieldDecorator('raciExecutive', {
-                            initialValue: BusinessRoleData.raciExecutive || undefined
-                          })(
-                              <Radio.Group buttonStyle="solid">
-                                {businessRolesEnums.raci.map(raci => <Radio.Button key={raci.value} value={raci.value || undefined}>{raci.label}</Radio.Button>)}
-                              </Radio.Group>
-                            )}              
-                        </Form.Item>
+                          <Form.Item label="Executive responsibility">
+                            {form.getFieldDecorator('raciExecutive', {
+                              initialValue: BusinessRoleData.raciExecutive || undefined
+                            })(
+                                <Radio.Group buttonStyle="solid">
+                                  {businessRolesEnums.raci.map(raci => <Radio.Button key={raci.value} value={raci.value || undefined}>{raci.label}</Radio.Button>)}
+                                </Radio.Group>
+                              )}              
+                          </Form.Item>
 
-                        <Form.Item label="Financial responsibility">
-                          {form.getFieldDecorator('raciFinancial', {
-                            initialValue: BusinessRoleData.raciFinancial || undefined
-                          })(
-                              <Radio.Group buttonStyle="solid">
-                                {businessRolesEnums.raci.map(raci => <Radio.Button key={raci.value} value={raci.value || undefined}>{raci.label}</Radio.Button>)}
-                              </Radio.Group>
-                            )}              
-                        </Form.Item>
+                          <Form.Item label="Financial responsibility">
+                            {form.getFieldDecorator('raciFinancial', {
+                              initialValue: BusinessRoleData.raciFinancial || undefined
+                            })(
+                                <Radio.Group buttonStyle="solid">
+                                  {businessRolesEnums.raci.map(raci => <Radio.Button key={raci.value} value={raci.value || undefined}>{raci.label}</Radio.Button>)}
+                                </Radio.Group>
+                              )}              
+                          </Form.Item>
 
-                        <Form.Item label="Security responsibility">
-                          {form.getFieldDecorator('raciSecurity', {
-                            initialValue: BusinessRoleData.raciSecurity || undefined
-                          })(
-                              <Radio.Group buttonStyle="solid">
-                                {businessRolesEnums.raci.map(raci => <Radio.Button key={raci.value} value={raci.value || undefined}>{raci.label}</Radio.Button>)}
-                              </Radio.Group>
-                            )}              
-                        </Form.Item>
+                          <Form.Item label="Security responsibility">
+                            {form.getFieldDecorator('raciSecurity', {
+                              initialValue: BusinessRoleData.raciSecurity || undefined
+                            })(
+                                <Radio.Group buttonStyle="solid">
+                                  {businessRolesEnums.raci.map(raci => <Radio.Button key={raci.value} value={raci.value || undefined}>{raci.label}</Radio.Button>)}
+                                </Radio.Group>
+                              )}              
+                          </Form.Item>
 
-                        <Form.Item label="Privacy responsibility">
-                          {form.getFieldDecorator('raciPrivacy', {
-                            initialValue: BusinessRoleData.raciPrivacy || undefined
-                          })(
-                              <Radio.Group buttonStyle="solid">
-                                {businessRolesEnums.raci.map(raci => <Radio.Button key={raci.value} value={raci.value || undefined}>{raci.label}</Radio.Button>)}
-                              </Radio.Group>
-                            )}              
-                        </Form.Item> 
-
-                      </Form>
+                          <Form.Item label="Privacy responsibility">
+                            {form.getFieldDecorator('raciPrivacy', {
+                              initialValue: BusinessRoleData.raciPrivacy || undefined
+                            })(
+                                <Radio.Group buttonStyle="solid">
+                                  {businessRolesEnums.raci.map(raci => <Radio.Button key={raci.value} value={raci.value || undefined}>{raci.label}</Radio.Button>)}
+                                </Radio.Group>
+                              )}              
+                          </Form.Item> 
+                        </Form>
+                      </Spin>
                     </Modal>
                   );
                 }}

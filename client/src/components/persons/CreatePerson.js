@@ -53,7 +53,7 @@ class CreatePersonModal extends React.Component {
           mutation={CREATE_PERSON}
           refetchQueries={["AllPersons"]}
           >
-          {(createPerson, { loading, error, data }) => {
+          {(createPerson, { loading }) => {
             return (
               <Modal
                 onOk={e => this.onCreatePerson(createPerson)}

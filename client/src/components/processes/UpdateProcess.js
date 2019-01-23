@@ -3,7 +3,7 @@ import { Query, Mutation, } from 'react-apollo'
 import { GET_PROCESS, UPDATE_PROCESS  } from '../../queries/ProcessQueries';
 import { ProcessesParentTree } from '../processes/ProcessesParentTree'
 import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
-import { Modal, Form, Input, notification } from 'antd';
+import { Modal, Form, Input, notification, Spin } from 'antd';
 
 class UpdateProcess extends React.Component {
   state = {
@@ -61,17 +61,17 @@ class UpdateProcess extends React.Component {
           variables = {{ id: this.props.process.id }}
           skip = { !this.state.modalVisible}
           >
-          {({ loading, data }) => {
-            if( !this.state.modalVisible ) return null
-            
+          {({ loading, data, error }) => {
+            if( !this.state.modalVisible || error ) return null
             const ProcessData = data.Process || [];
-            var loadingProcess = loading;
+            const loadingData = loading;
+            
             return(
               <Mutation 
                 mutation={UPDATE_PROCESS}
                 refetchQueries={["AllProcesses", "Process"]}
                 >
-                {(updateProcess, { updating, error, data }) => {
+                {(updateProcess, { updating }) => {
                   const processOwnerId = ProcessData.processOwner ? ProcessData.processOwner.id : null
 
                   return (
@@ -80,36 +80,37 @@ class UpdateProcess extends React.Component {
                       onCancel={this.closeModal}
                       title="Update process"
                       confirmLoading={updating}
-                      loading={loadingProcess}
                       visible={this.state.modalVisible}
                     >
-                      <Form >
-                        <Form.Item label="Name">
-                          {form.getFieldDecorator('name', {
-                            initialValue: ProcessData.name,
-                            rules: [
-                              { required: true, message: 'Please enter a name!' }
-                            ],
-                          })(<Input />)}
-                        </Form.Item>    
-                        <Form.Item label="Description">
-                          {form.getFieldDecorator('description', {
-                            initialValue: ProcessData.description,
-                            rules: [
-                              { required: true, message: 'Please enter a description!' }
-                            ],
-                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                        </Form.Item>  
-                        <Form.Item 
-                          label="Parent proces"
-                          extra="Can't select yourself, childeren in own line or result in 3+ levels.">
-                          { <ProcessesParentTree form={form} parentId={this.getParentId(ProcessData)} ownKey={ProcessData.id}/> }
-                        </Form.Item>
-                        <Form.Item 
-                          label="Process owner">
-                          { <BusinessRolessOptionsList form={form} id={processOwnerId}/> }
-                        </Form.Item>
-                      </Form>
+                      <Spin tip="Loading..." spinning={loadingData}>
+                        <Form >
+                          <Form.Item label="Name">
+                            {form.getFieldDecorator('name', {
+                              initialValue: ProcessData.name,
+                              rules: [
+                                { required: true, message: 'Please enter a name!' }
+                              ],
+                            })(<Input />)}
+                          </Form.Item>    
+                          <Form.Item label="Description">
+                            {form.getFieldDecorator('description', {
+                              initialValue: ProcessData.description,
+                              rules: [
+                                { required: true, message: 'Please enter a description!' }
+                              ],
+                            })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                          </Form.Item>  
+                          <Form.Item 
+                            label="Parent proces"
+                            extra="Can't select yourself, childeren in own line or result in 3+ levels.">
+                            { <ProcessesParentTree form={form} parentId={this.getParentId(ProcessData)} ownKey={ProcessData.id}/> }
+                          </Form.Item>
+                          <Form.Item 
+                            label="Process owner">
+                            { <BusinessRolessOptionsList form={form} id={processOwnerId}/> }
+                          </Form.Item>
+                        </Form>
+                      </Spin>
                     </Modal>
                   );
                 }}

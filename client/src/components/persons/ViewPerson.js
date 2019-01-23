@@ -1,6 +1,6 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card } from 'antd';
+import { Card, Empty } from 'antd';
 import { GET_PERSON } from '../../queries/PersonQueries';
 
 class viewPerson extends React.Component {
@@ -10,8 +10,8 @@ class viewPerson extends React.Component {
           query = { GET_PERSON }
           variables= {{ id: this.props.match.params.personId }}
           >
-
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.Person || [];
 
             return(

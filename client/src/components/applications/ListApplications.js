@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Tag } from 'antd';
+import { Table, Divider, Card, Tag, Empty } from 'antd';
 import { ALL_APPLICATIONS } from '../../queries/ApplicationQueries';
 import CreateApplication from './CreateApplication'
 import UpdateApplication from './UpdateApplication'
@@ -78,7 +78,8 @@ class ApplicationTable extends React.Component {
         <Query
           query = { ALL_APPLICATIONS }
           >
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.allApplications || [];
 
             return(

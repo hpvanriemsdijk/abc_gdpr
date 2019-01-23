@@ -58,7 +58,7 @@ class CreateProcessModal extends React.Component {
             mutation={CREATE_PROCESS}
             refetchQueries={["AllProcesses"]}
             >
-            {(createProcess, { loading, error, data }) => {
+            {(createProcess, { loading }) => {
               return (
                 <Modal
                   onOk={e => this.onCreateProcess(createProcess)}

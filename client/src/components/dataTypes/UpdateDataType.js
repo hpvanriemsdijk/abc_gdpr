@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_DATA_TYPE, UPDATE_DATA_TYPE } from '../../queries/DataTypeQueries';
-import { Modal, Form, Input, notification, Checkbox } from 'antd';
+import { Modal, Form, Input, notification, Checkbox, Spin } from 'antd';
 
 class UpdateDataType extends React.Component {
   state = {
@@ -57,59 +57,60 @@ class UpdateDataType extends React.Component {
           variables = {{ id: this.props.dataType.id }}
           skip = { !this.state.modalVisible}
           >
-          {({ loading, data }) => {
-            if( !this.state.modalVisible ) return null
-            
+          {({ loading, data, error }) => {
+            if( !this.state.modalVisible || error ) return null
             const DataTypeData = data.DataType || [];
-            var loadingDataType = loading;
+            const loadingData = loading;
+            
             return(
               <Mutation 
                 mutation={UPDATE_DATA_TYPE}
                 refetchQueries={["AllDataTypes"]}
                 >
-                {(updateDataType, { loading, error, data }) => {
+                {(updateDataType, { loading }) => {
                   return (
                     <Modal
                       onOk={e => this.onUpdateDataType(updateDataType)}
                       onCancel={this.closeModal}
                       title="Update data type"
                       confirmLoading={loading}
-                      loading={loadingDataType}
                       visible={this.state.modalVisible}
-                    >
-                      <Form >
-                        <Form.Item label="Name">
-                          {form.getFieldDecorator('name', {
-                            initialValue: DataTypeData.name,
-                            rules: [
-                              { required: true, message: 'Please enter a name!' }
-                              ],
-                          })(<Input />)}
-                        </Form.Item>   
-                        
-                        <Form.Item label="Description">
-                          {form.getFieldDecorator('description', {
-                            initialValue: DataTypeData.description,
-                            rules: [
-                              { required: true, message: 'Please enter a description!' }
-                              ],
-                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                        </Form.Item>  
+                      >
+                      <Spin tip="Loading..." spinning={loadingData}>
+                        <Form >
+                          <Form.Item label="Name">
+                            {form.getFieldDecorator('name', {
+                              initialValue: DataTypeData.name,
+                              rules: [
+                                { required: true, message: 'Please enter a name!' }
+                                ],
+                            })(<Input />)}
+                          </Form.Item>   
+                          
+                          <Form.Item label="Description">
+                            {form.getFieldDecorator('description', {
+                              initialValue: DataTypeData.description,
+                              rules: [
+                                { required: true, message: 'Please enter a description!' }
+                                ],
+                            })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                          </Form.Item>  
 
-                        <Form.Item label="Personal data">
-                          {form.getFieldDecorator('pii', {
-                            valuePropName: "checked",
-                            initialValue : DataTypeData.pii
-                          })(<Checkbox />)}
-                        </Form.Item>  
-                        <Form.Item label="Sensitive personal data">
-                          {form.getFieldDecorator('spii', {
-                            valuePropName: "checked",
-                            initialValue : DataTypeData.spii
-                          })(<Checkbox />)}
-                        </Form.Item>  
+                          <Form.Item label="Personal data">
+                            {form.getFieldDecorator('pii', {
+                              valuePropName: "checked",
+                              initialValue : DataTypeData.pii
+                            })(<Checkbox />)}
+                          </Form.Item>  
+                          <Form.Item label="Sensitive personal data">
+                            {form.getFieldDecorator('spii', {
+                              valuePropName: "checked",
+                              initialValue : DataTypeData.spii
+                            })(<Checkbox />)}
+                          </Form.Item>  
 
-                      </Form>
+                        </Form>
+                      </Spin>
                     </Modal>
                   );
                 }}

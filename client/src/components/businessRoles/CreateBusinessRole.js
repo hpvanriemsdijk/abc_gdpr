@@ -59,7 +59,7 @@ class CreateBusinessRoleModal extends React.Component {
           refetchQueries={["AllBusinessRoles"]}
           >
           
-          {(createBusinessRole, { loading, error, data }) => {
+          {(createBusinessRole, { loading }) => {
             return (
               <Modal
                 onOk={e => this.onCreateBusinessRole(createBusinessRole)}

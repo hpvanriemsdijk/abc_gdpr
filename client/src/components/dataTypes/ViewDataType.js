@@ -1,6 +1,6 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card } from 'antd';
+import { Card, Empty } from 'antd';
 import { GET_DATA_TYPE } from '../../queries/DataTypeQueries';
 
 class viewDataType extends React.Component {
@@ -10,8 +10,8 @@ class viewDataType extends React.Component {
           query = { GET_DATA_TYPE }
           variables= {{ id: this.props.match.params.dataTypeId }}
           >
-
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.DataType || [];
 
             return(

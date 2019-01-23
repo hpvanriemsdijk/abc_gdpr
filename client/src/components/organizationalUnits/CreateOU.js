@@ -55,7 +55,7 @@ class CreateOUModal extends React.Component {
           mutation={CREATE_OU}
           refetchQueries={["AllOrganizationalUnits"]}
           >
-          {(createOU, { loading, error, data }) => {
+          {(createOU, { loading }) => {
             return (
               <Modal
                 onOk={e => this.onCreateOU(createOU)}

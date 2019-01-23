@@ -15,7 +15,8 @@ export class ProcessesParentTree extends React.Component {
   render() {
     return (
       <Query query = { PROCESSES_OPTIONS_TREE } >
-        {({ loading, data }) => {     
+        {({ loading, data, error }) => {   
+          if (error) return <TreeSelect placeholder="Error loading..." />  
           if (loading) return <TreeSelect placeholder="Loading..." />
           const isDisabled = this.props.disabled || false;
 

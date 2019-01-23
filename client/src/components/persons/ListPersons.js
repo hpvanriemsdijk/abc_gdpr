@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card } from 'antd';
+import { Table, Divider, Card, Empty } from 'antd';
 import { ALL_PERSONS } from '../../queries/PersonQueries';
 import CreatePerson from './CreatePerson'
 import UpdatePerson from './UpdatePerson'
@@ -74,7 +74,8 @@ class PersonTable extends React.Component {
         <Query
           query = { ALL_PERSONS }
           >
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.allPersons || [];
 
             return(

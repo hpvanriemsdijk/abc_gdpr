@@ -9,10 +9,9 @@ export class BusinessRolessOptionsList extends React.Component {
   render() {
     return (
       <Query query = { BUSINESS_ROLES_OPTIONS_LIST } >
-        {({ loading, data }) => {     
-          if (loading) return (
-            <Select placeholder="Loading..." />
-          )
+        {({ loading, data, error }) => {     
+          if (loading) return <Select placeholder="Loading..." />
+          if (error) return <Select placeholder="Error loading..." />
 
           return(
             this.props.form.getFieldDecorator('processOwner', {

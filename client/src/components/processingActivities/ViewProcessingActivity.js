@@ -1,6 +1,6 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card } from 'antd';
+import { Card, Empty } from 'antd';
 import { GET_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
 
 class viewProcessingActivity extends React.Component {
@@ -10,8 +10,8 @@ class viewProcessingActivity extends React.Component {
           query = { GET_PROCESSING_ACTIVITY }
           variables= {{ id: this.props.match.params.processingActivityId }}
           >
-
-          {({ loading, data }) => {
+          {({ loading, data, error }) => {
+            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.ProcessingActivity || [];
 
             return(

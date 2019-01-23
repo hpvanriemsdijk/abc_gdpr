@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_OU, UPDATE_OU } from '../../queries/OUQueries';
-import { Modal, Form, Input, notification, Checkbox } from 'antd';
+import { Modal, Form, Input, notification, Checkbox, Spin } from 'antd';
 
 class UpdateOU extends React.Component {
   state = {
@@ -56,53 +56,53 @@ class UpdateOU extends React.Component {
           variables = {{ id: this.props.organizationalUnit.id }}
           skip = { !this.state.modalVisible}
           >
-          {({ loading, data }) => {
-            if( !this.state.modalVisible ) return null
-          
+          {({ loading, data, error }) => {
+            if( !this.state.modalVisible || error) return null
             const OUData = data.OrganizationalUnit || [];
-            var loadingOU = loading;
+            const loadingData = loading;
+
             return(
               <Mutation 
                 mutation={UPDATE_OU}
                 refetchQueries={["AllOrganizationalUnits"]}
                 >
-                {(updateOU, { loading, error, data }) => {
+                {(updateOU, { loading } ) => {
                   return (
                     <Modal
                       onOk={e => this.onUpdateOU(updateOU)}
                       onCancel={this.closeModal}
                       title="Update organizational unit"
                       confirmLoading={loading}
-                      loading={loadingOU}
                       visible={this.state.modalVisible}
                     >
-                      <Form >
-                        <Form.Item label="Name">
-                          {form.getFieldDecorator('name', {
-                            initialValue: OUData.name,
-                            rules: [
-                              { required: true, message: 'Please enter a name!' }
-                              ],
-                          })(<Input />)}
-                        </Form.Item>                        
-                        
-                        <Form.Item label="Description">
-                          {form.getFieldDecorator('description', {
-                            initialValue: OUData.description,
-                            rules: [
-                              { required: true, message: 'Please enter a description!' }
-                              ],
-                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                        </Form.Item>  
+                      <Spin tip="Loading..." spinning={loadingData}>
+                        <Form >
+                          <Form.Item label="Name">
+                            {form.getFieldDecorator('name', {
+                              initialValue: OUData.name,
+                              rules: [
+                                { required: true, message: 'Please enter a name!' }
+                                ],
+                            })(<Input />)}
+                          </Form.Item>                        
+                          
+                          <Form.Item label="Description">
+                            {form.getFieldDecorator('description', {
+                              initialValue: OUData.description,
+                              rules: [
+                                { required: true, message: 'Please enter a description!' }
+                                ],
+                            })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                          </Form.Item>  
 
-                        <Form.Item label="Legal entity">
-                          {form.getFieldDecorator('legalEntity', {
-                            valuePropName: "checked",
-                            initialValue : OUData.legalEntity
-                          })(<Checkbox />)}
-                        </Form.Item>  
-
-                      </Form>
+                          <Form.Item label="Legal entity">
+                            {form.getFieldDecorator('legalEntity', {
+                              valuePropName: "checked",
+                              initialValue : OUData.legalEntity
+                            })(<Checkbox />)}
+                          </Form.Item>  
+                        </Form>
+                      </Spin>
                     </Modal>
                   );
                 }}
