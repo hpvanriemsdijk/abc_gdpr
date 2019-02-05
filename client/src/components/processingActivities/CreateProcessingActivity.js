@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
-import { ProcessesParentTree } from '../processes/ProcessesParentTree'
+import { ProcessesTree } from '../processes/ProcessesTree'
 import { Modal, Form, Input, Button, notification } from 'antd';
 
 class CreateProcessingActivityModal extends React.Component {
@@ -48,7 +48,7 @@ class CreateProcessingActivityModal extends React.Component {
   };
 
   parentProces = (form, props) => {
-    if(!props.processId) return <Form.Item label="Parent proces" ><ProcessesParentTree form={form} /> </Form.Item>
+    if(!props.processId) return <Form.Item label="Parent proces" ><ProcessesTree form={form} parentTree={false} /> </Form.Item>
   }
 
   render() {

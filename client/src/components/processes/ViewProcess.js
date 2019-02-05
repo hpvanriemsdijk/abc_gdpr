@@ -1,13 +1,15 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card, Row, Col, Empty } from 'antd';
+import { Card, Row, Col, Empty, Icon } from 'antd';
 import { GET_PROCESS, PROCESSES_BRANCH } from '../../queries/ProcessQueries';
+import { OU_BRANCH } from '../../queries/OUQueries';
 import ViewBusinessRole from '../businessRoles/ViewBusinessRole'
-import ViewOU from '../organizationalUnits/ViewOU'
+import { OUInfoCard } from '../organizationalUnits/ViewOU'
 import UpdateProcess from './UpdateProcess'
 import ProcessingActivityTable from '../processingActivities/ListProcessingActivities'
 import { ObjectModifiedDate, InfoLink } from '../generic/viewHelpers'
 import  '../generic/treeHelpers.css'
+import { orderBranch, orderParents} from '../generic/treeHelpers'
 
 class ProcesInfoCard extends React.Component {
   getProcessOwner = (obj) => {
@@ -18,9 +20,34 @@ class ProcesInfoCard extends React.Component {
     }
   }
 
+  renderBranch = (orderPath) => {
+    let branch = [<InfoLink key={orderPath.id} target={{label: orderPath.name, linkPath: "/units", id: orderPath.id, Component: OUInfoCard}}/>]
+    if(orderPath.child){
+      branch.push(<span key={1}> <Icon type="arrow-right" /> <InfoLink key={orderPath.child.id} target={{label: orderPath.child.name, linkPath: "/units", id: orderPath.child.id, Component: OUInfoCard}}/></span>)
+      if(orderPath.child.child){
+        branch.push(<span key={2}> <Icon type="arrow-right" /> <InfoLink key={orderPath.child.child.id} target={{label: orderPath.child.child.name, linkPath: "/units", id: orderPath.child.child.id, Component: OUInfoCard}}/> </span>)
+      }
+    }
+
+    return branch
+  }
+
   getOu = (obj) => {
     if(obj.organizationalUnit){
-      return <InfoLink target={{label: obj.organizationalUnit.name, linkPath: "/units", id: obj.organizationalUnit.id, Component: ViewOU}}/>
+      return(
+        <Query
+          query = { OU_BRANCH }
+          variables= {{ id: obj.organizationalUnit.id }}
+          >
+          {({ loading, data, error }) => {
+            if(error) return "No organizational unit assigned"
+            if(loading) return "Loading organizational unit"
+            const dataSource = data.OrganizationalUnit || [];
+            const orderedParents = orderParents(dataSource)
+            return this.renderBranch(orderedParents)
+          }}
+        </Query>
+      )
     } else {
       return "No organizational unit assigned"
     }
@@ -33,7 +60,7 @@ class ProcesInfoCard extends React.Component {
   objectModifiedDate = (simplefied, obj) => {
     if(!simplefied) return (
       <Row type="flex" justify="end">
-        <Col span={8} style={{ textAlign:'right' }}><ObjectModifiedDate>{obj}</ObjectModifiedDate></Col>
+        <Col style={{ textAlign:'right' }}><ObjectModifiedDate>{obj}</ObjectModifiedDate></Col>
       </Row>
     )
   }
@@ -78,28 +105,6 @@ class ProcesInfoCard extends React.Component {
 }    
 
 class ProcesBranchCard extends React.Component {
-  orderBranch = obj => { 
-    var tmp = {id: obj.id, name: obj.name, child: [], current: true }
-
-    //Order childeren
-    if(obj.children) obj.children.forEach(function(itemsL2, i){
-      tmp.child[i] = {id: itemsL2.id, name: itemsL2.name, child: []};
-      if(itemsL2.children) itemsL2.children.forEach(function(itemsL3, y){
-        tmp.child[i].child[y] = {id: itemsL3.id, name: itemsL3.name, child: []};
-      })
-    })
-
-    //Order Parents
-    if(obj.parent){
-      tmp = {id: obj.parent.id, name: obj.parent.name, child: [tmp] }
-      if(obj.parent.parent){
-        tmp = {id: obj.parent.parent.id, name: obj.parent.parent.name, child: [tmp] }
-      }      
-    }
-
-    return tmp
-  };
-
   Leaf = leaf =>{
     if(leaf.children.current){
       return <strong>{leaf.children.name}</strong>
@@ -140,7 +145,7 @@ class ProcesBranchCard extends React.Component {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
 
           const dataSource = data.Process || [];
-          const orderedBranch = this.orderBranch(dataSource)
+          const orderedBranch = orderBranch(dataSource)
           
           return(
             <Card 
@@ -174,10 +179,8 @@ class viewProcess extends React.Component {
       tab: 'Applications',
     }];
     
-    const contentListNoTitle = {
-      processingActivity: <ProcessingActivityTable 
-                            processId = { this.props.match.params.processId }
-                            />,
+    const tabbedContent = {
+      processingActivity: <ProcessingActivityTable processId = { this.props.match.params.processId } />,
       applications: <p>applications</p>
     };
 
@@ -199,7 +202,7 @@ class viewProcess extends React.Component {
               activeTabKey={this.state.tabkey}
               onTabChange={(key) => { this.setState( { tabkey: key }); }}
               >
-              {contentListNoTitle[this.state.tabkey]}
+              {tabbedContent[this.state.tabkey]}
             </Card>
           </Col>
         </Row>                

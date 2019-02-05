@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Empty } from 'antd';
-import { ALL_PROCESSES_TREE } from '../../queries/ProcessQueries';
+import { Table, Divider, Card, Empty, Alert } from 'antd';
+import { ALL_PROCESSES_TREE, PROCESSES_TREE_BY_OU } from '../../queries/ProcessQueries';
 import CreateProcess from './CreateProcess'
 import UpdateProcess from './UpdateProcess'
 import DeleteProcess from './DeleteProcess'
@@ -34,6 +34,72 @@ class ProcessTable extends React.Component {
     this.setState({ filteredInfo: null });
   }
 
+  getFilter = (props) =>{
+    if(props.organizationalUnitId) return { filter: { parent: null, organizationalUnit: { id: props.organizationalUnitId } } }
+    return { filter:{parent: null} }
+  }
+
+  allProcesses = (columns) =>{
+    return (
+      <Query
+        query = { ALL_PROCESSES_TREE }
+        variables = { this.getFilter(this.props) }
+        >
+        {({ loading, error, data }) => {
+          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+          const dataSource = data.allProcesses || [];    
+
+          return(
+            <React.Fragment>  
+              <Card title="Processes" extra={<CreateProcess />} style={{ background: '#fff' }}>
+              <Alert
+                message="Informational Note"
+                description="You are looking at all processes from all OU's right now, you might want to drill down starting from the OU view."
+                type="info"
+                closable
+                showIcon
+              />
+
+              <Table 
+                loading={loading}
+                rowKey={record => record.id}
+                dataSource={dataSource}
+                columns={columns} 
+                onChange={this.handleChange} 
+                />
+              </Card>
+            </React.Fragment>  
+          )}}
+      </Query>
+    )  
+  }
+
+  processesByOu = (columns) => {
+    return (
+      <Query
+        query = { PROCESSES_TREE_BY_OU }
+        variables = {{ organizationalUnitId: this.props.organizationalUnitId }}
+        >
+        {({ loading, error, data }) => {
+          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+          const dataSource = data.procesTreeByOu || [];    
+
+          //Component called from process details vieuw
+          return(
+            <Table 
+              loading={loading}
+              rowKey={record => record.id}
+              dataSource={dataSource}
+              columns={columns} 
+              onChange={this.handleChange} 
+              title={() => <CreateProcess organizationalUnitId={this.props.organizationalUnitId}/>}
+              />         
+          )
+        }}
+      </Query>
+    )  
+  }
+
   render () {
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
@@ -48,11 +114,11 @@ class ProcessTable extends React.Component {
       ...clientSideFilter('name', this.searchInput, this.handleSearch, this.handleReset),
       ...filterHighlighter( 'name', filteredInfo )
     },{
-      title: 'Description',
-      key: 'description',
-      dataIndex: 'description',
-      ...clientSideFilter('description', this.searchInput, this.handleSearch, this.handleReset),
-      ...filterHighlighter( 'description', filteredInfo )
+      title: 'Organizational Unit',
+      key: 'organizationalUnit.name',
+      dataIndex: 'organizationalUnit.name',
+      ...clientSideFilter('organizationalUnit.name', this.searchInput, this.handleSearch, this.handleReset),
+      ...filterHighlighter( 'organizationalUnit.name', filteredInfo )
     },{
       title: 'Action',
       dataIndex: 'action',
@@ -67,30 +133,12 @@ class ProcessTable extends React.Component {
         </span>
       ),
     }];
-    
-    return (
-        <Query
-          query = { ALL_PROCESSES_TREE }
-          >
-          {({ loading, error, data }) => {
-            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.allProcesses || [];          
 
-            return(
-              <React.Fragment>  
-                <Card title="Processes" extra={<CreateProcess />} style={{ background: '#fff' }}>
-                <Table 
-                  loading={loading}
-                  rowKey={record => record.id}
-                  dataSource={dataSource}
-                  columns={columns} 
-                  onChange={this.handleChange} 
-                  />
-                </Card>
-              </React.Fragment>  
-            )}}
-        </Query>
-    )
+    if(this.props.organizationalUnitId){
+      return this.processesByOu(columns);
+    }else{
+      return this.allProcesses(columns);
+    }
   }
 }
 

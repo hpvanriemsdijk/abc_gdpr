@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Row, Empty } from 'antd';
+import { Table, Divider, Card, Empty } from 'antd';
 import { ALL_PROCESSING_ACTIVITIES } from '../../queries/ProcessingActivitiesQueries';
 import CreateProcessingActivity from './CreateProcessingActivity'
 import UpdateProcessingActivity from './UpdateProcessingActivity'
@@ -84,18 +84,14 @@ class ProcessingActivityTable extends React.Component {
 
             //Component called from process details vieuw
             if(this.props.processId) return(
-              <span>
-                <Row>
-                  <Table 
-                    loading={loading}
-                    rowKey={record => record.id}
-                    dataSource={dataSource}
-                    columns={columns} 
-                    onChange={this.handleChange} 
-                    title={() => <CreateProcessingActivity processId={this.props.processId}/>}
-                    />
-                </Row>
-              </span>
+              <Table 
+                loading={loading}
+                rowKey={record => record.id}
+                dataSource={dataSource}
+                columns={columns} 
+                onChange={this.handleChange} 
+                title={() => <CreateProcessingActivity processId={this.props.processId}/>}
+                />
             )
 
             return(

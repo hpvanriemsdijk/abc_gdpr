@@ -1,7 +1,8 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_PROCESS } from '../../queries/ProcessQueries';
-import { ProcessesParentTree } from '../processes/ProcessesParentTree'
+import { ProcessesTree } from './ProcessesTree'
+import { OuTree } from '../organizationalUnits/OuTree'
 import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
 import { Modal, Form, Input, Button, notification } from 'antd';
 
@@ -34,7 +35,8 @@ class CreateProcessModal extends React.Component {
           name: values.name,
           description: values.description,
           parent: values.process,
-          processOwner: values.processOwner
+          processOwner: values.processOwner,
+          organizationalUnit: values.organizationalUnit || this.props.organizationalUnitId || undefined
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Process",
@@ -48,15 +50,20 @@ class CreateProcessModal extends React.Component {
     });
   };
 
+  parentOrganizationalUnit = () => {
+    const { form, organizationalUnitId } = this.props;
+    if(!organizationalUnitId) return <Form.Item label="Organizational Unit" ><OuTree form={form} parentTree={false} /> </Form.Item>
+  }
+
   render() {
-    const { form } = this.props;
+    const { form, organizationalUnitId } = this.props;
     const { TextArea } = Input;
 
     return (
       <React.Fragment>
           <Mutation 
             mutation={CREATE_PROCESS}
-            refetchQueries={["AllProcesses"]}
+            refetchQueries={["AllProcesses", "AllOrganizationalUnits"]}
             >
             {(createProcess, { loading }) => {
               return (
@@ -86,13 +93,15 @@ class CreateProcessModal extends React.Component {
                     <Form.Item 
                       label="Parent proces"
                       extra="Can't select yourself, childeren in own line or result in 3+ levels.">
-                      { <ProcessesParentTree form={form} /> }
+                      { <ProcessesTree form={form} parentTree={true} organizationalUnitId={organizationalUnitId} /> }
                     </Form.Item>
                     
                     <Form.Item 
                       label="Process owner">
                       { <BusinessRolessOptionsList form={form} /> }
                     </Form.Item>
+
+                    {this.parentOrganizationalUnit()}
                   </Form>
                 </Modal>
               );

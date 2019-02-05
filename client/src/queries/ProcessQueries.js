@@ -19,11 +19,12 @@ export const ALL_PROCESSES_TREE = gql`
 		name
 		description
 		processOwner { id }
+		organizationalUnit { name }
 	}
 	
-	query AllProcesses {
+	query AllProcesses ($filter: ProcessFilter) {
 		allProcesses(
-			filter:{parent: null}
+			filter:$filter
 		){
 		...processTreeAllInfo
 			children {
@@ -36,16 +37,33 @@ export const ALL_PROCESSES_TREE = gql`
 	}
 `;
 
+export const PROCESSES_TREE_BY_OU = gql`
+	query procesTreeByOu ($organizationalUnitId: ID!) {
+		procesTreeByOu(organizationalUnitId:$organizationalUnitId){
+			id
+			name
+			description
+			children
+			organizationalUnit
+			createdAt
+			updatedAt 
+		}
+	}
+`;
+
+
 //Max 3 levels
+// ProcessFilter = {parent: null}
+// ProcessFilter = {AND: [{parent: null}, {organizationalUnit: {id:"cjrcga2fg06hv0169xw9nxzft"}}] }
 export const PROCESSES_OPTIONS_TREE = gql`
 	fragment processTreeInfo on Process {
 		value: id
 		title: name
 	}
 	
-	query ProcessTree {
+	query ProcessTree ($filter: ProcessFilter) {
 		allProcesses(
-			filter:{parent: null}
+			filter:$filter
 		){
 		...processTreeInfo
 			children {
@@ -85,12 +103,13 @@ export const PROCESSES_BRANCH = gql`
 
 
 export const CREATE_PROCESS = gql`
-	mutation CreateProcess ($name: String!, $description: String, $parent: ID, $processOwner: ID ) {
+	mutation CreateProcess ($name: String!, $description: String, $parent: ID, $processOwner: ID, $organizationalUnit: ID ) {
 		createProcess(	
 			name: $name, 
 			description: $description, 
 			parentId: $parent
 			processOwnerId: $processOwner
+			organizationalUnitId: $organizationalUnit
 		){
 			id
 		}
@@ -105,6 +124,7 @@ export const GET_PROCESS = gql`
 			description
 			parent { id }
 			processOwner { id, name }
+			organizationalUnit { id, name }
 			createdAt
 			updatedAt
 		}
@@ -112,13 +132,14 @@ export const GET_PROCESS = gql`
 `;
 
 export const UPDATE_PROCESS = gql`
-	mutation UpdateProcess ($id: ID!, $name: String!, $description: String, $parent: ID, $processOwner: ID) {
+	mutation UpdateProcess ($id: ID!, $name: String!, $description: String, $parent: ID, $processOwner: ID, $organizationalUnit: ID) {
 		updateProcess(
 			id: $id, 
 			name: $name, 
 			description: $description,
 			parentId: $parent
 			processOwnerId: $processOwner
+			organizationalUnitId: $organizationalUnit
 		) {
 			id
 		}

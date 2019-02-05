@@ -1,8 +1,9 @@
 import React from 'react'
 import { Query, Mutation, } from 'react-apollo'
 import { GET_PROCESS, UPDATE_PROCESS  } from '../../queries/ProcessQueries';
-import { ProcessesParentTree } from '../processes/ProcessesParentTree'
+import { ProcessesTree } from './ProcessesTree'
 import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
+import { OuTree } from '../organizationalUnits/OuTree'
 import { Modal, Form, Input, notification, Spin } from 'antd';
 
 class UpdateProcess extends React.Component {
@@ -28,7 +29,8 @@ class UpdateProcess extends React.Component {
           name: values.name,
           description: values.description,
           parent: values.process || null,
-          processOwner: values.processOwner || null
+          processOwner: values.processOwner || null,
+          organizationalUnit: values.organizationalUnit || this.props.organizationalUnitId || undefined
         }}).catch( res => {
           notification['warning']({
             message: "Could not update Process",
@@ -41,14 +43,6 @@ class UpdateProcess extends React.Component {
       }
     });
   };
-
-  getParentId = (record) => {
-    if(record.parent){
-      return record.parent.id || null
-    }else{
-      return null
-    }
-  }
 
   render() {
     const { form } = this.props;
@@ -64,6 +58,9 @@ class UpdateProcess extends React.Component {
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
             const ProcessData = data.Process || [];
+            const processOwnerId = ProcessData.processOwner ? ProcessData.processOwner.id : null
+            const processParentId = ProcessData.parent ? ProcessData.parent.id : null
+            const organizationalUnitId = ProcessData.organizationalUnit ? ProcessData.organizationalUnit.id : null
             const loadingData = loading;
             
             return(
@@ -72,8 +69,6 @@ class UpdateProcess extends React.Component {
                 refetchQueries={["AllProcesses", "Process"]}
                 >
                 {(updateProcess, { updating }) => {
-                  const processOwnerId = ProcessData.processOwner ? ProcessData.processOwner.id : null
-
                   return (
                     <Modal
                       onOk={e => this.onUpdateProcess(updateProcess)}
@@ -103,11 +98,14 @@ class UpdateProcess extends React.Component {
                           <Form.Item 
                             label="Parent proces"
                             extra="Can't select yourself, childeren in own line or result in 3+ levels.">
-                            { <ProcessesParentTree form={form} parentId={this.getParentId(ProcessData)} ownKey={ProcessData.id}/> }
+                            { <ProcessesTree form={form} parentId={processParentId} ownKey={ProcessData.id} parentTree={true} organizationalUnitId={organizationalUnitId}/> }
                           </Form.Item>
                           <Form.Item 
                             label="Process owner">
                             { <BusinessRolessOptionsList form={form} id={processOwnerId}/> }
+                          </Form.Item>
+                          <Form.Item label="Organizational Unit" >
+                            <OuTree form={form} parentId={organizationalUnitId} parentTree={false} /> 
                           </Form.Item>
                         </Form>
                       </Spin>

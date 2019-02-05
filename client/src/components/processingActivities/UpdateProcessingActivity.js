@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_PROCESSING_ACTIVITY, UPDATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
-import { ProcessesParentTree } from '../processes/ProcessesParentTree'
+import { ProcessesTree } from '../processes/ProcessesTree'
 import { Modal, Form, Input, notification, Spin } from 'antd';
 
 class UpdateProcessingActivity extends React.Component {
@@ -109,7 +109,7 @@ class UpdateProcessingActivity extends React.Component {
 
                           <Form.Item 
                             label="Parent proces">
-                            { <ProcessesParentTree form={form} parentId={ process.id } /> }
+                            { <ProcessesTree form={form} parentId={ process.id } parentTree={false} /> }
                           </Form.Item>
                         </Form>
                       </Spin>

@@ -1,7 +1,9 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_OU, UPDATE_OU } from '../../queries/OUQueries';
-import { Modal, Form, Input, notification, Checkbox, Spin } from 'antd';
+import { Modal, Form, Input, notification, Spin } from 'antd';
+import { OUTypesOptionsList } from '../organizationalUnitTypes/OUTypesOptionsList'
+import { OuTree } from './OuTree'
 
 class UpdateOU extends React.Component {
   state = {
@@ -31,7 +33,8 @@ class UpdateOU extends React.Component {
           id: this.props.organizationalUnit.id,
           name: values.name,
           description: values.description,
-          legalEntity: values.legalEntity
+          parent: values.organizationalUnit,
+          organizationalUnitType: values.organizationalUnitType,
         }}).catch( res => {
           notification['warning']({
             message: "Could not update OU",
@@ -54,11 +57,13 @@ class UpdateOU extends React.Component {
         <Query
           query = { GET_OU }
           variables = {{ id: this.props.organizationalUnit.id }}
-          skip = { !this.state.modalVisible}
+          skip = { !this.state.modalVisible } 
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error) return null
             const OUData = data.OrganizationalUnit || [];
+            const ouTypeId = OUData.organizationalUnitType ? OUData.organizationalUnitType.id : null
+            const ouParentId = OUData.parent ? OUData.parent.id : null
             const loadingData = loading;
 
             return(
@@ -84,8 +89,7 @@ class UpdateOU extends React.Component {
                                 { required: true, message: 'Please enter a name!' }
                                 ],
                             })(<Input />)}
-                          </Form.Item>                        
-                          
+                          </Form.Item>        
                           <Form.Item label="Description">
                             {form.getFieldDecorator('description', {
                               initialValue: OUData.description,
@@ -94,13 +98,15 @@ class UpdateOU extends React.Component {
                                 ],
                             })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                           </Form.Item>  
-
-                          <Form.Item label="Legal entity">
-                            {form.getFieldDecorator('legalEntity', {
-                              valuePropName: "checked",
-                              initialValue : OUData.legalEntity
-                            })(<Checkbox />)}
-                          </Form.Item>  
+                          <Form.Item 
+                            label="Unit type">
+                            { <OUTypesOptionsList form={form} id={ouTypeId} /> }
+                          </Form.Item>
+                          <Form.Item 
+                            label="Parent unit"
+                            extra="Can't select yourself, childeren in own line or result in 3+ levels.">
+                            { <OuTree form={form} parentId={ouParentId} ownKey={OUData.id} parentTree={true} /> }
+                          </Form.Item>
                         </Form>
                       </Spin>
                     </Modal>

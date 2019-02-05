@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Tag, Empty } from 'antd';
-import { ALL_OUS } from '../../queries/OUQueries';
+import { Table, Divider, Card, Empty } from 'antd';
+import { ALL_OUS_TREE } from '../../queries/OUQueries';
 import CreateOU from './CreateOU'
 import UpdateOU from './UpdateOU'
 import DeleteOU from './DeleteOU'
@@ -48,28 +48,11 @@ class OUTable extends React.Component {
       ...clientSideFilter('name', this.searchInput, this.handleSearch, this.handleReset),
       ...filterHighlighter( 'name', filteredInfo )
     },{
-      title: 'Description',
-      key: 'description',
-      dataIndex: 'description',
-      ...clientSideFilter('description', this.searchInput, this.handleSearch, this.handleReset),
-      ...filterHighlighter( 'description', filteredInfo )
-    },{
-      title: 'Legal Entity',
-      key: 'legalEntity',
-      dataIndex: 'legalEntity',
-      sorter: (a, b) => a.legalEntity - b.legalEntity,
-      sortOrder: sortedInfo.columnKey === 'legalEntity' && sortedInfo.order,
-      render: (text) => {
-        if (text) {
-          return (
-            <Tag color="blue">yes</Tag>
-            );
-        }else{
-          return (
-            <Tag color="blue">No</Tag>
-            );
-        }
-      }
+      title: 'Type',
+      key: 'organizationalUnitType.id',
+      dataIndex: 'organizationalUnitType.name',
+      sorter: (a, b) => a.organizationalUnitType.name - b.organizationalUnitType.name,
+      sortOrder: sortedInfo.columnKey === 'organizationalUnitType.id' && sortedInfo.order,
     },{
       title: 'Processes',
       key: 'processes',
@@ -93,12 +76,11 @@ class OUTable extends React.Component {
     
     return (
         <Query
-          query = { ALL_OUS }
+          query = { ALL_OUS_TREE }
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
             const dataSource = data.allOrganizationalUnits || [];
-
             return(
               <React.Fragment>  
                 <Card title="Organizational units" extra={<CreateOU />} style={{ background: '#fff' }}>

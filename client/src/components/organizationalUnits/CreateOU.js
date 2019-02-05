@@ -1,7 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_OU } from '../../queries/OUQueries';
-import { Modal, Form, Input, Button, notification, Checkbox } from 'antd';
+import { Modal, Form, Input, Button, notification } from 'antd';
+import { OUTypesOptionsList } from '../organizationalUnitTypes/OUTypesOptionsList'
+import { OuTree } from '../organizationalUnits/OuTree'
 
 class CreateOUModal extends React.Component {
   state = {
@@ -31,7 +33,8 @@ class CreateOUModal extends React.Component {
         await createOU({ variables: {
           name: values.name,
           description: values.description,
-          legalEntity: values.legalEntity || false
+          parent: values.organizationalUnit,
+          organizationalUnitType: values.organizationalUnitType,
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Organisational Unit",
@@ -79,17 +82,21 @@ class CreateOUModal extends React.Component {
                       ],
                     })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                   </Form.Item>
-                  <Form.Item label="Legal entity">
-                    {form.getFieldDecorator('legalEntity', {
-                      
-                    })(<Checkbox />)}
-                  </Form.Item> 
+                  <Form.Item 
+                    label="Unit type">
+                    { <OUTypesOptionsList form={form} /> }
+                  </Form.Item>
+                  <Form.Item 
+                    label="Parent unit"
+                    extra="Can't select yourself, childeren in own line or result in 3+ levels.">
+                    { <OuTree form={form} parentTree={true}  /> }
+                  </Form.Item>
                 </Form>
               </Modal>
             );
           }}
         </Mutation>
-        <Button onClick={this.showModal} type="primary">
+        <Button onClick={this.showModal} type="primary" icon="plus-circle">
           New Organizational Unit
         </Button>
       </React.Fragment>

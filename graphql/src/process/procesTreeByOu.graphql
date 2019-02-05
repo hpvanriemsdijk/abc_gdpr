@@ -1,0 +1,20 @@
+type ProcesTreeByOu {
+  id: ID
+  name: String
+  description: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  children: [Json]
+  organizationalUnit: Json
+
+  # Relations
+  #children: [Process!]! @relation(name: "ProcessToProcess")
+  #parent: Process @relation(name: "ProcessToProcess")
+  #organizationalUnit: OrganizationalUnit @relation(name: "OUProces")
+  #processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivities")
+  #processOwner: BusinessRole @relation(name: "BusinessRoleProcess")
+}
+
+extend type Query {
+  procesTreeByOu(organizationalUnitId: ID!): [ProcesTreeByOu!]
+}

@@ -1,4 +1,14 @@
-export const prepOptionsTree = (obj, ownKey = null) => {
+/*
+ *  ownKey: The leaf ownKey will be highlighted as current leaf
+ *  parentTree: if true, 3rd level will be disabled. if false 3rd level will be selecable
+ * 
+ * Take tree object and 
+ * - Disable the own key (if ownKey is set)
+ * - Remove everything deeper than 2 levels of nesting (3 levels, if parentTree is true)
+ * - Prevent creating a loop --> cant select childeren in own tree
+ * - Disable options that will lead to nesting deeper than 3 levels
+ */
+export const prepOptionsTree = (obj, ownKey = null, parentTree = false) => {
   var disableLine = false;
   var ownDepth = 0;
 
@@ -25,7 +35,7 @@ export const prepOptionsTree = (obj, ownKey = null) => {
         ? itemsL2.disabled = true 
         : itemsL2.disabled = false 
       if(itemsL2.children) itemsL2.children.forEach(function(itemsL3){
-        itemsL3.disabled = true 
+        parentTree ? itemsL3.disabled = true : itemsL3.disabled = false;
         if(itemsL3.children) itemsL3.children = null 
       })
     })
@@ -47,3 +57,39 @@ const getDepth = (obj) => {
   }
   return 1 + depth
 }
+
+export const orderBranch = obj => { 
+  var tmp = {id: obj.id, name: obj.name, child: [], current: true }
+
+  //Order childeren
+  if(obj.children) obj.children.forEach(function(itemsL2, i){
+    tmp.child[i] = {id: itemsL2.id, name: itemsL2.name, child: []};
+    if(itemsL2.children) itemsL2.children.forEach(function(itemsL3, y){
+      tmp.child[i].child[y] = {id: itemsL3.id, name: itemsL3.name, child: []};
+    })
+  })
+
+  //Order Parents
+  if(obj.parent){
+    tmp = {id: obj.parent.id, name: obj.parent.name, child: [tmp] }
+    if(obj.parent.parent){
+      tmp = {id: obj.parent.parent.id, name: obj.parent.parent.name, child: [tmp] }
+    }      
+  }
+
+  return tmp
+};
+
+export const orderParents = obj => { 
+  var tmp = {id: obj.id, name: obj.name, child: null, current: true }
+  
+  //Order Parents
+  if(obj.parent){
+    tmp = {id: obj.parent.id, name: obj.parent.name, child: tmp }
+    if(obj.parent.parent){
+      tmp = {id: obj.parent.parent.id, name: obj.parent.parent.name, child: tmp }
+    }      
+  }
+
+  return tmp
+};

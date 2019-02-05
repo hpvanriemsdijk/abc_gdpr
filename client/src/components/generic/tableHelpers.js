@@ -2,6 +2,19 @@ import React from 'react'
 import { Input, Button, Icon } from 'antd'
 import Highlighter from "react-highlight-words"
 
+function getProperty( propertyName, object ) {
+  var parts = propertyName.split( "." ),
+    length = parts.length,
+    i,
+    property = object || this;
+
+  for ( i = 0; i < length; i++ ) {
+    property = property[parts[i]] || [];
+  }
+
+  return property;
+}
+
 const clientSideFilter = (dataIndex, searchInput, handleSearch, handleReset) => ({
     filterDropdown: ({
       setSelectedKeys, selectedKeys, confirm, clearFilters,
@@ -39,7 +52,10 @@ const clientSideFilter = (dataIndex, searchInput, handleSearch, handleReset) => 
       </div>
     )},
     filterIcon: filtered => <Icon type="search" style={{ color: filtered ? '#1890ff' : undefined }} />,
-    onFilter: (value, record) => record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+    onFilter: (value, record) => {
+      let text = getProperty(dataIndex, record);
+      return text.toString().toLowerCase().includes(value.toLowerCase())
+    },
     onFilterDropdownVisibleChange: (visible) => {
       if (visible) {
         setTimeout(() => searchInput.select());
@@ -48,7 +64,7 @@ const clientSideFilter = (dataIndex, searchInput, handleSearch, handleReset) => 
   })
 
   const filterHighlighter = (dataIndex, searchInput) => ({
-    render: (text) => {
+    render: (text = "") => {
       let searchText = searchInput[dataIndex] || [null]
 
       return(

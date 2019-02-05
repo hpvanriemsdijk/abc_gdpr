@@ -58,13 +58,30 @@ type OrganizationalUnit @model {
   id: ID! @isUnique
   name: String!
   description: String
-  legalEntity: Boolean
+  createdAt: DateTime! 
+  updatedAt: DateTime! 
   
   # Relations
+  children: [OrganizationalUnit!]! @relation(name: "OuToOu")
+  parent: OrganizationalUnit @relation(name: "OuToOu")
   processes: [Process!]! @relation(name: "OUProces")
   businessRoles: [BusinessRole!]! @relation(name: "BusinessRoleOU")
+  organizationalUnitType: OrganizationalUnitType! @relation(name: "OuOuType")
 }
 
+type OrganizationalUnitType @model {
+  id: ID! @isUnique
+  name: String!
+  description: String
+  reportingUnit: Boolean
+  
+  # Relations
+  organizationalUnit: [OrganizationalUnit!]! @relation(name: "OuOuType")
+}
+
+##
+ # Update AllProcessesByOu resolver when update this type
+ # 
 type Process @model {
   id: ID! @isUnique
   name: String!

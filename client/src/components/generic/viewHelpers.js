@@ -48,7 +48,7 @@ class InfoLink extends React.Component {
   
       return(
         <React.Fragment>  
-          <button className="link" onClick={this.showDrawer}>{label}</button> <Link to={`${linkPath}/${id}`}><Icon type="link" /></Link>
+          <button key={id} className="link" onClick={this.showDrawer}>{label}</button> <Link to={`${linkPath}/${id}`}><Icon type="link" /></Link>
           <Drawer
             width={640}
             placement="right"
