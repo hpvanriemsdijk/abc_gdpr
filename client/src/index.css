@@ -42,3 +42,7 @@ button.link:focus {
 .ant-table-title{
   text-align: right !important;
 }
+
+.ant-alert {
+  margin-bottom: 16px;
+}

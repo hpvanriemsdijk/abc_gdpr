@@ -23,7 +23,7 @@ class LeftMenu extends React.Component {
         style={{ height: '100%', borderRight: 0 }}
       >
         <Menu.Item key="/"><span><Icon type="home" />Home</span></Menu.Item>
-        <SubMenu key="org" title={<span><Icon type="user" />Organisation</span>}>
+        <SubMenu key="org" title={<span><Icon type="cluster" />Organisation</span>}>
           <Menu.Item key="/units">Organizational units</Menu.Item>
           <Menu.Item key="/processes">Processes</Menu.Item>
           <Menu.Item key="/persons">Persons</Menu.Item>
@@ -32,7 +32,7 @@ class LeftMenu extends React.Component {
           <Menu.Item key="/applications">Applications</Menu.Item>
           <Menu.Item key="/dataTypes">Data types</Menu.Item>
         </SubMenu>
-        <SubMenu key="Conf" title={<span><Icon type="notification" />Configuration</span>}>
+        <SubMenu key="Conf" title={<span><Icon type="tool" />Configuration</span>}>
           <Menu.Item key="/users">User</Menu.Item>
         </SubMenu>
       </Menu>
