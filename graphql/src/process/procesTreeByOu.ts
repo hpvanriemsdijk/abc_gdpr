@@ -5,10 +5,13 @@ interface EventData {
   organizationalUnitId: string
 }
 
+interface OrganizationalUnit{
+  allOrganizationalUnits: object
+}
+
 export default async (event: FunctionEvent<EventData>) => {
   //console.log(event)
   const { organizationalUnitId } = event.data
-  let newData: any[] = []
 
   const flattenOuProcesses = (obj) => {
     let processes: any[] = []
@@ -51,7 +54,7 @@ export default async (event: FunctionEvent<EventData>) => {
   }
 
   async function getProcesses(api: GraphQLClient, organizationalUnitId: string): 
-  Promise {
+  Promise<OrganizationalUnit> {
     const query = `
     fragment flatProcessFields on Process {
       id
@@ -98,6 +101,6 @@ export default async (event: FunctionEvent<EventData>) => {
     }
   }
   
-    return api.request(query, variables)
+    return api.request<OrganizationalUnit>(query, variables)
   }
   
