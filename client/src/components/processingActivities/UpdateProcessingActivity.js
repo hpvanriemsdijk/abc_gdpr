@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_PROCESSING_ACTIVITY, UPDATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
-import { ProcessesTree } from '../processes/ProcessesTree'
+import { ProcessOptionsList } from '../processes/ProcessOptionsList'
 import { Modal, Form, Input, notification, Spin } from 'antd';
 
 class UpdateProcessingActivity extends React.Component {
@@ -33,7 +33,7 @@ class UpdateProcessingActivity extends React.Component {
           name: values.name,
           description: values.description,
           purpose: values.purpose,
-          process: values.process
+          process: values.parentProcess
         }}).catch( res => {
           notification['warning']({
             message: "Could not update processing activity",
@@ -61,8 +61,10 @@ class UpdateProcessingActivity extends React.Component {
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
             const processingActivity = data.ProcessingActivity || [];
-            const process = processingActivity.process || [];
+            const processId = processingActivity.process ? processingActivity.process.id : null
             const loadingData = loading;
+
+            console.log(processingActivity);
 
             return(
               <Mutation 
@@ -108,8 +110,8 @@ class UpdateProcessingActivity extends React.Component {
                           </Form.Item>
 
                           <Form.Item 
-                            label="Parent proces">
-                            { <ProcessesTree form={form} parentId={ process.id } parentTree={false} /> }
+                            label="Parent Process">
+                            { <ProcessOptionsList form={form} id={processId} /> }
                           </Form.Item>
                         </Form>
                       </Spin>

@@ -36,12 +36,12 @@ functions:
     handler:
       code: src/email-password/loggedInUser.ts
 
-  procesTreeByOu:
+  processByOu:
     type: resolver
-    schema: ./src/process/procesTreeByOu.graphql
+    schema: ./src/process/processByOu.graphql
     handler:
       code:
-        src: ./src/process/procesTreeByOu.ts
+        src: ./src/process/processByOu.ts
 
 #  processTree:
 #    type: operationBefore

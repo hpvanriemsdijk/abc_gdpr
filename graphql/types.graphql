@@ -90,8 +90,6 @@ type Process @model {
   updatedAt: DateTime! 
   
   # Relations
-  children: [Process!]! @relation(name: "ProcessToProcess")
-  parent: Process @relation(name: "ProcessToProcess")
   organizationalUnit: OrganizationalUnit @relation(name: "OUProces")
   processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivities")
   processOwner: BusinessRole @relation(name: "BusinessRoleProcess")

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Query, Mutation, } from 'react-apollo'
 import { GET_PROCESS, UPDATE_PROCESS  } from '../../queries/ProcessQueries';
-import { ProcessesTree } from './ProcessesTree'
 import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
 import { OuTree } from '../organizationalUnits/OuTree'
 import { Modal, Form, Input, notification, Spin } from 'antd';
@@ -28,7 +27,6 @@ class UpdateProcess extends React.Component {
           id: this.props.process.id,
           name: values.name,
           description: values.description,
-          parent: values.process || null,
           processOwner: values.processOwner || null,
           organizationalUnit: values.organizationalUnit || this.props.organizationalUnitId || undefined
         }}).catch( res => {
@@ -59,7 +57,6 @@ class UpdateProcess extends React.Component {
             if( !this.state.modalVisible || error ) return null
             const ProcessData = data.Process || [];
             const processOwnerId = ProcessData.processOwner ? ProcessData.processOwner.id : null
-            const processParentId = ProcessData.parent ? ProcessData.parent.id : null
             const organizationalUnitId = ProcessData.organizationalUnit ? ProcessData.organizationalUnit.id : null
             const loadingData = loading;
             
@@ -95,11 +92,6 @@ class UpdateProcess extends React.Component {
                               ],
                             })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                           </Form.Item>  
-                          <Form.Item 
-                            label="Parent proces"
-                            extra="Can't select yourself, childeren in own line or result in 3+ levels.">
-                            { <ProcessesTree form={form} parentId={processParentId} ownKey={ProcessData.id} parentTree={true} organizationalUnitId={organizationalUnitId}/> }
-                          </Form.Item>
                           <Form.Item 
                             label="Process owner">
                             { <BusinessRolessOptionsList form={form} id={processOwnerId}/> }

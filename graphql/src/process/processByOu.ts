@@ -10,7 +10,6 @@ interface OrganizationalUnit{
 }
 
 export default async (event: FunctionEvent<EventData>) => {
-  //console.log(event)
   const { organizationalUnitId } = event.data
 
   const flattenOuProcesses = (obj) => {
@@ -56,29 +55,19 @@ export default async (event: FunctionEvent<EventData>) => {
   async function getProcesses(api: GraphQLClient, organizationalUnitId: string): 
   Promise<OrganizationalUnit> {
     const query = `
-    fragment flatProcessFields on Process {
+    fragment processFields on Process {
       id
       name
       description
       createdAt
       updatedAt
     }
-    
-    fragment nestedProcessFields on Process {
-      ...flatProcessFields
-      children {
-        ...flatProcessFields
-        children {
-          ...flatProcessFields
-        }
-      }
-    }
-    
+        
     fragment flatOrganizationalUnitFields on OrganizationalUnit {
       id
       name
       processes {
-        ...nestedProcessFields
+        ...processFields
       }
     }
     
@@ -96,7 +85,7 @@ export default async (event: FunctionEvent<EventData>) => {
     `
   const variables = {
     "filter": {
-      "parent": null,
+      //"parent": null,
       "id": organizationalUnitId
     }
   }

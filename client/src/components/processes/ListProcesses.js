@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { Table, Divider, Card, Empty, Alert } from 'antd';
-import { ALL_PROCESSES_TREE, PROCESSES_TREE_BY_OU } from '../../queries/ProcessQueries';
+import { ALL_PROCESSES, PROCESSES_BY_OU } from '../../queries/ProcessQueries';
 import CreateProcess from './CreateProcess'
 import UpdateProcess from './UpdateProcess'
 import DeleteProcess from './DeleteProcess'
@@ -35,14 +35,14 @@ class ProcessTable extends React.Component {
   }
 
   getFilter = (props) =>{
-    if(props.organizationalUnitId) return { filter: { parent: null, organizationalUnit: { id: props.organizationalUnitId } } }
-    return { filter:{parent: null} }
+    if(props.organizationalUnitId) return { filter: { organizationalUnit: { id: props.organizationalUnitId } } }
+    return { filter: null } 
   }
 
   allProcesses = (columns) =>{
     return (
       <Query
-        query = { ALL_PROCESSES_TREE }
+        query = { ALL_PROCESSES }
         variables = { this.getFilter(this.props) }
         >
         {({ loading, error, data }) => {
@@ -77,12 +77,13 @@ class ProcessTable extends React.Component {
   processesByOu = (columns) => {
     return (
       <Query
-        query = { PROCESSES_TREE_BY_OU }
+        query = { PROCESSES_BY_OU }
         variables = {{ organizationalUnitId: this.props.organizationalUnitId }}
         >
+        
         {({ loading, error, data }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.procesTreeByOu || [];    
+          const dataSource = data.processByOu || [];  
 
           //Component called from process details vieuw
           return(
