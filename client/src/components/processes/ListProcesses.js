@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Empty, Alert } from 'antd';
+import { Table, Divider, Card, Empty, Alert, Form, Switch } from 'antd';
 import { ALL_PROCESSES, PROCESSES_BY_OU } from '../../queries/ProcessQueries';
 import CreateProcess from './CreateProcess'
 import UpdateProcess from './UpdateProcess'
@@ -14,7 +14,8 @@ class ProcessTable extends React.Component {
 
     this.state = {
       sortedInfo: null, 
-      filteredInfo: null
+      filteredInfo: null,
+      includeNested: true
     };
   }
 
@@ -22,6 +23,15 @@ class ProcessTable extends React.Component {
     this.setState({
       filteredInfo: filters,
       sortedInfo: sorter,
+    });
+  }
+
+  handleToggle = (checked) => {
+    let includeNested;
+    checked ? includeNested = true : includeNested = false;
+
+    this.setState({
+      includeNested: includeNested
     });
   }
 
@@ -34,16 +44,31 @@ class ProcessTable extends React.Component {
     this.setState({ filteredInfo: null });
   }
 
-  getFilter = (props) =>{
-    if(props.organizationalUnitId) return { filter: { organizationalUnit: { id: props.organizationalUnitId } } }
-    return { filter: null } 
+  processQuery = () => {
+    if(this.state.includeNested){
+      return {
+        query: PROCESSES_BY_OU,
+        filter: { organizationalUnitId: this.props.organizationalUnitId }
+      }
+    } else {
+      return {
+        query: ALL_PROCESSES, 
+        filter: { 
+          filter: {
+            organizationalUnit: { 
+              id: this.props.organizationalUnitId 
+            } 
+          }
+        }
+      }
+    }
   }
 
   allProcesses = (columns) =>{
     return (
       <Query
         query = { ALL_PROCESSES }
-        variables = { this.getFilter(this.props) }
+        variables = {{ organizationalUnitId: this.props.organizationalUnitId }}
         >
         {({ loading, error, data }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
@@ -77,24 +102,35 @@ class ProcessTable extends React.Component {
   processesByOu = (columns) => {
     return (
       <Query
-        query = { PROCESSES_BY_OU }
-        variables = {{ organizationalUnitId: this.props.organizationalUnitId }}
+        query = { this.processQuery().query }
+        variables = { this.processQuery().filter }
         >
         
         {({ loading, error, data }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.processByOu || [];  
+          const dataSource = data.processByOu || data.allProcesses || [];  
 
           //Component called from process details vieuw
           return(
-            <Table 
-              loading={loading}
-              rowKey={record => record.id}
-              dataSource={dataSource}
-              columns={columns} 
-              onChange={this.handleChange} 
-              title={() => <CreateProcess organizationalUnitId={this.props.organizationalUnitId}/>}
-              />         
+            <div className="ant-table-title">
+              <Form layout="inline" >
+                <Form.Item label="Include nested">
+                  <Switch 
+                    checked={this.state.includeNested} 
+                    onChange={this.handleToggle} 
+                    />
+                </Form.Item>
+                <CreateProcess organizationalUnitId={this.props.organizationalUnitId} />
+              </Form>
+                
+              <Table 
+                loading={loading}
+                rowKey={record => record.id}
+                dataSource={dataSource}
+                columns={columns} 
+                onChange={this.handleChange} 
+                />         
+            </div>
           )
         }}
       </Query>

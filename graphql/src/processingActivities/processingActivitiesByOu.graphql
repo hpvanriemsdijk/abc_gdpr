@@ -1,0 +1,18 @@
+type ProcessingActivitiesByOu {
+  id: ID
+  name: String
+  description: String
+  purpose: String
+  organizationalUnit: Json
+  process: Json
+
+  # Relations
+  #parent: Process @relation(name: "ProcessToProcess")
+  #organizationalUnit: OrganizationalUnit @relation(name: "OUProces")
+  #processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivities")
+  #processOwner: BusinessRole @relation(name: "BusinessRoleProcess")
+}
+
+extend type Query {
+  processingActivitiesByOu(organizationalUnitId: ID!): [ProcessingActivitiesByOu!]
+}

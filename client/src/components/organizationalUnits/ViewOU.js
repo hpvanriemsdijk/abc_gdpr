@@ -5,6 +5,7 @@ import { GET_OU, OU_BRANCH } from '../../queries/OUQueries';
 import { ObjectModifiedDate, InfoLink } from '../generic/viewHelpers'
 import { orderBranch } from '../generic/treeHelpers'
 import ProcessesTable from '../processes/ListProcesses'
+import ProcessingActiviesTable from '../processingActivities/ListProcessingActivities'
 import UpdateOU from './UpdateOU'
 
 export class OUInfoCard extends React.Component {
@@ -158,7 +159,7 @@ export class viewOU extends React.Component {
     
     const tabbedContent = {
       process: <ProcessesTable organizationalUnitId = { this.props.match.params.ouId } />,
-      processingActivies: <p>processingActivies</p>
+      processingActivies: <ProcessingActiviesTable organizationalUnitId = { this.props.match.params.ouId } />
     };
 
     return (
