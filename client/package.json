@@ -8,7 +8,7 @@
   "dependencies": {
     "@types/react-highlight-words": "^0.12.0",
     "ajv": "^6.10.0",
-    "antd": "^3.19.1",
+    "antd": "^3.19.2",
     "apollo-cache-inmemory": "^1.6.0",
     "apollo-client": "^2.6.0",
     "apollo-link": "^1.2.11",

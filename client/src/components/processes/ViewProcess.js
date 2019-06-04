@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import { Card, Row, Col, Empty, Icon } from 'antd';
-import { GET_PROCESS, PROCESSES_BRANCH } from '../../queries/ProcessQueries';
+import { GET_PROCESS } from '../../queries/ProcessQueries';
 import { OU_BRANCH } from '../../queries/OUQueries';
 import ViewBusinessRole from '../businessRoles/ViewBusinessRole'
 import { OUInfoCard } from '../organizationalUnits/ViewOU'
@@ -9,7 +9,7 @@ import UpdateProcess from './UpdateProcess'
 import ProcessingActivityTable from '../processingActivities/ListProcessingActivities'
 import { ObjectModifiedDate, InfoLink } from '../generic/viewHelpers'
 import  '../generic/treeHelpers.css'
-import { orderBranch, orderParents} from '../generic/treeHelpers'
+import { orderParents} from '../generic/treeHelpers'
 
 class ProcesInfoCard extends React.Component {
   getProcessOwner = (obj) => {
@@ -104,67 +104,6 @@ class ProcesInfoCard extends React.Component {
   }
 }    
 
-class ProcesBranchCard extends React.Component {
-  Leaf = leaf =>{
-    if(leaf.children.current){
-      return <strong>{leaf.children.name}</strong>
-    }else{
-      return <InfoLink target={{label: leaf.children.name, linkPath: "/processes", id: leaf.children.id, Component: ProcesInfoCard}}/>
-    }
-  }
-
-  renderBranch = node => {
-    if (node.child) {
-      return (
-        <li key={node.id}>
-          <this.Leaf>{node}</this.Leaf>
-          <ul>
-          {node.child.map((d, key) => {
-            return this.renderBranch(d)
-          })}  
-          </ul>
-        </li>          
-      );
-    } else if (node.name) {
-      return (
-        <li key={node.id}><this.Leaf>{node}</this.Leaf></li>
-      );
-    }
-    return null;
-  };
-
-  render () { 
-    let {query, id} = this.props;
-
-    return(
-      <Query
-        query = { query }
-        variables= {{ id: id }}
-        >
-        {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-
-          const dataSource = data.Process || [];
-          const orderedBranch = orderBranch(dataSource)
-          
-          return(
-            <Card 
-              loading = {loading}
-              title= "Process Hierarchy"
-              >
-            <div className="clt">
-              <ul>
-                {this.renderBranch(orderedBranch)}
-              </ul>
-            </div>
-            </Card>
-          ) 
-        }}
-      </Query>
-    )
-  }
-}
-
 class viewProcess extends React.Component {      
   state = {
     tabkey: 'processingActivity',
@@ -189,9 +128,6 @@ class viewProcess extends React.Component {
         <Row gutter={16} style={{ marginBottom: 16 }}>
           <Col span={12} >
             <ProcesInfoCard id={this.props.match.params.processId}/>
-          </Col>
-          <Col span={12}>
-            <ProcesBranchCard query={PROCESSES_BRANCH} id={this.props.match.params.processId} />
           </Col>
         </Row>
         <Row gutter={16}>

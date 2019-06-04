@@ -9,9 +9,24 @@ export const ALL_PROCESSING_ACTIVITIES = gql`
 			name
 			description
 			purpose
+			process { id, name }
 		}
 	}
 `;
+
+export const PROCESSING_ACTIVITIES_BY_OU = gql`
+	query processingActivitiesByOu ($organizationalUnitId: ID!) {
+		processingActivitiesByOu(organizationalUnitId:$organizationalUnitId){
+			id
+			name
+			description
+			purpose
+			organizationalUnit
+			process
+		}
+	}
+`;
+
 
 export const CREATE_PROCESSING_ACTIVITY = gql`
 	mutation CreateProcessingActivity ($name: String!, $description: String, $purpose: String, $process: ID) {

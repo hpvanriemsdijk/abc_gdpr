@@ -1,7 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_BUSINESS_ROLE, businessRolesEnums } from '../../queries/BusinessRoleQueries';
-import { Modal, Form, Input, Button, notification, Radio } from 'antd';
+import { Modal, Form, Input, notification, Radio } from 'antd';
+import { PersonsOptionsList } from '../persons/PersonsOptionsList'
+
 
 class CreateBusinessRoleModal extends React.Component {
   state = {
@@ -14,7 +16,7 @@ class CreateBusinessRoleModal extends React.Component {
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
 
-   showModal = () => {
+  showModal = () => {
     this.setState({ modalVisible: true });
   };
 
@@ -25,12 +27,14 @@ class CreateBusinessRoleModal extends React.Component {
   // Modal
   onCreateBusinessRole = createBusinessRole => {
     const { form } = this.props;
-   
+    
     form.validateFields(async (err, values) => {
       if (!err) {
         await createBusinessRole({ variables: {
           name: values.name,
           description: values.description,
+          person: values.person, 
+          organizationalUnit: this.props.organizationalUnit,
           raciExecutive: values.raciExecutive || null,
           raciFinancial: values.raciFinancial || null,
           raciSecurity: values.raciSecurity || null,
@@ -76,7 +80,12 @@ class CreateBusinessRoleModal extends React.Component {
                         { required: true, message: 'Please enter a name!' }
                       ],
                     })(<Input />)}
-                  </Form.Item>      
+                  </Form.Item>     
+
+                  <Form.Item 
+                      label="Person">
+                      { <PersonsOptionsList form={form} /> }
+                  </Form.Item>
 
                   <Form.Item label="Description">
                     {form.getFieldDecorator('description', {
@@ -122,9 +131,9 @@ class CreateBusinessRoleModal extends React.Component {
             );
           }}
         </Mutation>
-        <Button onClick={this.showModal} type="primary">
-          New Business role
-        </Button>
+        <button className="link" onClick={this.showModal}>
+          Add
+        </button>
       </React.Fragment>
     );
   }

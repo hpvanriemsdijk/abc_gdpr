@@ -5,7 +5,10 @@ import { GET_OU, OU_BRANCH } from '../../queries/OUQueries';
 import { ObjectModifiedDate, InfoLink } from '../generic/viewHelpers'
 import { orderBranch } from '../generic/treeHelpers'
 import ProcessesTable from '../processes/ListProcesses'
+import ProcessingActiviesTable from '../processingActivities/ListProcessingActivities'
 import UpdateOU from './UpdateOU'
+import { OURACICard } from '../businessRoles/ViewBusinessRole'
+
 
 export class OUInfoCard extends React.Component {
   extraOptions = (simplefied, obj) => {
@@ -69,17 +72,6 @@ export class OUInfoCard extends React.Component {
     )  
   }
 }    
-
-class OURACICard extends React.Component {
-  render () { 
-    return(
-    <Card 
-      title= "Respondsibilities"
-      >
-    </Card>  
-    )
-  }
-}
 
 class OUBranchCard extends React.Component {
   Leaf = leaf =>{
@@ -158,7 +150,7 @@ export class viewOU extends React.Component {
     
     const tabbedContent = {
       process: <ProcessesTable organizationalUnitId = { this.props.match.params.ouId } />,
-      processingActivies: <p>processingActivies</p>
+      processingActivies: <ProcessingActiviesTable organizationalUnitId = { this.props.match.params.ouId } />
     };
 
     return (
@@ -168,7 +160,7 @@ export class viewOU extends React.Component {
             <OUInfoCard id={this.props.match.params.ouId}/>
           </Col>
           <Col span={8}>
-            <OURACICard />
+            <OURACICard id={this.props.match.params.ouId}/>
           </Col>
           <Col span={8}>
             <OUBranchCard query={OU_BRANCH} id={this.props.match.params.ouId} />

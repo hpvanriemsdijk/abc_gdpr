@@ -1,14 +1,12 @@
-type ProcesTreeByOu {
+type ProcessingActivitiesByOu {
   id: ID
   name: String
   description: String
-  createdAt: DateTime
-  updatedAt: DateTime
-  children: [Json]
+  purpose: String
   organizationalUnit: Json
+  process: Json
 
   # Relations
-  #children: [Process!]! @relation(name: "ProcessToProcess")
   #parent: Process @relation(name: "ProcessToProcess")
   #organizationalUnit: OrganizationalUnit @relation(name: "OUProces")
   #processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivities")
@@ -16,5 +14,5 @@ type ProcesTreeByOu {
 }
 
 extend type Query {
-  procesTreeByOu(organizationalUnitId: ID!): [ProcesTreeByOu!]
+  processingActivitiesByOu(organizationalUnitId: ID!): [ProcessingActivitiesByOu!]
 }

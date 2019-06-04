@@ -8,42 +8,18 @@ export const ALL_PROCESSES = gql`
 			id
 			name
 			description
+			organizationalUnit { id, name }
 			processOwner { id }
 		}
 	}
 `;
 
-export const ALL_PROCESSES_TREE = gql`
-	fragment processTreeAllInfo on Process {
-		id
-		name
-		description
-		processOwner { id }
-		organizationalUnit { name }
-	}
-	
-	query AllProcesses ($filter: ProcessFilter) {
-		allProcesses(
-			filter:$filter
-		){
-		...processTreeAllInfo
-			children {
-			...processTreeAllInfo
-				children {
-					...processTreeAllInfo
-				}
-			}
-		}
-	}
-`;
-
-export const PROCESSES_TREE_BY_OU = gql`
-	query procesTreeByOu ($organizationalUnitId: ID!) {
-		procesTreeByOu(organizationalUnitId:$organizationalUnitId){
+export const PROCESSES_BY_OU = gql`
+	query processByOu ($organizationalUnitId: ID!) {
+		processByOu(organizationalUnitId:$organizationalUnitId){
 			id
 			name
 			description
-			children
 			organizationalUnit
 			createdAt
 			updatedAt 
@@ -52,62 +28,22 @@ export const PROCESSES_TREE_BY_OU = gql`
 `;
 
 
-//Max 3 levels
-// ProcessFilter = {parent: null}
-// ProcessFilter = {AND: [{parent: null}, {organizationalUnit: {id:"cjrcga2fg06hv0169xw9nxzft"}}] }
-export const PROCESSES_OPTIONS_TREE = gql`
-	fragment processTreeInfo on Process {
-		value: id
-		title: name
-	}
-	
-	query ProcessTree ($filter: ProcessFilter) {
+export const PROCESSS_OPTIONS_LIST = gql`
+	query AllProcesses ($filter: ProcessFilter) {
 		allProcesses(
 			filter:$filter
-		){
-		...processTreeInfo
-			children {
-			...processTreeInfo
-				children {
-					...processTreeInfo
-				}
-			}
+		) {
+			value: id
+			title: name
 		}
 	}
 `;
-
-export const PROCESSES_BRANCH = gql`
-	fragment processBranchInfo on Process {
-		id
-		name
-	}
-
-	query ProcessBranch ($id: ID!) { 
-		Process(id: $id) {
-			...processBranchInfo
-			parent { 
-				...processBranchInfo
-				parent{
-					...processBranchInfo
-				}	
-			}
-			children { 
-				...processBranchInfo
-				children { 
-					...processBranchInfo
-				}
-			}
-		}
-	}
-`;
-
 
 export const CREATE_PROCESS = gql`
-	mutation CreateProcess ($name: String!, $description: String, $parent: ID, $processOwner: ID, $organizationalUnit: ID ) {
+	mutation CreateProcess ($name: String!, $description: String, $processOwner: ID, $organizationalUnit: ID ) {
 		createProcess(	
 			name: $name, 
 			description: $description, 
-			parentId: $parent
 			processOwnerId: $processOwner
 			organizationalUnitId: $organizationalUnit
 		){
@@ -122,7 +58,6 @@ export const GET_PROCESS = gql`
 			id
 			name
 			description
-			parent { id }
 			processOwner { id, name }
 			organizationalUnit { id, name }
 			createdAt
@@ -132,12 +67,11 @@ export const GET_PROCESS = gql`
 `;
 
 export const UPDATE_PROCESS = gql`
-	mutation UpdateProcess ($id: ID!, $name: String!, $description: String, $parent: ID, $processOwner: ID, $organizationalUnit: ID) {
+	mutation UpdateProcess ($id: ID!, $name: String!, $description: String, $processOwner: ID, $organizationalUnit: ID) {
 		updateProcess(
 			id: $id, 
 			name: $name, 
 			description: $description,
-			parentId: $parent
 			processOwnerId: $processOwner
 			organizationalUnitId: $organizationalUnit
 		) {

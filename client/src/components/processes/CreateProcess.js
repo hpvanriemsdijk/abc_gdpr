@@ -1,7 +1,6 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_PROCESS } from '../../queries/ProcessQueries';
-import { ProcessesTree } from './ProcessesTree'
 import { OuTree } from '../organizationalUnits/OuTree'
 import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
 import { Modal, Form, Input, Button, notification } from 'antd';
@@ -34,7 +33,6 @@ class CreateProcessModal extends React.Component {
         await createProcess({ variables: {
           name: values.name,
           description: values.description,
-          parent: values.process,
           processOwner: values.processOwner,
           organizationalUnit: values.organizationalUnit || this.props.organizationalUnitId || undefined
         }}).catch( res => {
@@ -56,7 +54,7 @@ class CreateProcessModal extends React.Component {
   }
 
   render() {
-    const { form, organizationalUnitId } = this.props;
+    const { form } = this.props;
     const { TextArea } = Input;
 
     return (
@@ -88,14 +86,7 @@ class CreateProcessModal extends React.Component {
                           { required: true, message: 'Please enter a description!' }
                         ],
                       })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                    </Form.Item>
-
-                    <Form.Item 
-                      label="Parent proces"
-                      extra="Can't select yourself, childeren in own line or result in 3+ levels.">
-                      { <ProcessesTree form={form} parentTree={true} organizationalUnitId={organizationalUnitId} /> }
-                    </Form.Item>
-                    
+                    </Form.Item>            
                     <Form.Item 
                       label="Process owner">
                       { <BusinessRolessOptionsList form={form} /> }
