@@ -46,3 +46,14 @@ button.link:focus {
 .ant-alert {
   margin-bottom: 16px;
 }
+
+.ant-list {
+  background: #fff
+}
+
+.ant-list-header{
+  padding-top: 0;
+  padding-bottom: 0;
+  font-feature-settings: "tnum";
+  font-variant: tabular-nums;
+}

@@ -12,6 +12,18 @@ export const ALL_PERSONS = gql`
 	}
 `;
 
+export const PERSON_OPTIONS_LIST = gql`
+	query AllPersons ($filter: PersonFilter) {
+		allPersons(
+			filter:$filter
+		) {
+			value: id
+			name
+			surname
+		}
+	}
+`;
+
 export const CREATE_PERSON = gql`
 	mutation CreatePerson ($name: String!, $surname: String) {
 		createPerson(name: $name, surname: $surname) {

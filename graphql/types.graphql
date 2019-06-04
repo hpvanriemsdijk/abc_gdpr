@@ -50,7 +50,7 @@ type BusinessRole @model {
   
   # Relations
   person: Person @relation(name: "RolesPerson")
-  organizationalUnit: [OrganizationalUnit!]! @relation(name: "BusinessRoleOU")
+  organizationalUnit: OrganizationalUnit! @relation(name: "BusinessRoleOU")
   process: [Process!]! @relation(name: "BusinessRoleProcess")
 }
 

@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Empty } from 'antd';
+import { Table, Divider, Card, Empty, Alert } from 'antd';
 import { ALL_BUSINESS_ROLES } from '../../queries/BusinessRoleQueries';
-import CreateBusinessRole from './CreateBusinessRole'
 import UpdateBusinessRole from './UpdateBusinessRole'
 import DeleteBusinessRole from './DeleteBusinessRole'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
@@ -78,7 +77,14 @@ class BusinessRoleTable extends React.Component {
 
             return(
               <React.Fragment>  
-                <Card title="Business roles" extra={<CreateBusinessRole />} style={{ background: '#fff' }}>
+                <Card title="Business roles" style={{ background: '#fff' }}>
+                <Alert
+                  message="Informational Note"
+                  description="You are looking at all business roled from all OU's right now, you might want to drill down starting from the OU view. This view offers limmited options"
+                  type="info"
+                  closable
+                  showIcon
+                />
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}

@@ -50,6 +50,12 @@ functions:
       code:
         src: ./src/processingActivities/processingActivitiesByOu.ts
   
+  businessRoleByOu:
+    type: resolver
+    schema: ./src/businessRole/businessRoleByOu.graphql
+    handler:
+      code:
+        src: ./src/businessRole/businessRoleByOu.ts
 
 #  processTree:
 #    type: operationBefore

@@ -1,0 +1,16 @@
+type BusinessRoleByOu {
+  id: ID
+  name: String
+  description: String
+  raciPrivacy: String
+  raciSecurity: String
+  raciFinancial: String
+  raciExecutive: String
+  person: Json
+  organizationalUnit: Json
+  process: Json
+}
+
+extend type Query {
+  businessRoleByOu(organizationalUnitId: ID!): [BusinessRoleByOu!]
+}

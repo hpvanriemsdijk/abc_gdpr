@@ -2,11 +2,11 @@ import gql from 'graphql-tag'
 
 export const businessRolesEnums = {
 	raci: [
-		{ label: 'None', value: null },
-		{ label: 'Respondsable', value: 'RESPONDSABLE' },
-		{ label: 'Accountable', value: 'ACCOUNTABLE' },
-		{ label: 'Consulted', value: 'CONSULTED' },
-		{ label: 'Informed', value: 'INFORMED' }
+		{ label: 'None', color: null, value: null },
+		{ label: 'Respondsable', color: 'gold', value: 'RESPONDSABLE' },
+		{ label: 'Accountable', color: 'red', value: 'ACCOUNTABLE' },
+		{ label: 'Consulted', color: 'green', value: 'CONSULTED' },
+		{ label: 'Informed', color: 'blue', value: 'INFORMED' }
 	]
 };
 
@@ -18,6 +18,25 @@ export const ALL_BUSINESS_ROLES = gql`
 			id
 			name
 			description
+		}
+	}
+`;
+
+
+export const BUSINESS_ROLES_BY_OU = gql`
+	query businessRoleByOu ($id: ID!) {
+		businessRoleByOu(
+			organizationalUnitId:$id
+		) {
+			id
+			name
+			description
+			raciPrivacy
+			raciSecurity
+			raciFinancial
+			raciExecutive
+			person 
+			organizationalUnit
 		}
 	}
 `;
@@ -34,8 +53,17 @@ export const BUSINESS_ROLES_OPTIONS_LIST = gql`
 `;
 
 export const CREATE_BUSINESS_ROLE = gql`
-	mutation CreateBusinessRole ($name: String!, $description: String, $raciPrivacy: RACI, $raciSecurity: RACI, $raciFinancial: RACI, $raciExecutive: RACI) {
-		createBusinessRole(name: $name, description: $description, raciPrivacy: $raciPrivacy, raciSecurity: $raciSecurity, raciFinancial: $raciFinancial, raciExecutive: $raciExecutive) {
+	mutation CreateBusinessRole ($name: String!, $description: String, $person: ID, $organizationalUnit: ID, $raciPrivacy: RACI, $raciSecurity: RACI, $raciFinancial: RACI, $raciExecutive: RACI) {
+		createBusinessRole(
+			name: $name, 
+			description: $description, 
+			personId: $person, 
+			organizationalUnitId: $organizationalUnit
+			raciPrivacy: $raciPrivacy, 
+			raciSecurity: $raciSecurity, 
+			raciFinancial: $raciFinancial, 
+			raciExecutive: $raciExecutive
+		) {
 			id
 		}
 	}
@@ -51,13 +79,28 @@ export const GET_BUSINESS_ROLE = gql`
 			raciSecurity
 			raciFinancial
 			raciExecutive
+			person {
+				id
+				name
+				surname
+			}
 		}
 	}
 `;
 
 export const UPDATE_BUSINESS_ROLE = gql`
-	mutation UpdateBusinessRole ($id: ID!, $name: String!, $description: String, $raciPrivacy: RACI, $raciSecurity: RACI, $raciFinancial: RACI, $raciExecutive: RACI) {
-		updateBusinessRole(id: $id, name: $name, description: $description, raciPrivacy: $raciPrivacy, raciSecurity: $raciSecurity, raciFinancial: $raciFinancial, raciExecutive: $raciExecutive) {
+	mutation UpdateBusinessRole ($id: ID!, $name: String!, $description: String, $person: ID, $organizationalUnit: ID, $raciPrivacy: RACI, $raciSecurity: RACI, $raciFinancial: RACI, $raciExecutive: RACI) {
+		updateBusinessRole(
+			id: $id, 
+			name: $name, 
+			description: $description, 
+			personId: $person, 
+			organizationalUnitId: $organizationalUnit
+			raciPrivacy: $raciPrivacy, 
+			raciSecurity: $raciSecurity, 
+			raciFinancial: $raciFinancial, 
+			raciExecutive: $raciExecutive
+		){
 			id
 		}
 	}

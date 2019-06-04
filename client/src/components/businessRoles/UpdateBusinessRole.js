@@ -2,6 +2,8 @@ import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_BUSINESS_ROLE, UPDATE_BUSINESS_ROLE, businessRolesEnums } from '../../queries/BusinessRoleQueries';
 import { Modal, Form, Input, notification, Radio, Spin } from 'antd';
+import { PersonsOptionsList } from '../persons/PersonsOptionsList'
+
 
 class UpdateBusinessRole extends React.Component {
   state = {
@@ -31,6 +33,7 @@ class UpdateBusinessRole extends React.Component {
           id: this.props.businessRole.id,
           name: values.name,
           description: values.description,
+          person: values.person,
           raciExecutive: values.raciExecutive || null,
           raciFinancial: values.raciFinancial || null,
           raciSecurity: values.raciSecurity || null,
@@ -63,6 +66,7 @@ class UpdateBusinessRole extends React.Component {
             if( !this.state.modalVisible || error ) return null
             const BusinessRoleData = data.BusinessRole || [];
             const loadingData = loading;
+            const personId = BusinessRoleData.person ? BusinessRoleData.person.id : null
 
             return(
               <Mutation 
@@ -97,6 +101,10 @@ class UpdateBusinessRole extends React.Component {
                                 ],
                             })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                           </Form.Item> 
+
+                          <Form.Item label="Person">
+                            { <PersonsOptionsList form={form} id={personId} /> }
+                          </Form.Item>
 
                           <Form.Item label="Executive responsibility">
                             {form.getFieldDecorator('raciExecutive', {
