@@ -30,11 +30,12 @@ class CreateApplicationModal extends React.Component {
    
     form.validateFields(async (err, values) => {
       if (!err) {
+        console.log(values);
         await createApplication({ variables: {
           name: values.name,
           description: values.description,
           alias: values.alias,
-          dataType: values.dataType,
+          dataType: values.dataTypes,
           businessOwner: values.businessOwner,
           itOwner: values.itOwner,
           securityAdministrator: values.securityAdministrator

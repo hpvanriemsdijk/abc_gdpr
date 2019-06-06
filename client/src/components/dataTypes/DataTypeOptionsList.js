@@ -12,10 +12,18 @@ export class DataTypeOptionsList extends React.Component {
         {({ loading, data, error }) => {     
           if (loading) return <Select placeholder="Loading..." />
           if (error) return <Select placeholder="Error loading..." />
+          console.log(this.props.initialValue);
+          let initialValues = []
+
+          if(this.props.initialValue){
+            this.props.initialValue.map(d =>
+              initialValues.push(d.id)
+            )
+          }
 
           return(
             this.props.form.getFieldDecorator('dataTypes', {
-              initialValue: this.props.id,
+              initialValue: initialValues,
             })(
               <Select
                 placeholder="Select data types"
