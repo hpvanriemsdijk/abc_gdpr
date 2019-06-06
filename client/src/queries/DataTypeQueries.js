@@ -13,6 +13,17 @@ export const ALL_DATA_TYPES = gql`
 	}
 `;
 
+export const DATA_TYPE_OPTIONS_LIST = gql`
+	query AllDataTypes ($filter: DataTypeFilter) {
+		allDataTypes(
+			filter:$filter
+		) {
+			value: id
+			title: name
+		}
+	}
+`;
+
 export const CREATE_DATA_TYPE = gql`
 	mutation CreateDataType ($name: String!, $description: String, $pii: Boolean, $spii: Boolean) {
 		createDataType(name: $name, description: $description, pii: $pii, spii: $spii) {
