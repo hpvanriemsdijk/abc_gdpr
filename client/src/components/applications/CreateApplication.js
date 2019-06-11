@@ -2,6 +2,8 @@ import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_APPLICATION } from '../../queries/ApplicationQueries';
 import { Modal, Form, Input, Button, notification, Select } from 'antd';
+import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
+import { DataTypeOptionsList } from '../dataTypes/DataTypeOptionsList'
 
 class CreateApplicationModal extends React.Component {
   state = {
@@ -28,10 +30,15 @@ class CreateApplicationModal extends React.Component {
    
     form.validateFields(async (err, values) => {
       if (!err) {
+        console.log(values);
         await createApplication({ variables: {
           name: values.name,
           description: values.description,
-          alias: values.alias
+          alias: values.alias,
+          dataType: values.dataTypes,
+          businessOwner: values.businessOwner,
+          itOwner: values.itOwner,
+          securityAdministrator: values.securityAdministrator
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Application",
@@ -91,6 +98,22 @@ class CreateApplicationModal extends React.Component {
                         { required: true, message: 'Please enter a description!' }
                       ],
                     })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                  </Form.Item>
+
+                  <Form.Item label="Data">
+                  { <DataTypeOptionsList form={form} /> }
+                  </Form.Item>
+
+                  <Form.Item label="Business Owner">
+                    { <BusinessRolessOptionsList form={form} field="businessOwner"/> }
+                  </Form.Item>
+
+                  <Form.Item label="IT Owner">
+                    { <BusinessRolessOptionsList form={form} field="itOwner"/> }
+                  </Form.Item>
+
+                  <Form.Item label="Security Administrator">
+                    { <BusinessRolessOptionsList form={form} field="securityAdministrator"/> }
                   </Form.Item>
                 </Form>
               </Modal>

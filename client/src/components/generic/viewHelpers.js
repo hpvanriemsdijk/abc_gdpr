@@ -29,40 +29,77 @@ const ObjectModifiedDate = obj => {
 }
 
 class InfoLink extends React.Component {
-    state = { visible: false };
-  
-    showDrawer = () => {
-      this.setState({
-        visible: true,
-      });
-    };
-  
-    onClose = () => {
-      this.setState({
-        visible: false,
-      });
-    };
-  
-    render () { 
-      let {label, linkPath, id, Component} = this.props.target;
-  
-      return(
-        <React.Fragment>  
-          <button key={id} className="link" onClick={this.showDrawer}>{label}</button> <Link to={`${linkPath}/${id}`}><Icon type="link" /></Link>
-          <Drawer
-            width={640}
-            placement="right"
-            closable={false}
-            onClose={this.onClose}
-            visible={this.state.visible}
-            bodyStyle={{ padding: 0 }}
-            >
-            
-            <Component id={id} simplefied={true} />
-          </Drawer>
-        </React.Fragment>  
-      )
-    }
-  }
+  state = { visible: false };
 
-export { ObjectModifiedDate, InfoLink };
+  showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+  render () { 
+    let {label, linkPath, id, Component} = this.props.target;
+
+    return(
+      <React.Fragment>  
+        <button key={id} className="link" onClick={this.showDrawer}>{label}</button> <Link to={`${linkPath}/${id}`}><Icon type="link" /></Link>
+        <Drawer
+          width={640}
+          placement="right"
+          closable={false}
+          onClose={this.onClose}
+          visible={this.state.visible}
+          bodyStyle={{ padding: 0 }}
+          >
+          
+          <Component id={id} simplefied={true} />
+        </Drawer>
+      </React.Fragment>  
+    )
+  }
+}
+
+class ShowInDrawer extends React.Component {
+  state = { visible: false };
+
+  showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+  render () { 
+    let {id, Component, children} = this.props;
+
+    return(
+      <React.Fragment>  
+        <button key={id} className="link" onClick={this.showDrawer}>{children}</button>
+        <Drawer
+          width={640}
+          placement="right"
+          closable={true}
+          onClose={this.onClose}
+          visible={this.state.visible}
+          bodyStyle={{ padding: 0 }}
+          >
+          
+          <Component id={id} />
+        </Drawer>
+      </React.Fragment>  
+    )
+  }
+}
+
+export { ObjectModifiedDate, InfoLink, ShowInDrawer };

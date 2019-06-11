@@ -47,11 +47,14 @@ type BusinessRole @model {
   raciSecurity: RACI
   raciFinancial: RACI
   raciExecutive: RACI
-  
+   
   # Relations
   person: Person @relation(name: "RolesPerson")
   organizationalUnit: OrganizationalUnit! @relation(name: "BusinessRoleOU")
   process: [Process!]! @relation(name: "BusinessRoleProcess")
+  appBusinessOwner: [Application!]! @relation(name: "BusinessRoleAppBusinessOwner")
+  appItOwner: [Application!]! @relation(name: "BusinessRoleAppItOwner")
+  appSecAdmin: [Application!]! @relation(name: "BusinessRoleAppSecAdmin")
 }
 
 type OrganizationalUnit @model {
@@ -125,6 +128,9 @@ type Application @model {
   # Relations
   processingActivities: [ProcessingActivity!]! @relation(name: "ProcessProcessingActivitiesApplications")
   dataType: [DataType!]! @relation(name: "ApplicatonData")
+  businessOwner: BusinessRole @relation(name: "BusinessRoleAppBusinessOwner")
+  itOwner: BusinessRole @relation(name: "BusinessRoleAppItOwner")
+  securityAdministrator: BusinessRole @relation(name: "BusinessRoleAppSecAdmin")
 }
 
 type DataType @model {

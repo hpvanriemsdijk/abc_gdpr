@@ -7,14 +7,14 @@ const Option = Select.Option;
 
 export class BusinessRolessOptionsList extends React.Component {
   render() {
-    return (
+    return (  
       <Query query = { BUSINESS_ROLES_OPTIONS_LIST } >
         {({ loading, data, error }) => {     
           if (loading) return <Select placeholder="Loading..." />
           if (error) return <Select placeholder="Error loading..." />
 
           return(
-            this.props.form.getFieldDecorator('processOwner', {
+            this.props.form.getFieldDecorator(this.props.field, {
               initialValue: this.props.id,
             })(
               <Select

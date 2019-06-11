@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { Table, Divider, Card, Tag, Empty } from 'antd';
 import { ALL_APPLICATIONS } from '../../queries/ApplicationQueries';
 import CreateApplication from './CreateApplication'
 import UpdateApplication from './UpdateApplication'
 import DeleteApplication from './DeleteApplication'
+import viewApplicationDrawer from './ViewApplication'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
+import { ShowInDrawer } from '../generic/viewHelpers'
 
 class ApplicationTable extends React.Component {
   constructor(props) {
@@ -65,7 +66,7 @@ class ApplicationTable extends React.Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          <Link to={`/applications/${record.id}`}>Details</Link>
+          <ShowInDrawer id={record.id} Component={viewApplicationDrawer}>Details</ShowInDrawer>
           <Divider type="vertical" />
           <UpdateApplication application={record} />
           <Divider type="vertical" />
