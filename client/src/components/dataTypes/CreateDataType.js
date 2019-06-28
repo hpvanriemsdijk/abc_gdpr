@@ -1,7 +1,8 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_DATA_TYPE } from '../../queries/DataTypeQueries';
-import { Modal, Form, Input, Button, notification, Checkbox } from 'antd';
+import { Modal, Form, Input, Button, notification, Divider } from 'antd';
+import { QualityAttributesFormGroup } from '../qualityAttributes/QualityAttributesFormGroup'
 
 class CreateDataTypeModal extends React.Component {
   state = {
@@ -28,11 +29,14 @@ class CreateDataTypeModal extends React.Component {
    
     form.validateFields(async (err, values) => {
       if (!err) {
+        var classificationIds = Object.keys(values.classification).map(function(key) {
+            return {classificationLabelId: values.classification[key]}
+        });
+
         await createDataType({ variables: {
           name: values.name,
           description: values.description,
-          pii: values.pii,
-          spii: values.spii
+          classification: classificationIds
         }}).catch( res => {
           notification['warning']({
             message: "Could not create DataType",
@@ -49,6 +53,16 @@ class CreateDataTypeModal extends React.Component {
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 8 },
+        sm: { span: 8 },
+      },
+      wrapperCol: {
+        xs: { span: 16 },
+        sm: { span: 16 },
+      },
+    };
 
     return (
       <React.Fragment>
@@ -61,11 +75,12 @@ class CreateDataTypeModal extends React.Component {
               <Modal
                 onOk={e => this.onCreateDataType(createDataType)}
                 onCancel={this.closeModal}
+                destroyOnClose={true}
                 title="Create data type"
                 confirmLoading={loading}
                 visible={this.state.modalVisible}
               >
-                <Form layout="horizontal">
+                <Form {...formItemLayout} >
                   <Form.Item label="Name">
                     {form.getFieldDecorator('name', {
                       rules: [
@@ -83,13 +98,8 @@ class CreateDataTypeModal extends React.Component {
                     })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                   </Form.Item>
 
-                  <Form.Item label="Personal data">
-                    {form.getFieldDecorator('pii')(<Checkbox />)}
-                  </Form.Item>  
-                  
-                  <Form.Item label="Sensitive personal data">
-                    {form.getFieldDecorator('spii')(<Checkbox />)}
-                  </Form.Item>  
+                  <Divider orientation="left">Data classification</Divider>
+                  <QualityAttributesFormGroup form={form} scope="DATA" />
                 </Form>
               </Modal>
             );

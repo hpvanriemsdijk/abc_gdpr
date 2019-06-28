@@ -67,6 +67,7 @@ class CreateApplicationModal extends React.Component {
               <Modal
                 onOk={e => this.onCreateApplication(createApplication)}
                 onCancel={this.closeModal}
+                destroyOnClose={true}
                 title="Create Application"
                 confirmLoading={loading}
                 visible={this.state.modalVisible}

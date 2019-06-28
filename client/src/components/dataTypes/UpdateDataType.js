@@ -1,7 +1,8 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_DATA_TYPE, UPDATE_DATA_TYPE } from '../../queries/DataTypeQueries';
-import { Modal, Form, Input, notification, Checkbox, Spin } from 'antd';
+import { Modal, Form, Input, notification, Divider, Spin, Button } from 'antd';
+import { QualityAttributesFormGroup } from '../qualityAttributes/QualityAttributesFormGroup'
 
 class UpdateDataType extends React.Component {
   state = {
@@ -27,12 +28,15 @@ class UpdateDataType extends React.Component {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
+        var classificationIds = Object.keys(values.classification).map(function(key) {
+          return {classificationLabelId: values.classification[key]}
+        });
+
         await updateDataType({ variables: {
           id: this.props.dataType.id,
           name: values.name,
           description: values.description,
-          pii: values.pii,
-          spii: values.spii
+          classification: classificationIds
         }}).catch( res => {
           notification['warning']({
             message: "Could not update DataType",
@@ -49,6 +53,16 @@ class UpdateDataType extends React.Component {
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 8 },
+        sm: { span: 8 },
+      },
+      wrapperCol: {
+        xs: { span: 16 },
+        sm: { span: 16 },
+      },
+    };
 
     return (
       <React.Fragment>
@@ -61,6 +75,7 @@ class UpdateDataType extends React.Component {
             if( !this.state.modalVisible || error ) return null
             const DataTypeData = data.DataType || [];
             const loadingData = loading;
+            if (loading) return <Button onClick={this.showModal} type="link" disabled>Edit</Button>;
             
             return(
               <Mutation 
@@ -77,7 +92,7 @@ class UpdateDataType extends React.Component {
                       visible={this.state.modalVisible}
                       >
                       <Spin tip="Loading..." spinning={loadingData}>
-                        <Form >
+                        <Form {...formItemLayout} >
                           <Form.Item label="Name">
                             {form.getFieldDecorator('name', {
                               initialValue: DataTypeData.name,
@@ -96,19 +111,8 @@ class UpdateDataType extends React.Component {
                             })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                           </Form.Item>  
 
-                          <Form.Item label="Personal data">
-                            {form.getFieldDecorator('pii', {
-                              valuePropName: "checked",
-                              initialValue : DataTypeData.pii
-                            })(<Checkbox />)}
-                          </Form.Item>  
-                          <Form.Item label="Sensitive personal data">
-                            {form.getFieldDecorator('spii', {
-                              valuePropName: "checked",
-                              initialValue : DataTypeData.spii
-                            })(<Checkbox />)}
-                          </Form.Item>  
-
+                          <Divider orientation="left">Data classification</Divider>
+                          <QualityAttributesFormGroup form={form} scope="DATA" classifications={DataTypeData.classification} />    
                         </Form>
                       </Spin>
                     </Modal>

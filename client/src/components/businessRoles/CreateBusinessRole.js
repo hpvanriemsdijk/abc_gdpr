@@ -67,6 +67,7 @@ class CreateBusinessRoleModal extends React.Component {
             return (
               <Modal
                 onOk={e => this.onCreateBusinessRole(createBusinessRole)}
+                destroyOnClose={true}
                 onCancel={this.closeModal}
                 title="Create Business role"
                 confirmLoading={loading}

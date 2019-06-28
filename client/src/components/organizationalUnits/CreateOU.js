@@ -63,6 +63,7 @@ class CreateOUModal extends React.Component {
               <Modal
                 onOk={e => this.onCreateOU(createOU)}
                 onCancel={this.closeModal}
+                destroyOnClose={true}
                 title="Create Organizational Unit"
                 confirmLoading={loading}
                 visible={this.state.modalVisible}

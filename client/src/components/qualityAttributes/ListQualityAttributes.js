@@ -1,14 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { Table, Divider, Card, Tag, Empty } from 'antd';
-import { ALL_DATA_TYPES } from '../../queries/DataTypeQueries';
-import CreateDataType from './CreateDataType'
-import UpdateDataType from './UpdateDataType'
-import DeleteDataType from './DeleteDataType'
+import { ALL_QUALITY_ATTRIBUTES } from '../../queries/QualityAttributeQueries';
+import CreateQualityAttribute from './CreateQualityAttribute'
+import UpdateQualityAttribute from './UpdateQualityAttribute' 
+import DeleteQualityAttribute from './DeleteQualityAttribute'
+import viewQualityAttributeDrawer from './ViewQualityAttribute'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
+import { ShowInDrawer } from '../generic/viewHelpers'
 
-class DataTypeTable extends React.Component {
+class QualityAttributeTable extends React.Component {
   constructor(props) {
     super(props);
 
@@ -48,47 +49,43 @@ class DataTypeTable extends React.Component {
       ...clientSideFilter('name', this.searchInput, this.handleSearch, this.handleReset),
       ...filterHighlighter( 'name', filteredInfo )
     },{
-      title: 'Classifications',
-      key: 'classifications',
-      dataIndex: 'classifications',
-      render: (text, record) => {
-        if(record.classification.length){
-          return record.classification.map(classification => {
-            if(!classification.classificationLabel) return null
-            return(
-              <Tag key={classification.classificationLabel.id} color="blue">
-                {classification.classificationLabel.qualityAttribute.name}: {classification.classificationLabel.score} ({classification.classificationLabel.label})
-              </Tag>
-            )
-          })
-        }
-      }
+      title: 'Labels',
+      key: 'classificationLabels',
+      dataIndex: 'classificationLabels',
+      render: classificationLabels => (
+        <span>
+          { classificationLabels
+            ? classificationLabels.map(c => <Tag key={c.score}>{c.score}: {c.label}</Tag>)
+            : ""
+          }
+        </span>
+      ),
     },{
       title: 'Action',
       dataIndex: 'action',
       key: 'action',
       render: (text, record) => (
         <span>
-          <Link to={`/DataTypes/${record.id}`}>Details</Link>
+          <ShowInDrawer id={record.id} Component={viewQualityAttributeDrawer}>Details</ShowInDrawer>
           <Divider type="vertical" />
-          <UpdateDataType dataType={record} />
+          <UpdateQualityAttribute qualityAttribute={record} />
           <Divider type="vertical" />
-          <DeleteDataType dataType={record} />
+          <DeleteQualityAttribute qualityAttribute={record} />
         </span>
       ),
     }];
     
     return (
         <Query
-          query = { ALL_DATA_TYPES }
+          query = { ALL_QUALITY_ATTRIBUTES }
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.allDataTypes || [];
+            const dataSource = data.allQualityAttributes || [];
 
             return(
               <React.Fragment>  
-                <Card title="Data types" extra={<CreateDataType />} style={{ background: '#fff' }}>
+                <Card title="Quality Attributes" extra={<CreateQualityAttribute />} style={{ background: '#fff' }}>
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
@@ -104,4 +101,4 @@ class DataTypeTable extends React.Component {
   }
 }
 
-export default DataTypeTable
+export default QualityAttributeTable

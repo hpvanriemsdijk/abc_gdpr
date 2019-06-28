@@ -7,8 +7,17 @@ export const ALL_DATA_TYPES = gql`
 		) {
 			id
 			name
-			pii
-			spii
+			classification {
+				classificationLabel{
+					id
+					score
+					label
+					qualityAttribute{
+						id
+						name
+					}
+				}
+			}
 		}
 	}
 `;
@@ -25,8 +34,12 @@ export const DATA_TYPE_OPTIONS_LIST = gql`
 `;
 
 export const CREATE_DATA_TYPE = gql`
-	mutation CreateDataType ($name: String!, $description: String, $pii: Boolean, $spii: Boolean) {
-		createDataType(name: $name, description: $description, pii: $pii, spii: $spii) {
+	mutation CreateDataType ($name: String!, $description: String, $classification: [DataTypeclassificationClassification!]!) {
+		createDataType(
+			name: $name, 
+			description: $description, 
+			classification: $classification
+		) {
 			id
 		}
 	}
@@ -38,15 +51,31 @@ export const GET_DATA_TYPE = gql`
 			id
 			name
 			description
-			pii
-			spii
+			classification {
+				classificationLabel{
+					id
+					score
+					label
+					criteria
+					qualityAttribute{
+						id
+						name
+						description
+					}
+				}
+			}
 		}
 	}
 `;
 
 export const UPDATE_DATA_TYPE = gql`
-	mutation UpdateDataType ($id: ID!, $name: String!, $description: String, $pii: Boolean, $spii: Boolean) {
-		updateDataType(id: $id, name: $name, description: $description, pii: $pii, spii: $spii) {
+	mutation UpdateDataType ($id: ID!, $name: String!, $description: String, $classification: [DataTypeclassificationClassification!]!) {
+		updateDataType(
+			id: $id, 
+			name: $name, 
+			description: $description, 
+			classification: $classification
+		) {
 			id
 		}
 	}

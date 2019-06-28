@@ -67,6 +67,7 @@ class CreateProcessModal extends React.Component {
               return (
                 <Modal
                   onOk={e => this.onCreateProcess(createProcess)}
+                  destroyOnClose={true}
                   onCancel={this.closeModal}
                   title="Create process"
                   confirmLoading={loading}

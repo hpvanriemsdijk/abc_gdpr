@@ -73,6 +73,7 @@ class CreateUserModal extends React.Component {
             return (
               <Modal
                 onOk={e => this.onCreateUser(createUser)}
+                destroyOnClose={true}
                 onCancel={this.closeModal}
                 title="Create User"
                 confirmLoading={loading}

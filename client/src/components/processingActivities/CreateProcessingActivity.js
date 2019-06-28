@@ -61,6 +61,7 @@ class CreateProcessingActivityModal extends React.Component {
             return (
               <Modal
                 onOk={e => this.onCreateProcessingActivity(createProcessingActivity)}
+                destroyOnClose={true}
                 onCancel={this.closeModal}
                 title="Create processing activity"
                 confirmLoading={loading}
