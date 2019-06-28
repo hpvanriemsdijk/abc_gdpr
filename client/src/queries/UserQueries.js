@@ -73,17 +73,14 @@ export const DELETE_USER = gql`
 `;
 
 export const userQueries = {
-	loggedIn: gql`
-		query LoggedInUserQuery {
-			loggedInUser {
-				id
-				email
-			}
-		}`,
 	authenticate: gql`
 		mutation AuthenticateUserMutation ($email: String!, $password: String!) { 
-			authenticateUser(email: $email, password: $password) {
-				id
+			authenticateUser(
+				data:{
+					email: $email, 
+					password: $password
+				}
+			){
 				token
 			}
 		}`,

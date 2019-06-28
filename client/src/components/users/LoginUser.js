@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import { Form, Icon, Input, Button, Checkbox, Card, Spin, message } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Card } from 'antd';
 import { userQueries } from '../../queries/UserQueries';
 
 const FormItem = Form.Item;
@@ -18,30 +18,15 @@ class LoginUser extends React.Component {
           }
         }).then( res => {
           const token = res.data.authenticateUser.token;
-          localStorage.setItem('graphcoolToken', token)
+          localStorage.setItem('id_token', token)
           window.location.reload()
         })
-        .catch( res => {
-          if ( res.graphQLErrors ) {
-            const errors = res.graphQLErrors.map( error => error.functionError );
-            this.setState({ errors, processing: false, hide_errors: false });
-            console.log('Received error: ', errors);
-            message.warning(errors);
-          }
-        });
       }
     });
   }
 
   render () {
     const { getFieldDecorator } = this.props.form;
-    if (this.props.loggedInUserQuery.loading) {
-      return (
-        <div className='w-100 pa4 flex justify-center'>
-          <div><Spin /> Loading</div>
-        </div>
-      )
-    }
 
     return (
       <Card title="Login" style={{ width: 300 }}>
@@ -78,9 +63,5 @@ class LoginUser extends React.Component {
 }
 
 export default compose(
-  graphql(userQueries.authenticate, {name: 'authenticateUserMutation'}),
-  graphql(userQueries.loggedIn, { 
-    name: 'loggedInUserQuery',
-    options: { fetchPolicy: 'network-only' }
-  })
+  graphql(userQueries.authenticate, {name: 'authenticateUserMutation'})
 )(withRouter(Form.create()(LoginUser)))

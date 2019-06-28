@@ -1,0 +1,167 @@
+enum PERMISSION {
+  ADMIN
+  AUDIT
+}
+
+enum RACI {
+  RESPONDSABLE
+  ACCOUNTABLE
+  CONSULTED
+  INFORMED
+}
+
+enum CLASSIFICATIONOBJECT {
+  DATA
+  APPLICATION
+}
+
+#
+# Models
+#
+type User {
+  id: ID! @id
+  email: String! @unique
+  password: String!
+  active: Boolean
+  specialPermissions: [PERMISSION!]! @scalarList(strategy: RELATION)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
+  # Relations
+  person: Person @relation(link: INLINE)
+}
+
+type Person {
+  id: ID! @id
+  name: String!
+  surname: String
+  
+  # Relations
+  user: User
+  roles: [BusinessRole!]!
+}
+
+type BusinessRole {
+  id: ID! @id
+  name: String!
+  description: String
+  raciPrivacy: RACI @scalar(strategy: RELATION)
+  raciSecurity: RACI @scalar(strategy: RELATION)
+  raciFinancial: RACI @scalar(strategy: RELATION)
+  raciExecutive: RACI @scalar(strategy: RELATION)
+   
+  # Relations
+  person: Person @relation(link: INLINE)
+  organizationalUnit: OrganizationalUnit! @relation(link: INLINE)
+  process: [Process!]!
+  appBusinessOwner: [Application!]! @relation(name: "BusinessRoleAppBusinessOwner")
+  appItOwner: [Application!]! @relation(name: "BusinessRoleAppItOwner")
+  appSecAdmin: [Application!]! @relation(name: "BusinessRoleAppSecAdmin")
+}
+
+type OrganizationalUnit {
+  id: ID! @id
+  name: String!
+  description: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  
+  # Relations
+  children: [OrganizationalUnit!]! @relation(name: "OuToOu", onDelete: CASCADE)
+  parent: OrganizationalUnit @relation(link: INLINE, name: "OuToOu")
+  processes: [Process!]!
+  businessRoles: [BusinessRole!]!
+  organizationalUnitType: OrganizationalUnitType @relation(link: INLINE)
+}
+
+type OrganizationalUnitType {
+  id: ID! @id
+  name: String!
+  description: String
+  reportingUnit: Boolean
+  
+  # Relations
+  organizationalUnit: [OrganizationalUnit!]!
+}
+
+##
+ # Update AllProcessesByOu resolver when update this type
+ # 
+type Process {
+  id: ID! @id
+  name: String!
+  description: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  
+  # Relations
+  organizationalUnit: OrganizationalUnit  @relation(link: INLINE)
+  processingActivities: [ProcessingActivity!]!
+  processOwner: BusinessRole @relation(link: INLINE)
+}
+
+type ProcessingActivity {
+  id: ID! @id
+  name: String!
+  description: String
+  purpose: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  
+  # Relations
+  process: Process @relation(link: INLINE)
+  applications: [Application!]! @relation(link: TABLE)
+}
+
+type Application {
+  id: ID! @id
+  name: String!
+  alias: Json
+  description: String
+  
+  # Relations
+  processingActivities: [ProcessingActivity!]!
+  dataType: [DataType!]! @relation(link: TABLE)
+  businessOwner: BusinessRole @relation(link: INLINE, name: "BusinessRoleAppBusinessOwner")
+  itOwner: BusinessRole @relation(link: INLINE, name: "BusinessRoleAppItOwner")
+  securityAdministrator: BusinessRole @relation(link: INLINE, name: "BusinessRoleAppSecAdmin")
+}
+
+type DataType {
+  id: ID! @id
+  name: String!
+  description: String
+  
+  # Relations
+  application: [Application!]! 
+  classifications: [Classification!]! @relation(onDelete: CASCADE)
+}
+
+type Classification {  
+  id: ID! @id
+
+  # Relations
+  dataType: DataType @relation(link: INLINE)
+  classificationLabel: ClassificationLabel @relation(link: INLINE)
+}
+
+type QualityAttribute {
+  id: ID! @id
+  name: String!
+  description: String 
+  appliesToObject: CLASSIFICATIONOBJECT! @scalar(strategy: RELATION)
+
+  # Relations
+  classificationLabels: [ClassificationLabel!]! @relation(onDelete: CASCADE)
+}
+
+type ClassificationLabel {
+  id: ID! @id
+  score: Int!
+  label: String!
+  criteria: String
+
+  # Relations
+  qualityAttribute: QualityAttribute @relation(link: INLINE)
+  classifications: [Classification!]! @relation(onDelete: CASCADE)
+}

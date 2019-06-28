@@ -1,11 +1,10 @@
 import React from 'react'
 import {Route, Switch, Redirect, BrowserRouter, Link } from 'react-router-dom'
-import { graphql } from 'react-apollo'
 import { Layout, Row, Breadcrumb, Icon } from 'antd';
+import decode from "jwt-decode";
+
 import 'antd/dist/antd.css';
 import '../index.css';
-
-import { userQueries } from '../queries/UserQueries';
 
 import error_404 from './generic/error_404'
 import landingPage from './generic/landingPage'
@@ -27,17 +26,27 @@ import listApplications from './applications/ListApplications'
 import viewApplication from './applications/ViewApplication'
 import listDataTypes from './dataTypes/ListDataTypes'
 import viewDataType from './dataTypes/ViewDataType'
-
+import listQualityAttributes from './qualityAttributes/ListQualityAttributes'
+import viewQualityAttribute from './qualityAttributes/ViewQualityAttribute'
 const { Footer, Sider } = Layout;
 
 class App extends React.Component {
   isLoggedin(){
-    if(this.props.loggedInUserQuery.loggedInUser && this.props.loggedInUserQuery.loggedInUser.id !== null){
-      return true;
-    }else{
+    const token = localStorage.getItem('id_token')
+    return !!token && !this.isTokenValid(token); 
+  }
+
+  isTokenValid = token => {
+    try {
+      const decoded = decode(token);
+      if (decoded.exp < Date.now() / 1000 && decoded.email) {
+        return true;
+      } else return false;
+    } catch (err) {
+      console.log("expired check failed!");
       return false;
     }
-  }
+  };
 
   AuthenticatedLayout(props){
     return (
@@ -114,6 +123,8 @@ class App extends React.Component {
           <AppRoute path='/applications' layout={ this.AuthenticatedLayout } component={listApplications} />
           <AppRoute path='/dataTypes/:dataTypeId' layout={ this.AuthenticatedLayout } component={viewDataType} />
           <AppRoute path='/dataTypes' layout={ this.AuthenticatedLayout } component={listDataTypes} />
+          <AppRoute path='/qualityAttributes/:dataTypeId' layout={ this.AuthenticatedLayout } component={viewQualityAttribute} />
+          <AppRoute path='/qualityAttributes' layout={ this.AuthenticatedLayout } component={listQualityAttributes} />
           <AppRoute path='/users/:userId' layout={ this.AuthenticatedLayout } component={listUsers} />
           <AppRoute path='/users' layout={ this.AuthenticatedLayout } component={listUsers} />
           <AppRoute exact path='/' layout={ this.AuthenticatedLayout } component={landingPage} />
@@ -124,7 +135,4 @@ class App extends React.Component {
   }
 }
 
-export default graphql(userQueries.loggedIn, {
-  name: 'loggedInUserQuery',
-  options: {fetchPolicy: 'network-only'}
-})(App)
+export default App

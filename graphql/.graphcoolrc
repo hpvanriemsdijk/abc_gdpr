@@ -1,3 +1,0 @@
-targets:
-  test: shared-eu-west-1/cjpcp5gr1butu0118qjn2l9k0
-  default: test

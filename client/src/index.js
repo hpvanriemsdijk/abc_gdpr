@@ -16,13 +16,18 @@ const httpLink = createHttpLink({
 })
 
 const middlewareLink = new ApolloLink((operation, forward) => {
-  const token = localStorage.getItem('graphcoolToken')
-  const authorizationHeader = token ? `Bearer ${token}` : null
-  operation.setContext({
-    headers: {
-      authorization: authorizationHeader
-    }
-  })
+  const token = localStorage.getItem('id_token')
+
+  if(token){
+    const authorizationHeader = token ? `Bearer ${token}` : null
+
+    operation.setContext({
+      headers: {
+        authorization: authorizationHeader
+      }
+    })
+  }
+
   return forward(operation)
 })
 
@@ -38,17 +43,28 @@ const errorLink = onError(({ networkError, graphQLErrors }) => {
   }
 
   if (graphQLErrors){
-    graphQLErrors.map(({ message, locations, path }) =>
-      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
-    );
-
-    notification['error']({
-      message: 'GraphQL error',
-      description: `An graphQL error has occured, check te console for more info.` ,
-      duration: 6
-    });
+    for (let err of graphQLErrors) {
+      switch (err.extensions.code) {
+        case 'UNAUTHENTICATED':
+          notification['warning']({
+            message: 'Authentication error',
+            description: err.message,
+            duration: 6
+          });
+          break
+        case 'ANOTHER_ERROR_CODE':
+          // ...
+          break
+        default:
+          notification['error']({
+            message: 'GraphQL error',
+            description: `An graphQL error has occured, check te console for more info.` ,
+            duration: 6
+          });
+          console.log(graphQLErrors)
+      }
   }
-});
+}});
 
 const httpLinkWithAuthToken = ApolloLink.from([
   middlewareLink,
