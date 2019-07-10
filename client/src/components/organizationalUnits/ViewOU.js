@@ -38,7 +38,7 @@ export class OUInfoCard extends React.Component {
         >
         {({ loading, data, error }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const OrganizationalUnit = data.OrganizationalUnit || [];
+          const OrganizationalUnit = data.organizationalUnit || [];
           const OrganizationalUnitType = OrganizationalUnit.organizationalUnitType || [];
 
           return(
@@ -113,7 +113,7 @@ class OUBranchCard extends React.Component {
         {({ loading, data, error }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
 
-          const dataSource = data.OrganizationalUnit || [];
+          const dataSource = data.organizationalUnit || [];
           const orderedBranch = orderBranch(dataSource)
           
           return(

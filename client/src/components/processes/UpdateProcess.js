@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query, Mutation, } from 'react-apollo'
 import { GET_PROCESS, UPDATE_PROCESS  } from '../../queries/ProcessQueries';
-import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
+import { BusinessRolesOptionsList } from '../businessRoles/BusinessRolesOptionsList'
 import { OuTree } from '../organizationalUnits/OuTree'
 import { Modal, Form, Input, notification, Spin } from 'antd';
 
@@ -23,12 +23,19 @@ class UpdateProcess extends React.Component {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
+        let processOwner = values.processOwner ? {processOwner: {connect: {id: values.processOwner }}} : null;
+        let organizationalUnit = values.organizationalUnit || this.props.organizationalUnitId || undefined
+        organizationalUnit = values.organizationalUnit ? {organizationalUnit: {connect: {id: values.organizationalUnit }}} : null;
+
         await updateProcess({ variables: {
           id: this.props.process.id,
-          name: values.name,
-          description: values.description,
-          processOwner: values.processOwner || null,
-          organizationalUnit: values.organizationalUnit || this.props.organizationalUnitId || undefined
+          data: {
+            name: values.name, 
+            description: values.description,
+            alias: values.alias,
+            ...processOwner,
+            ...organizationalUnit
+          } 
         }}).catch( res => {
           notification['warning']({
             message: "Could not update Process",
@@ -55,7 +62,7 @@ class UpdateProcess extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const ProcessData = data.Process || [];
+            const ProcessData = data.process || [];
             const processOwnerId = ProcessData.processOwner ? ProcessData.processOwner.id : null
             const organizationalUnitId = ProcessData.organizationalUnit ? ProcessData.organizationalUnit.id : null
             const loadingData = loading;
@@ -63,7 +70,7 @@ class UpdateProcess extends React.Component {
             return(
               <Mutation 
                 mutation={UPDATE_PROCESS}
-                refetchQueries={["AllProcesses", "Process"]}
+                refetchQueries={["Processes", "Process"]}
                 >
                 {(updateProcess, { updating }) => {
                   return (
@@ -94,7 +101,7 @@ class UpdateProcess extends React.Component {
                           </Form.Item>  
                           <Form.Item 
                             label="Process owner">
-                            { <BusinessRolessOptionsList form={form} id={processOwnerId}/> }
+                            { <BusinessRolesOptionsList form={form} id={processOwnerId}/> }
                           </Form.Item>
                           <Form.Item label="Organizational Unit" >
                             <OuTree form={form} parentId={organizationalUnitId} parentTree={false} /> 

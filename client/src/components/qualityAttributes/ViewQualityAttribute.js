@@ -15,7 +15,7 @@ class viewQualityAttributeDrawer extends React.Component {
         {({ loading, data, error }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
           if(loading) return <Card><Empty>loading..</Empty></Card>
-          const qualityAttribute = data.QualityAttribute;
+          const qualityAttribute = data.qualityAttribute;
 
           let list = [
             { lable: "Description", content: qualityAttribute.description },

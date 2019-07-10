@@ -1,21 +1,17 @@
 import gql from 'graphql-tag'
 
 export const ALL_DATA_TYPES = gql`
-	query AllDataTypes ($filter: DataTypeFilter) {
-		allDataTypes(
-			filter:$filter
-		) {
+	query DataTypes {
+		dataTypes{
 			id
 			name
-			classification {
-				classificationLabel{
+			classificationLabels{
+				id
+				score
+				label
+				qualityAttribute{
 					id
-					score
-					label
-					qualityAttribute{
-						id
-						name
-					}
+					name
 				}
 			}
 		}
@@ -23,10 +19,8 @@ export const ALL_DATA_TYPES = gql`
 `;
 
 export const DATA_TYPE_OPTIONS_LIST = gql`
-	query AllDataTypes ($filter: DataTypeFilter) {
-		allDataTypes(
-			filter:$filter
-		) {
+	query DataTypes {
+		dataTypes {
 			value: id
 			title: name
 		}
@@ -34,12 +28,8 @@ export const DATA_TYPE_OPTIONS_LIST = gql`
 `;
 
 export const CREATE_DATA_TYPE = gql`
-	mutation CreateDataType ($name: String!, $description: String, $classification: [DataTypeclassificationClassification!]!) {
-		createDataType(
-			name: $name, 
-			description: $description, 
-			classification: $classification
-		) {
+	mutation CreateDataType ($data: DataTypeCreateInput!) {
+		createDataType(data: $data) {
 			id
 		}
 	}
@@ -47,21 +37,17 @@ export const CREATE_DATA_TYPE = gql`
 
 export const GET_DATA_TYPE = gql`
 	query DataType ($id: ID!) { 
-		DataType(id: $id) {
+		dataType(where:{id: $id}) {
 			id
 			name
 			description
-			classification {
-				classificationLabel{
+			classificationLabels{
+				id
+				score
+				label
+				qualityAttribute{
 					id
-					score
-					label
-					criteria
-					qualityAttribute{
-						id
-						name
-						description
-					}
+					name
 				}
 			}
 		}
@@ -69,12 +55,10 @@ export const GET_DATA_TYPE = gql`
 `;
 
 export const UPDATE_DATA_TYPE = gql`
-	mutation UpdateDataType ($id: ID!, $name: String!, $description: String, $classification: [DataTypeclassificationClassification!]!) {
+	mutation UpdateDataType ($id: ID!, $data: DataTypeUpdateInput!) {
 		updateDataType(
-			id: $id, 
-			name: $name, 
-			description: $description, 
-			classification: $classification
+			data: $data, 
+			where: {id: $id}
 		) {
 			id
 		}
@@ -83,7 +67,7 @@ export const UPDATE_DATA_TYPE = gql`
 
 export const DELETE_DATA_TYPE = gql`
 	mutation DeleteDataType ($id: ID!) {
-		deleteDataType(id: $id) {
+		deleteDataType(where:{id: $id}) {
 			id
 		}
 	}

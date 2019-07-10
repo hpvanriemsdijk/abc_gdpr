@@ -1,12 +1,15 @@
-import { makePrismaSchema, prismaObjectType, } from 'nexus-prisma'
+import { makePrismaSchema, prismaObjectType  } from 'nexus-prisma'
 import * as path from 'path'
 import datamodelInfo from '../generated/nexus-prisma'
 import { prisma } from '../generated/prisma-client'
-import { arg } from 'nexus'
+import { arg, stringArg } from 'nexus'
 
 //Import types
-const { User, loggedInUser, createUser, createAdmin } = require('./user');
 const { authenticateUser, LoginInput, Token } = require('./authenticate');
+const { User, loggedInUser, createUser, createAdmin } = require('./user');
+const { createOrganizationalUnit, updateOrganizationalUnit, businessRoleByOu } = require('./organizationalUnit');
+const { processByOu } = require('./processes');
+const { processingActivitiesByOu } = require('./processingActivities');
 
 const Mutation = prismaObjectType({
   name: 'Mutation',
@@ -34,6 +37,16 @@ const Mutation = prismaObjectType({
 			},
 			resolve: authenticateUser,
 			type: 'Token'
+    });
+    t.field('createOrganizationalUnit', {
+			args: t.prismaType.createOrganizationalUnit.args,
+			resolve: createOrganizationalUnit,
+			type: 'OrganizationalUnit'
+    });
+    t.field('updateOrganizationalUnit', {
+			args: t.prismaType.updateOrganizationalUnit.args,
+			resolve: updateOrganizationalUnit,
+			type: 'OrganizationalUnit'
 		});
   },
 })
@@ -46,6 +59,21 @@ const Query = prismaObjectType({
     t.field('loggedInUser', {
 			resolve: loggedInUser,
 			type: 'User'
+    });
+    t.list.field('processByOu', {
+      args: t.prismaType.process.args,
+			resolve: processByOu,
+			type: 'Process'
+    });
+    t.list.field('processingActivitiesByOu', {
+      args: t.prismaType.processingActivity.args,
+			resolve: processingActivitiesByOu,
+			type: 'ProcessingActivity'
+    });
+    t.list.field('businessRoleByOu', {
+      args: t.prismaType.organizationalUnit.args,
+			resolve: businessRoleByOu,
+			type: 'BusinessRole'
 		});
   },
 })

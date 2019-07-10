@@ -76,7 +76,7 @@ class PersonTable extends React.Component {
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.allPersons || [];
+            const dataSource = data.persons || [];
 
             return(
               <React.Fragment>  

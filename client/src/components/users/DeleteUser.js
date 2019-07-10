@@ -45,7 +45,7 @@ class DeleteUser extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={DELETE_USER}
-            refetchQueries={["GetUsers"]}
+            refetchQueries={["Users"]}
             >
             {(DeleteUser, { loading }) => {
               return (

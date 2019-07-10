@@ -300,13 +300,16 @@ class CreateQualityAttributeModal extends React.Component {
     const { form } = this.props;
    
     form.validateFields(async (err, values) => {
-      if (!err) {
-        console.log(this.state.dataSource);
+      if (!err) {       
         await createQualityAttribute({ variables: {
-          name: values.name,
-          description: values.description,
-          appliesToObject: values.appliesToObject,
-          classificationLabels: this.state.dataSource
+          data: {
+            name: values.name, 
+            description: values.description,
+            appliesToObject: values.appliesToObject,
+            classificationLabels: {
+              create: this.state.dataSource
+            }         
+          }
         }}).catch( res => {
           notification['warning']({
             message: "Could not create QualityAttribute",
@@ -332,7 +335,7 @@ class CreateQualityAttributeModal extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={CREATE_QUALITY_ATTRIBUTE}
-          refetchQueries={["AllQualityAttributes"]}
+          refetchQueries={["QualityAttributes"]}
           >
           {(createQualityAttribute, { loading }) => {
             return (

@@ -20,12 +20,14 @@ class SetUserState extends React.Component {
   onDeactivateUser = SetUserState => {
     SetUserState({ variables: {
       id: this.props.user.id,
-      active: false
+      data: {
+        active: false
+      }
     }}).catch( res => {
       if ( res.graphQLErrors ) {
         console.log('Received error: ', res.message);
         notification['warning']({
-          message: "Could not create user",
+          message: "Could deactivate user",
           description: res.message,
           duration: 10
         });
@@ -44,12 +46,14 @@ class SetUserState extends React.Component {
   onActivateUser = SetUserState => {
     SetUserState({ variables: {
       id: this.props.user.id,
-      active: true
+      data: {
+        active: true
+      }
     }}).catch( res => {
       if ( res.graphQLErrors ) {
         console.log('Received error: ', res.message);
         notification['warning']({
-          message: "Could not create user",
+          message: "Could activate user",
           description: res.message,
           duration: 10
         });
@@ -71,11 +75,7 @@ class SetUserState extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={SET_USER_STATE}
-            refetchQueries={[
-              //{query: ALL_USERS}, //--> Changes state on both list, does note remove item from active list
-              'GetUsers' //--> Removes item from the active list, does not change state on inactive list
-              //Somehow need both to get good result.
-            ]}
+            refetchQueries={["Users"]}
             >
             {(UpdateUser, { loading }) => {
               return (
@@ -100,10 +100,7 @@ class SetUserState extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={SET_USER_STATE}
-            refetchQueries={[
-              //{query: ALL_USERS},  //Updates inactive list, does not update active list 
-              'GetUsers'// --> Updates normalised value, does noet update active list
-            ]}
+            refetchQueries={["Users"]}
             >
             {(UpdateUser, { loading }) => {
               return (

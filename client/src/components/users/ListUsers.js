@@ -170,7 +170,7 @@ class UserTable extends React.Component {
           }}
           >
           {({ loading, data }) => {
-            const dataSource = data.allUsers || [];
+            const dataSource = data.users || [];
 
             return(
               <React.Fragment>  

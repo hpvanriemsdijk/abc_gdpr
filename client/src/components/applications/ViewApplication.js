@@ -46,11 +46,11 @@ class viewApplicationDrawer extends React.Component {
         >
         {({ loading, data, error }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.Application || [];
+          const dataSource = data.application || [];
 
           let list = [
             { lable: "Description", content: dataSource.description },
-            { lable: "Data types", content: this.datatypesToTags(dataSource.dataType) },
+            { lable: "Data types", content: this.datatypesToTags(dataSource.dataTypes) },
             { lable: "Business owner", content: this.formatRole(dataSource.businessOwner)},
             { lable: "IT owner", content: this.formatRole(dataSource.itOwner) },
             { lable: "Security administrator", content: this.formatRole(dataSource.securityAdministrator) },

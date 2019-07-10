@@ -12,7 +12,7 @@ class viewDataType extends React.Component {
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.DataType || [];
+            const dataSource = data.dataTypes || [];
 
             return(
               <React.Fragment>  

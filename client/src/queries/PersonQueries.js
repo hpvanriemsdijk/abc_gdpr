@@ -1,10 +1,8 @@
 import gql from 'graphql-tag'
 
 export const ALL_PERSONS = gql`
-	query AllPersons ($filter: PersonFilter) {
-		allPersons(
-			filter:$filter
-		) {
+	query Persons {
+		persons {
 			id
 			name
 			surname
@@ -13,10 +11,8 @@ export const ALL_PERSONS = gql`
 `;
 
 export const PERSON_OPTIONS_LIST = gql`
-	query AllPersons ($filter: PersonFilter) {
-		allPersons(
-			filter:$filter
-		) {
+	query Persons {
+		persons {
 			value: id
 			name
 			surname
@@ -25,8 +21,8 @@ export const PERSON_OPTIONS_LIST = gql`
 `;
 
 export const CREATE_PERSON = gql`
-	mutation CreatePerson ($name: String!, $surname: String) {
-		createPerson(name: $name, surname: $surname) {
+	mutation CreatePerson ($data: PersonCreateInput!) {
+		createPerson(data: $data) {
 			id
 		}
 	}
@@ -34,7 +30,7 @@ export const CREATE_PERSON = gql`
 
 export const GET_PERSON = gql`
 	query Person ($id: ID!) { 
-		Person(id: $id) {
+		person(where:{id: $id}) {
 			id
 			name
 			surname
@@ -43,8 +39,11 @@ export const GET_PERSON = gql`
 `;
 
 export const UPDATE_PERSON = gql`
-	mutation UpdatePerson ($id: ID!, $name: String!, $surname: String) {
-		updatePerson(id: $id, name: $name, surname: $surname) {
+	mutation UpdatePerson ($id: ID!, $data: PersonUpdateInput!) {
+		updatePerson(
+			data: $data, 
+			where: {id: $id}
+		) {
 			id
 		}
 	}
@@ -52,7 +51,7 @@ export const UPDATE_PERSON = gql`
 
 export const DELETE_PERSON = gql`
 	mutation DeletePerson ($id: ID!) {
-		deletePerson(id: $id) {
+		deletePerson(where:{id: $id}) {
 			id
 		}
 	}

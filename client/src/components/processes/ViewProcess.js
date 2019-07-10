@@ -42,7 +42,7 @@ class ProcesInfoCard extends React.Component {
           {({ loading, data, error }) => {
             if(error) return "No organizational unit assigned"
             if(loading) return "Loading organizational unit"
-            const dataSource = data.OrganizationalUnit || [];
+            const dataSource = data.organizationalUnit || [];
             const orderedParents = orderParents(dataSource)
             return this.renderBranch(orderedParents)
           }}
@@ -75,7 +75,7 @@ class ProcesInfoCard extends React.Component {
         >
         {({ loading, data, error }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.Process || [];
+          const dataSource = data.process || [];
 
           return(
             <Card 

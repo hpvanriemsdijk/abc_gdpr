@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mutation, Query } from 'react-apollo'
 import { UPDATE_QUALITY_ATTRIBUTE, GET_QUALITY_ATTRIBUTE, qualityAttributeEnums } from '../../queries/QualityAttributeQueries';
-import { Modal, Form, Input, Button, notification, Select, Icon, Table } from 'antd';
+import { Modal, Form, Input, Button, notification, Select, Icon, Table, Spin } from 'antd';
 import { DragDropContext, DragSource, DropTarget } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
@@ -289,13 +289,27 @@ class UpdateQualityAttributeModal extends React.Component {
    
     form.validateFields(async (err, values) => {
       if (!err) {
-        console.log(this.state.dataSource);
+        let updateLabels = this.state.dataSource.map(updateLabel => {
+          return {
+            where: {id: updateLabel.id},
+            data: {
+              criteria: updateLabel.criteria,
+              label: updateLabel.label,
+              score: updateLabel.score,
+            }
+          }
+        })
+
         await createQualityAttribute({ variables: {
           id: this.props.qualityAttribute.id,
-          name: values.name,
-          description: values.description,
-          appliesToObject: values.appliesToObject,
-          classificationLabels: this.state.dataSource
+          data: {
+            name: values.name, 
+            description: values.description,
+            appliesToObject: values.appliesToObject,
+            classificationLabels: {
+              update: updateLabels
+            } 
+          }
         }}).catch( res => {
           notification['warning']({
             message: "Could not create QualityAttribute",
@@ -337,17 +351,17 @@ class UpdateQualityAttributeModal extends React.Component {
           query = { GET_QUALITY_ATTRIBUTE }
           variables = {{ id: this.props.qualityAttribute.id }}
           skip = { !this.state.modalVisible }
-          onCompleted = {data => this.setState({ dataSource: this.sanitizeClassificationLabels(data.QualityAttribute.classificationLabels) })}
+          onCompleted = {data => this.setState({ dataSource: this.sanitizeClassificationLabels(data.qualityAttribute.classificationLabels) })}
           >
           {({ loading, data, error }) => {
-            if (loading) return <Button onClick={this.showModal} type="link" disabled>Edit</Button>;
             if( !this.state.modalVisible || error) return null
-            const QualityAttributeData = data.QualityAttribute || [];
+            const loadingData = loading;
+            const QualityAttributeData = data.qualityAttribute || [];
 
             return(
               <Mutation 
                 mutation={UPDATE_QUALITY_ATTRIBUTE}
-                refetchQueries={["AllQualityAttributes"]}
+                refetchQueries={["QualityAttributes", "QualityAttribute"]}
                 >
                 {(createQualityAttribute, { loading }) => {
                   return (
@@ -359,43 +373,45 @@ class UpdateQualityAttributeModal extends React.Component {
                       confirmLoading={loading}
                       visible={this.state.modalVisible}
                       >
-                      <Form layout="horizontal">
-                        <Form.Item label="Name">
-                          {form.getFieldDecorator('name', {
-                            initialValue: QualityAttributeData.name,
-                            rules: [
-                              { required: true, message: 'Please enter a name!' }
-                            ],
-                          })(<Input />)}
-                        </Form.Item>                            
-                        <Form.Item 
-                          label="Description">
-                          {form.getFieldDecorator('description', {
-                            initialValue: QualityAttributeData.description,
-                            rules: [
-                              { required: true, message: 'Please enter a description!' }
-                            ],
-                          })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                        </Form.Item>
-                        <Form.Item label="Classification object">
-                          {form.getFieldDecorator('appliesToObject', {
-                            initialValue: QualityAttributeData.appliesToObject,
-                            rules: [{ required: true, message: 'Select a object!' }]
-                          })(
-                            <Select
-                              style={{ width: '100%' }}
-                              allowClear={true}
-                              placeholder="Select a object"
-                            >
-                              {qualityAttributeEnums.objects.map(object => <Select.Option key={object.value} value={object.value || undefined}>{object.label}</Select.Option>)}
-                            </Select>
-                            
-                            )}              
-                        </Form.Item>                  
-                        <Form.Item label="Classification labels">
-                          <ClassificationLabels dataSource={this.state.dataSource} passLabels={this.passLabels} />
-                        </Form.Item>
-                      </Form>
+                      <Spin tip="Loading..." spinning={loadingData}>
+                        <Form layout="horizontal">
+                          <Form.Item label="Name">
+                            {form.getFieldDecorator('name', {
+                              initialValue: QualityAttributeData.name,
+                              rules: [
+                                { required: true, message: 'Please enter a name!' }
+                              ],
+                            })(<Input />)}
+                          </Form.Item>                            
+                          <Form.Item 
+                            label="Description">
+                            {form.getFieldDecorator('description', {
+                              initialValue: QualityAttributeData.description,
+                              rules: [
+                                { required: true, message: 'Please enter a description!' }
+                              ],
+                            })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
+                          </Form.Item>
+                          <Form.Item label="Classification object">
+                            {form.getFieldDecorator('appliesToObject', {
+                              initialValue: QualityAttributeData.appliesToObject,
+                              rules: [{ required: true, message: 'Select a object!' }]
+                            })(
+                              <Select
+                                style={{ width: '100%' }}
+                                allowClear={true}
+                                placeholder="Select a object"
+                              >
+                                {qualityAttributeEnums.objects.map(object => <Select.Option key={object.value} value={object.value || undefined}>{object.label}</Select.Option>)}
+                              </Select>
+                              
+                              )}              
+                          </Form.Item>                  
+                          <Form.Item label="Classification labels">
+                            <ClassificationLabels dataSource={this.state.dataSource} passLabels={this.passLabels} />
+                          </Form.Item>
+                        </Form>
+                      </Spin>
                     </Modal>
                   );
                 }}

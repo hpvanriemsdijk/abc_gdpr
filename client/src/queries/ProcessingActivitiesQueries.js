@@ -1,10 +1,8 @@
 import gql from 'graphql-tag'
 
 export const ALL_PROCESSING_ACTIVITIES = gql`
-	query AllProcessingActivities ($filter: ProcessingActivityFilter) {
-		allProcessingActivities(
-			filter: $filter
-		) {
+	query ProcessingActivities ($filter: ProcessingActivityWhereInput){
+		processingActivities(where: $filter){
 			id
 			name
 			description
@@ -15,27 +13,23 @@ export const ALL_PROCESSING_ACTIVITIES = gql`
 `;
 
 export const PROCESSING_ACTIVITIES_BY_OU = gql`
-	query processingActivitiesByOu ($organizationalUnitId: ID!) {
-		processingActivitiesByOu(organizationalUnitId:$organizationalUnitId){
+	query ProcessingActivitiesByOu ($id: ID!) {
+		processingActivitiesByOu(where:{id: $id}){
 			id
 			name
 			description
 			purpose
-			organizationalUnit
-			process
+			process{
+				name
+			}
 		}
 	}
 `;
 
 
 export const CREATE_PROCESSING_ACTIVITY = gql`
-	mutation CreateProcessingActivity ($name: String!, $description: String, $purpose: String, $process: ID) {
-		createProcessingActivity(
-			name: $name, 
-			description: $description, 
-			purpose: $purpose, 
-			processId: $process
-		) {
+	mutation CreateProcessingActivity ($data: ProcessingActivityCreateInput!) {
+		createProcessingActivity(data: $data) {
 			id
 		}
 	}
@@ -43,7 +37,7 @@ export const CREATE_PROCESSING_ACTIVITY = gql`
 
 export const GET_PROCESSING_ACTIVITY = gql`
 	query ProcessingActivity ($id: ID!) { 
-		ProcessingActivity(id: $id) {
+		processingActivity(where:{id: $id}) {
 			id
 			name
 			description
@@ -54,14 +48,10 @@ export const GET_PROCESSING_ACTIVITY = gql`
 `;
 
 export const UPDATE_PROCESSING_ACTIVITY = gql`
-	mutation UpdateProcessingActivity ($id: ID!, $name: String!, $description: String, $purpose: String, $process: ID) {
+	mutation UpdateProcessingActivity ($id: ID!, $data:ProcessingActivityUpdateInput!) {
 		updateProcessingActivity(
-			id: $id, 
-			name: $name, 
-			description: 
-			$description, 
-			purpose: $purpose, 
-			processId: $process
+			data: $data, 
+			where: {id: $id}
 		) {
 			id
 		}
@@ -70,7 +60,7 @@ export const UPDATE_PROCESSING_ACTIVITY = gql`
 
 export const DELETE_PROCESSING_ACTIVITY = gql`
 	mutation DeleteProcessingActivity ($id: ID!) {
-		deleteProcessingActivity(id: $id) {
+		deleteProcessingActivity(where:{id: $id}) {
 			id
 		}
 	}

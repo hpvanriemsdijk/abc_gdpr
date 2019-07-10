@@ -29,8 +29,11 @@ class CreatePersonModal extends React.Component {
     form.validateFields(async (err, values) => {
       if (!err) {
         await createPerson({ variables: {
-          name: values.name,
-          surname: values.surname,
+          data: {
+            name: values.name,
+            surname: values.surname,
+            description: values.description,
+          }   
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Person",
@@ -51,7 +54,7 @@ class CreatePersonModal extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={CREATE_PERSON}
-          refetchQueries={["AllPersons"]}
+          refetchQueries={["Persons"]}
           >
           {(createPerson, { loading }) => {
             return (

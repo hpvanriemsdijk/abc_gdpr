@@ -66,6 +66,7 @@ const clientSideFilter = (dataIndex, searchInput, handleSearch, handleReset) => 
   const filterHighlighter = (dataIndex, searchInput) => ({
     render: (text = "") => {
       let searchText = searchInput[dataIndex] || [null]
+      if(!text) return null
 
       return(
         <Highlighter

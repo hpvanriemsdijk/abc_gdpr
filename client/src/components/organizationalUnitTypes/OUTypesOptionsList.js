@@ -1,7 +1,7 @@
 import React from 'react'
 import { OU_TYPES_OPTIONS_LIST } from '../../queries/OUTypeQueries';
 import { Query } from 'react-apollo'
-import { Select } from 'antd';
+import { Select, Form } from 'antd';
 
 const Option = Select.Option;
 
@@ -14,16 +14,20 @@ export class OUTypesOptionsList extends React.Component {
           if (error) return <Select placeholder="Error loading..." />
 
           return(
-            this.props.form.getFieldDecorator('organizationalUnitType', {
-              initialValue: this.props.id,
-            })(
-              <Select
-                placeholder="Please select a OU Type"
-                allowClear
-                >
-                {data.allOrganizationalUnitTypes.map(d => <Option key={d.value}>{d.title}</Option>)}
-              </Select>
-            )
+            <Form.Item label="Unit type">
+              {this.props.form.getFieldDecorator('organizationalUnitType', {
+                initialValue: this.props.id,
+                rules:[
+                  { required: true, message: 'OU Type is needed!' }
+                ]
+              })(           
+                <Select
+                  placeholder="Please select a OU Type"
+                  >
+                  {data.organizationalUnitTypes.map(d => <Option key={d.value}>{d.title}</Option>)}
+                </Select>
+              )}
+            </Form.Item>
           )
         }}
       </Query>

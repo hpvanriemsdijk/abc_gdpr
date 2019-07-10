@@ -28,15 +28,23 @@ class UpdateDataType extends React.Component {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
-        var classificationIds = Object.keys(values.classification).map(function(key) {
-          return {classificationLabelId: values.classification[key]}
+        let classifications = []
+        
+        values.classification.forEach(function(classificationLabel) {
+          if(classificationLabel){
+            classifications.push({id: classificationLabel})
+          }
         });
 
+        classifications = {classificationLabels: {set: classifications}}
+
         await updateDataType({ variables: {
-          id: this.props.dataType.id,
-          name: values.name,
-          description: values.description,
-          classification: classificationIds
+          id: this.props.dataTypes.id, 
+          data: {
+            name: values.name, 
+            description: values.description,
+            ...classifications
+          }   
         }}).catch( res => {
           notification['warning']({
             message: "Could not update DataType",
@@ -49,6 +57,12 @@ class UpdateDataType extends React.Component {
       }
     });
   };
+
+  isDisabled = () => {
+    if(this.state.modalVisible){
+      return 'disabled'
+    }
+  }
 
   render() {
     const { form } = this.props;
@@ -73,14 +87,13 @@ class UpdateDataType extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const DataTypeData = data.DataType || [];
+            const DataTypeData = data.dataTypes || [];
             const loadingData = loading;
-            if (loading) return <Button onClick={this.showModal} type="link" disabled>Edit</Button>;
-            
+
             return(
               <Mutation 
                 mutation={UPDATE_DATA_TYPE}
-                refetchQueries={["AllDataTypes"]}
+                refetchQueries={["DataTypes"]}
                 >
                 {(updateDataType, { loading }) => {
                   return (
@@ -112,7 +125,7 @@ class UpdateDataType extends React.Component {
                           </Form.Item>  
 
                           <Divider orientation="left">Data classification</Divider>
-                          <QualityAttributesFormGroup form={form} scope="DATA" classifications={DataTypeData.classification} />    
+                          <QualityAttributesFormGroup form={form} scope="DATA" classifications={DataTypeData.classificationLabels} />    
                         </Form>
                       </Spin>
                     </Modal>
@@ -121,7 +134,7 @@ class UpdateDataType extends React.Component {
               </Mutation>
             )}}
           </Query>
-        <button className="link" onClick={this.showModal}>Edit</button>
+        <Button className="link" onClick={this.showModal} >Edit</Button>
       </React.Fragment>
     );
   }

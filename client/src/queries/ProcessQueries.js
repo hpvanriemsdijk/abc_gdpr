@@ -1,10 +1,8 @@
 import gql from 'graphql-tag'
 
 export const ALL_PROCESSES = gql`
-	query AllProcesses ($filter: ProcessFilter) {
-		allProcesses(
-			filter:$filter
-		) {
+	query Processes ($filter: ProcessWhereInput) {
+		processes(where: $filter){
 			id
 			name
 			description
@@ -15,12 +13,14 @@ export const ALL_PROCESSES = gql`
 `;
 
 export const PROCESSES_BY_OU = gql`
-	query processByOu ($organizationalUnitId: ID!) {
-		processByOu(organizationalUnitId:$organizationalUnitId){
+	query processByOu ($id: ID!) {
+		processByOu(where:{id: $id}){
 			id
 			name
 			description
-			organizationalUnit
+			organizationalUnit{
+				name
+			}
 			createdAt
 			updatedAt 
 		}
@@ -29,10 +29,8 @@ export const PROCESSES_BY_OU = gql`
 
 
 export const PROCESSS_OPTIONS_LIST = gql`
-	query AllProcesses ($filter: ProcessFilter) {
-		allProcesses(
-			filter:$filter
-		) {
+	query Processes  {
+		processes {
 			value: id
 			title: name
 		}
@@ -40,13 +38,8 @@ export const PROCESSS_OPTIONS_LIST = gql`
 `;
 
 export const CREATE_PROCESS = gql`
-	mutation CreateProcess ($name: String!, $description: String, $processOwner: ID, $organizationalUnit: ID ) {
-		createProcess(	
-			name: $name, 
-			description: $description, 
-			processOwnerId: $processOwner
-			organizationalUnitId: $organizationalUnit
-		){
+	mutation CreateProcess ($data: ProcessCreateInput!) {
+		createProcess(data: $data){
 			id
 		}
 	}
@@ -54,7 +47,7 @@ export const CREATE_PROCESS = gql`
 
 export const GET_PROCESS = gql`
 	query Process ($id: ID!) { 
-		Process(id: $id) {
+		process(where:{id: $id}) {
 			id
 			name
 			description
@@ -67,13 +60,10 @@ export const GET_PROCESS = gql`
 `;
 
 export const UPDATE_PROCESS = gql`
-	mutation UpdateProcess ($id: ID!, $name: String!, $description: String, $processOwner: ID, $organizationalUnit: ID) {
+	mutation UpdateProcess ($id: ID!, $data: ProcessUpdateInput!) {
 		updateProcess(
-			id: $id, 
-			name: $name, 
-			description: $description,
-			processOwnerId: $processOwner
-			organizationalUnitId: $organizationalUnit
+			data: $data, 
+			where: {id: $id}
 		) {
 			id
 		}
@@ -82,7 +72,7 @@ export const UPDATE_PROCESS = gql`
 
 export const DELETE_PROCESS = gql`
 	mutation DeleteProcess ($id: ID!) {
-		deleteProcess(id: $id) {
+		deleteProcess(where:{id: $id}) {
 			id
 		}
 	}

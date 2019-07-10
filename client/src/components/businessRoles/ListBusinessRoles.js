@@ -73,7 +73,7 @@ class BusinessRoleTable extends React.Component {
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.allBusinessRoles || [];
+            const dataSource = data.businessRoles || [];
 
             return(
               <React.Fragment>  

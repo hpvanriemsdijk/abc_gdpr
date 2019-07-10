@@ -30,10 +30,8 @@ export class QualityAttributesFormGroup extends React.Component {
 
     if(classifications){
       for (var value of classifications.values()) {
-        if(value.classificationLabel) {
-          let qualityAttributeId = value.classificationLabel.qualityAttribute.id;
-          newData[qualityAttributeId] = value.classificationLabel.id
-        }
+          let qualityAttributeId = value.qualityAttribute.id;
+          newData[qualityAttributeId] = value.id
       }
     }
     
@@ -43,6 +41,7 @@ export class QualityAttributesFormGroup extends React.Component {
   render() {
     const { form, classifications, scope } = this.props;
     let oldValues = this.hussleClassifications(classifications)
+
     return (  
       <Query 
         query = { ALL_QUALITY_ATTRIBUTES } 
@@ -51,11 +50,11 @@ export class QualityAttributesFormGroup extends React.Component {
         {({ loading, data, error }) => {     
           if (loading) return <Select placeholder="Loading..." />
           if (error) return <Select placeholder="Error loading..." />
-          let allQualityAttributes = data.allQualityAttributes
+          let qualityAttributes = data.qualityAttributes
           let i = 0
 
           return(
-            allQualityAttributes.map( qualityAttribute =>
+            qualityAttributes.map( qualityAttribute =>
               <Form.Item 
                 key={qualityAttribute.id}
                 label={

@@ -45,7 +45,7 @@ class DeleteQualityAttribute extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={DELETE_QUALITY_ATTRIBUTE}
-            refetchQueries={["AllQualityAttributes"]}
+            refetchQueries={["QualityAttributes"]}
             >
             {(DeleteQualityAttribute, { loading }) => {
               return (

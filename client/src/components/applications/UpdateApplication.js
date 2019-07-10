@@ -2,7 +2,7 @@ import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_APPLICATION, UPDATE_APPLICATION } from '../../queries/ApplicationQueries';
 import { Modal, Form, Input, notification, Select, Spin } from 'antd';
-import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
+import { BusinessRolesOptionsList } from '../businessRoles/BusinessRolesOptionsList'
 import { DataTypeOptionsList } from '../dataTypes/DataTypeOptionsList'
 
 class UpdateApplication extends React.Component {
@@ -29,15 +29,23 @@ class UpdateApplication extends React.Component {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
+        let dataTypesArray = values.dataTypes.map(dataType =>{return {id: dataType }})
+        let dataTypes = values.dataTypes.length ? {dataTypes: {connect: dataTypesArray }} : null;
+        let businessOwner = values.businessOwner ? {businessOwner: {connect: {id: values.businessOwner }}} : null;
+        let itOwner = values.itOwner ? {itOwner: {connect: {id: values.itOwner }}} : null;
+        let securityAdministrator = values.securityAdministrator ? {securityAdministrator: {connect: {id: values.securityAdministrator }}} : null;
+
         await updateApplication({ variables: {
-          id: this.props.application.id,
-          name: values.name,
-          description: values.description,
-          alias: values.alias,
-          dataType: values.dataTypes,
-          businessOwner: values.businessOwner,
-          itOwner: values.itOwner,
-          securityAdministrator: values.securityAdministrator
+          id: this.props.application.id, 
+          data: {
+            name: values.name, 
+            description: values.description,
+            alias: values.alias,
+            ...dataTypes,
+            ...businessOwner,
+            ...itOwner,
+            ...securityAdministrator
+          }          
         }}).catch( res => {
           notification['warning']({
             message: "Could not update Application",
@@ -64,20 +72,18 @@ class UpdateApplication extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error) return null
-            const ApplicationData = data.Application || [];
+            const ApplicationData = data.application || [];
             const loadingData = loading;
 
             return(
             <Mutation 
               mutation={UPDATE_APPLICATION}
-              refetchQueries={["AllApplications"]}
+              refetchQueries={["Applications"]}
               >
               {(updateApplication, { loading }) => {
                 const businessOwnerId = ApplicationData.businessOwner ? ApplicationData.businessOwner.id : null
                 const itOwnerId = ApplicationData.itOwner ? ApplicationData.itOwner.id : null
                 const securityAdministratorId = ApplicationData.securityAdministrator ? ApplicationData.securityAdministrator.id : null
-
-
 
                 return (
                   <Modal
@@ -121,19 +127,19 @@ class UpdateApplication extends React.Component {
                       </Form.Item>  
                       
                         <Form.Item label="Data">
-                        { <DataTypeOptionsList form={form} initialValue={ApplicationData.dataType} /> }
+                        { <DataTypeOptionsList form={form} initialValue={ApplicationData.dataTypes} /> }
                         </Form.Item>
 
                         <Form.Item label="Business Owner">
-                          { <BusinessRolessOptionsList form={form} field="businessOwner" id={businessOwnerId}/> }
+                          { <BusinessRolesOptionsList form={form} field="businessOwner" id={businessOwnerId}/> }
                         </Form.Item>
 
                         <Form.Item label="IT Owner">
-                          { <BusinessRolessOptionsList form={form} field="itOwner" id={itOwnerId}/> }
+                          { <BusinessRolesOptionsList form={form} field="itOwner" id={itOwnerId}/> }
                         </Form.Item>
 
                         <Form.Item label="Security Administrator">
-                          { <BusinessRolessOptionsList form={form} field="securityAdministrator" id={securityAdministratorId}/> }
+                          { <BusinessRolesOptionsList form={form} field="securityAdministrator" id={securityAdministratorId}/> }
                         </Form.Item>
 
                     </Form>

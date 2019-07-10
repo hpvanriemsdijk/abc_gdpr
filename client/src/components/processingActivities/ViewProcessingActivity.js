@@ -12,7 +12,7 @@ class viewProcessingActivity extends React.Component {
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.ProcessingActivity || [];
+            const dataSource = data.processingActivity || [];
 
             return(
               <React.Fragment>  

@@ -30,15 +30,19 @@ class CreateBusinessRoleModal extends React.Component {
     
     form.validateFields(async (err, values) => {
       if (!err) {
+        let person = values.person ? {person: {connect: {id: values.person }}} : null;
+
         await createBusinessRole({ variables: {
-          name: values.name,
-          description: values.description,
-          person: values.person, 
-          organizationalUnit: this.props.organizationalUnit,
-          raciExecutive: values.raciExecutive || null,
-          raciFinancial: values.raciFinancial || null,
-          raciSecurity: values.raciSecurity || null,
-          raciPrivacy: values.raciPrivacy || null
+          data: {
+            name: values.name, 
+            description: values.description,
+            ...person,
+            organizationalUnit: {connect: {id: this.props.organizationalUnit }},
+            raciExecutive: values.raciExecutive || null,
+            raciFinancial: values.raciFinancial || null,
+            raciSecurity: values.raciSecurity || null,
+            raciPrivacy: values.raciPrivacy || null
+          }
         }}).catch( res => {
           notification['warning']({
             message: "Could not create business role",
@@ -60,7 +64,7 @@ class CreateBusinessRoleModal extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={CREATE_BUSINESS_ROLE}
-          refetchQueries={["AllBusinessRoles"]}
+          refetchQueries={["BusinessRoles"]}
           >
           
           {(createBusinessRole, { loading }) => {

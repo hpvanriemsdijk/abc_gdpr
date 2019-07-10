@@ -29,11 +29,16 @@ class CreateProcessingActivityModal extends React.Component {
    
     form.validateFields(async (err, values) => {
       if (!err) {
+        let parentProcess = this.props.processId || values.parentProcess  || null
+        parentProcess = process ? {process: {connect: {id: parentProcess }}} : null;
+
         await createProcessingActivity({ variables: {
-          name: values.name,
-          description: values.description,
-          purpose: values.purpose,
-          process: values.parentProcess || this.props.processId || undefined
+          data: {
+            name: values.name,
+            description: values.description,
+            purpose: values.purpose,
+            ...parentProcess
+          } 
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Processing activity",
@@ -55,7 +60,7 @@ class CreateProcessingActivityModal extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={CREATE_PROCESSING_ACTIVITY}
-          refetchQueries={["AllProcessingActivities"]}
+          refetchQueries={["ProcessingActivities"]}
           >
           {(createProcessingActivity, { loading }) => {
             return (

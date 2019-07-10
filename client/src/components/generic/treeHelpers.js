@@ -8,7 +8,7 @@
  * - Prevent creating a loop --> cant select childeren in own tree
  * - Disable options that will lead to nesting deeper than 3 levels
  */
-export const prepOptionsTree = (obj, ownKey = null, parentTree = false) => {
+export const prepOptionsTree = (obj=null, ownKey = null, parentTree = false) => {
   var disableLine = false;
   var ownDepth = 0;
 
@@ -26,20 +26,22 @@ export const prepOptionsTree = (obj, ownKey = null, parentTree = false) => {
   }
 
   //Set not allowed options to disabled
-  obj.forEach(function(itemsL1) {      
-    itemsL1.value === ownKey || ownDepth > 2
-      ? itemsL1.disabled = disableLine = true 
-      : itemsL1.disabled = disableLine = false; 
-    if(itemsL1.children) itemsL1.children.forEach(function(itemsL2){
-      itemsL2.value === ownKey || disableLine || ownDepth > 1
-        ? itemsL2.disabled = true 
-        : itemsL2.disabled = false 
-      if(itemsL2.children) itemsL2.children.forEach(function(itemsL3){
-        parentTree ? itemsL3.disabled = true : itemsL3.disabled = false;
-        if(itemsL3.children) itemsL3.children = null 
+  if(ownKey){
+    obj.forEach(function(itemsL1) {      
+      itemsL1.value === ownKey || ownDepth > 2
+        ? itemsL1.disabled = disableLine = true 
+        : itemsL1.disabled = disableLine = false; 
+      if(itemsL1.children) itemsL1.children.forEach(function(itemsL2){
+        itemsL2.value === ownKey || disableLine || ownDepth > 1
+          ? itemsL2.disabled = true 
+          : itemsL2.disabled = false 
+        if(itemsL2.children) itemsL2.children.forEach(function(itemsL3){
+          parentTree ? itemsL3.disabled = true : itemsL3.disabled = false;
+          if(itemsL3.children) itemsL3.children = null 
+        })
       })
-    })
-  });
+    });
+  }
 
   return obj
 };

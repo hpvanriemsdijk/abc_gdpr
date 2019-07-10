@@ -29,7 +29,8 @@ export class OuTree extends React.Component {
               <TreeSelect
                 placeholder="No organizational Unit..."
                 disabled={isDisabled}
-                treeData={prepOptionsTree(data.allOrganizationalUnits, this.props.ownKey, parentTree)}
+                allowClear
+                treeData={prepOptionsTree(data.organizationalUnits, this.props.ownKey, parentTree)}
                 >
             </TreeSelect>
             )

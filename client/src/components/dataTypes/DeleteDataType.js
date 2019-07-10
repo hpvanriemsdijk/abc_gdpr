@@ -19,7 +19,7 @@ class DeleteDataType extends React.Component {
   // Modal
   onDeleteDataType = DeleteDataType => {
     DeleteDataType({ variables: {
-      id: this.props.dataType.id
+      id: this.props.dataTypes.id
     }}).catch( res => {
       if ( res.graphQLErrors ) {
         console.log('Received error: ', res.message);
@@ -33,7 +33,7 @@ class DeleteDataType extends React.Component {
 
     notification['success']({
       message: "Data type deleted",
-      description: "Data type " + this.props.dataType.name + " is deleted",
+      description: "Data type " + this.props.dataTypes.name + " is deleted",
       duration: 5
     });
 
@@ -45,7 +45,7 @@ class DeleteDataType extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={DELETE_DATA_TYPE}
-            refetchQueries={["AllDataTypes"]}
+            refetchQueries={["DataTypes"]}
             >
             {(DeleteDataType, { loading }) => {
               return (

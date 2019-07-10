@@ -45,7 +45,7 @@ class DeleteApplication extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={DELETE_APPLICATION}
-            refetchQueries={["AllApplications"]}
+            refetchQueries={["Applications"]}
             >
             {(DeleteApplication, { loading }) => {
               return (

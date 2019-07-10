@@ -8,10 +8,8 @@ export const qualityAttributeEnums = {
 };
 
 export const ALL_QUALITY_ATTRIBUTES = gql`
-	query AllQualityAttributes ($filter: QualityAttributeFilter) {
-		allQualityAttributes(
-			filter:$filter
-		) {
+	query QualityAttributes ( $filter: QualityAttributeWhereInput ) {
+		qualityAttributes (where: $filter) {
 			id
 			name
 			appliesToObject
@@ -27,13 +25,8 @@ export const ALL_QUALITY_ATTRIBUTES = gql`
 `;
 
 export const CREATE_QUALITY_ATTRIBUTE = gql`
-	mutation CreateQualityAttribute ($name: String!, $description: String, $appliesToObject: CLASSIFICATIONOBJECT!, $classificationLabels: [QualityAttributeclassificationLabelsClassificationLabel!]!) {
-		createQualityAttribute(
-			name: $name, 
-			description: $description, 
-			appliesToObject: $appliesToObject
-			classificationLabels: $classificationLabels
-		) {
+	mutation CreateQualityAttribute ($data: QualityAttributeCreateInput!) {
+		createQualityAttribute(data: $data) {
 			id
 		}
 	}
@@ -41,7 +34,7 @@ export const CREATE_QUALITY_ATTRIBUTE = gql`
 
 export const GET_QUALITY_ATTRIBUTE = gql`
 	query QualityAttribute ($id: ID!) { 
-		QualityAttribute(id: $id) {
+		qualityAttribute(where:{id: $id}) {
 			id
 			name
 			description
@@ -57,29 +50,20 @@ export const GET_QUALITY_ATTRIBUTE = gql`
 `;
 
 export const UPDATE_QUALITY_ATTRIBUTE = gql`
-	mutation UpdateQualityAttribute ($id: ID!, $name: String!, $description: String, $appliesToObject: CLASSIFICATIONOBJECT!, $classificationLabels: [QualityAttributeclassificationLabelsClassificationLabel!]!) {
+	mutation UpdateQualityAttribute ($id: ID!, $data: QualityAttributeUpdateInput!) {
 		updateQualityAttribute(
-			id: $id, 
-			name: $name, 
-			description: $description, 
-			appliesToObject: $appliesToObject
-			classificationLabels: $classificationLabels
+			data: $data, 
+			where: {id: $id}
 		) {
 			id
 		}
 	}
 `;
 
-/* deletedOrphans is workarround for absence of cascade delete in graphcool */
 export const DELETE_QUALITY_ATTRIBUTE = gql`
 	mutation DeleteQualityAttribute ($id: ID!) {
-		deleteQualityAttribute(id: $id) {
+		deleteQualityAttribute(where:{id: $id}) {
 			id
-		}
-
-		deletedOrphans{
-			orphans
-			message
 		}
 	}
 `;

@@ -10,10 +10,6 @@ type AggregateBusinessRole {
   count: Int!
 }
 
-type AggregateClassification {
-  count: Int!
-}
-
 type AggregateClassificationLabel {
   count: Int!
 }
@@ -53,7 +49,7 @@ type AggregateUser {
 type Application {
   alias: Json
   businessOwner: BusinessRole
-  dataType(after: String, before: String, first: Int, last: Int, orderBy: DataTypeOrderByInput, skip: Int, where: DataTypeWhereInput): [DataType!]
+  dataTypes(after: String, before: String, first: Int, last: Int, orderBy: DataTypeOrderByInput, skip: Int, where: DataTypeWhereInput): [DataType!]
   description: String
   id: ID!
   itOwner: BusinessRole
@@ -71,7 +67,7 @@ type ApplicationConnection {
 input ApplicationCreateInput {
   alias: Json
   businessOwner: BusinessRoleCreateOneWithoutAppBusinessOwnerInput
-  dataType: DataTypeCreateManyWithoutApplicationInput
+  dataTypes: DataTypeCreateManyWithoutApplicationInput
   description: String
   id: ID
   itOwner: BusinessRoleCreateOneWithoutAppItOwnerInput
@@ -85,9 +81,9 @@ input ApplicationCreateManyWithoutBusinessOwnerInput {
   create: [ApplicationCreateWithoutBusinessOwnerInput!]
 }
 
-input ApplicationCreateManyWithoutDataTypeInput {
+input ApplicationCreateManyWithoutDataTypesInput {
   connect: [ApplicationWhereUniqueInput!]
-  create: [ApplicationCreateWithoutDataTypeInput!]
+  create: [ApplicationCreateWithoutDataTypesInput!]
 }
 
 input ApplicationCreateManyWithoutItOwnerInput {
@@ -107,7 +103,7 @@ input ApplicationCreateManyWithoutSecurityAdministratorInput {
 
 input ApplicationCreateWithoutBusinessOwnerInput {
   alias: Json
-  dataType: DataTypeCreateManyWithoutApplicationInput
+  dataTypes: DataTypeCreateManyWithoutApplicationInput
   description: String
   id: ID
   itOwner: BusinessRoleCreateOneWithoutAppItOwnerInput
@@ -116,7 +112,7 @@ input ApplicationCreateWithoutBusinessOwnerInput {
   securityAdministrator: BusinessRoleCreateOneWithoutAppSecAdminInput
 }
 
-input ApplicationCreateWithoutDataTypeInput {
+input ApplicationCreateWithoutDataTypesInput {
   alias: Json
   businessOwner: BusinessRoleCreateOneWithoutAppBusinessOwnerInput
   description: String
@@ -130,7 +126,7 @@ input ApplicationCreateWithoutDataTypeInput {
 input ApplicationCreateWithoutItOwnerInput {
   alias: Json
   businessOwner: BusinessRoleCreateOneWithoutAppBusinessOwnerInput
-  dataType: DataTypeCreateManyWithoutApplicationInput
+  dataTypes: DataTypeCreateManyWithoutApplicationInput
   description: String
   id: ID
   name: String!
@@ -141,7 +137,7 @@ input ApplicationCreateWithoutItOwnerInput {
 input ApplicationCreateWithoutProcessingActivitiesInput {
   alias: Json
   businessOwner: BusinessRoleCreateOneWithoutAppBusinessOwnerInput
-  dataType: DataTypeCreateManyWithoutApplicationInput
+  dataTypes: DataTypeCreateManyWithoutApplicationInput
   description: String
   id: ID
   itOwner: BusinessRoleCreateOneWithoutAppItOwnerInput
@@ -152,7 +148,7 @@ input ApplicationCreateWithoutProcessingActivitiesInput {
 input ApplicationCreateWithoutSecurityAdministratorInput {
   alias: Json
   businessOwner: BusinessRoleCreateOneWithoutAppBusinessOwnerInput
-  dataType: DataTypeCreateManyWithoutApplicationInput
+  dataTypes: DataTypeCreateManyWithoutApplicationInput
   description: String
   id: ID
   itOwner: BusinessRoleCreateOneWithoutAppItOwnerInput
@@ -231,7 +227,7 @@ input ApplicationScalarWhereInput {
 input ApplicationUpdateInput {
   alias: Json
   businessOwner: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput
-  dataType: DataTypeUpdateManyWithoutApplicationInput
+  dataTypes: DataTypeUpdateManyWithoutApplicationInput
   description: String
   itOwner: BusinessRoleUpdateOneWithoutAppItOwnerInput
   name: String
@@ -263,16 +259,16 @@ input ApplicationUpdateManyWithoutBusinessOwnerInput {
   upsert: [ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput!]
 }
 
-input ApplicationUpdateManyWithoutDataTypeInput {
+input ApplicationUpdateManyWithoutDataTypesInput {
   connect: [ApplicationWhereUniqueInput!]
-  create: [ApplicationCreateWithoutDataTypeInput!]
+  create: [ApplicationCreateWithoutDataTypesInput!]
   delete: [ApplicationWhereUniqueInput!]
   deleteMany: [ApplicationScalarWhereInput!]
   disconnect: [ApplicationWhereUniqueInput!]
   set: [ApplicationWhereUniqueInput!]
-  update: [ApplicationUpdateWithWhereUniqueWithoutDataTypeInput!]
+  update: [ApplicationUpdateWithWhereUniqueWithoutDataTypesInput!]
   updateMany: [ApplicationUpdateManyWithWhereNestedInput!]
-  upsert: [ApplicationUpsertWithWhereUniqueWithoutDataTypeInput!]
+  upsert: [ApplicationUpsertWithWhereUniqueWithoutDataTypesInput!]
 }
 
 input ApplicationUpdateManyWithoutItOwnerInput {
@@ -318,7 +314,7 @@ input ApplicationUpdateManyWithWhereNestedInput {
 
 input ApplicationUpdateWithoutBusinessOwnerDataInput {
   alias: Json
-  dataType: DataTypeUpdateManyWithoutApplicationInput
+  dataTypes: DataTypeUpdateManyWithoutApplicationInput
   description: String
   itOwner: BusinessRoleUpdateOneWithoutAppItOwnerInput
   name: String
@@ -326,7 +322,7 @@ input ApplicationUpdateWithoutBusinessOwnerDataInput {
   securityAdministrator: BusinessRoleUpdateOneWithoutAppSecAdminInput
 }
 
-input ApplicationUpdateWithoutDataTypeDataInput {
+input ApplicationUpdateWithoutDataTypesDataInput {
   alias: Json
   businessOwner: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput
   description: String
@@ -339,7 +335,7 @@ input ApplicationUpdateWithoutDataTypeDataInput {
 input ApplicationUpdateWithoutItOwnerDataInput {
   alias: Json
   businessOwner: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput
-  dataType: DataTypeUpdateManyWithoutApplicationInput
+  dataTypes: DataTypeUpdateManyWithoutApplicationInput
   description: String
   name: String
   processingActivities: ProcessingActivityUpdateManyWithoutApplicationsInput
@@ -349,7 +345,7 @@ input ApplicationUpdateWithoutItOwnerDataInput {
 input ApplicationUpdateWithoutProcessingActivitiesDataInput {
   alias: Json
   businessOwner: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput
-  dataType: DataTypeUpdateManyWithoutApplicationInput
+  dataTypes: DataTypeUpdateManyWithoutApplicationInput
   description: String
   itOwner: BusinessRoleUpdateOneWithoutAppItOwnerInput
   name: String
@@ -359,7 +355,7 @@ input ApplicationUpdateWithoutProcessingActivitiesDataInput {
 input ApplicationUpdateWithoutSecurityAdministratorDataInput {
   alias: Json
   businessOwner: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput
-  dataType: DataTypeUpdateManyWithoutApplicationInput
+  dataTypes: DataTypeUpdateManyWithoutApplicationInput
   description: String
   itOwner: BusinessRoleUpdateOneWithoutAppItOwnerInput
   name: String
@@ -371,8 +367,8 @@ input ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput {
   where: ApplicationWhereUniqueInput!
 }
 
-input ApplicationUpdateWithWhereUniqueWithoutDataTypeInput {
-  data: ApplicationUpdateWithoutDataTypeDataInput!
+input ApplicationUpdateWithWhereUniqueWithoutDataTypesInput {
+  data: ApplicationUpdateWithoutDataTypesDataInput!
   where: ApplicationWhereUniqueInput!
 }
 
@@ -397,9 +393,9 @@ input ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput {
   where: ApplicationWhereUniqueInput!
 }
 
-input ApplicationUpsertWithWhereUniqueWithoutDataTypeInput {
-  create: ApplicationCreateWithoutDataTypeInput!
-  update: ApplicationUpdateWithoutDataTypeDataInput!
+input ApplicationUpsertWithWhereUniqueWithoutDataTypesInput {
+  create: ApplicationCreateWithoutDataTypesInput!
+  update: ApplicationUpdateWithoutDataTypesDataInput!
   where: ApplicationWhereUniqueInput!
 }
 
@@ -424,9 +420,9 @@ input ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput {
 input ApplicationWhereInput {
   AND: [ApplicationWhereInput!]
   businessOwner: BusinessRoleWhereInput
-  dataType_every: DataTypeWhereInput
-  dataType_none: DataTypeWhereInput
-  dataType_some: DataTypeWhereInput
+  dataTypes_every: DataTypeWhereInput
+  dataTypes_none: DataTypeWhereInput
+  dataTypes_some: DataTypeWhereInput
   description: String
   description_contains: String
   description_ends_with: String
@@ -1040,52 +1036,9 @@ input BusinessRoleWhereUniqueInput {
   id: ID
 }
 
-type Classification {
-  classificationLabel: ClassificationLabel
-  dataType: DataType
-  id: ID!
-}
-
-type ClassificationConnection {
-  aggregate: AggregateClassification!
-  edges: [ClassificationEdge!]!
-  pageInfo: PageInfo!
-}
-
-input ClassificationCreateInput {
-  classificationLabel: ClassificationLabelCreateOneWithoutClassificationsInput
-  dataType: DataTypeCreateOneWithoutClassificationsInput
-  id: ID
-}
-
-input ClassificationCreateManyWithoutClassificationLabelInput {
-  connect: [ClassificationWhereUniqueInput!]
-  create: [ClassificationCreateWithoutClassificationLabelInput!]
-}
-
-input ClassificationCreateManyWithoutDataTypeInput {
-  connect: [ClassificationWhereUniqueInput!]
-  create: [ClassificationCreateWithoutDataTypeInput!]
-}
-
-input ClassificationCreateWithoutClassificationLabelInput {
-  dataType: DataTypeCreateOneWithoutClassificationsInput
-  id: ID
-}
-
-input ClassificationCreateWithoutDataTypeInput {
-  classificationLabel: ClassificationLabelCreateOneWithoutClassificationsInput
-  id: ID
-}
-
-type ClassificationEdge {
-  cursor: String!
-  node: Classification!
-}
-
 type ClassificationLabel {
-  classifications(after: String, before: String, first: Int, last: Int, orderBy: ClassificationOrderByInput, skip: Int, where: ClassificationWhereInput): [Classification!]
   criteria: String
+  dataType(after: String, before: String, first: Int, last: Int, orderBy: DataTypeOrderByInput, skip: Int, where: DataTypeWhereInput): [DataType!]
   id: ID!
   label: String!
   qualityAttribute: QualityAttribute
@@ -1099,12 +1052,17 @@ type ClassificationLabelConnection {
 }
 
 input ClassificationLabelCreateInput {
-  classifications: ClassificationCreateManyWithoutClassificationLabelInput
   criteria: String
+  dataType: DataTypeCreateManyWithoutClassificationLabelsInput
   id: ID
   label: String!
   qualityAttribute: QualityAttributeCreateOneWithoutClassificationLabelsInput
   score: Int!
+}
+
+input ClassificationLabelCreateManyWithoutDataTypeInput {
+  connect: [ClassificationLabelWhereUniqueInput!]
+  create: [ClassificationLabelCreateWithoutDataTypeInput!]
 }
 
 input ClassificationLabelCreateManyWithoutQualityAttributeInput {
@@ -1112,12 +1070,7 @@ input ClassificationLabelCreateManyWithoutQualityAttributeInput {
   create: [ClassificationLabelCreateWithoutQualityAttributeInput!]
 }
 
-input ClassificationLabelCreateOneWithoutClassificationsInput {
-  connect: ClassificationLabelWhereUniqueInput
-  create: ClassificationLabelCreateWithoutClassificationsInput
-}
-
-input ClassificationLabelCreateWithoutClassificationsInput {
+input ClassificationLabelCreateWithoutDataTypeInput {
   criteria: String
   id: ID
   label: String!
@@ -1126,8 +1079,8 @@ input ClassificationLabelCreateWithoutClassificationsInput {
 }
 
 input ClassificationLabelCreateWithoutQualityAttributeInput {
-  classifications: ClassificationCreateManyWithoutClassificationLabelInput
   criteria: String
+  dataType: DataTypeCreateManyWithoutClassificationLabelsInput
   id: ID
   label: String!
   score: Int!
@@ -1210,8 +1163,8 @@ input ClassificationLabelScalarWhereInput {
 }
 
 input ClassificationLabelUpdateInput {
-  classifications: ClassificationUpdateManyWithoutClassificationLabelInput
   criteria: String
+  dataType: DataTypeUpdateManyWithoutClassificationLabelsInput
   label: String
   qualityAttribute: QualityAttributeUpdateOneWithoutClassificationLabelsInput
   score: Int
@@ -1227,6 +1180,18 @@ input ClassificationLabelUpdateManyMutationInput {
   criteria: String
   label: String
   score: Int
+}
+
+input ClassificationLabelUpdateManyWithoutDataTypeInput {
+  connect: [ClassificationLabelWhereUniqueInput!]
+  create: [ClassificationLabelCreateWithoutDataTypeInput!]
+  delete: [ClassificationLabelWhereUniqueInput!]
+  deleteMany: [ClassificationLabelScalarWhereInput!]
+  disconnect: [ClassificationLabelWhereUniqueInput!]
+  set: [ClassificationLabelWhereUniqueInput!]
+  update: [ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput!]
+  updateMany: [ClassificationLabelUpdateManyWithWhereNestedInput!]
+  upsert: [ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput!]
 }
 
 input ClassificationLabelUpdateManyWithoutQualityAttributeInput {
@@ -1246,16 +1211,7 @@ input ClassificationLabelUpdateManyWithWhereNestedInput {
   where: ClassificationLabelScalarWhereInput!
 }
 
-input ClassificationLabelUpdateOneWithoutClassificationsInput {
-  connect: ClassificationLabelWhereUniqueInput
-  create: ClassificationLabelCreateWithoutClassificationsInput
-  delete: Boolean
-  disconnect: Boolean
-  update: ClassificationLabelUpdateWithoutClassificationsDataInput
-  upsert: ClassificationLabelUpsertWithoutClassificationsInput
-}
-
-input ClassificationLabelUpdateWithoutClassificationsDataInput {
+input ClassificationLabelUpdateWithoutDataTypeDataInput {
   criteria: String
   label: String
   qualityAttribute: QualityAttributeUpdateOneWithoutClassificationLabelsInput
@@ -1263,10 +1219,15 @@ input ClassificationLabelUpdateWithoutClassificationsDataInput {
 }
 
 input ClassificationLabelUpdateWithoutQualityAttributeDataInput {
-  classifications: ClassificationUpdateManyWithoutClassificationLabelInput
   criteria: String
+  dataType: DataTypeUpdateManyWithoutClassificationLabelsInput
   label: String
   score: Int
+}
+
+input ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput {
+  data: ClassificationLabelUpdateWithoutDataTypeDataInput!
+  where: ClassificationLabelWhereUniqueInput!
 }
 
 input ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput {
@@ -1274,9 +1235,10 @@ input ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput {
   where: ClassificationLabelWhereUniqueInput!
 }
 
-input ClassificationLabelUpsertWithoutClassificationsInput {
-  create: ClassificationLabelCreateWithoutClassificationsInput!
-  update: ClassificationLabelUpdateWithoutClassificationsDataInput!
+input ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput {
+  create: ClassificationLabelCreateWithoutDataTypeInput!
+  update: ClassificationLabelUpdateWithoutDataTypeDataInput!
+  where: ClassificationLabelWhereUniqueInput!
 }
 
 input ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput {
@@ -1287,9 +1249,6 @@ input ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput {
 
 input ClassificationLabelWhereInput {
   AND: [ClassificationLabelWhereInput!]
-  classifications_every: ClassificationWhereInput
-  classifications_none: ClassificationWhereInput
-  classifications_some: ClassificationWhereInput
   criteria: String
   criteria_contains: String
   criteria_ends_with: String
@@ -1304,6 +1263,9 @@ input ClassificationLabelWhereInput {
   criteria_not_in: [String!]
   criteria_not_starts_with: String
   criteria_starts_with: String
+  dataType_every: DataTypeWhereInput
+  dataType_none: DataTypeWhereInput
+  dataType_some: DataTypeWhereInput
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -1354,121 +1316,9 @@ enum CLASSIFICATIONOBJECT {
   DATA
 }
 
-enum ClassificationOrderByInput {
-  createdAt_ASC
-  createdAt_DESC
-  id_ASC
-  id_DESC
-  updatedAt_ASC
-  updatedAt_DESC
-}
-
-input ClassificationScalarWhereInput {
-  AND: [ClassificationScalarWhereInput!]
-  id: ID
-  id_contains: ID
-  id_ends_with: ID
-  id_gt: ID
-  id_gte: ID
-  id_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_not: ID
-  id_not_contains: ID
-  id_not_ends_with: ID
-  id_not_in: [ID!]
-  id_not_starts_with: ID
-  id_starts_with: ID
-  NOT: [ClassificationScalarWhereInput!]
-  OR: [ClassificationScalarWhereInput!]
-}
-
-input ClassificationUpdateInput {
-  classificationLabel: ClassificationLabelUpdateOneWithoutClassificationsInput
-  dataType: DataTypeUpdateOneWithoutClassificationsInput
-}
-
-input ClassificationUpdateManyWithoutClassificationLabelInput {
-  connect: [ClassificationWhereUniqueInput!]
-  create: [ClassificationCreateWithoutClassificationLabelInput!]
-  delete: [ClassificationWhereUniqueInput!]
-  deleteMany: [ClassificationScalarWhereInput!]
-  disconnect: [ClassificationWhereUniqueInput!]
-  set: [ClassificationWhereUniqueInput!]
-  update: [ClassificationUpdateWithWhereUniqueWithoutClassificationLabelInput!]
-  upsert: [ClassificationUpsertWithWhereUniqueWithoutClassificationLabelInput!]
-}
-
-input ClassificationUpdateManyWithoutDataTypeInput {
-  connect: [ClassificationWhereUniqueInput!]
-  create: [ClassificationCreateWithoutDataTypeInput!]
-  delete: [ClassificationWhereUniqueInput!]
-  deleteMany: [ClassificationScalarWhereInput!]
-  disconnect: [ClassificationWhereUniqueInput!]
-  set: [ClassificationWhereUniqueInput!]
-  update: [ClassificationUpdateWithWhereUniqueWithoutDataTypeInput!]
-  upsert: [ClassificationUpsertWithWhereUniqueWithoutDataTypeInput!]
-}
-
-input ClassificationUpdateWithoutClassificationLabelDataInput {
-  dataType: DataTypeUpdateOneWithoutClassificationsInput
-}
-
-input ClassificationUpdateWithoutDataTypeDataInput {
-  classificationLabel: ClassificationLabelUpdateOneWithoutClassificationsInput
-}
-
-input ClassificationUpdateWithWhereUniqueWithoutClassificationLabelInput {
-  data: ClassificationUpdateWithoutClassificationLabelDataInput!
-  where: ClassificationWhereUniqueInput!
-}
-
-input ClassificationUpdateWithWhereUniqueWithoutDataTypeInput {
-  data: ClassificationUpdateWithoutDataTypeDataInput!
-  where: ClassificationWhereUniqueInput!
-}
-
-input ClassificationUpsertWithWhereUniqueWithoutClassificationLabelInput {
-  create: ClassificationCreateWithoutClassificationLabelInput!
-  update: ClassificationUpdateWithoutClassificationLabelDataInput!
-  where: ClassificationWhereUniqueInput!
-}
-
-input ClassificationUpsertWithWhereUniqueWithoutDataTypeInput {
-  create: ClassificationCreateWithoutDataTypeInput!
-  update: ClassificationUpdateWithoutDataTypeDataInput!
-  where: ClassificationWhereUniqueInput!
-}
-
-input ClassificationWhereInput {
-  AND: [ClassificationWhereInput!]
-  classificationLabel: ClassificationLabelWhereInput
-  dataType: DataTypeWhereInput
-  id: ID
-  id_contains: ID
-  id_ends_with: ID
-  id_gt: ID
-  id_gte: ID
-  id_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_not: ID
-  id_not_contains: ID
-  id_not_ends_with: ID
-  id_not_in: [ID!]
-  id_not_starts_with: ID
-  id_starts_with: ID
-  NOT: [ClassificationWhereInput!]
-  OR: [ClassificationWhereInput!]
-}
-
-input ClassificationWhereUniqueInput {
-  id: ID
-}
-
 type DataType {
   application(after: String, before: String, first: Int, last: Int, orderBy: ApplicationOrderByInput, skip: Int, where: ApplicationWhereInput): [Application!]
-  classifications(after: String, before: String, first: Int, last: Int, orderBy: ClassificationOrderByInput, skip: Int, where: ClassificationWhereInput): [Classification!]
+  classificationLabels(after: String, before: String, first: Int, last: Int, orderBy: ClassificationLabelOrderByInput, skip: Int, where: ClassificationLabelWhereInput): [ClassificationLabel!]
   description: String
   id: ID!
   name: String!
@@ -1481,8 +1331,8 @@ type DataTypeConnection {
 }
 
 input DataTypeCreateInput {
-  application: ApplicationCreateManyWithoutDataTypeInput
-  classifications: ClassificationCreateManyWithoutDataTypeInput
+  application: ApplicationCreateManyWithoutDataTypesInput
+  classificationLabels: ClassificationLabelCreateManyWithoutDataTypeInput
   description: String
   id: ID
   name: String!
@@ -1493,20 +1343,20 @@ input DataTypeCreateManyWithoutApplicationInput {
   create: [DataTypeCreateWithoutApplicationInput!]
 }
 
-input DataTypeCreateOneWithoutClassificationsInput {
-  connect: DataTypeWhereUniqueInput
-  create: DataTypeCreateWithoutClassificationsInput
+input DataTypeCreateManyWithoutClassificationLabelsInput {
+  connect: [DataTypeWhereUniqueInput!]
+  create: [DataTypeCreateWithoutClassificationLabelsInput!]
 }
 
 input DataTypeCreateWithoutApplicationInput {
-  classifications: ClassificationCreateManyWithoutDataTypeInput
+  classificationLabels: ClassificationLabelCreateManyWithoutDataTypeInput
   description: String
   id: ID
   name: String!
 }
 
-input DataTypeCreateWithoutClassificationsInput {
-  application: ApplicationCreateManyWithoutDataTypeInput
+input DataTypeCreateWithoutClassificationLabelsInput {
+  application: ApplicationCreateManyWithoutDataTypesInput
   description: String
   id: ID
   name: String!
@@ -1579,8 +1429,8 @@ input DataTypeScalarWhereInput {
 }
 
 input DataTypeUpdateInput {
-  application: ApplicationUpdateManyWithoutDataTypeInput
-  classifications: ClassificationUpdateManyWithoutDataTypeInput
+  application: ApplicationUpdateManyWithoutDataTypesInput
+  classificationLabels: ClassificationLabelUpdateManyWithoutDataTypeInput
   description: String
   name: String
 }
@@ -1607,28 +1457,31 @@ input DataTypeUpdateManyWithoutApplicationInput {
   upsert: [DataTypeUpsertWithWhereUniqueWithoutApplicationInput!]
 }
 
+input DataTypeUpdateManyWithoutClassificationLabelsInput {
+  connect: [DataTypeWhereUniqueInput!]
+  create: [DataTypeCreateWithoutClassificationLabelsInput!]
+  delete: [DataTypeWhereUniqueInput!]
+  deleteMany: [DataTypeScalarWhereInput!]
+  disconnect: [DataTypeWhereUniqueInput!]
+  set: [DataTypeWhereUniqueInput!]
+  update: [DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput!]
+  updateMany: [DataTypeUpdateManyWithWhereNestedInput!]
+  upsert: [DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput!]
+}
+
 input DataTypeUpdateManyWithWhereNestedInput {
   data: DataTypeUpdateManyDataInput!
   where: DataTypeScalarWhereInput!
 }
 
-input DataTypeUpdateOneWithoutClassificationsInput {
-  connect: DataTypeWhereUniqueInput
-  create: DataTypeCreateWithoutClassificationsInput
-  delete: Boolean
-  disconnect: Boolean
-  update: DataTypeUpdateWithoutClassificationsDataInput
-  upsert: DataTypeUpsertWithoutClassificationsInput
-}
-
 input DataTypeUpdateWithoutApplicationDataInput {
-  classifications: ClassificationUpdateManyWithoutDataTypeInput
+  classificationLabels: ClassificationLabelUpdateManyWithoutDataTypeInput
   description: String
   name: String
 }
 
-input DataTypeUpdateWithoutClassificationsDataInput {
-  application: ApplicationUpdateManyWithoutDataTypeInput
+input DataTypeUpdateWithoutClassificationLabelsDataInput {
+  application: ApplicationUpdateManyWithoutDataTypesInput
   description: String
   name: String
 }
@@ -1638,9 +1491,9 @@ input DataTypeUpdateWithWhereUniqueWithoutApplicationInput {
   where: DataTypeWhereUniqueInput!
 }
 
-input DataTypeUpsertWithoutClassificationsInput {
-  create: DataTypeCreateWithoutClassificationsInput!
-  update: DataTypeUpdateWithoutClassificationsDataInput!
+input DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput {
+  data: DataTypeUpdateWithoutClassificationLabelsDataInput!
+  where: DataTypeWhereUniqueInput!
 }
 
 input DataTypeUpsertWithWhereUniqueWithoutApplicationInput {
@@ -1649,14 +1502,20 @@ input DataTypeUpsertWithWhereUniqueWithoutApplicationInput {
   where: DataTypeWhereUniqueInput!
 }
 
+input DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput {
+  create: DataTypeCreateWithoutClassificationLabelsInput!
+  update: DataTypeUpdateWithoutClassificationLabelsDataInput!
+  where: DataTypeWhereUniqueInput!
+}
+
 input DataTypeWhereInput {
   AND: [DataTypeWhereInput!]
   application_every: ApplicationWhereInput
   application_none: ApplicationWhereInput
   application_some: ApplicationWhereInput
-  classifications_every: ClassificationWhereInput
-  classifications_none: ClassificationWhereInput
-  classifications_some: ClassificationWhereInput
+  classificationLabels_every: ClassificationLabelWhereInput
+  classificationLabels_none: ClassificationLabelWhereInput
+  classificationLabels_some: ClassificationLabelWhereInput
   description: String
   description_contains: String
   description_ends_with: String
@@ -1723,10 +1582,9 @@ type Mutation {
   createAdmin(data: LoginInput): User
   createApplication(data: ApplicationCreateInput!): Application!
   createBusinessRole(data: BusinessRoleCreateInput!): BusinessRole!
-  createClassification(data: ClassificationCreateInput!): Classification!
   createClassificationLabel(data: ClassificationLabelCreateInput!): ClassificationLabel!
   createDataType(data: DataTypeCreateInput!): DataType!
-  createOrganizationalUnit(data: OrganizationalUnitCreateInput!): OrganizationalUnit!
+  createOrganizationalUnit(data: OrganizationalUnitCreateInput!): OrganizationalUnit
   createOrganizationalUnitType(data: OrganizationalUnitTypeCreateInput!): OrganizationalUnitType!
   createPerson(data: PersonCreateInput!): Person!
   createProcess(data: ProcessCreateInput!): Process!
@@ -1735,13 +1593,11 @@ type Mutation {
   createUser(data: UserCreateInput!): User
   deleteApplication(where: ApplicationWhereUniqueInput!): Application
   deleteBusinessRole(where: BusinessRoleWhereUniqueInput!): BusinessRole
-  deleteClassification(where: ClassificationWhereUniqueInput!): Classification
   deleteClassificationLabel(where: ClassificationLabelWhereUniqueInput!): ClassificationLabel
   deleteDataType(where: DataTypeWhereUniqueInput!): DataType
   deleteManyApplications(where: ApplicationWhereInput): BatchPayload!
   deleteManyBusinessRoles(where: BusinessRoleWhereInput): BatchPayload!
   deleteManyClassificationLabels(where: ClassificationLabelWhereInput): BatchPayload!
-  deleteManyClassifications(where: ClassificationWhereInput): BatchPayload!
   deleteManyDataTypes(where: DataTypeWhereInput): BatchPayload!
   deleteManyOrganizationalUnits(where: OrganizationalUnitWhereInput): BatchPayload!
   deleteManyOrganizationalUnitTypes(where: OrganizationalUnitTypeWhereInput): BatchPayload!
@@ -1759,7 +1615,6 @@ type Mutation {
   deleteUser(where: UserWhereUniqueInput!): User
   updateApplication(data: ApplicationUpdateInput!, where: ApplicationWhereUniqueInput!): Application
   updateBusinessRole(data: BusinessRoleUpdateInput!, where: BusinessRoleWhereUniqueInput!): BusinessRole
-  updateClassification(data: ClassificationUpdateInput!, where: ClassificationWhereUniqueInput!): Classification
   updateClassificationLabel(data: ClassificationLabelUpdateInput!, where: ClassificationLabelWhereUniqueInput!): ClassificationLabel
   updateDataType(data: DataTypeUpdateInput!, where: DataTypeWhereUniqueInput!): DataType
   updateManyApplications(data: ApplicationUpdateManyMutationInput!, where: ApplicationWhereInput): BatchPayload!
@@ -1782,7 +1637,6 @@ type Mutation {
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   upsertApplication(create: ApplicationCreateInput!, update: ApplicationUpdateInput!, where: ApplicationWhereUniqueInput!): Application!
   upsertBusinessRole(create: BusinessRoleCreateInput!, update: BusinessRoleUpdateInput!, where: BusinessRoleWhereUniqueInput!): BusinessRole!
-  upsertClassification(create: ClassificationCreateInput!, update: ClassificationUpdateInput!, where: ClassificationWhereUniqueInput!): Classification!
   upsertClassificationLabel(create: ClassificationLabelCreateInput!, update: ClassificationLabelUpdateInput!, where: ClassificationLabelWhereUniqueInput!): ClassificationLabel!
   upsertDataType(create: DataTypeCreateInput!, update: DataTypeUpdateInput!, where: DataTypeWhereUniqueInput!): DataType!
   upsertOrganizationalUnit(create: OrganizationalUnitCreateInput!, update: OrganizationalUnitUpdateInput!, where: OrganizationalUnitWhereUniqueInput!): OrganizationalUnit!
@@ -3340,14 +3194,12 @@ type Query {
   applications(after: String, before: String, first: Int, last: Int, orderBy: ApplicationOrderByInput, skip: Int, where: ApplicationWhereInput): [Application!]!
   applicationsConnection(after: String, before: String, first: Int, last: Int, orderBy: ApplicationOrderByInput, skip: Int, where: ApplicationWhereInput): ApplicationConnection!
   businessRole(where: BusinessRoleWhereUniqueInput!): BusinessRole
+  businessRoleByOu(where: OrganizationalUnitWhereUniqueInput!): [BusinessRole!]
   businessRoles(after: String, before: String, first: Int, last: Int, orderBy: BusinessRoleOrderByInput, skip: Int, where: BusinessRoleWhereInput): [BusinessRole!]!
   businessRolesConnection(after: String, before: String, first: Int, last: Int, orderBy: BusinessRoleOrderByInput, skip: Int, where: BusinessRoleWhereInput): BusinessRoleConnection!
-  classification(where: ClassificationWhereUniqueInput!): Classification
   classificationLabel(where: ClassificationLabelWhereUniqueInput!): ClassificationLabel
   classificationLabels(after: String, before: String, first: Int, last: Int, orderBy: ClassificationLabelOrderByInput, skip: Int, where: ClassificationLabelWhereInput): [ClassificationLabel!]!
   classificationLabelsConnection(after: String, before: String, first: Int, last: Int, orderBy: ClassificationLabelOrderByInput, skip: Int, where: ClassificationLabelWhereInput): ClassificationLabelConnection!
-  classifications(after: String, before: String, first: Int, last: Int, orderBy: ClassificationOrderByInput, skip: Int, where: ClassificationWhereInput): [Classification!]!
-  classificationsConnection(after: String, before: String, first: Int, last: Int, orderBy: ClassificationOrderByInput, skip: Int, where: ClassificationWhereInput): ClassificationConnection!
   dataType(where: DataTypeWhereUniqueInput!): DataType
   dataTypes(after: String, before: String, first: Int, last: Int, orderBy: DataTypeOrderByInput, skip: Int, where: DataTypeWhereInput): [DataType!]!
   dataTypesConnection(after: String, before: String, first: Int, last: Int, orderBy: DataTypeOrderByInput, skip: Int, where: DataTypeWhereInput): DataTypeConnection!
@@ -3362,9 +3214,11 @@ type Query {
   persons(after: String, before: String, first: Int, last: Int, orderBy: PersonOrderByInput, skip: Int, where: PersonWhereInput): [Person!]!
   personsConnection(after: String, before: String, first: Int, last: Int, orderBy: PersonOrderByInput, skip: Int, where: PersonWhereInput): PersonConnection!
   process(where: ProcessWhereUniqueInput!): Process
+  processByOu(where: ProcessWhereUniqueInput!): [Process!]
   processes(after: String, before: String, first: Int, last: Int, orderBy: ProcessOrderByInput, skip: Int, where: ProcessWhereInput): [Process!]!
   processesConnection(after: String, before: String, first: Int, last: Int, orderBy: ProcessOrderByInput, skip: Int, where: ProcessWhereInput): ProcessConnection!
   processingActivities(after: String, before: String, first: Int, last: Int, orderBy: ProcessingActivityOrderByInput, skip: Int, where: ProcessingActivityWhereInput): [ProcessingActivity!]!
+  processingActivitiesByOu(where: ProcessingActivityWhereUniqueInput!): [ProcessingActivity!]
   processingActivitiesConnection(after: String, before: String, first: Int, last: Int, orderBy: ProcessingActivityOrderByInput, skip: Int, where: ProcessingActivityWhereInput): ProcessingActivityConnection!
   processingActivity(where: ProcessingActivityWhereUniqueInput!): ProcessingActivity
   qualityAttribute(where: QualityAttributeWhereUniqueInput!): QualityAttribute

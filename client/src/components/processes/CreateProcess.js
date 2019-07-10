@@ -2,7 +2,7 @@ import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_PROCESS } from '../../queries/ProcessQueries';
 import { OuTree } from '../organizationalUnits/OuTree'
-import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
+import { BusinessRolesOptionsList } from '../businessRoles/BusinessRolesOptionsList'
 import { Modal, Form, Input, Button, notification } from 'antd';
 
 class CreateProcessModal extends React.Component {
@@ -30,11 +30,18 @@ class CreateProcessModal extends React.Component {
    
     form.validateFields(async (err, values) => {
       if (!err) {
+        let processOwner = values.processOwner ? {processOwner: {connect: {id: values.processOwner }}} : null;
+        let organizationalUnit = values.organizationalUnit || this.props.organizationalUnitId || undefined
+        organizationalUnit = values.organizationalUnit ? {organizationalUnit: {connect: {id: values.organizationalUnit }}} : null;
+
         await createProcess({ variables: {
-          name: values.name,
-          description: values.description,
-          processOwner: values.processOwner,
-          organizationalUnit: values.organizationalUnit || this.props.organizationalUnitId || undefined
+          data: {
+            name: values.name, 
+            description: values.description,
+            alias: values.alias,
+            ...processOwner,
+            ...organizationalUnit
+          } 
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Process",
@@ -61,7 +68,7 @@ class CreateProcessModal extends React.Component {
       <React.Fragment>
           <Mutation 
             mutation={CREATE_PROCESS}
-            refetchQueries={["AllProcesses", "AllOrganizationalUnits"]}
+            refetchQueries={["Processes", "OrganizationalUnits"]}
             >
             {(createProcess, { loading }) => {
               return (
@@ -90,7 +97,7 @@ class CreateProcessModal extends React.Component {
                     </Form.Item>            
                     <Form.Item 
                       label="Process owner">
-                      { <BusinessRolessOptionsList form={form} /> }
+                      { <BusinessRolesOptionsList form={form} field="processOwner"/> }
                     </Form.Item>
 
                     {this.parentOrganizationalUnit()}

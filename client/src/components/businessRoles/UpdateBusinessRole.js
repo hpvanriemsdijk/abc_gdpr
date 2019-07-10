@@ -29,15 +29,19 @@ class UpdateBusinessRole extends React.Component {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
+        let person = values.person ? {person: {connect: {id: values.person }}} : null;
+
         await updateBusinessRole({ variables: {
           id: this.props.businessRole.id,
-          name: values.name,
-          description: values.description,
-          person: values.person,
-          raciExecutive: values.raciExecutive || null,
-          raciFinancial: values.raciFinancial || null,
-          raciSecurity: values.raciSecurity || null,
-          raciPrivacy: values.raciPrivacy || null
+          data: {
+            name: values.name, 
+            description: values.description,
+            ...person,
+            raciExecutive: values.raciExecutive || null,
+            raciFinancial: values.raciFinancial || null,
+            raciSecurity: values.raciSecurity || null,
+            raciPrivacy: values.raciPrivacy || null
+          }
         }}).catch( res => {
           notification['warning']({
             message: "Could not update Business Role",
@@ -64,14 +68,14 @@ class UpdateBusinessRole extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const BusinessRoleData = data.BusinessRole || [];
+            const BusinessRoleData = data.businessRole || [];
             const loadingData = loading;
             const personId = BusinessRoleData.person ? BusinessRoleData.person.id : null
 
             return(
               <Mutation 
                 mutation={UPDATE_BUSINESS_ROLE}
-                refetchQueries={["AllBusinessRoles"]}
+                refetchQueries={["BusinessRoles", "BusinessRole", "BusinessRoleByOu"]}
                 >
                 {(updateBusinessRole, { loading }) => {
                   return (

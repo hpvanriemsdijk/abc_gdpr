@@ -29,12 +29,17 @@ class UpdateOU extends React.Component {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
+        let parent = values.organizationalUnit ? {parent: {connect: {id: values.organizationalUnit }}} : null;
+        let organizationalUnitType = values.organizationalUnitType ? {organizationalUnitType: {connect: {id: values.organizationalUnitType }}} : null;
+
         await updateOU({ variables: {
           id: this.props.organizationalUnit.id,
-          name: values.name,
-          description: values.description,
-          parent: values.organizationalUnit,
-          organizationalUnitType: values.organizationalUnitType,
+          data: {
+            name: values.name, 
+            description: values.description,
+            ...parent,
+            ...organizationalUnitType
+          }
         }}).catch( res => {
           notification['warning']({
             message: "Could not update OU",
@@ -61,7 +66,7 @@ class UpdateOU extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error) return null
-            const OUData = data.OrganizationalUnit || [];
+            const OUData = data.organizationalUnit || [];
             const ouTypeId = OUData.organizationalUnitType ? OUData.organizationalUnitType.id : null
             const ouParentId = OUData.parent ? OUData.parent.id : null
             const loadingData = loading;
@@ -69,7 +74,7 @@ class UpdateOU extends React.Component {
             return(
               <Mutation 
                 mutation={UPDATE_OU}
-                refetchQueries={["AllOrganizationalUnits"]}
+                refetchQueries={["OrganizationalUnits"]}
                 >
                 {(updateOU, { loading } ) => {
                   return (

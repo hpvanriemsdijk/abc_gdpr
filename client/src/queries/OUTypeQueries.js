@@ -1,18 +1,20 @@
 import gql from 'graphql-tag'
 
 export const ALL_OU_TYPES = gql`
-	query AllOrganizationalUnitTypes {
-		id
-		name
-		description
-		reportingUnit
+	query OrganizationalUnitTypes {
+		organizationalUnitTypes{
+			id
+			name
+			description
+			reportingUnit
+		}
 	}
 `;
 
 export const OU_TYPES_OPTIONS_LIST = gql`
-	query AllOrganizationalUnitTypes  ($filter: OrganizationalUnitTypeFilter) {
-		allOrganizationalUnitTypes(
-			filter:$filter
+	query OrganizationalUnitTypes  ($filter: OrganizationalUnitTypeWhereInput) {
+		organizationalUnitTypes(
+			where:$filter
 		) {
 			value: id
 			title: name
@@ -20,9 +22,17 @@ export const OU_TYPES_OPTIONS_LIST = gql`
 	}
 `;
 
+export const CREATE__OU_TYPE = gql`
+	mutation CreateOrganizationalUnitType($data: OrganizationalUnitTypeCreateInput!) {
+		createOrganizationalUnitType(data: $data) {
+			id
+		}
+	}
+`;
+
 export const UPDATE_OU_TYPE = gql`
-	mutation UpdateOrganizationalUnitType ($id: ID!, $name: String!, $description: String, $reportingUnit: Boolean!) {
-		updateOrganizationalUnitType(id: $id, name: $name, description: $description, reportingUnit: $reportingUnit) {
+	mutation UpdateOrganizationalUnitType ($id: ID!, $data: ApplicationUpdateInput!) {
+		updateOrganizationalUnitType(data: $data) {
 			id
 		}
 	}
@@ -30,7 +40,7 @@ export const UPDATE_OU_TYPE = gql`
 
 export const DELETE_OU_TYPE = gql`
 	mutation DeleteOrganizationalUnitType ($id: ID!) {
-		deleteOrganizationalUnitType(id: $id) {
+		deleteOrganizationalUnitType(where:{id: $id}) {
 			id
 		}
 	}

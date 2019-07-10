@@ -28,12 +28,17 @@ class UpdateProcessingActivity extends React.Component {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
+        let parentProcess = this.props.processId || values.parentProcess  || null
+        parentProcess = process ? {process: {connect: {id: parentProcess }}} : null;
+
         await updateProcessingActivity({ variables: {
           id: this.props.processingActivity.id,
-          name: values.name,
-          description: values.description,
-          purpose: values.purpose,
-          process: values.parentProcess
+          data: {
+            name: values.name,
+            description: values.description,
+            purpose: values.purpose,
+            ...parentProcess
+          }  
         }}).catch( res => {
           notification['warning']({
             message: "Could not update processing activity",
@@ -60,16 +65,14 @@ class UpdateProcessingActivity extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const processingActivity = data.ProcessingActivity || [];
+            const processingActivity = data.processingActivity || [];
             const processId = processingActivity.process ? processingActivity.process.id : null
             const loadingData = loading;
-
-            console.log(processingActivity);
 
             return(
               <Mutation 
                 mutation={UPDATE_PROCESSING_ACTIVITY}
-                refetchQueries={["AllProcessingActivities", "ProcessingActivity"]}
+                refetchQueries={["ProcessingActivities", "ProcessingActivity"]}
                 >
                 {(updateProcessingActivity, { loading }) => {
                   return (

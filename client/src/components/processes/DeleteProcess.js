@@ -45,7 +45,7 @@ class DeleteProcess extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={DELETE_PROCESS}
-            refetchQueries={["AllProcesses"]}
+            refetchQueries={["Processes"]}
             >
             {(DeleteProcess, { loading }) => {
               return (

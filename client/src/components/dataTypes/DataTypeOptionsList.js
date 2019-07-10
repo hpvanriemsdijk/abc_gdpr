@@ -12,7 +12,6 @@ export class DataTypeOptionsList extends React.Component {
         {({ loading, data, error }) => {     
           if (loading) return <Select placeholder="Loading..." />
           if (error) return <Select placeholder="Error loading..." />
-          console.log(this.props.initialValue);
           let initialValues = []
 
           if(this.props.initialValue){
@@ -30,7 +29,7 @@ export class DataTypeOptionsList extends React.Component {
                 mode="multiple"
                 allowClear
                 >
-                {data.allDataTypes.map(d => <Option key={d.value}>{d.title}</Option>)}
+                {data.dataTypes.map(d => <Option key={d.value}>{d.title}</Option>)}
               </Select>
             )
           )

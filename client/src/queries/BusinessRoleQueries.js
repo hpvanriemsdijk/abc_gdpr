@@ -11,10 +11,8 @@ export const businessRolesEnums = {
 };
 
 export const ALL_BUSINESS_ROLES = gql`
-	query AllBusinessRoles ($filter: BusinessRoleFilter) {
-		allBusinessRoles(
-			filter:$filter
-		) {
+	query BusinessRoles{
+		businessRoles {
 			id
 			name
 			description
@@ -24,10 +22,8 @@ export const ALL_BUSINESS_ROLES = gql`
 
 
 export const BUSINESS_ROLES_BY_OU = gql`
-	query businessRoleByOu ($id: ID!) {
-		businessRoleByOu(
-			organizationalUnitId:$id
-		) {
+	query BusinessRoleByOu ($id: ID!) {
+		businessRoleByOu(where:{id:$id}) {
 			id
 			name
 			description
@@ -35,17 +31,21 @@ export const BUSINESS_ROLES_BY_OU = gql`
 			raciSecurity
 			raciFinancial
 			raciExecutive
-			person 
-			organizationalUnit
+			person {
+				id
+				name
+			}
+			organizationalUnit {
+				id
+				name
+			}
 		}
 	}
 `;
 
 export const BUSINESS_ROLES_OPTIONS_LIST = gql`
-	query AllBusinessRoles ($filter: BusinessRoleFilter) {
-		allBusinessRoles(
-			filter:$filter
-		) {
+	query BusinessRoles {
+		businessRoles {
 			value: id
 			title: name
 		}
@@ -53,17 +53,8 @@ export const BUSINESS_ROLES_OPTIONS_LIST = gql`
 `;
 
 export const CREATE_BUSINESS_ROLE = gql`
-	mutation CreateBusinessRole ($name: String!, $description: String, $person: ID, $organizationalUnit: ID, $raciPrivacy: RACI, $raciSecurity: RACI, $raciFinancial: RACI, $raciExecutive: RACI) {
-		createBusinessRole(
-			name: $name, 
-			description: $description, 
-			personId: $person, 
-			organizationalUnitId: $organizationalUnit
-			raciPrivacy: $raciPrivacy, 
-			raciSecurity: $raciSecurity, 
-			raciFinancial: $raciFinancial, 
-			raciExecutive: $raciExecutive
-		) {
+	mutation CreateBusinessRole ($data: BusinessRoleCreateInput!) {
+		createBusinessRole(data: $data) {
 			id
 		}
 	}
@@ -71,7 +62,7 @@ export const CREATE_BUSINESS_ROLE = gql`
 
 export const GET_BUSINESS_ROLE = gql`
 	query BusinessRole ($id: ID!) { 
-		BusinessRole(id: $id) {
+		businessRole(where:{id: $id}) {
 			id
 			name
 			description
@@ -89,17 +80,10 @@ export const GET_BUSINESS_ROLE = gql`
 `;
 
 export const UPDATE_BUSINESS_ROLE = gql`
-	mutation UpdateBusinessRole ($id: ID!, $name: String!, $description: String, $person: ID, $organizationalUnit: ID, $raciPrivacy: RACI, $raciSecurity: RACI, $raciFinancial: RACI, $raciExecutive: RACI) {
+	mutation UpdateBusinessRole ($id: ID!, $data: ApplicationUpdateInput!) {
 		updateBusinessRole(
-			id: $id, 
-			name: $name, 
-			description: $description, 
-			personId: $person, 
-			organizationalUnitId: $organizationalUnit
-			raciPrivacy: $raciPrivacy, 
-			raciSecurity: $raciSecurity, 
-			raciFinancial: $raciFinancial, 
-			raciExecutive: $raciExecutive
+			data: $data, 
+			where: {id: $id}
 		){
 			id
 		}
@@ -108,7 +92,7 @@ export const UPDATE_BUSINESS_ROLE = gql`
 
 export const DELETE_BUSINESS_ROLE = gql`
 	mutation DeleteBusinessRole ($id: ID!) {
-		deleteBusinessRole(id: $id) {
+		deleteBusinessRole(where:{id: $id}) {
 			id
 		}
 	}

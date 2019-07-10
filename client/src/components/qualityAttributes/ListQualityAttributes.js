@@ -81,7 +81,7 @@ class QualityAttributeTable extends React.Component {
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.allQualityAttributes || [];
+            const dataSource = data.qualityAttributes || [];
 
             return(
               <React.Fragment>  

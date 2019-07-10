@@ -2,7 +2,7 @@ import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_APPLICATION } from '../../queries/ApplicationQueries';
 import { Modal, Form, Input, Button, notification, Select } from 'antd';
-import { BusinessRolessOptionsList } from '../businessRoles/BusinessRolessOptionsList'
+import { BusinessRolesOptionsList } from '../businessRoles/BusinessRolesOptionsList'
 import { DataTypeOptionsList } from '../dataTypes/DataTypeOptionsList'
 
 class CreateApplicationModal extends React.Component {
@@ -30,15 +30,22 @@ class CreateApplicationModal extends React.Component {
    
     form.validateFields(async (err, values) => {
       if (!err) {
-        console.log(values);
+        let dataTypesArray = values.dataTypes.map(dataType =>{return {id: dataType }})
+        let dataTypes = values.dataTypes.length ? {dataTypes: {connect: dataTypesArray }} : null;
+        let businessOwner = values.businessOwner ? {businessOwner: {connect: {id: values.businessOwner }}} : null;
+        let itOwner = values.itOwner ? {itOwner: {connect: {id: values.itOwner }}} : null;
+        let securityAdministrator = values.securityAdministrator ? {securityAdministrator: {connect: {id: values.securityAdministrator }}} : null;
+
         await createApplication({ variables: {
-          name: values.name,
-          description: values.description,
-          alias: values.alias,
-          dataType: values.dataTypes,
-          businessOwner: values.businessOwner,
-          itOwner: values.itOwner,
-          securityAdministrator: values.securityAdministrator
+          data: {
+            name: values.name, 
+            description: values.description,
+            alias: values.alias,
+            ...dataTypes,
+            ...businessOwner,
+            ...itOwner,
+            ...securityAdministrator
+          }
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Application",
@@ -60,7 +67,7 @@ class CreateApplicationModal extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={CREATE_APPLICATION}
-          refetchQueries={["AllApplications"]}
+          refetchQueries={["Applications"]}
           >
           {(createApplication, { loading }) => {
             return (
@@ -106,15 +113,15 @@ class CreateApplicationModal extends React.Component {
                   </Form.Item>
 
                   <Form.Item label="Business Owner">
-                    { <BusinessRolessOptionsList form={form} field="businessOwner"/> }
+                    { <BusinessRolesOptionsList form={form} field="businessOwner"/> }
                   </Form.Item>
 
                   <Form.Item label="IT Owner">
-                    { <BusinessRolessOptionsList form={form} field="itOwner"/> }
+                    { <BusinessRolesOptionsList form={form} field="itOwner"/> }
                   </Form.Item>
 
                   <Form.Item label="Security Administrator">
-                    { <BusinessRolessOptionsList form={form} field="securityAdministrator"/> }
+                    { <BusinessRolesOptionsList form={form} field="securityAdministrator"/> }
                   </Form.Item>
                 </Form>
               </Modal>

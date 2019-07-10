@@ -12,7 +12,7 @@ class viewPerson extends React.Component {
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.Person || [];
+            const dataSource = data.person || [];
 
             return(
               <React.Fragment>  

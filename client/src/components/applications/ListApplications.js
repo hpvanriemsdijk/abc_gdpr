@@ -81,7 +81,7 @@ class ApplicationTable extends React.Component {
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.allApplications || [];
+            const dataSource = data.applications || [];
 
             return(
               <React.Fragment>  

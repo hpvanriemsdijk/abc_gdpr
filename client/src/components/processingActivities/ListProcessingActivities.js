@@ -48,7 +48,7 @@ class ProcessingActivityTable extends React.Component {
     if(this.state.includeNested){
       return {
         query: PROCESSING_ACTIVITIES_BY_OU,
-        filter: { organizationalUnitId: this.props.organizationalUnitId }
+        filter: { id: this.props.organizationalUnitId }
       }
     } else {
       return {
@@ -73,7 +73,7 @@ class ProcessingActivityTable extends React.Component {
         variables = { this.processingActivityQuery().filter } >
         {({ loading, data, error }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.allProcessingActivities || data.processingActivitiesByOu || [];
+          const dataSource = data.processingActivities || data.processingActivitiesByOu || [];
 
           return(            
             <div className="ant-table-title">
@@ -100,14 +100,14 @@ class ProcessingActivityTable extends React.Component {
     )
   }
 
-  allProcessingActivities = (columns) => {
+  processingActivities = (columns) => {
     return (
       <Query
         query = { ALL_PROCESSING_ACTIVITIES }
         >
         {({ loading, data, error }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.allProcessingActivities || [];
+          const dataSource = data.processingActivities || [];
 
           //Component called from process details vieuw
           if(this.props.processId) return(
@@ -175,7 +175,7 @@ class ProcessingActivityTable extends React.Component {
     if(this.props.organizationalUnitId){
       return this.processingActivitiesByOu(columns);
     }else{
-      return this.allProcessingActivities(columns);
+      return this.processingActivities(columns);
     }
   }
 }

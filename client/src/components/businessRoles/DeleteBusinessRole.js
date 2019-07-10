@@ -45,7 +45,7 @@ class DeleteBusinessRole extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={DELETE_BUSINESS_ROLE}
-            refetchQueries={["AllBusinessRoles"]}
+            refetchQueries={["BusinessRoles", "BusinessRoleByOu"]}
             >
             {(DeleteBusinessRole, { loading }) => {
               return (

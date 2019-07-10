@@ -52,12 +52,11 @@ class DataTypeTable extends React.Component {
       key: 'classifications',
       dataIndex: 'classifications',
       render: (text, record) => {
-        if(record.classification.length){
-          return record.classification.map(classification => {
-            if(!classification.classificationLabel) return null
+        if(record.classificationLabels.length){
+          return record.classificationLabels.map(classification => {
             return(
-              <Tag key={classification.classificationLabel.id} color="blue">
-                {classification.classificationLabel.qualityAttribute.name}: {classification.classificationLabel.score} ({classification.classificationLabel.label})
+              <Tag key={classification.id} color="blue">
+                {classification.qualityAttribute.name}: {classification.score} ({classification.label})
               </Tag>
             )
           })
@@ -84,7 +83,7 @@ class DataTypeTable extends React.Component {
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.allDataTypes || [];
+            const dataSource = data.dataTypes || [];
 
             return(
               <React.Fragment>  

@@ -23,7 +23,6 @@ export interface NexusPrismaTypes {
       ProcessingActivity: ProcessingActivityObject
       Application: ApplicationObject
       DataType: DataTypeObject
-      Classification: ClassificationObject
       ClassificationLabel: ClassificationLabelObject
       QualityAttribute: QualityAttributeObject
       OrganizationalUnitType: OrganizationalUnitTypeObject
@@ -55,9 +54,6 @@ export interface NexusPrismaTypes {
       DataTypeConnection: DataTypeConnectionObject
       DataTypeEdge: DataTypeEdgeObject
       AggregateDataType: AggregateDataTypeObject
-      ClassificationConnection: ClassificationConnectionObject
-      ClassificationEdge: ClassificationEdgeObject
-      AggregateClassification: AggregateClassificationObject
       QualityAttributeConnection: QualityAttributeConnectionObject
       QualityAttributeEdge: QualityAttributeEdgeObject
       AggregateQualityAttribute: AggregateQualityAttributeObject
@@ -85,8 +81,6 @@ export interface NexusPrismaTypes {
       ApplicationPreviousValues: ApplicationPreviousValuesObject
       DataTypeSubscriptionPayload: DataTypeSubscriptionPayloadObject
       DataTypePreviousValues: DataTypePreviousValuesObject
-      ClassificationSubscriptionPayload: ClassificationSubscriptionPayloadObject
-      ClassificationPreviousValues: ClassificationPreviousValuesObject
       QualityAttributeSubscriptionPayload: QualityAttributeSubscriptionPayloadObject
       QualityAttributePreviousValues: QualityAttributePreviousValuesObject
       ClassificationLabelSubscriptionPayload: ClassificationLabelSubscriptionPayloadObject
@@ -102,7 +96,6 @@ export interface NexusPrismaTypes {
       ProcessingActivity: ProcessingActivityFieldDetails
       Application: ApplicationFieldDetails
       DataType: DataTypeFieldDetails
-      Classification: ClassificationFieldDetails
       ClassificationLabel: ClassificationLabelFieldDetails
       QualityAttribute: QualityAttributeFieldDetails
       OrganizationalUnitType: OrganizationalUnitTypeFieldDetails
@@ -134,9 +127,6 @@ export interface NexusPrismaTypes {
       DataTypeConnection: DataTypeConnectionFieldDetails
       DataTypeEdge: DataTypeEdgeFieldDetails
       AggregateDataType: AggregateDataTypeFieldDetails
-      ClassificationConnection: ClassificationConnectionFieldDetails
-      ClassificationEdge: ClassificationEdgeFieldDetails
-      AggregateClassification: AggregateClassificationFieldDetails
       QualityAttributeConnection: QualityAttributeConnectionFieldDetails
       QualityAttributeEdge: QualityAttributeEdgeFieldDetails
       AggregateQualityAttribute: AggregateQualityAttributeFieldDetails
@@ -164,8 +154,6 @@ export interface NexusPrismaTypes {
       ApplicationPreviousValues: ApplicationPreviousValuesFieldDetails
       DataTypeSubscriptionPayload: DataTypeSubscriptionPayloadFieldDetails
       DataTypePreviousValues: DataTypePreviousValuesFieldDetails
-      ClassificationSubscriptionPayload: ClassificationSubscriptionPayloadFieldDetails
-      ClassificationPreviousValues: ClassificationPreviousValuesFieldDetails
       QualityAttributeSubscriptionPayload: QualityAttributeSubscriptionPayloadFieldDetails
       QualityAttributePreviousValues: QualityAttributePreviousValuesFieldDetails
       ClassificationLabelSubscriptionPayload: ClassificationLabelSubscriptionPayloadFieldDetails
@@ -183,7 +171,6 @@ export interface NexusPrismaTypes {
       ProcessingActivityWhereInput: ProcessingActivityWhereInputInputObject
       ApplicationWhereInput: ApplicationWhereInputInputObject
       DataTypeWhereInput: DataTypeWhereInputInputObject
-      ClassificationWhereInput: ClassificationWhereInputInputObject
       ClassificationLabelWhereInput: ClassificationLabelWhereInputInputObject
       QualityAttributeWhereInput: QualityAttributeWhereInputInputObject
       OrganizationalUnitTypeWhereInput: OrganizationalUnitTypeWhereInputInputObject
@@ -195,7 +182,6 @@ export interface NexusPrismaTypes {
       ProcessingActivityWhereUniqueInput: ProcessingActivityWhereUniqueInputInputObject
       ApplicationWhereUniqueInput: ApplicationWhereUniqueInputInputObject
       DataTypeWhereUniqueInput: DataTypeWhereUniqueInputInputObject
-      ClassificationWhereUniqueInput: ClassificationWhereUniqueInputInputObject
       QualityAttributeWhereUniqueInput: QualityAttributeWhereUniqueInputInputObject
       ClassificationLabelWhereUniqueInput: ClassificationLabelWhereUniqueInputInputObject
       UserCreateInput: UserCreateInputInputObject
@@ -216,10 +202,8 @@ export interface NexusPrismaTypes {
       ApplicationCreateWithoutProcessingActivitiesInput: ApplicationCreateWithoutProcessingActivitiesInputInputObject
       DataTypeCreateManyWithoutApplicationInput: DataTypeCreateManyWithoutApplicationInputInputObject
       DataTypeCreateWithoutApplicationInput: DataTypeCreateWithoutApplicationInputInputObject
-      ClassificationCreateManyWithoutDataTypeInput: ClassificationCreateManyWithoutDataTypeInputInputObject
-      ClassificationCreateWithoutDataTypeInput: ClassificationCreateWithoutDataTypeInputInputObject
-      ClassificationLabelCreateOneWithoutClassificationsInput: ClassificationLabelCreateOneWithoutClassificationsInputInputObject
-      ClassificationLabelCreateWithoutClassificationsInput: ClassificationLabelCreateWithoutClassificationsInputInputObject
+      ClassificationLabelCreateManyWithoutDataTypeInput: ClassificationLabelCreateManyWithoutDataTypeInputInputObject
+      ClassificationLabelCreateWithoutDataTypeInput: ClassificationLabelCreateWithoutDataTypeInputInputObject
       QualityAttributeCreateOneWithoutClassificationLabelsInput: QualityAttributeCreateOneWithoutClassificationLabelsInputInputObject
       QualityAttributeCreateWithoutClassificationLabelsInput: QualityAttributeCreateWithoutClassificationLabelsInputInputObject
       BusinessRoleCreateOneWithoutAppBusinessOwnerInput: BusinessRoleCreateOneWithoutAppBusinessOwnerInputInputObject
@@ -278,17 +262,16 @@ export interface NexusPrismaTypes {
       DataTypeUpdateManyWithoutApplicationInput: DataTypeUpdateManyWithoutApplicationInputInputObject
       DataTypeUpdateWithWhereUniqueWithoutApplicationInput: DataTypeUpdateWithWhereUniqueWithoutApplicationInputInputObject
       DataTypeUpdateWithoutApplicationDataInput: DataTypeUpdateWithoutApplicationDataInputInputObject
-      ClassificationUpdateManyWithoutDataTypeInput: ClassificationUpdateManyWithoutDataTypeInputInputObject
-      ClassificationUpdateWithWhereUniqueWithoutDataTypeInput: ClassificationUpdateWithWhereUniqueWithoutDataTypeInputInputObject
-      ClassificationUpdateWithoutDataTypeDataInput: ClassificationUpdateWithoutDataTypeDataInputInputObject
-      ClassificationLabelUpdateOneWithoutClassificationsInput: ClassificationLabelUpdateOneWithoutClassificationsInputInputObject
-      ClassificationLabelUpdateWithoutClassificationsDataInput: ClassificationLabelUpdateWithoutClassificationsDataInputInputObject
+      ClassificationLabelUpdateManyWithoutDataTypeInput: ClassificationLabelUpdateManyWithoutDataTypeInputInputObject
+      ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput: ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInputInputObject
+      ClassificationLabelUpdateWithoutDataTypeDataInput: ClassificationLabelUpdateWithoutDataTypeDataInputInputObject
       QualityAttributeUpdateOneWithoutClassificationLabelsInput: QualityAttributeUpdateOneWithoutClassificationLabelsInputInputObject
       QualityAttributeUpdateWithoutClassificationLabelsDataInput: QualityAttributeUpdateWithoutClassificationLabelsDataInputInputObject
       QualityAttributeUpsertWithoutClassificationLabelsInput: QualityAttributeUpsertWithoutClassificationLabelsInputInputObject
-      ClassificationLabelUpsertWithoutClassificationsInput: ClassificationLabelUpsertWithoutClassificationsInputInputObject
-      ClassificationUpsertWithWhereUniqueWithoutDataTypeInput: ClassificationUpsertWithWhereUniqueWithoutDataTypeInputInputObject
-      ClassificationScalarWhereInput: ClassificationScalarWhereInputInputObject
+      ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput: ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInputInputObject
+      ClassificationLabelScalarWhereInput: ClassificationLabelScalarWhereInputInputObject
+      ClassificationLabelUpdateManyWithWhereNestedInput: ClassificationLabelUpdateManyWithWhereNestedInputInputObject
+      ClassificationLabelUpdateManyDataInput: ClassificationLabelUpdateManyDataInputInputObject
       DataTypeUpsertWithWhereUniqueWithoutApplicationInput: DataTypeUpsertWithWhereUniqueWithoutApplicationInputInputObject
       DataTypeScalarWhereInput: DataTypeScalarWhereInputInputObject
       DataTypeUpdateManyWithWhereNestedInput: DataTypeUpdateManyWithWhereNestedInputInputObject
@@ -398,38 +381,28 @@ export interface NexusPrismaTypes {
       ApplicationUpdateInput: ApplicationUpdateInputInputObject
       ApplicationUpdateManyMutationInput: ApplicationUpdateManyMutationInputInputObject
       DataTypeCreateInput: DataTypeCreateInputInputObject
-      ApplicationCreateManyWithoutDataTypeInput: ApplicationCreateManyWithoutDataTypeInputInputObject
-      ApplicationCreateWithoutDataTypeInput: ApplicationCreateWithoutDataTypeInputInputObject
+      ApplicationCreateManyWithoutDataTypesInput: ApplicationCreateManyWithoutDataTypesInputInputObject
+      ApplicationCreateWithoutDataTypesInput: ApplicationCreateWithoutDataTypesInputInputObject
       DataTypeUpdateInput: DataTypeUpdateInputInputObject
-      ApplicationUpdateManyWithoutDataTypeInput: ApplicationUpdateManyWithoutDataTypeInputInputObject
-      ApplicationUpdateWithWhereUniqueWithoutDataTypeInput: ApplicationUpdateWithWhereUniqueWithoutDataTypeInputInputObject
-      ApplicationUpdateWithoutDataTypeDataInput: ApplicationUpdateWithoutDataTypeDataInputInputObject
-      ApplicationUpsertWithWhereUniqueWithoutDataTypeInput: ApplicationUpsertWithWhereUniqueWithoutDataTypeInputInputObject
+      ApplicationUpdateManyWithoutDataTypesInput: ApplicationUpdateManyWithoutDataTypesInputInputObject
+      ApplicationUpdateWithWhereUniqueWithoutDataTypesInput: ApplicationUpdateWithWhereUniqueWithoutDataTypesInputInputObject
+      ApplicationUpdateWithoutDataTypesDataInput: ApplicationUpdateWithoutDataTypesDataInputInputObject
+      ApplicationUpsertWithWhereUniqueWithoutDataTypesInput: ApplicationUpsertWithWhereUniqueWithoutDataTypesInputInputObject
       DataTypeUpdateManyMutationInput: DataTypeUpdateManyMutationInputInputObject
-      ClassificationCreateInput: ClassificationCreateInputInputObject
-      DataTypeCreateOneWithoutClassificationsInput: DataTypeCreateOneWithoutClassificationsInputInputObject
-      DataTypeCreateWithoutClassificationsInput: DataTypeCreateWithoutClassificationsInputInputObject
-      ClassificationUpdateInput: ClassificationUpdateInputInputObject
-      DataTypeUpdateOneWithoutClassificationsInput: DataTypeUpdateOneWithoutClassificationsInputInputObject
-      DataTypeUpdateWithoutClassificationsDataInput: DataTypeUpdateWithoutClassificationsDataInputInputObject
-      DataTypeUpsertWithoutClassificationsInput: DataTypeUpsertWithoutClassificationsInputInputObject
       QualityAttributeCreateInput: QualityAttributeCreateInputInputObject
       ClassificationLabelCreateManyWithoutQualityAttributeInput: ClassificationLabelCreateManyWithoutQualityAttributeInputInputObject
       ClassificationLabelCreateWithoutQualityAttributeInput: ClassificationLabelCreateWithoutQualityAttributeInputInputObject
-      ClassificationCreateManyWithoutClassificationLabelInput: ClassificationCreateManyWithoutClassificationLabelInputInputObject
-      ClassificationCreateWithoutClassificationLabelInput: ClassificationCreateWithoutClassificationLabelInputInputObject
+      DataTypeCreateManyWithoutClassificationLabelsInput: DataTypeCreateManyWithoutClassificationLabelsInputInputObject
+      DataTypeCreateWithoutClassificationLabelsInput: DataTypeCreateWithoutClassificationLabelsInputInputObject
       QualityAttributeUpdateInput: QualityAttributeUpdateInputInputObject
       ClassificationLabelUpdateManyWithoutQualityAttributeInput: ClassificationLabelUpdateManyWithoutQualityAttributeInputInputObject
       ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput: ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInputInputObject
       ClassificationLabelUpdateWithoutQualityAttributeDataInput: ClassificationLabelUpdateWithoutQualityAttributeDataInputInputObject
-      ClassificationUpdateManyWithoutClassificationLabelInput: ClassificationUpdateManyWithoutClassificationLabelInputInputObject
-      ClassificationUpdateWithWhereUniqueWithoutClassificationLabelInput: ClassificationUpdateWithWhereUniqueWithoutClassificationLabelInputInputObject
-      ClassificationUpdateWithoutClassificationLabelDataInput: ClassificationUpdateWithoutClassificationLabelDataInputInputObject
-      ClassificationUpsertWithWhereUniqueWithoutClassificationLabelInput: ClassificationUpsertWithWhereUniqueWithoutClassificationLabelInputInputObject
+      DataTypeUpdateManyWithoutClassificationLabelsInput: DataTypeUpdateManyWithoutClassificationLabelsInputInputObject
+      DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput: DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInputInputObject
+      DataTypeUpdateWithoutClassificationLabelsDataInput: DataTypeUpdateWithoutClassificationLabelsDataInputInputObject
+      DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput: DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInputInputObject
       ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput: ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInputInputObject
-      ClassificationLabelScalarWhereInput: ClassificationLabelScalarWhereInputInputObject
-      ClassificationLabelUpdateManyWithWhereNestedInput: ClassificationLabelUpdateManyWithWhereNestedInputInputObject
-      ClassificationLabelUpdateManyDataInput: ClassificationLabelUpdateManyDataInputInputObject
       QualityAttributeUpdateManyMutationInput: QualityAttributeUpdateManyMutationInputInputObject
       ClassificationLabelCreateInput: ClassificationLabelCreateInputInputObject
       ClassificationLabelUpdateInput: ClassificationLabelUpdateInputInputObject
@@ -443,7 +416,6 @@ export interface NexusPrismaTypes {
       ProcessingActivitySubscriptionWhereInput: ProcessingActivitySubscriptionWhereInputInputObject
       ApplicationSubscriptionWhereInput: ApplicationSubscriptionWhereInputInputObject
       DataTypeSubscriptionWhereInput: DataTypeSubscriptionWhereInputInputObject
-      ClassificationSubscriptionWhereInput: ClassificationSubscriptionWhereInputInputObject
       QualityAttributeSubscriptionWhereInput: QualityAttributeSubscriptionWhereInputInputObject
       ClassificationLabelSubscriptionWhereInput: ClassificationLabelSubscriptionWhereInputInputObject
     }
@@ -458,7 +430,6 @@ export interface NexusPrismaTypes {
     ProcessingActivityOrderByInput: ProcessingActivityOrderByInputValues,
     ApplicationOrderByInput: ApplicationOrderByInputValues,
     DataTypeOrderByInput: DataTypeOrderByInputValues,
-    ClassificationOrderByInput: ClassificationOrderByInputValues,
     ClassificationLabelOrderByInput: ClassificationLabelOrderByInputValues,
     UserOrderByInput: UserOrderByInputValues,
     PersonOrderByInput: PersonOrderByInputValues,
@@ -499,9 +470,6 @@ type QueryObject =
   | { name: 'dataType', args?: QueryDataTypeArgs[] | false, alias?: string  } 
   | { name: 'dataTypes', args?: QueryDataTypesArgs[] | false, alias?: string  } 
   | { name: 'dataTypesConnection', args?: QueryDataTypesConnectionArgs[] | false, alias?: string  } 
-  | { name: 'classification', args?: QueryClassificationArgs[] | false, alias?: string  } 
-  | { name: 'classifications', args?: QueryClassificationsArgs[] | false, alias?: string  } 
-  | { name: 'classificationsConnection', args?: QueryClassificationsConnectionArgs[] | false, alias?: string  } 
   | { name: 'qualityAttribute', args?: QueryQualityAttributeArgs[] | false, alias?: string  } 
   | { name: 'qualityAttributes', args?: QueryQualityAttributesArgs[] | false, alias?: string  } 
   | { name: 'qualityAttributesConnection', args?: QueryQualityAttributesConnectionArgs[] | false, alias?: string  } 
@@ -537,9 +505,6 @@ type QueryFields =
   | 'dataType'
   | 'dataTypes'
   | 'dataTypesConnection'
-  | 'classification'
-  | 'classifications'
-  | 'classificationsConnection'
   | 'qualityAttribute'
   | 'qualityAttributes'
   | 'qualityAttributesConnection'
@@ -703,24 +668,6 @@ type QueryDataTypesArgs =
   | 'first'
   | 'last'
 type QueryDataTypesConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryClassificationArgs =
-  | 'where'
-type QueryClassificationsArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryClassificationsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1117,45 +1064,6 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.DataTypeConnection> | prisma.DataTypeConnection
-  }
-  classification: {
-    type: 'Classification'
-    args: Record<QueryClassificationArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where: ClassificationWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification | null> | prisma.Classification | null
-  }
-  classifications: {
-    type: 'Classification'
-    args: Record<QueryClassificationsArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: ClassificationWhereInput | null, orderBy?: prisma.ClassificationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification[]> | prisma.Classification[]
-  }
-  classificationsConnection: {
-    type: 'ClassificationConnection'
-    args: Record<QueryClassificationsConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: ClassificationWhereInput | null, orderBy?: prisma.ClassificationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.ClassificationConnection> | prisma.ClassificationConnection
   }
   qualityAttribute: {
     type: 'QualityAttribute'
@@ -2052,7 +1960,7 @@ type ApplicationObject =
   | { name: 'alias', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
   | { name: 'processingActivities', args?: ApplicationProcessingActivitiesArgs[] | false, alias?: string  } 
-  | { name: 'dataType', args?: ApplicationDataTypeArgs[] | false, alias?: string  } 
+  | { name: 'dataTypes', args?: ApplicationDataTypesArgs[] | false, alias?: string  } 
   | { name: 'businessOwner', args?: [] | false, alias?: string  } 
   | { name: 'itOwner', args?: [] | false, alias?: string  } 
   | { name: 'securityAdministrator', args?: [] | false, alias?: string  } 
@@ -2063,7 +1971,7 @@ type ApplicationFields =
   | 'alias'
   | 'description'
   | 'processingActivities'
-  | 'dataType'
+  | 'dataTypes'
   | 'businessOwner'
   | 'itOwner'
   | 'securityAdministrator'
@@ -2077,7 +1985,7 @@ type ApplicationProcessingActivitiesArgs =
   | 'before'
   | 'first'
   | 'last'
-type ApplicationDataTypeArgs =
+type ApplicationDataTypesArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -2133,9 +2041,9 @@ export interface ApplicationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProcessingActivity[]> | prisma.ProcessingActivity[]
   }
-  dataType: {
+  dataTypes: {
     type: 'DataType'
-    args: Record<ApplicationDataTypeArgs, core.NexusArgDef<string>>
+    args: Record<ApplicationDataTypesArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
@@ -2196,14 +2104,14 @@ type DataTypeObject =
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
   | { name: 'application', args?: DataTypeApplicationArgs[] | false, alias?: string  } 
-  | { name: 'classifications', args?: DataTypeClassificationsArgs[] | false, alias?: string  } 
+  | { name: 'classificationLabels', args?: DataTypeClassificationLabelsArgs[] | false, alias?: string  } 
 
 type DataTypeFields =
   | 'id'
   | 'name'
   | 'description'
   | 'application'
-  | 'classifications'
+  | 'classificationLabels'
 
 
 type DataTypeApplicationArgs =
@@ -2214,7 +2122,7 @@ type DataTypeApplicationArgs =
   | 'before'
   | 'first'
   | 'last'
-type DataTypeClassificationsArgs =
+type DataTypeClassificationLabelsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -2262,73 +2170,18 @@ export interface DataTypeFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Application[]> | prisma.Application[]
   }
-  classifications: {
-    type: 'Classification'
-    args: Record<DataTypeClassificationsArgs, core.NexusArgDef<string>>
+  classificationLabels: {
+    type: 'ClassificationLabel'
+    args: Record<DataTypeClassificationLabelsArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"DataType">,
-      args: { where?: ClassificationWhereInput | null, orderBy?: prisma.ClassificationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: ClassificationLabelWhereInput | null, orderBy?: prisma.ClassificationLabelOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification[]> | prisma.Classification[]
-  }
-}
-  
-
-// Types for Classification
-
-type ClassificationObject =
-  | ClassificationFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'dataType', args?: [] | false, alias?: string  } 
-  | { name: 'classificationLabel', args?: [] | false, alias?: string  } 
-
-type ClassificationFields =
-  | 'id'
-  | 'dataType'
-  | 'classificationLabel'
-
-
-
-  
-
-export interface ClassificationFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  dataType: {
-    type: 'DataType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Classification">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.DataType | null> | prisma.DataType | null
-  }
-  classificationLabel: {
-    type: 'ClassificationLabel'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Classification">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.ClassificationLabel | null> | prisma.ClassificationLabel | null
+    ) => Promise<prisma.ClassificationLabel[]> | prisma.ClassificationLabel[]
   }
 }
   
@@ -2342,7 +2195,7 @@ type ClassificationLabelObject =
   | { name: 'label', args?: [] | false, alias?: string  } 
   | { name: 'criteria', args?: [] | false, alias?: string  } 
   | { name: 'qualityAttribute', args?: [] | false, alias?: string  } 
-  | { name: 'classifications', args?: ClassificationLabelClassificationsArgs[] | false, alias?: string  } 
+  | { name: 'dataType', args?: ClassificationLabelDataTypeArgs[] | false, alias?: string  } 
 
 type ClassificationLabelFields =
   | 'id'
@@ -2350,10 +2203,10 @@ type ClassificationLabelFields =
   | 'label'
   | 'criteria'
   | 'qualityAttribute'
-  | 'classifications'
+  | 'dataType'
 
 
-type ClassificationLabelClassificationsArgs =
+type ClassificationLabelDataTypeArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -2409,18 +2262,18 @@ export interface ClassificationLabelFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.QualityAttribute | null> | prisma.QualityAttribute | null
   }
-  classifications: {
-    type: 'Classification'
-    args: Record<ClassificationLabelClassificationsArgs, core.NexusArgDef<string>>
+  dataType: {
+    type: 'DataType'
+    args: Record<ClassificationLabelDataTypeArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"ClassificationLabel">,
-      args: { where?: ClassificationWhereInput | null, orderBy?: prisma.ClassificationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: DataTypeWhereInput | null, orderBy?: prisma.DataTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification[]> | prisma.Classification[]
+    ) => Promise<prisma.DataType[]> | prisma.DataType[]
   }
 }
   
@@ -3764,131 +3617,6 @@ export interface AggregateDataTypeFieldDetails {
 }
   
 
-// Types for ClassificationConnection
-
-type ClassificationConnectionObject =
-  | ClassificationConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type ClassificationConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface ClassificationConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"ClassificationConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'ClassificationEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"ClassificationConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.ClassificationEdge[]> | prisma.ClassificationEdge[]
-  }
-  aggregate: {
-    type: 'AggregateClassification'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"ClassificationConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateClassification> | prisma.AggregateClassification
-  }
-}
-  
-
-// Types for ClassificationEdge
-
-type ClassificationEdgeObject =
-  | ClassificationEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type ClassificationEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface ClassificationEdgeFieldDetails {
-  node: {
-    type: 'Classification'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"ClassificationEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification> | prisma.Classification
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateClassification
-
-type AggregateClassificationObject =
-  | AggregateClassificationFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateClassificationFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateClassificationFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
 // Types for QualityAttributeConnection
 
 type QualityAttributeConnectionObject =
@@ -4197,11 +3925,6 @@ type MutationObject =
   | { name: 'upsertDataType', args?: MutationUpsertDataTypeArgs[] | false, alias?: string  } 
   | { name: 'deleteDataType', args?: MutationDeleteDataTypeArgs[] | false, alias?: string  } 
   | { name: 'deleteManyDataTypes', args?: MutationDeleteManyDataTypesArgs[] | false, alias?: string  } 
-  | { name: 'createClassification', args?: MutationCreateClassificationArgs[] | false, alias?: string  } 
-  | { name: 'updateClassification', args?: MutationUpdateClassificationArgs[] | false, alias?: string  } 
-  | { name: 'upsertClassification', args?: MutationUpsertClassificationArgs[] | false, alias?: string  } 
-  | { name: 'deleteClassification', args?: MutationDeleteClassificationArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyClassifications', args?: MutationDeleteManyClassificationsArgs[] | false, alias?: string  } 
   | { name: 'createQualityAttribute', args?: MutationCreateQualityAttributeArgs[] | false, alias?: string  } 
   | { name: 'updateQualityAttribute', args?: MutationUpdateQualityAttributeArgs[] | false, alias?: string  } 
   | { name: 'updateManyQualityAttributes', args?: MutationUpdateManyQualityAttributesArgs[] | false, alias?: string  } 
@@ -4270,11 +3993,6 @@ type MutationFields =
   | 'upsertDataType'
   | 'deleteDataType'
   | 'deleteManyDataTypes'
-  | 'createClassification'
-  | 'updateClassification'
-  | 'upsertClassification'
-  | 'deleteClassification'
-  | 'deleteManyClassifications'
   | 'createQualityAttribute'
   | 'updateQualityAttribute'
   | 'updateManyQualityAttributes'
@@ -4432,19 +4150,6 @@ type MutationUpsertDataTypeArgs =
 type MutationDeleteDataTypeArgs =
   | 'where'
 type MutationDeleteManyDataTypesArgs =
-  | 'where'
-type MutationCreateClassificationArgs =
-  | 'data'
-type MutationUpdateClassificationArgs =
-  | 'data'
-  | 'where'
-type MutationUpsertClassificationArgs =
-  | 'where'
-  | 'create'
-  | 'update'
-type MutationDeleteClassificationArgs =
-  | 'where'
-type MutationDeleteManyClassificationsArgs =
   | 'where'
 type MutationCreateQualityAttributeArgs =
   | 'data'
@@ -5183,71 +4888,6 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  createClassification: {
-    type: 'Classification'
-    args: Record<MutationCreateClassificationArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: ClassificationCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification> | prisma.Classification
-  }
-  updateClassification: {
-    type: 'Classification'
-    args: Record<MutationUpdateClassificationArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: ClassificationUpdateInput, where: ClassificationWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification | null> | prisma.Classification | null
-  }
-  upsertClassification: {
-    type: 'Classification'
-    args: Record<MutationUpsertClassificationArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: ClassificationWhereUniqueInput, create: ClassificationCreateInput, update: ClassificationUpdateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification> | prisma.Classification
-  }
-  deleteClassification: {
-    type: 'Classification'
-    args: Record<MutationDeleteClassificationArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: ClassificationWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification | null> | prisma.Classification | null
-  }
-  deleteManyClassifications: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManyClassificationsArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: ClassificationWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
   createQualityAttribute: {
     type: 'QualityAttribute'
     args: Record<MutationCreateQualityAttributeArgs, core.NexusArgDef<string>>
@@ -5445,7 +5085,6 @@ type SubscriptionObject =
   | { name: 'processingActivity', args?: SubscriptionProcessingActivityArgs[] | false, alias?: string  } 
   | { name: 'application', args?: SubscriptionApplicationArgs[] | false, alias?: string  } 
   | { name: 'dataType', args?: SubscriptionDataTypeArgs[] | false, alias?: string  } 
-  | { name: 'classification', args?: SubscriptionClassificationArgs[] | false, alias?: string  } 
   | { name: 'qualityAttribute', args?: SubscriptionQualityAttributeArgs[] | false, alias?: string  } 
   | { name: 'classificationLabel', args?: SubscriptionClassificationLabelArgs[] | false, alias?: string  } 
 
@@ -5459,7 +5098,6 @@ type SubscriptionFields =
   | 'processingActivity'
   | 'application'
   | 'dataType'
-  | 'classification'
   | 'qualityAttribute'
   | 'classificationLabel'
 
@@ -5481,8 +5119,6 @@ type SubscriptionProcessingActivityArgs =
 type SubscriptionApplicationArgs =
   | 'where'
 type SubscriptionDataTypeArgs =
-  | 'where'
-type SubscriptionClassificationArgs =
   | 'where'
 type SubscriptionQualityAttributeArgs =
   | 'where'
@@ -5607,19 +5243,6 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.DataTypeSubscriptionPayload | null> | prisma.DataTypeSubscriptionPayload | null
-  }
-  classification: {
-    type: 'ClassificationSubscriptionPayload'
-    args: Record<SubscriptionClassificationArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: ClassificationSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.ClassificationSubscriptionPayload | null> | prisma.ClassificationSubscriptionPayload | null
   }
   qualityAttribute: {
     type: 'QualityAttributeSubscriptionPayload'
@@ -6880,101 +6503,6 @@ export interface DataTypePreviousValuesFieldDetails {
 }
   
 
-// Types for ClassificationSubscriptionPayload
-
-type ClassificationSubscriptionPayloadObject =
-  | ClassificationSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-  | { name: 'previousValues', args?: [] | false, alias?: string  } 
-
-type ClassificationSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-  | 'previousValues'
-
-
-
-  
-
-export interface ClassificationSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"ClassificationSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'Classification'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"ClassificationSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Classification | null> | prisma.Classification | null
-  }
-  updatedFields: {
-    type: 'String'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-  previousValues: {
-    type: 'ClassificationPreviousValues'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"ClassificationSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.ClassificationPreviousValues | null> | prisma.ClassificationPreviousValues | null
-  }
-}
-  
-
-// Types for ClassificationPreviousValues
-
-type ClassificationPreviousValuesObject =
-  | ClassificationPreviousValuesFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-
-type ClassificationPreviousValuesFields =
-  | 'id'
-
-
-
-  
-
-export interface ClassificationPreviousValuesFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
 // Types for QualityAttributeSubscriptionPayload
 
 type QualityAttributeSubscriptionPayloadObject =
@@ -8126,9 +7654,9 @@ export interface ApplicationWhereInput {
   processingActivities_every?: ProcessingActivityWhereInput | null
   processingActivities_some?: ProcessingActivityWhereInput | null
   processingActivities_none?: ProcessingActivityWhereInput | null
-  dataType_every?: DataTypeWhereInput | null
-  dataType_some?: DataTypeWhereInput | null
-  dataType_none?: DataTypeWhereInput | null
+  dataTypes_every?: DataTypeWhereInput | null
+  dataTypes_some?: DataTypeWhereInput | null
+  dataTypes_none?: DataTypeWhereInput | null
   businessOwner?: BusinessRoleWhereInput | null
   itOwner?: BusinessRoleWhereInput | null
   securityAdministrator?: BusinessRoleWhereInput | null
@@ -8183,9 +7711,9 @@ export type ApplicationWhereInputInputObject =
   | { name: 'processingActivities_every', alias?: string  } 
   | { name: 'processingActivities_some', alias?: string  } 
   | { name: 'processingActivities_none', alias?: string  } 
-  | { name: 'dataType_every', alias?: string  } 
-  | { name: 'dataType_some', alias?: string  } 
-  | { name: 'dataType_none', alias?: string  } 
+  | { name: 'dataTypes_every', alias?: string  } 
+  | { name: 'dataTypes_some', alias?: string  } 
+  | { name: 'dataTypes_none', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
@@ -8239,9 +7767,9 @@ export interface DataTypeWhereInput {
   application_every?: ApplicationWhereInput | null
   application_some?: ApplicationWhereInput | null
   application_none?: ApplicationWhereInput | null
-  classifications_every?: ClassificationWhereInput | null
-  classifications_some?: ClassificationWhereInput | null
-  classifications_none?: ClassificationWhereInput | null
+  classificationLabels_every?: ClassificationLabelWhereInput | null
+  classificationLabels_some?: ClassificationLabelWhereInput | null
+  classificationLabels_none?: ClassificationLabelWhereInput | null
   AND?: DataTypeWhereInput[]
   OR?: DataTypeWhereInput[]
   NOT?: DataTypeWhereInput[]
@@ -8293,52 +7821,9 @@ export type DataTypeWhereInputInputObject =
   | { name: 'application_every', alias?: string  } 
   | { name: 'application_some', alias?: string  } 
   | { name: 'application_none', alias?: string  } 
-  | { name: 'classifications_every', alias?: string  } 
-  | { name: 'classifications_some', alias?: string  } 
-  | { name: 'classifications_none', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface ClassificationWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  dataType?: DataTypeWhereInput | null
-  classificationLabel?: ClassificationLabelWhereInput | null
-  AND?: ClassificationWhereInput[]
-  OR?: ClassificationWhereInput[]
-  NOT?: ClassificationWhereInput[]
-}
-export type ClassificationWhereInputInputObject =
-  | Extract<keyof ClassificationWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
-  | { name: 'classificationLabel', alias?: string  } 
+  | { name: 'classificationLabels_every', alias?: string  } 
+  | { name: 'classificationLabels_some', alias?: string  } 
+  | { name: 'classificationLabels_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -8395,9 +7880,9 @@ export interface ClassificationLabelWhereInput {
   criteria_ends_with?: string | null
   criteria_not_ends_with?: string | null
   qualityAttribute?: QualityAttributeWhereInput | null
-  classifications_every?: ClassificationWhereInput | null
-  classifications_some?: ClassificationWhereInput | null
-  classifications_none?: ClassificationWhereInput | null
+  dataType_every?: DataTypeWhereInput | null
+  dataType_some?: DataTypeWhereInput | null
+  dataType_none?: DataTypeWhereInput | null
   AND?: ClassificationLabelWhereInput[]
   OR?: ClassificationLabelWhereInput[]
   NOT?: ClassificationLabelWhereInput[]
@@ -8455,9 +7940,9 @@ export type ClassificationLabelWhereInputInputObject =
   | { name: 'criteria_ends_with', alias?: string  } 
   | { name: 'criteria_not_ends_with', alias?: string  } 
   | { name: 'qualityAttribute', alias?: string  } 
-  | { name: 'classifications_every', alias?: string  } 
-  | { name: 'classifications_some', alias?: string  } 
-  | { name: 'classifications_none', alias?: string  } 
+  | { name: 'dataType_every', alias?: string  } 
+  | { name: 'dataType_some', alias?: string  } 
+  | { name: 'dataType_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -8732,13 +8217,6 @@ export type DataTypeWhereUniqueInputInputObject =
   | Extract<keyof DataTypeWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
-export interface ClassificationWhereUniqueInput {
-  id?: string | null
-}
-export type ClassificationWhereUniqueInputInputObject =
-  | Extract<keyof ClassificationWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
 export interface QualityAttributeWhereUniqueInput {
   id?: string | null
 }
@@ -8955,7 +8433,7 @@ export interface ApplicationCreateWithoutProcessingActivitiesInput {
   name?: string
   alias?: undefined | null
   description?: string | null
-  dataType?: DataTypeCreateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleCreateOneWithoutAppSecAdminInput | null
@@ -8966,7 +8444,7 @@ export type ApplicationCreateWithoutProcessingActivitiesInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
@@ -8984,51 +8462,33 @@ export interface DataTypeCreateWithoutApplicationInput {
   id?: string | null
   name?: string
   description?: string | null
-  classifications?: ClassificationCreateManyWithoutDataTypeInput | null
+  classificationLabels?: ClassificationLabelCreateManyWithoutDataTypeInput | null
 }
 export type DataTypeCreateWithoutApplicationInputInputObject =
   | Extract<keyof DataTypeCreateWithoutApplicationInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'classifications', alias?: string  } 
+  | { name: 'classificationLabels', alias?: string  } 
   
-export interface ClassificationCreateManyWithoutDataTypeInput {
-  create?: ClassificationCreateWithoutDataTypeInput[]
-  connect?: ClassificationWhereUniqueInput[]
+export interface ClassificationLabelCreateManyWithoutDataTypeInput {
+  create?: ClassificationLabelCreateWithoutDataTypeInput[]
+  connect?: ClassificationLabelWhereUniqueInput[]
 }
-export type ClassificationCreateManyWithoutDataTypeInputInputObject =
-  | Extract<keyof ClassificationCreateManyWithoutDataTypeInput, string>
+export type ClassificationLabelCreateManyWithoutDataTypeInputInputObject =
+  | Extract<keyof ClassificationLabelCreateManyWithoutDataTypeInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface ClassificationCreateWithoutDataTypeInput {
-  id?: string | null
-  classificationLabel?: ClassificationLabelCreateOneWithoutClassificationsInput | null
-}
-export type ClassificationCreateWithoutDataTypeInputInputObject =
-  | Extract<keyof ClassificationCreateWithoutDataTypeInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'classificationLabel', alias?: string  } 
-  
-export interface ClassificationLabelCreateOneWithoutClassificationsInput {
-  create?: ClassificationLabelCreateWithoutClassificationsInput | null
-  connect?: ClassificationLabelWhereUniqueInput | null
-}
-export type ClassificationLabelCreateOneWithoutClassificationsInputInputObject =
-  | Extract<keyof ClassificationLabelCreateOneWithoutClassificationsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ClassificationLabelCreateWithoutClassificationsInput {
+export interface ClassificationLabelCreateWithoutDataTypeInput {
   id?: string | null
   score?: number
   label?: string
   criteria?: string | null
   qualityAttribute?: QualityAttributeCreateOneWithoutClassificationLabelsInput | null
 }
-export type ClassificationLabelCreateWithoutClassificationsInputInputObject =
-  | Extract<keyof ClassificationLabelCreateWithoutClassificationsInput, string>
+export type ClassificationLabelCreateWithoutDataTypeInputInputObject =
+  | Extract<keyof ClassificationLabelCreateWithoutDataTypeInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'score', alias?: string  } 
   | { name: 'label', alias?: string  } 
@@ -9274,7 +8734,7 @@ export interface ApplicationCreateWithoutBusinessOwnerInput {
   alias?: undefined | null
   description?: string | null
   processingActivities?: ProcessingActivityCreateManyWithoutApplicationsInput | null
-  dataType?: DataTypeCreateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
   itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleCreateOneWithoutAppSecAdminInput | null
 }
@@ -9285,7 +8745,7 @@ export type ApplicationCreateWithoutBusinessOwnerInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
   
@@ -9390,7 +8850,7 @@ export interface ApplicationCreateWithoutItOwnerInput {
   alias?: undefined | null
   description?: string | null
   processingActivities?: ProcessingActivityCreateManyWithoutApplicationsInput | null
-  dataType?: DataTypeCreateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
   securityAdministrator?: BusinessRoleCreateOneWithoutAppSecAdminInput | null
 }
@@ -9401,7 +8861,7 @@ export type ApplicationCreateWithoutItOwnerInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
   
@@ -9458,7 +8918,7 @@ export interface ApplicationCreateWithoutSecurityAdministratorInput {
   alias?: undefined | null
   description?: string | null
   processingActivities?: ProcessingActivityCreateManyWithoutApplicationsInput | null
-  dataType?: DataTypeCreateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
 }
@@ -9469,7 +8929,7 @@ export type ApplicationCreateWithoutSecurityAdministratorInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   
@@ -9847,7 +9307,7 @@ export interface ApplicationUpdateWithoutProcessingActivitiesDataInput {
   name?: string | null
   alias?: undefined | null
   description?: string | null
-  dataType?: DataTypeUpdateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
@@ -9857,7 +9317,7 @@ export type ApplicationUpdateWithoutProcessingActivitiesDataInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
@@ -9897,26 +9357,27 @@ export type DataTypeUpdateWithWhereUniqueWithoutApplicationInputInputObject =
 export interface DataTypeUpdateWithoutApplicationDataInput {
   name?: string | null
   description?: string | null
-  classifications?: ClassificationUpdateManyWithoutDataTypeInput | null
+  classificationLabels?: ClassificationLabelUpdateManyWithoutDataTypeInput | null
 }
 export type DataTypeUpdateWithoutApplicationDataInputInputObject =
   | Extract<keyof DataTypeUpdateWithoutApplicationDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'classifications', alias?: string  } 
+  | { name: 'classificationLabels', alias?: string  } 
   
-export interface ClassificationUpdateManyWithoutDataTypeInput {
-  create?: ClassificationCreateWithoutDataTypeInput[]
-  delete?: ClassificationWhereUniqueInput[]
-  connect?: ClassificationWhereUniqueInput[]
-  set?: ClassificationWhereUniqueInput[]
-  disconnect?: ClassificationWhereUniqueInput[]
-  update?: ClassificationUpdateWithWhereUniqueWithoutDataTypeInput[]
-  upsert?: ClassificationUpsertWithWhereUniqueWithoutDataTypeInput[]
-  deleteMany?: ClassificationScalarWhereInput[]
+export interface ClassificationLabelUpdateManyWithoutDataTypeInput {
+  create?: ClassificationLabelCreateWithoutDataTypeInput[]
+  delete?: ClassificationLabelWhereUniqueInput[]
+  connect?: ClassificationLabelWhereUniqueInput[]
+  set?: ClassificationLabelWhereUniqueInput[]
+  disconnect?: ClassificationLabelWhereUniqueInput[]
+  update?: ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput[]
+  upsert?: ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput[]
+  deleteMany?: ClassificationLabelScalarWhereInput[]
+  updateMany?: ClassificationLabelUpdateManyWithWhereNestedInput[]
 }
-export type ClassificationUpdateManyWithoutDataTypeInputInputObject =
-  | Extract<keyof ClassificationUpdateManyWithoutDataTypeInput, string>
+export type ClassificationLabelUpdateManyWithoutDataTypeInputInputObject =
+  | Extract<keyof ClassificationLabelUpdateManyWithoutDataTypeInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -9925,48 +9386,25 @@ export type ClassificationUpdateManyWithoutDataTypeInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
   | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
   
-export interface ClassificationUpdateWithWhereUniqueWithoutDataTypeInput {
-  where?: ClassificationWhereUniqueInput
-  data?: ClassificationUpdateWithoutDataTypeDataInput
+export interface ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput {
+  where?: ClassificationLabelWhereUniqueInput
+  data?: ClassificationLabelUpdateWithoutDataTypeDataInput
 }
-export type ClassificationUpdateWithWhereUniqueWithoutDataTypeInputInputObject =
-  | Extract<keyof ClassificationUpdateWithWhereUniqueWithoutDataTypeInput, string>
+export type ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInputInputObject =
+  | Extract<keyof ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface ClassificationUpdateWithoutDataTypeDataInput {
-  classificationLabel?: ClassificationLabelUpdateOneWithoutClassificationsInput | null
-}
-export type ClassificationUpdateWithoutDataTypeDataInputInputObject =
-  | Extract<keyof ClassificationUpdateWithoutDataTypeDataInput, string>
-  | { name: 'classificationLabel', alias?: string  } 
-  
-export interface ClassificationLabelUpdateOneWithoutClassificationsInput {
-  create?: ClassificationLabelCreateWithoutClassificationsInput | null
-  update?: ClassificationLabelUpdateWithoutClassificationsDataInput | null
-  upsert?: ClassificationLabelUpsertWithoutClassificationsInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: ClassificationLabelWhereUniqueInput | null
-}
-export type ClassificationLabelUpdateOneWithoutClassificationsInputInputObject =
-  | Extract<keyof ClassificationLabelUpdateOneWithoutClassificationsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ClassificationLabelUpdateWithoutClassificationsDataInput {
+export interface ClassificationLabelUpdateWithoutDataTypeDataInput {
   score?: number | null
   label?: string | null
   criteria?: string | null
   qualityAttribute?: QualityAttributeUpdateOneWithoutClassificationLabelsInput | null
 }
-export type ClassificationLabelUpdateWithoutClassificationsDataInputInputObject =
-  | Extract<keyof ClassificationLabelUpdateWithoutClassificationsDataInput, string>
+export type ClassificationLabelUpdateWithoutDataTypeDataInputInputObject =
+  | Extract<keyof ClassificationLabelUpdateWithoutDataTypeDataInput, string>
   | { name: 'score', alias?: string  } 
   | { name: 'label', alias?: string  } 
   | { name: 'criteria', alias?: string  } 
@@ -10009,27 +9447,18 @@ export type QualityAttributeUpsertWithoutClassificationLabelsInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface ClassificationLabelUpsertWithoutClassificationsInput {
-  update?: ClassificationLabelUpdateWithoutClassificationsDataInput
-  create?: ClassificationLabelCreateWithoutClassificationsInput
+export interface ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput {
+  where?: ClassificationLabelWhereUniqueInput
+  update?: ClassificationLabelUpdateWithoutDataTypeDataInput
+  create?: ClassificationLabelCreateWithoutDataTypeInput
 }
-export type ClassificationLabelUpsertWithoutClassificationsInputInputObject =
-  | Extract<keyof ClassificationLabelUpsertWithoutClassificationsInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ClassificationUpsertWithWhereUniqueWithoutDataTypeInput {
-  where?: ClassificationWhereUniqueInput
-  update?: ClassificationUpdateWithoutDataTypeDataInput
-  create?: ClassificationCreateWithoutDataTypeInput
-}
-export type ClassificationUpsertWithWhereUniqueWithoutDataTypeInputInputObject =
-  | Extract<keyof ClassificationUpsertWithWhereUniqueWithoutDataTypeInput, string>
+export type ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInputInputObject =
+  | Extract<keyof ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface ClassificationScalarWhereInput {
+export interface ClassificationLabelScalarWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -10044,12 +9473,48 @@ export interface ClassificationScalarWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  AND?: ClassificationScalarWhereInput[]
-  OR?: ClassificationScalarWhereInput[]
-  NOT?: ClassificationScalarWhereInput[]
+  score?: number | null
+  score_not?: number | null
+  score_in?: number[]
+  score_not_in?: number[]
+  score_lt?: number | null
+  score_lte?: number | null
+  score_gt?: number | null
+  score_gte?: number | null
+  label?: string | null
+  label_not?: string | null
+  label_in?: string[]
+  label_not_in?: string[]
+  label_lt?: string | null
+  label_lte?: string | null
+  label_gt?: string | null
+  label_gte?: string | null
+  label_contains?: string | null
+  label_not_contains?: string | null
+  label_starts_with?: string | null
+  label_not_starts_with?: string | null
+  label_ends_with?: string | null
+  label_not_ends_with?: string | null
+  criteria?: string | null
+  criteria_not?: string | null
+  criteria_in?: string[]
+  criteria_not_in?: string[]
+  criteria_lt?: string | null
+  criteria_lte?: string | null
+  criteria_gt?: string | null
+  criteria_gte?: string | null
+  criteria_contains?: string | null
+  criteria_not_contains?: string | null
+  criteria_starts_with?: string | null
+  criteria_not_starts_with?: string | null
+  criteria_ends_with?: string | null
+  criteria_not_ends_with?: string | null
+  AND?: ClassificationLabelScalarWhereInput[]
+  OR?: ClassificationLabelScalarWhereInput[]
+  NOT?: ClassificationLabelScalarWhereInput[]
 }
-export type ClassificationScalarWhereInputInputObject =
-  | Extract<keyof ClassificationScalarWhereInput, string>
+export type ClassificationLabelScalarWhereInputInputObject =
+  | Extract<keyof ClassificationLabelScalarWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -10064,9 +9529,65 @@ export type ClassificationScalarWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'score', alias?: string  } 
+  | { name: 'score_not', alias?: string  } 
+  | { name: 'score_in', alias?: string  } 
+  | { name: 'score_not_in', alias?: string  } 
+  | { name: 'score_lt', alias?: string  } 
+  | { name: 'score_lte', alias?: string  } 
+  | { name: 'score_gt', alias?: string  } 
+  | { name: 'score_gte', alias?: string  } 
+  | { name: 'label', alias?: string  } 
+  | { name: 'label_not', alias?: string  } 
+  | { name: 'label_in', alias?: string  } 
+  | { name: 'label_not_in', alias?: string  } 
+  | { name: 'label_lt', alias?: string  } 
+  | { name: 'label_lte', alias?: string  } 
+  | { name: 'label_gt', alias?: string  } 
+  | { name: 'label_gte', alias?: string  } 
+  | { name: 'label_contains', alias?: string  } 
+  | { name: 'label_not_contains', alias?: string  } 
+  | { name: 'label_starts_with', alias?: string  } 
+  | { name: 'label_not_starts_with', alias?: string  } 
+  | { name: 'label_ends_with', alias?: string  } 
+  | { name: 'label_not_ends_with', alias?: string  } 
+  | { name: 'criteria', alias?: string  } 
+  | { name: 'criteria_not', alias?: string  } 
+  | { name: 'criteria_in', alias?: string  } 
+  | { name: 'criteria_not_in', alias?: string  } 
+  | { name: 'criteria_lt', alias?: string  } 
+  | { name: 'criteria_lte', alias?: string  } 
+  | { name: 'criteria_gt', alias?: string  } 
+  | { name: 'criteria_gte', alias?: string  } 
+  | { name: 'criteria_contains', alias?: string  } 
+  | { name: 'criteria_not_contains', alias?: string  } 
+  | { name: 'criteria_starts_with', alias?: string  } 
+  | { name: 'criteria_not_starts_with', alias?: string  } 
+  | { name: 'criteria_ends_with', alias?: string  } 
+  | { name: 'criteria_not_ends_with', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
+  
+export interface ClassificationLabelUpdateManyWithWhereNestedInput {
+  where?: ClassificationLabelScalarWhereInput
+  data?: ClassificationLabelUpdateManyDataInput
+}
+export type ClassificationLabelUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ClassificationLabelUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ClassificationLabelUpdateManyDataInput {
+  score?: number | null
+  label?: string | null
+  criteria?: string | null
+}
+export type ClassificationLabelUpdateManyDataInputInputObject =
+  | Extract<keyof ClassificationLabelUpdateManyDataInput, string>
+  | { name: 'score', alias?: string  } 
+  | { name: 'label', alias?: string  } 
+  | { name: 'criteria', alias?: string  } 
   
 export interface DataTypeUpsertWithWhereUniqueWithoutApplicationInput {
   where?: DataTypeWhereUniqueInput
@@ -10521,7 +10042,7 @@ export interface ApplicationUpdateWithoutBusinessOwnerDataInput {
   alias?: undefined | null
   description?: string | null
   processingActivities?: ProcessingActivityUpdateManyWithoutApplicationsInput | null
-  dataType?: DataTypeUpdateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
   itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
 }
@@ -10531,7 +10052,7 @@ export type ApplicationUpdateWithoutBusinessOwnerDataInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
   
@@ -10691,7 +10212,7 @@ export interface ApplicationUpdateWithoutItOwnerDataInput {
   alias?: undefined | null
   description?: string | null
   processingActivities?: ProcessingActivityUpdateManyWithoutApplicationsInput | null
-  dataType?: DataTypeUpdateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
   securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
 }
@@ -10701,7 +10222,7 @@ export type ApplicationUpdateWithoutItOwnerDataInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
   
@@ -10921,7 +10442,7 @@ export interface ApplicationUpdateWithoutSecurityAdministratorDataInput {
   alias?: undefined | null
   description?: string | null
   processingActivities?: ProcessingActivityUpdateManyWithoutApplicationsInput | null
-  dataType?: DataTypeUpdateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
 }
@@ -10931,7 +10452,7 @@ export type ApplicationUpdateWithoutSecurityAdministratorDataInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   
@@ -12209,7 +11730,7 @@ export interface ApplicationCreateInput {
   alias?: undefined | null
   description?: string | null
   processingActivities?: ProcessingActivityCreateManyWithoutApplicationsInput | null
-  dataType?: DataTypeCreateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleCreateOneWithoutAppSecAdminInput | null
@@ -12221,7 +11742,7 @@ export type ApplicationCreateInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
@@ -12231,7 +11752,7 @@ export interface ApplicationUpdateInput {
   alias?: undefined | null
   description?: string | null
   processingActivities?: ProcessingActivityUpdateManyWithoutApplicationsInput | null
-  dataType?: DataTypeUpdateManyWithoutApplicationInput | null
+  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
@@ -12242,7 +11763,7 @@ export type ApplicationUpdateInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
@@ -12262,8 +11783,8 @@ export interface DataTypeCreateInput {
   id?: string | null
   name?: string
   description?: string | null
-  application?: ApplicationCreateManyWithoutDataTypeInput | null
-  classifications?: ClassificationCreateManyWithoutDataTypeInput | null
+  application?: ApplicationCreateManyWithoutDataTypesInput | null
+  classificationLabels?: ClassificationLabelCreateManyWithoutDataTypeInput | null
 }
 export type DataTypeCreateInputInputObject =
   | Extract<keyof DataTypeCreateInput, string>
@@ -12271,18 +11792,18 @@ export type DataTypeCreateInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'application', alias?: string  } 
-  | { name: 'classifications', alias?: string  } 
+  | { name: 'classificationLabels', alias?: string  } 
   
-export interface ApplicationCreateManyWithoutDataTypeInput {
-  create?: ApplicationCreateWithoutDataTypeInput[]
+export interface ApplicationCreateManyWithoutDataTypesInput {
+  create?: ApplicationCreateWithoutDataTypesInput[]
   connect?: ApplicationWhereUniqueInput[]
 }
-export type ApplicationCreateManyWithoutDataTypeInputInputObject =
-  | Extract<keyof ApplicationCreateManyWithoutDataTypeInput, string>
+export type ApplicationCreateManyWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationCreateManyWithoutDataTypesInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface ApplicationCreateWithoutDataTypeInput {
+export interface ApplicationCreateWithoutDataTypesInput {
   id?: string | null
   name?: string
   alias?: undefined | null
@@ -12292,8 +11813,8 @@ export interface ApplicationCreateWithoutDataTypeInput {
   itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleCreateOneWithoutAppSecAdminInput | null
 }
-export type ApplicationCreateWithoutDataTypeInputInputObject =
-  | Extract<keyof ApplicationCreateWithoutDataTypeInput, string>
+export type ApplicationCreateWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationCreateWithoutDataTypesInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'alias', alias?: string  } 
@@ -12306,29 +11827,29 @@ export type ApplicationCreateWithoutDataTypeInputInputObject =
 export interface DataTypeUpdateInput {
   name?: string | null
   description?: string | null
-  application?: ApplicationUpdateManyWithoutDataTypeInput | null
-  classifications?: ClassificationUpdateManyWithoutDataTypeInput | null
+  application?: ApplicationUpdateManyWithoutDataTypesInput | null
+  classificationLabels?: ClassificationLabelUpdateManyWithoutDataTypeInput | null
 }
 export type DataTypeUpdateInputInputObject =
   | Extract<keyof DataTypeUpdateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'application', alias?: string  } 
-  | { name: 'classifications', alias?: string  } 
+  | { name: 'classificationLabels', alias?: string  } 
   
-export interface ApplicationUpdateManyWithoutDataTypeInput {
-  create?: ApplicationCreateWithoutDataTypeInput[]
+export interface ApplicationUpdateManyWithoutDataTypesInput {
+  create?: ApplicationCreateWithoutDataTypesInput[]
   delete?: ApplicationWhereUniqueInput[]
   connect?: ApplicationWhereUniqueInput[]
   set?: ApplicationWhereUniqueInput[]
   disconnect?: ApplicationWhereUniqueInput[]
-  update?: ApplicationUpdateWithWhereUniqueWithoutDataTypeInput[]
-  upsert?: ApplicationUpsertWithWhereUniqueWithoutDataTypeInput[]
+  update?: ApplicationUpdateWithWhereUniqueWithoutDataTypesInput[]
+  upsert?: ApplicationUpsertWithWhereUniqueWithoutDataTypesInput[]
   deleteMany?: ApplicationScalarWhereInput[]
   updateMany?: ApplicationUpdateManyWithWhereNestedInput[]
 }
-export type ApplicationUpdateManyWithoutDataTypeInputInputObject =
-  | Extract<keyof ApplicationUpdateManyWithoutDataTypeInput, string>
+export type ApplicationUpdateManyWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationUpdateManyWithoutDataTypesInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -12339,16 +11860,16 @@ export type ApplicationUpdateManyWithoutDataTypeInputInputObject =
   | { name: 'deleteMany', alias?: string  } 
   | { name: 'updateMany', alias?: string  } 
   
-export interface ApplicationUpdateWithWhereUniqueWithoutDataTypeInput {
+export interface ApplicationUpdateWithWhereUniqueWithoutDataTypesInput {
   where?: ApplicationWhereUniqueInput
-  data?: ApplicationUpdateWithoutDataTypeDataInput
+  data?: ApplicationUpdateWithoutDataTypesDataInput
 }
-export type ApplicationUpdateWithWhereUniqueWithoutDataTypeInputInputObject =
-  | Extract<keyof ApplicationUpdateWithWhereUniqueWithoutDataTypeInput, string>
+export type ApplicationUpdateWithWhereUniqueWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationUpdateWithWhereUniqueWithoutDataTypesInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface ApplicationUpdateWithoutDataTypeDataInput {
+export interface ApplicationUpdateWithoutDataTypesDataInput {
   name?: string | null
   alias?: undefined | null
   description?: string | null
@@ -12357,8 +11878,8 @@ export interface ApplicationUpdateWithoutDataTypeDataInput {
   itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
 }
-export type ApplicationUpdateWithoutDataTypeDataInputInputObject =
-  | Extract<keyof ApplicationUpdateWithoutDataTypeDataInput, string>
+export type ApplicationUpdateWithoutDataTypesDataInputInputObject =
+  | Extract<keyof ApplicationUpdateWithoutDataTypesDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
@@ -12367,13 +11888,13 @@ export type ApplicationUpdateWithoutDataTypeDataInputInputObject =
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
   
-export interface ApplicationUpsertWithWhereUniqueWithoutDataTypeInput {
+export interface ApplicationUpsertWithWhereUniqueWithoutDataTypesInput {
   where?: ApplicationWhereUniqueInput
-  update?: ApplicationUpdateWithoutDataTypeDataInput
-  create?: ApplicationCreateWithoutDataTypeInput
+  update?: ApplicationUpdateWithoutDataTypesDataInput
+  create?: ApplicationCreateWithoutDataTypesInput
 }
-export type ApplicationUpsertWithWhereUniqueWithoutDataTypeInputInputObject =
-  | Extract<keyof ApplicationUpsertWithWhereUniqueWithoutDataTypeInput, string>
+export type ApplicationUpsertWithWhereUniqueWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationUpsertWithWhereUniqueWithoutDataTypesInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -12386,85 +11907,6 @@ export type DataTypeUpdateManyMutationInputInputObject =
   | Extract<keyof DataTypeUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  
-export interface ClassificationCreateInput {
-  id?: string | null
-  dataType?: DataTypeCreateOneWithoutClassificationsInput | null
-  classificationLabel?: ClassificationLabelCreateOneWithoutClassificationsInput | null
-}
-export type ClassificationCreateInputInputObject =
-  | Extract<keyof ClassificationCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
-  | { name: 'classificationLabel', alias?: string  } 
-  
-export interface DataTypeCreateOneWithoutClassificationsInput {
-  create?: DataTypeCreateWithoutClassificationsInput | null
-  connect?: DataTypeWhereUniqueInput | null
-}
-export type DataTypeCreateOneWithoutClassificationsInputInputObject =
-  | Extract<keyof DataTypeCreateOneWithoutClassificationsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface DataTypeCreateWithoutClassificationsInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  application?: ApplicationCreateManyWithoutDataTypeInput | null
-}
-export type DataTypeCreateWithoutClassificationsInputInputObject =
-  | Extract<keyof DataTypeCreateWithoutClassificationsInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'application', alias?: string  } 
-  
-export interface ClassificationUpdateInput {
-  dataType?: DataTypeUpdateOneWithoutClassificationsInput | null
-  classificationLabel?: ClassificationLabelUpdateOneWithoutClassificationsInput | null
-}
-export type ClassificationUpdateInputInputObject =
-  | Extract<keyof ClassificationUpdateInput, string>
-  | { name: 'dataType', alias?: string  } 
-  | { name: 'classificationLabel', alias?: string  } 
-  
-export interface DataTypeUpdateOneWithoutClassificationsInput {
-  create?: DataTypeCreateWithoutClassificationsInput | null
-  update?: DataTypeUpdateWithoutClassificationsDataInput | null
-  upsert?: DataTypeUpsertWithoutClassificationsInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: DataTypeWhereUniqueInput | null
-}
-export type DataTypeUpdateOneWithoutClassificationsInputInputObject =
-  | Extract<keyof DataTypeUpdateOneWithoutClassificationsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface DataTypeUpdateWithoutClassificationsDataInput {
-  name?: string | null
-  description?: string | null
-  application?: ApplicationUpdateManyWithoutDataTypeInput | null
-}
-export type DataTypeUpdateWithoutClassificationsDataInputInputObject =
-  | Extract<keyof DataTypeUpdateWithoutClassificationsDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'application', alias?: string  } 
-  
-export interface DataTypeUpsertWithoutClassificationsInput {
-  update?: DataTypeUpdateWithoutClassificationsDataInput
-  create?: DataTypeCreateWithoutClassificationsInput
-}
-export type DataTypeUpsertWithoutClassificationsInputInputObject =
-  | Extract<keyof DataTypeUpsertWithoutClassificationsInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
   
 export interface QualityAttributeCreateInput {
   id?: string | null
@@ -12495,7 +11937,7 @@ export interface ClassificationLabelCreateWithoutQualityAttributeInput {
   score?: number
   label?: string
   criteria?: string | null
-  classifications?: ClassificationCreateManyWithoutClassificationLabelInput | null
+  dataType?: DataTypeCreateManyWithoutClassificationLabelsInput | null
 }
 export type ClassificationLabelCreateWithoutQualityAttributeInputInputObject =
   | Extract<keyof ClassificationLabelCreateWithoutQualityAttributeInput, string>
@@ -12503,25 +11945,29 @@ export type ClassificationLabelCreateWithoutQualityAttributeInputInputObject =
   | { name: 'score', alias?: string  } 
   | { name: 'label', alias?: string  } 
   | { name: 'criteria', alias?: string  } 
-  | { name: 'classifications', alias?: string  } 
+  | { name: 'dataType', alias?: string  } 
   
-export interface ClassificationCreateManyWithoutClassificationLabelInput {
-  create?: ClassificationCreateWithoutClassificationLabelInput[]
-  connect?: ClassificationWhereUniqueInput[]
+export interface DataTypeCreateManyWithoutClassificationLabelsInput {
+  create?: DataTypeCreateWithoutClassificationLabelsInput[]
+  connect?: DataTypeWhereUniqueInput[]
 }
-export type ClassificationCreateManyWithoutClassificationLabelInputInputObject =
-  | Extract<keyof ClassificationCreateManyWithoutClassificationLabelInput, string>
+export type DataTypeCreateManyWithoutClassificationLabelsInputInputObject =
+  | Extract<keyof DataTypeCreateManyWithoutClassificationLabelsInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface ClassificationCreateWithoutClassificationLabelInput {
+export interface DataTypeCreateWithoutClassificationLabelsInput {
   id?: string | null
-  dataType?: DataTypeCreateOneWithoutClassificationsInput | null
+  name?: string
+  description?: string | null
+  application?: ApplicationCreateManyWithoutDataTypesInput | null
 }
-export type ClassificationCreateWithoutClassificationLabelInputInputObject =
-  | Extract<keyof ClassificationCreateWithoutClassificationLabelInput, string>
+export type DataTypeCreateWithoutClassificationLabelsInputInputObject =
+  | Extract<keyof DataTypeCreateWithoutClassificationLabelsInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'dataType', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'application', alias?: string  } 
   
 export interface QualityAttributeUpdateInput {
   name?: string | null
@@ -12572,27 +12018,28 @@ export interface ClassificationLabelUpdateWithoutQualityAttributeDataInput {
   score?: number | null
   label?: string | null
   criteria?: string | null
-  classifications?: ClassificationUpdateManyWithoutClassificationLabelInput | null
+  dataType?: DataTypeUpdateManyWithoutClassificationLabelsInput | null
 }
 export type ClassificationLabelUpdateWithoutQualityAttributeDataInputInputObject =
   | Extract<keyof ClassificationLabelUpdateWithoutQualityAttributeDataInput, string>
   | { name: 'score', alias?: string  } 
   | { name: 'label', alias?: string  } 
   | { name: 'criteria', alias?: string  } 
-  | { name: 'classifications', alias?: string  } 
+  | { name: 'dataType', alias?: string  } 
   
-export interface ClassificationUpdateManyWithoutClassificationLabelInput {
-  create?: ClassificationCreateWithoutClassificationLabelInput[]
-  delete?: ClassificationWhereUniqueInput[]
-  connect?: ClassificationWhereUniqueInput[]
-  set?: ClassificationWhereUniqueInput[]
-  disconnect?: ClassificationWhereUniqueInput[]
-  update?: ClassificationUpdateWithWhereUniqueWithoutClassificationLabelInput[]
-  upsert?: ClassificationUpsertWithWhereUniqueWithoutClassificationLabelInput[]
-  deleteMany?: ClassificationScalarWhereInput[]
+export interface DataTypeUpdateManyWithoutClassificationLabelsInput {
+  create?: DataTypeCreateWithoutClassificationLabelsInput[]
+  delete?: DataTypeWhereUniqueInput[]
+  connect?: DataTypeWhereUniqueInput[]
+  set?: DataTypeWhereUniqueInput[]
+  disconnect?: DataTypeWhereUniqueInput[]
+  update?: DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput[]
+  upsert?: DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput[]
+  deleteMany?: DataTypeScalarWhereInput[]
+  updateMany?: DataTypeUpdateManyWithWhereNestedInput[]
 }
-export type ClassificationUpdateManyWithoutClassificationLabelInputInputObject =
-  | Extract<keyof ClassificationUpdateManyWithoutClassificationLabelInput, string>
+export type DataTypeUpdateManyWithoutClassificationLabelsInputInputObject =
+  | Extract<keyof DataTypeUpdateManyWithoutClassificationLabelsInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -12601,30 +12048,35 @@ export type ClassificationUpdateManyWithoutClassificationLabelInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
   | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
   
-export interface ClassificationUpdateWithWhereUniqueWithoutClassificationLabelInput {
-  where?: ClassificationWhereUniqueInput
-  data?: ClassificationUpdateWithoutClassificationLabelDataInput
+export interface DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput {
+  where?: DataTypeWhereUniqueInput
+  data?: DataTypeUpdateWithoutClassificationLabelsDataInput
 }
-export type ClassificationUpdateWithWhereUniqueWithoutClassificationLabelInputInputObject =
-  | Extract<keyof ClassificationUpdateWithWhereUniqueWithoutClassificationLabelInput, string>
+export type DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInputInputObject =
+  | Extract<keyof DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface ClassificationUpdateWithoutClassificationLabelDataInput {
-  dataType?: DataTypeUpdateOneWithoutClassificationsInput | null
+export interface DataTypeUpdateWithoutClassificationLabelsDataInput {
+  name?: string | null
+  description?: string | null
+  application?: ApplicationUpdateManyWithoutDataTypesInput | null
 }
-export type ClassificationUpdateWithoutClassificationLabelDataInputInputObject =
-  | Extract<keyof ClassificationUpdateWithoutClassificationLabelDataInput, string>
-  | { name: 'dataType', alias?: string  } 
+export type DataTypeUpdateWithoutClassificationLabelsDataInputInputObject =
+  | Extract<keyof DataTypeUpdateWithoutClassificationLabelsDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'application', alias?: string  } 
   
-export interface ClassificationUpsertWithWhereUniqueWithoutClassificationLabelInput {
-  where?: ClassificationWhereUniqueInput
-  update?: ClassificationUpdateWithoutClassificationLabelDataInput
-  create?: ClassificationCreateWithoutClassificationLabelInput
+export interface DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput {
+  where?: DataTypeWhereUniqueInput
+  update?: DataTypeUpdateWithoutClassificationLabelsDataInput
+  create?: DataTypeCreateWithoutClassificationLabelsInput
 }
-export type ClassificationUpsertWithWhereUniqueWithoutClassificationLabelInputInputObject =
-  | Extract<keyof ClassificationUpsertWithWhereUniqueWithoutClassificationLabelInput, string>
+export type DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInputInputObject =
+  | Extract<keyof DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -12639,137 +12091,6 @@ export type ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
-  
-export interface ClassificationLabelScalarWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  score?: number | null
-  score_not?: number | null
-  score_in?: number[]
-  score_not_in?: number[]
-  score_lt?: number | null
-  score_lte?: number | null
-  score_gt?: number | null
-  score_gte?: number | null
-  label?: string | null
-  label_not?: string | null
-  label_in?: string[]
-  label_not_in?: string[]
-  label_lt?: string | null
-  label_lte?: string | null
-  label_gt?: string | null
-  label_gte?: string | null
-  label_contains?: string | null
-  label_not_contains?: string | null
-  label_starts_with?: string | null
-  label_not_starts_with?: string | null
-  label_ends_with?: string | null
-  label_not_ends_with?: string | null
-  criteria?: string | null
-  criteria_not?: string | null
-  criteria_in?: string[]
-  criteria_not_in?: string[]
-  criteria_lt?: string | null
-  criteria_lte?: string | null
-  criteria_gt?: string | null
-  criteria_gte?: string | null
-  criteria_contains?: string | null
-  criteria_not_contains?: string | null
-  criteria_starts_with?: string | null
-  criteria_not_starts_with?: string | null
-  criteria_ends_with?: string | null
-  criteria_not_ends_with?: string | null
-  AND?: ClassificationLabelScalarWhereInput[]
-  OR?: ClassificationLabelScalarWhereInput[]
-  NOT?: ClassificationLabelScalarWhereInput[]
-}
-export type ClassificationLabelScalarWhereInputInputObject =
-  | Extract<keyof ClassificationLabelScalarWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'score', alias?: string  } 
-  | { name: 'score_not', alias?: string  } 
-  | { name: 'score_in', alias?: string  } 
-  | { name: 'score_not_in', alias?: string  } 
-  | { name: 'score_lt', alias?: string  } 
-  | { name: 'score_lte', alias?: string  } 
-  | { name: 'score_gt', alias?: string  } 
-  | { name: 'score_gte', alias?: string  } 
-  | { name: 'label', alias?: string  } 
-  | { name: 'label_not', alias?: string  } 
-  | { name: 'label_in', alias?: string  } 
-  | { name: 'label_not_in', alias?: string  } 
-  | { name: 'label_lt', alias?: string  } 
-  | { name: 'label_lte', alias?: string  } 
-  | { name: 'label_gt', alias?: string  } 
-  | { name: 'label_gte', alias?: string  } 
-  | { name: 'label_contains', alias?: string  } 
-  | { name: 'label_not_contains', alias?: string  } 
-  | { name: 'label_starts_with', alias?: string  } 
-  | { name: 'label_not_starts_with', alias?: string  } 
-  | { name: 'label_ends_with', alias?: string  } 
-  | { name: 'label_not_ends_with', alias?: string  } 
-  | { name: 'criteria', alias?: string  } 
-  | { name: 'criteria_not', alias?: string  } 
-  | { name: 'criteria_in', alias?: string  } 
-  | { name: 'criteria_not_in', alias?: string  } 
-  | { name: 'criteria_lt', alias?: string  } 
-  | { name: 'criteria_lte', alias?: string  } 
-  | { name: 'criteria_gt', alias?: string  } 
-  | { name: 'criteria_gte', alias?: string  } 
-  | { name: 'criteria_contains', alias?: string  } 
-  | { name: 'criteria_not_contains', alias?: string  } 
-  | { name: 'criteria_starts_with', alias?: string  } 
-  | { name: 'criteria_not_starts_with', alias?: string  } 
-  | { name: 'criteria_ends_with', alias?: string  } 
-  | { name: 'criteria_not_ends_with', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface ClassificationLabelUpdateManyWithWhereNestedInput {
-  where?: ClassificationLabelScalarWhereInput
-  data?: ClassificationLabelUpdateManyDataInput
-}
-export type ClassificationLabelUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof ClassificationLabelUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ClassificationLabelUpdateManyDataInput {
-  score?: number | null
-  label?: string | null
-  criteria?: string | null
-}
-export type ClassificationLabelUpdateManyDataInputInputObject =
-  | Extract<keyof ClassificationLabelUpdateManyDataInput, string>
-  | { name: 'score', alias?: string  } 
-  | { name: 'label', alias?: string  } 
-  | { name: 'criteria', alias?: string  } 
   
 export interface QualityAttributeUpdateManyMutationInput {
   name?: string | null
@@ -12788,7 +12109,7 @@ export interface ClassificationLabelCreateInput {
   label?: string
   criteria?: string | null
   qualityAttribute?: QualityAttributeCreateOneWithoutClassificationLabelsInput | null
-  classifications?: ClassificationCreateManyWithoutClassificationLabelInput | null
+  dataType?: DataTypeCreateManyWithoutClassificationLabelsInput | null
 }
 export type ClassificationLabelCreateInputInputObject =
   | Extract<keyof ClassificationLabelCreateInput, string>
@@ -12797,14 +12118,14 @@ export type ClassificationLabelCreateInputInputObject =
   | { name: 'label', alias?: string  } 
   | { name: 'criteria', alias?: string  } 
   | { name: 'qualityAttribute', alias?: string  } 
-  | { name: 'classifications', alias?: string  } 
+  | { name: 'dataType', alias?: string  } 
   
 export interface ClassificationLabelUpdateInput {
   score?: number | null
   label?: string | null
   criteria?: string | null
   qualityAttribute?: QualityAttributeUpdateOneWithoutClassificationLabelsInput | null
-  classifications?: ClassificationUpdateManyWithoutClassificationLabelInput | null
+  dataType?: DataTypeUpdateManyWithoutClassificationLabelsInput | null
 }
 export type ClassificationLabelUpdateInputInputObject =
   | Extract<keyof ClassificationLabelUpdateInput, string>
@@ -12812,7 +12133,7 @@ export type ClassificationLabelUpdateInputInputObject =
   | { name: 'label', alias?: string  } 
   | { name: 'criteria', alias?: string  } 
   | { name: 'qualityAttribute', alias?: string  } 
-  | { name: 'classifications', alias?: string  } 
+  | { name: 'dataType', alias?: string  } 
   
 export interface ClassificationLabelUpdateManyMutationInput {
   score?: number | null
@@ -13014,27 +12335,6 @@ export type DataTypeSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface ClassificationSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: ClassificationWhereInput | null
-  AND?: ClassificationSubscriptionWhereInput[]
-  OR?: ClassificationSubscriptionWhereInput[]
-  NOT?: ClassificationSubscriptionWhereInput[]
-}
-export type ClassificationSubscriptionWhereInputInputObject =
-  | Extract<keyof ClassificationSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
 export interface QualityAttributeSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
@@ -13171,14 +12471,6 @@ export type DataTypeOrderByInputValues =
   | 'name_DESC'
   | 'description_ASC'
   | 'description_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type ClassificationOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

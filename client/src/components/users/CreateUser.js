@@ -45,8 +45,10 @@ class CreateUserModal extends React.Component {
     form.validateFields(async (err, values) => {
       if (!err) {
         await createUser({ variables: {
-          email: values.email,
-          password: values.password
+          data: {
+            email: values.email,
+            password: values.password
+          }
         }}).catch( res => {
           notification['warning']({
             message: "Could not create user",
@@ -67,7 +69,7 @@ class CreateUserModal extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={CREATE_USER}
-          refetchQueries={["GetUsers"]}
+          refetchQueries={["Users"]}
           >
           {(createUser, { loading, error, data }) => {
             return (

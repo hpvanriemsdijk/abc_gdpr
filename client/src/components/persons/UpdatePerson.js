@@ -28,9 +28,12 @@ class UpdatePerson extends React.Component {
     form.validateFields(async (err, values) => {
       if (!err) {
         await updatePerson({ variables: {
-          id: this.props.organizationalUnit.id,
-          name: values.name,
-          description: values.description,
+          id: this.props.person.id,
+          data: {
+            name: values.name,
+            surname: values.surname,
+            description: values.description,
+          }   
         }}).catch( res => {
           notification['warning']({
             message: "Could not update Person",
@@ -56,13 +59,13 @@ class UpdatePerson extends React.Component {
         >
         {({ loading, data, error }) => {
           if( !this.state.modalVisible || error ) return null
-          const PersonData = data.Person || [];
+          const PersonData = data.person || [];
           const loadingData = loading;
           
           return(
             <Mutation 
               mutation={UPDATE_PERSON}
-              refetchQueries={["AllPersons"]}
+              refetchQueries={["Persons"]}
               >
               {(updatePerson, { loading }) => {
                 return (

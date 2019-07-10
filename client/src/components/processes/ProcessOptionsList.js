@@ -21,7 +21,7 @@ export class ProcessOptionsList extends React.Component {
                 placeholder="No parent process"
                 allowClear
                 >
-                {data.allProcesses.map(d => <Option key={d.value}>{d.title}</Option>)}
+                {data.processes.map(d => <Option key={d.value}>{d.title}</Option>)}
               </Select>
             )
           )

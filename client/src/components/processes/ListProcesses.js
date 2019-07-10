@@ -48,7 +48,7 @@ class ProcessTable extends React.Component {
     if(this.state.includeNested){
       return {
         query: PROCESSES_BY_OU,
-        filter: { organizationalUnitId: this.props.organizationalUnitId }
+        filter: { id: this.props.organizationalUnitId }
       }
     } else {
       return {
@@ -64,7 +64,7 @@ class ProcessTable extends React.Component {
     }
   }
 
-  allProcesses = (columns) =>{
+  processes = (columns) =>{
     return (
       <Query
         query = { ALL_PROCESSES }
@@ -72,7 +72,7 @@ class ProcessTable extends React.Component {
         >
         {({ loading, error, data }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.allProcesses || [];    
+          const dataSource = data.processes || [];    
 
           return(
             <React.Fragment>  
@@ -108,7 +108,7 @@ class ProcessTable extends React.Component {
         
         {({ loading, error, data }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.processByOu || data.allProcesses || [];  
+          const dataSource = data.processByOu || data.processes || [];  
 
           //Component called from process details vieuw
           return(
@@ -174,7 +174,7 @@ class ProcessTable extends React.Component {
     if(this.props.organizationalUnitId){
       return this.processesByOu(columns);
     }else{
-      return this.allProcesses(columns);
+      return this.processes(columns);
     }
   }
 }

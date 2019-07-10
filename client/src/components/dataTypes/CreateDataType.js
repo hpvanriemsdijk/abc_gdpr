@@ -29,14 +29,22 @@ class CreateDataTypeModal extends React.Component {
    
     form.validateFields(async (err, values) => {
       if (!err) {
-        var classificationIds = Object.keys(values.classification).map(function(key) {
-            return {classificationLabelId: values.classification[key]}
+        let classifications = []
+        
+        values.classification.forEach(function(classificationLabel) {
+          if(classificationLabel){
+            classifications.push({id: classificationLabel})
+          }
         });
 
+        classifications = classifications.length ? {classificationLabels: {connect: classifications}} : null;
+
         await createDataType({ variables: {
-          name: values.name,
-          description: values.description,
-          classification: classificationIds
+          data: {
+            name: values.name, 
+            description: values.description,
+            ...classifications
+          }   
         }}).catch( res => {
           notification['warning']({
             message: "Could not create DataType",
@@ -68,7 +76,7 @@ class CreateDataTypeModal extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={CREATE_DATA_TYPE}
-          refetchQueries={["AllDataTypes"]}
+          refetchQueries={["DataTypes"]}
           >
           {(createDataType, { loading }) => {
             return (

@@ -45,7 +45,7 @@ class DeleteProcessingActivity extends React.Component {
         <React.Fragment>
           <Mutation 
             mutation={DELETE_PROCESSING_ACTIVITY}
-            refetchQueries={["AllProcessingActivities"]}
+            refetchQueries={["ProcessingActivities"]}
             >
             {(DeleteProcessingActivity, { loading }) => {
               return (

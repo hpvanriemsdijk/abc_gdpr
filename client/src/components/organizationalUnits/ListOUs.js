@@ -80,7 +80,7 @@ class OUTable extends React.Component {
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.allOrganizationalUnits || [];
+            const dataSource = data.organizationalUnits || [];
             return(
               <React.Fragment>  
                 <Card title="Organizational units" extra={<CreateOU />} style={{ background: '#fff' }}>

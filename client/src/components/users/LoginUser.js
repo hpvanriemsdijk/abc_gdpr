@@ -1,8 +1,8 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import { Form, Icon, Input, Button, Checkbox, Card } from 'antd';
-import { userQueries } from '../../queries/UserQueries';
+import { Form, Icon, Input, Button, Card } from 'antd';
+import { AUTHENTICATE_USER } from '../../queries/UserQueries';
 
 const FormItem = Form.Item;
 
@@ -46,12 +46,6 @@ class LoginUser extends React.Component {
             )}
           </FormItem>
           <FormItem>
-            {getFieldDecorator('remember', {
-              valuePropName: 'checked',
-              initialValue: true,
-            })(
-              <Checkbox>Remember me</Checkbox>
-            )}
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button>
@@ -63,5 +57,5 @@ class LoginUser extends React.Component {
 }
 
 export default compose(
-  graphql(userQueries.authenticate, {name: 'authenticateUserMutation'})
+  graphql(AUTHENTICATE_USER, {name: 'authenticateUserMutation'})
 )(withRouter(Form.create()(LoginUser)))

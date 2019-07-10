@@ -29,12 +29,17 @@ class CreateOUModal extends React.Component {
     const { form } = this.props;
    
     form.validateFields(async (err, values) => {
-      if (!err) {
+      if (!err) {       
+        let parent = values.organizationalUnit ? {parent: {connect: {id: values.organizationalUnit }}} : null;
+        let organizationalUnitType = values.organizationalUnitType ? {organizationalUnitType: {connect: {id: values.organizationalUnitType }}} : null;
+
         await createOU({ variables: {
-          name: values.name,
-          description: values.description,
-          parent: values.organizationalUnit,
-          organizationalUnitType: values.organizationalUnitType,
+          data: {
+            name: values.name, 
+            description: values.description,
+            ...parent,
+            ...organizationalUnitType
+          }
         }}).catch( res => {
           notification['warning']({
             message: "Could not create Organisational Unit",
@@ -83,14 +88,11 @@ class CreateOUModal extends React.Component {
                       ],
                     })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                   </Form.Item>
-                  <Form.Item 
-                    label="Unit type">
-                    { <OUTypesOptionsList form={form} /> }
-                  </Form.Item>
+                  <OUTypesOptionsList form={form} />
                   <Form.Item 
                     label="Parent unit"
                     extra="Can't select yourself, childeren in own line or result in 3+ levels.">
-                    { <OuTree form={form} parentTree={true}  /> }
+                    { <OuTree form={form} parentTree={true} /> }
                   </Form.Item>
                 </Form>
               </Modal>

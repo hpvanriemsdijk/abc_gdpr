@@ -1,29 +1,18 @@
 import gql from 'graphql-tag'
 
 export const ALL_APPLICATIONS = gql`
-	query AllApplications ($filter: ApplicationFilter) {
-		allApplications(
-			filter:$filter
-		) {
+	query Applications {
+		applications{
 			id
 			name
 			alias
-
 		}
 	}
 `;
 
 export const CREATE_APPLICATION = gql`
-	mutation CreateApplication ($name: String!, $description: String, $alias: [String!], $dataType: [ID!], $businessOwner: ID, $itOwner: ID, $securityAdministrator:ID ) {
-		createApplication(
-			name: $name, 
-			description: $description, 
-			alias: $alias,
-			dataTypeIds: $dataType,
-			businessOwnerId: $businessOwner,
-			itOwnerId: $itOwner,
-			securityAdministratorId: $securityAdministrator
-		) {
+	mutation CreateApplication ($data: ApplicationCreateInput!) {
+		createApplication(data: $data) {
 			id
 		}
 	}
@@ -41,17 +30,15 @@ export const GET_APPLICATION = gql`
 	}
 
 	query Application ($id: ID!) { 
-		Application(id: $id) {
+		application(where: {id: $id}) {
 			id
 			name
 			description
 			alias
-			dataType {
+			dataTypes {
 				id
 				name
 				description
-				pii
-				spii
 			}
 			businessOwner {
 				...businessRole
@@ -67,17 +54,11 @@ export const GET_APPLICATION = gql`
 `;
 
 export const UPDATE_APPLICATION = gql`
-	mutation UpdateApplication ($id: ID!, $name: String!, $description: String, $alias: [String!], $dataType: [ID!], $businessOwner: ID, $itOwner: ID, $securityAdministrator:ID) {
+	mutation UpdateApplication ($id: ID!, $data: ApplicationUpdateInput!) {
 		updateApplication(
-			id: $id, 
-			name: $name, 
-			description: $description, 
-			alias: $alias,
-			dataTypeIds: $dataType,
-			businessOwnerId: $businessOwner,
-			itOwnerId: $itOwner,
-			securityAdministratorId: $securityAdministrator
-		) {
+			data: $data, 
+			where: {id: $id}
+		){
 			id
 		}
 	}
@@ -85,7 +66,7 @@ export const UPDATE_APPLICATION = gql`
 
 export const DELETE_APPLICATION = gql`
 	mutation DeleteApplication ($id: ID!) {
-		deleteApplication(id: $id) {
+		deleteApplication(where:{id: $id}) {
 			id
 		}
 	}

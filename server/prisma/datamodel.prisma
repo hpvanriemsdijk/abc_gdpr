@@ -121,7 +121,7 @@ type Application {
   
   # Relations
   processingActivities: [ProcessingActivity!]!
-  dataType: [DataType!]! @relation(link: TABLE)
+  dataTypes: [DataType!]! @relation(link: TABLE)
   businessOwner: BusinessRole @relation(link: INLINE, name: "BusinessRoleAppBusinessOwner")
   itOwner: BusinessRole @relation(link: INLINE, name: "BusinessRoleAppItOwner")
   securityAdministrator: BusinessRole @relation(link: INLINE, name: "BusinessRoleAppSecAdmin")
@@ -134,15 +134,7 @@ type DataType {
   
   # Relations
   application: [Application!]! 
-  classifications: [Classification!]! @relation(onDelete: CASCADE)
-}
-
-type Classification {  
-  id: ID! @id
-
-  # Relations
-  dataType: DataType @relation(link: INLINE)
-  classificationLabel: ClassificationLabel @relation(link: INLINE)
+  classificationLabels: [ClassificationLabel!]! 
 }
 
 type QualityAttribute {
@@ -163,5 +155,5 @@ type ClassificationLabel {
 
   # Relations
   qualityAttribute: QualityAttribute @relation(link: INLINE)
-  classifications: [Classification!]! @relation(onDelete: CASCADE)
+  dataType: [DataType!]! @relation(link: TABLE)
 }

@@ -29,8 +29,10 @@ class UpdateUser extends React.Component {
       if (!err) {
         await updateUser({ variables: {
           id: this.props.user.id,
-          email: values.email,
-          specialPermissions: values.specialPermissions
+          data: {
+            email: values.email,
+            password: values.password
+          }
         }}).catch( res => {
           notification['warning']({
             message: "Could not update user",
@@ -53,7 +55,7 @@ class UpdateUser extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={UPDATE_USER}
-          refetchQueries={["GetUsers"]}
+          refetchQueries={["Users"]}
           >
           {(updateUser, { loading, error, data }) => {
             return (
