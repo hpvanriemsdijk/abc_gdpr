@@ -18,7 +18,7 @@
     "graphql-tag": "^2.10.1",
     "immutability-helper": "^3.0.1",
     "immutable": "^3.8.2",
-    "jwt-decoder": "0.0.0",
+    "jwt-decode": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-apollo": "^2.5.8",
