@@ -39,7 +39,7 @@ class UpdateDataType extends React.Component {
         classifications = {classificationLabels: {set: classifications}}
 
         await updateDataType({ variables: {
-          id: this.props.dataTypes.id, 
+          id: this.props.dataType.id, 
           data: {
             name: values.name, 
             description: values.description,
@@ -87,13 +87,14 @@ class UpdateDataType extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const DataTypeData = data.dataTypes || [];
+            const dataType = data.dataType || [];
             const loadingData = loading;
+            console.log(data)
 
             return(
               <Mutation 
                 mutation={UPDATE_DATA_TYPE}
-                refetchQueries={["DataTypes"]}
+                refetchQueries={["DataType", "DataTypes"]}
                 >
                 {(updateDataType, { loading }) => {
                   return (
@@ -108,7 +109,7 @@ class UpdateDataType extends React.Component {
                         <Form {...formItemLayout} >
                           <Form.Item label="Name">
                             {form.getFieldDecorator('name', {
-                              initialValue: DataTypeData.name,
+                              initialValue: dataType.name,
                               rules: [
                                 { required: true, message: 'Please enter a name!' }
                                 ],
@@ -117,7 +118,7 @@ class UpdateDataType extends React.Component {
                           
                           <Form.Item label="Description">
                             {form.getFieldDecorator('description', {
-                              initialValue: DataTypeData.description,
+                              initialValue: dataType.description,
                               rules: [
                                 { required: true, message: 'Please enter a description!' }
                                 ],
@@ -125,7 +126,7 @@ class UpdateDataType extends React.Component {
                           </Form.Item>  
 
                           <Divider orientation="left">Data classification</Divider>
-                          <QualityAttributesFormGroup form={form} scope="DATA" classifications={DataTypeData.classificationLabels} />    
+                          <QualityAttributesFormGroup form={form} scope="DATA" classifications={dataType.classificationLabels} />    
                         </Form>
                       </Spin>
                     </Modal>
