@@ -22,7 +22,18 @@ export const OU_TYPES_OPTIONS_LIST = gql`
 	}
 `;
 
-export const CREATE__OU_TYPE = gql`
+export const GET_OU_TYPE = gql`
+	query OrganizationalUnitType ($id: ID!) { 
+		organizationalUnitType(where:{id: $id}) {
+			id
+			name
+			description
+			reportingUnit
+		}
+	}
+`;
+
+export const CREATE_OU_TYPE = gql`
 	mutation CreateOrganizationalUnitType($data: OrganizationalUnitTypeCreateInput!) {
 		createOrganizationalUnitType(data: $data) {
 			id
@@ -31,12 +42,16 @@ export const CREATE__OU_TYPE = gql`
 `;
 
 export const UPDATE_OU_TYPE = gql`
-	mutation UpdateOrganizationalUnitType ($id: ID!, $data: ApplicationUpdateInput!) {
-		updateOrganizationalUnitType(data: $data) {
+	mutation UpdateOrganizationalUnitType ($id: ID!, $data:OrganizationalUnitTypeUpdateInput!){
+		updateOrganizationalUnitType(
+			data: $data, 
+			where: {id: $id}
+		){
 			id
 		}
 	}
 `;
+
 
 export const DELETE_OU_TYPE = gql`
 	mutation DeleteOrganizationalUnitType ($id: ID!) {

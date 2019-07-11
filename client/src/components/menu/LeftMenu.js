@@ -34,6 +34,7 @@ class LeftMenu extends React.Component {
         <SubMenu key="Conf" title={<span><Icon type="tool" />Configuration</span>}>
           <Menu.Item key="/users">User</Menu.Item>
           <Menu.Item key="/dataTypes">Data types</Menu.Item>
+          <Menu.Item key="/organizationalUnitTypes">Organizational unit types</Menu.Item>
           <Menu.Item key="/qualityAttributes">Quality attributes</Menu.Item>
         </SubMenu>
       </Menu>

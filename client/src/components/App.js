@@ -28,6 +28,8 @@ import listDataTypes from './dataTypes/ListDataTypes'
 import viewDataType from './dataTypes/ViewDataType'
 import listQualityAttributes from './qualityAttributes/ListQualityAttributes'
 import viewQualityAttribute from './qualityAttributes/ViewQualityAttribute'
+import listOrganizationalUnitTypes from './organizationalUnitTypes/ListOUTypes'
+import viewOrganizationalUnitTypes from './organizationalUnitTypes/ViewOUType'
 const { Footer, Sider } = Layout;
 
 class App extends React.Component {
@@ -127,6 +129,8 @@ class App extends React.Component {
           <AppRoute path='/qualityAttributes' layout={ this.AuthenticatedLayout } component={listQualityAttributes} />
           <AppRoute path='/users/:userId' layout={ this.AuthenticatedLayout } component={listUsers} />
           <AppRoute path='/users' layout={ this.AuthenticatedLayout } component={listUsers} />
+          <AppRoute path='/organizationalUnitTypes/:organizationalUnitTypeId' layout={ this.AuthenticatedLayout } component={viewOrganizationalUnitTypes} />
+          <AppRoute path='/organizationalUnitTypes' layout={ this.AuthenticatedLayout } component={listOrganizationalUnitTypes} />
           <AppRoute exact path='/' layout={ this.AuthenticatedLayout } component={landingPage} />
           <Route path="*" component={error_404}/>
         </Switch>
