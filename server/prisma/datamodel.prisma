@@ -157,3 +157,25 @@ type ClassificationLabel {
   qualityAttribute: QualityAttribute @relation(link: INLINE)
   dataType: [DataType!]! @relation(link: TABLE)
 }
+
+type Organization {
+  id: ID! @id
+  name: String!
+  description: String
+  contactDetails: String!
+  dpo: String!
+  representative: String!
+  
+  # Relations
+  headOffice: Location! @relation(onDelete: CASCADE)
+}
+
+type Location {
+  id: ID! @id
+  name: String! 
+  description: String
+  address: String!
+
+  # Relations
+  organization: Organization @relation(link: INLINE)
+}

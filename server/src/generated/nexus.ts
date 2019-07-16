@@ -1251,9 +1251,265 @@ export interface NexusGenInputs {
   DataTypeWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
+  LocationCreateInput: { // input type
+    address: string; // String!
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+    organization?: NexusGenInputs['OrganizationCreateOneWithoutHeadOfficeInput'] | null; // OrganizationCreateOneWithoutHeadOfficeInput
+  }
+  LocationCreateOneWithoutOrganizationInput: { // input type
+    connect?: NexusGenInputs['LocationWhereUniqueInput'] | null; // LocationWhereUniqueInput
+    create?: NexusGenInputs['LocationCreateWithoutOrganizationInput'] | null; // LocationCreateWithoutOrganizationInput
+  }
+  LocationCreateWithoutOrganizationInput: { // input type
+    address: string; // String!
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+  }
+  LocationUpdateInput: { // input type
+    address?: string | null; // String
+    description?: string | null; // String
+    name?: string | null; // String
+    organization?: NexusGenInputs['OrganizationUpdateOneWithoutHeadOfficeInput'] | null; // OrganizationUpdateOneWithoutHeadOfficeInput
+  }
+  LocationUpdateManyMutationInput: { // input type
+    address?: string | null; // String
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  LocationUpdateOneRequiredWithoutOrganizationInput: { // input type
+    connect?: NexusGenInputs['LocationWhereUniqueInput'] | null; // LocationWhereUniqueInput
+    create?: NexusGenInputs['LocationCreateWithoutOrganizationInput'] | null; // LocationCreateWithoutOrganizationInput
+    update?: NexusGenInputs['LocationUpdateWithoutOrganizationDataInput'] | null; // LocationUpdateWithoutOrganizationDataInput
+    upsert?: NexusGenInputs['LocationUpsertWithoutOrganizationInput'] | null; // LocationUpsertWithoutOrganizationInput
+  }
+  LocationUpdateWithoutOrganizationDataInput: { // input type
+    address?: string | null; // String
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  LocationUpsertWithoutOrganizationInput: { // input type
+    create: NexusGenInputs['LocationCreateWithoutOrganizationInput']; // LocationCreateWithoutOrganizationInput!
+    update: NexusGenInputs['LocationUpdateWithoutOrganizationDataInput']; // LocationUpdateWithoutOrganizationDataInput!
+  }
+  LocationWhereInput: { // input type
+    address?: string | null; // String
+    address_contains?: string | null; // String
+    address_ends_with?: string | null; // String
+    address_gt?: string | null; // String
+    address_gte?: string | null; // String
+    address_in?: string[] | null; // [String!]
+    address_lt?: string | null; // String
+    address_lte?: string | null; // String
+    address_not?: string | null; // String
+    address_not_contains?: string | null; // String
+    address_not_ends_with?: string | null; // String
+    address_not_in?: string[] | null; // [String!]
+    address_not_starts_with?: string | null; // String
+    address_starts_with?: string | null; // String
+    AND?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
+    OR?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
+    organization?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
+  }
+  LocationWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
   LoginInput: { // input type
     email?: string | null; // String
     password?: string | null; // String
+  }
+  OrganizationCreateInput: { // input type
+    contactDetails: string; // String!
+    description?: string | null; // String
+    dpo: string; // String!
+    headOffice: NexusGenInputs['LocationCreateOneWithoutOrganizationInput']; // LocationCreateOneWithoutOrganizationInput!
+    id?: string | null; // ID
+    name: string; // String!
+    representative: string; // String!
+  }
+  OrganizationCreateOneWithoutHeadOfficeInput: { // input type
+    connect?: NexusGenInputs['OrganizationWhereUniqueInput'] | null; // OrganizationWhereUniqueInput
+    create?: NexusGenInputs['OrganizationCreateWithoutHeadOfficeInput'] | null; // OrganizationCreateWithoutHeadOfficeInput
+  }
+  OrganizationCreateWithoutHeadOfficeInput: { // input type
+    contactDetails: string; // String!
+    description?: string | null; // String
+    dpo: string; // String!
+    id?: string | null; // ID
+    name: string; // String!
+    representative: string; // String!
+  }
+  OrganizationUpdateInput: { // input type
+    contactDetails?: string | null; // String
+    description?: string | null; // String
+    dpo?: string | null; // String
+    headOffice?: NexusGenInputs['LocationUpdateOneRequiredWithoutOrganizationInput'] | null; // LocationUpdateOneRequiredWithoutOrganizationInput
+    name?: string | null; // String
+    representative?: string | null; // String
+  }
+  OrganizationUpdateManyMutationInput: { // input type
+    contactDetails?: string | null; // String
+    description?: string | null; // String
+    dpo?: string | null; // String
+    name?: string | null; // String
+    representative?: string | null; // String
+  }
+  OrganizationUpdateOneWithoutHeadOfficeInput: { // input type
+    connect?: NexusGenInputs['OrganizationWhereUniqueInput'] | null; // OrganizationWhereUniqueInput
+    create?: NexusGenInputs['OrganizationCreateWithoutHeadOfficeInput'] | null; // OrganizationCreateWithoutHeadOfficeInput
+    delete?: boolean | null; // Boolean
+    disconnect?: boolean | null; // Boolean
+    update?: NexusGenInputs['OrganizationUpdateWithoutHeadOfficeDataInput'] | null; // OrganizationUpdateWithoutHeadOfficeDataInput
+    upsert?: NexusGenInputs['OrganizationUpsertWithoutHeadOfficeInput'] | null; // OrganizationUpsertWithoutHeadOfficeInput
+  }
+  OrganizationUpdateWithoutHeadOfficeDataInput: { // input type
+    contactDetails?: string | null; // String
+    description?: string | null; // String
+    dpo?: string | null; // String
+    name?: string | null; // String
+    representative?: string | null; // String
+  }
+  OrganizationUpsertWithoutHeadOfficeInput: { // input type
+    create: NexusGenInputs['OrganizationCreateWithoutHeadOfficeInput']; // OrganizationCreateWithoutHeadOfficeInput!
+    update: NexusGenInputs['OrganizationUpdateWithoutHeadOfficeDataInput']; // OrganizationUpdateWithoutHeadOfficeDataInput!
+  }
+  OrganizationWhereInput: { // input type
+    AND?: NexusGenInputs['OrganizationWhereInput'][] | null; // [OrganizationWhereInput!]
+    contactDetails?: string | null; // String
+    contactDetails_contains?: string | null; // String
+    contactDetails_ends_with?: string | null; // String
+    contactDetails_gt?: string | null; // String
+    contactDetails_gte?: string | null; // String
+    contactDetails_in?: string[] | null; // [String!]
+    contactDetails_lt?: string | null; // String
+    contactDetails_lte?: string | null; // String
+    contactDetails_not?: string | null; // String
+    contactDetails_not_contains?: string | null; // String
+    contactDetails_not_ends_with?: string | null; // String
+    contactDetails_not_in?: string[] | null; // [String!]
+    contactDetails_not_starts_with?: string | null; // String
+    contactDetails_starts_with?: string | null; // String
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    dpo?: string | null; // String
+    dpo_contains?: string | null; // String
+    dpo_ends_with?: string | null; // String
+    dpo_gt?: string | null; // String
+    dpo_gte?: string | null; // String
+    dpo_in?: string[] | null; // [String!]
+    dpo_lt?: string | null; // String
+    dpo_lte?: string | null; // String
+    dpo_not?: string | null; // String
+    dpo_not_contains?: string | null; // String
+    dpo_not_ends_with?: string | null; // String
+    dpo_not_in?: string[] | null; // [String!]
+    dpo_not_starts_with?: string | null; // String
+    dpo_starts_with?: string | null; // String
+    headOffice?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['OrganizationWhereInput'][] | null; // [OrganizationWhereInput!]
+    OR?: NexusGenInputs['OrganizationWhereInput'][] | null; // [OrganizationWhereInput!]
+    representative?: string | null; // String
+    representative_contains?: string | null; // String
+    representative_ends_with?: string | null; // String
+    representative_gt?: string | null; // String
+    representative_gte?: string | null; // String
+    representative_in?: string[] | null; // [String!]
+    representative_lt?: string | null; // String
+    representative_lte?: string | null; // String
+    representative_not?: string | null; // String
+    representative_not_contains?: string | null; // String
+    representative_not_ends_with?: string | null; // String
+    representative_not_in?: string[] | null; // [String!]
+    representative_not_starts_with?: string | null; // String
+    representative_starts_with?: string | null; // String
+  }
+  OrganizationWhereUniqueInput: { // input type
+    id?: string | null; // ID
   }
   OrganizationalUnitCreateInput: { // input type
     businessRoles?: NexusGenInputs['BusinessRoleCreateManyWithoutOrganizationalUnitInput'] | null; // BusinessRoleCreateManyWithoutOrganizationalUnitInput
@@ -2594,6 +2850,8 @@ export interface NexusGenEnums {
   CLASSIFICATIONOBJECT: "APPLICATION" | "DATA"
   ClassificationLabelOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "criteria_ASC" | "criteria_DESC" | "id_ASC" | "id_DESC" | "label_ASC" | "label_DESC" | "score_ASC" | "score_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   DataTypeOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  LocationOrderByInput: "address_ASC" | "address_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  OrganizationOrderByInput: "contactDetails_ASC" | "contactDetails_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "dpo_ASC" | "dpo_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "representative_ASC" | "representative_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   OrganizationalUnitOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   OrganizationalUnitTypeOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "reportingUnit_ASC" | "reportingUnit_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   PERMISSION: "ADMIN" | "AUDIT"
@@ -2616,6 +2874,12 @@ export interface NexusGenRootTypes {
     count: number; // Int!
   }
   AggregateDataType: { // root type
+    count: number; // Int!
+  }
+  AggregateLocation: { // root type
+    count: number; // Int!
+  }
+  AggregateOrganization: { // root type
     count: number; // Int!
   }
   AggregateOrganizationalUnit: { // root type
@@ -2700,7 +2964,37 @@ export interface NexusGenRootTypes {
     cursor: string; // String!
     node: NexusGenRootTypes['DataType']; // DataType!
   }
+  Location: { // root type
+    address: string; // String!
+    description?: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+  }
+  LocationConnection: { // root type
+    edges: NexusGenRootTypes['LocationEdge'][]; // [LocationEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  LocationEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Location']; // Location!
+  }
   Mutation: {};
+  Organization: { // root type
+    contactDetails: string; // String!
+    description?: string | null; // String
+    dpo: string; // String!
+    id: string; // ID!
+    name: string; // String!
+    representative: string; // String!
+  }
+  OrganizationConnection: { // root type
+    edges: NexusGenRootTypes['OrganizationEdge'][]; // [OrganizationEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  OrganizationEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Organization']; // Organization!
+  }
   OrganizationalUnit: { // root type
     createdAt: any; // DateTime!
     description?: string | null; // String
@@ -2943,7 +3237,27 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput: NexusGenInputs['DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput'];
   DataTypeWhereInput: NexusGenInputs['DataTypeWhereInput'];
   DataTypeWhereUniqueInput: NexusGenInputs['DataTypeWhereUniqueInput'];
+  LocationCreateInput: NexusGenInputs['LocationCreateInput'];
+  LocationCreateOneWithoutOrganizationInput: NexusGenInputs['LocationCreateOneWithoutOrganizationInput'];
+  LocationCreateWithoutOrganizationInput: NexusGenInputs['LocationCreateWithoutOrganizationInput'];
+  LocationUpdateInput: NexusGenInputs['LocationUpdateInput'];
+  LocationUpdateManyMutationInput: NexusGenInputs['LocationUpdateManyMutationInput'];
+  LocationUpdateOneRequiredWithoutOrganizationInput: NexusGenInputs['LocationUpdateOneRequiredWithoutOrganizationInput'];
+  LocationUpdateWithoutOrganizationDataInput: NexusGenInputs['LocationUpdateWithoutOrganizationDataInput'];
+  LocationUpsertWithoutOrganizationInput: NexusGenInputs['LocationUpsertWithoutOrganizationInput'];
+  LocationWhereInput: NexusGenInputs['LocationWhereInput'];
+  LocationWhereUniqueInput: NexusGenInputs['LocationWhereUniqueInput'];
   LoginInput: NexusGenInputs['LoginInput'];
+  OrganizationCreateInput: NexusGenInputs['OrganizationCreateInput'];
+  OrganizationCreateOneWithoutHeadOfficeInput: NexusGenInputs['OrganizationCreateOneWithoutHeadOfficeInput'];
+  OrganizationCreateWithoutHeadOfficeInput: NexusGenInputs['OrganizationCreateWithoutHeadOfficeInput'];
+  OrganizationUpdateInput: NexusGenInputs['OrganizationUpdateInput'];
+  OrganizationUpdateManyMutationInput: NexusGenInputs['OrganizationUpdateManyMutationInput'];
+  OrganizationUpdateOneWithoutHeadOfficeInput: NexusGenInputs['OrganizationUpdateOneWithoutHeadOfficeInput'];
+  OrganizationUpdateWithoutHeadOfficeDataInput: NexusGenInputs['OrganizationUpdateWithoutHeadOfficeDataInput'];
+  OrganizationUpsertWithoutHeadOfficeInput: NexusGenInputs['OrganizationUpsertWithoutHeadOfficeInput'];
+  OrganizationWhereInput: NexusGenInputs['OrganizationWhereInput'];
+  OrganizationWhereUniqueInput: NexusGenInputs['OrganizationWhereUniqueInput'];
   OrganizationalUnitCreateInput: NexusGenInputs['OrganizationalUnitCreateInput'];
   OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput: NexusGenInputs['OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput'];
   OrganizationalUnitCreateManyWithoutParentInput: NexusGenInputs['OrganizationalUnitCreateManyWithoutParentInput'];
@@ -3076,6 +3390,8 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   CLASSIFICATIONOBJECT: NexusGenEnums['CLASSIFICATIONOBJECT'];
   ClassificationLabelOrderByInput: NexusGenEnums['ClassificationLabelOrderByInput'];
   DataTypeOrderByInput: NexusGenEnums['DataTypeOrderByInput'];
+  LocationOrderByInput: NexusGenEnums['LocationOrderByInput'];
+  OrganizationOrderByInput: NexusGenEnums['OrganizationOrderByInput'];
   OrganizationalUnitOrderByInput: NexusGenEnums['OrganizationalUnitOrderByInput'];
   OrganizationalUnitTypeOrderByInput: NexusGenEnums['OrganizationalUnitTypeOrderByInput'];
   PERMISSION: NexusGenEnums['PERMISSION'];
@@ -3098,6 +3414,12 @@ export interface NexusGenFieldTypes {
     count: number; // Int!
   }
   AggregateDataType: { // field return type
+    count: number; // Int!
+  }
+  AggregateLocation: { // field return type
+    count: number; // Int!
+  }
+  AggregateOrganization: { // field return type
     count: number; // Int!
   }
   AggregateOrganizationalUnit: { // field return type
@@ -3201,6 +3523,22 @@ export interface NexusGenFieldTypes {
     cursor: string; // String!
     node: NexusGenRootTypes['DataType']; // DataType!
   }
+  Location: { // field return type
+    address: string; // String!
+    description: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+    organization: NexusGenRootTypes['Organization'] | null; // Organization
+  }
+  LocationConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateLocation']; // AggregateLocation!
+    edges: NexusGenRootTypes['LocationEdge'][]; // [LocationEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  LocationEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Location']; // Location!
+  }
   Mutation: { // field return type
     authenticateUser: NexusGenRootTypes['Token'] | null; // Token
     createAdmin: NexusGenRootTypes['User'] | null; // User
@@ -3208,6 +3546,8 @@ export interface NexusGenFieldTypes {
     createBusinessRole: NexusGenRootTypes['BusinessRole']; // BusinessRole!
     createClassificationLabel: NexusGenRootTypes['ClassificationLabel']; // ClassificationLabel!
     createDataType: NexusGenRootTypes['DataType']; // DataType!
+    createLocation: NexusGenRootTypes['Location']; // Location!
+    createOrganization: NexusGenRootTypes['Organization']; // Organization!
     createOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit'] | null; // OrganizationalUnit
     createOrganizationalUnitType: NexusGenRootTypes['OrganizationalUnitType']; // OrganizationalUnitType!
     createPerson: NexusGenRootTypes['Person']; // Person!
@@ -3219,17 +3559,21 @@ export interface NexusGenFieldTypes {
     deleteBusinessRole: NexusGenRootTypes['BusinessRole'] | null; // BusinessRole
     deleteClassificationLabel: NexusGenRootTypes['ClassificationLabel'] | null; // ClassificationLabel
     deleteDataType: NexusGenRootTypes['DataType'] | null; // DataType
+    deleteLocation: NexusGenRootTypes['Location'] | null; // Location
     deleteManyApplications: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyBusinessRoles: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyClassificationLabels: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyDataTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyLocations: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyOrganizationalUnits: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyOrganizationalUnitTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyOrganizations: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyPersons: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyProcesses: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyProcessingActivities: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyQualityAttributes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyUsers: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteOrganization: NexusGenRootTypes['Organization'] | null; // Organization
     deleteOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit'] | null; // OrganizationalUnit
     deleteOrganizationalUnitType: NexusGenRootTypes['OrganizationalUnitType'] | null; // OrganizationalUnitType
     deletePerson: NexusGenRootTypes['Person'] | null; // Person
@@ -3241,17 +3585,21 @@ export interface NexusGenFieldTypes {
     updateBusinessRole: NexusGenRootTypes['BusinessRole'] | null; // BusinessRole
     updateClassificationLabel: NexusGenRootTypes['ClassificationLabel'] | null; // ClassificationLabel
     updateDataType: NexusGenRootTypes['DataType'] | null; // DataType
+    updateLocation: NexusGenRootTypes['Location'] | null; // Location
     updateManyApplications: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyBusinessRoles: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyClassificationLabels: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyDataTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyLocations: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyOrganizationalUnits: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyOrganizationalUnitTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyOrganizations: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyPersons: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyProcesses: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyProcessingActivities: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyQualityAttributes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyUsers: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateOrganization: NexusGenRootTypes['Organization'] | null; // Organization
     updateOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit'] | null; // OrganizationalUnit
     updateOrganizationalUnitType: NexusGenRootTypes['OrganizationalUnitType'] | null; // OrganizationalUnitType
     updatePerson: NexusGenRootTypes['Person'] | null; // Person
@@ -3263,6 +3611,8 @@ export interface NexusGenFieldTypes {
     upsertBusinessRole: NexusGenRootTypes['BusinessRole']; // BusinessRole!
     upsertClassificationLabel: NexusGenRootTypes['ClassificationLabel']; // ClassificationLabel!
     upsertDataType: NexusGenRootTypes['DataType']; // DataType!
+    upsertLocation: NexusGenRootTypes['Location']; // Location!
+    upsertOrganization: NexusGenRootTypes['Organization']; // Organization!
     upsertOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit']; // OrganizationalUnit!
     upsertOrganizationalUnitType: NexusGenRootTypes['OrganizationalUnitType']; // OrganizationalUnitType!
     upsertPerson: NexusGenRootTypes['Person']; // Person!
@@ -3270,6 +3620,24 @@ export interface NexusGenFieldTypes {
     upsertProcessingActivity: NexusGenRootTypes['ProcessingActivity']; // ProcessingActivity!
     upsertQualityAttribute: NexusGenRootTypes['QualityAttribute']; // QualityAttribute!
     upsertUser: NexusGenRootTypes['User']; // User!
+  }
+  Organization: { // field return type
+    contactDetails: string; // String!
+    description: string | null; // String
+    dpo: string; // String!
+    headOffice: NexusGenRootTypes['Location']; // Location!
+    id: string; // ID!
+    name: string; // String!
+    representative: string; // String!
+  }
+  OrganizationConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateOrganization']; // AggregateOrganization!
+    edges: NexusGenRootTypes['OrganizationEdge'][]; // [OrganizationEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  OrganizationEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Organization']; // Organization!
   }
   OrganizationalUnit: { // field return type
     businessRoles: NexusGenRootTypes['BusinessRole'][] | null; // [BusinessRole!]
@@ -3398,13 +3766,19 @@ export interface NexusGenFieldTypes {
     dataType: NexusGenRootTypes['DataType'] | null; // DataType
     dataTypes: NexusGenRootTypes['DataType'][]; // [DataType!]!
     dataTypesConnection: NexusGenRootTypes['DataTypeConnection']; // DataTypeConnection!
+    location: NexusGenRootTypes['Location'] | null; // Location
+    locations: NexusGenRootTypes['Location'][]; // [Location!]!
+    locationsConnection: NexusGenRootTypes['LocationConnection']; // LocationConnection!
     loggedInUser: NexusGenRootTypes['User'] | null; // User
+    organization: NexusGenRootTypes['Organization'] | null; // Organization
     organizationalUnit: NexusGenRootTypes['OrganizationalUnit'] | null; // OrganizationalUnit
     organizationalUnits: NexusGenRootTypes['OrganizationalUnit'][]; // [OrganizationalUnit!]!
     organizationalUnitsConnection: NexusGenRootTypes['OrganizationalUnitConnection']; // OrganizationalUnitConnection!
     organizationalUnitType: NexusGenRootTypes['OrganizationalUnitType'] | null; // OrganizationalUnitType
     organizationalUnitTypes: NexusGenRootTypes['OrganizationalUnitType'][]; // [OrganizationalUnitType!]!
     organizationalUnitTypesConnection: NexusGenRootTypes['OrganizationalUnitTypeConnection']; // OrganizationalUnitTypeConnection!
+    organizations: NexusGenRootTypes['Organization'][]; // [Organization!]!
+    organizationsConnection: NexusGenRootTypes['OrganizationConnection']; // OrganizationConnection!
     person: NexusGenRootTypes['Person'] | null; // Person
     persons: NexusGenRootTypes['Person'][]; // [Person!]!
     personsConnection: NexusGenRootTypes['PersonConnection']; // PersonConnection!
@@ -3555,6 +3929,12 @@ export interface NexusGenArgTypes {
     createDataType: { // args
       data: NexusGenInputs['DataTypeCreateInput']; // DataTypeCreateInput!
     }
+    createLocation: { // args
+      data: NexusGenInputs['LocationCreateInput']; // LocationCreateInput!
+    }
+    createOrganization: { // args
+      data: NexusGenInputs['OrganizationCreateInput']; // OrganizationCreateInput!
+    }
     createOrganizationalUnit: { // args
       data: NexusGenInputs['OrganizationalUnitCreateInput']; // OrganizationalUnitCreateInput!
     }
@@ -3588,6 +3968,9 @@ export interface NexusGenArgTypes {
     deleteDataType: { // args
       where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
     }
+    deleteLocation: { // args
+      where: NexusGenInputs['LocationWhereUniqueInput']; // LocationWhereUniqueInput!
+    }
     deleteManyApplications: { // args
       where?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
     }
@@ -3600,11 +3983,17 @@ export interface NexusGenArgTypes {
     deleteManyDataTypes: { // args
       where?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
     }
+    deleteManyLocations: { // args
+      where?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    }
     deleteManyOrganizationalUnits: { // args
       where?: NexusGenInputs['OrganizationalUnitWhereInput'] | null; // OrganizationalUnitWhereInput
     }
     deleteManyOrganizationalUnitTypes: { // args
       where?: NexusGenInputs['OrganizationalUnitTypeWhereInput'] | null; // OrganizationalUnitTypeWhereInput
+    }
+    deleteManyOrganizations: { // args
+      where?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
     }
     deleteManyPersons: { // args
       where?: NexusGenInputs['PersonWhereInput'] | null; // PersonWhereInput
@@ -3620,6 +4009,9 @@ export interface NexusGenArgTypes {
     }
     deleteManyUsers: { // args
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    }
+    deleteOrganization: { // args
+      where: NexusGenInputs['OrganizationWhereUniqueInput']; // OrganizationWhereUniqueInput!
     }
     deleteOrganizationalUnit: { // args
       where: NexusGenInputs['OrganizationalUnitWhereUniqueInput']; // OrganizationalUnitWhereUniqueInput!
@@ -3658,6 +4050,10 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['DataTypeUpdateInput']; // DataTypeUpdateInput!
       where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
     }
+    updateLocation: { // args
+      data: NexusGenInputs['LocationUpdateInput']; // LocationUpdateInput!
+      where: NexusGenInputs['LocationWhereUniqueInput']; // LocationWhereUniqueInput!
+    }
     updateManyApplications: { // args
       data: NexusGenInputs['ApplicationUpdateManyMutationInput']; // ApplicationUpdateManyMutationInput!
       where?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
@@ -3674,6 +4070,10 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['DataTypeUpdateManyMutationInput']; // DataTypeUpdateManyMutationInput!
       where?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
     }
+    updateManyLocations: { // args
+      data: NexusGenInputs['LocationUpdateManyMutationInput']; // LocationUpdateManyMutationInput!
+      where?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    }
     updateManyOrganizationalUnits: { // args
       data: NexusGenInputs['OrganizationalUnitUpdateManyMutationInput']; // OrganizationalUnitUpdateManyMutationInput!
       where?: NexusGenInputs['OrganizationalUnitWhereInput'] | null; // OrganizationalUnitWhereInput
@@ -3681,6 +4081,10 @@ export interface NexusGenArgTypes {
     updateManyOrganizationalUnitTypes: { // args
       data: NexusGenInputs['OrganizationalUnitTypeUpdateManyMutationInput']; // OrganizationalUnitTypeUpdateManyMutationInput!
       where?: NexusGenInputs['OrganizationalUnitTypeWhereInput'] | null; // OrganizationalUnitTypeWhereInput
+    }
+    updateManyOrganizations: { // args
+      data: NexusGenInputs['OrganizationUpdateManyMutationInput']; // OrganizationUpdateManyMutationInput!
+      where?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
     }
     updateManyPersons: { // args
       data: NexusGenInputs['PersonUpdateManyMutationInput']; // PersonUpdateManyMutationInput!
@@ -3701,6 +4105,10 @@ export interface NexusGenArgTypes {
     updateManyUsers: { // args
       data: NexusGenInputs['UserUpdateManyMutationInput']; // UserUpdateManyMutationInput!
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    }
+    updateOrganization: { // args
+      data: NexusGenInputs['OrganizationUpdateInput']; // OrganizationUpdateInput!
+      where: NexusGenInputs['OrganizationWhereUniqueInput']; // OrganizationWhereUniqueInput!
     }
     updateOrganizationalUnit: { // args
       data: NexusGenInputs['OrganizationalUnitUpdateInput']; // OrganizationalUnitUpdateInput!
@@ -3749,6 +4157,16 @@ export interface NexusGenArgTypes {
       create: NexusGenInputs['DataTypeCreateInput']; // DataTypeCreateInput!
       update: NexusGenInputs['DataTypeUpdateInput']; // DataTypeUpdateInput!
       where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
+    }
+    upsertLocation: { // args
+      create: NexusGenInputs['LocationCreateInput']; // LocationCreateInput!
+      update: NexusGenInputs['LocationUpdateInput']; // LocationUpdateInput!
+      where: NexusGenInputs['LocationWhereUniqueInput']; // LocationWhereUniqueInput!
+    }
+    upsertOrganization: { // args
+      create: NexusGenInputs['OrganizationCreateInput']; // OrganizationCreateInput!
+      update: NexusGenInputs['OrganizationUpdateInput']; // OrganizationUpdateInput!
+      where: NexusGenInputs['OrganizationWhereUniqueInput']; // OrganizationWhereUniqueInput!
     }
     upsertOrganizationalUnit: { // args
       create: NexusGenInputs['OrganizationalUnitCreateInput']; // OrganizationalUnitCreateInput!
@@ -3958,6 +4376,30 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       where?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
     }
+    location: { // args
+      where: NexusGenInputs['LocationWhereUniqueInput']; // LocationWhereUniqueInput!
+    }
+    locations: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['LocationOrderByInput'] | null; // LocationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    }
+    locationsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['LocationOrderByInput'] | null; // LocationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    }
+    organization: { // args
+      where: NexusGenInputs['OrganizationWhereUniqueInput']; // OrganizationWhereUniqueInput!
+    }
     organizationalUnit: { // args
       where: NexusGenInputs['OrganizationalUnitWhereUniqueInput']; // OrganizationalUnitWhereUniqueInput!
     }
@@ -3999,6 +4441,24 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenEnums['OrganizationalUnitTypeOrderByInput'] | null; // OrganizationalUnitTypeOrderByInput
       skip?: number | null; // Int
       where?: NexusGenInputs['OrganizationalUnitTypeWhereInput'] | null; // OrganizationalUnitTypeWhereInput
+    }
+    organizations: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['OrganizationOrderByInput'] | null; // OrganizationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
+    }
+    organizationsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['OrganizationOrderByInput'] | null; // OrganizationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
     }
     person: { // args
       where: NexusGenInputs['PersonWhereUniqueInput']; // PersonWhereUniqueInput!
@@ -4119,11 +4579,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AggregateApplication" | "AggregateBusinessRole" | "AggregateClassificationLabel" | "AggregateDataType" | "AggregateOrganizationalUnit" | "AggregateOrganizationalUnitType" | "AggregatePerson" | "AggregateProcess" | "AggregateProcessingActivity" | "AggregateQualityAttribute" | "AggregateUser" | "Application" | "ApplicationConnection" | "ApplicationEdge" | "BatchPayload" | "BusinessRole" | "BusinessRoleConnection" | "BusinessRoleEdge" | "ClassificationLabel" | "ClassificationLabelConnection" | "ClassificationLabelEdge" | "DataType" | "DataTypeConnection" | "DataTypeEdge" | "Mutation" | "OrganizationalUnit" | "OrganizationalUnitConnection" | "OrganizationalUnitEdge" | "OrganizationalUnitType" | "OrganizationalUnitTypeConnection" | "OrganizationalUnitTypeEdge" | "PageInfo" | "Person" | "PersonConnection" | "PersonEdge" | "Process" | "ProcessConnection" | "ProcessEdge" | "ProcessingActivity" | "ProcessingActivityConnection" | "ProcessingActivityEdge" | "QualityAttribute" | "QualityAttributeConnection" | "QualityAttributeEdge" | "Query" | "Token" | "User" | "UserConnection" | "UserEdge";
+export type NexusGenObjectNames = "AggregateApplication" | "AggregateBusinessRole" | "AggregateClassificationLabel" | "AggregateDataType" | "AggregateLocation" | "AggregateOrganization" | "AggregateOrganizationalUnit" | "AggregateOrganizationalUnitType" | "AggregatePerson" | "AggregateProcess" | "AggregateProcessingActivity" | "AggregateQualityAttribute" | "AggregateUser" | "Application" | "ApplicationConnection" | "ApplicationEdge" | "BatchPayload" | "BusinessRole" | "BusinessRoleConnection" | "BusinessRoleEdge" | "ClassificationLabel" | "ClassificationLabelConnection" | "ClassificationLabelEdge" | "DataType" | "DataTypeConnection" | "DataTypeEdge" | "Location" | "LocationConnection" | "LocationEdge" | "Mutation" | "Organization" | "OrganizationConnection" | "OrganizationEdge" | "OrganizationalUnit" | "OrganizationalUnitConnection" | "OrganizationalUnitEdge" | "OrganizationalUnitType" | "OrganizationalUnitTypeConnection" | "OrganizationalUnitTypeEdge" | "PageInfo" | "Person" | "PersonConnection" | "PersonEdge" | "Process" | "ProcessConnection" | "ProcessEdge" | "ProcessingActivity" | "ProcessingActivityConnection" | "ProcessingActivityEdge" | "QualityAttribute" | "QualityAttributeConnection" | "QualityAttributeEdge" | "Query" | "Token" | "User" | "UserConnection" | "UserEdge";
 
-export type NexusGenInputNames = "ApplicationCreateInput" | "ApplicationCreateManyWithoutBusinessOwnerInput" | "ApplicationCreateManyWithoutDataTypesInput" | "ApplicationCreateManyWithoutItOwnerInput" | "ApplicationCreateManyWithoutProcessingActivitiesInput" | "ApplicationCreateManyWithoutSecurityAdministratorInput" | "ApplicationCreateWithoutBusinessOwnerInput" | "ApplicationCreateWithoutDataTypesInput" | "ApplicationCreateWithoutItOwnerInput" | "ApplicationCreateWithoutProcessingActivitiesInput" | "ApplicationCreateWithoutSecurityAdministratorInput" | "ApplicationScalarWhereInput" | "ApplicationUpdateInput" | "ApplicationUpdateManyDataInput" | "ApplicationUpdateManyMutationInput" | "ApplicationUpdateManyWithWhereNestedInput" | "ApplicationUpdateManyWithoutBusinessOwnerInput" | "ApplicationUpdateManyWithoutDataTypesInput" | "ApplicationUpdateManyWithoutItOwnerInput" | "ApplicationUpdateManyWithoutProcessingActivitiesInput" | "ApplicationUpdateManyWithoutSecurityAdministratorInput" | "ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput" | "ApplicationUpdateWithWhereUniqueWithoutDataTypesInput" | "ApplicationUpdateWithWhereUniqueWithoutItOwnerInput" | "ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput" | "ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput" | "ApplicationUpdateWithoutBusinessOwnerDataInput" | "ApplicationUpdateWithoutDataTypesDataInput" | "ApplicationUpdateWithoutItOwnerDataInput" | "ApplicationUpdateWithoutProcessingActivitiesDataInput" | "ApplicationUpdateWithoutSecurityAdministratorDataInput" | "ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput" | "ApplicationUpsertWithWhereUniqueWithoutDataTypesInput" | "ApplicationUpsertWithWhereUniqueWithoutItOwnerInput" | "ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput" | "ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput" | "ApplicationWhereInput" | "ApplicationWhereUniqueInput" | "BusinessRoleCreateInput" | "BusinessRoleCreateManyWithoutOrganizationalUnitInput" | "BusinessRoleCreateManyWithoutPersonInput" | "BusinessRoleCreateOneWithoutAppBusinessOwnerInput" | "BusinessRoleCreateOneWithoutAppItOwnerInput" | "BusinessRoleCreateOneWithoutAppSecAdminInput" | "BusinessRoleCreateOneWithoutProcessInput" | "BusinessRoleCreateWithoutAppBusinessOwnerInput" | "BusinessRoleCreateWithoutAppItOwnerInput" | "BusinessRoleCreateWithoutAppSecAdminInput" | "BusinessRoleCreateWithoutOrganizationalUnitInput" | "BusinessRoleCreateWithoutPersonInput" | "BusinessRoleCreateWithoutProcessInput" | "BusinessRoleScalarWhereInput" | "BusinessRoleUpdateInput" | "BusinessRoleUpdateManyDataInput" | "BusinessRoleUpdateManyMutationInput" | "BusinessRoleUpdateManyWithWhereNestedInput" | "BusinessRoleUpdateManyWithoutOrganizationalUnitInput" | "BusinessRoleUpdateManyWithoutPersonInput" | "BusinessRoleUpdateOneWithoutAppBusinessOwnerInput" | "BusinessRoleUpdateOneWithoutAppItOwnerInput" | "BusinessRoleUpdateOneWithoutAppSecAdminInput" | "BusinessRoleUpdateOneWithoutProcessInput" | "BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput" | "BusinessRoleUpdateWithWhereUniqueWithoutPersonInput" | "BusinessRoleUpdateWithoutAppBusinessOwnerDataInput" | "BusinessRoleUpdateWithoutAppItOwnerDataInput" | "BusinessRoleUpdateWithoutAppSecAdminDataInput" | "BusinessRoleUpdateWithoutOrganizationalUnitDataInput" | "BusinessRoleUpdateWithoutPersonDataInput" | "BusinessRoleUpdateWithoutProcessDataInput" | "BusinessRoleUpsertWithWhereUniqueWithoutOrganizationalUnitInput" | "BusinessRoleUpsertWithWhereUniqueWithoutPersonInput" | "BusinessRoleUpsertWithoutAppBusinessOwnerInput" | "BusinessRoleUpsertWithoutAppItOwnerInput" | "BusinessRoleUpsertWithoutAppSecAdminInput" | "BusinessRoleUpsertWithoutProcessInput" | "BusinessRoleWhereInput" | "BusinessRoleWhereUniqueInput" | "ClassificationLabelCreateInput" | "ClassificationLabelCreateManyWithoutDataTypeInput" | "ClassificationLabelCreateManyWithoutQualityAttributeInput" | "ClassificationLabelCreateWithoutDataTypeInput" | "ClassificationLabelCreateWithoutQualityAttributeInput" | "ClassificationLabelScalarWhereInput" | "ClassificationLabelUpdateInput" | "ClassificationLabelUpdateManyDataInput" | "ClassificationLabelUpdateManyMutationInput" | "ClassificationLabelUpdateManyWithWhereNestedInput" | "ClassificationLabelUpdateManyWithoutDataTypeInput" | "ClassificationLabelUpdateManyWithoutQualityAttributeInput" | "ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput" | "ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput" | "ClassificationLabelUpdateWithoutDataTypeDataInput" | "ClassificationLabelUpdateWithoutQualityAttributeDataInput" | "ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput" | "ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput" | "ClassificationLabelWhereInput" | "ClassificationLabelWhereUniqueInput" | "DataTypeCreateInput" | "DataTypeCreateManyWithoutApplicationInput" | "DataTypeCreateManyWithoutClassificationLabelsInput" | "DataTypeCreateWithoutApplicationInput" | "DataTypeCreateWithoutClassificationLabelsInput" | "DataTypeScalarWhereInput" | "DataTypeUpdateInput" | "DataTypeUpdateManyDataInput" | "DataTypeUpdateManyMutationInput" | "DataTypeUpdateManyWithWhereNestedInput" | "DataTypeUpdateManyWithoutApplicationInput" | "DataTypeUpdateManyWithoutClassificationLabelsInput" | "DataTypeUpdateWithWhereUniqueWithoutApplicationInput" | "DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput" | "DataTypeUpdateWithoutApplicationDataInput" | "DataTypeUpdateWithoutClassificationLabelsDataInput" | "DataTypeUpsertWithWhereUniqueWithoutApplicationInput" | "DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput" | "DataTypeWhereInput" | "DataTypeWhereUniqueInput" | "LoginInput" | "OrganizationalUnitCreateInput" | "OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitCreateManyWithoutParentInput" | "OrganizationalUnitCreateOneWithoutBusinessRolesInput" | "OrganizationalUnitCreateOneWithoutChildrenInput" | "OrganizationalUnitCreateOneWithoutProcessesInput" | "OrganizationalUnitCreateWithoutBusinessRolesInput" | "OrganizationalUnitCreateWithoutChildrenInput" | "OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitCreateWithoutParentInput" | "OrganizationalUnitCreateWithoutProcessesInput" | "OrganizationalUnitScalarWhereInput" | "OrganizationalUnitTypeCreateInput" | "OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeUpdateInput" | "OrganizationalUnitTypeUpdateManyMutationInput" | "OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInput" | "OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeWhereInput" | "OrganizationalUnitTypeWhereUniqueInput" | "OrganizationalUnitUpdateInput" | "OrganizationalUnitUpdateManyDataInput" | "OrganizationalUnitUpdateManyMutationInput" | "OrganizationalUnitUpdateManyWithWhereNestedInput" | "OrganizationalUnitUpdateManyWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpdateManyWithoutParentInput" | "OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput" | "OrganizationalUnitUpdateOneWithoutChildrenInput" | "OrganizationalUnitUpdateOneWithoutProcessesInput" | "OrganizationalUnitUpdateWithWhereUniqueWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpdateWithWhereUniqueWithoutParentInput" | "OrganizationalUnitUpdateWithoutBusinessRolesDataInput" | "OrganizationalUnitUpdateWithoutChildrenDataInput" | "OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput" | "OrganizationalUnitUpdateWithoutParentDataInput" | "OrganizationalUnitUpdateWithoutProcessesDataInput" | "OrganizationalUnitUpsertWithWhereUniqueWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpsertWithWhereUniqueWithoutParentInput" | "OrganizationalUnitUpsertWithoutBusinessRolesInput" | "OrganizationalUnitUpsertWithoutChildrenInput" | "OrganizationalUnitUpsertWithoutProcessesInput" | "OrganizationalUnitWhereInput" | "OrganizationalUnitWhereUniqueInput" | "PersonCreateInput" | "PersonCreateOneWithoutRolesInput" | "PersonCreateOneWithoutUserInput" | "PersonCreateWithoutRolesInput" | "PersonCreateWithoutUserInput" | "PersonUpdateInput" | "PersonUpdateManyMutationInput" | "PersonUpdateOneWithoutRolesInput" | "PersonUpdateOneWithoutUserInput" | "PersonUpdateWithoutRolesDataInput" | "PersonUpdateWithoutUserDataInput" | "PersonUpsertWithoutRolesInput" | "PersonUpsertWithoutUserInput" | "PersonWhereInput" | "PersonWhereUniqueInput" | "ProcessCreateInput" | "ProcessCreateManyWithoutOrganizationalUnitInput" | "ProcessCreateManyWithoutProcessOwnerInput" | "ProcessCreateOneWithoutProcessingActivitiesInput" | "ProcessCreateWithoutOrganizationalUnitInput" | "ProcessCreateWithoutProcessOwnerInput" | "ProcessCreateWithoutProcessingActivitiesInput" | "ProcessScalarWhereInput" | "ProcessUpdateInput" | "ProcessUpdateManyDataInput" | "ProcessUpdateManyMutationInput" | "ProcessUpdateManyWithWhereNestedInput" | "ProcessUpdateManyWithoutOrganizationalUnitInput" | "ProcessUpdateManyWithoutProcessOwnerInput" | "ProcessUpdateOneWithoutProcessingActivitiesInput" | "ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput" | "ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput" | "ProcessUpdateWithoutOrganizationalUnitDataInput" | "ProcessUpdateWithoutProcessOwnerDataInput" | "ProcessUpdateWithoutProcessingActivitiesDataInput" | "ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput" | "ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput" | "ProcessUpsertWithoutProcessingActivitiesInput" | "ProcessWhereInput" | "ProcessWhereUniqueInput" | "ProcessingActivityCreateInput" | "ProcessingActivityCreateManyWithoutApplicationsInput" | "ProcessingActivityCreateManyWithoutProcessInput" | "ProcessingActivityCreateWithoutApplicationsInput" | "ProcessingActivityCreateWithoutProcessInput" | "ProcessingActivityScalarWhereInput" | "ProcessingActivityUpdateInput" | "ProcessingActivityUpdateManyDataInput" | "ProcessingActivityUpdateManyMutationInput" | "ProcessingActivityUpdateManyWithWhereNestedInput" | "ProcessingActivityUpdateManyWithoutApplicationsInput" | "ProcessingActivityUpdateManyWithoutProcessInput" | "ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput" | "ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput" | "ProcessingActivityUpdateWithoutApplicationsDataInput" | "ProcessingActivityUpdateWithoutProcessDataInput" | "ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput" | "ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput" | "ProcessingActivityWhereInput" | "ProcessingActivityWhereUniqueInput" | "QualityAttributeCreateInput" | "QualityAttributeCreateOneWithoutClassificationLabelsInput" | "QualityAttributeCreateWithoutClassificationLabelsInput" | "QualityAttributeUpdateInput" | "QualityAttributeUpdateManyMutationInput" | "QualityAttributeUpdateOneWithoutClassificationLabelsInput" | "QualityAttributeUpdateWithoutClassificationLabelsDataInput" | "QualityAttributeUpsertWithoutClassificationLabelsInput" | "QualityAttributeWhereInput" | "QualityAttributeWhereUniqueInput" | "UserCreateInput" | "UserCreateOneWithoutPersonInput" | "UserCreateWithoutPersonInput" | "UserCreatespecialPermissionsInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserUpdateOneWithoutPersonInput" | "UserUpdateWithoutPersonDataInput" | "UserUpdatespecialPermissionsInput" | "UserUpsertWithoutPersonInput" | "UserWhereInput" | "UserWhereUniqueInput";
+export type NexusGenInputNames = "ApplicationCreateInput" | "ApplicationCreateManyWithoutBusinessOwnerInput" | "ApplicationCreateManyWithoutDataTypesInput" | "ApplicationCreateManyWithoutItOwnerInput" | "ApplicationCreateManyWithoutProcessingActivitiesInput" | "ApplicationCreateManyWithoutSecurityAdministratorInput" | "ApplicationCreateWithoutBusinessOwnerInput" | "ApplicationCreateWithoutDataTypesInput" | "ApplicationCreateWithoutItOwnerInput" | "ApplicationCreateWithoutProcessingActivitiesInput" | "ApplicationCreateWithoutSecurityAdministratorInput" | "ApplicationScalarWhereInput" | "ApplicationUpdateInput" | "ApplicationUpdateManyDataInput" | "ApplicationUpdateManyMutationInput" | "ApplicationUpdateManyWithWhereNestedInput" | "ApplicationUpdateManyWithoutBusinessOwnerInput" | "ApplicationUpdateManyWithoutDataTypesInput" | "ApplicationUpdateManyWithoutItOwnerInput" | "ApplicationUpdateManyWithoutProcessingActivitiesInput" | "ApplicationUpdateManyWithoutSecurityAdministratorInput" | "ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput" | "ApplicationUpdateWithWhereUniqueWithoutDataTypesInput" | "ApplicationUpdateWithWhereUniqueWithoutItOwnerInput" | "ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput" | "ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput" | "ApplicationUpdateWithoutBusinessOwnerDataInput" | "ApplicationUpdateWithoutDataTypesDataInput" | "ApplicationUpdateWithoutItOwnerDataInput" | "ApplicationUpdateWithoutProcessingActivitiesDataInput" | "ApplicationUpdateWithoutSecurityAdministratorDataInput" | "ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput" | "ApplicationUpsertWithWhereUniqueWithoutDataTypesInput" | "ApplicationUpsertWithWhereUniqueWithoutItOwnerInput" | "ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput" | "ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput" | "ApplicationWhereInput" | "ApplicationWhereUniqueInput" | "BusinessRoleCreateInput" | "BusinessRoleCreateManyWithoutOrganizationalUnitInput" | "BusinessRoleCreateManyWithoutPersonInput" | "BusinessRoleCreateOneWithoutAppBusinessOwnerInput" | "BusinessRoleCreateOneWithoutAppItOwnerInput" | "BusinessRoleCreateOneWithoutAppSecAdminInput" | "BusinessRoleCreateOneWithoutProcessInput" | "BusinessRoleCreateWithoutAppBusinessOwnerInput" | "BusinessRoleCreateWithoutAppItOwnerInput" | "BusinessRoleCreateWithoutAppSecAdminInput" | "BusinessRoleCreateWithoutOrganizationalUnitInput" | "BusinessRoleCreateWithoutPersonInput" | "BusinessRoleCreateWithoutProcessInput" | "BusinessRoleScalarWhereInput" | "BusinessRoleUpdateInput" | "BusinessRoleUpdateManyDataInput" | "BusinessRoleUpdateManyMutationInput" | "BusinessRoleUpdateManyWithWhereNestedInput" | "BusinessRoleUpdateManyWithoutOrganizationalUnitInput" | "BusinessRoleUpdateManyWithoutPersonInput" | "BusinessRoleUpdateOneWithoutAppBusinessOwnerInput" | "BusinessRoleUpdateOneWithoutAppItOwnerInput" | "BusinessRoleUpdateOneWithoutAppSecAdminInput" | "BusinessRoleUpdateOneWithoutProcessInput" | "BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput" | "BusinessRoleUpdateWithWhereUniqueWithoutPersonInput" | "BusinessRoleUpdateWithoutAppBusinessOwnerDataInput" | "BusinessRoleUpdateWithoutAppItOwnerDataInput" | "BusinessRoleUpdateWithoutAppSecAdminDataInput" | "BusinessRoleUpdateWithoutOrganizationalUnitDataInput" | "BusinessRoleUpdateWithoutPersonDataInput" | "BusinessRoleUpdateWithoutProcessDataInput" | "BusinessRoleUpsertWithWhereUniqueWithoutOrganizationalUnitInput" | "BusinessRoleUpsertWithWhereUniqueWithoutPersonInput" | "BusinessRoleUpsertWithoutAppBusinessOwnerInput" | "BusinessRoleUpsertWithoutAppItOwnerInput" | "BusinessRoleUpsertWithoutAppSecAdminInput" | "BusinessRoleUpsertWithoutProcessInput" | "BusinessRoleWhereInput" | "BusinessRoleWhereUniqueInput" | "ClassificationLabelCreateInput" | "ClassificationLabelCreateManyWithoutDataTypeInput" | "ClassificationLabelCreateManyWithoutQualityAttributeInput" | "ClassificationLabelCreateWithoutDataTypeInput" | "ClassificationLabelCreateWithoutQualityAttributeInput" | "ClassificationLabelScalarWhereInput" | "ClassificationLabelUpdateInput" | "ClassificationLabelUpdateManyDataInput" | "ClassificationLabelUpdateManyMutationInput" | "ClassificationLabelUpdateManyWithWhereNestedInput" | "ClassificationLabelUpdateManyWithoutDataTypeInput" | "ClassificationLabelUpdateManyWithoutQualityAttributeInput" | "ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput" | "ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput" | "ClassificationLabelUpdateWithoutDataTypeDataInput" | "ClassificationLabelUpdateWithoutQualityAttributeDataInput" | "ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput" | "ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput" | "ClassificationLabelWhereInput" | "ClassificationLabelWhereUniqueInput" | "DataTypeCreateInput" | "DataTypeCreateManyWithoutApplicationInput" | "DataTypeCreateManyWithoutClassificationLabelsInput" | "DataTypeCreateWithoutApplicationInput" | "DataTypeCreateWithoutClassificationLabelsInput" | "DataTypeScalarWhereInput" | "DataTypeUpdateInput" | "DataTypeUpdateManyDataInput" | "DataTypeUpdateManyMutationInput" | "DataTypeUpdateManyWithWhereNestedInput" | "DataTypeUpdateManyWithoutApplicationInput" | "DataTypeUpdateManyWithoutClassificationLabelsInput" | "DataTypeUpdateWithWhereUniqueWithoutApplicationInput" | "DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput" | "DataTypeUpdateWithoutApplicationDataInput" | "DataTypeUpdateWithoutClassificationLabelsDataInput" | "DataTypeUpsertWithWhereUniqueWithoutApplicationInput" | "DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput" | "DataTypeWhereInput" | "DataTypeWhereUniqueInput" | "LocationCreateInput" | "LocationCreateOneWithoutOrganizationInput" | "LocationCreateWithoutOrganizationInput" | "LocationUpdateInput" | "LocationUpdateManyMutationInput" | "LocationUpdateOneRequiredWithoutOrganizationInput" | "LocationUpdateWithoutOrganizationDataInput" | "LocationUpsertWithoutOrganizationInput" | "LocationWhereInput" | "LocationWhereUniqueInput" | "LoginInput" | "OrganizationCreateInput" | "OrganizationCreateOneWithoutHeadOfficeInput" | "OrganizationCreateWithoutHeadOfficeInput" | "OrganizationUpdateInput" | "OrganizationUpdateManyMutationInput" | "OrganizationUpdateOneWithoutHeadOfficeInput" | "OrganizationUpdateWithoutHeadOfficeDataInput" | "OrganizationUpsertWithoutHeadOfficeInput" | "OrganizationWhereInput" | "OrganizationWhereUniqueInput" | "OrganizationalUnitCreateInput" | "OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitCreateManyWithoutParentInput" | "OrganizationalUnitCreateOneWithoutBusinessRolesInput" | "OrganizationalUnitCreateOneWithoutChildrenInput" | "OrganizationalUnitCreateOneWithoutProcessesInput" | "OrganizationalUnitCreateWithoutBusinessRolesInput" | "OrganizationalUnitCreateWithoutChildrenInput" | "OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitCreateWithoutParentInput" | "OrganizationalUnitCreateWithoutProcessesInput" | "OrganizationalUnitScalarWhereInput" | "OrganizationalUnitTypeCreateInput" | "OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeUpdateInput" | "OrganizationalUnitTypeUpdateManyMutationInput" | "OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInput" | "OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeWhereInput" | "OrganizationalUnitTypeWhereUniqueInput" | "OrganizationalUnitUpdateInput" | "OrganizationalUnitUpdateManyDataInput" | "OrganizationalUnitUpdateManyMutationInput" | "OrganizationalUnitUpdateManyWithWhereNestedInput" | "OrganizationalUnitUpdateManyWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpdateManyWithoutParentInput" | "OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput" | "OrganizationalUnitUpdateOneWithoutChildrenInput" | "OrganizationalUnitUpdateOneWithoutProcessesInput" | "OrganizationalUnitUpdateWithWhereUniqueWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpdateWithWhereUniqueWithoutParentInput" | "OrganizationalUnitUpdateWithoutBusinessRolesDataInput" | "OrganizationalUnitUpdateWithoutChildrenDataInput" | "OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput" | "OrganizationalUnitUpdateWithoutParentDataInput" | "OrganizationalUnitUpdateWithoutProcessesDataInput" | "OrganizationalUnitUpsertWithWhereUniqueWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpsertWithWhereUniqueWithoutParentInput" | "OrganizationalUnitUpsertWithoutBusinessRolesInput" | "OrganizationalUnitUpsertWithoutChildrenInput" | "OrganizationalUnitUpsertWithoutProcessesInput" | "OrganizationalUnitWhereInput" | "OrganizationalUnitWhereUniqueInput" | "PersonCreateInput" | "PersonCreateOneWithoutRolesInput" | "PersonCreateOneWithoutUserInput" | "PersonCreateWithoutRolesInput" | "PersonCreateWithoutUserInput" | "PersonUpdateInput" | "PersonUpdateManyMutationInput" | "PersonUpdateOneWithoutRolesInput" | "PersonUpdateOneWithoutUserInput" | "PersonUpdateWithoutRolesDataInput" | "PersonUpdateWithoutUserDataInput" | "PersonUpsertWithoutRolesInput" | "PersonUpsertWithoutUserInput" | "PersonWhereInput" | "PersonWhereUniqueInput" | "ProcessCreateInput" | "ProcessCreateManyWithoutOrganizationalUnitInput" | "ProcessCreateManyWithoutProcessOwnerInput" | "ProcessCreateOneWithoutProcessingActivitiesInput" | "ProcessCreateWithoutOrganizationalUnitInput" | "ProcessCreateWithoutProcessOwnerInput" | "ProcessCreateWithoutProcessingActivitiesInput" | "ProcessScalarWhereInput" | "ProcessUpdateInput" | "ProcessUpdateManyDataInput" | "ProcessUpdateManyMutationInput" | "ProcessUpdateManyWithWhereNestedInput" | "ProcessUpdateManyWithoutOrganizationalUnitInput" | "ProcessUpdateManyWithoutProcessOwnerInput" | "ProcessUpdateOneWithoutProcessingActivitiesInput" | "ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput" | "ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput" | "ProcessUpdateWithoutOrganizationalUnitDataInput" | "ProcessUpdateWithoutProcessOwnerDataInput" | "ProcessUpdateWithoutProcessingActivitiesDataInput" | "ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput" | "ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput" | "ProcessUpsertWithoutProcessingActivitiesInput" | "ProcessWhereInput" | "ProcessWhereUniqueInput" | "ProcessingActivityCreateInput" | "ProcessingActivityCreateManyWithoutApplicationsInput" | "ProcessingActivityCreateManyWithoutProcessInput" | "ProcessingActivityCreateWithoutApplicationsInput" | "ProcessingActivityCreateWithoutProcessInput" | "ProcessingActivityScalarWhereInput" | "ProcessingActivityUpdateInput" | "ProcessingActivityUpdateManyDataInput" | "ProcessingActivityUpdateManyMutationInput" | "ProcessingActivityUpdateManyWithWhereNestedInput" | "ProcessingActivityUpdateManyWithoutApplicationsInput" | "ProcessingActivityUpdateManyWithoutProcessInput" | "ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput" | "ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput" | "ProcessingActivityUpdateWithoutApplicationsDataInput" | "ProcessingActivityUpdateWithoutProcessDataInput" | "ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput" | "ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput" | "ProcessingActivityWhereInput" | "ProcessingActivityWhereUniqueInput" | "QualityAttributeCreateInput" | "QualityAttributeCreateOneWithoutClassificationLabelsInput" | "QualityAttributeCreateWithoutClassificationLabelsInput" | "QualityAttributeUpdateInput" | "QualityAttributeUpdateManyMutationInput" | "QualityAttributeUpdateOneWithoutClassificationLabelsInput" | "QualityAttributeUpdateWithoutClassificationLabelsDataInput" | "QualityAttributeUpsertWithoutClassificationLabelsInput" | "QualityAttributeWhereInput" | "QualityAttributeWhereUniqueInput" | "UserCreateInput" | "UserCreateOneWithoutPersonInput" | "UserCreateWithoutPersonInput" | "UserCreatespecialPermissionsInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserUpdateOneWithoutPersonInput" | "UserUpdateWithoutPersonDataInput" | "UserUpdatespecialPermissionsInput" | "UserUpsertWithoutPersonInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
-export type NexusGenEnumNames = "ApplicationOrderByInput" | "BusinessRoleOrderByInput" | "CLASSIFICATIONOBJECT" | "ClassificationLabelOrderByInput" | "DataTypeOrderByInput" | "OrganizationalUnitOrderByInput" | "OrganizationalUnitTypeOrderByInput" | "PERMISSION" | "PersonOrderByInput" | "ProcessOrderByInput" | "ProcessingActivityOrderByInput" | "QualityAttributeOrderByInput" | "RACI" | "UserOrderByInput";
+export type NexusGenEnumNames = "ApplicationOrderByInput" | "BusinessRoleOrderByInput" | "CLASSIFICATIONOBJECT" | "ClassificationLabelOrderByInput" | "DataTypeOrderByInput" | "LocationOrderByInput" | "OrganizationOrderByInput" | "OrganizationalUnitOrderByInput" | "OrganizationalUnitTypeOrderByInput" | "PERMISSION" | "PersonOrderByInput" | "ProcessOrderByInput" | "ProcessingActivityOrderByInput" | "QualityAttributeOrderByInput" | "RACI" | "UserOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

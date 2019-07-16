@@ -2,7 +2,7 @@ import { makePrismaSchema, prismaObjectType  } from 'nexus-prisma'
 import * as path from 'path'
 import datamodelInfo from '../generated/nexus-prisma'
 import { prisma } from '../generated/prisma-client'
-import { arg, stringArg } from 'nexus'
+import { arg } from 'nexus'
 
 //Import types
 const { authenticateUser, LoginInput, Token } = require('./authenticate');

@@ -60,6 +60,14 @@ export interface NexusPrismaTypes {
       ClassificationLabelConnection: ClassificationLabelConnectionObject
       ClassificationLabelEdge: ClassificationLabelEdgeObject
       AggregateClassificationLabel: AggregateClassificationLabelObject
+      Organization: OrganizationObject
+      Location: LocationObject
+      OrganizationConnection: OrganizationConnectionObject
+      OrganizationEdge: OrganizationEdgeObject
+      AggregateOrganization: AggregateOrganizationObject
+      LocationConnection: LocationConnectionObject
+      LocationEdge: LocationEdgeObject
+      AggregateLocation: AggregateLocationObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
@@ -85,6 +93,10 @@ export interface NexusPrismaTypes {
       QualityAttributePreviousValues: QualityAttributePreviousValuesObject
       ClassificationLabelSubscriptionPayload: ClassificationLabelSubscriptionPayloadObject
       ClassificationLabelPreviousValues: ClassificationLabelPreviousValuesObject
+      OrganizationSubscriptionPayload: OrganizationSubscriptionPayloadObject
+      OrganizationPreviousValues: OrganizationPreviousValuesObject
+      LocationSubscriptionPayload: LocationSubscriptionPayloadObject
+      LocationPreviousValues: LocationPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -133,6 +145,14 @@ export interface NexusPrismaTypes {
       ClassificationLabelConnection: ClassificationLabelConnectionFieldDetails
       ClassificationLabelEdge: ClassificationLabelEdgeFieldDetails
       AggregateClassificationLabel: AggregateClassificationLabelFieldDetails
+      Organization: OrganizationFieldDetails
+      Location: LocationFieldDetails
+      OrganizationConnection: OrganizationConnectionFieldDetails
+      OrganizationEdge: OrganizationEdgeFieldDetails
+      AggregateOrganization: AggregateOrganizationFieldDetails
+      LocationConnection: LocationConnectionFieldDetails
+      LocationEdge: LocationEdgeFieldDetails
+      AggregateLocation: AggregateLocationFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
@@ -158,6 +178,10 @@ export interface NexusPrismaTypes {
       QualityAttributePreviousValues: QualityAttributePreviousValuesFieldDetails
       ClassificationLabelSubscriptionPayload: ClassificationLabelSubscriptionPayloadFieldDetails
       ClassificationLabelPreviousValues: ClassificationLabelPreviousValuesFieldDetails
+      OrganizationSubscriptionPayload: OrganizationSubscriptionPayloadFieldDetails
+      OrganizationPreviousValues: OrganizationPreviousValuesFieldDetails
+      LocationSubscriptionPayload: LocationSubscriptionPayloadFieldDetails
+      LocationPreviousValues: LocationPreviousValuesFieldDetails
     }
   }
   inputTypes: {
@@ -184,6 +208,10 @@ export interface NexusPrismaTypes {
       DataTypeWhereUniqueInput: DataTypeWhereUniqueInputInputObject
       QualityAttributeWhereUniqueInput: QualityAttributeWhereUniqueInputInputObject
       ClassificationLabelWhereUniqueInput: ClassificationLabelWhereUniqueInputInputObject
+      OrganizationWhereUniqueInput: OrganizationWhereUniqueInputInputObject
+      OrganizationWhereInput: OrganizationWhereInputInputObject
+      LocationWhereInput: LocationWhereInputInputObject
+      LocationWhereUniqueInput: LocationWhereUniqueInputInputObject
       UserCreateInput: UserCreateInputInputObject
       UserCreatespecialPermissionsInput: UserCreatespecialPermissionsInputInputObject
       PersonCreateOneWithoutUserInput: PersonCreateOneWithoutUserInputInputObject
@@ -407,6 +435,22 @@ export interface NexusPrismaTypes {
       ClassificationLabelCreateInput: ClassificationLabelCreateInputInputObject
       ClassificationLabelUpdateInput: ClassificationLabelUpdateInputInputObject
       ClassificationLabelUpdateManyMutationInput: ClassificationLabelUpdateManyMutationInputInputObject
+      OrganizationCreateInput: OrganizationCreateInputInputObject
+      LocationCreateOneWithoutOrganizationInput: LocationCreateOneWithoutOrganizationInputInputObject
+      LocationCreateWithoutOrganizationInput: LocationCreateWithoutOrganizationInputInputObject
+      OrganizationUpdateInput: OrganizationUpdateInputInputObject
+      LocationUpdateOneRequiredWithoutOrganizationInput: LocationUpdateOneRequiredWithoutOrganizationInputInputObject
+      LocationUpdateWithoutOrganizationDataInput: LocationUpdateWithoutOrganizationDataInputInputObject
+      LocationUpsertWithoutOrganizationInput: LocationUpsertWithoutOrganizationInputInputObject
+      OrganizationUpdateManyMutationInput: OrganizationUpdateManyMutationInputInputObject
+      LocationCreateInput: LocationCreateInputInputObject
+      OrganizationCreateOneWithoutHeadOfficeInput: OrganizationCreateOneWithoutHeadOfficeInputInputObject
+      OrganizationCreateWithoutHeadOfficeInput: OrganizationCreateWithoutHeadOfficeInputInputObject
+      LocationUpdateInput: LocationUpdateInputInputObject
+      OrganizationUpdateOneWithoutHeadOfficeInput: OrganizationUpdateOneWithoutHeadOfficeInputInputObject
+      OrganizationUpdateWithoutHeadOfficeDataInput: OrganizationUpdateWithoutHeadOfficeDataInputInputObject
+      OrganizationUpsertWithoutHeadOfficeInput: OrganizationUpsertWithoutHeadOfficeInputInputObject
+      LocationUpdateManyMutationInput: LocationUpdateManyMutationInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
       PersonSubscriptionWhereInput: PersonSubscriptionWhereInputInputObject
       BusinessRoleSubscriptionWhereInput: BusinessRoleSubscriptionWhereInputInputObject
@@ -418,6 +462,8 @@ export interface NexusPrismaTypes {
       DataTypeSubscriptionWhereInput: DataTypeSubscriptionWhereInputInputObject
       QualityAttributeSubscriptionWhereInput: QualityAttributeSubscriptionWhereInputInputObject
       ClassificationLabelSubscriptionWhereInput: ClassificationLabelSubscriptionWhereInputInputObject
+      OrganizationSubscriptionWhereInput: OrganizationSubscriptionWhereInputInputObject
+      LocationSubscriptionWhereInput: LocationSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
@@ -435,6 +481,8 @@ export interface NexusPrismaTypes {
     PersonOrderByInput: PersonOrderByInputValues,
     OrganizationalUnitTypeOrderByInput: OrganizationalUnitTypeOrderByInputValues,
     QualityAttributeOrderByInput: QualityAttributeOrderByInputValues,
+    OrganizationOrderByInput: OrganizationOrderByInputValues,
+    LocationOrderByInput: LocationOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -476,6 +524,12 @@ type QueryObject =
   | { name: 'classificationLabel', args?: QueryClassificationLabelArgs[] | false, alias?: string  } 
   | { name: 'classificationLabels', args?: QueryClassificationLabelsArgs[] | false, alias?: string  } 
   | { name: 'classificationLabelsConnection', args?: QueryClassificationLabelsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'organization', args?: QueryOrganizationArgs[] | false, alias?: string  } 
+  | { name: 'organizations', args?: QueryOrganizationsArgs[] | false, alias?: string  } 
+  | { name: 'organizationsConnection', args?: QueryOrganizationsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'location', args?: QueryLocationArgs[] | false, alias?: string  } 
+  | { name: 'locations', args?: QueryLocationsArgs[] | false, alias?: string  } 
+  | { name: 'locationsConnection', args?: QueryLocationsConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
@@ -511,6 +565,12 @@ type QueryFields =
   | 'classificationLabel'
   | 'classificationLabels'
   | 'classificationLabelsConnection'
+  | 'organization'
+  | 'organizations'
+  | 'organizationsConnection'
+  | 'location'
+  | 'locations'
+  | 'locationsConnection'
 
 
 type QueryUserArgs =
@@ -704,6 +764,42 @@ type QueryClassificationLabelsArgs =
   | 'first'
   | 'last'
 type QueryClassificationLabelsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryOrganizationArgs =
+  | 'where'
+type QueryOrganizationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryOrganizationsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryLocationArgs =
+  | 'where'
+type QueryLocationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryLocationsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1142,6 +1238,84 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ClassificationLabelConnection> | prisma.ClassificationLabelConnection
+  }
+  organization: {
+    type: 'Organization'
+    args: Record<QueryOrganizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: OrganizationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Organization | null> | prisma.Organization | null
+  }
+  organizations: {
+    type: 'Organization'
+    args: Record<QueryOrganizationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: OrganizationWhereInput | null, orderBy?: prisma.OrganizationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Organization[]> | prisma.Organization[]
+  }
+  organizationsConnection: {
+    type: 'OrganizationConnection'
+    args: Record<QueryOrganizationsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: OrganizationWhereInput | null, orderBy?: prisma.OrganizationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OrganizationConnection> | prisma.OrganizationConnection
+  }
+  location: {
+    type: 'Location'
+    args: Record<QueryLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: LocationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  locations: {
+    type: 'Location'
+    args: Record<QueryLocationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: LocationWhereInput | null, orderBy?: prisma.LocationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location[]> | prisma.Location[]
+  }
+  locationsConnection: {
+    type: 'LocationConnection'
+    args: Record<QueryLocationsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: LocationWhereInput | null, orderBy?: prisma.LocationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LocationConnection> | prisma.LocationConnection
   }
 }
   
@@ -3867,6 +4041,416 @@ export interface AggregateClassificationLabelFieldDetails {
 }
   
 
+// Types for Organization
+
+type OrganizationObject =
+  | OrganizationFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'contactDetails', args?: [] | false, alias?: string  } 
+  | { name: 'dpo', args?: [] | false, alias?: string  } 
+  | { name: 'representative', args?: [] | false, alias?: string  } 
+  | { name: 'headOffice', args?: [] | false, alias?: string  } 
+
+type OrganizationFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'contactDetails'
+  | 'dpo'
+  | 'representative'
+  | 'headOffice'
+
+
+
+  
+
+export interface OrganizationFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  contactDetails: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  dpo: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  representative: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  headOffice: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Organization">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location> | prisma.Location
+  }
+}
+  
+
+// Types for Location
+
+type LocationObject =
+  | LocationFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'address', args?: [] | false, alias?: string  } 
+  | { name: 'organization', args?: [] | false, alias?: string  } 
+
+type LocationFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'address'
+  | 'organization'
+
+
+
+  
+
+export interface LocationFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  address: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  organization: {
+    type: 'Organization'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Location">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Organization | null> | prisma.Organization | null
+  }
+}
+  
+
+// Types for OrganizationConnection
+
+type OrganizationConnectionObject =
+  | OrganizationConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type OrganizationConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface OrganizationConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrganizationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'OrganizationEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrganizationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OrganizationEdge[]> | prisma.OrganizationEdge[]
+  }
+  aggregate: {
+    type: 'AggregateOrganization'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrganizationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateOrganization> | prisma.AggregateOrganization
+  }
+}
+  
+
+// Types for OrganizationEdge
+
+type OrganizationEdgeObject =
+  | OrganizationEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type OrganizationEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface OrganizationEdgeFieldDetails {
+  node: {
+    type: 'Organization'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrganizationEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Organization> | prisma.Organization
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateOrganization
+
+type AggregateOrganizationObject =
+  | AggregateOrganizationFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateOrganizationFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateOrganizationFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for LocationConnection
+
+type LocationConnectionObject =
+  | LocationConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type LocationConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface LocationConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'LocationEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LocationEdge[]> | prisma.LocationEdge[]
+  }
+  aggregate: {
+    type: 'AggregateLocation'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateLocation> | prisma.AggregateLocation
+  }
+}
+  
+
+// Types for LocationEdge
+
+type LocationEdgeObject =
+  | LocationEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type LocationEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface LocationEdgeFieldDetails {
+  node: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location> | prisma.Location
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateLocation
+
+type AggregateLocationObject =
+  | AggregateLocationFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateLocationFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateLocationFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -3937,6 +4521,18 @@ type MutationObject =
   | { name: 'upsertClassificationLabel', args?: MutationUpsertClassificationLabelArgs[] | false, alias?: string  } 
   | { name: 'deleteClassificationLabel', args?: MutationDeleteClassificationLabelArgs[] | false, alias?: string  } 
   | { name: 'deleteManyClassificationLabels', args?: MutationDeleteManyClassificationLabelsArgs[] | false, alias?: string  } 
+  | { name: 'createOrganization', args?: MutationCreateOrganizationArgs[] | false, alias?: string  } 
+  | { name: 'updateOrganization', args?: MutationUpdateOrganizationArgs[] | false, alias?: string  } 
+  | { name: 'updateManyOrganizations', args?: MutationUpdateManyOrganizationsArgs[] | false, alias?: string  } 
+  | { name: 'upsertOrganization', args?: MutationUpsertOrganizationArgs[] | false, alias?: string  } 
+  | { name: 'deleteOrganization', args?: MutationDeleteOrganizationArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyOrganizations', args?: MutationDeleteManyOrganizationsArgs[] | false, alias?: string  } 
+  | { name: 'createLocation', args?: MutationCreateLocationArgs[] | false, alias?: string  } 
+  | { name: 'updateLocation', args?: MutationUpdateLocationArgs[] | false, alias?: string  } 
+  | { name: 'updateManyLocations', args?: MutationUpdateManyLocationsArgs[] | false, alias?: string  } 
+  | { name: 'upsertLocation', args?: MutationUpsertLocationArgs[] | false, alias?: string  } 
+  | { name: 'deleteLocation', args?: MutationDeleteLocationArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyLocations', args?: MutationDeleteManyLocationsArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -4005,6 +4601,18 @@ type MutationFields =
   | 'upsertClassificationLabel'
   | 'deleteClassificationLabel'
   | 'deleteManyClassificationLabels'
+  | 'createOrganization'
+  | 'updateOrganization'
+  | 'updateManyOrganizations'
+  | 'upsertOrganization'
+  | 'deleteOrganization'
+  | 'deleteManyOrganizations'
+  | 'createLocation'
+  | 'updateLocation'
+  | 'updateManyLocations'
+  | 'upsertLocation'
+  | 'deleteLocation'
+  | 'deleteManyLocations'
 
 
 type MutationCreateUserArgs =
@@ -4182,6 +4790,38 @@ type MutationUpsertClassificationLabelArgs =
 type MutationDeleteClassificationLabelArgs =
   | 'where'
 type MutationDeleteManyClassificationLabelsArgs =
+  | 'where'
+type MutationCreateOrganizationArgs =
+  | 'data'
+type MutationUpdateOrganizationArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyOrganizationsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertOrganizationArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteOrganizationArgs =
+  | 'where'
+type MutationDeleteManyOrganizationsArgs =
+  | 'where'
+type MutationCreateLocationArgs =
+  | 'data'
+type MutationUpdateLocationArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyLocationsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertLocationArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteLocationArgs =
+  | 'where'
+type MutationDeleteManyLocationsArgs =
   | 'where'
   
 
@@ -5044,6 +5684,162 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createOrganization: {
+    type: 'Organization'
+    args: Record<MutationCreateOrganizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: OrganizationCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Organization> | prisma.Organization
+  }
+  updateOrganization: {
+    type: 'Organization'
+    args: Record<MutationUpdateOrganizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: OrganizationUpdateInput, where: OrganizationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Organization | null> | prisma.Organization | null
+  }
+  updateManyOrganizations: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyOrganizationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: OrganizationUpdateManyMutationInput, where?: OrganizationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertOrganization: {
+    type: 'Organization'
+    args: Record<MutationUpsertOrganizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: OrganizationWhereUniqueInput, create: OrganizationCreateInput, update: OrganizationUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Organization> | prisma.Organization
+  }
+  deleteOrganization: {
+    type: 'Organization'
+    args: Record<MutationDeleteOrganizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: OrganizationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Organization | null> | prisma.Organization | null
+  }
+  deleteManyOrganizations: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyOrganizationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: OrganizationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createLocation: {
+    type: 'Location'
+    args: Record<MutationCreateLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: LocationCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location> | prisma.Location
+  }
+  updateLocation: {
+    type: 'Location'
+    args: Record<MutationUpdateLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: LocationUpdateInput, where: LocationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  updateManyLocations: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyLocationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: LocationUpdateManyMutationInput, where?: LocationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertLocation: {
+    type: 'Location'
+    args: Record<MutationUpsertLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: LocationWhereUniqueInput, create: LocationCreateInput, update: LocationUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location> | prisma.Location
+  }
+  deleteLocation: {
+    type: 'Location'
+    args: Record<MutationDeleteLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: LocationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  deleteManyLocations: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyLocationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: LocationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -5087,6 +5883,8 @@ type SubscriptionObject =
   | { name: 'dataType', args?: SubscriptionDataTypeArgs[] | false, alias?: string  } 
   | { name: 'qualityAttribute', args?: SubscriptionQualityAttributeArgs[] | false, alias?: string  } 
   | { name: 'classificationLabel', args?: SubscriptionClassificationLabelArgs[] | false, alias?: string  } 
+  | { name: 'organization', args?: SubscriptionOrganizationArgs[] | false, alias?: string  } 
+  | { name: 'location', args?: SubscriptionLocationArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
@@ -5100,6 +5898,8 @@ type SubscriptionFields =
   | 'dataType'
   | 'qualityAttribute'
   | 'classificationLabel'
+  | 'organization'
+  | 'location'
 
 
 type SubscriptionUserArgs =
@@ -5123,6 +5923,10 @@ type SubscriptionDataTypeArgs =
 type SubscriptionQualityAttributeArgs =
   | 'where'
 type SubscriptionClassificationLabelArgs =
+  | 'where'
+type SubscriptionOrganizationArgs =
+  | 'where'
+type SubscriptionLocationArgs =
   | 'where'
   
 
@@ -5269,6 +6073,32 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ClassificationLabelSubscriptionPayload | null> | prisma.ClassificationLabelSubscriptionPayload | null
+  }
+  organization: {
+    type: 'OrganizationSubscriptionPayload'
+    args: Record<SubscriptionOrganizationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: OrganizationSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OrganizationSubscriptionPayload | null> | prisma.OrganizationSubscriptionPayload | null
+  }
+  location: {
+    type: 'LocationSubscriptionPayload'
+    args: Record<SubscriptionLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: LocationSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LocationSubscriptionPayload | null> | prisma.LocationSubscriptionPayload | null
   }
 }
   
@@ -6758,6 +7588,276 @@ export interface ClassificationLabelPreviousValuesFieldDetails {
 }
   
 
+// Types for OrganizationSubscriptionPayload
+
+type OrganizationSubscriptionPayloadObject =
+  | OrganizationSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type OrganizationSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface OrganizationSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrganizationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Organization'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"OrganizationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Organization | null> | prisma.Organization | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'OrganizationPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"OrganizationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OrganizationPreviousValues | null> | prisma.OrganizationPreviousValues | null
+  }
+}
+  
+
+// Types for OrganizationPreviousValues
+
+type OrganizationPreviousValuesObject =
+  | OrganizationPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'contactDetails', args?: [] | false, alias?: string  } 
+  | { name: 'dpo', args?: [] | false, alias?: string  } 
+  | { name: 'representative', args?: [] | false, alias?: string  } 
+
+type OrganizationPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'contactDetails'
+  | 'dpo'
+  | 'representative'
+
+
+
+  
+
+export interface OrganizationPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  contactDetails: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  dpo: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  representative: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for LocationSubscriptionPayload
+
+type LocationSubscriptionPayloadObject =
+  | LocationSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type LocationSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface LocationSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"LocationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'LocationPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"LocationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LocationPreviousValues | null> | prisma.LocationPreviousValues | null
+  }
+}
+  
+
+// Types for LocationPreviousValues
+
+type LocationPreviousValuesObject =
+  | LocationPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'address', args?: [] | false, alias?: string  } 
+
+type LocationPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'address'
+
+
+
+  
+
+export interface LocationPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  address: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 
 export interface UserWhereUniqueInput {
   id?: string | null
@@ -8229,6 +9329,326 @@ export interface ClassificationLabelWhereUniqueInput {
 }
 export type ClassificationLabelWhereUniqueInputInputObject =
   | Extract<keyof ClassificationLabelWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface OrganizationWhereUniqueInput {
+  id?: string | null
+}
+export type OrganizationWhereUniqueInputInputObject =
+  | Extract<keyof OrganizationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface OrganizationWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  contactDetails?: string | null
+  contactDetails_not?: string | null
+  contactDetails_in?: string[]
+  contactDetails_not_in?: string[]
+  contactDetails_lt?: string | null
+  contactDetails_lte?: string | null
+  contactDetails_gt?: string | null
+  contactDetails_gte?: string | null
+  contactDetails_contains?: string | null
+  contactDetails_not_contains?: string | null
+  contactDetails_starts_with?: string | null
+  contactDetails_not_starts_with?: string | null
+  contactDetails_ends_with?: string | null
+  contactDetails_not_ends_with?: string | null
+  dpo?: string | null
+  dpo_not?: string | null
+  dpo_in?: string[]
+  dpo_not_in?: string[]
+  dpo_lt?: string | null
+  dpo_lte?: string | null
+  dpo_gt?: string | null
+  dpo_gte?: string | null
+  dpo_contains?: string | null
+  dpo_not_contains?: string | null
+  dpo_starts_with?: string | null
+  dpo_not_starts_with?: string | null
+  dpo_ends_with?: string | null
+  dpo_not_ends_with?: string | null
+  representative?: string | null
+  representative_not?: string | null
+  representative_in?: string[]
+  representative_not_in?: string[]
+  representative_lt?: string | null
+  representative_lte?: string | null
+  representative_gt?: string | null
+  representative_gte?: string | null
+  representative_contains?: string | null
+  representative_not_contains?: string | null
+  representative_starts_with?: string | null
+  representative_not_starts_with?: string | null
+  representative_ends_with?: string | null
+  representative_not_ends_with?: string | null
+  headOffice?: LocationWhereInput | null
+  AND?: OrganizationWhereInput[]
+  OR?: OrganizationWhereInput[]
+  NOT?: OrganizationWhereInput[]
+}
+export type OrganizationWhereInputInputObject =
+  | Extract<keyof OrganizationWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'contactDetails_not', alias?: string  } 
+  | { name: 'contactDetails_in', alias?: string  } 
+  | { name: 'contactDetails_not_in', alias?: string  } 
+  | { name: 'contactDetails_lt', alias?: string  } 
+  | { name: 'contactDetails_lte', alias?: string  } 
+  | { name: 'contactDetails_gt', alias?: string  } 
+  | { name: 'contactDetails_gte', alias?: string  } 
+  | { name: 'contactDetails_contains', alias?: string  } 
+  | { name: 'contactDetails_not_contains', alias?: string  } 
+  | { name: 'contactDetails_starts_with', alias?: string  } 
+  | { name: 'contactDetails_not_starts_with', alias?: string  } 
+  | { name: 'contactDetails_ends_with', alias?: string  } 
+  | { name: 'contactDetails_not_ends_with', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'dpo_not', alias?: string  } 
+  | { name: 'dpo_in', alias?: string  } 
+  | { name: 'dpo_not_in', alias?: string  } 
+  | { name: 'dpo_lt', alias?: string  } 
+  | { name: 'dpo_lte', alias?: string  } 
+  | { name: 'dpo_gt', alias?: string  } 
+  | { name: 'dpo_gte', alias?: string  } 
+  | { name: 'dpo_contains', alias?: string  } 
+  | { name: 'dpo_not_contains', alias?: string  } 
+  | { name: 'dpo_starts_with', alias?: string  } 
+  | { name: 'dpo_not_starts_with', alias?: string  } 
+  | { name: 'dpo_ends_with', alias?: string  } 
+  | { name: 'dpo_not_ends_with', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  | { name: 'representative_not', alias?: string  } 
+  | { name: 'representative_in', alias?: string  } 
+  | { name: 'representative_not_in', alias?: string  } 
+  | { name: 'representative_lt', alias?: string  } 
+  | { name: 'representative_lte', alias?: string  } 
+  | { name: 'representative_gt', alias?: string  } 
+  | { name: 'representative_gte', alias?: string  } 
+  | { name: 'representative_contains', alias?: string  } 
+  | { name: 'representative_not_contains', alias?: string  } 
+  | { name: 'representative_starts_with', alias?: string  } 
+  | { name: 'representative_not_starts_with', alias?: string  } 
+  | { name: 'representative_ends_with', alias?: string  } 
+  | { name: 'representative_not_ends_with', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface LocationWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  address?: string | null
+  address_not?: string | null
+  address_in?: string[]
+  address_not_in?: string[]
+  address_lt?: string | null
+  address_lte?: string | null
+  address_gt?: string | null
+  address_gte?: string | null
+  address_contains?: string | null
+  address_not_contains?: string | null
+  address_starts_with?: string | null
+  address_not_starts_with?: string | null
+  address_ends_with?: string | null
+  address_not_ends_with?: string | null
+  organization?: OrganizationWhereInput | null
+  AND?: LocationWhereInput[]
+  OR?: LocationWhereInput[]
+  NOT?: LocationWhereInput[]
+}
+export type LocationWhereInputInputObject =
+  | Extract<keyof LocationWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  | { name: 'address_not', alias?: string  } 
+  | { name: 'address_in', alias?: string  } 
+  | { name: 'address_not_in', alias?: string  } 
+  | { name: 'address_lt', alias?: string  } 
+  | { name: 'address_lte', alias?: string  } 
+  | { name: 'address_gt', alias?: string  } 
+  | { name: 'address_gte', alias?: string  } 
+  | { name: 'address_contains', alias?: string  } 
+  | { name: 'address_not_contains', alias?: string  } 
+  | { name: 'address_starts_with', alias?: string  } 
+  | { name: 'address_not_starts_with', alias?: string  } 
+  | { name: 'address_ends_with', alias?: string  } 
+  | { name: 'address_not_ends_with', alias?: string  } 
+  | { name: 'organization', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface LocationWhereUniqueInput {
+  id?: string | null
+}
+export type LocationWhereUniqueInputInputObject =
+  | Extract<keyof LocationWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
 export interface UserCreateInput {
@@ -12146,6 +13566,218 @@ export type ClassificationLabelUpdateManyMutationInputInputObject =
   | { name: 'label', alias?: string  } 
   | { name: 'criteria', alias?: string  } 
   
+export interface OrganizationCreateInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  contactDetails?: string
+  dpo?: string
+  representative?: string
+  headOffice?: LocationCreateOneWithoutOrganizationInput
+}
+export type OrganizationCreateInputInputObject =
+  | Extract<keyof OrganizationCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
+  
+export interface LocationCreateOneWithoutOrganizationInput {
+  create?: LocationCreateWithoutOrganizationInput | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationCreateOneWithoutOrganizationInputInputObject =
+  | Extract<keyof LocationCreateOneWithoutOrganizationInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationCreateWithoutOrganizationInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  address?: string
+}
+export type LocationCreateWithoutOrganizationInputInputObject =
+  | Extract<keyof LocationCreateWithoutOrganizationInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  
+export interface OrganizationUpdateInput {
+  name?: string | null
+  description?: string | null
+  contactDetails?: string | null
+  dpo?: string | null
+  representative?: string | null
+  headOffice?: LocationUpdateOneRequiredWithoutOrganizationInput | null
+}
+export type OrganizationUpdateInputInputObject =
+  | Extract<keyof OrganizationUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
+  
+export interface LocationUpdateOneRequiredWithoutOrganizationInput {
+  create?: LocationCreateWithoutOrganizationInput | null
+  update?: LocationUpdateWithoutOrganizationDataInput | null
+  upsert?: LocationUpsertWithoutOrganizationInput | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationUpdateOneRequiredWithoutOrganizationInputInputObject =
+  | Extract<keyof LocationUpdateOneRequiredWithoutOrganizationInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationUpdateWithoutOrganizationDataInput {
+  name?: string | null
+  description?: string | null
+  address?: string | null
+}
+export type LocationUpdateWithoutOrganizationDataInputInputObject =
+  | Extract<keyof LocationUpdateWithoutOrganizationDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  
+export interface LocationUpsertWithoutOrganizationInput {
+  update?: LocationUpdateWithoutOrganizationDataInput
+  create?: LocationCreateWithoutOrganizationInput
+}
+export type LocationUpsertWithoutOrganizationInputInputObject =
+  | Extract<keyof LocationUpsertWithoutOrganizationInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface OrganizationUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+  contactDetails?: string | null
+  dpo?: string | null
+  representative?: string | null
+}
+export type OrganizationUpdateManyMutationInputInputObject =
+  | Extract<keyof OrganizationUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  
+export interface LocationCreateInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  address?: string
+  organization?: OrganizationCreateOneWithoutHeadOfficeInput | null
+}
+export type LocationCreateInputInputObject =
+  | Extract<keyof LocationCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  | { name: 'organization', alias?: string  } 
+  
+export interface OrganizationCreateOneWithoutHeadOfficeInput {
+  create?: OrganizationCreateWithoutHeadOfficeInput | null
+  connect?: OrganizationWhereUniqueInput | null
+}
+export type OrganizationCreateOneWithoutHeadOfficeInputInputObject =
+  | Extract<keyof OrganizationCreateOneWithoutHeadOfficeInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface OrganizationCreateWithoutHeadOfficeInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  contactDetails?: string
+  dpo?: string
+  representative?: string
+}
+export type OrganizationCreateWithoutHeadOfficeInputInputObject =
+  | Extract<keyof OrganizationCreateWithoutHeadOfficeInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  
+export interface LocationUpdateInput {
+  name?: string | null
+  description?: string | null
+  address?: string | null
+  organization?: OrganizationUpdateOneWithoutHeadOfficeInput | null
+}
+export type LocationUpdateInputInputObject =
+  | Extract<keyof LocationUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  | { name: 'organization', alias?: string  } 
+  
+export interface OrganizationUpdateOneWithoutHeadOfficeInput {
+  create?: OrganizationCreateWithoutHeadOfficeInput | null
+  update?: OrganizationUpdateWithoutHeadOfficeDataInput | null
+  upsert?: OrganizationUpsertWithoutHeadOfficeInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: OrganizationWhereUniqueInput | null
+}
+export type OrganizationUpdateOneWithoutHeadOfficeInputInputObject =
+  | Extract<keyof OrganizationUpdateOneWithoutHeadOfficeInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface OrganizationUpdateWithoutHeadOfficeDataInput {
+  name?: string | null
+  description?: string | null
+  contactDetails?: string | null
+  dpo?: string | null
+  representative?: string | null
+}
+export type OrganizationUpdateWithoutHeadOfficeDataInputInputObject =
+  | Extract<keyof OrganizationUpdateWithoutHeadOfficeDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  
+export interface OrganizationUpsertWithoutHeadOfficeInput {
+  update?: OrganizationUpdateWithoutHeadOfficeDataInput
+  create?: OrganizationCreateWithoutHeadOfficeInput
+}
+export type OrganizationUpsertWithoutHeadOfficeInputInputObject =
+  | Extract<keyof OrganizationUpsertWithoutHeadOfficeInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface LocationUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+  address?: string | null
+}
+export type LocationUpdateManyMutationInputInputObject =
+  | Extract<keyof LocationUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  
 export interface UserSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
@@ -12377,6 +14009,48 @@ export type ClassificationLabelSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface OrganizationSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: OrganizationWhereInput | null
+  AND?: OrganizationSubscriptionWhereInput[]
+  OR?: OrganizationSubscriptionWhereInput[]
+  NOT?: OrganizationSubscriptionWhereInput[]
+}
+export type OrganizationSubscriptionWhereInputInputObject =
+  | Extract<keyof OrganizationSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface LocationSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: LocationWhereInput | null
+  AND?: LocationSubscriptionWhereInput[]
+  OR?: LocationSubscriptionWhereInput[]
+  NOT?: LocationSubscriptionWhereInput[]
+}
+export type LocationSubscriptionWhereInputInputObject =
+  | Extract<keyof LocationSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 
 export type PERMISSIONValues =
   | 'ADMIN'
@@ -12539,6 +14213,38 @@ export type QualityAttributeOrderByInputValues =
   | 'description_DESC'
   | 'appliesToObject_ASC'
   | 'appliesToObject_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type OrganizationOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'contactDetails_ASC'
+  | 'contactDetails_DESC'
+  | 'dpo_ASC'
+  | 'dpo_DESC'
+  | 'representative_ASC'
+  | 'representative_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type LocationOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'address_ASC'
+  | 'address_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
