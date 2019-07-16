@@ -101,7 +101,7 @@ class UpdateProcess extends React.Component {
                           </Form.Item>  
                           <Form.Item 
                             label="Process owner">
-                            { <BusinessRolesOptionsList form={form} id={processOwnerId}/> }
+                            { <BusinessRolesOptionsList form={form} id={processOwnerId} field="processOwner"/> }
                           </Form.Item>
                           <Form.Item label="Organizational Unit" >
                             <OuTree form={form} parentId={organizationalUnitId} parentTree={false} /> 
