@@ -1,15 +1,15 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import { Table, Divider, Card, Empty } from 'antd';
-import { ALL_ORGANIZATIONS  } from '../../queries/OrganizationQueries';
-import CreateOrganization from './CreateOrganization'
-import UpdateOrganization from './UpdateOrganization'
-import DeleteOrganization from './DeleteOrganization'
-import viewOrganizationDrawer from './ViewOrganization'
+import { ALL_BUSINESSPARTNERS  } from '../../queries/BusinessPartnerQueries';
+import CreateBusinessPartner from './CreateBusinessPartner'
+import UpdateBusinessPartner from './UpdateBusinessPartner'
+import DeleteBusinessPartner from './DeleteBusinessPartner'
+import viewBusinessPartnerDrawer from './ViewBusinessPartner'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
 import { ShowInDrawer } from '../generic/viewHelpers'
 
-class OrganizationsTable extends React.Component {
+class BusinessPartnersTable extends React.Component {
   constructor(props) {
     super(props);
 
@@ -54,26 +54,26 @@ class OrganizationsTable extends React.Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          <ShowInDrawer id={record.id} Component={viewOrganizationDrawer}>Details</ShowInDrawer>
+          <ShowInDrawer id={record.id} Component={viewBusinessPartnerDrawer}>Details</ShowInDrawer>
           <Divider type="vertical" />
-          <UpdateOrganization Organization={record} />
+          <UpdateBusinessPartner BusinessPartner={record} />
           <Divider type="vertical" />
-          <DeleteOrganization Organization={record} />
+          <DeleteBusinessPartner BusinessPartner={record} />
         </span>
       ),
     }];
     
     return (
         <Query
-          query = { ALL_ORGANIZATIONS }
+          query = { ALL_BUSINESSPARTNERS }
           >
           {({ loading, data, error }) => {
             if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.organizations || [];
+            const dataSource = data.businessPartners || [];
 
             return(
               <React.Fragment>  
-                <Card title="3rd parties" extra={<CreateOrganization />} style={{ background: '#fff' }}>
+                <Card title="3rd parties" extra={<CreateBusinessPartner />} style={{ background: '#fff' }}>
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
@@ -89,4 +89,4 @@ class OrganizationsTable extends React.Component {
   }
 }
 
-export default OrganizationsTable
+export default BusinessPartnersTable

@@ -19,7 +19,7 @@ export interface NexusGenInputs {
     id?: string | null; // ID
     itOwner?: NexusGenInputs['BusinessRoleCreateOneWithoutAppItOwnerInput'] | null; // BusinessRoleCreateOneWithoutAppItOwnerInput
     name: string; // String!
-    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyWithoutApplicationsInput'] | null; // ProcessingActivityCreateManyWithoutApplicationsInput
+    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyInput'] | null; // ProcessingActivityCreateManyInput
     securityAdministrator?: NexusGenInputs['BusinessRoleCreateOneWithoutAppSecAdminInput'] | null; // BusinessRoleCreateOneWithoutAppSecAdminInput
   }
   ApplicationCreateManyWithoutBusinessOwnerInput: { // input type
@@ -34,10 +34,6 @@ export interface NexusGenInputs {
     connect?: NexusGenInputs['ApplicationWhereUniqueInput'][] | null; // [ApplicationWhereUniqueInput!]
     create?: NexusGenInputs['ApplicationCreateWithoutItOwnerInput'][] | null; // [ApplicationCreateWithoutItOwnerInput!]
   }
-  ApplicationCreateManyWithoutProcessingActivitiesInput: { // input type
-    connect?: NexusGenInputs['ApplicationWhereUniqueInput'][] | null; // [ApplicationWhereUniqueInput!]
-    create?: NexusGenInputs['ApplicationCreateWithoutProcessingActivitiesInput'][] | null; // [ApplicationCreateWithoutProcessingActivitiesInput!]
-  }
   ApplicationCreateManyWithoutSecurityAdministratorInput: { // input type
     connect?: NexusGenInputs['ApplicationWhereUniqueInput'][] | null; // [ApplicationWhereUniqueInput!]
     create?: NexusGenInputs['ApplicationCreateWithoutSecurityAdministratorInput'][] | null; // [ApplicationCreateWithoutSecurityAdministratorInput!]
@@ -49,7 +45,7 @@ export interface NexusGenInputs {
     id?: string | null; // ID
     itOwner?: NexusGenInputs['BusinessRoleCreateOneWithoutAppItOwnerInput'] | null; // BusinessRoleCreateOneWithoutAppItOwnerInput
     name: string; // String!
-    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyWithoutApplicationsInput'] | null; // ProcessingActivityCreateManyWithoutApplicationsInput
+    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyInput'] | null; // ProcessingActivityCreateManyInput
     securityAdministrator?: NexusGenInputs['BusinessRoleCreateOneWithoutAppSecAdminInput'] | null; // BusinessRoleCreateOneWithoutAppSecAdminInput
   }
   ApplicationCreateWithoutDataTypesInput: { // input type
@@ -59,7 +55,7 @@ export interface NexusGenInputs {
     id?: string | null; // ID
     itOwner?: NexusGenInputs['BusinessRoleCreateOneWithoutAppItOwnerInput'] | null; // BusinessRoleCreateOneWithoutAppItOwnerInput
     name: string; // String!
-    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyWithoutApplicationsInput'] | null; // ProcessingActivityCreateManyWithoutApplicationsInput
+    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyInput'] | null; // ProcessingActivityCreateManyInput
     securityAdministrator?: NexusGenInputs['BusinessRoleCreateOneWithoutAppSecAdminInput'] | null; // BusinessRoleCreateOneWithoutAppSecAdminInput
   }
   ApplicationCreateWithoutItOwnerInput: { // input type
@@ -69,17 +65,7 @@ export interface NexusGenInputs {
     description?: string | null; // String
     id?: string | null; // ID
     name: string; // String!
-    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyWithoutApplicationsInput'] | null; // ProcessingActivityCreateManyWithoutApplicationsInput
-    securityAdministrator?: NexusGenInputs['BusinessRoleCreateOneWithoutAppSecAdminInput'] | null; // BusinessRoleCreateOneWithoutAppSecAdminInput
-  }
-  ApplicationCreateWithoutProcessingActivitiesInput: { // input type
-    alias?: any | null; // Json
-    businessOwner?: NexusGenInputs['BusinessRoleCreateOneWithoutAppBusinessOwnerInput'] | null; // BusinessRoleCreateOneWithoutAppBusinessOwnerInput
-    dataTypes?: NexusGenInputs['DataTypeCreateManyWithoutApplicationInput'] | null; // DataTypeCreateManyWithoutApplicationInput
-    description?: string | null; // String
-    id?: string | null; // ID
-    itOwner?: NexusGenInputs['BusinessRoleCreateOneWithoutAppItOwnerInput'] | null; // BusinessRoleCreateOneWithoutAppItOwnerInput
-    name: string; // String!
+    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyInput'] | null; // ProcessingActivityCreateManyInput
     securityAdministrator?: NexusGenInputs['BusinessRoleCreateOneWithoutAppSecAdminInput'] | null; // BusinessRoleCreateOneWithoutAppSecAdminInput
   }
   ApplicationCreateWithoutSecurityAdministratorInput: { // input type
@@ -90,7 +76,7 @@ export interface NexusGenInputs {
     id?: string | null; // ID
     itOwner?: NexusGenInputs['BusinessRoleCreateOneWithoutAppItOwnerInput'] | null; // BusinessRoleCreateOneWithoutAppItOwnerInput
     name: string; // String!
-    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyWithoutApplicationsInput'] | null; // ProcessingActivityCreateManyWithoutApplicationsInput
+    processingActivities?: NexusGenInputs['ProcessingActivityCreateManyInput'] | null; // ProcessingActivityCreateManyInput
   }
   ApplicationScalarWhereInput: { // input type
     AND?: NexusGenInputs['ApplicationScalarWhereInput'][] | null; // [ApplicationScalarWhereInput!]
@@ -146,7 +132,7 @@ export interface NexusGenInputs {
     description?: string | null; // String
     itOwner?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppItOwnerInput'] | null; // BusinessRoleUpdateOneWithoutAppItOwnerInput
     name?: string | null; // String
-    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyWithoutApplicationsInput'] | null; // ProcessingActivityUpdateManyWithoutApplicationsInput
+    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyInput'] | null; // ProcessingActivityUpdateManyInput
     securityAdministrator?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppSecAdminInput'] | null; // BusinessRoleUpdateOneWithoutAppSecAdminInput
   }
   ApplicationUpdateManyDataInput: { // input type
@@ -196,17 +182,6 @@ export interface NexusGenInputs {
     updateMany?: NexusGenInputs['ApplicationUpdateManyWithWhereNestedInput'][] | null; // [ApplicationUpdateManyWithWhereNestedInput!]
     upsert?: NexusGenInputs['ApplicationUpsertWithWhereUniqueWithoutItOwnerInput'][] | null; // [ApplicationUpsertWithWhereUniqueWithoutItOwnerInput!]
   }
-  ApplicationUpdateManyWithoutProcessingActivitiesInput: { // input type
-    connect?: NexusGenInputs['ApplicationWhereUniqueInput'][] | null; // [ApplicationWhereUniqueInput!]
-    create?: NexusGenInputs['ApplicationCreateWithoutProcessingActivitiesInput'][] | null; // [ApplicationCreateWithoutProcessingActivitiesInput!]
-    delete?: NexusGenInputs['ApplicationWhereUniqueInput'][] | null; // [ApplicationWhereUniqueInput!]
-    deleteMany?: NexusGenInputs['ApplicationScalarWhereInput'][] | null; // [ApplicationScalarWhereInput!]
-    disconnect?: NexusGenInputs['ApplicationWhereUniqueInput'][] | null; // [ApplicationWhereUniqueInput!]
-    set?: NexusGenInputs['ApplicationWhereUniqueInput'][] | null; // [ApplicationWhereUniqueInput!]
-    update?: NexusGenInputs['ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput'][] | null; // [ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput!]
-    updateMany?: NexusGenInputs['ApplicationUpdateManyWithWhereNestedInput'][] | null; // [ApplicationUpdateManyWithWhereNestedInput!]
-    upsert?: NexusGenInputs['ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput'][] | null; // [ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput!]
-  }
   ApplicationUpdateManyWithoutSecurityAdministratorInput: { // input type
     connect?: NexusGenInputs['ApplicationWhereUniqueInput'][] | null; // [ApplicationWhereUniqueInput!]
     create?: NexusGenInputs['ApplicationCreateWithoutSecurityAdministratorInput'][] | null; // [ApplicationCreateWithoutSecurityAdministratorInput!]
@@ -230,10 +205,6 @@ export interface NexusGenInputs {
     data: NexusGenInputs['ApplicationUpdateWithoutItOwnerDataInput']; // ApplicationUpdateWithoutItOwnerDataInput!
     where: NexusGenInputs['ApplicationWhereUniqueInput']; // ApplicationWhereUniqueInput!
   }
-  ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput: { // input type
-    data: NexusGenInputs['ApplicationUpdateWithoutProcessingActivitiesDataInput']; // ApplicationUpdateWithoutProcessingActivitiesDataInput!
-    where: NexusGenInputs['ApplicationWhereUniqueInput']; // ApplicationWhereUniqueInput!
-  }
   ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput: { // input type
     data: NexusGenInputs['ApplicationUpdateWithoutSecurityAdministratorDataInput']; // ApplicationUpdateWithoutSecurityAdministratorDataInput!
     where: NexusGenInputs['ApplicationWhereUniqueInput']; // ApplicationWhereUniqueInput!
@@ -244,7 +215,7 @@ export interface NexusGenInputs {
     description?: string | null; // String
     itOwner?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppItOwnerInput'] | null; // BusinessRoleUpdateOneWithoutAppItOwnerInput
     name?: string | null; // String
-    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyWithoutApplicationsInput'] | null; // ProcessingActivityUpdateManyWithoutApplicationsInput
+    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyInput'] | null; // ProcessingActivityUpdateManyInput
     securityAdministrator?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppSecAdminInput'] | null; // BusinessRoleUpdateOneWithoutAppSecAdminInput
   }
   ApplicationUpdateWithoutDataTypesDataInput: { // input type
@@ -253,7 +224,7 @@ export interface NexusGenInputs {
     description?: string | null; // String
     itOwner?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppItOwnerInput'] | null; // BusinessRoleUpdateOneWithoutAppItOwnerInput
     name?: string | null; // String
-    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyWithoutApplicationsInput'] | null; // ProcessingActivityUpdateManyWithoutApplicationsInput
+    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyInput'] | null; // ProcessingActivityUpdateManyInput
     securityAdministrator?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppSecAdminInput'] | null; // BusinessRoleUpdateOneWithoutAppSecAdminInput
   }
   ApplicationUpdateWithoutItOwnerDataInput: { // input type
@@ -262,16 +233,7 @@ export interface NexusGenInputs {
     dataTypes?: NexusGenInputs['DataTypeUpdateManyWithoutApplicationInput'] | null; // DataTypeUpdateManyWithoutApplicationInput
     description?: string | null; // String
     name?: string | null; // String
-    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyWithoutApplicationsInput'] | null; // ProcessingActivityUpdateManyWithoutApplicationsInput
-    securityAdministrator?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppSecAdminInput'] | null; // BusinessRoleUpdateOneWithoutAppSecAdminInput
-  }
-  ApplicationUpdateWithoutProcessingActivitiesDataInput: { // input type
-    alias?: any | null; // Json
-    businessOwner?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppBusinessOwnerInput'] | null; // BusinessRoleUpdateOneWithoutAppBusinessOwnerInput
-    dataTypes?: NexusGenInputs['DataTypeUpdateManyWithoutApplicationInput'] | null; // DataTypeUpdateManyWithoutApplicationInput
-    description?: string | null; // String
-    itOwner?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppItOwnerInput'] | null; // BusinessRoleUpdateOneWithoutAppItOwnerInput
-    name?: string | null; // String
+    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyInput'] | null; // ProcessingActivityUpdateManyInput
     securityAdministrator?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppSecAdminInput'] | null; // BusinessRoleUpdateOneWithoutAppSecAdminInput
   }
   ApplicationUpdateWithoutSecurityAdministratorDataInput: { // input type
@@ -281,7 +243,7 @@ export interface NexusGenInputs {
     description?: string | null; // String
     itOwner?: NexusGenInputs['BusinessRoleUpdateOneWithoutAppItOwnerInput'] | null; // BusinessRoleUpdateOneWithoutAppItOwnerInput
     name?: string | null; // String
-    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyWithoutApplicationsInput'] | null; // ProcessingActivityUpdateManyWithoutApplicationsInput
+    processingActivities?: NexusGenInputs['ProcessingActivityUpdateManyInput'] | null; // ProcessingActivityUpdateManyInput
   }
   ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput: { // input type
     create: NexusGenInputs['ApplicationCreateWithoutBusinessOwnerInput']; // ApplicationCreateWithoutBusinessOwnerInput!
@@ -296,11 +258,6 @@ export interface NexusGenInputs {
   ApplicationUpsertWithWhereUniqueWithoutItOwnerInput: { // input type
     create: NexusGenInputs['ApplicationCreateWithoutItOwnerInput']; // ApplicationCreateWithoutItOwnerInput!
     update: NexusGenInputs['ApplicationUpdateWithoutItOwnerDataInput']; // ApplicationUpdateWithoutItOwnerDataInput!
-    where: NexusGenInputs['ApplicationWhereUniqueInput']; // ApplicationWhereUniqueInput!
-  }
-  ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput: { // input type
-    create: NexusGenInputs['ApplicationCreateWithoutProcessingActivitiesInput']; // ApplicationCreateWithoutProcessingActivitiesInput!
-    update: NexusGenInputs['ApplicationUpdateWithoutProcessingActivitiesDataInput']; // ApplicationUpdateWithoutProcessingActivitiesDataInput!
     where: NexusGenInputs['ApplicationWhereUniqueInput']; // ApplicationWhereUniqueInput!
   }
   ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput: { // input type
@@ -365,6 +322,410 @@ export interface NexusGenInputs {
     securityAdministrator?: NexusGenInputs['BusinessRoleWhereInput'] | null; // BusinessRoleWhereInput
   }
   ApplicationWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  BusinessPartnerCreateInput: { // input type
+    contactDetails: string; // String!
+    description?: string | null; // String
+    dpo: string; // String!
+    headOffice: NexusGenInputs['LocationCreateOneWithoutBusinessPartnerInput']; // LocationCreateOneWithoutBusinessPartnerInput!
+    id?: string | null; // ID
+    linkToDpa?: string | null; // String
+    name: string; // String!
+    otherCountries?: any | null; // Json
+    outsideEea?: boolean | null; // Boolean
+    processingTypes?: NexusGenInputs['ProcessingTypeCreateManyInput'] | null; // ProcessingTypeCreateManyInput
+    recipientsType?: NexusGenInputs['RecipientsTypeCreateOneInput'] | null; // RecipientsTypeCreateOneInput
+    representative?: NexusGenInputs['BusinessPartnerCreateOneInput'] | null; // BusinessPartnerCreateOneInput
+    safeguards?: string | null; // String
+    securityMeasures: string; // String!
+  }
+  BusinessPartnerCreateManyInput: { // input type
+    connect?: NexusGenInputs['BusinessPartnerWhereUniqueInput'][] | null; // [BusinessPartnerWhereUniqueInput!]
+    create?: NexusGenInputs['BusinessPartnerCreateInput'][] | null; // [BusinessPartnerCreateInput!]
+  }
+  BusinessPartnerCreateOneInput: { // input type
+    connect?: NexusGenInputs['BusinessPartnerWhereUniqueInput'] | null; // BusinessPartnerWhereUniqueInput
+    create?: NexusGenInputs['BusinessPartnerCreateInput'] | null; // BusinessPartnerCreateInput
+  }
+  BusinessPartnerCreateOneWithoutHeadOfficeInput: { // input type
+    connect?: NexusGenInputs['BusinessPartnerWhereUniqueInput'] | null; // BusinessPartnerWhereUniqueInput
+    create?: NexusGenInputs['BusinessPartnerCreateWithoutHeadOfficeInput'] | null; // BusinessPartnerCreateWithoutHeadOfficeInput
+  }
+  BusinessPartnerCreateWithoutHeadOfficeInput: { // input type
+    contactDetails: string; // String!
+    description?: string | null; // String
+    dpo: string; // String!
+    id?: string | null; // ID
+    linkToDpa?: string | null; // String
+    name: string; // String!
+    otherCountries?: any | null; // Json
+    outsideEea?: boolean | null; // Boolean
+    processingTypes?: NexusGenInputs['ProcessingTypeCreateManyInput'] | null; // ProcessingTypeCreateManyInput
+    recipientsType?: NexusGenInputs['RecipientsTypeCreateOneInput'] | null; // RecipientsTypeCreateOneInput
+    representative?: NexusGenInputs['BusinessPartnerCreateOneInput'] | null; // BusinessPartnerCreateOneInput
+    safeguards?: string | null; // String
+    securityMeasures: string; // String!
+  }
+  BusinessPartnerScalarWhereInput: { // input type
+    AND?: NexusGenInputs['BusinessPartnerScalarWhereInput'][] | null; // [BusinessPartnerScalarWhereInput!]
+    contactDetails?: string | null; // String
+    contactDetails_contains?: string | null; // String
+    contactDetails_ends_with?: string | null; // String
+    contactDetails_gt?: string | null; // String
+    contactDetails_gte?: string | null; // String
+    contactDetails_in?: string[] | null; // [String!]
+    contactDetails_lt?: string | null; // String
+    contactDetails_lte?: string | null; // String
+    contactDetails_not?: string | null; // String
+    contactDetails_not_contains?: string | null; // String
+    contactDetails_not_ends_with?: string | null; // String
+    contactDetails_not_in?: string[] | null; // [String!]
+    contactDetails_not_starts_with?: string | null; // String
+    contactDetails_starts_with?: string | null; // String
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    dpo?: string | null; // String
+    dpo_contains?: string | null; // String
+    dpo_ends_with?: string | null; // String
+    dpo_gt?: string | null; // String
+    dpo_gte?: string | null; // String
+    dpo_in?: string[] | null; // [String!]
+    dpo_lt?: string | null; // String
+    dpo_lte?: string | null; // String
+    dpo_not?: string | null; // String
+    dpo_not_contains?: string | null; // String
+    dpo_not_ends_with?: string | null; // String
+    dpo_not_in?: string[] | null; // [String!]
+    dpo_not_starts_with?: string | null; // String
+    dpo_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    linkToDpa?: string | null; // String
+    linkToDpa_contains?: string | null; // String
+    linkToDpa_ends_with?: string | null; // String
+    linkToDpa_gt?: string | null; // String
+    linkToDpa_gte?: string | null; // String
+    linkToDpa_in?: string[] | null; // [String!]
+    linkToDpa_lt?: string | null; // String
+    linkToDpa_lte?: string | null; // String
+    linkToDpa_not?: string | null; // String
+    linkToDpa_not_contains?: string | null; // String
+    linkToDpa_not_ends_with?: string | null; // String
+    linkToDpa_not_in?: string[] | null; // [String!]
+    linkToDpa_not_starts_with?: string | null; // String
+    linkToDpa_starts_with?: string | null; // String
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['BusinessPartnerScalarWhereInput'][] | null; // [BusinessPartnerScalarWhereInput!]
+    OR?: NexusGenInputs['BusinessPartnerScalarWhereInput'][] | null; // [BusinessPartnerScalarWhereInput!]
+    outsideEea?: boolean | null; // Boolean
+    outsideEea_not?: boolean | null; // Boolean
+    safeguards?: string | null; // String
+    safeguards_contains?: string | null; // String
+    safeguards_ends_with?: string | null; // String
+    safeguards_gt?: string | null; // String
+    safeguards_gte?: string | null; // String
+    safeguards_in?: string[] | null; // [String!]
+    safeguards_lt?: string | null; // String
+    safeguards_lte?: string | null; // String
+    safeguards_not?: string | null; // String
+    safeguards_not_contains?: string | null; // String
+    safeguards_not_ends_with?: string | null; // String
+    safeguards_not_in?: string[] | null; // [String!]
+    safeguards_not_starts_with?: string | null; // String
+    safeguards_starts_with?: string | null; // String
+    securityMeasures?: string | null; // String
+    securityMeasures_contains?: string | null; // String
+    securityMeasures_ends_with?: string | null; // String
+    securityMeasures_gt?: string | null; // String
+    securityMeasures_gte?: string | null; // String
+    securityMeasures_in?: string[] | null; // [String!]
+    securityMeasures_lt?: string | null; // String
+    securityMeasures_lte?: string | null; // String
+    securityMeasures_not?: string | null; // String
+    securityMeasures_not_contains?: string | null; // String
+    securityMeasures_not_ends_with?: string | null; // String
+    securityMeasures_not_in?: string[] | null; // [String!]
+    securityMeasures_not_starts_with?: string | null; // String
+    securityMeasures_starts_with?: string | null; // String
+  }
+  BusinessPartnerUpdateDataInput: { // input type
+    contactDetails?: string | null; // String
+    description?: string | null; // String
+    dpo?: string | null; // String
+    headOffice?: NexusGenInputs['LocationUpdateOneRequiredWithoutBusinessPartnerInput'] | null; // LocationUpdateOneRequiredWithoutBusinessPartnerInput
+    linkToDpa?: string | null; // String
+    name?: string | null; // String
+    otherCountries?: any | null; // Json
+    outsideEea?: boolean | null; // Boolean
+    processingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
+    recipientsType?: NexusGenInputs['RecipientsTypeUpdateOneInput'] | null; // RecipientsTypeUpdateOneInput
+    representative?: NexusGenInputs['BusinessPartnerUpdateOneInput'] | null; // BusinessPartnerUpdateOneInput
+    safeguards?: string | null; // String
+    securityMeasures?: string | null; // String
+  }
+  BusinessPartnerUpdateInput: { // input type
+    contactDetails?: string | null; // String
+    description?: string | null; // String
+    dpo?: string | null; // String
+    headOffice?: NexusGenInputs['LocationUpdateOneRequiredWithoutBusinessPartnerInput'] | null; // LocationUpdateOneRequiredWithoutBusinessPartnerInput
+    linkToDpa?: string | null; // String
+    name?: string | null; // String
+    otherCountries?: any | null; // Json
+    outsideEea?: boolean | null; // Boolean
+    processingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
+    recipientsType?: NexusGenInputs['RecipientsTypeUpdateOneInput'] | null; // RecipientsTypeUpdateOneInput
+    representative?: NexusGenInputs['BusinessPartnerUpdateOneInput'] | null; // BusinessPartnerUpdateOneInput
+    safeguards?: string | null; // String
+    securityMeasures?: string | null; // String
+  }
+  BusinessPartnerUpdateManyDataInput: { // input type
+    contactDetails?: string | null; // String
+    description?: string | null; // String
+    dpo?: string | null; // String
+    linkToDpa?: string | null; // String
+    name?: string | null; // String
+    otherCountries?: any | null; // Json
+    outsideEea?: boolean | null; // Boolean
+    safeguards?: string | null; // String
+    securityMeasures?: string | null; // String
+  }
+  BusinessPartnerUpdateManyInput: { // input type
+    connect?: NexusGenInputs['BusinessPartnerWhereUniqueInput'][] | null; // [BusinessPartnerWhereUniqueInput!]
+    create?: NexusGenInputs['BusinessPartnerCreateInput'][] | null; // [BusinessPartnerCreateInput!]
+    delete?: NexusGenInputs['BusinessPartnerWhereUniqueInput'][] | null; // [BusinessPartnerWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['BusinessPartnerScalarWhereInput'][] | null; // [BusinessPartnerScalarWhereInput!]
+    disconnect?: NexusGenInputs['BusinessPartnerWhereUniqueInput'][] | null; // [BusinessPartnerWhereUniqueInput!]
+    set?: NexusGenInputs['BusinessPartnerWhereUniqueInput'][] | null; // [BusinessPartnerWhereUniqueInput!]
+    update?: NexusGenInputs['BusinessPartnerUpdateWithWhereUniqueNestedInput'][] | null; // [BusinessPartnerUpdateWithWhereUniqueNestedInput!]
+    updateMany?: NexusGenInputs['BusinessPartnerUpdateManyWithWhereNestedInput'][] | null; // [BusinessPartnerUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['BusinessPartnerUpsertWithWhereUniqueNestedInput'][] | null; // [BusinessPartnerUpsertWithWhereUniqueNestedInput!]
+  }
+  BusinessPartnerUpdateManyMutationInput: { // input type
+    contactDetails?: string | null; // String
+    description?: string | null; // String
+    dpo?: string | null; // String
+    linkToDpa?: string | null; // String
+    name?: string | null; // String
+    otherCountries?: any | null; // Json
+    outsideEea?: boolean | null; // Boolean
+    safeguards?: string | null; // String
+    securityMeasures?: string | null; // String
+  }
+  BusinessPartnerUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['BusinessPartnerUpdateManyDataInput']; // BusinessPartnerUpdateManyDataInput!
+    where: NexusGenInputs['BusinessPartnerScalarWhereInput']; // BusinessPartnerScalarWhereInput!
+  }
+  BusinessPartnerUpdateOneInput: { // input type
+    connect?: NexusGenInputs['BusinessPartnerWhereUniqueInput'] | null; // BusinessPartnerWhereUniqueInput
+    create?: NexusGenInputs['BusinessPartnerCreateInput'] | null; // BusinessPartnerCreateInput
+    delete?: boolean | null; // Boolean
+    disconnect?: boolean | null; // Boolean
+    update?: NexusGenInputs['BusinessPartnerUpdateDataInput'] | null; // BusinessPartnerUpdateDataInput
+    upsert?: NexusGenInputs['BusinessPartnerUpsertNestedInput'] | null; // BusinessPartnerUpsertNestedInput
+  }
+  BusinessPartnerUpdateOneWithoutHeadOfficeInput: { // input type
+    connect?: NexusGenInputs['BusinessPartnerWhereUniqueInput'] | null; // BusinessPartnerWhereUniqueInput
+    create?: NexusGenInputs['BusinessPartnerCreateWithoutHeadOfficeInput'] | null; // BusinessPartnerCreateWithoutHeadOfficeInput
+    delete?: boolean | null; // Boolean
+    disconnect?: boolean | null; // Boolean
+    update?: NexusGenInputs['BusinessPartnerUpdateWithoutHeadOfficeDataInput'] | null; // BusinessPartnerUpdateWithoutHeadOfficeDataInput
+    upsert?: NexusGenInputs['BusinessPartnerUpsertWithoutHeadOfficeInput'] | null; // BusinessPartnerUpsertWithoutHeadOfficeInput
+  }
+  BusinessPartnerUpdateWithWhereUniqueNestedInput: { // input type
+    data: NexusGenInputs['BusinessPartnerUpdateDataInput']; // BusinessPartnerUpdateDataInput!
+    where: NexusGenInputs['BusinessPartnerWhereUniqueInput']; // BusinessPartnerWhereUniqueInput!
+  }
+  BusinessPartnerUpdateWithoutHeadOfficeDataInput: { // input type
+    contactDetails?: string | null; // String
+    description?: string | null; // String
+    dpo?: string | null; // String
+    linkToDpa?: string | null; // String
+    name?: string | null; // String
+    otherCountries?: any | null; // Json
+    outsideEea?: boolean | null; // Boolean
+    processingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
+    recipientsType?: NexusGenInputs['RecipientsTypeUpdateOneInput'] | null; // RecipientsTypeUpdateOneInput
+    representative?: NexusGenInputs['BusinessPartnerUpdateOneInput'] | null; // BusinessPartnerUpdateOneInput
+    safeguards?: string | null; // String
+    securityMeasures?: string | null; // String
+  }
+  BusinessPartnerUpsertNestedInput: { // input type
+    create: NexusGenInputs['BusinessPartnerCreateInput']; // BusinessPartnerCreateInput!
+    update: NexusGenInputs['BusinessPartnerUpdateDataInput']; // BusinessPartnerUpdateDataInput!
+  }
+  BusinessPartnerUpsertWithWhereUniqueNestedInput: { // input type
+    create: NexusGenInputs['BusinessPartnerCreateInput']; // BusinessPartnerCreateInput!
+    update: NexusGenInputs['BusinessPartnerUpdateDataInput']; // BusinessPartnerUpdateDataInput!
+    where: NexusGenInputs['BusinessPartnerWhereUniqueInput']; // BusinessPartnerWhereUniqueInput!
+  }
+  BusinessPartnerUpsertWithoutHeadOfficeInput: { // input type
+    create: NexusGenInputs['BusinessPartnerCreateWithoutHeadOfficeInput']; // BusinessPartnerCreateWithoutHeadOfficeInput!
+    update: NexusGenInputs['BusinessPartnerUpdateWithoutHeadOfficeDataInput']; // BusinessPartnerUpdateWithoutHeadOfficeDataInput!
+  }
+  BusinessPartnerWhereInput: { // input type
+    AND?: NexusGenInputs['BusinessPartnerWhereInput'][] | null; // [BusinessPartnerWhereInput!]
+    contactDetails?: string | null; // String
+    contactDetails_contains?: string | null; // String
+    contactDetails_ends_with?: string | null; // String
+    contactDetails_gt?: string | null; // String
+    contactDetails_gte?: string | null; // String
+    contactDetails_in?: string[] | null; // [String!]
+    contactDetails_lt?: string | null; // String
+    contactDetails_lte?: string | null; // String
+    contactDetails_not?: string | null; // String
+    contactDetails_not_contains?: string | null; // String
+    contactDetails_not_ends_with?: string | null; // String
+    contactDetails_not_in?: string[] | null; // [String!]
+    contactDetails_not_starts_with?: string | null; // String
+    contactDetails_starts_with?: string | null; // String
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    dpo?: string | null; // String
+    dpo_contains?: string | null; // String
+    dpo_ends_with?: string | null; // String
+    dpo_gt?: string | null; // String
+    dpo_gte?: string | null; // String
+    dpo_in?: string[] | null; // [String!]
+    dpo_lt?: string | null; // String
+    dpo_lte?: string | null; // String
+    dpo_not?: string | null; // String
+    dpo_not_contains?: string | null; // String
+    dpo_not_ends_with?: string | null; // String
+    dpo_not_in?: string[] | null; // [String!]
+    dpo_not_starts_with?: string | null; // String
+    dpo_starts_with?: string | null; // String
+    headOffice?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    linkToDpa?: string | null; // String
+    linkToDpa_contains?: string | null; // String
+    linkToDpa_ends_with?: string | null; // String
+    linkToDpa_gt?: string | null; // String
+    linkToDpa_gte?: string | null; // String
+    linkToDpa_in?: string[] | null; // [String!]
+    linkToDpa_lt?: string | null; // String
+    linkToDpa_lte?: string | null; // String
+    linkToDpa_not?: string | null; // String
+    linkToDpa_not_contains?: string | null; // String
+    linkToDpa_not_ends_with?: string | null; // String
+    linkToDpa_not_in?: string[] | null; // [String!]
+    linkToDpa_not_starts_with?: string | null; // String
+    linkToDpa_starts_with?: string | null; // String
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['BusinessPartnerWhereInput'][] | null; // [BusinessPartnerWhereInput!]
+    OR?: NexusGenInputs['BusinessPartnerWhereInput'][] | null; // [BusinessPartnerWhereInput!]
+    outsideEea?: boolean | null; // Boolean
+    outsideEea_not?: boolean | null; // Boolean
+    processingTypes_every?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    processingTypes_none?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    processingTypes_some?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    recipientsType?: NexusGenInputs['RecipientsTypeWhereInput'] | null; // RecipientsTypeWhereInput
+    representative?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    safeguards?: string | null; // String
+    safeguards_contains?: string | null; // String
+    safeguards_ends_with?: string | null; // String
+    safeguards_gt?: string | null; // String
+    safeguards_gte?: string | null; // String
+    safeguards_in?: string[] | null; // [String!]
+    safeguards_lt?: string | null; // String
+    safeguards_lte?: string | null; // String
+    safeguards_not?: string | null; // String
+    safeguards_not_contains?: string | null; // String
+    safeguards_not_ends_with?: string | null; // String
+    safeguards_not_in?: string[] | null; // [String!]
+    safeguards_not_starts_with?: string | null; // String
+    safeguards_starts_with?: string | null; // String
+    securityMeasures?: string | null; // String
+    securityMeasures_contains?: string | null; // String
+    securityMeasures_ends_with?: string | null; // String
+    securityMeasures_gt?: string | null; // String
+    securityMeasures_gte?: string | null; // String
+    securityMeasures_in?: string[] | null; // [String!]
+    securityMeasures_lt?: string | null; // String
+    securityMeasures_lte?: string | null; // String
+    securityMeasures_not?: string | null; // String
+    securityMeasures_not_contains?: string | null; // String
+    securityMeasures_not_ends_with?: string | null; // String
+    securityMeasures_not_in?: string[] | null; // [String!]
+    securityMeasures_not_starts_with?: string | null; // String
+    securityMeasures_starts_with?: string | null; // String
+  }
+  BusinessPartnerWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
   BusinessRoleCreateInput: { // input type
@@ -1053,12 +1414,174 @@ export interface NexusGenInputs {
   ClassificationLabelWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
-  DataTypeCreateInput: { // input type
-    application?: NexusGenInputs['ApplicationCreateManyWithoutDataTypesInput'] | null; // ApplicationCreateManyWithoutDataTypesInput
-    classificationLabels?: NexusGenInputs['ClassificationLabelCreateManyWithoutDataTypeInput'] | null; // ClassificationLabelCreateManyWithoutDataTypeInput
+  DataSubjectTypeCreateInput: { // input type
+    dataTypes?: NexusGenInputs['DataTypeCreateManyWithoutDataSubjectTypeInput'] | null; // DataTypeCreateManyWithoutDataSubjectTypeInput
     description?: string | null; // String
     id?: string | null; // ID
     name: string; // String!
+  }
+  DataSubjectTypeCreateManyWithoutDataTypesInput: { // input type
+    connect?: NexusGenInputs['DataSubjectTypeWhereUniqueInput'][] | null; // [DataSubjectTypeWhereUniqueInput!]
+    create?: NexusGenInputs['DataSubjectTypeCreateWithoutDataTypesInput'][] | null; // [DataSubjectTypeCreateWithoutDataTypesInput!]
+  }
+  DataSubjectTypeCreateWithoutDataTypesInput: { // input type
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+  }
+  DataSubjectTypeScalarWhereInput: { // input type
+    AND?: NexusGenInputs['DataSubjectTypeScalarWhereInput'][] | null; // [DataSubjectTypeScalarWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['DataSubjectTypeScalarWhereInput'][] | null; // [DataSubjectTypeScalarWhereInput!]
+    OR?: NexusGenInputs['DataSubjectTypeScalarWhereInput'][] | null; // [DataSubjectTypeScalarWhereInput!]
+  }
+  DataSubjectTypeUpdateInput: { // input type
+    dataTypes?: NexusGenInputs['DataTypeUpdateManyWithoutDataSubjectTypeInput'] | null; // DataTypeUpdateManyWithoutDataSubjectTypeInput
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  DataSubjectTypeUpdateManyDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  DataSubjectTypeUpdateManyMutationInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  DataSubjectTypeUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['DataSubjectTypeUpdateManyDataInput']; // DataSubjectTypeUpdateManyDataInput!
+    where: NexusGenInputs['DataSubjectTypeScalarWhereInput']; // DataSubjectTypeScalarWhereInput!
+  }
+  DataSubjectTypeUpdateManyWithoutDataTypesInput: { // input type
+    connect?: NexusGenInputs['DataSubjectTypeWhereUniqueInput'][] | null; // [DataSubjectTypeWhereUniqueInput!]
+    create?: NexusGenInputs['DataSubjectTypeCreateWithoutDataTypesInput'][] | null; // [DataSubjectTypeCreateWithoutDataTypesInput!]
+    delete?: NexusGenInputs['DataSubjectTypeWhereUniqueInput'][] | null; // [DataSubjectTypeWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['DataSubjectTypeScalarWhereInput'][] | null; // [DataSubjectTypeScalarWhereInput!]
+    disconnect?: NexusGenInputs['DataSubjectTypeWhereUniqueInput'][] | null; // [DataSubjectTypeWhereUniqueInput!]
+    set?: NexusGenInputs['DataSubjectTypeWhereUniqueInput'][] | null; // [DataSubjectTypeWhereUniqueInput!]
+    update?: NexusGenInputs['DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput'][] | null; // [DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput!]
+    updateMany?: NexusGenInputs['DataSubjectTypeUpdateManyWithWhereNestedInput'][] | null; // [DataSubjectTypeUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput'][] | null; // [DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput!]
+  }
+  DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput: { // input type
+    data: NexusGenInputs['DataSubjectTypeUpdateWithoutDataTypesDataInput']; // DataSubjectTypeUpdateWithoutDataTypesDataInput!
+    where: NexusGenInputs['DataSubjectTypeWhereUniqueInput']; // DataSubjectTypeWhereUniqueInput!
+  }
+  DataSubjectTypeUpdateWithoutDataTypesDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput: { // input type
+    create: NexusGenInputs['DataSubjectTypeCreateWithoutDataTypesInput']; // DataSubjectTypeCreateWithoutDataTypesInput!
+    update: NexusGenInputs['DataSubjectTypeUpdateWithoutDataTypesDataInput']; // DataSubjectTypeUpdateWithoutDataTypesDataInput!
+    where: NexusGenInputs['DataSubjectTypeWhereUniqueInput']; // DataSubjectTypeWhereUniqueInput!
+  }
+  DataSubjectTypeWhereInput: { // input type
+    AND?: NexusGenInputs['DataSubjectTypeWhereInput'][] | null; // [DataSubjectTypeWhereInput!]
+    dataTypes_every?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    dataTypes_none?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    dataTypes_some?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['DataSubjectTypeWhereInput'][] | null; // [DataSubjectTypeWhereInput!]
+    OR?: NexusGenInputs['DataSubjectTypeWhereInput'][] | null; // [DataSubjectTypeWhereInput!]
+  }
+  DataSubjectTypeWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  DataTypeCreateInput: { // input type
+    application?: NexusGenInputs['ApplicationCreateManyWithoutDataTypesInput'] | null; // ApplicationCreateManyWithoutDataTypesInput
+    classificationLabels?: NexusGenInputs['ClassificationLabelCreateManyWithoutDataTypeInput'] | null; // ClassificationLabelCreateManyWithoutDataTypeInput
+    dataSubjectType?: NexusGenInputs['DataSubjectTypeCreateManyWithoutDataTypesInput'] | null; // DataSubjectTypeCreateManyWithoutDataTypesInput
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+    retentionPolicy: NexusGenInputs['RetentionPolicyCreateOneInput']; // RetentionPolicyCreateOneInput!
+  }
+  DataTypeCreateManyInput: { // input type
+    connect?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    create?: NexusGenInputs['DataTypeCreateInput'][] | null; // [DataTypeCreateInput!]
   }
   DataTypeCreateManyWithoutApplicationInput: { // input type
     connect?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
@@ -1068,17 +1591,33 @@ export interface NexusGenInputs {
     connect?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
     create?: NexusGenInputs['DataTypeCreateWithoutClassificationLabelsInput'][] | null; // [DataTypeCreateWithoutClassificationLabelsInput!]
   }
+  DataTypeCreateManyWithoutDataSubjectTypeInput: { // input type
+    connect?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    create?: NexusGenInputs['DataTypeCreateWithoutDataSubjectTypeInput'][] | null; // [DataTypeCreateWithoutDataSubjectTypeInput!]
+  }
   DataTypeCreateWithoutApplicationInput: { // input type
+    classificationLabels?: NexusGenInputs['ClassificationLabelCreateManyWithoutDataTypeInput'] | null; // ClassificationLabelCreateManyWithoutDataTypeInput
+    dataSubjectType?: NexusGenInputs['DataSubjectTypeCreateManyWithoutDataTypesInput'] | null; // DataSubjectTypeCreateManyWithoutDataTypesInput
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+    retentionPolicy: NexusGenInputs['RetentionPolicyCreateOneInput']; // RetentionPolicyCreateOneInput!
+  }
+  DataTypeCreateWithoutClassificationLabelsInput: { // input type
+    application?: NexusGenInputs['ApplicationCreateManyWithoutDataTypesInput'] | null; // ApplicationCreateManyWithoutDataTypesInput
+    dataSubjectType?: NexusGenInputs['DataSubjectTypeCreateManyWithoutDataTypesInput'] | null; // DataSubjectTypeCreateManyWithoutDataTypesInput
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+    retentionPolicy: NexusGenInputs['RetentionPolicyCreateOneInput']; // RetentionPolicyCreateOneInput!
+  }
+  DataTypeCreateWithoutDataSubjectTypeInput: { // input type
+    application?: NexusGenInputs['ApplicationCreateManyWithoutDataTypesInput'] | null; // ApplicationCreateManyWithoutDataTypesInput
     classificationLabels?: NexusGenInputs['ClassificationLabelCreateManyWithoutDataTypeInput'] | null; // ClassificationLabelCreateManyWithoutDataTypeInput
     description?: string | null; // String
     id?: string | null; // ID
     name: string; // String!
-  }
-  DataTypeCreateWithoutClassificationLabelsInput: { // input type
-    application?: NexusGenInputs['ApplicationCreateManyWithoutDataTypesInput'] | null; // ApplicationCreateManyWithoutDataTypesInput
-    description?: string | null; // String
-    id?: string | null; // ID
-    name: string; // String!
+    retentionPolicy: NexusGenInputs['RetentionPolicyCreateOneInput']; // RetentionPolicyCreateOneInput!
   }
   DataTypeScalarWhereInput: { // input type
     AND?: NexusGenInputs['DataTypeScalarWhereInput'][] | null; // [DataTypeScalarWhereInput!]
@@ -1127,15 +1666,36 @@ export interface NexusGenInputs {
     NOT?: NexusGenInputs['DataTypeScalarWhereInput'][] | null; // [DataTypeScalarWhereInput!]
     OR?: NexusGenInputs['DataTypeScalarWhereInput'][] | null; // [DataTypeScalarWhereInput!]
   }
+  DataTypeUpdateDataInput: { // input type
+    application?: NexusGenInputs['ApplicationUpdateManyWithoutDataTypesInput'] | null; // ApplicationUpdateManyWithoutDataTypesInput
+    classificationLabels?: NexusGenInputs['ClassificationLabelUpdateManyWithoutDataTypeInput'] | null; // ClassificationLabelUpdateManyWithoutDataTypeInput
+    dataSubjectType?: NexusGenInputs['DataSubjectTypeUpdateManyWithoutDataTypesInput'] | null; // DataSubjectTypeUpdateManyWithoutDataTypesInput
+    description?: string | null; // String
+    name?: string | null; // String
+    retentionPolicy?: NexusGenInputs['RetentionPolicyUpdateOneRequiredInput'] | null; // RetentionPolicyUpdateOneRequiredInput
+  }
   DataTypeUpdateInput: { // input type
     application?: NexusGenInputs['ApplicationUpdateManyWithoutDataTypesInput'] | null; // ApplicationUpdateManyWithoutDataTypesInput
     classificationLabels?: NexusGenInputs['ClassificationLabelUpdateManyWithoutDataTypeInput'] | null; // ClassificationLabelUpdateManyWithoutDataTypeInput
+    dataSubjectType?: NexusGenInputs['DataSubjectTypeUpdateManyWithoutDataTypesInput'] | null; // DataSubjectTypeUpdateManyWithoutDataTypesInput
     description?: string | null; // String
     name?: string | null; // String
+    retentionPolicy?: NexusGenInputs['RetentionPolicyUpdateOneRequiredInput'] | null; // RetentionPolicyUpdateOneRequiredInput
   }
   DataTypeUpdateManyDataInput: { // input type
     description?: string | null; // String
     name?: string | null; // String
+  }
+  DataTypeUpdateManyInput: { // input type
+    connect?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    create?: NexusGenInputs['DataTypeCreateInput'][] | null; // [DataTypeCreateInput!]
+    delete?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['DataTypeScalarWhereInput'][] | null; // [DataTypeScalarWhereInput!]
+    disconnect?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    set?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    update?: NexusGenInputs['DataTypeUpdateWithWhereUniqueNestedInput'][] | null; // [DataTypeUpdateWithWhereUniqueNestedInput!]
+    updateMany?: NexusGenInputs['DataTypeUpdateManyWithWhereNestedInput'][] | null; // [DataTypeUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['DataTypeUpsertWithWhereUniqueNestedInput'][] | null; // [DataTypeUpsertWithWhereUniqueNestedInput!]
   }
   DataTypeUpdateManyMutationInput: { // input type
     description?: string | null; // String
@@ -1167,6 +1727,21 @@ export interface NexusGenInputs {
     updateMany?: NexusGenInputs['DataTypeUpdateManyWithWhereNestedInput'][] | null; // [DataTypeUpdateManyWithWhereNestedInput!]
     upsert?: NexusGenInputs['DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput'][] | null; // [DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput!]
   }
+  DataTypeUpdateManyWithoutDataSubjectTypeInput: { // input type
+    connect?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    create?: NexusGenInputs['DataTypeCreateWithoutDataSubjectTypeInput'][] | null; // [DataTypeCreateWithoutDataSubjectTypeInput!]
+    delete?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['DataTypeScalarWhereInput'][] | null; // [DataTypeScalarWhereInput!]
+    disconnect?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    set?: NexusGenInputs['DataTypeWhereUniqueInput'][] | null; // [DataTypeWhereUniqueInput!]
+    update?: NexusGenInputs['DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput'][] | null; // [DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput!]
+    updateMany?: NexusGenInputs['DataTypeUpdateManyWithWhereNestedInput'][] | null; // [DataTypeUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput'][] | null; // [DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput!]
+  }
+  DataTypeUpdateWithWhereUniqueNestedInput: { // input type
+    data: NexusGenInputs['DataTypeUpdateDataInput']; // DataTypeUpdateDataInput!
+    where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
+  }
   DataTypeUpdateWithWhereUniqueWithoutApplicationInput: { // input type
     data: NexusGenInputs['DataTypeUpdateWithoutApplicationDataInput']; // DataTypeUpdateWithoutApplicationDataInput!
     where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
@@ -1175,15 +1750,35 @@ export interface NexusGenInputs {
     data: NexusGenInputs['DataTypeUpdateWithoutClassificationLabelsDataInput']; // DataTypeUpdateWithoutClassificationLabelsDataInput!
     where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
   }
+  DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput: { // input type
+    data: NexusGenInputs['DataTypeUpdateWithoutDataSubjectTypeDataInput']; // DataTypeUpdateWithoutDataSubjectTypeDataInput!
+    where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
+  }
   DataTypeUpdateWithoutApplicationDataInput: { // input type
     classificationLabels?: NexusGenInputs['ClassificationLabelUpdateManyWithoutDataTypeInput'] | null; // ClassificationLabelUpdateManyWithoutDataTypeInput
+    dataSubjectType?: NexusGenInputs['DataSubjectTypeUpdateManyWithoutDataTypesInput'] | null; // DataSubjectTypeUpdateManyWithoutDataTypesInput
     description?: string | null; // String
     name?: string | null; // String
+    retentionPolicy?: NexusGenInputs['RetentionPolicyUpdateOneRequiredInput'] | null; // RetentionPolicyUpdateOneRequiredInput
   }
   DataTypeUpdateWithoutClassificationLabelsDataInput: { // input type
     application?: NexusGenInputs['ApplicationUpdateManyWithoutDataTypesInput'] | null; // ApplicationUpdateManyWithoutDataTypesInput
+    dataSubjectType?: NexusGenInputs['DataSubjectTypeUpdateManyWithoutDataTypesInput'] | null; // DataSubjectTypeUpdateManyWithoutDataTypesInput
     description?: string | null; // String
     name?: string | null; // String
+    retentionPolicy?: NexusGenInputs['RetentionPolicyUpdateOneRequiredInput'] | null; // RetentionPolicyUpdateOneRequiredInput
+  }
+  DataTypeUpdateWithoutDataSubjectTypeDataInput: { // input type
+    application?: NexusGenInputs['ApplicationUpdateManyWithoutDataTypesInput'] | null; // ApplicationUpdateManyWithoutDataTypesInput
+    classificationLabels?: NexusGenInputs['ClassificationLabelUpdateManyWithoutDataTypeInput'] | null; // ClassificationLabelUpdateManyWithoutDataTypeInput
+    description?: string | null; // String
+    name?: string | null; // String
+    retentionPolicy?: NexusGenInputs['RetentionPolicyUpdateOneRequiredInput'] | null; // RetentionPolicyUpdateOneRequiredInput
+  }
+  DataTypeUpsertWithWhereUniqueNestedInput: { // input type
+    create: NexusGenInputs['DataTypeCreateInput']; // DataTypeCreateInput!
+    update: NexusGenInputs['DataTypeUpdateDataInput']; // DataTypeUpdateDataInput!
+    where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
   }
   DataTypeUpsertWithWhereUniqueWithoutApplicationInput: { // input type
     create: NexusGenInputs['DataTypeCreateWithoutApplicationInput']; // DataTypeCreateWithoutApplicationInput!
@@ -1195,6 +1790,11 @@ export interface NexusGenInputs {
     update: NexusGenInputs['DataTypeUpdateWithoutClassificationLabelsDataInput']; // DataTypeUpdateWithoutClassificationLabelsDataInput!
     where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
   }
+  DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput: { // input type
+    create: NexusGenInputs['DataTypeCreateWithoutDataSubjectTypeInput']; // DataTypeCreateWithoutDataSubjectTypeInput!
+    update: NexusGenInputs['DataTypeUpdateWithoutDataSubjectTypeDataInput']; // DataTypeUpdateWithoutDataSubjectTypeDataInput!
+    where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
+  }
   DataTypeWhereInput: { // input type
     AND?: NexusGenInputs['DataTypeWhereInput'][] | null; // [DataTypeWhereInput!]
     application_every?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
@@ -1203,6 +1803,9 @@ export interface NexusGenInputs {
     classificationLabels_every?: NexusGenInputs['ClassificationLabelWhereInput'] | null; // ClassificationLabelWhereInput
     classificationLabels_none?: NexusGenInputs['ClassificationLabelWhereInput'] | null; // ClassificationLabelWhereInput
     classificationLabels_some?: NexusGenInputs['ClassificationLabelWhereInput'] | null; // ClassificationLabelWhereInput
+    dataSubjectType_every?: NexusGenInputs['DataSubjectTypeWhereInput'] | null; // DataSubjectTypeWhereInput
+    dataSubjectType_none?: NexusGenInputs['DataSubjectTypeWhereInput'] | null; // DataSubjectTypeWhereInput
+    dataSubjectType_some?: NexusGenInputs['DataSubjectTypeWhereInput'] | null; // DataSubjectTypeWhereInput
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -1247,22 +1850,178 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['DataTypeWhereInput'][] | null; // [DataTypeWhereInput!]
     OR?: NexusGenInputs['DataTypeWhereInput'][] | null; // [DataTypeWhereInput!]
+    retentionPolicy?: NexusGenInputs['RetentionPolicyWhereInput'] | null; // RetentionPolicyWhereInput
   }
   DataTypeWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
-  LocationCreateInput: { // input type
-    address: string; // String!
+  LegalGroundCreateInput: { // input type
     description?: string | null; // String
     id?: string | null; // ID
     name: string; // String!
-    organization?: NexusGenInputs['OrganizationCreateOneWithoutHeadOfficeInput'] | null; // OrganizationCreateOneWithoutHeadOfficeInput
+    specialCategoryCondition?: boolean | null; // Boolean
   }
-  LocationCreateOneWithoutOrganizationInput: { // input type
+  LegalGroundCreateManyInput: { // input type
+    connect?: NexusGenInputs['LegalGroundWhereUniqueInput'][] | null; // [LegalGroundWhereUniqueInput!]
+    create?: NexusGenInputs['LegalGroundCreateInput'][] | null; // [LegalGroundCreateInput!]
+  }
+  LegalGroundScalarWhereInput: { // input type
+    AND?: NexusGenInputs['LegalGroundScalarWhereInput'][] | null; // [LegalGroundScalarWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['LegalGroundScalarWhereInput'][] | null; // [LegalGroundScalarWhereInput!]
+    OR?: NexusGenInputs['LegalGroundScalarWhereInput'][] | null; // [LegalGroundScalarWhereInput!]
+    specialCategoryCondition?: boolean | null; // Boolean
+    specialCategoryCondition_not?: boolean | null; // Boolean
+  }
+  LegalGroundUpdateDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+    specialCategoryCondition?: boolean | null; // Boolean
+  }
+  LegalGroundUpdateInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+    specialCategoryCondition?: boolean | null; // Boolean
+  }
+  LegalGroundUpdateManyDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+    specialCategoryCondition?: boolean | null; // Boolean
+  }
+  LegalGroundUpdateManyInput: { // input type
+    connect?: NexusGenInputs['LegalGroundWhereUniqueInput'][] | null; // [LegalGroundWhereUniqueInput!]
+    create?: NexusGenInputs['LegalGroundCreateInput'][] | null; // [LegalGroundCreateInput!]
+    delete?: NexusGenInputs['LegalGroundWhereUniqueInput'][] | null; // [LegalGroundWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['LegalGroundScalarWhereInput'][] | null; // [LegalGroundScalarWhereInput!]
+    disconnect?: NexusGenInputs['LegalGroundWhereUniqueInput'][] | null; // [LegalGroundWhereUniqueInput!]
+    set?: NexusGenInputs['LegalGroundWhereUniqueInput'][] | null; // [LegalGroundWhereUniqueInput!]
+    update?: NexusGenInputs['LegalGroundUpdateWithWhereUniqueNestedInput'][] | null; // [LegalGroundUpdateWithWhereUniqueNestedInput!]
+    updateMany?: NexusGenInputs['LegalGroundUpdateManyWithWhereNestedInput'][] | null; // [LegalGroundUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['LegalGroundUpsertWithWhereUniqueNestedInput'][] | null; // [LegalGroundUpsertWithWhereUniqueNestedInput!]
+  }
+  LegalGroundUpdateManyMutationInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+    specialCategoryCondition?: boolean | null; // Boolean
+  }
+  LegalGroundUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['LegalGroundUpdateManyDataInput']; // LegalGroundUpdateManyDataInput!
+    where: NexusGenInputs['LegalGroundScalarWhereInput']; // LegalGroundScalarWhereInput!
+  }
+  LegalGroundUpdateWithWhereUniqueNestedInput: { // input type
+    data: NexusGenInputs['LegalGroundUpdateDataInput']; // LegalGroundUpdateDataInput!
+    where: NexusGenInputs['LegalGroundWhereUniqueInput']; // LegalGroundWhereUniqueInput!
+  }
+  LegalGroundUpsertWithWhereUniqueNestedInput: { // input type
+    create: NexusGenInputs['LegalGroundCreateInput']; // LegalGroundCreateInput!
+    update: NexusGenInputs['LegalGroundUpdateDataInput']; // LegalGroundUpdateDataInput!
+    where: NexusGenInputs['LegalGroundWhereUniqueInput']; // LegalGroundWhereUniqueInput!
+  }
+  LegalGroundWhereInput: { // input type
+    AND?: NexusGenInputs['LegalGroundWhereInput'][] | null; // [LegalGroundWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['LegalGroundWhereInput'][] | null; // [LegalGroundWhereInput!]
+    OR?: NexusGenInputs['LegalGroundWhereInput'][] | null; // [LegalGroundWhereInput!]
+    specialCategoryCondition?: boolean | null; // Boolean
+    specialCategoryCondition_not?: boolean | null; // Boolean
+  }
+  LegalGroundWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  LocationCreateInput: { // input type
+    address: string; // String!
+    businessPartner?: NexusGenInputs['BusinessPartnerCreateOneWithoutHeadOfficeInput'] | null; // BusinessPartnerCreateOneWithoutHeadOfficeInput
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+  }
+  LocationCreateOneWithoutBusinessPartnerInput: { // input type
     connect?: NexusGenInputs['LocationWhereUniqueInput'] | null; // LocationWhereUniqueInput
-    create?: NexusGenInputs['LocationCreateWithoutOrganizationInput'] | null; // LocationCreateWithoutOrganizationInput
+    create?: NexusGenInputs['LocationCreateWithoutBusinessPartnerInput'] | null; // LocationCreateWithoutBusinessPartnerInput
   }
-  LocationCreateWithoutOrganizationInput: { // input type
+  LocationCreateWithoutBusinessPartnerInput: { // input type
     address: string; // String!
     description?: string | null; // String
     id?: string | null; // ID
@@ -1270,29 +2029,29 @@ export interface NexusGenInputs {
   }
   LocationUpdateInput: { // input type
     address?: string | null; // String
+    businessPartner?: NexusGenInputs['BusinessPartnerUpdateOneWithoutHeadOfficeInput'] | null; // BusinessPartnerUpdateOneWithoutHeadOfficeInput
     description?: string | null; // String
     name?: string | null; // String
-    organization?: NexusGenInputs['OrganizationUpdateOneWithoutHeadOfficeInput'] | null; // OrganizationUpdateOneWithoutHeadOfficeInput
   }
   LocationUpdateManyMutationInput: { // input type
     address?: string | null; // String
     description?: string | null; // String
     name?: string | null; // String
   }
-  LocationUpdateOneRequiredWithoutOrganizationInput: { // input type
+  LocationUpdateOneRequiredWithoutBusinessPartnerInput: { // input type
     connect?: NexusGenInputs['LocationWhereUniqueInput'] | null; // LocationWhereUniqueInput
-    create?: NexusGenInputs['LocationCreateWithoutOrganizationInput'] | null; // LocationCreateWithoutOrganizationInput
-    update?: NexusGenInputs['LocationUpdateWithoutOrganizationDataInput'] | null; // LocationUpdateWithoutOrganizationDataInput
-    upsert?: NexusGenInputs['LocationUpsertWithoutOrganizationInput'] | null; // LocationUpsertWithoutOrganizationInput
+    create?: NexusGenInputs['LocationCreateWithoutBusinessPartnerInput'] | null; // LocationCreateWithoutBusinessPartnerInput
+    update?: NexusGenInputs['LocationUpdateWithoutBusinessPartnerDataInput'] | null; // LocationUpdateWithoutBusinessPartnerDataInput
+    upsert?: NexusGenInputs['LocationUpsertWithoutBusinessPartnerInput'] | null; // LocationUpsertWithoutBusinessPartnerInput
   }
-  LocationUpdateWithoutOrganizationDataInput: { // input type
+  LocationUpdateWithoutBusinessPartnerDataInput: { // input type
     address?: string | null; // String
     description?: string | null; // String
     name?: string | null; // String
   }
-  LocationUpsertWithoutOrganizationInput: { // input type
-    create: NexusGenInputs['LocationCreateWithoutOrganizationInput']; // LocationCreateWithoutOrganizationInput!
-    update: NexusGenInputs['LocationUpdateWithoutOrganizationDataInput']; // LocationUpdateWithoutOrganizationDataInput!
+  LocationUpsertWithoutBusinessPartnerInput: { // input type
+    create: NexusGenInputs['LocationCreateWithoutBusinessPartnerInput']; // LocationCreateWithoutBusinessPartnerInput!
+    update: NexusGenInputs['LocationUpdateWithoutBusinessPartnerDataInput']; // LocationUpdateWithoutBusinessPartnerDataInput!
   }
   LocationWhereInput: { // input type
     address?: string | null; // String
@@ -1310,6 +2069,7 @@ export interface NexusGenInputs {
     address_not_starts_with?: string | null; // String
     address_starts_with?: string | null; // String
     AND?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
+    businessPartner?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -1354,7 +2114,6 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
     OR?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
-    organization?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
   }
   LocationWhereUniqueInput: { // input type
     id?: string | null; // ID
@@ -1362,154 +2121,6 @@ export interface NexusGenInputs {
   LoginInput: { // input type
     email?: string | null; // String
     password?: string | null; // String
-  }
-  OrganizationCreateInput: { // input type
-    contactDetails: string; // String!
-    description?: string | null; // String
-    dpo: string; // String!
-    headOffice: NexusGenInputs['LocationCreateOneWithoutOrganizationInput']; // LocationCreateOneWithoutOrganizationInput!
-    id?: string | null; // ID
-    name: string; // String!
-    representative: string; // String!
-  }
-  OrganizationCreateOneWithoutHeadOfficeInput: { // input type
-    connect?: NexusGenInputs['OrganizationWhereUniqueInput'] | null; // OrganizationWhereUniqueInput
-    create?: NexusGenInputs['OrganizationCreateWithoutHeadOfficeInput'] | null; // OrganizationCreateWithoutHeadOfficeInput
-  }
-  OrganizationCreateWithoutHeadOfficeInput: { // input type
-    contactDetails: string; // String!
-    description?: string | null; // String
-    dpo: string; // String!
-    id?: string | null; // ID
-    name: string; // String!
-    representative: string; // String!
-  }
-  OrganizationUpdateInput: { // input type
-    contactDetails?: string | null; // String
-    description?: string | null; // String
-    dpo?: string | null; // String
-    headOffice?: NexusGenInputs['LocationUpdateOneRequiredWithoutOrganizationInput'] | null; // LocationUpdateOneRequiredWithoutOrganizationInput
-    name?: string | null; // String
-    representative?: string | null; // String
-  }
-  OrganizationUpdateManyMutationInput: { // input type
-    contactDetails?: string | null; // String
-    description?: string | null; // String
-    dpo?: string | null; // String
-    name?: string | null; // String
-    representative?: string | null; // String
-  }
-  OrganizationUpdateOneWithoutHeadOfficeInput: { // input type
-    connect?: NexusGenInputs['OrganizationWhereUniqueInput'] | null; // OrganizationWhereUniqueInput
-    create?: NexusGenInputs['OrganizationCreateWithoutHeadOfficeInput'] | null; // OrganizationCreateWithoutHeadOfficeInput
-    delete?: boolean | null; // Boolean
-    disconnect?: boolean | null; // Boolean
-    update?: NexusGenInputs['OrganizationUpdateWithoutHeadOfficeDataInput'] | null; // OrganizationUpdateWithoutHeadOfficeDataInput
-    upsert?: NexusGenInputs['OrganizationUpsertWithoutHeadOfficeInput'] | null; // OrganizationUpsertWithoutHeadOfficeInput
-  }
-  OrganizationUpdateWithoutHeadOfficeDataInput: { // input type
-    contactDetails?: string | null; // String
-    description?: string | null; // String
-    dpo?: string | null; // String
-    name?: string | null; // String
-    representative?: string | null; // String
-  }
-  OrganizationUpsertWithoutHeadOfficeInput: { // input type
-    create: NexusGenInputs['OrganizationCreateWithoutHeadOfficeInput']; // OrganizationCreateWithoutHeadOfficeInput!
-    update: NexusGenInputs['OrganizationUpdateWithoutHeadOfficeDataInput']; // OrganizationUpdateWithoutHeadOfficeDataInput!
-  }
-  OrganizationWhereInput: { // input type
-    AND?: NexusGenInputs['OrganizationWhereInput'][] | null; // [OrganizationWhereInput!]
-    contactDetails?: string | null; // String
-    contactDetails_contains?: string | null; // String
-    contactDetails_ends_with?: string | null; // String
-    contactDetails_gt?: string | null; // String
-    contactDetails_gte?: string | null; // String
-    contactDetails_in?: string[] | null; // [String!]
-    contactDetails_lt?: string | null; // String
-    contactDetails_lte?: string | null; // String
-    contactDetails_not?: string | null; // String
-    contactDetails_not_contains?: string | null; // String
-    contactDetails_not_ends_with?: string | null; // String
-    contactDetails_not_in?: string[] | null; // [String!]
-    contactDetails_not_starts_with?: string | null; // String
-    contactDetails_starts_with?: string | null; // String
-    description?: string | null; // String
-    description_contains?: string | null; // String
-    description_ends_with?: string | null; // String
-    description_gt?: string | null; // String
-    description_gte?: string | null; // String
-    description_in?: string[] | null; // [String!]
-    description_lt?: string | null; // String
-    description_lte?: string | null; // String
-    description_not?: string | null; // String
-    description_not_contains?: string | null; // String
-    description_not_ends_with?: string | null; // String
-    description_not_in?: string[] | null; // [String!]
-    description_not_starts_with?: string | null; // String
-    description_starts_with?: string | null; // String
-    dpo?: string | null; // String
-    dpo_contains?: string | null; // String
-    dpo_ends_with?: string | null; // String
-    dpo_gt?: string | null; // String
-    dpo_gte?: string | null; // String
-    dpo_in?: string[] | null; // [String!]
-    dpo_lt?: string | null; // String
-    dpo_lte?: string | null; // String
-    dpo_not?: string | null; // String
-    dpo_not_contains?: string | null; // String
-    dpo_not_ends_with?: string | null; // String
-    dpo_not_in?: string[] | null; // [String!]
-    dpo_not_starts_with?: string | null; // String
-    dpo_starts_with?: string | null; // String
-    headOffice?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
-    id?: string | null; // ID
-    id_contains?: string | null; // ID
-    id_ends_with?: string | null; // ID
-    id_gt?: string | null; // ID
-    id_gte?: string | null; // ID
-    id_in?: string[] | null; // [ID!]
-    id_lt?: string | null; // ID
-    id_lte?: string | null; // ID
-    id_not?: string | null; // ID
-    id_not_contains?: string | null; // ID
-    id_not_ends_with?: string | null; // ID
-    id_not_in?: string[] | null; // [ID!]
-    id_not_starts_with?: string | null; // ID
-    id_starts_with?: string | null; // ID
-    name?: string | null; // String
-    name_contains?: string | null; // String
-    name_ends_with?: string | null; // String
-    name_gt?: string | null; // String
-    name_gte?: string | null; // String
-    name_in?: string[] | null; // [String!]
-    name_lt?: string | null; // String
-    name_lte?: string | null; // String
-    name_not?: string | null; // String
-    name_not_contains?: string | null; // String
-    name_not_ends_with?: string | null; // String
-    name_not_in?: string[] | null; // [String!]
-    name_not_starts_with?: string | null; // String
-    name_starts_with?: string | null; // String
-    NOT?: NexusGenInputs['OrganizationWhereInput'][] | null; // [OrganizationWhereInput!]
-    OR?: NexusGenInputs['OrganizationWhereInput'][] | null; // [OrganizationWhereInput!]
-    representative?: string | null; // String
-    representative_contains?: string | null; // String
-    representative_ends_with?: string | null; // String
-    representative_gt?: string | null; // String
-    representative_gte?: string | null; // String
-    representative_in?: string[] | null; // [String!]
-    representative_lt?: string | null; // String
-    representative_lte?: string | null; // String
-    representative_not?: string | null; // String
-    representative_not_contains?: string | null; // String
-    representative_not_ends_with?: string | null; // String
-    representative_not_in?: string[] | null; // [String!]
-    representative_not_starts_with?: string | null; // String
-    representative_starts_with?: string | null; // String
-  }
-  OrganizationWhereUniqueInput: { // input type
-    id?: string | null; // ID
   }
   OrganizationalUnitCreateInput: { // input type
     businessRoles?: NexusGenInputs['BusinessRoleCreateManyWithoutOrganizationalUnitInput'] | null; // BusinessRoleCreateManyWithoutOrganizationalUnitInput
@@ -2351,34 +2962,45 @@ export interface NexusGenInputs {
     id?: string | null; // ID
   }
   ProcessingActivityCreateInput: { // input type
-    applications?: NexusGenInputs['ApplicationCreateManyWithoutProcessingActivitiesInput'] | null; // ApplicationCreateManyWithoutProcessingActivitiesInput
-    description?: string | null; // String
+    controllers?: NexusGenInputs['BusinessPartnerCreateManyInput'] | null; // BusinessPartnerCreateManyInput
+    dataTypes?: NexusGenInputs['DataTypeCreateManyInput'] | null; // DataTypeCreateManyInput
     id?: string | null; // ID
+    iOwnThis?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    legalGrounds?: NexusGenInputs['LegalGroundCreateManyInput'] | null; // LegalGroundCreateManyInput
+    linkToDpia?: string | null; // String
+    linkToLia?: string | null; // String
     name: string; // String!
+    procesessingTypes?: NexusGenInputs['ProcessingTypeCreateManyInput'] | null; // ProcessingTypeCreateManyInput
     process?: NexusGenInputs['ProcessCreateOneWithoutProcessingActivitiesInput'] | null; // ProcessCreateOneWithoutProcessingActivitiesInput
+    profiling?: boolean | null; // Boolean
     purpose?: string | null; // String
+    recipients?: NexusGenInputs['BusinessPartnerCreateManyInput'] | null; // BusinessPartnerCreateManyInput
+    securityMeasures?: string | null; // String
   }
-  ProcessingActivityCreateManyWithoutApplicationsInput: { // input type
+  ProcessingActivityCreateManyInput: { // input type
     connect?: NexusGenInputs['ProcessingActivityWhereUniqueInput'][] | null; // [ProcessingActivityWhereUniqueInput!]
-    create?: NexusGenInputs['ProcessingActivityCreateWithoutApplicationsInput'][] | null; // [ProcessingActivityCreateWithoutApplicationsInput!]
+    create?: NexusGenInputs['ProcessingActivityCreateInput'][] | null; // [ProcessingActivityCreateInput!]
   }
   ProcessingActivityCreateManyWithoutProcessInput: { // input type
     connect?: NexusGenInputs['ProcessingActivityWhereUniqueInput'][] | null; // [ProcessingActivityWhereUniqueInput!]
     create?: NexusGenInputs['ProcessingActivityCreateWithoutProcessInput'][] | null; // [ProcessingActivityCreateWithoutProcessInput!]
   }
-  ProcessingActivityCreateWithoutApplicationsInput: { // input type
-    description?: string | null; // String
-    id?: string | null; // ID
-    name: string; // String!
-    process?: NexusGenInputs['ProcessCreateOneWithoutProcessingActivitiesInput'] | null; // ProcessCreateOneWithoutProcessingActivitiesInput
-    purpose?: string | null; // String
-  }
   ProcessingActivityCreateWithoutProcessInput: { // input type
-    applications?: NexusGenInputs['ApplicationCreateManyWithoutProcessingActivitiesInput'] | null; // ApplicationCreateManyWithoutProcessingActivitiesInput
-    description?: string | null; // String
+    controllers?: NexusGenInputs['BusinessPartnerCreateManyInput'] | null; // BusinessPartnerCreateManyInput
+    dataTypes?: NexusGenInputs['DataTypeCreateManyInput'] | null; // DataTypeCreateManyInput
     id?: string | null; // ID
+    iOwnThis?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    legalGrounds?: NexusGenInputs['LegalGroundCreateManyInput'] | null; // LegalGroundCreateManyInput
+    linkToDpia?: string | null; // String
+    linkToLia?: string | null; // String
     name: string; // String!
+    procesessingTypes?: NexusGenInputs['ProcessingTypeCreateManyInput'] | null; // ProcessingTypeCreateManyInput
+    profiling?: boolean | null; // Boolean
     purpose?: string | null; // String
+    recipients?: NexusGenInputs['BusinessPartnerCreateManyInput'] | null; // BusinessPartnerCreateManyInput
+    securityMeasures?: string | null; // String
   }
   ProcessingActivityScalarWhereInput: { // input type
     AND?: NexusGenInputs['ProcessingActivityScalarWhereInput'][] | null; // [ProcessingActivityScalarWhereInput!]
@@ -2390,20 +3012,6 @@ export interface NexusGenInputs {
     createdAt_lte?: any | null; // DateTime
     createdAt_not?: any | null; // DateTime
     createdAt_not_in?: any[] | null; // [DateTime!]
-    description?: string | null; // String
-    description_contains?: string | null; // String
-    description_ends_with?: string | null; // String
-    description_gt?: string | null; // String
-    description_gte?: string | null; // String
-    description_in?: string[] | null; // [String!]
-    description_lt?: string | null; // String
-    description_lte?: string | null; // String
-    description_not?: string | null; // String
-    description_not_contains?: string | null; // String
-    description_not_ends_with?: string | null; // String
-    description_not_in?: string[] | null; // [String!]
-    description_not_starts_with?: string | null; // String
-    description_starts_with?: string | null; // String
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -2418,6 +3026,50 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
+    iOwnThis?: boolean | null; // Boolean
+    iOwnThis_not?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    legalGroundComment_contains?: string | null; // String
+    legalGroundComment_ends_with?: string | null; // String
+    legalGroundComment_gt?: string | null; // String
+    legalGroundComment_gte?: string | null; // String
+    legalGroundComment_in?: string[] | null; // [String!]
+    legalGroundComment_lt?: string | null; // String
+    legalGroundComment_lte?: string | null; // String
+    legalGroundComment_not?: string | null; // String
+    legalGroundComment_not_contains?: string | null; // String
+    legalGroundComment_not_ends_with?: string | null; // String
+    legalGroundComment_not_in?: string[] | null; // [String!]
+    legalGroundComment_not_starts_with?: string | null; // String
+    legalGroundComment_starts_with?: string | null; // String
+    linkToDpia?: string | null; // String
+    linkToDpia_contains?: string | null; // String
+    linkToDpia_ends_with?: string | null; // String
+    linkToDpia_gt?: string | null; // String
+    linkToDpia_gte?: string | null; // String
+    linkToDpia_in?: string[] | null; // [String!]
+    linkToDpia_lt?: string | null; // String
+    linkToDpia_lte?: string | null; // String
+    linkToDpia_not?: string | null; // String
+    linkToDpia_not_contains?: string | null; // String
+    linkToDpia_not_ends_with?: string | null; // String
+    linkToDpia_not_in?: string[] | null; // [String!]
+    linkToDpia_not_starts_with?: string | null; // String
+    linkToDpia_starts_with?: string | null; // String
+    linkToLia?: string | null; // String
+    linkToLia_contains?: string | null; // String
+    linkToLia_ends_with?: string | null; // String
+    linkToLia_gt?: string | null; // String
+    linkToLia_gte?: string | null; // String
+    linkToLia_in?: string[] | null; // [String!]
+    linkToLia_lt?: string | null; // String
+    linkToLia_lte?: string | null; // String
+    linkToLia_not?: string | null; // String
+    linkToLia_not_contains?: string | null; // String
+    linkToLia_not_ends_with?: string | null; // String
+    linkToLia_not_in?: string[] | null; // [String!]
+    linkToLia_not_starts_with?: string | null; // String
+    linkToLia_starts_with?: string | null; // String
     name?: string | null; // String
     name_contains?: string | null; // String
     name_ends_with?: string | null; // String
@@ -2434,6 +3086,8 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['ProcessingActivityScalarWhereInput'][] | null; // [ProcessingActivityScalarWhereInput!]
     OR?: NexusGenInputs['ProcessingActivityScalarWhereInput'][] | null; // [ProcessingActivityScalarWhereInput!]
+    profiling?: boolean | null; // Boolean
+    profiling_not?: boolean | null; // Boolean
     purpose?: string | null; // String
     purpose_contains?: string | null; // String
     purpose_ends_with?: string | null; // String
@@ -2448,6 +3102,20 @@ export interface NexusGenInputs {
     purpose_not_in?: string[] | null; // [String!]
     purpose_not_starts_with?: string | null; // String
     purpose_starts_with?: string | null; // String
+    securityMeasures?: string | null; // String
+    securityMeasures_contains?: string | null; // String
+    securityMeasures_ends_with?: string | null; // String
+    securityMeasures_gt?: string | null; // String
+    securityMeasures_gte?: string | null; // String
+    securityMeasures_in?: string[] | null; // [String!]
+    securityMeasures_lt?: string | null; // String
+    securityMeasures_lte?: string | null; // String
+    securityMeasures_not?: string | null; // String
+    securityMeasures_not_contains?: string | null; // String
+    securityMeasures_not_ends_with?: string | null; // String
+    securityMeasures_not_in?: string[] | null; // [String!]
+    securityMeasures_not_starts_with?: string | null; // String
+    securityMeasures_starts_with?: string | null; // String
     updatedAt?: any | null; // DateTime
     updatedAt_gt?: any | null; // DateTime
     updatedAt_gte?: any | null; // DateTime
@@ -2457,37 +3125,72 @@ export interface NexusGenInputs {
     updatedAt_not?: any | null; // DateTime
     updatedAt_not_in?: any[] | null; // [DateTime!]
   }
-  ProcessingActivityUpdateInput: { // input type
-    applications?: NexusGenInputs['ApplicationUpdateManyWithoutProcessingActivitiesInput'] | null; // ApplicationUpdateManyWithoutProcessingActivitiesInput
-    description?: string | null; // String
+  ProcessingActivityUpdateDataInput: { // input type
+    controllers?: NexusGenInputs['BusinessPartnerUpdateManyInput'] | null; // BusinessPartnerUpdateManyInput
+    dataTypes?: NexusGenInputs['DataTypeUpdateManyInput'] | null; // DataTypeUpdateManyInput
+    iOwnThis?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    legalGrounds?: NexusGenInputs['LegalGroundUpdateManyInput'] | null; // LegalGroundUpdateManyInput
+    linkToDpia?: string | null; // String
+    linkToLia?: string | null; // String
     name?: string | null; // String
+    procesessingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
     process?: NexusGenInputs['ProcessUpdateOneWithoutProcessingActivitiesInput'] | null; // ProcessUpdateOneWithoutProcessingActivitiesInput
+    profiling?: boolean | null; // Boolean
     purpose?: string | null; // String
+    recipients?: NexusGenInputs['BusinessPartnerUpdateManyInput'] | null; // BusinessPartnerUpdateManyInput
+    securityMeasures?: string | null; // String
+  }
+  ProcessingActivityUpdateInput: { // input type
+    controllers?: NexusGenInputs['BusinessPartnerUpdateManyInput'] | null; // BusinessPartnerUpdateManyInput
+    dataTypes?: NexusGenInputs['DataTypeUpdateManyInput'] | null; // DataTypeUpdateManyInput
+    iOwnThis?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    legalGrounds?: NexusGenInputs['LegalGroundUpdateManyInput'] | null; // LegalGroundUpdateManyInput
+    linkToDpia?: string | null; // String
+    linkToLia?: string | null; // String
+    name?: string | null; // String
+    procesessingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
+    process?: NexusGenInputs['ProcessUpdateOneWithoutProcessingActivitiesInput'] | null; // ProcessUpdateOneWithoutProcessingActivitiesInput
+    profiling?: boolean | null; // Boolean
+    purpose?: string | null; // String
+    recipients?: NexusGenInputs['BusinessPartnerUpdateManyInput'] | null; // BusinessPartnerUpdateManyInput
+    securityMeasures?: string | null; // String
   }
   ProcessingActivityUpdateManyDataInput: { // input type
-    description?: string | null; // String
+    iOwnThis?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    linkToDpia?: string | null; // String
+    linkToLia?: string | null; // String
     name?: string | null; // String
+    profiling?: boolean | null; // Boolean
     purpose?: string | null; // String
+    securityMeasures?: string | null; // String
   }
-  ProcessingActivityUpdateManyMutationInput: { // input type
-    description?: string | null; // String
-    name?: string | null; // String
-    purpose?: string | null; // String
-  }
-  ProcessingActivityUpdateManyWithWhereNestedInput: { // input type
-    data: NexusGenInputs['ProcessingActivityUpdateManyDataInput']; // ProcessingActivityUpdateManyDataInput!
-    where: NexusGenInputs['ProcessingActivityScalarWhereInput']; // ProcessingActivityScalarWhereInput!
-  }
-  ProcessingActivityUpdateManyWithoutApplicationsInput: { // input type
+  ProcessingActivityUpdateManyInput: { // input type
     connect?: NexusGenInputs['ProcessingActivityWhereUniqueInput'][] | null; // [ProcessingActivityWhereUniqueInput!]
-    create?: NexusGenInputs['ProcessingActivityCreateWithoutApplicationsInput'][] | null; // [ProcessingActivityCreateWithoutApplicationsInput!]
+    create?: NexusGenInputs['ProcessingActivityCreateInput'][] | null; // [ProcessingActivityCreateInput!]
     delete?: NexusGenInputs['ProcessingActivityWhereUniqueInput'][] | null; // [ProcessingActivityWhereUniqueInput!]
     deleteMany?: NexusGenInputs['ProcessingActivityScalarWhereInput'][] | null; // [ProcessingActivityScalarWhereInput!]
     disconnect?: NexusGenInputs['ProcessingActivityWhereUniqueInput'][] | null; // [ProcessingActivityWhereUniqueInput!]
     set?: NexusGenInputs['ProcessingActivityWhereUniqueInput'][] | null; // [ProcessingActivityWhereUniqueInput!]
-    update?: NexusGenInputs['ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput'][] | null; // [ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput!]
+    update?: NexusGenInputs['ProcessingActivityUpdateWithWhereUniqueNestedInput'][] | null; // [ProcessingActivityUpdateWithWhereUniqueNestedInput!]
     updateMany?: NexusGenInputs['ProcessingActivityUpdateManyWithWhereNestedInput'][] | null; // [ProcessingActivityUpdateManyWithWhereNestedInput!]
-    upsert?: NexusGenInputs['ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput'][] | null; // [ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput!]
+    upsert?: NexusGenInputs['ProcessingActivityUpsertWithWhereUniqueNestedInput'][] | null; // [ProcessingActivityUpsertWithWhereUniqueNestedInput!]
+  }
+  ProcessingActivityUpdateManyMutationInput: { // input type
+    iOwnThis?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    linkToDpia?: string | null; // String
+    linkToLia?: string | null; // String
+    name?: string | null; // String
+    profiling?: boolean | null; // Boolean
+    purpose?: string | null; // String
+    securityMeasures?: string | null; // String
+  }
+  ProcessingActivityUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['ProcessingActivityUpdateManyDataInput']; // ProcessingActivityUpdateManyDataInput!
+    where: NexusGenInputs['ProcessingActivityScalarWhereInput']; // ProcessingActivityScalarWhereInput!
   }
   ProcessingActivityUpdateManyWithoutProcessInput: { // input type
     connect?: NexusGenInputs['ProcessingActivityWhereUniqueInput'][] | null; // [ProcessingActivityWhereUniqueInput!]
@@ -2500,29 +3203,32 @@ export interface NexusGenInputs {
     updateMany?: NexusGenInputs['ProcessingActivityUpdateManyWithWhereNestedInput'][] | null; // [ProcessingActivityUpdateManyWithWhereNestedInput!]
     upsert?: NexusGenInputs['ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput'][] | null; // [ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput!]
   }
-  ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput: { // input type
-    data: NexusGenInputs['ProcessingActivityUpdateWithoutApplicationsDataInput']; // ProcessingActivityUpdateWithoutApplicationsDataInput!
+  ProcessingActivityUpdateWithWhereUniqueNestedInput: { // input type
+    data: NexusGenInputs['ProcessingActivityUpdateDataInput']; // ProcessingActivityUpdateDataInput!
     where: NexusGenInputs['ProcessingActivityWhereUniqueInput']; // ProcessingActivityWhereUniqueInput!
   }
   ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput: { // input type
     data: NexusGenInputs['ProcessingActivityUpdateWithoutProcessDataInput']; // ProcessingActivityUpdateWithoutProcessDataInput!
     where: NexusGenInputs['ProcessingActivityWhereUniqueInput']; // ProcessingActivityWhereUniqueInput!
   }
-  ProcessingActivityUpdateWithoutApplicationsDataInput: { // input type
-    description?: string | null; // String
-    name?: string | null; // String
-    process?: NexusGenInputs['ProcessUpdateOneWithoutProcessingActivitiesInput'] | null; // ProcessUpdateOneWithoutProcessingActivitiesInput
-    purpose?: string | null; // String
-  }
   ProcessingActivityUpdateWithoutProcessDataInput: { // input type
-    applications?: NexusGenInputs['ApplicationUpdateManyWithoutProcessingActivitiesInput'] | null; // ApplicationUpdateManyWithoutProcessingActivitiesInput
-    description?: string | null; // String
+    controllers?: NexusGenInputs['BusinessPartnerUpdateManyInput'] | null; // BusinessPartnerUpdateManyInput
+    dataTypes?: NexusGenInputs['DataTypeUpdateManyInput'] | null; // DataTypeUpdateManyInput
+    iOwnThis?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    legalGrounds?: NexusGenInputs['LegalGroundUpdateManyInput'] | null; // LegalGroundUpdateManyInput
+    linkToDpia?: string | null; // String
+    linkToLia?: string | null; // String
     name?: string | null; // String
+    procesessingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
+    profiling?: boolean | null; // Boolean
     purpose?: string | null; // String
+    recipients?: NexusGenInputs['BusinessPartnerUpdateManyInput'] | null; // BusinessPartnerUpdateManyInput
+    securityMeasures?: string | null; // String
   }
-  ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput: { // input type
-    create: NexusGenInputs['ProcessingActivityCreateWithoutApplicationsInput']; // ProcessingActivityCreateWithoutApplicationsInput!
-    update: NexusGenInputs['ProcessingActivityUpdateWithoutApplicationsDataInput']; // ProcessingActivityUpdateWithoutApplicationsDataInput!
+  ProcessingActivityUpsertWithWhereUniqueNestedInput: { // input type
+    create: NexusGenInputs['ProcessingActivityCreateInput']; // ProcessingActivityCreateInput!
+    update: NexusGenInputs['ProcessingActivityUpdateDataInput']; // ProcessingActivityUpdateDataInput!
     where: NexusGenInputs['ProcessingActivityWhereUniqueInput']; // ProcessingActivityWhereUniqueInput!
   }
   ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput: { // input type
@@ -2532,9 +3238,9 @@ export interface NexusGenInputs {
   }
   ProcessingActivityWhereInput: { // input type
     AND?: NexusGenInputs['ProcessingActivityWhereInput'][] | null; // [ProcessingActivityWhereInput!]
-    applications_every?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
-    applications_none?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
-    applications_some?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
+    controllers_every?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    controllers_none?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    controllers_some?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
     createdAt?: any | null; // DateTime
     createdAt_gt?: any | null; // DateTime
     createdAt_gte?: any | null; // DateTime
@@ -2543,6 +3249,146 @@ export interface NexusGenInputs {
     createdAt_lte?: any | null; // DateTime
     createdAt_not?: any | null; // DateTime
     createdAt_not_in?: any[] | null; // [DateTime!]
+    dataTypes_every?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    dataTypes_none?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    dataTypes_some?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    iOwnThis?: boolean | null; // Boolean
+    iOwnThis_not?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    legalGroundComment_contains?: string | null; // String
+    legalGroundComment_ends_with?: string | null; // String
+    legalGroundComment_gt?: string | null; // String
+    legalGroundComment_gte?: string | null; // String
+    legalGroundComment_in?: string[] | null; // [String!]
+    legalGroundComment_lt?: string | null; // String
+    legalGroundComment_lte?: string | null; // String
+    legalGroundComment_not?: string | null; // String
+    legalGroundComment_not_contains?: string | null; // String
+    legalGroundComment_not_ends_with?: string | null; // String
+    legalGroundComment_not_in?: string[] | null; // [String!]
+    legalGroundComment_not_starts_with?: string | null; // String
+    legalGroundComment_starts_with?: string | null; // String
+    legalGrounds_every?: NexusGenInputs['LegalGroundWhereInput'] | null; // LegalGroundWhereInput
+    legalGrounds_none?: NexusGenInputs['LegalGroundWhereInput'] | null; // LegalGroundWhereInput
+    legalGrounds_some?: NexusGenInputs['LegalGroundWhereInput'] | null; // LegalGroundWhereInput
+    linkToDpia?: string | null; // String
+    linkToDpia_contains?: string | null; // String
+    linkToDpia_ends_with?: string | null; // String
+    linkToDpia_gt?: string | null; // String
+    linkToDpia_gte?: string | null; // String
+    linkToDpia_in?: string[] | null; // [String!]
+    linkToDpia_lt?: string | null; // String
+    linkToDpia_lte?: string | null; // String
+    linkToDpia_not?: string | null; // String
+    linkToDpia_not_contains?: string | null; // String
+    linkToDpia_not_ends_with?: string | null; // String
+    linkToDpia_not_in?: string[] | null; // [String!]
+    linkToDpia_not_starts_with?: string | null; // String
+    linkToDpia_starts_with?: string | null; // String
+    linkToLia?: string | null; // String
+    linkToLia_contains?: string | null; // String
+    linkToLia_ends_with?: string | null; // String
+    linkToLia_gt?: string | null; // String
+    linkToLia_gte?: string | null; // String
+    linkToLia_in?: string[] | null; // [String!]
+    linkToLia_lt?: string | null; // String
+    linkToLia_lte?: string | null; // String
+    linkToLia_not?: string | null; // String
+    linkToLia_not_contains?: string | null; // String
+    linkToLia_not_ends_with?: string | null; // String
+    linkToLia_not_in?: string[] | null; // [String!]
+    linkToLia_not_starts_with?: string | null; // String
+    linkToLia_starts_with?: string | null; // String
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['ProcessingActivityWhereInput'][] | null; // [ProcessingActivityWhereInput!]
+    OR?: NexusGenInputs['ProcessingActivityWhereInput'][] | null; // [ProcessingActivityWhereInput!]
+    procesessingTypes_every?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    procesessingTypes_none?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    procesessingTypes_some?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    process?: NexusGenInputs['ProcessWhereInput'] | null; // ProcessWhereInput
+    profiling?: boolean | null; // Boolean
+    profiling_not?: boolean | null; // Boolean
+    purpose?: string | null; // String
+    purpose_contains?: string | null; // String
+    purpose_ends_with?: string | null; // String
+    purpose_gt?: string | null; // String
+    purpose_gte?: string | null; // String
+    purpose_in?: string[] | null; // [String!]
+    purpose_lt?: string | null; // String
+    purpose_lte?: string | null; // String
+    purpose_not?: string | null; // String
+    purpose_not_contains?: string | null; // String
+    purpose_not_ends_with?: string | null; // String
+    purpose_not_in?: string[] | null; // [String!]
+    purpose_not_starts_with?: string | null; // String
+    purpose_starts_with?: string | null; // String
+    recipients_every?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    recipients_none?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    recipients_some?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    securityMeasures?: string | null; // String
+    securityMeasures_contains?: string | null; // String
+    securityMeasures_ends_with?: string | null; // String
+    securityMeasures_gt?: string | null; // String
+    securityMeasures_gte?: string | null; // String
+    securityMeasures_in?: string[] | null; // [String!]
+    securityMeasures_lt?: string | null; // String
+    securityMeasures_lte?: string | null; // String
+    securityMeasures_not?: string | null; // String
+    securityMeasures_not_contains?: string | null; // String
+    securityMeasures_not_ends_with?: string | null; // String
+    securityMeasures_not_in?: string[] | null; // [String!]
+    securityMeasures_not_starts_with?: string | null; // String
+    securityMeasures_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  ProcessingActivityWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  ProcessingTypeCreateInput: { // input type
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+  }
+  ProcessingTypeCreateManyInput: { // input type
+    connect?: NexusGenInputs['ProcessingTypeWhereUniqueInput'][] | null; // [ProcessingTypeWhereUniqueInput!]
+    create?: NexusGenInputs['ProcessingTypeCreateInput'][] | null; // [ProcessingTypeCreateInput!]
+  }
+  ProcessingTypeScalarWhereInput: { // input type
+    AND?: NexusGenInputs['ProcessingTypeScalarWhereInput'][] | null; // [ProcessingTypeScalarWhereInput!]
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -2585,33 +3431,97 @@ export interface NexusGenInputs {
     name_not_in?: string[] | null; // [String!]
     name_not_starts_with?: string | null; // String
     name_starts_with?: string | null; // String
-    NOT?: NexusGenInputs['ProcessingActivityWhereInput'][] | null; // [ProcessingActivityWhereInput!]
-    OR?: NexusGenInputs['ProcessingActivityWhereInput'][] | null; // [ProcessingActivityWhereInput!]
-    process?: NexusGenInputs['ProcessWhereInput'] | null; // ProcessWhereInput
-    purpose?: string | null; // String
-    purpose_contains?: string | null; // String
-    purpose_ends_with?: string | null; // String
-    purpose_gt?: string | null; // String
-    purpose_gte?: string | null; // String
-    purpose_in?: string[] | null; // [String!]
-    purpose_lt?: string | null; // String
-    purpose_lte?: string | null; // String
-    purpose_not?: string | null; // String
-    purpose_not_contains?: string | null; // String
-    purpose_not_ends_with?: string | null; // String
-    purpose_not_in?: string[] | null; // [String!]
-    purpose_not_starts_with?: string | null; // String
-    purpose_starts_with?: string | null; // String
-    updatedAt?: any | null; // DateTime
-    updatedAt_gt?: any | null; // DateTime
-    updatedAt_gte?: any | null; // DateTime
-    updatedAt_in?: any[] | null; // [DateTime!]
-    updatedAt_lt?: any | null; // DateTime
-    updatedAt_lte?: any | null; // DateTime
-    updatedAt_not?: any | null; // DateTime
-    updatedAt_not_in?: any[] | null; // [DateTime!]
+    NOT?: NexusGenInputs['ProcessingTypeScalarWhereInput'][] | null; // [ProcessingTypeScalarWhereInput!]
+    OR?: NexusGenInputs['ProcessingTypeScalarWhereInput'][] | null; // [ProcessingTypeScalarWhereInput!]
   }
-  ProcessingActivityWhereUniqueInput: { // input type
+  ProcessingTypeUpdateDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  ProcessingTypeUpdateInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  ProcessingTypeUpdateManyDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  ProcessingTypeUpdateManyInput: { // input type
+    connect?: NexusGenInputs['ProcessingTypeWhereUniqueInput'][] | null; // [ProcessingTypeWhereUniqueInput!]
+    create?: NexusGenInputs['ProcessingTypeCreateInput'][] | null; // [ProcessingTypeCreateInput!]
+    delete?: NexusGenInputs['ProcessingTypeWhereUniqueInput'][] | null; // [ProcessingTypeWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['ProcessingTypeScalarWhereInput'][] | null; // [ProcessingTypeScalarWhereInput!]
+    disconnect?: NexusGenInputs['ProcessingTypeWhereUniqueInput'][] | null; // [ProcessingTypeWhereUniqueInput!]
+    set?: NexusGenInputs['ProcessingTypeWhereUniqueInput'][] | null; // [ProcessingTypeWhereUniqueInput!]
+    update?: NexusGenInputs['ProcessingTypeUpdateWithWhereUniqueNestedInput'][] | null; // [ProcessingTypeUpdateWithWhereUniqueNestedInput!]
+    updateMany?: NexusGenInputs['ProcessingTypeUpdateManyWithWhereNestedInput'][] | null; // [ProcessingTypeUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['ProcessingTypeUpsertWithWhereUniqueNestedInput'][] | null; // [ProcessingTypeUpsertWithWhereUniqueNestedInput!]
+  }
+  ProcessingTypeUpdateManyMutationInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  ProcessingTypeUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['ProcessingTypeUpdateManyDataInput']; // ProcessingTypeUpdateManyDataInput!
+    where: NexusGenInputs['ProcessingTypeScalarWhereInput']; // ProcessingTypeScalarWhereInput!
+  }
+  ProcessingTypeUpdateWithWhereUniqueNestedInput: { // input type
+    data: NexusGenInputs['ProcessingTypeUpdateDataInput']; // ProcessingTypeUpdateDataInput!
+    where: NexusGenInputs['ProcessingTypeWhereUniqueInput']; // ProcessingTypeWhereUniqueInput!
+  }
+  ProcessingTypeUpsertWithWhereUniqueNestedInput: { // input type
+    create: NexusGenInputs['ProcessingTypeCreateInput']; // ProcessingTypeCreateInput!
+    update: NexusGenInputs['ProcessingTypeUpdateDataInput']; // ProcessingTypeUpdateDataInput!
+    where: NexusGenInputs['ProcessingTypeWhereUniqueInput']; // ProcessingTypeWhereUniqueInput!
+  }
+  ProcessingTypeWhereInput: { // input type
+    AND?: NexusGenInputs['ProcessingTypeWhereInput'][] | null; // [ProcessingTypeWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['ProcessingTypeWhereInput'][] | null; // [ProcessingTypeWhereInput!]
+    OR?: NexusGenInputs['ProcessingTypeWhereInput'][] | null; // [ProcessingTypeWhereInput!]
+  }
+  ProcessingTypeWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
   QualityAttributeCreateInput: { // input type
@@ -2714,6 +3624,170 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['QualityAttributeWhereInput'][] | null; // [QualityAttributeWhereInput!]
   }
   QualityAttributeWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  RecipientsTypeCreateInput: { // input type
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+  }
+  RecipientsTypeCreateOneInput: { // input type
+    connect?: NexusGenInputs['RecipientsTypeWhereUniqueInput'] | null; // RecipientsTypeWhereUniqueInput
+    create?: NexusGenInputs['RecipientsTypeCreateInput'] | null; // RecipientsTypeCreateInput
+  }
+  RecipientsTypeUpdateDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  RecipientsTypeUpdateInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  RecipientsTypeUpdateManyMutationInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  RecipientsTypeUpdateOneInput: { // input type
+    connect?: NexusGenInputs['RecipientsTypeWhereUniqueInput'] | null; // RecipientsTypeWhereUniqueInput
+    create?: NexusGenInputs['RecipientsTypeCreateInput'] | null; // RecipientsTypeCreateInput
+    delete?: boolean | null; // Boolean
+    disconnect?: boolean | null; // Boolean
+    update?: NexusGenInputs['RecipientsTypeUpdateDataInput'] | null; // RecipientsTypeUpdateDataInput
+    upsert?: NexusGenInputs['RecipientsTypeUpsertNestedInput'] | null; // RecipientsTypeUpsertNestedInput
+  }
+  RecipientsTypeUpsertNestedInput: { // input type
+    create: NexusGenInputs['RecipientsTypeCreateInput']; // RecipientsTypeCreateInput!
+    update: NexusGenInputs['RecipientsTypeUpdateDataInput']; // RecipientsTypeUpdateDataInput!
+  }
+  RecipientsTypeWhereInput: { // input type
+    AND?: NexusGenInputs['RecipientsTypeWhereInput'][] | null; // [RecipientsTypeWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['RecipientsTypeWhereInput'][] | null; // [RecipientsTypeWhereInput!]
+    OR?: NexusGenInputs['RecipientsTypeWhereInput'][] | null; // [RecipientsTypeWhereInput!]
+  }
+  RecipientsTypeWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  RetentionPolicyCreateInput: { // input type
+    description?: string | null; // String
+    id?: string | null; // ID
+    name: string; // String!
+  }
+  RetentionPolicyCreateOneInput: { // input type
+    connect?: NexusGenInputs['RetentionPolicyWhereUniqueInput'] | null; // RetentionPolicyWhereUniqueInput
+    create?: NexusGenInputs['RetentionPolicyCreateInput'] | null; // RetentionPolicyCreateInput
+  }
+  RetentionPolicyUpdateDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  RetentionPolicyUpdateInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  RetentionPolicyUpdateManyMutationInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  RetentionPolicyUpdateOneRequiredInput: { // input type
+    connect?: NexusGenInputs['RetentionPolicyWhereUniqueInput'] | null; // RetentionPolicyWhereUniqueInput
+    create?: NexusGenInputs['RetentionPolicyCreateInput'] | null; // RetentionPolicyCreateInput
+    update?: NexusGenInputs['RetentionPolicyUpdateDataInput'] | null; // RetentionPolicyUpdateDataInput
+    upsert?: NexusGenInputs['RetentionPolicyUpsertNestedInput'] | null; // RetentionPolicyUpsertNestedInput
+  }
+  RetentionPolicyUpsertNestedInput: { // input type
+    create: NexusGenInputs['RetentionPolicyCreateInput']; // RetentionPolicyCreateInput!
+    update: NexusGenInputs['RetentionPolicyUpdateDataInput']; // RetentionPolicyUpdateDataInput!
+  }
+  RetentionPolicyWhereInput: { // input type
+    AND?: NexusGenInputs['RetentionPolicyWhereInput'][] | null; // [RetentionPolicyWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['RetentionPolicyWhereInput'][] | null; // [RetentionPolicyWhereInput!]
+    OR?: NexusGenInputs['RetentionPolicyWhereInput'][] | null; // [RetentionPolicyWhereInput!]
+  }
+  RetentionPolicyWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
   UserCreateInput: { // input type
@@ -2846,25 +3920,33 @@ export interface NexusGenInputs {
 
 export interface NexusGenEnums {
   ApplicationOrderByInput: "alias_ASC" | "alias_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  BusinessPartnerOrderByInput: "contactDetails_ASC" | "contactDetails_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "dpo_ASC" | "dpo_DESC" | "id_ASC" | "id_DESC" | "linkToDpa_ASC" | "linkToDpa_DESC" | "name_ASC" | "name_DESC" | "otherCountries_ASC" | "otherCountries_DESC" | "outsideEea_ASC" | "outsideEea_DESC" | "safeguards_ASC" | "safeguards_DESC" | "securityMeasures_ASC" | "securityMeasures_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   BusinessRoleOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "raciExecutive_ASC" | "raciExecutive_DESC" | "raciFinancial_ASC" | "raciFinancial_DESC" | "raciPrivacy_ASC" | "raciPrivacy_DESC" | "raciSecurity_ASC" | "raciSecurity_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   CLASSIFICATIONOBJECT: "APPLICATION" | "DATA"
   ClassificationLabelOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "criteria_ASC" | "criteria_DESC" | "id_ASC" | "id_DESC" | "label_ASC" | "label_DESC" | "score_ASC" | "score_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  DataSubjectTypeOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   DataTypeOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  LegalGroundOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "specialCategoryCondition_ASC" | "specialCategoryCondition_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   LocationOrderByInput: "address_ASC" | "address_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  OrganizationOrderByInput: "contactDetails_ASC" | "contactDetails_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "dpo_ASC" | "dpo_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "representative_ASC" | "representative_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   OrganizationalUnitOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   OrganizationalUnitTypeOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "reportingUnit_ASC" | "reportingUnit_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   PERMISSION: "ADMIN" | "AUDIT"
   PersonOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "surname_ASC" | "surname_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ProcessOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  ProcessingActivityOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "purpose_ASC" | "purpose_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ProcessingActivityOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "iOwnThis_ASC" | "iOwnThis_DESC" | "legalGroundComment_ASC" | "legalGroundComment_DESC" | "linkToDpia_ASC" | "linkToDpia_DESC" | "linkToLia_ASC" | "linkToLia_DESC" | "name_ASC" | "name_DESC" | "profiling_ASC" | "profiling_DESC" | "purpose_ASC" | "purpose_DESC" | "securityMeasures_ASC" | "securityMeasures_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ProcessingTypeOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   QualityAttributeOrderByInput: "appliesToObject_ASC" | "appliesToObject_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   RACI: "ACCOUNTABLE" | "CONSULTED" | "INFORMED" | "RESPONDSABLE"
+  RecipientsTypeOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  RetentionPolicyOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserOrderByInput: "active_ASC" | "active_DESC" | "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "password_ASC" | "password_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
 export interface NexusGenRootTypes {
   AggregateApplication: { // root type
+    count: number; // Int!
+  }
+  AggregateBusinessPartner: { // root type
     count: number; // Int!
   }
   AggregateBusinessRole: { // root type
@@ -2873,13 +3955,16 @@ export interface NexusGenRootTypes {
   AggregateClassificationLabel: { // root type
     count: number; // Int!
   }
+  AggregateDataSubjectType: { // root type
+    count: number; // Int!
+  }
   AggregateDataType: { // root type
     count: number; // Int!
   }
-  AggregateLocation: { // root type
+  AggregateLegalGround: { // root type
     count: number; // Int!
   }
-  AggregateOrganization: { // root type
+  AggregateLocation: { // root type
     count: number; // Int!
   }
   AggregateOrganizationalUnit: { // root type
@@ -2897,7 +3982,16 @@ export interface NexusGenRootTypes {
   AggregateProcessingActivity: { // root type
     count: number; // Int!
   }
+  AggregateProcessingType: { // root type
+    count: number; // Int!
+  }
   AggregateQualityAttribute: { // root type
+    count: number; // Int!
+  }
+  AggregateRecipientsType: { // root type
+    count: number; // Int!
+  }
+  AggregateRetentionPolicy: { // root type
     count: number; // Int!
   }
   AggregateUser: { // root type
@@ -2919,6 +4013,26 @@ export interface NexusGenRootTypes {
   }
   BatchPayload: { // root type
     count: any; // Long!
+  }
+  BusinessPartner: { // root type
+    contactDetails: string; // String!
+    description?: string | null; // String
+    dpo: string; // String!
+    id: string; // ID!
+    linkToDpa?: string | null; // String
+    name: string; // String!
+    otherCountries?: any | null; // Json
+    outsideEea?: boolean | null; // Boolean
+    safeguards?: string | null; // String
+    securityMeasures: string; // String!
+  }
+  BusinessPartnerConnection: { // root type
+    edges: NexusGenRootTypes['BusinessPartnerEdge'][]; // [BusinessPartnerEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  BusinessPartnerEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['BusinessPartner']; // BusinessPartner!
   }
   BusinessRole: { // root type
     description?: string | null; // String
@@ -2951,6 +4065,19 @@ export interface NexusGenRootTypes {
     cursor: string; // String!
     node: NexusGenRootTypes['ClassificationLabel']; // ClassificationLabel!
   }
+  DataSubjectType: { // root type
+    description?: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+  }
+  DataSubjectTypeConnection: { // root type
+    edges: NexusGenRootTypes['DataSubjectTypeEdge'][]; // [DataSubjectTypeEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  DataSubjectTypeEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['DataSubjectType']; // DataSubjectType!
+  }
   DataType: { // root type
     description?: string | null; // String
     id: string; // ID!
@@ -2963,6 +4090,20 @@ export interface NexusGenRootTypes {
   DataTypeEdge: { // root type
     cursor: string; // String!
     node: NexusGenRootTypes['DataType']; // DataType!
+  }
+  LegalGround: { // root type
+    description?: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+    specialCategoryCondition?: boolean | null; // Boolean
+  }
+  LegalGroundConnection: { // root type
+    edges: NexusGenRootTypes['LegalGroundEdge'][]; // [LegalGroundEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  LegalGroundEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['LegalGround']; // LegalGround!
   }
   Location: { // root type
     address: string; // String!
@@ -2979,22 +4120,6 @@ export interface NexusGenRootTypes {
     node: NexusGenRootTypes['Location']; // Location!
   }
   Mutation: {};
-  Organization: { // root type
-    contactDetails: string; // String!
-    description?: string | null; // String
-    dpo: string; // String!
-    id: string; // ID!
-    name: string; // String!
-    representative: string; // String!
-  }
-  OrganizationConnection: { // root type
-    edges: NexusGenRootTypes['OrganizationEdge'][]; // [OrganizationEdge!]!
-    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
-  }
-  OrganizationEdge: { // root type
-    cursor: string; // String!
-    node: NexusGenRootTypes['Organization']; // Organization!
-  }
   OrganizationalUnit: { // root type
     createdAt: any; // DateTime!
     description?: string | null; // String
@@ -3060,10 +4185,15 @@ export interface NexusGenRootTypes {
   }
   ProcessingActivity: { // root type
     createdAt: any; // DateTime!
-    description?: string | null; // String
     id: string; // ID!
+    iOwnThis?: boolean | null; // Boolean
+    legalGroundComment?: string | null; // String
+    linkToDpia?: string | null; // String
+    linkToLia?: string | null; // String
     name: string; // String!
+    profiling?: boolean | null; // Boolean
     purpose?: string | null; // String
+    securityMeasures?: string | null; // String
     updatedAt: any; // DateTime!
   }
   ProcessingActivityConnection: { // root type
@@ -3073,6 +4203,19 @@ export interface NexusGenRootTypes {
   ProcessingActivityEdge: { // root type
     cursor: string; // String!
     node: NexusGenRootTypes['ProcessingActivity']; // ProcessingActivity!
+  }
+  ProcessingType: { // root type
+    description?: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+  }
+  ProcessingTypeConnection: { // root type
+    edges: NexusGenRootTypes['ProcessingTypeEdge'][]; // [ProcessingTypeEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  ProcessingTypeEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['ProcessingType']; // ProcessingType!
   }
   QualityAttribute: { // root type
     appliesToObject: NexusGenEnums['CLASSIFICATIONOBJECT']; // CLASSIFICATIONOBJECT!
@@ -3089,6 +4232,32 @@ export interface NexusGenRootTypes {
     node: NexusGenRootTypes['QualityAttribute']; // QualityAttribute!
   }
   Query: {};
+  RecipientsType: { // root type
+    description?: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+  }
+  RecipientsTypeConnection: { // root type
+    edges: NexusGenRootTypes['RecipientsTypeEdge'][]; // [RecipientsTypeEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  RecipientsTypeEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['RecipientsType']; // RecipientsType!
+  }
+  RetentionPolicy: { // root type
+    description?: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+  }
+  RetentionPolicyConnection: { // root type
+    edges: NexusGenRootTypes['RetentionPolicyEdge'][]; // [RetentionPolicyEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  RetentionPolicyEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['RetentionPolicy']; // RetentionPolicy!
+  }
   Token: { // root type
     token?: string | null; // String
   }
@@ -3123,12 +4292,10 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   ApplicationCreateManyWithoutBusinessOwnerInput: NexusGenInputs['ApplicationCreateManyWithoutBusinessOwnerInput'];
   ApplicationCreateManyWithoutDataTypesInput: NexusGenInputs['ApplicationCreateManyWithoutDataTypesInput'];
   ApplicationCreateManyWithoutItOwnerInput: NexusGenInputs['ApplicationCreateManyWithoutItOwnerInput'];
-  ApplicationCreateManyWithoutProcessingActivitiesInput: NexusGenInputs['ApplicationCreateManyWithoutProcessingActivitiesInput'];
   ApplicationCreateManyWithoutSecurityAdministratorInput: NexusGenInputs['ApplicationCreateManyWithoutSecurityAdministratorInput'];
   ApplicationCreateWithoutBusinessOwnerInput: NexusGenInputs['ApplicationCreateWithoutBusinessOwnerInput'];
   ApplicationCreateWithoutDataTypesInput: NexusGenInputs['ApplicationCreateWithoutDataTypesInput'];
   ApplicationCreateWithoutItOwnerInput: NexusGenInputs['ApplicationCreateWithoutItOwnerInput'];
-  ApplicationCreateWithoutProcessingActivitiesInput: NexusGenInputs['ApplicationCreateWithoutProcessingActivitiesInput'];
   ApplicationCreateWithoutSecurityAdministratorInput: NexusGenInputs['ApplicationCreateWithoutSecurityAdministratorInput'];
   ApplicationScalarWhereInput: NexusGenInputs['ApplicationScalarWhereInput'];
   ApplicationUpdateInput: NexusGenInputs['ApplicationUpdateInput'];
@@ -3138,25 +4305,42 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   ApplicationUpdateManyWithoutBusinessOwnerInput: NexusGenInputs['ApplicationUpdateManyWithoutBusinessOwnerInput'];
   ApplicationUpdateManyWithoutDataTypesInput: NexusGenInputs['ApplicationUpdateManyWithoutDataTypesInput'];
   ApplicationUpdateManyWithoutItOwnerInput: NexusGenInputs['ApplicationUpdateManyWithoutItOwnerInput'];
-  ApplicationUpdateManyWithoutProcessingActivitiesInput: NexusGenInputs['ApplicationUpdateManyWithoutProcessingActivitiesInput'];
   ApplicationUpdateManyWithoutSecurityAdministratorInput: NexusGenInputs['ApplicationUpdateManyWithoutSecurityAdministratorInput'];
   ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput: NexusGenInputs['ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput'];
   ApplicationUpdateWithWhereUniqueWithoutDataTypesInput: NexusGenInputs['ApplicationUpdateWithWhereUniqueWithoutDataTypesInput'];
   ApplicationUpdateWithWhereUniqueWithoutItOwnerInput: NexusGenInputs['ApplicationUpdateWithWhereUniqueWithoutItOwnerInput'];
-  ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput: NexusGenInputs['ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput'];
   ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput: NexusGenInputs['ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput'];
   ApplicationUpdateWithoutBusinessOwnerDataInput: NexusGenInputs['ApplicationUpdateWithoutBusinessOwnerDataInput'];
   ApplicationUpdateWithoutDataTypesDataInput: NexusGenInputs['ApplicationUpdateWithoutDataTypesDataInput'];
   ApplicationUpdateWithoutItOwnerDataInput: NexusGenInputs['ApplicationUpdateWithoutItOwnerDataInput'];
-  ApplicationUpdateWithoutProcessingActivitiesDataInput: NexusGenInputs['ApplicationUpdateWithoutProcessingActivitiesDataInput'];
   ApplicationUpdateWithoutSecurityAdministratorDataInput: NexusGenInputs['ApplicationUpdateWithoutSecurityAdministratorDataInput'];
   ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput: NexusGenInputs['ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput'];
   ApplicationUpsertWithWhereUniqueWithoutDataTypesInput: NexusGenInputs['ApplicationUpsertWithWhereUniqueWithoutDataTypesInput'];
   ApplicationUpsertWithWhereUniqueWithoutItOwnerInput: NexusGenInputs['ApplicationUpsertWithWhereUniqueWithoutItOwnerInput'];
-  ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput: NexusGenInputs['ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput'];
   ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput: NexusGenInputs['ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput'];
   ApplicationWhereInput: NexusGenInputs['ApplicationWhereInput'];
   ApplicationWhereUniqueInput: NexusGenInputs['ApplicationWhereUniqueInput'];
+  BusinessPartnerCreateInput: NexusGenInputs['BusinessPartnerCreateInput'];
+  BusinessPartnerCreateManyInput: NexusGenInputs['BusinessPartnerCreateManyInput'];
+  BusinessPartnerCreateOneInput: NexusGenInputs['BusinessPartnerCreateOneInput'];
+  BusinessPartnerCreateOneWithoutHeadOfficeInput: NexusGenInputs['BusinessPartnerCreateOneWithoutHeadOfficeInput'];
+  BusinessPartnerCreateWithoutHeadOfficeInput: NexusGenInputs['BusinessPartnerCreateWithoutHeadOfficeInput'];
+  BusinessPartnerScalarWhereInput: NexusGenInputs['BusinessPartnerScalarWhereInput'];
+  BusinessPartnerUpdateDataInput: NexusGenInputs['BusinessPartnerUpdateDataInput'];
+  BusinessPartnerUpdateInput: NexusGenInputs['BusinessPartnerUpdateInput'];
+  BusinessPartnerUpdateManyDataInput: NexusGenInputs['BusinessPartnerUpdateManyDataInput'];
+  BusinessPartnerUpdateManyInput: NexusGenInputs['BusinessPartnerUpdateManyInput'];
+  BusinessPartnerUpdateManyMutationInput: NexusGenInputs['BusinessPartnerUpdateManyMutationInput'];
+  BusinessPartnerUpdateManyWithWhereNestedInput: NexusGenInputs['BusinessPartnerUpdateManyWithWhereNestedInput'];
+  BusinessPartnerUpdateOneInput: NexusGenInputs['BusinessPartnerUpdateOneInput'];
+  BusinessPartnerUpdateOneWithoutHeadOfficeInput: NexusGenInputs['BusinessPartnerUpdateOneWithoutHeadOfficeInput'];
+  BusinessPartnerUpdateWithWhereUniqueNestedInput: NexusGenInputs['BusinessPartnerUpdateWithWhereUniqueNestedInput'];
+  BusinessPartnerUpdateWithoutHeadOfficeDataInput: NexusGenInputs['BusinessPartnerUpdateWithoutHeadOfficeDataInput'];
+  BusinessPartnerUpsertNestedInput: NexusGenInputs['BusinessPartnerUpsertNestedInput'];
+  BusinessPartnerUpsertWithWhereUniqueNestedInput: NexusGenInputs['BusinessPartnerUpsertWithWhereUniqueNestedInput'];
+  BusinessPartnerUpsertWithoutHeadOfficeInput: NexusGenInputs['BusinessPartnerUpsertWithoutHeadOfficeInput'];
+  BusinessPartnerWhereInput: NexusGenInputs['BusinessPartnerWhereInput'];
+  BusinessPartnerWhereUniqueInput: NexusGenInputs['BusinessPartnerWhereUniqueInput'];
   BusinessRoleCreateInput: NexusGenInputs['BusinessRoleCreateInput'];
   BusinessRoleCreateManyWithoutOrganizationalUnitInput: NexusGenInputs['BusinessRoleCreateManyWithoutOrganizationalUnitInput'];
   BusinessRoleCreateManyWithoutPersonInput: NexusGenInputs['BusinessRoleCreateManyWithoutPersonInput'];
@@ -3217,47 +4401,75 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput: NexusGenInputs['ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput'];
   ClassificationLabelWhereInput: NexusGenInputs['ClassificationLabelWhereInput'];
   ClassificationLabelWhereUniqueInput: NexusGenInputs['ClassificationLabelWhereUniqueInput'];
+  DataSubjectTypeCreateInput: NexusGenInputs['DataSubjectTypeCreateInput'];
+  DataSubjectTypeCreateManyWithoutDataTypesInput: NexusGenInputs['DataSubjectTypeCreateManyWithoutDataTypesInput'];
+  DataSubjectTypeCreateWithoutDataTypesInput: NexusGenInputs['DataSubjectTypeCreateWithoutDataTypesInput'];
+  DataSubjectTypeScalarWhereInput: NexusGenInputs['DataSubjectTypeScalarWhereInput'];
+  DataSubjectTypeUpdateInput: NexusGenInputs['DataSubjectTypeUpdateInput'];
+  DataSubjectTypeUpdateManyDataInput: NexusGenInputs['DataSubjectTypeUpdateManyDataInput'];
+  DataSubjectTypeUpdateManyMutationInput: NexusGenInputs['DataSubjectTypeUpdateManyMutationInput'];
+  DataSubjectTypeUpdateManyWithWhereNestedInput: NexusGenInputs['DataSubjectTypeUpdateManyWithWhereNestedInput'];
+  DataSubjectTypeUpdateManyWithoutDataTypesInput: NexusGenInputs['DataSubjectTypeUpdateManyWithoutDataTypesInput'];
+  DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput: NexusGenInputs['DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput'];
+  DataSubjectTypeUpdateWithoutDataTypesDataInput: NexusGenInputs['DataSubjectTypeUpdateWithoutDataTypesDataInput'];
+  DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput: NexusGenInputs['DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput'];
+  DataSubjectTypeWhereInput: NexusGenInputs['DataSubjectTypeWhereInput'];
+  DataSubjectTypeWhereUniqueInput: NexusGenInputs['DataSubjectTypeWhereUniqueInput'];
   DataTypeCreateInput: NexusGenInputs['DataTypeCreateInput'];
+  DataTypeCreateManyInput: NexusGenInputs['DataTypeCreateManyInput'];
   DataTypeCreateManyWithoutApplicationInput: NexusGenInputs['DataTypeCreateManyWithoutApplicationInput'];
   DataTypeCreateManyWithoutClassificationLabelsInput: NexusGenInputs['DataTypeCreateManyWithoutClassificationLabelsInput'];
+  DataTypeCreateManyWithoutDataSubjectTypeInput: NexusGenInputs['DataTypeCreateManyWithoutDataSubjectTypeInput'];
   DataTypeCreateWithoutApplicationInput: NexusGenInputs['DataTypeCreateWithoutApplicationInput'];
   DataTypeCreateWithoutClassificationLabelsInput: NexusGenInputs['DataTypeCreateWithoutClassificationLabelsInput'];
+  DataTypeCreateWithoutDataSubjectTypeInput: NexusGenInputs['DataTypeCreateWithoutDataSubjectTypeInput'];
   DataTypeScalarWhereInput: NexusGenInputs['DataTypeScalarWhereInput'];
+  DataTypeUpdateDataInput: NexusGenInputs['DataTypeUpdateDataInput'];
   DataTypeUpdateInput: NexusGenInputs['DataTypeUpdateInput'];
   DataTypeUpdateManyDataInput: NexusGenInputs['DataTypeUpdateManyDataInput'];
+  DataTypeUpdateManyInput: NexusGenInputs['DataTypeUpdateManyInput'];
   DataTypeUpdateManyMutationInput: NexusGenInputs['DataTypeUpdateManyMutationInput'];
   DataTypeUpdateManyWithWhereNestedInput: NexusGenInputs['DataTypeUpdateManyWithWhereNestedInput'];
   DataTypeUpdateManyWithoutApplicationInput: NexusGenInputs['DataTypeUpdateManyWithoutApplicationInput'];
   DataTypeUpdateManyWithoutClassificationLabelsInput: NexusGenInputs['DataTypeUpdateManyWithoutClassificationLabelsInput'];
+  DataTypeUpdateManyWithoutDataSubjectTypeInput: NexusGenInputs['DataTypeUpdateManyWithoutDataSubjectTypeInput'];
+  DataTypeUpdateWithWhereUniqueNestedInput: NexusGenInputs['DataTypeUpdateWithWhereUniqueNestedInput'];
   DataTypeUpdateWithWhereUniqueWithoutApplicationInput: NexusGenInputs['DataTypeUpdateWithWhereUniqueWithoutApplicationInput'];
   DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput: NexusGenInputs['DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput'];
+  DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput: NexusGenInputs['DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput'];
   DataTypeUpdateWithoutApplicationDataInput: NexusGenInputs['DataTypeUpdateWithoutApplicationDataInput'];
   DataTypeUpdateWithoutClassificationLabelsDataInput: NexusGenInputs['DataTypeUpdateWithoutClassificationLabelsDataInput'];
+  DataTypeUpdateWithoutDataSubjectTypeDataInput: NexusGenInputs['DataTypeUpdateWithoutDataSubjectTypeDataInput'];
+  DataTypeUpsertWithWhereUniqueNestedInput: NexusGenInputs['DataTypeUpsertWithWhereUniqueNestedInput'];
   DataTypeUpsertWithWhereUniqueWithoutApplicationInput: NexusGenInputs['DataTypeUpsertWithWhereUniqueWithoutApplicationInput'];
   DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput: NexusGenInputs['DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput'];
+  DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput: NexusGenInputs['DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput'];
   DataTypeWhereInput: NexusGenInputs['DataTypeWhereInput'];
   DataTypeWhereUniqueInput: NexusGenInputs['DataTypeWhereUniqueInput'];
+  LegalGroundCreateInput: NexusGenInputs['LegalGroundCreateInput'];
+  LegalGroundCreateManyInput: NexusGenInputs['LegalGroundCreateManyInput'];
+  LegalGroundScalarWhereInput: NexusGenInputs['LegalGroundScalarWhereInput'];
+  LegalGroundUpdateDataInput: NexusGenInputs['LegalGroundUpdateDataInput'];
+  LegalGroundUpdateInput: NexusGenInputs['LegalGroundUpdateInput'];
+  LegalGroundUpdateManyDataInput: NexusGenInputs['LegalGroundUpdateManyDataInput'];
+  LegalGroundUpdateManyInput: NexusGenInputs['LegalGroundUpdateManyInput'];
+  LegalGroundUpdateManyMutationInput: NexusGenInputs['LegalGroundUpdateManyMutationInput'];
+  LegalGroundUpdateManyWithWhereNestedInput: NexusGenInputs['LegalGroundUpdateManyWithWhereNestedInput'];
+  LegalGroundUpdateWithWhereUniqueNestedInput: NexusGenInputs['LegalGroundUpdateWithWhereUniqueNestedInput'];
+  LegalGroundUpsertWithWhereUniqueNestedInput: NexusGenInputs['LegalGroundUpsertWithWhereUniqueNestedInput'];
+  LegalGroundWhereInput: NexusGenInputs['LegalGroundWhereInput'];
+  LegalGroundWhereUniqueInput: NexusGenInputs['LegalGroundWhereUniqueInput'];
   LocationCreateInput: NexusGenInputs['LocationCreateInput'];
-  LocationCreateOneWithoutOrganizationInput: NexusGenInputs['LocationCreateOneWithoutOrganizationInput'];
-  LocationCreateWithoutOrganizationInput: NexusGenInputs['LocationCreateWithoutOrganizationInput'];
+  LocationCreateOneWithoutBusinessPartnerInput: NexusGenInputs['LocationCreateOneWithoutBusinessPartnerInput'];
+  LocationCreateWithoutBusinessPartnerInput: NexusGenInputs['LocationCreateWithoutBusinessPartnerInput'];
   LocationUpdateInput: NexusGenInputs['LocationUpdateInput'];
   LocationUpdateManyMutationInput: NexusGenInputs['LocationUpdateManyMutationInput'];
-  LocationUpdateOneRequiredWithoutOrganizationInput: NexusGenInputs['LocationUpdateOneRequiredWithoutOrganizationInput'];
-  LocationUpdateWithoutOrganizationDataInput: NexusGenInputs['LocationUpdateWithoutOrganizationDataInput'];
-  LocationUpsertWithoutOrganizationInput: NexusGenInputs['LocationUpsertWithoutOrganizationInput'];
+  LocationUpdateOneRequiredWithoutBusinessPartnerInput: NexusGenInputs['LocationUpdateOneRequiredWithoutBusinessPartnerInput'];
+  LocationUpdateWithoutBusinessPartnerDataInput: NexusGenInputs['LocationUpdateWithoutBusinessPartnerDataInput'];
+  LocationUpsertWithoutBusinessPartnerInput: NexusGenInputs['LocationUpsertWithoutBusinessPartnerInput'];
   LocationWhereInput: NexusGenInputs['LocationWhereInput'];
   LocationWhereUniqueInput: NexusGenInputs['LocationWhereUniqueInput'];
   LoginInput: NexusGenInputs['LoginInput'];
-  OrganizationCreateInput: NexusGenInputs['OrganizationCreateInput'];
-  OrganizationCreateOneWithoutHeadOfficeInput: NexusGenInputs['OrganizationCreateOneWithoutHeadOfficeInput'];
-  OrganizationCreateWithoutHeadOfficeInput: NexusGenInputs['OrganizationCreateWithoutHeadOfficeInput'];
-  OrganizationUpdateInput: NexusGenInputs['OrganizationUpdateInput'];
-  OrganizationUpdateManyMutationInput: NexusGenInputs['OrganizationUpdateManyMutationInput'];
-  OrganizationUpdateOneWithoutHeadOfficeInput: NexusGenInputs['OrganizationUpdateOneWithoutHeadOfficeInput'];
-  OrganizationUpdateWithoutHeadOfficeDataInput: NexusGenInputs['OrganizationUpdateWithoutHeadOfficeDataInput'];
-  OrganizationUpsertWithoutHeadOfficeInput: NexusGenInputs['OrganizationUpsertWithoutHeadOfficeInput'];
-  OrganizationWhereInput: NexusGenInputs['OrganizationWhereInput'];
-  OrganizationWhereUniqueInput: NexusGenInputs['OrganizationWhereUniqueInput'];
   OrganizationalUnitCreateInput: NexusGenInputs['OrganizationalUnitCreateInput'];
   OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput: NexusGenInputs['OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput'];
   OrganizationalUnitCreateManyWithoutParentInput: NexusGenInputs['OrganizationalUnitCreateManyWithoutParentInput'];
@@ -3344,25 +4556,37 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   ProcessWhereInput: NexusGenInputs['ProcessWhereInput'];
   ProcessWhereUniqueInput: NexusGenInputs['ProcessWhereUniqueInput'];
   ProcessingActivityCreateInput: NexusGenInputs['ProcessingActivityCreateInput'];
-  ProcessingActivityCreateManyWithoutApplicationsInput: NexusGenInputs['ProcessingActivityCreateManyWithoutApplicationsInput'];
+  ProcessingActivityCreateManyInput: NexusGenInputs['ProcessingActivityCreateManyInput'];
   ProcessingActivityCreateManyWithoutProcessInput: NexusGenInputs['ProcessingActivityCreateManyWithoutProcessInput'];
-  ProcessingActivityCreateWithoutApplicationsInput: NexusGenInputs['ProcessingActivityCreateWithoutApplicationsInput'];
   ProcessingActivityCreateWithoutProcessInput: NexusGenInputs['ProcessingActivityCreateWithoutProcessInput'];
   ProcessingActivityScalarWhereInput: NexusGenInputs['ProcessingActivityScalarWhereInput'];
+  ProcessingActivityUpdateDataInput: NexusGenInputs['ProcessingActivityUpdateDataInput'];
   ProcessingActivityUpdateInput: NexusGenInputs['ProcessingActivityUpdateInput'];
   ProcessingActivityUpdateManyDataInput: NexusGenInputs['ProcessingActivityUpdateManyDataInput'];
+  ProcessingActivityUpdateManyInput: NexusGenInputs['ProcessingActivityUpdateManyInput'];
   ProcessingActivityUpdateManyMutationInput: NexusGenInputs['ProcessingActivityUpdateManyMutationInput'];
   ProcessingActivityUpdateManyWithWhereNestedInput: NexusGenInputs['ProcessingActivityUpdateManyWithWhereNestedInput'];
-  ProcessingActivityUpdateManyWithoutApplicationsInput: NexusGenInputs['ProcessingActivityUpdateManyWithoutApplicationsInput'];
   ProcessingActivityUpdateManyWithoutProcessInput: NexusGenInputs['ProcessingActivityUpdateManyWithoutProcessInput'];
-  ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput: NexusGenInputs['ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput'];
+  ProcessingActivityUpdateWithWhereUniqueNestedInput: NexusGenInputs['ProcessingActivityUpdateWithWhereUniqueNestedInput'];
   ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput: NexusGenInputs['ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput'];
-  ProcessingActivityUpdateWithoutApplicationsDataInput: NexusGenInputs['ProcessingActivityUpdateWithoutApplicationsDataInput'];
   ProcessingActivityUpdateWithoutProcessDataInput: NexusGenInputs['ProcessingActivityUpdateWithoutProcessDataInput'];
-  ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput: NexusGenInputs['ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput'];
+  ProcessingActivityUpsertWithWhereUniqueNestedInput: NexusGenInputs['ProcessingActivityUpsertWithWhereUniqueNestedInput'];
   ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput: NexusGenInputs['ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput'];
   ProcessingActivityWhereInput: NexusGenInputs['ProcessingActivityWhereInput'];
   ProcessingActivityWhereUniqueInput: NexusGenInputs['ProcessingActivityWhereUniqueInput'];
+  ProcessingTypeCreateInput: NexusGenInputs['ProcessingTypeCreateInput'];
+  ProcessingTypeCreateManyInput: NexusGenInputs['ProcessingTypeCreateManyInput'];
+  ProcessingTypeScalarWhereInput: NexusGenInputs['ProcessingTypeScalarWhereInput'];
+  ProcessingTypeUpdateDataInput: NexusGenInputs['ProcessingTypeUpdateDataInput'];
+  ProcessingTypeUpdateInput: NexusGenInputs['ProcessingTypeUpdateInput'];
+  ProcessingTypeUpdateManyDataInput: NexusGenInputs['ProcessingTypeUpdateManyDataInput'];
+  ProcessingTypeUpdateManyInput: NexusGenInputs['ProcessingTypeUpdateManyInput'];
+  ProcessingTypeUpdateManyMutationInput: NexusGenInputs['ProcessingTypeUpdateManyMutationInput'];
+  ProcessingTypeUpdateManyWithWhereNestedInput: NexusGenInputs['ProcessingTypeUpdateManyWithWhereNestedInput'];
+  ProcessingTypeUpdateWithWhereUniqueNestedInput: NexusGenInputs['ProcessingTypeUpdateWithWhereUniqueNestedInput'];
+  ProcessingTypeUpsertWithWhereUniqueNestedInput: NexusGenInputs['ProcessingTypeUpsertWithWhereUniqueNestedInput'];
+  ProcessingTypeWhereInput: NexusGenInputs['ProcessingTypeWhereInput'];
+  ProcessingTypeWhereUniqueInput: NexusGenInputs['ProcessingTypeWhereUniqueInput'];
   QualityAttributeCreateInput: NexusGenInputs['QualityAttributeCreateInput'];
   QualityAttributeCreateOneWithoutClassificationLabelsInput: NexusGenInputs['QualityAttributeCreateOneWithoutClassificationLabelsInput'];
   QualityAttributeCreateWithoutClassificationLabelsInput: NexusGenInputs['QualityAttributeCreateWithoutClassificationLabelsInput'];
@@ -3373,6 +4597,24 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   QualityAttributeUpsertWithoutClassificationLabelsInput: NexusGenInputs['QualityAttributeUpsertWithoutClassificationLabelsInput'];
   QualityAttributeWhereInput: NexusGenInputs['QualityAttributeWhereInput'];
   QualityAttributeWhereUniqueInput: NexusGenInputs['QualityAttributeWhereUniqueInput'];
+  RecipientsTypeCreateInput: NexusGenInputs['RecipientsTypeCreateInput'];
+  RecipientsTypeCreateOneInput: NexusGenInputs['RecipientsTypeCreateOneInput'];
+  RecipientsTypeUpdateDataInput: NexusGenInputs['RecipientsTypeUpdateDataInput'];
+  RecipientsTypeUpdateInput: NexusGenInputs['RecipientsTypeUpdateInput'];
+  RecipientsTypeUpdateManyMutationInput: NexusGenInputs['RecipientsTypeUpdateManyMutationInput'];
+  RecipientsTypeUpdateOneInput: NexusGenInputs['RecipientsTypeUpdateOneInput'];
+  RecipientsTypeUpsertNestedInput: NexusGenInputs['RecipientsTypeUpsertNestedInput'];
+  RecipientsTypeWhereInput: NexusGenInputs['RecipientsTypeWhereInput'];
+  RecipientsTypeWhereUniqueInput: NexusGenInputs['RecipientsTypeWhereUniqueInput'];
+  RetentionPolicyCreateInput: NexusGenInputs['RetentionPolicyCreateInput'];
+  RetentionPolicyCreateOneInput: NexusGenInputs['RetentionPolicyCreateOneInput'];
+  RetentionPolicyUpdateDataInput: NexusGenInputs['RetentionPolicyUpdateDataInput'];
+  RetentionPolicyUpdateInput: NexusGenInputs['RetentionPolicyUpdateInput'];
+  RetentionPolicyUpdateManyMutationInput: NexusGenInputs['RetentionPolicyUpdateManyMutationInput'];
+  RetentionPolicyUpdateOneRequiredInput: NexusGenInputs['RetentionPolicyUpdateOneRequiredInput'];
+  RetentionPolicyUpsertNestedInput: NexusGenInputs['RetentionPolicyUpsertNestedInput'];
+  RetentionPolicyWhereInput: NexusGenInputs['RetentionPolicyWhereInput'];
+  RetentionPolicyWhereUniqueInput: NexusGenInputs['RetentionPolicyWhereUniqueInput'];
   UserCreateInput: NexusGenInputs['UserCreateInput'];
   UserCreateOneWithoutPersonInput: NexusGenInputs['UserCreateOneWithoutPersonInput'];
   UserCreateWithoutPersonInput: NexusGenInputs['UserCreateWithoutPersonInput'];
@@ -3386,25 +4628,33 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   UserWhereInput: NexusGenInputs['UserWhereInput'];
   UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
   ApplicationOrderByInput: NexusGenEnums['ApplicationOrderByInput'];
+  BusinessPartnerOrderByInput: NexusGenEnums['BusinessPartnerOrderByInput'];
   BusinessRoleOrderByInput: NexusGenEnums['BusinessRoleOrderByInput'];
   CLASSIFICATIONOBJECT: NexusGenEnums['CLASSIFICATIONOBJECT'];
   ClassificationLabelOrderByInput: NexusGenEnums['ClassificationLabelOrderByInput'];
+  DataSubjectTypeOrderByInput: NexusGenEnums['DataSubjectTypeOrderByInput'];
   DataTypeOrderByInput: NexusGenEnums['DataTypeOrderByInput'];
+  LegalGroundOrderByInput: NexusGenEnums['LegalGroundOrderByInput'];
   LocationOrderByInput: NexusGenEnums['LocationOrderByInput'];
-  OrganizationOrderByInput: NexusGenEnums['OrganizationOrderByInput'];
   OrganizationalUnitOrderByInput: NexusGenEnums['OrganizationalUnitOrderByInput'];
   OrganizationalUnitTypeOrderByInput: NexusGenEnums['OrganizationalUnitTypeOrderByInput'];
   PERMISSION: NexusGenEnums['PERMISSION'];
   PersonOrderByInput: NexusGenEnums['PersonOrderByInput'];
   ProcessOrderByInput: NexusGenEnums['ProcessOrderByInput'];
   ProcessingActivityOrderByInput: NexusGenEnums['ProcessingActivityOrderByInput'];
+  ProcessingTypeOrderByInput: NexusGenEnums['ProcessingTypeOrderByInput'];
   QualityAttributeOrderByInput: NexusGenEnums['QualityAttributeOrderByInput'];
   RACI: NexusGenEnums['RACI'];
+  RecipientsTypeOrderByInput: NexusGenEnums['RecipientsTypeOrderByInput'];
+  RetentionPolicyOrderByInput: NexusGenEnums['RetentionPolicyOrderByInput'];
   UserOrderByInput: NexusGenEnums['UserOrderByInput'];
 }
 
 export interface NexusGenFieldTypes {
   AggregateApplication: { // field return type
+    count: number; // Int!
+  }
+  AggregateBusinessPartner: { // field return type
     count: number; // Int!
   }
   AggregateBusinessRole: { // field return type
@@ -3413,13 +4663,16 @@ export interface NexusGenFieldTypes {
   AggregateClassificationLabel: { // field return type
     count: number; // Int!
   }
+  AggregateDataSubjectType: { // field return type
+    count: number; // Int!
+  }
   AggregateDataType: { // field return type
     count: number; // Int!
   }
-  AggregateLocation: { // field return type
+  AggregateLegalGround: { // field return type
     count: number; // Int!
   }
-  AggregateOrganization: { // field return type
+  AggregateLocation: { // field return type
     count: number; // Int!
   }
   AggregateOrganizationalUnit: { // field return type
@@ -3437,7 +4690,16 @@ export interface NexusGenFieldTypes {
   AggregateProcessingActivity: { // field return type
     count: number; // Int!
   }
+  AggregateProcessingType: { // field return type
+    count: number; // Int!
+  }
   AggregateQualityAttribute: { // field return type
+    count: number; // Int!
+  }
+  AggregateRecipientsType: { // field return type
+    count: number; // Int!
+  }
+  AggregateRetentionPolicy: { // field return type
     count: number; // Int!
   }
   AggregateUser: { // field return type
@@ -3465,6 +4727,31 @@ export interface NexusGenFieldTypes {
   }
   BatchPayload: { // field return type
     count: any; // Long!
+  }
+  BusinessPartner: { // field return type
+    contactDetails: string; // String!
+    description: string | null; // String
+    dpo: string; // String!
+    headOffice: NexusGenRootTypes['Location']; // Location!
+    id: string; // ID!
+    linkToDpa: string | null; // String
+    name: string; // String!
+    otherCountries: any | null; // Json
+    outsideEea: boolean | null; // Boolean
+    processingTypes: NexusGenRootTypes['ProcessingType'][] | null; // [ProcessingType!]
+    recipientsType: NexusGenRootTypes['RecipientsType'] | null; // RecipientsType
+    representative: NexusGenRootTypes['BusinessPartner'] | null; // BusinessPartner
+    safeguards: string | null; // String
+    securityMeasures: string; // String!
+  }
+  BusinessPartnerConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateBusinessPartner']; // AggregateBusinessPartner!
+    edges: NexusGenRootTypes['BusinessPartnerEdge'][]; // [BusinessPartnerEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  BusinessPartnerEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['BusinessPartner']; // BusinessPartner!
   }
   BusinessRole: { // field return type
     appBusinessOwner: NexusGenRootTypes['Application'][] | null; // [Application!]
@@ -3507,12 +4794,29 @@ export interface NexusGenFieldTypes {
     cursor: string; // String!
     node: NexusGenRootTypes['ClassificationLabel']; // ClassificationLabel!
   }
-  DataType: { // field return type
-    application: NexusGenRootTypes['Application'][] | null; // [Application!]
-    classificationLabels: NexusGenRootTypes['ClassificationLabel'][] | null; // [ClassificationLabel!]
+  DataSubjectType: { // field return type
+    dataTypes: NexusGenRootTypes['DataType'][] | null; // [DataType!]
     description: string | null; // String
     id: string; // ID!
     name: string; // String!
+  }
+  DataSubjectTypeConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateDataSubjectType']; // AggregateDataSubjectType!
+    edges: NexusGenRootTypes['DataSubjectTypeEdge'][]; // [DataSubjectTypeEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  DataSubjectTypeEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['DataSubjectType']; // DataSubjectType!
+  }
+  DataType: { // field return type
+    application: NexusGenRootTypes['Application'][] | null; // [Application!]
+    classificationLabels: NexusGenRootTypes['ClassificationLabel'][] | null; // [ClassificationLabel!]
+    dataSubjectType: NexusGenRootTypes['DataSubjectType'][] | null; // [DataSubjectType!]
+    description: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+    retentionPolicy: NexusGenRootTypes['RetentionPolicy']; // RetentionPolicy!
   }
   DataTypeConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateDataType']; // AggregateDataType!
@@ -3523,12 +4827,27 @@ export interface NexusGenFieldTypes {
     cursor: string; // String!
     node: NexusGenRootTypes['DataType']; // DataType!
   }
-  Location: { // field return type
-    address: string; // String!
+  LegalGround: { // field return type
     description: string | null; // String
     id: string; // ID!
     name: string; // String!
-    organization: NexusGenRootTypes['Organization'] | null; // Organization
+    specialCategoryCondition: boolean | null; // Boolean
+  }
+  LegalGroundConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateLegalGround']; // AggregateLegalGround!
+    edges: NexusGenRootTypes['LegalGroundEdge'][]; // [LegalGroundEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  LegalGroundEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['LegalGround']; // LegalGround!
+  }
+  Location: { // field return type
+    address: string; // String!
+    businessPartner: NexusGenRootTypes['BusinessPartner'] | null; // BusinessPartner
+    description: string | null; // String
+    id: string; // ID!
+    name: string; // String!
   }
   LocationConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateLocation']; // AggregateLocation!
@@ -3543,101 +4862,113 @@ export interface NexusGenFieldTypes {
     authenticateUser: NexusGenRootTypes['Token'] | null; // Token
     createAdmin: NexusGenRootTypes['User'] | null; // User
     createApplication: NexusGenRootTypes['Application']; // Application!
+    createBusinessPartner: NexusGenRootTypes['BusinessPartner']; // BusinessPartner!
     createBusinessRole: NexusGenRootTypes['BusinessRole']; // BusinessRole!
     createClassificationLabel: NexusGenRootTypes['ClassificationLabel']; // ClassificationLabel!
+    createDataSubjectType: NexusGenRootTypes['DataSubjectType']; // DataSubjectType!
     createDataType: NexusGenRootTypes['DataType']; // DataType!
+    createLegalGround: NexusGenRootTypes['LegalGround']; // LegalGround!
     createLocation: NexusGenRootTypes['Location']; // Location!
-    createOrganization: NexusGenRootTypes['Organization']; // Organization!
     createOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit'] | null; // OrganizationalUnit
     createOrganizationalUnitType: NexusGenRootTypes['OrganizationalUnitType']; // OrganizationalUnitType!
     createPerson: NexusGenRootTypes['Person']; // Person!
     createProcess: NexusGenRootTypes['Process']; // Process!
     createProcessingActivity: NexusGenRootTypes['ProcessingActivity']; // ProcessingActivity!
+    createProcessingType: NexusGenRootTypes['ProcessingType']; // ProcessingType!
     createQualityAttribute: NexusGenRootTypes['QualityAttribute']; // QualityAttribute!
+    createRecipientsType: NexusGenRootTypes['RecipientsType']; // RecipientsType!
+    createRetentionPolicy: NexusGenRootTypes['RetentionPolicy']; // RetentionPolicy!
     createUser: NexusGenRootTypes['User'] | null; // User
     deleteApplication: NexusGenRootTypes['Application'] | null; // Application
+    deleteBusinessPartner: NexusGenRootTypes['BusinessPartner'] | null; // BusinessPartner
     deleteBusinessRole: NexusGenRootTypes['BusinessRole'] | null; // BusinessRole
     deleteClassificationLabel: NexusGenRootTypes['ClassificationLabel'] | null; // ClassificationLabel
+    deleteDataSubjectType: NexusGenRootTypes['DataSubjectType'] | null; // DataSubjectType
     deleteDataType: NexusGenRootTypes['DataType'] | null; // DataType
+    deleteLegalGround: NexusGenRootTypes['LegalGround'] | null; // LegalGround
     deleteLocation: NexusGenRootTypes['Location'] | null; // Location
     deleteManyApplications: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyBusinessPartners: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyBusinessRoles: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyClassificationLabels: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyDataSubjectTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyDataTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyLegalGrounds: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyLocations: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyOrganizationalUnits: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyOrganizationalUnitTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
-    deleteManyOrganizations: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyPersons: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyProcesses: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyProcessingActivities: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyProcessingTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyQualityAttributes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyRecipientsTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyRetentionPolicies: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyUsers: NexusGenRootTypes['BatchPayload']; // BatchPayload!
-    deleteOrganization: NexusGenRootTypes['Organization'] | null; // Organization
     deleteOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit'] | null; // OrganizationalUnit
     deleteOrganizationalUnitType: NexusGenRootTypes['OrganizationalUnitType'] | null; // OrganizationalUnitType
     deletePerson: NexusGenRootTypes['Person'] | null; // Person
     deleteProcess: NexusGenRootTypes['Process'] | null; // Process
     deleteProcessingActivity: NexusGenRootTypes['ProcessingActivity'] | null; // ProcessingActivity
+    deleteProcessingType: NexusGenRootTypes['ProcessingType'] | null; // ProcessingType
     deleteQualityAttribute: NexusGenRootTypes['QualityAttribute'] | null; // QualityAttribute
+    deleteRecipientsType: NexusGenRootTypes['RecipientsType'] | null; // RecipientsType
+    deleteRetentionPolicy: NexusGenRootTypes['RetentionPolicy'] | null; // RetentionPolicy
     deleteUser: NexusGenRootTypes['User'] | null; // User
     updateApplication: NexusGenRootTypes['Application'] | null; // Application
+    updateBusinessPartner: NexusGenRootTypes['BusinessPartner'] | null; // BusinessPartner
     updateBusinessRole: NexusGenRootTypes['BusinessRole'] | null; // BusinessRole
     updateClassificationLabel: NexusGenRootTypes['ClassificationLabel'] | null; // ClassificationLabel
+    updateDataSubjectType: NexusGenRootTypes['DataSubjectType'] | null; // DataSubjectType
     updateDataType: NexusGenRootTypes['DataType'] | null; // DataType
+    updateLegalGround: NexusGenRootTypes['LegalGround'] | null; // LegalGround
     updateLocation: NexusGenRootTypes['Location'] | null; // Location
     updateManyApplications: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyBusinessPartners: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyBusinessRoles: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyClassificationLabels: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyDataSubjectTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyDataTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyLegalGrounds: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyLocations: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyOrganizationalUnits: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyOrganizationalUnitTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
-    updateManyOrganizations: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyPersons: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyProcesses: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyProcessingActivities: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyProcessingTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyQualityAttributes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyRecipientsTypes: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyRetentionPolicies: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyUsers: NexusGenRootTypes['BatchPayload']; // BatchPayload!
-    updateOrganization: NexusGenRootTypes['Organization'] | null; // Organization
     updateOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit'] | null; // OrganizationalUnit
     updateOrganizationalUnitType: NexusGenRootTypes['OrganizationalUnitType'] | null; // OrganizationalUnitType
     updatePerson: NexusGenRootTypes['Person'] | null; // Person
     updateProcess: NexusGenRootTypes['Process'] | null; // Process
     updateProcessingActivity: NexusGenRootTypes['ProcessingActivity'] | null; // ProcessingActivity
+    updateProcessingType: NexusGenRootTypes['ProcessingType'] | null; // ProcessingType
     updateQualityAttribute: NexusGenRootTypes['QualityAttribute'] | null; // QualityAttribute
+    updateRecipientsType: NexusGenRootTypes['RecipientsType'] | null; // RecipientsType
+    updateRetentionPolicy: NexusGenRootTypes['RetentionPolicy'] | null; // RetentionPolicy
     updateUser: NexusGenRootTypes['User'] | null; // User
     upsertApplication: NexusGenRootTypes['Application']; // Application!
+    upsertBusinessPartner: NexusGenRootTypes['BusinessPartner']; // BusinessPartner!
     upsertBusinessRole: NexusGenRootTypes['BusinessRole']; // BusinessRole!
     upsertClassificationLabel: NexusGenRootTypes['ClassificationLabel']; // ClassificationLabel!
+    upsertDataSubjectType: NexusGenRootTypes['DataSubjectType']; // DataSubjectType!
     upsertDataType: NexusGenRootTypes['DataType']; // DataType!
+    upsertLegalGround: NexusGenRootTypes['LegalGround']; // LegalGround!
     upsertLocation: NexusGenRootTypes['Location']; // Location!
-    upsertOrganization: NexusGenRootTypes['Organization']; // Organization!
     upsertOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit']; // OrganizationalUnit!
     upsertOrganizationalUnitType: NexusGenRootTypes['OrganizationalUnitType']; // OrganizationalUnitType!
     upsertPerson: NexusGenRootTypes['Person']; // Person!
     upsertProcess: NexusGenRootTypes['Process']; // Process!
     upsertProcessingActivity: NexusGenRootTypes['ProcessingActivity']; // ProcessingActivity!
+    upsertProcessingType: NexusGenRootTypes['ProcessingType']; // ProcessingType!
     upsertQualityAttribute: NexusGenRootTypes['QualityAttribute']; // QualityAttribute!
+    upsertRecipientsType: NexusGenRootTypes['RecipientsType']; // RecipientsType!
+    upsertRetentionPolicy: NexusGenRootTypes['RetentionPolicy']; // RetentionPolicy!
     upsertUser: NexusGenRootTypes['User']; // User!
-  }
-  Organization: { // field return type
-    contactDetails: string; // String!
-    description: string | null; // String
-    dpo: string; // String!
-    headOffice: NexusGenRootTypes['Location']; // Location!
-    id: string; // ID!
-    name: string; // String!
-    representative: string; // String!
-  }
-  OrganizationConnection: { // field return type
-    aggregate: NexusGenRootTypes['AggregateOrganization']; // AggregateOrganization!
-    edges: NexusGenRootTypes['OrganizationEdge'][]; // [OrganizationEdge!]!
-    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
-  }
-  OrganizationEdge: { // field return type
-    cursor: string; // String!
-    node: NexusGenRootTypes['Organization']; // Organization!
   }
   OrganizationalUnit: { // field return type
     businessRoles: NexusGenRootTypes['BusinessRole'][] | null; // [BusinessRole!]
@@ -3718,13 +5049,22 @@ export interface NexusGenFieldTypes {
     node: NexusGenRootTypes['Process']; // Process!
   }
   ProcessingActivity: { // field return type
-    applications: NexusGenRootTypes['Application'][] | null; // [Application!]
+    controllers: NexusGenRootTypes['BusinessPartner'][] | null; // [BusinessPartner!]
     createdAt: any; // DateTime!
-    description: string | null; // String
+    dataTypes: NexusGenRootTypes['DataType'][] | null; // [DataType!]
     id: string; // ID!
+    iOwnThis: boolean | null; // Boolean
+    legalGroundComment: string | null; // String
+    legalGrounds: NexusGenRootTypes['LegalGround'][] | null; // [LegalGround!]
+    linkToDpia: string | null; // String
+    linkToLia: string | null; // String
     name: string; // String!
+    procesessingTypes: NexusGenRootTypes['ProcessingType'][] | null; // [ProcessingType!]
     process: NexusGenRootTypes['Process'] | null; // Process
+    profiling: boolean | null; // Boolean
     purpose: string | null; // String
+    recipients: NexusGenRootTypes['BusinessPartner'][] | null; // [BusinessPartner!]
+    securityMeasures: string | null; // String
     updatedAt: any; // DateTime!
   }
   ProcessingActivityConnection: { // field return type
@@ -3735,6 +5075,20 @@ export interface NexusGenFieldTypes {
   ProcessingActivityEdge: { // field return type
     cursor: string; // String!
     node: NexusGenRootTypes['ProcessingActivity']; // ProcessingActivity!
+  }
+  ProcessingType: { // field return type
+    description: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+  }
+  ProcessingTypeConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateProcessingType']; // AggregateProcessingType!
+    edges: NexusGenRootTypes['ProcessingTypeEdge'][]; // [ProcessingTypeEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  ProcessingTypeEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['ProcessingType']; // ProcessingType!
   }
   QualityAttribute: { // field return type
     appliesToObject: NexusGenEnums['CLASSIFICATIONOBJECT']; // CLASSIFICATIONOBJECT!
@@ -3756,6 +5110,9 @@ export interface NexusGenFieldTypes {
     application: NexusGenRootTypes['Application'] | null; // Application
     applications: NexusGenRootTypes['Application'][]; // [Application!]!
     applicationsConnection: NexusGenRootTypes['ApplicationConnection']; // ApplicationConnection!
+    businessPartner: NexusGenRootTypes['BusinessPartner'] | null; // BusinessPartner
+    businessPartners: NexusGenRootTypes['BusinessPartner'][]; // [BusinessPartner!]!
+    businessPartnersConnection: NexusGenRootTypes['BusinessPartnerConnection']; // BusinessPartnerConnection!
     businessRole: NexusGenRootTypes['BusinessRole'] | null; // BusinessRole
     businessRoleByOu: NexusGenRootTypes['BusinessRole'][] | null; // [BusinessRole!]
     businessRoles: NexusGenRootTypes['BusinessRole'][]; // [BusinessRole!]!
@@ -3763,22 +5120,25 @@ export interface NexusGenFieldTypes {
     classificationLabel: NexusGenRootTypes['ClassificationLabel'] | null; // ClassificationLabel
     classificationLabels: NexusGenRootTypes['ClassificationLabel'][]; // [ClassificationLabel!]!
     classificationLabelsConnection: NexusGenRootTypes['ClassificationLabelConnection']; // ClassificationLabelConnection!
+    dataSubjectType: NexusGenRootTypes['DataSubjectType'] | null; // DataSubjectType
+    dataSubjectTypes: NexusGenRootTypes['DataSubjectType'][]; // [DataSubjectType!]!
+    dataSubjectTypesConnection: NexusGenRootTypes['DataSubjectTypeConnection']; // DataSubjectTypeConnection!
     dataType: NexusGenRootTypes['DataType'] | null; // DataType
     dataTypes: NexusGenRootTypes['DataType'][]; // [DataType!]!
     dataTypesConnection: NexusGenRootTypes['DataTypeConnection']; // DataTypeConnection!
+    legalGround: NexusGenRootTypes['LegalGround'] | null; // LegalGround
+    legalGrounds: NexusGenRootTypes['LegalGround'][]; // [LegalGround!]!
+    legalGroundsConnection: NexusGenRootTypes['LegalGroundConnection']; // LegalGroundConnection!
     location: NexusGenRootTypes['Location'] | null; // Location
     locations: NexusGenRootTypes['Location'][]; // [Location!]!
     locationsConnection: NexusGenRootTypes['LocationConnection']; // LocationConnection!
     loggedInUser: NexusGenRootTypes['User'] | null; // User
-    organization: NexusGenRootTypes['Organization'] | null; // Organization
     organizationalUnit: NexusGenRootTypes['OrganizationalUnit'] | null; // OrganizationalUnit
     organizationalUnits: NexusGenRootTypes['OrganizationalUnit'][]; // [OrganizationalUnit!]!
     organizationalUnitsConnection: NexusGenRootTypes['OrganizationalUnitConnection']; // OrganizationalUnitConnection!
     organizationalUnitType: NexusGenRootTypes['OrganizationalUnitType'] | null; // OrganizationalUnitType
     organizationalUnitTypes: NexusGenRootTypes['OrganizationalUnitType'][]; // [OrganizationalUnitType!]!
     organizationalUnitTypesConnection: NexusGenRootTypes['OrganizationalUnitTypeConnection']; // OrganizationalUnitTypeConnection!
-    organizations: NexusGenRootTypes['Organization'][]; // [Organization!]!
-    organizationsConnection: NexusGenRootTypes['OrganizationConnection']; // OrganizationConnection!
     person: NexusGenRootTypes['Person'] | null; // Person
     persons: NexusGenRootTypes['Person'][]; // [Person!]!
     personsConnection: NexusGenRootTypes['PersonConnection']; // PersonConnection!
@@ -3790,12 +5150,49 @@ export interface NexusGenFieldTypes {
     processingActivitiesByOu: NexusGenRootTypes['ProcessingActivity'][] | null; // [ProcessingActivity!]
     processingActivitiesConnection: NexusGenRootTypes['ProcessingActivityConnection']; // ProcessingActivityConnection!
     processingActivity: NexusGenRootTypes['ProcessingActivity'] | null; // ProcessingActivity
+    processingType: NexusGenRootTypes['ProcessingType'] | null; // ProcessingType
+    processingTypes: NexusGenRootTypes['ProcessingType'][]; // [ProcessingType!]!
+    processingTypesConnection: NexusGenRootTypes['ProcessingTypeConnection']; // ProcessingTypeConnection!
     qualityAttribute: NexusGenRootTypes['QualityAttribute'] | null; // QualityAttribute
     qualityAttributes: NexusGenRootTypes['QualityAttribute'][]; // [QualityAttribute!]!
     qualityAttributesConnection: NexusGenRootTypes['QualityAttributeConnection']; // QualityAttributeConnection!
+    recipientsType: NexusGenRootTypes['RecipientsType'] | null; // RecipientsType
+    recipientsTypes: NexusGenRootTypes['RecipientsType'][]; // [RecipientsType!]!
+    recipientsTypesConnection: NexusGenRootTypes['RecipientsTypeConnection']; // RecipientsTypeConnection!
+    retentionPolicies: NexusGenRootTypes['RetentionPolicy'][]; // [RetentionPolicy!]!
+    retentionPoliciesConnection: NexusGenRootTypes['RetentionPolicyConnection']; // RetentionPolicyConnection!
+    retentionPolicy: NexusGenRootTypes['RetentionPolicy'] | null; // RetentionPolicy
     user: NexusGenRootTypes['User'] | null; // User
     users: NexusGenRootTypes['User'][]; // [User!]!
     usersConnection: NexusGenRootTypes['UserConnection']; // UserConnection!
+  }
+  RecipientsType: { // field return type
+    description: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+  }
+  RecipientsTypeConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateRecipientsType']; // AggregateRecipientsType!
+    edges: NexusGenRootTypes['RecipientsTypeEdge'][]; // [RecipientsTypeEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  RecipientsTypeEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['RecipientsType']; // RecipientsType!
+  }
+  RetentionPolicy: { // field return type
+    description: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+  }
+  RetentionPolicyConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateRetentionPolicy']; // AggregateRetentionPolicy!
+    edges: NexusGenRootTypes['RetentionPolicyEdge'][]; // [RetentionPolicyEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  RetentionPolicyEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['RetentionPolicy']; // RetentionPolicy!
   }
   Token: { // field return type
     token: string | null; // String
@@ -3839,6 +5236,17 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenEnums['ProcessingActivityOrderByInput'] | null; // ProcessingActivityOrderByInput
       skip?: number | null; // Int
       where?: NexusGenInputs['ProcessingActivityWhereInput'] | null; // ProcessingActivityWhereInput
+    }
+  }
+  BusinessPartner: {
+    processingTypes: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ProcessingTypeOrderByInput'] | null; // ProcessingTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
     }
   }
   BusinessRole: {
@@ -3890,6 +5298,17 @@ export interface NexusGenArgTypes {
       where?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
     }
   }
+  DataSubjectType: {
+    dataTypes: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['DataTypeOrderByInput'] | null; // DataTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    }
+  }
   DataType: {
     application: { // args
       after?: string | null; // String
@@ -3909,6 +5328,15 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       where?: NexusGenInputs['ClassificationLabelWhereInput'] | null; // ClassificationLabelWhereInput
     }
+    dataSubjectType: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['DataSubjectTypeOrderByInput'] | null; // DataSubjectTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['DataSubjectTypeWhereInput'] | null; // DataSubjectTypeWhereInput
+    }
   }
   Mutation: {
     authenticateUser: { // args
@@ -3920,20 +5348,26 @@ export interface NexusGenArgTypes {
     createApplication: { // args
       data: NexusGenInputs['ApplicationCreateInput']; // ApplicationCreateInput!
     }
+    createBusinessPartner: { // args
+      data: NexusGenInputs['BusinessPartnerCreateInput']; // BusinessPartnerCreateInput!
+    }
     createBusinessRole: { // args
       data: NexusGenInputs['BusinessRoleCreateInput']; // BusinessRoleCreateInput!
     }
     createClassificationLabel: { // args
       data: NexusGenInputs['ClassificationLabelCreateInput']; // ClassificationLabelCreateInput!
     }
+    createDataSubjectType: { // args
+      data: NexusGenInputs['DataSubjectTypeCreateInput']; // DataSubjectTypeCreateInput!
+    }
     createDataType: { // args
       data: NexusGenInputs['DataTypeCreateInput']; // DataTypeCreateInput!
     }
+    createLegalGround: { // args
+      data: NexusGenInputs['LegalGroundCreateInput']; // LegalGroundCreateInput!
+    }
     createLocation: { // args
       data: NexusGenInputs['LocationCreateInput']; // LocationCreateInput!
-    }
-    createOrganization: { // args
-      data: NexusGenInputs['OrganizationCreateInput']; // OrganizationCreateInput!
     }
     createOrganizationalUnit: { // args
       data: NexusGenInputs['OrganizationalUnitCreateInput']; // OrganizationalUnitCreateInput!
@@ -3950,8 +5384,17 @@ export interface NexusGenArgTypes {
     createProcessingActivity: { // args
       data: NexusGenInputs['ProcessingActivityCreateInput']; // ProcessingActivityCreateInput!
     }
+    createProcessingType: { // args
+      data: NexusGenInputs['ProcessingTypeCreateInput']; // ProcessingTypeCreateInput!
+    }
     createQualityAttribute: { // args
       data: NexusGenInputs['QualityAttributeCreateInput']; // QualityAttributeCreateInput!
+    }
+    createRecipientsType: { // args
+      data: NexusGenInputs['RecipientsTypeCreateInput']; // RecipientsTypeCreateInput!
+    }
+    createRetentionPolicy: { // args
+      data: NexusGenInputs['RetentionPolicyCreateInput']; // RetentionPolicyCreateInput!
     }
     createUser: { // args
       data: NexusGenInputs['UserCreateInput']; // UserCreateInput!
@@ -3959,14 +5402,23 @@ export interface NexusGenArgTypes {
     deleteApplication: { // args
       where: NexusGenInputs['ApplicationWhereUniqueInput']; // ApplicationWhereUniqueInput!
     }
+    deleteBusinessPartner: { // args
+      where: NexusGenInputs['BusinessPartnerWhereUniqueInput']; // BusinessPartnerWhereUniqueInput!
+    }
     deleteBusinessRole: { // args
       where: NexusGenInputs['BusinessRoleWhereUniqueInput']; // BusinessRoleWhereUniqueInput!
     }
     deleteClassificationLabel: { // args
       where: NexusGenInputs['ClassificationLabelWhereUniqueInput']; // ClassificationLabelWhereUniqueInput!
     }
+    deleteDataSubjectType: { // args
+      where: NexusGenInputs['DataSubjectTypeWhereUniqueInput']; // DataSubjectTypeWhereUniqueInput!
+    }
     deleteDataType: { // args
       where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
+    }
+    deleteLegalGround: { // args
+      where: NexusGenInputs['LegalGroundWhereUniqueInput']; // LegalGroundWhereUniqueInput!
     }
     deleteLocation: { // args
       where: NexusGenInputs['LocationWhereUniqueInput']; // LocationWhereUniqueInput!
@@ -3974,14 +5426,23 @@ export interface NexusGenArgTypes {
     deleteManyApplications: { // args
       where?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
     }
+    deleteManyBusinessPartners: { // args
+      where?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    }
     deleteManyBusinessRoles: { // args
       where?: NexusGenInputs['BusinessRoleWhereInput'] | null; // BusinessRoleWhereInput
     }
     deleteManyClassificationLabels: { // args
       where?: NexusGenInputs['ClassificationLabelWhereInput'] | null; // ClassificationLabelWhereInput
     }
+    deleteManyDataSubjectTypes: { // args
+      where?: NexusGenInputs['DataSubjectTypeWhereInput'] | null; // DataSubjectTypeWhereInput
+    }
     deleteManyDataTypes: { // args
       where?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    }
+    deleteManyLegalGrounds: { // args
+      where?: NexusGenInputs['LegalGroundWhereInput'] | null; // LegalGroundWhereInput
     }
     deleteManyLocations: { // args
       where?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
@@ -3992,9 +5453,6 @@ export interface NexusGenArgTypes {
     deleteManyOrganizationalUnitTypes: { // args
       where?: NexusGenInputs['OrganizationalUnitTypeWhereInput'] | null; // OrganizationalUnitTypeWhereInput
     }
-    deleteManyOrganizations: { // args
-      where?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
-    }
     deleteManyPersons: { // args
       where?: NexusGenInputs['PersonWhereInput'] | null; // PersonWhereInput
     }
@@ -4004,14 +5462,20 @@ export interface NexusGenArgTypes {
     deleteManyProcessingActivities: { // args
       where?: NexusGenInputs['ProcessingActivityWhereInput'] | null; // ProcessingActivityWhereInput
     }
+    deleteManyProcessingTypes: { // args
+      where?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    }
     deleteManyQualityAttributes: { // args
       where?: NexusGenInputs['QualityAttributeWhereInput'] | null; // QualityAttributeWhereInput
     }
+    deleteManyRecipientsTypes: { // args
+      where?: NexusGenInputs['RecipientsTypeWhereInput'] | null; // RecipientsTypeWhereInput
+    }
+    deleteManyRetentionPolicies: { // args
+      where?: NexusGenInputs['RetentionPolicyWhereInput'] | null; // RetentionPolicyWhereInput
+    }
     deleteManyUsers: { // args
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
-    }
-    deleteOrganization: { // args
-      where: NexusGenInputs['OrganizationWhereUniqueInput']; // OrganizationWhereUniqueInput!
     }
     deleteOrganizationalUnit: { // args
       where: NexusGenInputs['OrganizationalUnitWhereUniqueInput']; // OrganizationalUnitWhereUniqueInput!
@@ -4028,8 +5492,17 @@ export interface NexusGenArgTypes {
     deleteProcessingActivity: { // args
       where: NexusGenInputs['ProcessingActivityWhereUniqueInput']; // ProcessingActivityWhereUniqueInput!
     }
+    deleteProcessingType: { // args
+      where: NexusGenInputs['ProcessingTypeWhereUniqueInput']; // ProcessingTypeWhereUniqueInput!
+    }
     deleteQualityAttribute: { // args
       where: NexusGenInputs['QualityAttributeWhereUniqueInput']; // QualityAttributeWhereUniqueInput!
+    }
+    deleteRecipientsType: { // args
+      where: NexusGenInputs['RecipientsTypeWhereUniqueInput']; // RecipientsTypeWhereUniqueInput!
+    }
+    deleteRetentionPolicy: { // args
+      where: NexusGenInputs['RetentionPolicyWhereUniqueInput']; // RetentionPolicyWhereUniqueInput!
     }
     deleteUser: { // args
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
@@ -4037,6 +5510,10 @@ export interface NexusGenArgTypes {
     updateApplication: { // args
       data: NexusGenInputs['ApplicationUpdateInput']; // ApplicationUpdateInput!
       where: NexusGenInputs['ApplicationWhereUniqueInput']; // ApplicationWhereUniqueInput!
+    }
+    updateBusinessPartner: { // args
+      data: NexusGenInputs['BusinessPartnerUpdateInput']; // BusinessPartnerUpdateInput!
+      where: NexusGenInputs['BusinessPartnerWhereUniqueInput']; // BusinessPartnerWhereUniqueInput!
     }
     updateBusinessRole: { // args
       data: NexusGenInputs['BusinessRoleUpdateInput']; // BusinessRoleUpdateInput!
@@ -4046,9 +5523,17 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['ClassificationLabelUpdateInput']; // ClassificationLabelUpdateInput!
       where: NexusGenInputs['ClassificationLabelWhereUniqueInput']; // ClassificationLabelWhereUniqueInput!
     }
+    updateDataSubjectType: { // args
+      data: NexusGenInputs['DataSubjectTypeUpdateInput']; // DataSubjectTypeUpdateInput!
+      where: NexusGenInputs['DataSubjectTypeWhereUniqueInput']; // DataSubjectTypeWhereUniqueInput!
+    }
     updateDataType: { // args
       data: NexusGenInputs['DataTypeUpdateInput']; // DataTypeUpdateInput!
       where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
+    }
+    updateLegalGround: { // args
+      data: NexusGenInputs['LegalGroundUpdateInput']; // LegalGroundUpdateInput!
+      where: NexusGenInputs['LegalGroundWhereUniqueInput']; // LegalGroundWhereUniqueInput!
     }
     updateLocation: { // args
       data: NexusGenInputs['LocationUpdateInput']; // LocationUpdateInput!
@@ -4058,6 +5543,10 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['ApplicationUpdateManyMutationInput']; // ApplicationUpdateManyMutationInput!
       where?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
     }
+    updateManyBusinessPartners: { // args
+      data: NexusGenInputs['BusinessPartnerUpdateManyMutationInput']; // BusinessPartnerUpdateManyMutationInput!
+      where?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    }
     updateManyBusinessRoles: { // args
       data: NexusGenInputs['BusinessRoleUpdateManyMutationInput']; // BusinessRoleUpdateManyMutationInput!
       where?: NexusGenInputs['BusinessRoleWhereInput'] | null; // BusinessRoleWhereInput
@@ -4066,9 +5555,17 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['ClassificationLabelUpdateManyMutationInput']; // ClassificationLabelUpdateManyMutationInput!
       where?: NexusGenInputs['ClassificationLabelWhereInput'] | null; // ClassificationLabelWhereInput
     }
+    updateManyDataSubjectTypes: { // args
+      data: NexusGenInputs['DataSubjectTypeUpdateManyMutationInput']; // DataSubjectTypeUpdateManyMutationInput!
+      where?: NexusGenInputs['DataSubjectTypeWhereInput'] | null; // DataSubjectTypeWhereInput
+    }
     updateManyDataTypes: { // args
       data: NexusGenInputs['DataTypeUpdateManyMutationInput']; // DataTypeUpdateManyMutationInput!
       where?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    }
+    updateManyLegalGrounds: { // args
+      data: NexusGenInputs['LegalGroundUpdateManyMutationInput']; // LegalGroundUpdateManyMutationInput!
+      where?: NexusGenInputs['LegalGroundWhereInput'] | null; // LegalGroundWhereInput
     }
     updateManyLocations: { // args
       data: NexusGenInputs['LocationUpdateManyMutationInput']; // LocationUpdateManyMutationInput!
@@ -4082,10 +5579,6 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['OrganizationalUnitTypeUpdateManyMutationInput']; // OrganizationalUnitTypeUpdateManyMutationInput!
       where?: NexusGenInputs['OrganizationalUnitTypeWhereInput'] | null; // OrganizationalUnitTypeWhereInput
     }
-    updateManyOrganizations: { // args
-      data: NexusGenInputs['OrganizationUpdateManyMutationInput']; // OrganizationUpdateManyMutationInput!
-      where?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
-    }
     updateManyPersons: { // args
       data: NexusGenInputs['PersonUpdateManyMutationInput']; // PersonUpdateManyMutationInput!
       where?: NexusGenInputs['PersonWhereInput'] | null; // PersonWhereInput
@@ -4098,17 +5591,25 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['ProcessingActivityUpdateManyMutationInput']; // ProcessingActivityUpdateManyMutationInput!
       where?: NexusGenInputs['ProcessingActivityWhereInput'] | null; // ProcessingActivityWhereInput
     }
+    updateManyProcessingTypes: { // args
+      data: NexusGenInputs['ProcessingTypeUpdateManyMutationInput']; // ProcessingTypeUpdateManyMutationInput!
+      where?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    }
     updateManyQualityAttributes: { // args
       data: NexusGenInputs['QualityAttributeUpdateManyMutationInput']; // QualityAttributeUpdateManyMutationInput!
       where?: NexusGenInputs['QualityAttributeWhereInput'] | null; // QualityAttributeWhereInput
     }
+    updateManyRecipientsTypes: { // args
+      data: NexusGenInputs['RecipientsTypeUpdateManyMutationInput']; // RecipientsTypeUpdateManyMutationInput!
+      where?: NexusGenInputs['RecipientsTypeWhereInput'] | null; // RecipientsTypeWhereInput
+    }
+    updateManyRetentionPolicies: { // args
+      data: NexusGenInputs['RetentionPolicyUpdateManyMutationInput']; // RetentionPolicyUpdateManyMutationInput!
+      where?: NexusGenInputs['RetentionPolicyWhereInput'] | null; // RetentionPolicyWhereInput
+    }
     updateManyUsers: { // args
       data: NexusGenInputs['UserUpdateManyMutationInput']; // UserUpdateManyMutationInput!
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
-    }
-    updateOrganization: { // args
-      data: NexusGenInputs['OrganizationUpdateInput']; // OrganizationUpdateInput!
-      where: NexusGenInputs['OrganizationWhereUniqueInput']; // OrganizationWhereUniqueInput!
     }
     updateOrganizationalUnit: { // args
       data: NexusGenInputs['OrganizationalUnitUpdateInput']; // OrganizationalUnitUpdateInput!
@@ -4130,9 +5631,21 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['ProcessingActivityUpdateInput']; // ProcessingActivityUpdateInput!
       where: NexusGenInputs['ProcessingActivityWhereUniqueInput']; // ProcessingActivityWhereUniqueInput!
     }
+    updateProcessingType: { // args
+      data: NexusGenInputs['ProcessingTypeUpdateInput']; // ProcessingTypeUpdateInput!
+      where: NexusGenInputs['ProcessingTypeWhereUniqueInput']; // ProcessingTypeWhereUniqueInput!
+    }
     updateQualityAttribute: { // args
       data: NexusGenInputs['QualityAttributeUpdateInput']; // QualityAttributeUpdateInput!
       where: NexusGenInputs['QualityAttributeWhereUniqueInput']; // QualityAttributeWhereUniqueInput!
+    }
+    updateRecipientsType: { // args
+      data: NexusGenInputs['RecipientsTypeUpdateInput']; // RecipientsTypeUpdateInput!
+      where: NexusGenInputs['RecipientsTypeWhereUniqueInput']; // RecipientsTypeWhereUniqueInput!
+    }
+    updateRetentionPolicy: { // args
+      data: NexusGenInputs['RetentionPolicyUpdateInput']; // RetentionPolicyUpdateInput!
+      where: NexusGenInputs['RetentionPolicyWhereUniqueInput']; // RetentionPolicyWhereUniqueInput!
     }
     updateUser: { // args
       data: NexusGenInputs['UserUpdateInput']; // UserUpdateInput!
@@ -4142,6 +5655,11 @@ export interface NexusGenArgTypes {
       create: NexusGenInputs['ApplicationCreateInput']; // ApplicationCreateInput!
       update: NexusGenInputs['ApplicationUpdateInput']; // ApplicationUpdateInput!
       where: NexusGenInputs['ApplicationWhereUniqueInput']; // ApplicationWhereUniqueInput!
+    }
+    upsertBusinessPartner: { // args
+      create: NexusGenInputs['BusinessPartnerCreateInput']; // BusinessPartnerCreateInput!
+      update: NexusGenInputs['BusinessPartnerUpdateInput']; // BusinessPartnerUpdateInput!
+      where: NexusGenInputs['BusinessPartnerWhereUniqueInput']; // BusinessPartnerWhereUniqueInput!
     }
     upsertBusinessRole: { // args
       create: NexusGenInputs['BusinessRoleCreateInput']; // BusinessRoleCreateInput!
@@ -4153,20 +5671,25 @@ export interface NexusGenArgTypes {
       update: NexusGenInputs['ClassificationLabelUpdateInput']; // ClassificationLabelUpdateInput!
       where: NexusGenInputs['ClassificationLabelWhereUniqueInput']; // ClassificationLabelWhereUniqueInput!
     }
+    upsertDataSubjectType: { // args
+      create: NexusGenInputs['DataSubjectTypeCreateInput']; // DataSubjectTypeCreateInput!
+      update: NexusGenInputs['DataSubjectTypeUpdateInput']; // DataSubjectTypeUpdateInput!
+      where: NexusGenInputs['DataSubjectTypeWhereUniqueInput']; // DataSubjectTypeWhereUniqueInput!
+    }
     upsertDataType: { // args
       create: NexusGenInputs['DataTypeCreateInput']; // DataTypeCreateInput!
       update: NexusGenInputs['DataTypeUpdateInput']; // DataTypeUpdateInput!
       where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
     }
+    upsertLegalGround: { // args
+      create: NexusGenInputs['LegalGroundCreateInput']; // LegalGroundCreateInput!
+      update: NexusGenInputs['LegalGroundUpdateInput']; // LegalGroundUpdateInput!
+      where: NexusGenInputs['LegalGroundWhereUniqueInput']; // LegalGroundWhereUniqueInput!
+    }
     upsertLocation: { // args
       create: NexusGenInputs['LocationCreateInput']; // LocationCreateInput!
       update: NexusGenInputs['LocationUpdateInput']; // LocationUpdateInput!
       where: NexusGenInputs['LocationWhereUniqueInput']; // LocationWhereUniqueInput!
-    }
-    upsertOrganization: { // args
-      create: NexusGenInputs['OrganizationCreateInput']; // OrganizationCreateInput!
-      update: NexusGenInputs['OrganizationUpdateInput']; // OrganizationUpdateInput!
-      where: NexusGenInputs['OrganizationWhereUniqueInput']; // OrganizationWhereUniqueInput!
     }
     upsertOrganizationalUnit: { // args
       create: NexusGenInputs['OrganizationalUnitCreateInput']; // OrganizationalUnitCreateInput!
@@ -4193,10 +5716,25 @@ export interface NexusGenArgTypes {
       update: NexusGenInputs['ProcessingActivityUpdateInput']; // ProcessingActivityUpdateInput!
       where: NexusGenInputs['ProcessingActivityWhereUniqueInput']; // ProcessingActivityWhereUniqueInput!
     }
+    upsertProcessingType: { // args
+      create: NexusGenInputs['ProcessingTypeCreateInput']; // ProcessingTypeCreateInput!
+      update: NexusGenInputs['ProcessingTypeUpdateInput']; // ProcessingTypeUpdateInput!
+      where: NexusGenInputs['ProcessingTypeWhereUniqueInput']; // ProcessingTypeWhereUniqueInput!
+    }
     upsertQualityAttribute: { // args
       create: NexusGenInputs['QualityAttributeCreateInput']; // QualityAttributeCreateInput!
       update: NexusGenInputs['QualityAttributeUpdateInput']; // QualityAttributeUpdateInput!
       where: NexusGenInputs['QualityAttributeWhereUniqueInput']; // QualityAttributeWhereUniqueInput!
+    }
+    upsertRecipientsType: { // args
+      create: NexusGenInputs['RecipientsTypeCreateInput']; // RecipientsTypeCreateInput!
+      update: NexusGenInputs['RecipientsTypeUpdateInput']; // RecipientsTypeUpdateInput!
+      where: NexusGenInputs['RecipientsTypeWhereUniqueInput']; // RecipientsTypeWhereUniqueInput!
+    }
+    upsertRetentionPolicy: { // args
+      create: NexusGenInputs['RetentionPolicyCreateInput']; // RetentionPolicyCreateInput!
+      update: NexusGenInputs['RetentionPolicyUpdateInput']; // RetentionPolicyUpdateInput!
+      where: NexusGenInputs['RetentionPolicyWhereUniqueInput']; // RetentionPolicyWhereUniqueInput!
     }
     upsertUser: { // args
       create: NexusGenInputs['UserCreateInput']; // UserCreateInput!
@@ -4267,14 +5805,50 @@ export interface NexusGenArgTypes {
     }
   }
   ProcessingActivity: {
-    applications: { // args
+    controllers: { // args
       after?: string | null; // String
       before?: string | null; // String
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenEnums['ApplicationOrderByInput'] | null; // ApplicationOrderByInput
+      orderBy?: NexusGenEnums['BusinessPartnerOrderByInput'] | null; // BusinessPartnerOrderByInput
       skip?: number | null; // Int
-      where?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
+      where?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    }
+    dataTypes: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['DataTypeOrderByInput'] | null; // DataTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
+    }
+    legalGrounds: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['LegalGroundOrderByInput'] | null; // LegalGroundOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['LegalGroundWhereInput'] | null; // LegalGroundWhereInput
+    }
+    procesessingTypes: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ProcessingTypeOrderByInput'] | null; // ProcessingTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    }
+    recipients: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['BusinessPartnerOrderByInput'] | null; // BusinessPartnerOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
     }
   }
   QualityAttribute: {
@@ -4310,11 +5884,32 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       where?: NexusGenInputs['ApplicationWhereInput'] | null; // ApplicationWhereInput
     }
+    businessPartner: { // args
+      where: NexusGenInputs['BusinessPartnerWhereUniqueInput']; // BusinessPartnerWhereUniqueInput!
+    }
+    businessPartners: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['BusinessPartnerOrderByInput'] | null; // BusinessPartnerOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    }
+    businessPartnersConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['BusinessPartnerOrderByInput'] | null; // BusinessPartnerOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['BusinessPartnerWhereInput'] | null; // BusinessPartnerWhereInput
+    }
     businessRole: { // args
       where: NexusGenInputs['BusinessRoleWhereUniqueInput']; // BusinessRoleWhereUniqueInput!
     }
     businessRoleByOu: { // args
-      where: NexusGenInputs['OrganizationalUnitWhereUniqueInput']; // OrganizationalUnitWhereUniqueInput!
+      where: NexusGenInputs['BusinessPartnerWhereUniqueInput']; // BusinessPartnerWhereUniqueInput!
     }
     businessRoles: { // args
       after?: string | null; // String
@@ -4355,6 +5950,27 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       where?: NexusGenInputs['ClassificationLabelWhereInput'] | null; // ClassificationLabelWhereInput
     }
+    dataSubjectType: { // args
+      where: NexusGenInputs['DataSubjectTypeWhereUniqueInput']; // DataSubjectTypeWhereUniqueInput!
+    }
+    dataSubjectTypes: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['DataSubjectTypeOrderByInput'] | null; // DataSubjectTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['DataSubjectTypeWhereInput'] | null; // DataSubjectTypeWhereInput
+    }
+    dataSubjectTypesConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['DataSubjectTypeOrderByInput'] | null; // DataSubjectTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['DataSubjectTypeWhereInput'] | null; // DataSubjectTypeWhereInput
+    }
     dataType: { // args
       where: NexusGenInputs['DataTypeWhereUniqueInput']; // DataTypeWhereUniqueInput!
     }
@@ -4376,6 +5992,27 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       where?: NexusGenInputs['DataTypeWhereInput'] | null; // DataTypeWhereInput
     }
+    legalGround: { // args
+      where: NexusGenInputs['LegalGroundWhereUniqueInput']; // LegalGroundWhereUniqueInput!
+    }
+    legalGrounds: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['LegalGroundOrderByInput'] | null; // LegalGroundOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['LegalGroundWhereInput'] | null; // LegalGroundWhereInput
+    }
+    legalGroundsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['LegalGroundOrderByInput'] | null; // LegalGroundOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['LegalGroundWhereInput'] | null; // LegalGroundWhereInput
+    }
     location: { // args
       where: NexusGenInputs['LocationWhereUniqueInput']; // LocationWhereUniqueInput!
     }
@@ -4396,9 +6033,6 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenEnums['LocationOrderByInput'] | null; // LocationOrderByInput
       skip?: number | null; // Int
       where?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
-    }
-    organization: { // args
-      where: NexusGenInputs['OrganizationWhereUniqueInput']; // OrganizationWhereUniqueInput!
     }
     organizationalUnit: { // args
       where: NexusGenInputs['OrganizationalUnitWhereUniqueInput']; // OrganizationalUnitWhereUniqueInput!
@@ -4441,24 +6075,6 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenEnums['OrganizationalUnitTypeOrderByInput'] | null; // OrganizationalUnitTypeOrderByInput
       skip?: number | null; // Int
       where?: NexusGenInputs['OrganizationalUnitTypeWhereInput'] | null; // OrganizationalUnitTypeWhereInput
-    }
-    organizations: { // args
-      after?: string | null; // String
-      before?: string | null; // String
-      first?: number | null; // Int
-      last?: number | null; // Int
-      orderBy?: NexusGenEnums['OrganizationOrderByInput'] | null; // OrganizationOrderByInput
-      skip?: number | null; // Int
-      where?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
-    }
-    organizationsConnection: { // args
-      after?: string | null; // String
-      before?: string | null; // String
-      first?: number | null; // Int
-      last?: number | null; // Int
-      orderBy?: NexusGenEnums['OrganizationOrderByInput'] | null; // OrganizationOrderByInput
-      skip?: number | null; // Int
-      where?: NexusGenInputs['OrganizationWhereInput'] | null; // OrganizationWhereInput
     }
     person: { // args
       where: NexusGenInputs['PersonWhereUniqueInput']; // PersonWhereUniqueInput!
@@ -4529,6 +6145,27 @@ export interface NexusGenArgTypes {
     processingActivity: { // args
       where: NexusGenInputs['ProcessingActivityWhereUniqueInput']; // ProcessingActivityWhereUniqueInput!
     }
+    processingType: { // args
+      where: NexusGenInputs['ProcessingTypeWhereUniqueInput']; // ProcessingTypeWhereUniqueInput!
+    }
+    processingTypes: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ProcessingTypeOrderByInput'] | null; // ProcessingTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    }
+    processingTypesConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ProcessingTypeOrderByInput'] | null; // ProcessingTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    }
     qualityAttribute: { // args
       where: NexusGenInputs['QualityAttributeWhereUniqueInput']; // QualityAttributeWhereUniqueInput!
     }
@@ -4549,6 +6186,48 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenEnums['QualityAttributeOrderByInput'] | null; // QualityAttributeOrderByInput
       skip?: number | null; // Int
       where?: NexusGenInputs['QualityAttributeWhereInput'] | null; // QualityAttributeWhereInput
+    }
+    recipientsType: { // args
+      where: NexusGenInputs['RecipientsTypeWhereUniqueInput']; // RecipientsTypeWhereUniqueInput!
+    }
+    recipientsTypes: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['RecipientsTypeOrderByInput'] | null; // RecipientsTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['RecipientsTypeWhereInput'] | null; // RecipientsTypeWhereInput
+    }
+    recipientsTypesConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['RecipientsTypeOrderByInput'] | null; // RecipientsTypeOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['RecipientsTypeWhereInput'] | null; // RecipientsTypeWhereInput
+    }
+    retentionPolicies: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['RetentionPolicyOrderByInput'] | null; // RetentionPolicyOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['RetentionPolicyWhereInput'] | null; // RetentionPolicyWhereInput
+    }
+    retentionPoliciesConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['RetentionPolicyOrderByInput'] | null; // RetentionPolicyOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['RetentionPolicyWhereInput'] | null; // RetentionPolicyWhereInput
+    }
+    retentionPolicy: { // args
+      where: NexusGenInputs['RetentionPolicyWhereUniqueInput']; // RetentionPolicyWhereUniqueInput!
     }
     user: { // args
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
@@ -4579,11 +6258,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AggregateApplication" | "AggregateBusinessRole" | "AggregateClassificationLabel" | "AggregateDataType" | "AggregateLocation" | "AggregateOrganization" | "AggregateOrganizationalUnit" | "AggregateOrganizationalUnitType" | "AggregatePerson" | "AggregateProcess" | "AggregateProcessingActivity" | "AggregateQualityAttribute" | "AggregateUser" | "Application" | "ApplicationConnection" | "ApplicationEdge" | "BatchPayload" | "BusinessRole" | "BusinessRoleConnection" | "BusinessRoleEdge" | "ClassificationLabel" | "ClassificationLabelConnection" | "ClassificationLabelEdge" | "DataType" | "DataTypeConnection" | "DataTypeEdge" | "Location" | "LocationConnection" | "LocationEdge" | "Mutation" | "Organization" | "OrganizationConnection" | "OrganizationEdge" | "OrganizationalUnit" | "OrganizationalUnitConnection" | "OrganizationalUnitEdge" | "OrganizationalUnitType" | "OrganizationalUnitTypeConnection" | "OrganizationalUnitTypeEdge" | "PageInfo" | "Person" | "PersonConnection" | "PersonEdge" | "Process" | "ProcessConnection" | "ProcessEdge" | "ProcessingActivity" | "ProcessingActivityConnection" | "ProcessingActivityEdge" | "QualityAttribute" | "QualityAttributeConnection" | "QualityAttributeEdge" | "Query" | "Token" | "User" | "UserConnection" | "UserEdge";
+export type NexusGenObjectNames = "AggregateApplication" | "AggregateBusinessPartner" | "AggregateBusinessRole" | "AggregateClassificationLabel" | "AggregateDataSubjectType" | "AggregateDataType" | "AggregateLegalGround" | "AggregateLocation" | "AggregateOrganizationalUnit" | "AggregateOrganizationalUnitType" | "AggregatePerson" | "AggregateProcess" | "AggregateProcessingActivity" | "AggregateProcessingType" | "AggregateQualityAttribute" | "AggregateRecipientsType" | "AggregateRetentionPolicy" | "AggregateUser" | "Application" | "ApplicationConnection" | "ApplicationEdge" | "BatchPayload" | "BusinessPartner" | "BusinessPartnerConnection" | "BusinessPartnerEdge" | "BusinessRole" | "BusinessRoleConnection" | "BusinessRoleEdge" | "ClassificationLabel" | "ClassificationLabelConnection" | "ClassificationLabelEdge" | "DataSubjectType" | "DataSubjectTypeConnection" | "DataSubjectTypeEdge" | "DataType" | "DataTypeConnection" | "DataTypeEdge" | "LegalGround" | "LegalGroundConnection" | "LegalGroundEdge" | "Location" | "LocationConnection" | "LocationEdge" | "Mutation" | "OrganizationalUnit" | "OrganizationalUnitConnection" | "OrganizationalUnitEdge" | "OrganizationalUnitType" | "OrganizationalUnitTypeConnection" | "OrganizationalUnitTypeEdge" | "PageInfo" | "Person" | "PersonConnection" | "PersonEdge" | "Process" | "ProcessConnection" | "ProcessEdge" | "ProcessingActivity" | "ProcessingActivityConnection" | "ProcessingActivityEdge" | "ProcessingType" | "ProcessingTypeConnection" | "ProcessingTypeEdge" | "QualityAttribute" | "QualityAttributeConnection" | "QualityAttributeEdge" | "Query" | "RecipientsType" | "RecipientsTypeConnection" | "RecipientsTypeEdge" | "RetentionPolicy" | "RetentionPolicyConnection" | "RetentionPolicyEdge" | "Token" | "User" | "UserConnection" | "UserEdge";
 
-export type NexusGenInputNames = "ApplicationCreateInput" | "ApplicationCreateManyWithoutBusinessOwnerInput" | "ApplicationCreateManyWithoutDataTypesInput" | "ApplicationCreateManyWithoutItOwnerInput" | "ApplicationCreateManyWithoutProcessingActivitiesInput" | "ApplicationCreateManyWithoutSecurityAdministratorInput" | "ApplicationCreateWithoutBusinessOwnerInput" | "ApplicationCreateWithoutDataTypesInput" | "ApplicationCreateWithoutItOwnerInput" | "ApplicationCreateWithoutProcessingActivitiesInput" | "ApplicationCreateWithoutSecurityAdministratorInput" | "ApplicationScalarWhereInput" | "ApplicationUpdateInput" | "ApplicationUpdateManyDataInput" | "ApplicationUpdateManyMutationInput" | "ApplicationUpdateManyWithWhereNestedInput" | "ApplicationUpdateManyWithoutBusinessOwnerInput" | "ApplicationUpdateManyWithoutDataTypesInput" | "ApplicationUpdateManyWithoutItOwnerInput" | "ApplicationUpdateManyWithoutProcessingActivitiesInput" | "ApplicationUpdateManyWithoutSecurityAdministratorInput" | "ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput" | "ApplicationUpdateWithWhereUniqueWithoutDataTypesInput" | "ApplicationUpdateWithWhereUniqueWithoutItOwnerInput" | "ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput" | "ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput" | "ApplicationUpdateWithoutBusinessOwnerDataInput" | "ApplicationUpdateWithoutDataTypesDataInput" | "ApplicationUpdateWithoutItOwnerDataInput" | "ApplicationUpdateWithoutProcessingActivitiesDataInput" | "ApplicationUpdateWithoutSecurityAdministratorDataInput" | "ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput" | "ApplicationUpsertWithWhereUniqueWithoutDataTypesInput" | "ApplicationUpsertWithWhereUniqueWithoutItOwnerInput" | "ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput" | "ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput" | "ApplicationWhereInput" | "ApplicationWhereUniqueInput" | "BusinessRoleCreateInput" | "BusinessRoleCreateManyWithoutOrganizationalUnitInput" | "BusinessRoleCreateManyWithoutPersonInput" | "BusinessRoleCreateOneWithoutAppBusinessOwnerInput" | "BusinessRoleCreateOneWithoutAppItOwnerInput" | "BusinessRoleCreateOneWithoutAppSecAdminInput" | "BusinessRoleCreateOneWithoutProcessInput" | "BusinessRoleCreateWithoutAppBusinessOwnerInput" | "BusinessRoleCreateWithoutAppItOwnerInput" | "BusinessRoleCreateWithoutAppSecAdminInput" | "BusinessRoleCreateWithoutOrganizationalUnitInput" | "BusinessRoleCreateWithoutPersonInput" | "BusinessRoleCreateWithoutProcessInput" | "BusinessRoleScalarWhereInput" | "BusinessRoleUpdateInput" | "BusinessRoleUpdateManyDataInput" | "BusinessRoleUpdateManyMutationInput" | "BusinessRoleUpdateManyWithWhereNestedInput" | "BusinessRoleUpdateManyWithoutOrganizationalUnitInput" | "BusinessRoleUpdateManyWithoutPersonInput" | "BusinessRoleUpdateOneWithoutAppBusinessOwnerInput" | "BusinessRoleUpdateOneWithoutAppItOwnerInput" | "BusinessRoleUpdateOneWithoutAppSecAdminInput" | "BusinessRoleUpdateOneWithoutProcessInput" | "BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput" | "BusinessRoleUpdateWithWhereUniqueWithoutPersonInput" | "BusinessRoleUpdateWithoutAppBusinessOwnerDataInput" | "BusinessRoleUpdateWithoutAppItOwnerDataInput" | "BusinessRoleUpdateWithoutAppSecAdminDataInput" | "BusinessRoleUpdateWithoutOrganizationalUnitDataInput" | "BusinessRoleUpdateWithoutPersonDataInput" | "BusinessRoleUpdateWithoutProcessDataInput" | "BusinessRoleUpsertWithWhereUniqueWithoutOrganizationalUnitInput" | "BusinessRoleUpsertWithWhereUniqueWithoutPersonInput" | "BusinessRoleUpsertWithoutAppBusinessOwnerInput" | "BusinessRoleUpsertWithoutAppItOwnerInput" | "BusinessRoleUpsertWithoutAppSecAdminInput" | "BusinessRoleUpsertWithoutProcessInput" | "BusinessRoleWhereInput" | "BusinessRoleWhereUniqueInput" | "ClassificationLabelCreateInput" | "ClassificationLabelCreateManyWithoutDataTypeInput" | "ClassificationLabelCreateManyWithoutQualityAttributeInput" | "ClassificationLabelCreateWithoutDataTypeInput" | "ClassificationLabelCreateWithoutQualityAttributeInput" | "ClassificationLabelScalarWhereInput" | "ClassificationLabelUpdateInput" | "ClassificationLabelUpdateManyDataInput" | "ClassificationLabelUpdateManyMutationInput" | "ClassificationLabelUpdateManyWithWhereNestedInput" | "ClassificationLabelUpdateManyWithoutDataTypeInput" | "ClassificationLabelUpdateManyWithoutQualityAttributeInput" | "ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput" | "ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput" | "ClassificationLabelUpdateWithoutDataTypeDataInput" | "ClassificationLabelUpdateWithoutQualityAttributeDataInput" | "ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput" | "ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput" | "ClassificationLabelWhereInput" | "ClassificationLabelWhereUniqueInput" | "DataTypeCreateInput" | "DataTypeCreateManyWithoutApplicationInput" | "DataTypeCreateManyWithoutClassificationLabelsInput" | "DataTypeCreateWithoutApplicationInput" | "DataTypeCreateWithoutClassificationLabelsInput" | "DataTypeScalarWhereInput" | "DataTypeUpdateInput" | "DataTypeUpdateManyDataInput" | "DataTypeUpdateManyMutationInput" | "DataTypeUpdateManyWithWhereNestedInput" | "DataTypeUpdateManyWithoutApplicationInput" | "DataTypeUpdateManyWithoutClassificationLabelsInput" | "DataTypeUpdateWithWhereUniqueWithoutApplicationInput" | "DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput" | "DataTypeUpdateWithoutApplicationDataInput" | "DataTypeUpdateWithoutClassificationLabelsDataInput" | "DataTypeUpsertWithWhereUniqueWithoutApplicationInput" | "DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput" | "DataTypeWhereInput" | "DataTypeWhereUniqueInput" | "LocationCreateInput" | "LocationCreateOneWithoutOrganizationInput" | "LocationCreateWithoutOrganizationInput" | "LocationUpdateInput" | "LocationUpdateManyMutationInput" | "LocationUpdateOneRequiredWithoutOrganizationInput" | "LocationUpdateWithoutOrganizationDataInput" | "LocationUpsertWithoutOrganizationInput" | "LocationWhereInput" | "LocationWhereUniqueInput" | "LoginInput" | "OrganizationCreateInput" | "OrganizationCreateOneWithoutHeadOfficeInput" | "OrganizationCreateWithoutHeadOfficeInput" | "OrganizationUpdateInput" | "OrganizationUpdateManyMutationInput" | "OrganizationUpdateOneWithoutHeadOfficeInput" | "OrganizationUpdateWithoutHeadOfficeDataInput" | "OrganizationUpsertWithoutHeadOfficeInput" | "OrganizationWhereInput" | "OrganizationWhereUniqueInput" | "OrganizationalUnitCreateInput" | "OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitCreateManyWithoutParentInput" | "OrganizationalUnitCreateOneWithoutBusinessRolesInput" | "OrganizationalUnitCreateOneWithoutChildrenInput" | "OrganizationalUnitCreateOneWithoutProcessesInput" | "OrganizationalUnitCreateWithoutBusinessRolesInput" | "OrganizationalUnitCreateWithoutChildrenInput" | "OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitCreateWithoutParentInput" | "OrganizationalUnitCreateWithoutProcessesInput" | "OrganizationalUnitScalarWhereInput" | "OrganizationalUnitTypeCreateInput" | "OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeUpdateInput" | "OrganizationalUnitTypeUpdateManyMutationInput" | "OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInput" | "OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeWhereInput" | "OrganizationalUnitTypeWhereUniqueInput" | "OrganizationalUnitUpdateInput" | "OrganizationalUnitUpdateManyDataInput" | "OrganizationalUnitUpdateManyMutationInput" | "OrganizationalUnitUpdateManyWithWhereNestedInput" | "OrganizationalUnitUpdateManyWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpdateManyWithoutParentInput" | "OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput" | "OrganizationalUnitUpdateOneWithoutChildrenInput" | "OrganizationalUnitUpdateOneWithoutProcessesInput" | "OrganizationalUnitUpdateWithWhereUniqueWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpdateWithWhereUniqueWithoutParentInput" | "OrganizationalUnitUpdateWithoutBusinessRolesDataInput" | "OrganizationalUnitUpdateWithoutChildrenDataInput" | "OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput" | "OrganizationalUnitUpdateWithoutParentDataInput" | "OrganizationalUnitUpdateWithoutProcessesDataInput" | "OrganizationalUnitUpsertWithWhereUniqueWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpsertWithWhereUniqueWithoutParentInput" | "OrganizationalUnitUpsertWithoutBusinessRolesInput" | "OrganizationalUnitUpsertWithoutChildrenInput" | "OrganizationalUnitUpsertWithoutProcessesInput" | "OrganizationalUnitWhereInput" | "OrganizationalUnitWhereUniqueInput" | "PersonCreateInput" | "PersonCreateOneWithoutRolesInput" | "PersonCreateOneWithoutUserInput" | "PersonCreateWithoutRolesInput" | "PersonCreateWithoutUserInput" | "PersonUpdateInput" | "PersonUpdateManyMutationInput" | "PersonUpdateOneWithoutRolesInput" | "PersonUpdateOneWithoutUserInput" | "PersonUpdateWithoutRolesDataInput" | "PersonUpdateWithoutUserDataInput" | "PersonUpsertWithoutRolesInput" | "PersonUpsertWithoutUserInput" | "PersonWhereInput" | "PersonWhereUniqueInput" | "ProcessCreateInput" | "ProcessCreateManyWithoutOrganizationalUnitInput" | "ProcessCreateManyWithoutProcessOwnerInput" | "ProcessCreateOneWithoutProcessingActivitiesInput" | "ProcessCreateWithoutOrganizationalUnitInput" | "ProcessCreateWithoutProcessOwnerInput" | "ProcessCreateWithoutProcessingActivitiesInput" | "ProcessScalarWhereInput" | "ProcessUpdateInput" | "ProcessUpdateManyDataInput" | "ProcessUpdateManyMutationInput" | "ProcessUpdateManyWithWhereNestedInput" | "ProcessUpdateManyWithoutOrganizationalUnitInput" | "ProcessUpdateManyWithoutProcessOwnerInput" | "ProcessUpdateOneWithoutProcessingActivitiesInput" | "ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput" | "ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput" | "ProcessUpdateWithoutOrganizationalUnitDataInput" | "ProcessUpdateWithoutProcessOwnerDataInput" | "ProcessUpdateWithoutProcessingActivitiesDataInput" | "ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput" | "ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput" | "ProcessUpsertWithoutProcessingActivitiesInput" | "ProcessWhereInput" | "ProcessWhereUniqueInput" | "ProcessingActivityCreateInput" | "ProcessingActivityCreateManyWithoutApplicationsInput" | "ProcessingActivityCreateManyWithoutProcessInput" | "ProcessingActivityCreateWithoutApplicationsInput" | "ProcessingActivityCreateWithoutProcessInput" | "ProcessingActivityScalarWhereInput" | "ProcessingActivityUpdateInput" | "ProcessingActivityUpdateManyDataInput" | "ProcessingActivityUpdateManyMutationInput" | "ProcessingActivityUpdateManyWithWhereNestedInput" | "ProcessingActivityUpdateManyWithoutApplicationsInput" | "ProcessingActivityUpdateManyWithoutProcessInput" | "ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput" | "ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput" | "ProcessingActivityUpdateWithoutApplicationsDataInput" | "ProcessingActivityUpdateWithoutProcessDataInput" | "ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput" | "ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput" | "ProcessingActivityWhereInput" | "ProcessingActivityWhereUniqueInput" | "QualityAttributeCreateInput" | "QualityAttributeCreateOneWithoutClassificationLabelsInput" | "QualityAttributeCreateWithoutClassificationLabelsInput" | "QualityAttributeUpdateInput" | "QualityAttributeUpdateManyMutationInput" | "QualityAttributeUpdateOneWithoutClassificationLabelsInput" | "QualityAttributeUpdateWithoutClassificationLabelsDataInput" | "QualityAttributeUpsertWithoutClassificationLabelsInput" | "QualityAttributeWhereInput" | "QualityAttributeWhereUniqueInput" | "UserCreateInput" | "UserCreateOneWithoutPersonInput" | "UserCreateWithoutPersonInput" | "UserCreatespecialPermissionsInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserUpdateOneWithoutPersonInput" | "UserUpdateWithoutPersonDataInput" | "UserUpdatespecialPermissionsInput" | "UserUpsertWithoutPersonInput" | "UserWhereInput" | "UserWhereUniqueInput";
+export type NexusGenInputNames = "ApplicationCreateInput" | "ApplicationCreateManyWithoutBusinessOwnerInput" | "ApplicationCreateManyWithoutDataTypesInput" | "ApplicationCreateManyWithoutItOwnerInput" | "ApplicationCreateManyWithoutSecurityAdministratorInput" | "ApplicationCreateWithoutBusinessOwnerInput" | "ApplicationCreateWithoutDataTypesInput" | "ApplicationCreateWithoutItOwnerInput" | "ApplicationCreateWithoutSecurityAdministratorInput" | "ApplicationScalarWhereInput" | "ApplicationUpdateInput" | "ApplicationUpdateManyDataInput" | "ApplicationUpdateManyMutationInput" | "ApplicationUpdateManyWithWhereNestedInput" | "ApplicationUpdateManyWithoutBusinessOwnerInput" | "ApplicationUpdateManyWithoutDataTypesInput" | "ApplicationUpdateManyWithoutItOwnerInput" | "ApplicationUpdateManyWithoutSecurityAdministratorInput" | "ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput" | "ApplicationUpdateWithWhereUniqueWithoutDataTypesInput" | "ApplicationUpdateWithWhereUniqueWithoutItOwnerInput" | "ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput" | "ApplicationUpdateWithoutBusinessOwnerDataInput" | "ApplicationUpdateWithoutDataTypesDataInput" | "ApplicationUpdateWithoutItOwnerDataInput" | "ApplicationUpdateWithoutSecurityAdministratorDataInput" | "ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput" | "ApplicationUpsertWithWhereUniqueWithoutDataTypesInput" | "ApplicationUpsertWithWhereUniqueWithoutItOwnerInput" | "ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput" | "ApplicationWhereInput" | "ApplicationWhereUniqueInput" | "BusinessPartnerCreateInput" | "BusinessPartnerCreateManyInput" | "BusinessPartnerCreateOneInput" | "BusinessPartnerCreateOneWithoutHeadOfficeInput" | "BusinessPartnerCreateWithoutHeadOfficeInput" | "BusinessPartnerScalarWhereInput" | "BusinessPartnerUpdateDataInput" | "BusinessPartnerUpdateInput" | "BusinessPartnerUpdateManyDataInput" | "BusinessPartnerUpdateManyInput" | "BusinessPartnerUpdateManyMutationInput" | "BusinessPartnerUpdateManyWithWhereNestedInput" | "BusinessPartnerUpdateOneInput" | "BusinessPartnerUpdateOneWithoutHeadOfficeInput" | "BusinessPartnerUpdateWithWhereUniqueNestedInput" | "BusinessPartnerUpdateWithoutHeadOfficeDataInput" | "BusinessPartnerUpsertNestedInput" | "BusinessPartnerUpsertWithWhereUniqueNestedInput" | "BusinessPartnerUpsertWithoutHeadOfficeInput" | "BusinessPartnerWhereInput" | "BusinessPartnerWhereUniqueInput" | "BusinessRoleCreateInput" | "BusinessRoleCreateManyWithoutOrganizationalUnitInput" | "BusinessRoleCreateManyWithoutPersonInput" | "BusinessRoleCreateOneWithoutAppBusinessOwnerInput" | "BusinessRoleCreateOneWithoutAppItOwnerInput" | "BusinessRoleCreateOneWithoutAppSecAdminInput" | "BusinessRoleCreateOneWithoutProcessInput" | "BusinessRoleCreateWithoutAppBusinessOwnerInput" | "BusinessRoleCreateWithoutAppItOwnerInput" | "BusinessRoleCreateWithoutAppSecAdminInput" | "BusinessRoleCreateWithoutOrganizationalUnitInput" | "BusinessRoleCreateWithoutPersonInput" | "BusinessRoleCreateWithoutProcessInput" | "BusinessRoleScalarWhereInput" | "BusinessRoleUpdateInput" | "BusinessRoleUpdateManyDataInput" | "BusinessRoleUpdateManyMutationInput" | "BusinessRoleUpdateManyWithWhereNestedInput" | "BusinessRoleUpdateManyWithoutOrganizationalUnitInput" | "BusinessRoleUpdateManyWithoutPersonInput" | "BusinessRoleUpdateOneWithoutAppBusinessOwnerInput" | "BusinessRoleUpdateOneWithoutAppItOwnerInput" | "BusinessRoleUpdateOneWithoutAppSecAdminInput" | "BusinessRoleUpdateOneWithoutProcessInput" | "BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput" | "BusinessRoleUpdateWithWhereUniqueWithoutPersonInput" | "BusinessRoleUpdateWithoutAppBusinessOwnerDataInput" | "BusinessRoleUpdateWithoutAppItOwnerDataInput" | "BusinessRoleUpdateWithoutAppSecAdminDataInput" | "BusinessRoleUpdateWithoutOrganizationalUnitDataInput" | "BusinessRoleUpdateWithoutPersonDataInput" | "BusinessRoleUpdateWithoutProcessDataInput" | "BusinessRoleUpsertWithWhereUniqueWithoutOrganizationalUnitInput" | "BusinessRoleUpsertWithWhereUniqueWithoutPersonInput" | "BusinessRoleUpsertWithoutAppBusinessOwnerInput" | "BusinessRoleUpsertWithoutAppItOwnerInput" | "BusinessRoleUpsertWithoutAppSecAdminInput" | "BusinessRoleUpsertWithoutProcessInput" | "BusinessRoleWhereInput" | "BusinessRoleWhereUniqueInput" | "ClassificationLabelCreateInput" | "ClassificationLabelCreateManyWithoutDataTypeInput" | "ClassificationLabelCreateManyWithoutQualityAttributeInput" | "ClassificationLabelCreateWithoutDataTypeInput" | "ClassificationLabelCreateWithoutQualityAttributeInput" | "ClassificationLabelScalarWhereInput" | "ClassificationLabelUpdateInput" | "ClassificationLabelUpdateManyDataInput" | "ClassificationLabelUpdateManyMutationInput" | "ClassificationLabelUpdateManyWithWhereNestedInput" | "ClassificationLabelUpdateManyWithoutDataTypeInput" | "ClassificationLabelUpdateManyWithoutQualityAttributeInput" | "ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput" | "ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput" | "ClassificationLabelUpdateWithoutDataTypeDataInput" | "ClassificationLabelUpdateWithoutQualityAttributeDataInput" | "ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput" | "ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput" | "ClassificationLabelWhereInput" | "ClassificationLabelWhereUniqueInput" | "DataSubjectTypeCreateInput" | "DataSubjectTypeCreateManyWithoutDataTypesInput" | "DataSubjectTypeCreateWithoutDataTypesInput" | "DataSubjectTypeScalarWhereInput" | "DataSubjectTypeUpdateInput" | "DataSubjectTypeUpdateManyDataInput" | "DataSubjectTypeUpdateManyMutationInput" | "DataSubjectTypeUpdateManyWithWhereNestedInput" | "DataSubjectTypeUpdateManyWithoutDataTypesInput" | "DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput" | "DataSubjectTypeUpdateWithoutDataTypesDataInput" | "DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput" | "DataSubjectTypeWhereInput" | "DataSubjectTypeWhereUniqueInput" | "DataTypeCreateInput" | "DataTypeCreateManyInput" | "DataTypeCreateManyWithoutApplicationInput" | "DataTypeCreateManyWithoutClassificationLabelsInput" | "DataTypeCreateManyWithoutDataSubjectTypeInput" | "DataTypeCreateWithoutApplicationInput" | "DataTypeCreateWithoutClassificationLabelsInput" | "DataTypeCreateWithoutDataSubjectTypeInput" | "DataTypeScalarWhereInput" | "DataTypeUpdateDataInput" | "DataTypeUpdateInput" | "DataTypeUpdateManyDataInput" | "DataTypeUpdateManyInput" | "DataTypeUpdateManyMutationInput" | "DataTypeUpdateManyWithWhereNestedInput" | "DataTypeUpdateManyWithoutApplicationInput" | "DataTypeUpdateManyWithoutClassificationLabelsInput" | "DataTypeUpdateManyWithoutDataSubjectTypeInput" | "DataTypeUpdateWithWhereUniqueNestedInput" | "DataTypeUpdateWithWhereUniqueWithoutApplicationInput" | "DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput" | "DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput" | "DataTypeUpdateWithoutApplicationDataInput" | "DataTypeUpdateWithoutClassificationLabelsDataInput" | "DataTypeUpdateWithoutDataSubjectTypeDataInput" | "DataTypeUpsertWithWhereUniqueNestedInput" | "DataTypeUpsertWithWhereUniqueWithoutApplicationInput" | "DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput" | "DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput" | "DataTypeWhereInput" | "DataTypeWhereUniqueInput" | "LegalGroundCreateInput" | "LegalGroundCreateManyInput" | "LegalGroundScalarWhereInput" | "LegalGroundUpdateDataInput" | "LegalGroundUpdateInput" | "LegalGroundUpdateManyDataInput" | "LegalGroundUpdateManyInput" | "LegalGroundUpdateManyMutationInput" | "LegalGroundUpdateManyWithWhereNestedInput" | "LegalGroundUpdateWithWhereUniqueNestedInput" | "LegalGroundUpsertWithWhereUniqueNestedInput" | "LegalGroundWhereInput" | "LegalGroundWhereUniqueInput" | "LocationCreateInput" | "LocationCreateOneWithoutBusinessPartnerInput" | "LocationCreateWithoutBusinessPartnerInput" | "LocationUpdateInput" | "LocationUpdateManyMutationInput" | "LocationUpdateOneRequiredWithoutBusinessPartnerInput" | "LocationUpdateWithoutBusinessPartnerDataInput" | "LocationUpsertWithoutBusinessPartnerInput" | "LocationWhereInput" | "LocationWhereUniqueInput" | "LoginInput" | "OrganizationalUnitCreateInput" | "OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitCreateManyWithoutParentInput" | "OrganizationalUnitCreateOneWithoutBusinessRolesInput" | "OrganizationalUnitCreateOneWithoutChildrenInput" | "OrganizationalUnitCreateOneWithoutProcessesInput" | "OrganizationalUnitCreateWithoutBusinessRolesInput" | "OrganizationalUnitCreateWithoutChildrenInput" | "OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitCreateWithoutParentInput" | "OrganizationalUnitCreateWithoutProcessesInput" | "OrganizationalUnitScalarWhereInput" | "OrganizationalUnitTypeCreateInput" | "OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeUpdateInput" | "OrganizationalUnitTypeUpdateManyMutationInput" | "OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInput" | "OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInput" | "OrganizationalUnitTypeWhereInput" | "OrganizationalUnitTypeWhereUniqueInput" | "OrganizationalUnitUpdateInput" | "OrganizationalUnitUpdateManyDataInput" | "OrganizationalUnitUpdateManyMutationInput" | "OrganizationalUnitUpdateManyWithWhereNestedInput" | "OrganizationalUnitUpdateManyWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpdateManyWithoutParentInput" | "OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput" | "OrganizationalUnitUpdateOneWithoutChildrenInput" | "OrganizationalUnitUpdateOneWithoutProcessesInput" | "OrganizationalUnitUpdateWithWhereUniqueWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpdateWithWhereUniqueWithoutParentInput" | "OrganizationalUnitUpdateWithoutBusinessRolesDataInput" | "OrganizationalUnitUpdateWithoutChildrenDataInput" | "OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput" | "OrganizationalUnitUpdateWithoutParentDataInput" | "OrganizationalUnitUpdateWithoutProcessesDataInput" | "OrganizationalUnitUpsertWithWhereUniqueWithoutOrganizationalUnitTypeInput" | "OrganizationalUnitUpsertWithWhereUniqueWithoutParentInput" | "OrganizationalUnitUpsertWithoutBusinessRolesInput" | "OrganizationalUnitUpsertWithoutChildrenInput" | "OrganizationalUnitUpsertWithoutProcessesInput" | "OrganizationalUnitWhereInput" | "OrganizationalUnitWhereUniqueInput" | "PersonCreateInput" | "PersonCreateOneWithoutRolesInput" | "PersonCreateOneWithoutUserInput" | "PersonCreateWithoutRolesInput" | "PersonCreateWithoutUserInput" | "PersonUpdateInput" | "PersonUpdateManyMutationInput" | "PersonUpdateOneWithoutRolesInput" | "PersonUpdateOneWithoutUserInput" | "PersonUpdateWithoutRolesDataInput" | "PersonUpdateWithoutUserDataInput" | "PersonUpsertWithoutRolesInput" | "PersonUpsertWithoutUserInput" | "PersonWhereInput" | "PersonWhereUniqueInput" | "ProcessCreateInput" | "ProcessCreateManyWithoutOrganizationalUnitInput" | "ProcessCreateManyWithoutProcessOwnerInput" | "ProcessCreateOneWithoutProcessingActivitiesInput" | "ProcessCreateWithoutOrganizationalUnitInput" | "ProcessCreateWithoutProcessOwnerInput" | "ProcessCreateWithoutProcessingActivitiesInput" | "ProcessScalarWhereInput" | "ProcessUpdateInput" | "ProcessUpdateManyDataInput" | "ProcessUpdateManyMutationInput" | "ProcessUpdateManyWithWhereNestedInput" | "ProcessUpdateManyWithoutOrganizationalUnitInput" | "ProcessUpdateManyWithoutProcessOwnerInput" | "ProcessUpdateOneWithoutProcessingActivitiesInput" | "ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput" | "ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput" | "ProcessUpdateWithoutOrganizationalUnitDataInput" | "ProcessUpdateWithoutProcessOwnerDataInput" | "ProcessUpdateWithoutProcessingActivitiesDataInput" | "ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput" | "ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput" | "ProcessUpsertWithoutProcessingActivitiesInput" | "ProcessWhereInput" | "ProcessWhereUniqueInput" | "ProcessingActivityCreateInput" | "ProcessingActivityCreateManyInput" | "ProcessingActivityCreateManyWithoutProcessInput" | "ProcessingActivityCreateWithoutProcessInput" | "ProcessingActivityScalarWhereInput" | "ProcessingActivityUpdateDataInput" | "ProcessingActivityUpdateInput" | "ProcessingActivityUpdateManyDataInput" | "ProcessingActivityUpdateManyInput" | "ProcessingActivityUpdateManyMutationInput" | "ProcessingActivityUpdateManyWithWhereNestedInput" | "ProcessingActivityUpdateManyWithoutProcessInput" | "ProcessingActivityUpdateWithWhereUniqueNestedInput" | "ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput" | "ProcessingActivityUpdateWithoutProcessDataInput" | "ProcessingActivityUpsertWithWhereUniqueNestedInput" | "ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput" | "ProcessingActivityWhereInput" | "ProcessingActivityWhereUniqueInput" | "ProcessingTypeCreateInput" | "ProcessingTypeCreateManyInput" | "ProcessingTypeScalarWhereInput" | "ProcessingTypeUpdateDataInput" | "ProcessingTypeUpdateInput" | "ProcessingTypeUpdateManyDataInput" | "ProcessingTypeUpdateManyInput" | "ProcessingTypeUpdateManyMutationInput" | "ProcessingTypeUpdateManyWithWhereNestedInput" | "ProcessingTypeUpdateWithWhereUniqueNestedInput" | "ProcessingTypeUpsertWithWhereUniqueNestedInput" | "ProcessingTypeWhereInput" | "ProcessingTypeWhereUniqueInput" | "QualityAttributeCreateInput" | "QualityAttributeCreateOneWithoutClassificationLabelsInput" | "QualityAttributeCreateWithoutClassificationLabelsInput" | "QualityAttributeUpdateInput" | "QualityAttributeUpdateManyMutationInput" | "QualityAttributeUpdateOneWithoutClassificationLabelsInput" | "QualityAttributeUpdateWithoutClassificationLabelsDataInput" | "QualityAttributeUpsertWithoutClassificationLabelsInput" | "QualityAttributeWhereInput" | "QualityAttributeWhereUniqueInput" | "RecipientsTypeCreateInput" | "RecipientsTypeCreateOneInput" | "RecipientsTypeUpdateDataInput" | "RecipientsTypeUpdateInput" | "RecipientsTypeUpdateManyMutationInput" | "RecipientsTypeUpdateOneInput" | "RecipientsTypeUpsertNestedInput" | "RecipientsTypeWhereInput" | "RecipientsTypeWhereUniqueInput" | "RetentionPolicyCreateInput" | "RetentionPolicyCreateOneInput" | "RetentionPolicyUpdateDataInput" | "RetentionPolicyUpdateInput" | "RetentionPolicyUpdateManyMutationInput" | "RetentionPolicyUpdateOneRequiredInput" | "RetentionPolicyUpsertNestedInput" | "RetentionPolicyWhereInput" | "RetentionPolicyWhereUniqueInput" | "UserCreateInput" | "UserCreateOneWithoutPersonInput" | "UserCreateWithoutPersonInput" | "UserCreatespecialPermissionsInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserUpdateOneWithoutPersonInput" | "UserUpdateWithoutPersonDataInput" | "UserUpdatespecialPermissionsInput" | "UserUpsertWithoutPersonInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
-export type NexusGenEnumNames = "ApplicationOrderByInput" | "BusinessRoleOrderByInput" | "CLASSIFICATIONOBJECT" | "ClassificationLabelOrderByInput" | "DataTypeOrderByInput" | "LocationOrderByInput" | "OrganizationOrderByInput" | "OrganizationalUnitOrderByInput" | "OrganizationalUnitTypeOrderByInput" | "PERMISSION" | "PersonOrderByInput" | "ProcessOrderByInput" | "ProcessingActivityOrderByInput" | "QualityAttributeOrderByInput" | "RACI" | "UserOrderByInput";
+export type NexusGenEnumNames = "ApplicationOrderByInput" | "BusinessPartnerOrderByInput" | "BusinessRoleOrderByInput" | "CLASSIFICATIONOBJECT" | "ClassificationLabelOrderByInput" | "DataSubjectTypeOrderByInput" | "DataTypeOrderByInput" | "LegalGroundOrderByInput" | "LocationOrderByInput" | "OrganizationalUnitOrderByInput" | "OrganizationalUnitTypeOrderByInput" | "PERMISSION" | "PersonOrderByInput" | "ProcessOrderByInput" | "ProcessingActivityOrderByInput" | "ProcessingTypeOrderByInput" | "QualityAttributeOrderByInput" | "RACI" | "RecipientsTypeOrderByInput" | "RetentionPolicyOrderByInput" | "UserOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

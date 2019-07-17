@@ -71,7 +71,7 @@ const Query = prismaObjectType({
 			type: 'ProcessingActivity'
     });
     t.list.field('businessRoleByOu', {
-      args: t.prismaType.organizationalUnit.args,
+      args: t.prismaType.businessPartner.args,
 			resolve: businessRoleByOu,
 			type: 'BusinessRole'
 		});

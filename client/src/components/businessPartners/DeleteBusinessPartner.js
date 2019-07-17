@@ -1,9 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { DELETE_ORGANIZATION } from '../../queries/OrganizationQueries';
+import { DELETE_BUSINESSPARTNER } from '../../queries/BusinessPartnerQueries';
 import { Modal, notification } from 'antd';
 
-class DeleteOrganization extends React.Component {
+class DeleteBusinessPartner extends React.Component {
   state = {
     modalVisible: false
   }; 
@@ -17,14 +17,14 @@ class DeleteOrganization extends React.Component {
   };
 
   // Modal
-  onDeleteOrganization = DeleteOrganization => {
-    DeleteOrganization({ variables: {
-      id: this.props.Organization.id
+  onDeleteBusinessPartner = DeleteBusinessPartner => {
+    DeleteBusinessPartner({ variables: {
+      id: this.props.BusinessPartner.id
     }}).catch( res => {
       if ( res.graphQLErrors ) {
         console.log('Received error: ', res.message);
         notification['warning']({
-          message: "Could not delete Organizational Unit type",
+          message: "Could not delete BusinessPartneral Unit type",
           description: res.message,
           duration: 10
         });
@@ -32,8 +32,8 @@ class DeleteOrganization extends React.Component {
     });
 
     notification['success']({
-      message: "Organizational Unit type deleted",
-      description: "Organizational Unit type " + this.props.Organization.name + " is deleted",
+      message: "BusinessPartneral Unit type deleted",
+      description: "BusinessPartneral Unit type " + this.props.BusinessPartner.name + " is deleted",
       duration: 5
     });
 
@@ -44,20 +44,20 @@ class DeleteOrganization extends React.Component {
       return (
         <React.Fragment>
           <Mutation 
-            mutation={DELETE_ORGANIZATION}
-            refetchQueries={["Organizations"]}
+            mutation={DELETE_BUSINESSPARTNER}
+            refetchQueries={["BusinessPartners"]}
             >
-            {(DeleteOrganization, { loading }) => {
+            {(DeleteBusinessPartner, { loading }) => {
               return (
                 <Modal
-                  onOk={e => this.onDeleteOrganization(DeleteOrganization)}
+                  onOk={e => this.onDeleteBusinessPartner(DeleteBusinessPartner)}
                   okType = 'danger'
                   onCancel={this.closeModal}
-                  title= { "Are you sure you what to delete " + this.props.Organization.name}
+                  title= { "Are you sure you what to delete " + this.props.BusinessPartner.name}
                   confirmLoading={loading}
                   visible={this.state.modalVisible}
                 >
-                <div>By deleting this Organizational Unit type, {this.props.Organization.name} will be removed from the system, this is unrecoverable.</div>               
+                <div>By deleting this BusinessPartneral Unit type, {this.props.BusinessPartner.name} will be removed from the system, this is unrecoverable.</div>               
                 </Modal>
               );
             }}
@@ -68,4 +68,4 @@ class DeleteOrganization extends React.Component {
 
     }
   }
-export default DeleteOrganization;
+export default DeleteBusinessPartner;

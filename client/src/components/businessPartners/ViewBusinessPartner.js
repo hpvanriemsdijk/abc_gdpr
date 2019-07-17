@@ -2,20 +2,20 @@ import React from 'react'
 import idx from 'idx'
 import { Query } from 'react-apollo'
 import { Card, Empty, List, Typography  } from 'antd';
-import { GET_ORGANIZATION } from '../../queries/OrganizationQueries';
+import { GET_BUSINESSPARTNER } from '../../queries/BusinessPartnerQueries';
 
-class viewOrganizationDrawer extends React.Component {
+class viewBusinessPartnerDrawer extends React.Component {
   render () {   
     const { Title } = Typography;
 
     return (
       <Query
-        query = { GET_ORGANIZATION }
+        query = { GET_BUSINESSPARTNER }
         variables= {{ id: this.props.id }}
         >
         {({ loading, data, error }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.organization|| {headOffice:{}};
+          const dataSource = data.businessPartner|| {headOffice:{}};
 
           console.log(data)
 
@@ -55,4 +55,4 @@ class viewOrganizationDrawer extends React.Component {
   }
 }
 
-export default viewOrganizationDrawer
+export default viewBusinessPartnerDrawer

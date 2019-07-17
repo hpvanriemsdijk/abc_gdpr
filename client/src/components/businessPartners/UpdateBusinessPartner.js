@@ -1,9 +1,9 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
-import { GET_ORGANIZATION, UPDATE_ORGANIZATION } from '../../queries/OrganizationQueries';
+import { GET_BUSINESSPARTNER, UPDATE_BUSINESSPARTNER } from '../../queries/BusinessPartnerQueries';
 import { Modal, Form, Input, notification, Spin, Button, Divider  } from 'antd';
 
-class UpdateOrganization extends React.Component {
+class UpdateBusinessPartner extends React.Component {
   state = {
     confirmDirty: false,
     modalVisible: false
@@ -23,12 +23,12 @@ class UpdateOrganization extends React.Component {
   };
 
   // Modal
-  onUpdateOrganization = updateOrganization => {
+  onUpdateBusinessPartner = updateBusinessPartner => {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
-        await updateOrganization({ variables: {
-          id: this.props.Organization.id, 
+        await updateBusinessPartner({ variables: {
+          id: this.props.BusinessPartner.id, 
           data: {
             name: values.name, 
             description: values.description,
@@ -45,7 +45,7 @@ class UpdateOrganization extends React.Component {
           }    
         }}).catch( res => {
           notification['warning']({
-            message: "Could not update Organization",
+            message: "Could not update BusinessPartner",
             description: res.message,
             duration: 5
           });
@@ -85,26 +85,26 @@ class UpdateOrganization extends React.Component {
     return (
       <React.Fragment>
         <Query
-          query = { GET_ORGANIZATION }
-          variables = {{ id: this.props.Organization.id }}
+          query = { GET_BUSINESSPARTNER }
+          variables = {{ id: this.props.BusinessPartner.id }}
           skip = { !this.state.modalVisible}
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const Organization = data.organization || {headOffice:[]};
+            const BusinessPartner = data.businessPartner || {headOffice:[]};
             const loadingData = loading;
 
             return(
               <Mutation 
-                mutation={UPDATE_ORGANIZATION}
-                refetchQueries={["Organization", "Organizations"]}
+                mutation={UPDATE_BUSINESSPARTNER}
+                refetchQueries={["BusinessPartner", "BusinessPartners"]}
                 >
-                {(updateOrganization, { loading }) => {
+                {(updateBusinessPartner, { loading }) => {
                   return (
                     <Modal
-                      onOk={e => this.onUpdateOrganization(updateOrganization)}
+                      onOk={e => this.onUpdateBusinessPartner(updateBusinessPartner)}
                       onCancel={this.closeModal}
-                      title="Update organizational unit type"
+                      title="Update businessPartneral unit type"
                       confirmLoading={loading}
                       visible={this.state.modalVisible}
                       >
@@ -112,7 +112,7 @@ class UpdateOrganization extends React.Component {
                         <Form {...formItemLayout} >
                           <Form.Item label="Name">
                             {form.getFieldDecorator('name', {
-                              initialValue: Organization.name,
+                              initialValue: BusinessPartner.name,
                               rules: [
                                 { required: true, message: 'Please enter a name!' }
                                 ],
@@ -121,13 +121,13 @@ class UpdateOrganization extends React.Component {
                           
                           <Form.Item label="Description">
                             {form.getFieldDecorator('description', {
-                              initialValue: Organization.description,
+                              initialValue: BusinessPartner.description,
                             })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                           </Form.Item> 
 
                           <Form.Item label="Representative">
                             {form.getFieldDecorator('representative', {
-                              initialValue: Organization.representative,
+                              initialValue: BusinessPartner.representative,
                               rules: [
                                 { required: true, message: 'A representative is required' }
                               ],
@@ -136,7 +136,7 @@ class UpdateOrganization extends React.Component {
 
                           <Form.Item label="DPO">
                             {form.getFieldDecorator('dpo', {
-                              initialValue: Organization.dpo,
+                              initialValue: BusinessPartner.dpo,
                               rules: [
                                 { required: true, message: 'A DPO is required' }
                               ],
@@ -145,7 +145,7 @@ class UpdateOrganization extends React.Component {
 
                           <Form.Item label="Contact details">
                             {form.getFieldDecorator('contactDetails', {
-                              initialValue: Organization.contactDetails,
+                              initialValue: BusinessPartner.contactDetails,
                               rules: [
                                 { required: true, message: 'Contact details are required' }
                               ],
@@ -156,7 +156,7 @@ class UpdateOrganization extends React.Component {
 
                           <Form.Item label="Office Name">
                             {form.getFieldDecorator('headOffice.name', {
-                              initialValue: Organization.headOffice.name,
+                              initialValue: BusinessPartner.headOffice.name,
                               rules: [
                                 { required: true, message: 'Please enter a name!' }
                               ],
@@ -165,13 +165,13 @@ class UpdateOrganization extends React.Component {
 
                           <Form.Item label="Office description">
                             {form.getFieldDecorator('headOffice.description', {
-                              initialValue: Organization.headOffice.description,
+                              initialValue: BusinessPartner.headOffice.description,
                             })(<Input />)}
                           </Form.Item>  
 
                           <Form.Item label="address">
                             {form.getFieldDecorator('headOffice.address', {
-                              initialValue: Organization.headOffice.address,
+                              initialValue: BusinessPartner.headOffice.address,
                               rules: [
                                 { required: true, message: 'Please enter a address!' }
                               ],
@@ -191,4 +191,4 @@ class UpdateOrganization extends React.Component {
   }
 }
 
-export default Form.create()(UpdateOrganization);
+export default Form.create()(UpdateBusinessPartner);

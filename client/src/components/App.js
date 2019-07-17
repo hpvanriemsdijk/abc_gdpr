@@ -30,8 +30,8 @@ import listQualityAttributes from './qualityAttributes/ListQualityAttributes'
 import viewQualityAttribute from './qualityAttributes/ViewQualityAttribute'
 import listOrganizationalUnitTypes from './organizationalUnitTypes/ListOUTypes'
 import viewOrganizationalUnitTypes from './organizationalUnitTypes/ViewOUType'
-import listOrganizations from './organizations/ListOrganizations'
-import viewOrganization from './organizations/ViewOrganization'
+import listBusinessPartners from './businessPartners/ListBusinessPartners'
+import viewBusinessPartner from './businessPartners/ViewBusinessPartner'
 const { Footer, Sider } = Layout;
 
 class App extends React.Component {
@@ -133,8 +133,8 @@ class App extends React.Component {
           <AppRoute path='/users' layout={ this.AuthenticatedLayout } component={listUsers} />
           <AppRoute path='/organizationalUnitTypes/:organizationalUnitTypeId' layout={ this.AuthenticatedLayout } component={viewOrganizationalUnitTypes} />
           <AppRoute path='/organizationalUnitTypes' layout={ this.AuthenticatedLayout } component={listOrganizationalUnitTypes} />
-          <AppRoute path='/organizations/:organizationId' layout={ this.AuthenticatedLayout } component={viewOrganization} />
-          <AppRoute path='/organizations' layout={ this.AuthenticatedLayout } component={listOrganizations} />
+          <AppRoute path='/businessPartners/:organizationId' layout={ this.AuthenticatedLayout } component={viewBusinessPartner} />
+          <AppRoute path='/businessPartners' layout={ this.AuthenticatedLayout } component={listBusinessPartners} />
           <AppRoute exact path='/' layout={ this.AuthenticatedLayout } component={landingPage} />
           <Route path="*" component={error_404}/>
         </Switch>

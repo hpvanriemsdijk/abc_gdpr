@@ -1,9 +1,9 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { CREATE_ORGANIZATION } from '../../queries/OrganizationQueries';
+import { CREATE_BUSINESSPARTNER } from '../../queries/BusinessPartnerQueries';
 import { Modal, Form, Input, Button, notification, Divider } from 'antd';
 
-class CreateOrganizationModal extends React.Component {
+class CreateBusinessPartnerModal extends React.Component {
   state = {
     confirmDirty: false,
     modalVisible: false
@@ -23,13 +23,13 @@ class CreateOrganizationModal extends React.Component {
   };
 
   // Modal
-  onCreateOrganization = createOrganization => {
+  onCreateBusinessPartner = createBusinessPartner => {
     const { form } = this.props;
    
     form.validateFields(async (err, values) => {
       if (!err) {
 
-        await createOrganization({ variables: {
+        await createBusinessPartner({ variables: {
           data: {
             name: values.name, 
             description: values.description,
@@ -80,13 +80,13 @@ class CreateOrganizationModal extends React.Component {
     return (
       <React.Fragment>
         <Mutation 
-          mutation={CREATE_ORGANIZATION}
-          refetchQueries={["Organization", "Organizations"]}
+          mutation={CREATE_BUSINESSPARTNER}
+          refetchQueries={["BusinessPartner", "BusinessPartners"]}
           >
-          {(createOrganization, { loading }) => {
+          {(createBusinessPartner, { loading }) => {
             return (
               <Modal
-                onOk={e => this.onCreateOrganization(createOrganization)}
+                onOk={e => this.onCreateBusinessPartner(createBusinessPartner)}
                 onCancel={this.closeModal}
                 destroyOnClose={true}
                 title="Create 3rd party"
@@ -166,4 +166,4 @@ class CreateOrganizationModal extends React.Component {
   }
 }
 
-export default Form.create()(CreateOrganizationModal);
+export default Form.create()(CreateBusinessPartnerModal);

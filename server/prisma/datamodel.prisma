@@ -158,7 +158,7 @@ type ClassificationLabel {
   dataType: [DataType!]! @relation(link: TABLE)
 }
 
-type Organization {
+type BusinessPartner {
   id: ID! @id
   name: String!
   description: String
@@ -177,5 +177,5 @@ type Location {
   address: String!
 
   # Relations
-  organization: Organization @relation(link: INLINE)
+  businessPartner: BusinessPartner @relation(link: INLINE)
 }
