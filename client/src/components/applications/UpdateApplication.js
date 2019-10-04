@@ -4,7 +4,6 @@ import { GET_APPLICATION, UPDATE_APPLICATION } from '../../queries/ApplicationQu
 import { Modal, Form, Input, notification, Select, Spin } from 'antd';
 import { BusinessRolesOptionsList } from '../businessRoles/BusinessRolesOptionsList'
 import { DataTypeOptionsList } from '../dataTypes/DataTypeOptionsList'
-import { Loading, Error } from '../generic/viewHelpers'
 
 class UpdateApplication extends React.Component {
   state = {

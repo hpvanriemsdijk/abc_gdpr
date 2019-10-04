@@ -3,7 +3,6 @@ import { Query, Mutation } from 'react-apollo'
 import { GET_PROCESSING_ACTIVITY, UPDATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
 import { ProcessOptionsList } from '../processes/ProcessOptionsList'
 import { Modal, Form, Input, notification, Spin } from 'antd';
-import { Loading, Error } from '../generic/viewHelpers'
 
 class UpdateProcessingActivity extends React.Component {
   state = {
