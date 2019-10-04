@@ -3,6 +3,7 @@ import { Query, Mutation } from 'react-apollo'
 import { GET_PROCESSING_ACTIVITY, UPDATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
 import { ProcessOptionsList } from '../processes/ProcessOptionsList'
 import { Modal, Form, Input, notification, Spin } from 'antd';
+import { Loading, Error } from '../generic/viewHelpers'
 
 class UpdateProcessingActivity extends React.Component {
   state = {
@@ -65,7 +66,7 @@ class UpdateProcessingActivity extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const processingActivity = data.processingActivity || [];
+            const processingActivity = data?data.processingActivity:[];
             const processId = processingActivity.process ? processingActivity.process.id : null
             const loadingData = loading;
 

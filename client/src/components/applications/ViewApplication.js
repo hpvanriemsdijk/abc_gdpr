@@ -1,6 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card, Empty, Tag, List, Typography  } from 'antd';
+import { Tag, List, Typography  } from 'antd';
+import { Loading, Error } from '../generic/viewHelpers'
 import { GET_APPLICATION } from '../../queries/ApplicationQueries';
 
 class viewApplicationDrawer extends React.Component {
@@ -45,7 +46,8 @@ class viewApplicationDrawer extends React.Component {
         variables= {{ id: this.props.id }}
         >
         {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+          if(error) return <Error />
+          if(loading) return <Loading />
           const dataSource = data.application || [];
 
           let list = [

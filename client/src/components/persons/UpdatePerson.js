@@ -59,7 +59,7 @@ class UpdatePerson extends React.Component {
         >
         {({ loading, data, error }) => {
           if( !this.state.modalVisible || error ) return null
-          const PersonData = data.person || [];
+          const PersonData = data?data.person:[];
           const loadingData = loading;
           
           return(

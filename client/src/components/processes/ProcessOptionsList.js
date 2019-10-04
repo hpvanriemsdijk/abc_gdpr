@@ -20,7 +20,6 @@ export class ProcessOptionsList extends React.Component {
         }
       }
     } else {
-      console.log(2);
       return {
         query: PROCESSS_OPTIONS_LIST
       }

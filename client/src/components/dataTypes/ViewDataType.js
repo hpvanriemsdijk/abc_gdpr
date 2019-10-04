@@ -1,6 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card, Empty } from 'antd';
+import { Card } from 'antd';
+import { Loading, Error } from '../generic/viewHelpers'
 import { GET_DATA_TYPE } from '../../queries/DataTypeQueries';
 
 class viewDataType extends React.Component {
@@ -11,8 +12,9 @@ class viewDataType extends React.Component {
           variables= {{ id: this.props.match.params.dataTypeId }}
           >
           {({ loading, data, error }) => {
-            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.dataTypes || [];
+            if(error) return <Error />
+            if(loading) return <Loading />
+            const dataSource = data.dataType || [];
 
             return(
               <React.Fragment>  

@@ -87,9 +87,8 @@ class UpdateDataType extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const dataType = data.dataType || [];
+            const dataType = data?data.dataType:[];
             const loadingData = loading;
-            console.log(data)
 
             return(
               <Mutation 

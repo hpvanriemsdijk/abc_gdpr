@@ -1,7 +1,8 @@
 import React from 'react'
 import idx from 'idx'
 import { Query } from 'react-apollo'
-import { Card, Empty, List, Typography  } from 'antd';
+import { List, Typography  } from 'antd';
+import { Loading, Error } from '../generic/viewHelpers'
 import { GET_BUSINESSPARTNER } from '../../queries/BusinessPartnerQueries';
 
 class viewBusinessPartnerDrawer extends React.Component {
@@ -14,7 +15,8 @@ class viewBusinessPartnerDrawer extends React.Component {
         variables= {{ id: this.props.id }}
         >
         {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+          if(error) return <Error />
+          if(loading) return <Loading />
           const dataSource = data.businessPartner|| {headOffice:{}};
 
           console.log(data)

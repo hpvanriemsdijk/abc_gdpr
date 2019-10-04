@@ -68,7 +68,7 @@ class UpdateOU extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error) return null
-            const OUData = data.organizationalUnit || [];
+            const OUData = data?data.organizationalUnit:[];
             const ouTypeId = OUData.organizationalUnitType ? OUData.organizationalUnitType.id : null
             const ouParentId = OUData.parent ? OUData.parent.id : null
             const loadingData = loading;

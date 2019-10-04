@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Empty, Form, Switch } from 'antd';
+import { Table, Divider, Card, Form, Switch } from 'antd';
 import { ALL_PROCESSING_ACTIVITIES, PROCESSING_ACTIVITIES_BY_OU } from '../../queries/ProcessingActivitiesQueries';
 import CreateProcessingActivity from './CreateProcessingActivity'
 import UpdateProcessingActivity from './UpdateProcessingActivity'
 import DeleteProcessingActivity from './DeleteProcessingActivity'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
+import { Error } from '../generic/viewHelpers'
 
 class ProcessingActivityTable extends React.Component {
   constructor(props) {
@@ -72,7 +73,7 @@ class ProcessingActivityTable extends React.Component {
         query = { this.processingActivityQuery().query }
         variables = { this.processingActivityQuery().filter } >
         {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+          if(error) return <Error />
           const dataSource = data.processingActivities || data.processingActivitiesByOu || [];
 
           return(            
@@ -106,15 +107,14 @@ class ProcessingActivityTable extends React.Component {
         query = { ALL_PROCESSING_ACTIVITIES }
         >
         {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.processingActivities || [];
+          if(error) return <Error />
 
           //Component called from process details vieuw
           if(this.props.processId) return(
             <Table 
               loading={loading}
               rowKey={record => record.id}
-              dataSource={dataSource}
+              dataSource={loading?[]:data.processingActivities}
               columns={columns} 
               onChange={this.handleChange} 
               title={() => <CreateProcessingActivity processId={this.props.processId}/>}
@@ -128,7 +128,7 @@ class ProcessingActivityTable extends React.Component {
               <Table 
                 loading={loading}
                 rowKey={record => record.id}
-                dataSource={dataSource}
+                dataSource={loading?[]:data.processingActivities}
                 columns={columns} 
                 onChange={this.handleChange} 
                 />

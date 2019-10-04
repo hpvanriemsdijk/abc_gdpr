@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Empty, Alert, Form, Switch } from 'antd';
+import { Table, Divider, Card, Alert, Form, Switch } from 'antd';
 import { ALL_PROCESSES, PROCESSES_BY_OU } from '../../queries/ProcessQueries';
 import CreateProcess from './CreateProcess'
 import UpdateProcess from './UpdateProcess'
 import DeleteProcess from './DeleteProcess'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
+import { Error } from '../generic/viewHelpers'
 
 class ProcessTable extends React.Component {
   constructor(props) {
@@ -71,8 +72,7 @@ class ProcessTable extends React.Component {
         variables = {{ organizationalUnitId: this.props.organizationalUnitId }}
         >
         {({ loading, error, data }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.processes || [];    
+          if(error) return <Error />
 
           return(
             <React.Fragment>  
@@ -88,7 +88,7 @@ class ProcessTable extends React.Component {
               <Table 
                 loading={loading}
                 rowKey={record => record.id}
-                dataSource={dataSource}
+                dataSource={loading?[]:data.processes}
                 columns={columns} 
                 onChange={this.handleChange} 
                 />
@@ -104,8 +104,7 @@ class ProcessTable extends React.Component {
       <Query {...this.processQuery()} >
         
         {({ loading, error, data }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          const dataSource = data.processByOu || data.processes || [];  
+          if(error) return <Error />
 
           //Component called from process details vieuw
           return(
@@ -123,7 +122,7 @@ class ProcessTable extends React.Component {
               <Table 
                 loading={loading}
                 rowKey={record => record.id}
-                dataSource={dataSource}
+                dataSource={loading?[]:data.processByOu || data.processes}
                 columns={columns} 
                 onChange={this.handleChange} 
                 />         

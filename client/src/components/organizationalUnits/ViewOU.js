@@ -1,14 +1,13 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card, Row, Col, Empty, Tag, Tooltip, Icon } from 'antd';
+import { Card, Row, Col, Tag, Tooltip, Icon } from 'antd';
 import { GET_OU, OU_BRANCH } from '../../queries/OUQueries';
-import { ObjectModifiedDate, InfoLink } from '../generic/viewHelpers'
+import { ObjectModifiedDate, InfoLink, Loading, Error } from '../generic/viewHelpers'
 import { orderBranch } from '../generic/treeHelpers'
 import ProcessesTable from '../processes/ListProcesses'
 import ProcessingActiviesTable from '../processingActivities/ListProcessingActivities'
 import UpdateOU from './UpdateOU'
 import { OURACICard } from '../businessRoles/ViewBusinessRole'
-
 
 export class OUInfoCard extends React.Component {
   extraOptions = (simplefied, obj) => {
@@ -37,7 +36,8 @@ export class OUInfoCard extends React.Component {
         variables= {{ id: this.props.id }}
         >
         {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+          if(error) return <Error />
+          if(loading) return <Loading />
           const OrganizationalUnit = data.organizationalUnit || [];
           const OrganizationalUnitType = OrganizationalUnit.organizationalUnitType || [];
 
@@ -111,7 +111,8 @@ class OUBranchCard extends React.Component {
         variables= {{ id: id }}
         >
         {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+          if(error) return <Error />
+          if(loading) return <Loading />
 
           const dataSource = data.organizationalUnit || [];
           const orderedBranch = orderBranch(dataSource)

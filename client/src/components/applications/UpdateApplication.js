@@ -4,6 +4,7 @@ import { GET_APPLICATION, UPDATE_APPLICATION } from '../../queries/ApplicationQu
 import { Modal, Form, Input, notification, Select, Spin } from 'antd';
 import { BusinessRolesOptionsList } from '../businessRoles/BusinessRolesOptionsList'
 import { DataTypeOptionsList } from '../dataTypes/DataTypeOptionsList'
+import { Loading, Error } from '../generic/viewHelpers'
 
 class UpdateApplication extends React.Component {
   state = {
@@ -72,7 +73,10 @@ class UpdateApplication extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error) return null
-            const ApplicationData = data.application || [];
+            const ApplicationData = data?data.application:[];
+            const businessOwnerId = ApplicationData.businessOwner ? ApplicationData.businessOwner.id : null
+            const itOwnerId = ApplicationData.itOwner ? ApplicationData.itOwner.id : null
+            const securityAdministratorId = ApplicationData.securityAdministrator ? ApplicationData.securityAdministrator.id : null
             const loadingData = loading;
 
             return(
@@ -81,10 +85,6 @@ class UpdateApplication extends React.Component {
               refetchQueries={["Applications"]}
               >
               {(updateApplication, { loading }) => {
-                const businessOwnerId = ApplicationData.businessOwner ? ApplicationData.businessOwner.id : null
-                const itOwnerId = ApplicationData.itOwner ? ApplicationData.itOwner.id : null
-                const securityAdministratorId = ApplicationData.securityAdministrator ? ApplicationData.securityAdministrator.id : null
-
                 return (
                   <Modal
                     onOk={e => this.onUpdateApplication(updateApplication)}

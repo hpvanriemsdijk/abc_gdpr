@@ -1,13 +1,13 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Empty } from 'antd';
+import { Table, Divider, Card } from 'antd';
 import { ALL_BUSINESSPARTNERS  } from '../../queries/BusinessPartnerQueries';
 import CreateBusinessPartner from './CreateBusinessPartner'
 import UpdateBusinessPartner from './UpdateBusinessPartner'
 import DeleteBusinessPartner from './DeleteBusinessPartner'
 import viewBusinessPartnerDrawer from './ViewBusinessPartner'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
-import { ShowInDrawer } from '../generic/viewHelpers'
+import { ShowInDrawer, Error } from '../generic/viewHelpers'
 
 class BusinessPartnersTable extends React.Component {
   constructor(props) {
@@ -68,16 +68,15 @@ class BusinessPartnersTable extends React.Component {
           query = { ALL_BUSINESSPARTNERS }
           >
           {({ loading, data, error }) => {
-            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.businessPartners || [];
-
+            if(error) return <Error />
+            
             return(
               <React.Fragment>  
                 <Card title="3rd parties" extra={<CreateBusinessPartner />} style={{ background: '#fff' }}>
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
-                  dataSource={dataSource}
+                  dataSource={loading?[]:data.businessPartners}
                   columns={columns} 
                   onChange={this.handleChange} 
                   />

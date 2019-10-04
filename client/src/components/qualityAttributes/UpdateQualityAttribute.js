@@ -95,7 +95,7 @@ class UpdateQualityAttributeModal extends React.Component {
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error) return null
             const loadingData = loading;
-            const QualityAttributeData = data.qualityAttribute || [];
+            const QualityAttributeData = data?data.qualityAttribute:[];
 
             return(
               <Mutation 

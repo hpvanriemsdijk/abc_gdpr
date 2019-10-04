@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Empty } from 'antd';
+import { Table, Divider, Card } from 'antd';
 import { ALL_PERSONS } from '../../queries/PersonQueries';
 import CreatePerson from './CreatePerson'
 import UpdatePerson from './UpdatePerson'
 import DeletePerson from './DeletePerson'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
+import { Error } from '../generic/viewHelpers'
 
 class PersonTable extends React.Component {
   constructor(props) {
@@ -75,8 +76,7 @@ class PersonTable extends React.Component {
           query = { ALL_PERSONS }
           >
           {({ loading, data, error }) => {
-            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.persons || [];
+            if(error) return <Error />
 
             return(
               <React.Fragment>  
@@ -84,7 +84,7 @@ class PersonTable extends React.Component {
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
-                  dataSource={dataSource}
+                  dataSource={loading?[]:data.persons}
                   columns={columns} 
                   onChange={this.handleChange} 
                   />

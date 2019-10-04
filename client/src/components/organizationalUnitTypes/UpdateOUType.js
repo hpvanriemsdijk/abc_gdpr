@@ -76,7 +76,7 @@ class UpdateOUType extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const OUType = data.organizationalUnitType || [];
+            const OUType = data?data.organizationalUnitType:[];
             const loadingData = loading;
 
             return(

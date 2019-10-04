@@ -1,11 +1,12 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card, Row, Col, Empty, Tooltip, Icon, Avatar, Divider } from 'antd'
+import { Card, Row, Col, Tooltip, Icon, Avatar, Divider } from 'antd'
 import { GET_BUSINESS_ROLE } from '../../queries/BusinessRoleQueries';
 import UpdateBusinessRole from '../businessRoles/UpdateBusinessRole'
 import DeleteBusinessRole from '../businessRoles/DeleteBusinessRole'
 import CreateBusinessRole from '../businessRoles/CreateBusinessRole'
 import { BUSINESS_ROLES_BY_OU } from '../../queries/BusinessRoleQueries';
+import { Loading, Error } from '../generic/viewHelpers'
 
 
 class viewBusinessRole extends React.Component {
@@ -16,7 +17,8 @@ class viewBusinessRole extends React.Component {
           variables= {{ id: this.props.id || this.props.match.params.businessRoleId }}
           >
           {({ loading, data, error }) => {
-            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+            if(error) return <Error />
+            if(loading) return <Loading />
             const dataSource = data.businessRole || [];
 
             return(
@@ -80,7 +82,8 @@ export class OURACICard extends React.Component {
       }}
       >
       {({ loading, data, error }) => {
-        if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+        if(error) return <Error />
+        if(loading) return <Loading />
         const businessRoles = data.businessRoleByOu || [];
 
         return(

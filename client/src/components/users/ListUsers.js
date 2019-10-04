@@ -7,6 +7,8 @@ import UpdateUser from './UpdateUser'
 import SetUserState from './SetUserState'
 import DeleteUser from './DeleteUser'
 import './ListUsers.css';
+import { Error } from '../generic/viewHelpers'
+
 
 class UserTable extends React.Component {
   constructor(props) {
@@ -169,8 +171,8 @@ class UserTable extends React.Component {
             ]}
           }}
           >
-          {({ loading, data }) => {
-            const dataSource = data.users || [];
+          {({ loading, error, data }) => {
+            if(error) return <Error />
 
             return(
               <React.Fragment>  
@@ -186,7 +188,7 @@ class UserTable extends React.Component {
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
-                  dataSource={dataSource}
+                  dataSource={loading?[]:data.users}
                   columns={columns} 
                   onChange={this.handleChange} 
                   />

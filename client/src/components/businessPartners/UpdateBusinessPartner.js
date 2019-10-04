@@ -91,7 +91,7 @@ class UpdateBusinessPartner extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const BusinessPartner = data.businessPartner || {headOffice:[]};
+            const BusinessPartner = data?data.businessPartner:{headOffice:[]};
             const loadingData = loading;
 
             return(

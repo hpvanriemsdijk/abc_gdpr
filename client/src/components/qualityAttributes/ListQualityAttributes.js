@@ -1,13 +1,13 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Tag, Empty } from 'antd';
+import { Table, Divider, Card, Tag } from 'antd';
 import { ALL_QUALITY_ATTRIBUTES } from '../../queries/QualityAttributeQueries';
 import CreateQualityAttribute from './CreateQualityAttribute'
 import UpdateQualityAttribute from './UpdateQualityAttribute' 
 import DeleteQualityAttribute from './DeleteQualityAttribute'
 import viewQualityAttributeDrawer from './ViewQualityAttribute'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
-import { ShowInDrawer } from '../generic/viewHelpers'
+import { ShowInDrawer, Error } from '../generic/viewHelpers'
 
 class QualityAttributeTable extends React.Component {
   constructor(props) {
@@ -80,8 +80,7 @@ class QualityAttributeTable extends React.Component {
           query = { ALL_QUALITY_ATTRIBUTES }
           >
           {({ loading, data, error }) => {
-            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.qualityAttributes || [];
+            if(error) return <Error />
 
             return(
               <React.Fragment>  
@@ -89,7 +88,7 @@ class QualityAttributeTable extends React.Component {
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
-                  dataSource={dataSource}
+                  dataSource={loading?[]:data.qualityAttributes}
                   columns={columns} 
                   onChange={this.handleChange} 
                   />

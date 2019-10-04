@@ -68,7 +68,7 @@ class UpdateBusinessRole extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const BusinessRoleData = data.businessRole || [];
+            const BusinessRoleData = data?data.businessRole:[];
             const loadingData = loading;
             const personId = BusinessRoleData.person ? BusinessRoleData.person.id : null
 

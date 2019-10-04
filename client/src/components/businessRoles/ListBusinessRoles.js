@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Empty, Alert } from 'antd';
+import { Table, Divider, Card, Alert } from 'antd';
 import { ALL_BUSINESS_ROLES } from '../../queries/BusinessRoleQueries';
 import UpdateBusinessRole from './UpdateBusinessRole'
 import DeleteBusinessRole from './DeleteBusinessRole'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
+import { Error } from '../generic/viewHelpers'
 
 class BusinessRoleTable extends React.Component {
   constructor(props) {
@@ -72,8 +73,7 @@ class BusinessRoleTable extends React.Component {
           query = { ALL_BUSINESS_ROLES}
           >
           {({ loading, data, error }) => {
-            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.businessRoles || [];
+            if(error) return <Error />
 
             return(
               <React.Fragment>  
@@ -88,7 +88,7 @@ class BusinessRoleTable extends React.Component {
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
-                  dataSource={dataSource}
+                  dataSource={loading?[]:data.businessRoles}
                   columns={columns} 
                   onChange={this.handleChange} 
                   />

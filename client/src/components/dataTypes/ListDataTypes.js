@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Tag, Empty } from 'antd';
+import { Table, Divider, Card, Tag } from 'antd';
 import { ALL_DATA_TYPES } from '../../queries/DataTypeQueries';
 import CreateDataType from './CreateDataType'
 import UpdateDataType from './UpdateDataType'
 import DeleteDataType from './DeleteDataType'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
+import { Error } from '../generic/viewHelpers'
 
 class DataTypeTable extends React.Component {
   constructor(props) {
@@ -82,16 +83,15 @@ class DataTypeTable extends React.Component {
           query = { ALL_DATA_TYPES }
           >
           {({ loading, data, error }) => {
-            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.dataTypes || [];
-
+            if(error) return <Error />
+            
             return(
               <React.Fragment>  
                 <Card title="Data types" extra={<CreateDataType />} style={{ background: '#fff' }}>
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
-                  dataSource={dataSource}
+                  dataSource={loading?[]:data.dataTypes}
                   columns={columns} 
                   onChange={this.handleChange} 
                   />

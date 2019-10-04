@@ -62,7 +62,7 @@ class UpdateProcess extends React.Component {
           >
           {({ loading, data, error }) => {
             if( !this.state.modalVisible || error ) return null
-            const ProcessData = data.process || [];
+            const ProcessData = data?data.process:[];
             const processOwnerId = ProcessData.processOwner ? ProcessData.processOwner.id : null
             const organizationalUnitId = ProcessData.organizationalUnit ? ProcessData.organizationalUnit.id : null
             const loadingData = loading;

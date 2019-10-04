@@ -1,6 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card, Empty, List, Typography } from 'antd';
+import { List, Typography } from 'antd';
+import { Loading, Error } from '../generic/viewHelpers'
 import { GET_QUALITY_ATTRIBUTE } from '../../queries/QualityAttributeQueries';
 
 class viewQualityAttributeDrawer extends React.Component {
@@ -13,8 +14,8 @@ class viewQualityAttributeDrawer extends React.Component {
         variables= {{ id: this.props.id }}
         >
         {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-          if(loading) return <Card><Empty>loading..</Empty></Card>
+          if(error) return <Error />
+          if(loading) return <Loading />
           const qualityAttribute = data.qualityAttribute;
 
           let list = [

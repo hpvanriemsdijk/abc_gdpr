@@ -1,7 +1,8 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card, Empty, List, Typography  } from 'antd';
+import { List, Typography  } from 'antd';
 import { GET_OU_TYPE } from '../../queries/OUTypeQueries';
+import { Loading, Error } from '../generic/viewHelpers'
 
 class viewOUTypeDrawer extends React.Component {
   formatReportingUnit = (reportingUnit) => {
@@ -17,7 +18,8 @@ class viewOUTypeDrawer extends React.Component {
         variables= {{ id: this.props.id }}
         >
         {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+          if(error) return <Error />
+          if(loading) return <Loading />
           const dataSource = data.organizationalUnitType|| [];
 
           console.log(data)

@@ -1,15 +1,15 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Card, Row, Col, Empty, Icon } from 'antd';
+import { Card, Row, Col, Icon } from 'antd';
 import { GET_PROCESS } from '../../queries/ProcessQueries';
 import { OU_BRANCH } from '../../queries/OUQueries';
 import ViewBusinessRole from '../businessRoles/ViewBusinessRole'
 import { OUInfoCard } from '../organizationalUnits/ViewOU'
 import UpdateProcess from './UpdateProcess'
 import ProcessingActivityTable from '../processingActivities/ListProcessingActivities'
-import { ObjectModifiedDate, InfoLink } from '../generic/viewHelpers'
+import { ObjectModifiedDate, InfoLink, Loading, Error } from '../generic/viewHelpers'
 import  '../generic/treeHelpers.css'
-import { orderParents} from '../generic/treeHelpers'
+import { orderParents } from '../generic/treeHelpers'
 
 class ProcesInfoCard extends React.Component {
   getProcessOwner = (obj) => {
@@ -74,7 +74,8 @@ class ProcesInfoCard extends React.Component {
         variables= {{ id: this.props.id }}
         >
         {({ loading, data, error }) => {
-          if(error) return <Card><Empty>Oeps, error..</Empty></Card>
+          if(error) return <Error />
+          if(loading) return <Loading />
           const dataSource = data.process || [];
 
           return(
