@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
-import { Table, Divider, Card, Empty } from 'antd';
+import { Table, Divider, Card } from 'antd';
 import { ALL_OUS_TREE } from '../../queries/OUQueries';
 import CreateOU from './CreateOU'
 import UpdateOU from './UpdateOU'
 import DeleteOU from './DeleteOU'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
+import { Error } from '../generic/viewHelpers'
 
 class OUTable extends React.Component {
   constructor(props) {
@@ -75,19 +76,17 @@ class OUTable extends React.Component {
     }];
     
     return (
-        <Query
-          query = { ALL_OUS_TREE }
-          >
+        <Query query = { ALL_OUS_TREE } >
           {({ loading, data, error }) => {
-            if(error) return <Card><Empty>Oeps, error..</Empty></Card>
-            const dataSource = data.organizationalUnits || [];
+            if(error) return <Error />
+            
             return(
               <React.Fragment>  
                 <Card title="Organizational units" extra={<CreateOU />} style={{ background: '#fff' }}>
                 <Table 
                   loading={loading}
                   rowKey={record => record.id}
-                  dataSource={dataSource}
+                  dataSource={loading?[]:data.organizationalUnits}
                   columns={columns} 
                   onChange={this.handleChange} 
                   />
