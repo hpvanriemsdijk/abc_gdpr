@@ -1,19 +1,19 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
+import { BusinessPartnerOptionsList } from '../businessPartners/BusinessPartnerOptionsList'
+import { DataTypeOptionsList } from '../dataTypes/DataTypeOptionsList'
+import { ProcessingTypesOptionsList } from '../processingTypes/ProcessingTypesOptionsList'
+import { LegalGroundOptionsList } from '../legalGrounds/LegalGroundOptionsList'
 import { ProcessOptionsList } from '../processes/ProcessOptionsList'
-import { Modal, Form, Input, Button, notification } from 'antd';
+
+import { Modal, Form, Input, Button, notification, Radio, Switch, Divider } from 'antd';
 
 class CreateProcessingActivityModal extends React.Component {
   state = {
-    confirmDirty: false,
-    modalVisible: false
+    modalVisible: false, 
+    imController: true
   };
-
-  handleConfirmBlur = (e) => {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
 
    showModal = () => {
     this.setState({ modalVisible: true });
@@ -52,9 +52,54 @@ class CreateProcessingActivityModal extends React.Component {
     });
   };
 
+  handleControllerChange = e => {
+    this.setState({ imController: e.target.value });
+  };
+
+  parentProcess = () => {
+    const { form, organizationalUnitId, processId } = this.props;
+
+    console.log(organizationalUnitId, processId);
+
+    if(processId){
+      //Process is given and can't be selected
+      return null
+    }else if(organizationalUnitId){
+      //OU by parent call, only show processes fron this OU
+      return(
+        <Form.Item 
+          extra="Only processes from the selected OU are shown."
+          label="Process">
+          { <ProcessOptionsList form={form} organizationalUnitId={organizationalUnitId} /> }
+        </Form.Item> 
+      )
+    }else{
+      //Give them all
+      return(
+        <Form.Item label="Process">
+          { <ProcessOptionsList form={form} /> }
+        </Form.Item> 
+      )
+    }
+  }
+
   render() {
     const { form } = this.props;
     const { TextArea } = Input;
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 8 },
+        sm: { span: 8 },
+      },
+      wrapperCol: {
+        xs: { span: 16 },
+        sm: { span: 16 },
+      },
+    };
+
+    const rules = {
+      required: { required: true, message: 'This is an required field.' }
+    }
 
     return (
       <React.Fragment>
@@ -72,32 +117,81 @@ class CreateProcessingActivityModal extends React.Component {
                 confirmLoading={loading}
                 visible={this.state.modalVisible}
               >
-                <Form layout="horizontal">
+                <Form {...formItemLayout} >
                   <Form.Item label="Name">
-                    {form.getFieldDecorator('name', {
-                      rules: [
-                        { required: true, message: 'Please enter a name!' }
-                      ],
-                    })(<Input />)}
-                  </Form.Item>                        
-                  <Form.Item label="Description">
-                    {form.getFieldDecorator('description', {
-                      rules: [
-                        { required: true, message: 'Please enter a description!' }
-                      ],
-                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                  </Form.Item>
+                    {form.getFieldDecorator('name', { rules: [ rules.required ] })(<Input />)}
+                  </Form.Item> 
+
+                  <Form.Item label="We are the">
+                    {form.getFieldDecorator('imController', {initialValue: this.state.imController } )(
+                      <Radio.Group buttonStyle="solid" onChange={ this.handleControllerChange }>                     
+                        <Radio.Button value={true}>Controler</Radio.Button>
+                        <Radio.Button value={false}>Processor</Radio.Button>
+                      </Radio.Group>
+                    )}
+                  </Form.Item> 
+
+                  {this.parentProcess()}
+
                   <Form.Item label="Purpose">
-                    {form.getFieldDecorator('purpose', {
-                      rules: [
-                        { required: true, message: 'Please enter a purpose!' }
-                      ],
-                    })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
-                  </Form.Item>
-                  <Form.Item 
-                    label="Parent Process">
-                    { <ProcessOptionsList form={form} /> }
-                  </Form.Item>
+                    {form.getFieldDecorator('purpose', { rules: [ rules.required ] })(<TextArea />)}
+                  </Form.Item>                   
+
+                  {this.state.imController ? (<>
+                    <Form.Item label="Joined controllers">
+                      { <BusinessPartnerOptionsList form={form} field="controllers"/> }
+                    </Form.Item>
+
+                    <Form.Item label="Recipients">
+                      { <BusinessPartnerOptionsList form={form} field="recipients"/> }
+                    </Form.Item>
+
+                    <Form.Item label="Categories of data">
+                      { <DataTypeOptionsList form={form} field="dataTypes"/> }
+                    </Form.Item>
+
+                    <Form.Item label="Security measures">
+                      {form.getFieldDecorator('securityMeasures')(<TextArea />)}
+                    </Form.Item> 
+
+                    <Divider orientation="left">Privacy Notices</Divider>
+                    
+                    <Form.Item label="Profiling">
+                      {form.getFieldDecorator('profiling')(<Switch />)}
+                    </Form.Item> 
+
+                    <Form.Item label="Public source">
+                      {form.getFieldDecorator('publicSource')(<Switch />)}
+                    </Form.Item> 
+
+                    <Form.Item label="Link to Pia">
+                      {form.getFieldDecorator('linkToDpia')(<Input />)}
+                    </Form.Item> 
+
+                    <Form.Item label="Legal ground">
+                      {form.getFieldDecorator('legalGround', { initialValue: undefined, rules: [ rules.required ] })(<LegalGroundOptionsList form={form} field="legalGround"/>)}
+                    </Form.Item>
+
+                    <Form.Item label="Legitimate interests">
+                      {form.getFieldDecorator('legalGroundComment')(<TextArea />)}
+                    </Form.Item>     
+
+                    <Form.Item label="link to lia">
+                      {form.getFieldDecorator('linkToLia')(<Input />)}
+                    </Form.Item> 
+                  </>) : (<>                    
+                    <Form.Item label="Controllers">
+                      { <BusinessPartnerOptionsList form={form} field="controllers"/> }
+                    </Form.Item>
+
+                    <Form.Item label="Processing types">
+                      { <ProcessingTypesOptionsList form={form} field="recipients"/> }
+                    </Form.Item> 
+
+                    <Form.Item label="Security measures">
+                      {form.getFieldDecorator('securityMeasures')(<TextArea />)}
+                    </Form.Item> 
+                  </>)}                
                 </Form>
               </Modal>
             );

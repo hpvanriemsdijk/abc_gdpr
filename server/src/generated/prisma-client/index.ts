@@ -866,7 +866,7 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type ProcessOrderByInput =
+export type OrganizationalUnitOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
@@ -880,17 +880,15 @@ export type ProcessOrderByInput =
 
 export type CLASSIFICATIONOBJECT = "DATA" | "APPLICATION";
 
-export type OrganizationalUnitOrderByInput =
+export type LegalGroundOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
   | "name_DESC"
   | "description_ASC"
   | "description_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "specialCategoryCondition_ASC"
+  | "specialCategoryCondition_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
@@ -906,24 +904,6 @@ export type UserOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type LegalGroundOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "specialCategoryCondition_ASC"
-  | "specialCategoryCondition_DESC";
-
-export type RecipientsTypeOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC";
-
 export type ClassificationLabelOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -934,13 +914,15 @@ export type ClassificationLabelOrderByInput =
   | "criteria_ASC"
   | "criteria_DESC";
 
-export type PersonOrderByInput =
+export type QualityAttributeOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
   | "name_DESC"
-  | "surname_ASC"
-  | "surname_DESC";
+  | "description_ASC"
+  | "description_DESC"
+  | "appliesToObject_ASC"
+  | "appliesToObject_DESC";
 
 export type ApplicationOrderByInput =
   | "id_ASC"
@@ -952,33 +934,15 @@ export type ApplicationOrderByInput =
   | "description_ASC"
   | "description_DESC";
 
-export type LocationOrderByInput =
+export type OrganizationalUnitTypeOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
   | "name_DESC"
   | "description_ASC"
   | "description_DESC"
-  | "address_ASC"
-  | "address_DESC";
-
-export type RACI = "RESPONDSABLE" | "ACCOUNTABLE" | "CONSULTED" | "INFORMED";
-
-export type BusinessRoleOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "raciPrivacy_ASC"
-  | "raciPrivacy_DESC"
-  | "raciSecurity_ASC"
-  | "raciSecurity_DESC"
-  | "raciFinancial_ASC"
-  | "raciFinancial_DESC"
-  | "raciExecutive_ASC"
-  | "raciExecutive_DESC";
+  | "reportingUnit_ASC"
+  | "reportingUnit_DESC";
 
 export type DataSubjectTypeOrderByInput =
   | "id_ASC"
@@ -988,7 +952,31 @@ export type DataSubjectTypeOrderByInput =
   | "description_ASC"
   | "description_DESC";
 
+export type PERMISSION = "ADMIN" | "AUDIT";
+
+export type RACI = "RESPONDSABLE" | "ACCOUNTABLE" | "CONSULTED" | "INFORMED";
+
+export type ProcessOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
 export type RetentionPolicyOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "description_ASC"
+  | "description_DESC";
+
+export type RecipientsTypeOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
@@ -1003,14 +991,16 @@ export type ProcessingActivityOrderByInput =
   | "name_DESC"
   | "purpose_ASC"
   | "purpose_DESC"
-  | "iOwnThis_ASC"
-  | "iOwnThis_DESC"
+  | "imController_ASC"
+  | "imController_DESC"
   | "securityMeasures_ASC"
   | "securityMeasures_DESC"
   | "legalGroundComment_ASC"
   | "legalGroundComment_DESC"
   | "profiling_ASC"
   | "profiling_DESC"
+  | "publicSource_ASC"
+  | "publicSource_DESC"
   | "linkToDpia_ASC"
   | "linkToDpia_DESC"
   | "linkToLia_ASC"
@@ -1058,84 +1048,54 @@ export type DataTypeOrderByInput =
   | "description_ASC"
   | "description_DESC";
 
-export type QualityAttributeOrderByInput =
+export type PersonOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
   | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "appliesToObject_ASC"
-  | "appliesToObject_DESC";
+  | "surname_ASC"
+  | "surname_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export type PERMISSION = "ADMIN" | "AUDIT";
-
-export type OrganizationalUnitTypeOrderByInput =
+export type BusinessRoleOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
   | "name_DESC"
   | "description_ASC"
   | "description_DESC"
-  | "reportingUnit_ASC"
-  | "reportingUnit_DESC";
+  | "raciPrivacy_ASC"
+  | "raciPrivacy_DESC"
+  | "raciSecurity_ASC"
+  | "raciSecurity_DESC"
+  | "raciFinancial_ASC"
+  | "raciFinancial_DESC"
+  | "raciExecutive_ASC"
+  | "raciExecutive_DESC";
 
-export interface PersonUpdateOneWithoutRolesInput {
-  create?: Maybe<PersonCreateWithoutRolesInput>;
-  update?: Maybe<PersonUpdateWithoutRolesDataInput>;
-  upsert?: Maybe<PersonUpsertWithoutRolesInput>;
+export type LocationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "address_ASC"
+  | "address_DESC";
+
+export interface BusinessRoleUpdateOneWithoutAppBusinessOwnerInput {
+  create?: Maybe<BusinessRoleCreateWithoutAppBusinessOwnerInput>;
+  update?: Maybe<BusinessRoleUpdateWithoutAppBusinessOwnerDataInput>;
+  upsert?: Maybe<BusinessRoleUpsertWithoutAppBusinessOwnerInput>;
   delete?: Maybe<Boolean>;
   disconnect?: Maybe<Boolean>;
-  connect?: Maybe<PersonWhereUniqueInput>;
+  connect?: Maybe<BusinessRoleWhereUniqueInput>;
 }
 
 export type ApplicationWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
-
-export interface ProcessCreateOneWithoutProcessingActivitiesInput {
-  create?: Maybe<ProcessCreateWithoutProcessingActivitiesInput>;
-  connect?: Maybe<ProcessWhereUniqueInput>;
-}
-
-export interface DataSubjectTypeUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface ProcessCreateWithoutProcessingActivitiesInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  organizationalUnit?: Maybe<OrganizationalUnitCreateOneWithoutProcessesInput>;
-  processOwner?: Maybe<BusinessRoleCreateOneWithoutProcessInput>;
-}
-
-export interface ProcessUpdateManyWithoutOrganizationalUnitInput {
-  create?: Maybe<
-    | ProcessCreateWithoutOrganizationalUnitInput[]
-    | ProcessCreateWithoutOrganizationalUnitInput
-  >;
-  delete?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
-  connect?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
-  set?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
-  disconnect?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
-  update?: Maybe<
-    | ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput[]
-    | ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput
-  >;
-  upsert?: Maybe<
-    | ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput[]
-    | ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput
-  >;
-  deleteMany?: Maybe<ProcessScalarWhereInput[] | ProcessScalarWhereInput>;
-  updateMany?: Maybe<
-    | ProcessUpdateManyWithWhereNestedInput[]
-    | ProcessUpdateManyWithWhereNestedInput
-  >;
-}
 
 export interface ApplicationUpdateInput {
   name?: Maybe<String>;
@@ -1146,6 +1106,54 @@ export interface ApplicationUpdateInput {
   businessOwner?: Maybe<BusinessRoleUpdateOneWithoutAppBusinessOwnerInput>;
   itOwner?: Maybe<BusinessRoleUpdateOneWithoutAppItOwnerInput>;
   securityAdministrator?: Maybe<BusinessRoleUpdateOneWithoutAppSecAdminInput>;
+}
+
+export interface DataSubjectTypeUpdateManyMutationInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface ProcessingActivityUpdateManyInput {
+  create?: Maybe<
+    ProcessingActivityCreateInput[] | ProcessingActivityCreateInput
+  >;
+  update?: Maybe<
+    | ProcessingActivityUpdateWithWhereUniqueNestedInput[]
+    | ProcessingActivityUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | ProcessingActivityUpsertWithWhereUniqueNestedInput[]
+    | ProcessingActivityUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
+  >;
+  connect?: Maybe<
+    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
+  >;
+  set?: Maybe<
+    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    ProcessingActivityScalarWhereInput[] | ProcessingActivityScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | ProcessingActivityUpdateManyWithWhereNestedInput[]
+    | ProcessingActivityUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface OrganizationalUnitUpdateWithWhereUniqueWithoutParentInput {
+  where: OrganizationalUnitWhereUniqueInput;
+  data: OrganizationalUnitUpdateWithoutParentDataInput;
+}
+
+export interface ProcessingActivityUpdateWithWhereUniqueNestedInput {
+  where: ProcessingActivityWhereUniqueInput;
+  data: ProcessingActivityUpdateDataInput;
 }
 
 export interface LegalGroundWhereInput {
@@ -1198,37 +1206,22 @@ export interface LegalGroundWhereInput {
   NOT?: Maybe<LegalGroundWhereInput[] | LegalGroundWhereInput>;
 }
 
-export interface ProcessingActivityUpdateManyInput {
-  create?: Maybe<
-    ProcessingActivityCreateInput[] | ProcessingActivityCreateInput
-  >;
-  update?: Maybe<
-    | ProcessingActivityUpdateWithWhereUniqueNestedInput[]
-    | ProcessingActivityUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | ProcessingActivityUpsertWithWhereUniqueNestedInput[]
-    | ProcessingActivityUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<
-    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
-  >;
-  connect?: Maybe<
-    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
-  >;
-  set?: Maybe<
-    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
-  >;
-  disconnect?: Maybe<
-    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
-  >;
-  deleteMany?: Maybe<
-    ProcessingActivityScalarWhereInput[] | ProcessingActivityScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | ProcessingActivityUpdateManyWithWhereNestedInput[]
-    | ProcessingActivityUpdateManyWithWhereNestedInput
-  >;
+export interface ProcessingActivityUpdateDataInput {
+  name?: Maybe<String>;
+  purpose?: Maybe<String>;
+  imController?: Maybe<Boolean>;
+  securityMeasures?: Maybe<String>;
+  legalGroundComment?: Maybe<String>;
+  profiling?: Maybe<Boolean>;
+  publicSource?: Maybe<Boolean>;
+  linkToDpia?: Maybe<String>;
+  linkToLia?: Maybe<String>;
+  recipients?: Maybe<BusinessPartnerUpdateManyInput>;
+  controllers?: Maybe<BusinessPartnerUpdateManyInput>;
+  dataTypes?: Maybe<DataTypeUpdateManyInput>;
+  procesessingTypes?: Maybe<ProcessingTypeUpdateManyInput>;
+  legalGrounds?: Maybe<LegalGroundUpdateManyInput>;
+  process?: Maybe<ProcessUpdateOneWithoutProcessingActivitiesInput>;
 }
 
 export interface UserSubscriptionWhereInput {
@@ -1240,68 +1233,6 @@ export interface UserSubscriptionWhereInput {
   AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
   OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
   NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-}
-
-export interface ProcessingActivityUpdateWithWhereUniqueNestedInput {
-  where: ProcessingActivityWhereUniqueInput;
-  data: ProcessingActivityUpdateDataInput;
-}
-
-export interface RetentionPolicySubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<RetentionPolicyWhereInput>;
-  AND?: Maybe<
-    | RetentionPolicySubscriptionWhereInput[]
-    | RetentionPolicySubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | RetentionPolicySubscriptionWhereInput[]
-    | RetentionPolicySubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | RetentionPolicySubscriptionWhereInput[]
-    | RetentionPolicySubscriptionWhereInput
-  >;
-}
-
-export interface ProcessingActivityUpdateDataInput {
-  name?: Maybe<String>;
-  purpose?: Maybe<String>;
-  iOwnThis?: Maybe<Boolean>;
-  securityMeasures?: Maybe<String>;
-  legalGroundComment?: Maybe<String>;
-  profiling?: Maybe<Boolean>;
-  linkToDpia?: Maybe<String>;
-  linkToLia?: Maybe<String>;
-  recipients?: Maybe<BusinessPartnerUpdateManyInput>;
-  controllers?: Maybe<BusinessPartnerUpdateManyInput>;
-  dataTypes?: Maybe<DataTypeUpdateManyInput>;
-  procesessingTypes?: Maybe<ProcessingTypeUpdateManyInput>;
-  legalGrounds?: Maybe<LegalGroundUpdateManyInput>;
-  process?: Maybe<ProcessUpdateOneWithoutProcessingActivitiesInput>;
-}
-
-export interface RecipientsTypeSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<RecipientsTypeWhereInput>;
-  AND?: Maybe<
-    | RecipientsTypeSubscriptionWhereInput[]
-    | RecipientsTypeSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | RecipientsTypeSubscriptionWhereInput[]
-    | RecipientsTypeSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | RecipientsTypeSubscriptionWhereInput[]
-    | RecipientsTypeSubscriptionWhereInput
-  >;
 }
 
 export interface BusinessPartnerUpdateManyInput {
@@ -1335,6 +1266,67 @@ export interface BusinessPartnerUpdateManyInput {
   >;
 }
 
+export interface RetentionPolicySubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<RetentionPolicyWhereInput>;
+  AND?: Maybe<
+    | RetentionPolicySubscriptionWhereInput[]
+    | RetentionPolicySubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | RetentionPolicySubscriptionWhereInput[]
+    | RetentionPolicySubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | RetentionPolicySubscriptionWhereInput[]
+    | RetentionPolicySubscriptionWhereInput
+  >;
+}
+
+export interface BusinessPartnerUpdateWithWhereUniqueNestedInput {
+  where: BusinessPartnerWhereUniqueInput;
+  data: BusinessPartnerUpdateDataInput;
+}
+
+export interface RecipientsTypeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<RecipientsTypeWhereInput>;
+  AND?: Maybe<
+    | RecipientsTypeSubscriptionWhereInput[]
+    | RecipientsTypeSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | RecipientsTypeSubscriptionWhereInput[]
+    | RecipientsTypeSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | RecipientsTypeSubscriptionWhereInput[]
+    | RecipientsTypeSubscriptionWhereInput
+  >;
+}
+
+export interface BusinessPartnerUpdateDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  contactDetails?: Maybe<String>;
+  dpo?: Maybe<String>;
+  representative?: Maybe<BusinessPartnerUpdateOneInput>;
+  processingTypes?: Maybe<ProcessingTypeUpdateManyInput>;
+  recipientsType?: Maybe<RecipientsTypeUpdateOneInput>;
+  securityMeasures?: Maybe<String>;
+  otherCountries?: Maybe<Json>;
+  outsideEea?: Maybe<Boolean>;
+  safeguards?: Maybe<String>;
+  linkToDpa?: Maybe<String>;
+  headOffice?: Maybe<LocationUpdateOneRequiredWithoutBusinessPartnerInput>;
+}
+
 export interface ProcessingTypeSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
@@ -1355,9 +1347,13 @@ export interface ProcessingTypeSubscriptionWhereInput {
   >;
 }
 
-export interface BusinessPartnerUpdateWithWhereUniqueNestedInput {
-  where: BusinessPartnerWhereUniqueInput;
-  data: BusinessPartnerUpdateDataInput;
+export interface BusinessPartnerUpdateOneInput {
+  create?: Maybe<BusinessPartnerCreateInput>;
+  update?: Maybe<BusinessPartnerUpdateDataInput>;
+  upsert?: Maybe<BusinessPartnerUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<BusinessPartnerWhereUniqueInput>;
 }
 
 export interface ProcessingActivitySubscriptionWhereInput {
@@ -1380,184 +1376,20 @@ export interface ProcessingActivitySubscriptionWhereInput {
   >;
 }
 
-export interface BusinessPartnerUpdateDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  contactDetails?: Maybe<String>;
-  dpo?: Maybe<String>;
-  representative?: Maybe<BusinessPartnerUpdateOneInput>;
-  processingTypes?: Maybe<ProcessingTypeUpdateManyInput>;
-  recipientsType?: Maybe<RecipientsTypeUpdateOneInput>;
-  securityMeasures?: Maybe<String>;
-  otherCountries?: Maybe<Json>;
-  outsideEea?: Maybe<Boolean>;
-  safeguards?: Maybe<String>;
-  linkToDpa?: Maybe<String>;
-  headOffice?: Maybe<LocationUpdateOneRequiredWithoutBusinessPartnerInput>;
-}
-
-export interface PersonWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  surname?: Maybe<String>;
-  surname_not?: Maybe<String>;
-  surname_in?: Maybe<String[] | String>;
-  surname_not_in?: Maybe<String[] | String>;
-  surname_lt?: Maybe<String>;
-  surname_lte?: Maybe<String>;
-  surname_gt?: Maybe<String>;
-  surname_gte?: Maybe<String>;
-  surname_contains?: Maybe<String>;
-  surname_not_contains?: Maybe<String>;
-  surname_starts_with?: Maybe<String>;
-  surname_not_starts_with?: Maybe<String>;
-  surname_ends_with?: Maybe<String>;
-  surname_not_ends_with?: Maybe<String>;
-  user?: Maybe<UserWhereInput>;
-  roles_every?: Maybe<BusinessRoleWhereInput>;
-  roles_some?: Maybe<BusinessRoleWhereInput>;
-  roles_none?: Maybe<BusinessRoleWhereInput>;
-  AND?: Maybe<PersonWhereInput[] | PersonWhereInput>;
-  OR?: Maybe<PersonWhereInput[] | PersonWhereInput>;
-  NOT?: Maybe<PersonWhereInput[] | PersonWhereInput>;
-}
-
-export interface BusinessPartnerUpdateOneInput {
-  create?: Maybe<BusinessPartnerCreateInput>;
-  update?: Maybe<BusinessPartnerUpdateDataInput>;
-  upsert?: Maybe<BusinessPartnerUpsertNestedInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<BusinessPartnerWhereUniqueInput>;
-}
-
-export interface BusinessRoleWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  raciPrivacy?: Maybe<RACI>;
-  raciPrivacy_not?: Maybe<RACI>;
-  raciPrivacy_in?: Maybe<RACI[] | RACI>;
-  raciPrivacy_not_in?: Maybe<RACI[] | RACI>;
-  raciSecurity?: Maybe<RACI>;
-  raciSecurity_not?: Maybe<RACI>;
-  raciSecurity_in?: Maybe<RACI[] | RACI>;
-  raciSecurity_not_in?: Maybe<RACI[] | RACI>;
-  raciFinancial?: Maybe<RACI>;
-  raciFinancial_not?: Maybe<RACI>;
-  raciFinancial_in?: Maybe<RACI[] | RACI>;
-  raciFinancial_not_in?: Maybe<RACI[] | RACI>;
-  raciExecutive?: Maybe<RACI>;
-  raciExecutive_not?: Maybe<RACI>;
-  raciExecutive_in?: Maybe<RACI[] | RACI>;
-  raciExecutive_not_in?: Maybe<RACI[] | RACI>;
-  person?: Maybe<PersonWhereInput>;
-  organizationalUnit?: Maybe<OrganizationalUnitWhereInput>;
-  process_every?: Maybe<ProcessWhereInput>;
-  process_some?: Maybe<ProcessWhereInput>;
-  process_none?: Maybe<ProcessWhereInput>;
-  appBusinessOwner_every?: Maybe<ApplicationWhereInput>;
-  appBusinessOwner_some?: Maybe<ApplicationWhereInput>;
-  appBusinessOwner_none?: Maybe<ApplicationWhereInput>;
-  appItOwner_every?: Maybe<ApplicationWhereInput>;
-  appItOwner_some?: Maybe<ApplicationWhereInput>;
-  appItOwner_none?: Maybe<ApplicationWhereInput>;
-  appSecAdmin_every?: Maybe<ApplicationWhereInput>;
-  appSecAdmin_some?: Maybe<ApplicationWhereInput>;
-  appSecAdmin_none?: Maybe<ApplicationWhereInput>;
-  AND?: Maybe<BusinessRoleWhereInput[] | BusinessRoleWhereInput>;
-  OR?: Maybe<BusinessRoleWhereInput[] | BusinessRoleWhereInput>;
-  NOT?: Maybe<BusinessRoleWhereInput[] | BusinessRoleWhereInput>;
-}
-
 export interface BusinessPartnerUpsertNestedInput {
   update: BusinessPartnerUpdateDataInput;
   create: BusinessPartnerCreateInput;
 }
 
-export interface OrganizationalUnitTypeSubscriptionWhereInput {
+export interface ProcessSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<OrganizationalUnitTypeWhereInput>;
-  AND?: Maybe<
-    | OrganizationalUnitTypeSubscriptionWhereInput[]
-    | OrganizationalUnitTypeSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | OrganizationalUnitTypeSubscriptionWhereInput[]
-    | OrganizationalUnitTypeSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | OrganizationalUnitTypeSubscriptionWhereInput[]
-    | OrganizationalUnitTypeSubscriptionWhereInput
-  >;
+  node?: Maybe<ProcessWhereInput>;
+  AND?: Maybe<ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput>;
+  OR?: Maybe<ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput>;
+  NOT?: Maybe<ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput>;
 }
 
 export interface ProcessingTypeUpdateManyInput {
@@ -1589,6 +1421,22 @@ export interface ProcessingTypeUpdateManyInput {
     | ProcessingTypeUpdateManyWithWhereNestedInput[]
     | ProcessingTypeUpdateManyWithWhereNestedInput
   >;
+}
+
+export interface PersonSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<PersonWhereInput>;
+  AND?: Maybe<PersonSubscriptionWhereInput[] | PersonSubscriptionWhereInput>;
+  OR?: Maybe<PersonSubscriptionWhereInput[] | PersonSubscriptionWhereInput>;
+  NOT?: Maybe<PersonSubscriptionWhereInput[] | PersonSubscriptionWhereInput>;
+}
+
+export interface ProcessingTypeUpdateWithWhereUniqueNestedInput {
+  where: ProcessingTypeWhereUniqueInput;
+  data: ProcessingTypeUpdateDataInput;
 }
 
 export interface DataSubjectTypeWhereInput {
@@ -1642,34 +1490,53 @@ export interface DataSubjectTypeWhereInput {
   NOT?: Maybe<DataSubjectTypeWhereInput[] | DataSubjectTypeWhereInput>;
 }
 
-export interface ProcessingTypeUpdateWithWhereUniqueNestedInput {
-  where: ProcessingTypeWhereUniqueInput;
-  data: ProcessingTypeUpdateDataInput;
-}
-
-export interface LegalGroundSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<LegalGroundWhereInput>;
-  AND?: Maybe<
-    LegalGroundSubscriptionWhereInput[] | LegalGroundSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    LegalGroundSubscriptionWhereInput[] | LegalGroundSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    LegalGroundSubscriptionWhereInput[] | LegalGroundSubscriptionWhereInput
-  >;
-}
-
 export interface ProcessingTypeUpdateDataInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
 }
 
-export interface RetentionPolicyWhereInput {
+export interface OrganizationalUnitSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<OrganizationalUnitWhereInput>;
+  AND?: Maybe<
+    | OrganizationalUnitSubscriptionWhereInput[]
+    | OrganizationalUnitSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | OrganizationalUnitSubscriptionWhereInput[]
+    | OrganizationalUnitSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | OrganizationalUnitSubscriptionWhereInput[]
+    | OrganizationalUnitSubscriptionWhereInput
+  >;
+}
+
+export interface ProcessingTypeUpsertWithWhereUniqueNestedInput {
+  where: ProcessingTypeWhereUniqueInput;
+  update: ProcessingTypeUpdateDataInput;
+  create: ProcessingTypeCreateInput;
+}
+
+export interface LocationSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<LocationWhereInput>;
+  AND?: Maybe<
+    LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
+  >;
+  OR?: Maybe<LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput>;
+  NOT?: Maybe<
+    LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
+  >;
+}
+
+export interface ProcessingTypeScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1712,15 +1579,33 @@ export interface RetentionPolicyWhereInput {
   description_not_starts_with?: Maybe<String>;
   description_ends_with?: Maybe<String>;
   description_not_ends_with?: Maybe<String>;
-  AND?: Maybe<RetentionPolicyWhereInput[] | RetentionPolicyWhereInput>;
-  OR?: Maybe<RetentionPolicyWhereInput[] | RetentionPolicyWhereInput>;
-  NOT?: Maybe<RetentionPolicyWhereInput[] | RetentionPolicyWhereInput>;
+  AND?: Maybe<
+    ProcessingTypeScalarWhereInput[] | ProcessingTypeScalarWhereInput
+  >;
+  OR?: Maybe<ProcessingTypeScalarWhereInput[] | ProcessingTypeScalarWhereInput>;
+  NOT?: Maybe<
+    ProcessingTypeScalarWhereInput[] | ProcessingTypeScalarWhereInput
+  >;
 }
 
-export interface ProcessingTypeUpsertWithWhereUniqueNestedInput {
-  where: ProcessingTypeWhereUniqueInput;
-  update: ProcessingTypeUpdateDataInput;
-  create: ProcessingTypeCreateInput;
+export interface DataTypeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<DataTypeWhereInput>;
+  AND?: Maybe<
+    DataTypeSubscriptionWhereInput[] | DataTypeSubscriptionWhereInput
+  >;
+  OR?: Maybe<DataTypeSubscriptionWhereInput[] | DataTypeSubscriptionWhereInput>;
+  NOT?: Maybe<
+    DataTypeSubscriptionWhereInput[] | DataTypeSubscriptionWhereInput
+  >;
+}
+
+export interface ProcessingTypeUpdateManyWithWhereNestedInput {
+  where: ProcessingTypeScalarWhereInput;
+  data: ProcessingTypeUpdateManyDataInput;
 }
 
 export interface LocationWhereInput {
@@ -1786,150 +1671,28 @@ export interface LocationWhereInput {
   NOT?: Maybe<LocationWhereInput[] | LocationWhereInput>;
 }
 
-export interface ProcessingTypeScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  AND?: Maybe<
-    ProcessingTypeScalarWhereInput[] | ProcessingTypeScalarWhereInput
-  >;
-  OR?: Maybe<ProcessingTypeScalarWhereInput[] | ProcessingTypeScalarWhereInput>;
-  NOT?: Maybe<
-    ProcessingTypeScalarWhereInput[] | ProcessingTypeScalarWhereInput
-  >;
-}
-
-export interface ClassificationLabelSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ClassificationLabelWhereInput>;
-  AND?: Maybe<
-    | ClassificationLabelSubscriptionWhereInput[]
-    | ClassificationLabelSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | ClassificationLabelSubscriptionWhereInput[]
-    | ClassificationLabelSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | ClassificationLabelSubscriptionWhereInput[]
-    | ClassificationLabelSubscriptionWhereInput
-  >;
-}
-
-export interface ProcessingTypeUpdateManyWithWhereNestedInput {
-  where: ProcessingTypeScalarWhereInput;
-  data: ProcessingTypeUpdateManyDataInput;
-}
-
-export interface RecipientsTypeWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  AND?: Maybe<RecipientsTypeWhereInput[] | RecipientsTypeWhereInput>;
-  OR?: Maybe<RecipientsTypeWhereInput[] | RecipientsTypeWhereInput>;
-  NOT?: Maybe<RecipientsTypeWhereInput[] | RecipientsTypeWhereInput>;
-}
-
 export interface ProcessingTypeUpdateManyDataInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
 }
 
-export interface ApplicationSubscriptionWhereInput {
+export interface DataSubjectTypeSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ApplicationWhereInput>;
+  node?: Maybe<DataSubjectTypeWhereInput>;
   AND?: Maybe<
-    ApplicationSubscriptionWhereInput[] | ApplicationSubscriptionWhereInput
+    | DataSubjectTypeSubscriptionWhereInput[]
+    | DataSubjectTypeSubscriptionWhereInput
   >;
   OR?: Maybe<
-    ApplicationSubscriptionWhereInput[] | ApplicationSubscriptionWhereInput
+    | DataSubjectTypeSubscriptionWhereInput[]
+    | DataSubjectTypeSubscriptionWhereInput
   >;
   NOT?: Maybe<
-    ApplicationSubscriptionWhereInput[] | ApplicationSubscriptionWhereInput
+    | DataSubjectTypeSubscriptionWhereInput[]
+    | DataSubjectTypeSubscriptionWhereInput
   >;
 }
 
@@ -1942,9 +1705,21 @@ export interface RecipientsTypeUpdateOneInput {
   connect?: Maybe<RecipientsTypeWhereUniqueInput>;
 }
 
-export interface PersonUpsertWithoutUserInput {
-  update: PersonUpdateWithoutUserDataInput;
-  create: PersonCreateWithoutUserInput;
+export interface BusinessRoleSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<BusinessRoleWhereInput>;
+  AND?: Maybe<
+    BusinessRoleSubscriptionWhereInput[] | BusinessRoleSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    BusinessRoleSubscriptionWhereInput[] | BusinessRoleSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    BusinessRoleSubscriptionWhereInput[] | BusinessRoleSubscriptionWhereInput
+  >;
 }
 
 export interface RecipientsTypeUpdateDataInput {
@@ -1952,21 +1727,36 @@ export interface RecipientsTypeUpdateDataInput {
   description?: Maybe<String>;
 }
 
-export type BusinessPartnerWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface BusinessPartnerSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<BusinessPartnerWhereInput>;
+  AND?: Maybe<
+    | BusinessPartnerSubscriptionWhereInput[]
+    | BusinessPartnerSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | BusinessPartnerSubscriptionWhereInput[]
+    | BusinessPartnerSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | BusinessPartnerSubscriptionWhereInput[]
+    | BusinessPartnerSubscriptionWhereInput
+  >;
+}
 
 export interface RecipientsTypeUpsertNestedInput {
   update: RecipientsTypeUpdateDataInput;
   create: RecipientsTypeCreateInput;
 }
 
-export interface UserUpdateInput {
+export interface UserUpdateManyMutationInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
   active?: Maybe<Boolean>;
   specialPermissions?: Maybe<UserUpdatespecialPermissionsInput>;
-  person?: Maybe<PersonUpdateOneWithoutUserInput>;
 }
 
 export interface LocationUpdateOneRequiredWithoutBusinessPartnerInput {
@@ -1976,9 +1766,11 @@ export interface LocationUpdateOneRequiredWithoutBusinessPartnerInput {
   connect?: Maybe<LocationWhereUniqueInput>;
 }
 
-export type BusinessRoleWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface PersonUpdateWithoutUserDataInput {
+  name?: Maybe<String>;
+  surname?: Maybe<String>;
+  roles?: Maybe<BusinessRoleUpdateManyWithoutPersonInput>;
+}
 
 export interface LocationUpdateWithoutBusinessPartnerDataInput {
   name?: Maybe<String>;
@@ -1986,13 +1778,13 @@ export interface LocationUpdateWithoutBusinessPartnerDataInput {
   address?: Maybe<String>;
 }
 
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  email: String;
-  password: String;
-  active?: Maybe<Boolean>;
-  specialPermissions?: Maybe<UserCreatespecialPermissionsInput>;
-  person?: Maybe<PersonCreateOneWithoutUserInput>;
+export interface PersonUpdateOneWithoutUserInput {
+  create?: Maybe<PersonCreateWithoutUserInput>;
+  update?: Maybe<PersonUpdateWithoutUserDataInput>;
+  upsert?: Maybe<PersonUpsertWithoutUserInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<PersonWhereUniqueInput>;
 }
 
 export interface LocationUpsertWithoutBusinessPartnerInput {
@@ -2000,9 +1792,12 @@ export interface LocationUpsertWithoutBusinessPartnerInput {
   create: LocationCreateWithoutBusinessPartnerInput;
 }
 
-export type ClassificationLabelWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface PersonCreateWithoutUserInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  surname?: Maybe<String>;
+  roles?: Maybe<BusinessRoleCreateManyWithoutPersonInput>;
+}
 
 export interface BusinessPartnerUpsertWithWhereUniqueNestedInput {
   where: BusinessPartnerWhereUniqueInput;
@@ -2010,9 +1805,9 @@ export interface BusinessPartnerUpsertWithWhereUniqueNestedInput {
   create: BusinessPartnerCreateInput;
 }
 
-export interface RecipientsTypeUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
+export interface PersonCreateOneWithoutUserInput {
+  create?: Maybe<PersonCreateWithoutUserInput>;
+  connect?: Maybe<PersonWhereUniqueInput>;
 }
 
 export interface BusinessPartnerScalarWhereInput {
@@ -2141,19 +1936,19 @@ export interface BusinessPartnerScalarWhereInput {
   >;
 }
 
-export type DataSubjectTypeWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface RetentionPolicyUpdateManyMutationInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
 
 export interface BusinessPartnerUpdateManyWithWhereNestedInput {
   where: BusinessPartnerScalarWhereInput;
   data: BusinessPartnerUpdateManyDataInput;
 }
 
-export interface ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput {
-  where: ClassificationLabelWhereUniqueInput;
-  update: ClassificationLabelUpdateWithoutQualityAttributeDataInput;
-  create: ClassificationLabelCreateWithoutQualityAttributeInput;
+export interface RetentionPolicyUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
 }
 
 export interface BusinessPartnerUpdateManyDataInput {
@@ -2168,9 +1963,10 @@ export interface BusinessPartnerUpdateManyDataInput {
   linkToDpa?: Maybe<String>;
 }
 
-export type DataTypeWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface RecipientsTypeUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
 
 export interface DataTypeUpdateManyInput {
   create?: Maybe<DataTypeCreateInput[] | DataTypeCreateInput>;
@@ -2193,38 +1989,10 @@ export interface DataTypeUpdateManyInput {
   >;
 }
 
-export interface ClassificationLabelUpdateManyWithoutQualityAttributeInput {
-  create?: Maybe<
-    | ClassificationLabelCreateWithoutQualityAttributeInput[]
-    | ClassificationLabelCreateWithoutQualityAttributeInput
-  >;
-  delete?: Maybe<
-    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
-  >;
-  connect?: Maybe<
-    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
-  >;
-  set?: Maybe<
-    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
-  >;
-  disconnect?: Maybe<
-    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
-  >;
-  update?: Maybe<
-    | ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput[]
-    | ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput
-  >;
-  upsert?: Maybe<
-    | ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput[]
-    | ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput
-  >;
-  deleteMany?: Maybe<
-    ClassificationLabelScalarWhereInput[] | ClassificationLabelScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | ClassificationLabelUpdateManyWithWhereNestedInput[]
-    | ClassificationLabelUpdateManyWithWhereNestedInput
-  >;
+export interface QualityAttributeUpdateManyMutationInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  appliesToObject?: Maybe<CLASSIFICATIONOBJECT>;
 }
 
 export interface DataTypeUpdateWithWhereUniqueNestedInput {
@@ -2232,14 +2000,17 @@ export interface DataTypeUpdateWithWhereUniqueNestedInput {
   data: DataTypeUpdateDataInput;
 }
 
-export type LegalGroundWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface ClassificationLabelUpdateWithoutQualityAttributeDataInput {
+  score?: Maybe<Int>;
+  label?: Maybe<String>;
+  criteria?: Maybe<String>;
+  dataType?: Maybe<DataTypeUpdateManyWithoutClassificationLabelsInput>;
+}
 
 export interface DataTypeUpdateDataInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
-  retentionPolicy?: Maybe<RetentionPolicyUpdateOneRequiredInput>;
+  retentionPolicy?: Maybe<RetentionPolicyUpdateManyInput>;
   dataSubjectType?: Maybe<DataSubjectTypeUpdateManyWithoutDataTypesInput>;
   application?: Maybe<ApplicationUpdateManyWithoutDataTypesInput>;
   classificationLabels?: Maybe<
@@ -2247,120 +2018,83 @@ export interface DataTypeUpdateDataInput {
   >;
 }
 
-export interface ClassificationLabelCreateManyWithoutQualityAttributeInput {
-  create?: Maybe<
-    | ClassificationLabelCreateWithoutQualityAttributeInput[]
-    | ClassificationLabelCreateWithoutQualityAttributeInput
+export interface ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput {
+  where: ClassificationLabelWhereUniqueInput;
+  data: ClassificationLabelUpdateWithoutQualityAttributeDataInput;
+}
+
+export interface RetentionPolicyUpdateManyInput {
+  create?: Maybe<RetentionPolicyCreateInput[] | RetentionPolicyCreateInput>;
+  update?: Maybe<
+    | RetentionPolicyUpdateWithWhereUniqueNestedInput[]
+    | RetentionPolicyUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | RetentionPolicyUpsertWithWhereUniqueNestedInput[]
+    | RetentionPolicyUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    RetentionPolicyWhereUniqueInput[] | RetentionPolicyWhereUniqueInput
   >;
   connect?: Maybe<
-    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
+    RetentionPolicyWhereUniqueInput[] | RetentionPolicyWhereUniqueInput
+  >;
+  set?: Maybe<
+    RetentionPolicyWhereUniqueInput[] | RetentionPolicyWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    RetentionPolicyWhereUniqueInput[] | RetentionPolicyWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    RetentionPolicyScalarWhereInput[] | RetentionPolicyScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | RetentionPolicyUpdateManyWithWhereNestedInput[]
+    | RetentionPolicyUpdateManyWithWhereNestedInput
   >;
 }
 
-export interface RetentionPolicyUpdateOneRequiredInput {
-  create?: Maybe<RetentionPolicyCreateInput>;
-  update?: Maybe<RetentionPolicyUpdateDataInput>;
-  upsert?: Maybe<RetentionPolicyUpsertNestedInput>;
-  connect?: Maybe<RetentionPolicyWhereUniqueInput>;
+export interface QualityAttributeUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  appliesToObject?: Maybe<CLASSIFICATIONOBJECT>;
+  classificationLabels?: Maybe<
+    ClassificationLabelUpdateManyWithoutQualityAttributeInput
+  >;
 }
 
-export type LocationWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface RetentionPolicyUpdateWithWhereUniqueNestedInput {
+  where: RetentionPolicyWhereUniqueInput;
+  data: RetentionPolicyUpdateDataInput;
+}
+
+export interface ClassificationLabelCreateWithoutQualityAttributeInput {
+  id?: Maybe<ID_Input>;
+  score: Int;
+  label: String;
+  criteria?: Maybe<String>;
+  dataType?: Maybe<DataTypeCreateManyWithoutClassificationLabelsInput>;
+}
 
 export interface RetentionPolicyUpdateDataInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
 }
 
-export interface ProcessingTypeUpdateManyMutationInput {
-  name?: Maybe<String>;
+export interface QualityAttributeCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
   description?: Maybe<String>;
+  appliesToObject: CLASSIFICATIONOBJECT;
+  classificationLabels?: Maybe<
+    ClassificationLabelCreateManyWithoutQualityAttributeInput
+  >;
 }
 
-export interface RetentionPolicyUpsertNestedInput {
+export interface RetentionPolicyUpsertWithWhereUniqueNestedInput {
+  where: RetentionPolicyWhereUniqueInput;
   update: RetentionPolicyUpdateDataInput;
   create: RetentionPolicyCreateInput;
-}
-
-export interface ProcessingActivityUpdateManyMutationInput {
-  name?: Maybe<String>;
-  purpose?: Maybe<String>;
-  iOwnThis?: Maybe<Boolean>;
-  securityMeasures?: Maybe<String>;
-  legalGroundComment?: Maybe<String>;
-  profiling?: Maybe<Boolean>;
-  linkToDpia?: Maybe<String>;
-  linkToLia?: Maybe<String>;
-}
-
-export interface DataSubjectTypeUpdateManyWithoutDataTypesInput {
-  create?: Maybe<
-    | DataSubjectTypeCreateWithoutDataTypesInput[]
-    | DataSubjectTypeCreateWithoutDataTypesInput
-  >;
-  delete?: Maybe<
-    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
-  >;
-  connect?: Maybe<
-    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
-  >;
-  set?: Maybe<
-    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
-  >;
-  disconnect?: Maybe<
-    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
-  >;
-  update?: Maybe<
-    | DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput[]
-    | DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput
-  >;
-  upsert?: Maybe<
-    | DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput[]
-    | DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput
-  >;
-  deleteMany?: Maybe<
-    DataSubjectTypeScalarWhereInput[] | DataSubjectTypeScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | DataSubjectTypeUpdateManyWithWhereNestedInput[]
-    | DataSubjectTypeUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ProcessingActivityUpdateInput {
-  name?: Maybe<String>;
-  purpose?: Maybe<String>;
-  iOwnThis?: Maybe<Boolean>;
-  securityMeasures?: Maybe<String>;
-  legalGroundComment?: Maybe<String>;
-  profiling?: Maybe<Boolean>;
-  linkToDpia?: Maybe<String>;
-  linkToLia?: Maybe<String>;
-  recipients?: Maybe<BusinessPartnerUpdateManyInput>;
-  controllers?: Maybe<BusinessPartnerUpdateManyInput>;
-  dataTypes?: Maybe<DataTypeUpdateManyInput>;
-  procesessingTypes?: Maybe<ProcessingTypeUpdateManyInput>;
-  legalGrounds?: Maybe<LegalGroundUpdateManyInput>;
-  process?: Maybe<ProcessUpdateOneWithoutProcessingActivitiesInput>;
-}
-
-export interface DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput {
-  where: DataSubjectTypeWhereUniqueInput;
-  data: DataSubjectTypeUpdateWithoutDataTypesDataInput;
-}
-
-export interface ProcessUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  organizationalUnit?: Maybe<OrganizationalUnitUpdateOneWithoutProcessesInput>;
-  processingActivities?: Maybe<ProcessingActivityUpdateManyWithoutProcessInput>;
-  processOwner?: Maybe<BusinessRoleUpdateOneWithoutProcessInput>;
-}
-
-export interface DataSubjectTypeUpdateWithoutDataTypesDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
 }
 
 export interface BusinessPartnerWhereInput {
@@ -2489,15 +2223,162 @@ export interface BusinessPartnerWhereInput {
   NOT?: Maybe<BusinessPartnerWhereInput[] | BusinessPartnerWhereInput>;
 }
 
+export interface RetentionPolicyScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    RetentionPolicyScalarWhereInput[] | RetentionPolicyScalarWhereInput
+  >;
+  OR?: Maybe<
+    RetentionPolicyScalarWhereInput[] | RetentionPolicyScalarWhereInput
+  >;
+  NOT?: Maybe<
+    RetentionPolicyScalarWhereInput[] | RetentionPolicyScalarWhereInput
+  >;
+}
+
+export interface ProcessingTypeUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface RetentionPolicyUpdateManyWithWhereNestedInput {
+  where: RetentionPolicyScalarWhereInput;
+  data: RetentionPolicyUpdateManyDataInput;
+}
+
+export type OrganizationalUnitWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface RetentionPolicyUpdateManyDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface ProcessUpdateManyMutationInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface DataSubjectTypeUpdateManyWithoutDataTypesInput {
+  create?: Maybe<
+    | DataSubjectTypeCreateWithoutDataTypesInput[]
+    | DataSubjectTypeCreateWithoutDataTypesInput
+  >;
+  delete?: Maybe<
+    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
+  >;
+  connect?: Maybe<
+    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
+  >;
+  set?: Maybe<
+    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
+  >;
+  update?: Maybe<
+    | DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput[]
+    | DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput
+  >;
+  upsert?: Maybe<
+    | DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput[]
+    | DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput
+  >;
+  deleteMany?: Maybe<
+    DataSubjectTypeScalarWhereInput[] | DataSubjectTypeScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | DataSubjectTypeUpdateManyWithWhereNestedInput[]
+    | DataSubjectTypeUpdateManyWithWhereNestedInput
+  >;
+}
+
+export type OrganizationalUnitTypeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput {
+  where: DataSubjectTypeWhereUniqueInput;
+  data: DataSubjectTypeUpdateWithoutDataTypesDataInput;
+}
+
+export interface PersonUpdateManyMutationInput {
+  name?: Maybe<String>;
+  surname?: Maybe<String>;
+}
+
+export interface DataSubjectTypeUpdateWithoutDataTypesDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface BusinessRoleUpdateWithoutPersonDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  raciPrivacy?: Maybe<RACI>;
+  raciSecurity?: Maybe<RACI>;
+  raciFinancial?: Maybe<RACI>;
+  raciExecutive?: Maybe<RACI>;
+  organizationalUnit?: Maybe<
+    OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput
+  >;
+  process?: Maybe<ProcessUpdateManyWithoutProcessOwnerInput>;
+  appBusinessOwner?: Maybe<ApplicationUpdateManyWithoutBusinessOwnerInput>;
+  appItOwner?: Maybe<ApplicationUpdateManyWithoutItOwnerInput>;
+  appSecAdmin?: Maybe<ApplicationUpdateManyWithoutSecurityAdministratorInput>;
+}
+
 export interface DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput {
   where: DataSubjectTypeWhereUniqueInput;
   update: DataSubjectTypeUpdateWithoutDataTypesDataInput;
   create: DataSubjectTypeCreateWithoutDataTypesInput;
 }
 
-export interface PersonUpdateManyMutationInput {
-  name?: Maybe<String>;
-  surname?: Maybe<String>;
+export interface BusinessRoleUpdateWithWhereUniqueWithoutPersonInput {
+  where: BusinessRoleWhereUniqueInput;
+  data: BusinessRoleUpdateWithoutPersonDataInput;
 }
 
 export interface DataSubjectTypeScalarWhereInput {
@@ -2554,30 +2435,33 @@ export interface DataSubjectTypeScalarWhereInput {
   >;
 }
 
-export type PersonWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface PersonUpdateInput {
+  name?: Maybe<String>;
+  surname?: Maybe<String>;
+  user?: Maybe<UserUpdateOneWithoutPersonInput>;
+  roles?: Maybe<BusinessRoleUpdateManyWithoutPersonInput>;
+}
 
 export interface DataSubjectTypeUpdateManyWithWhereNestedInput {
   where: DataSubjectTypeScalarWhereInput;
   data: DataSubjectTypeUpdateManyDataInput;
 }
 
-export interface BusinessRoleUpdateWithWhereUniqueWithoutPersonInput {
-  where: BusinessRoleWhereUniqueInput;
-  data: BusinessRoleUpdateWithoutPersonDataInput;
-}
+export type ProcessWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface DataSubjectTypeUpdateManyDataInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
 }
 
-export interface PersonUpdateInput {
-  name?: Maybe<String>;
+export interface PersonCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
   surname?: Maybe<String>;
-  user?: Maybe<UserUpdateOneWithoutPersonInput>;
-  roles?: Maybe<BusinessRoleUpdateManyWithoutPersonInput>;
+  user?: Maybe<UserCreateOneWithoutPersonInput>;
+  roles?: Maybe<BusinessRoleCreateManyWithoutPersonInput>;
 }
 
 export interface ApplicationUpdateManyWithoutDataTypesInput {
@@ -2608,32 +2492,22 @@ export interface ApplicationUpdateManyWithoutDataTypesInput {
   >;
 }
 
-export interface BusinessRoleCreateWithoutPersonInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  raciPrivacy?: Maybe<RACI>;
-  raciSecurity?: Maybe<RACI>;
-  raciFinancial?: Maybe<RACI>;
-  raciExecutive?: Maybe<RACI>;
-  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
-  process?: Maybe<ProcessCreateManyWithoutProcessOwnerInput>;
-  appBusinessOwner?: Maybe<ApplicationCreateManyWithoutBusinessOwnerInput>;
-  appItOwner?: Maybe<ApplicationCreateManyWithoutItOwnerInput>;
-  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
-}
+export type ProcessingActivityWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface ApplicationUpdateWithWhereUniqueWithoutDataTypesInput {
   where: ApplicationWhereUniqueInput;
   data: ApplicationUpdateWithoutDataTypesDataInput;
 }
 
-export interface PersonCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  surname?: Maybe<String>;
-  user?: Maybe<UserCreateOneWithoutPersonInput>;
-  roles?: Maybe<BusinessRoleCreateManyWithoutPersonInput>;
+export interface OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  children?: Maybe<OrganizationalUnitUpdateManyWithoutParentInput>;
+  parent?: Maybe<OrganizationalUnitUpdateOneWithoutChildrenInput>;
+  processes?: Maybe<ProcessUpdateManyWithoutOrganizationalUnitInput>;
+  businessRoles?: Maybe<BusinessRoleUpdateManyWithoutOrganizationalUnitInput>;
 }
 
 export interface ApplicationUpdateWithoutDataTypesDataInput {
@@ -2646,28 +2520,23 @@ export interface ApplicationUpdateWithoutDataTypesDataInput {
   securityAdministrator?: Maybe<BusinessRoleUpdateOneWithoutAppSecAdminInput>;
 }
 
-export interface OrganizationalUnitTypeUpdateManyMutationInput {
+export type ProcessingTypeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface LegalGroundUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  specialCategoryCondition?: Maybe<Boolean>;
+}
+
+export interface OrganizationalUnitTypeUpdateInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
   reportingUnit?: Maybe<Boolean>;
-}
-
-export interface BusinessRoleUpdateOneWithoutAppBusinessOwnerInput {
-  create?: Maybe<BusinessRoleCreateWithoutAppBusinessOwnerInput>;
-  update?: Maybe<BusinessRoleUpdateWithoutAppBusinessOwnerDataInput>;
-  upsert?: Maybe<BusinessRoleUpsertWithoutAppBusinessOwnerInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<BusinessRoleWhereUniqueInput>;
-}
-
-export interface OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  children?: Maybe<OrganizationalUnitUpdateManyWithoutParentInput>;
-  parent?: Maybe<OrganizationalUnitUpdateOneWithoutChildrenInput>;
-  processes?: Maybe<ProcessUpdateManyWithoutOrganizationalUnitInput>;
-  businessRoles?: Maybe<BusinessRoleUpdateManyWithoutOrganizationalUnitInput>;
+  organizationalUnit?: Maybe<
+    OrganizationalUnitUpdateManyWithoutOrganizationalUnitTypeInput
+  >;
 }
 
 export interface BusinessRoleUpdateWithoutAppBusinessOwnerDataInput {
@@ -2686,23 +2555,26 @@ export interface BusinessRoleUpdateWithoutAppBusinessOwnerDataInput {
   appSecAdmin?: Maybe<ApplicationUpdateManyWithoutSecurityAdministratorInput>;
 }
 
-export interface OrganizationalUnitUpdateWithWhereUniqueWithoutOrganizationalUnitTypeInput {
-  where: OrganizationalUnitWhereUniqueInput;
-  data: OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput;
+export type QualityAttributeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface PersonUpdateOneWithoutRolesInput {
+  create?: Maybe<PersonCreateWithoutRolesInput>;
+  update?: Maybe<PersonUpdateWithoutRolesDataInput>;
+  upsert?: Maybe<PersonUpsertWithoutRolesInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<PersonWhereUniqueInput>;
 }
 
-export interface LegalGroundUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  specialCategoryCondition?: Maybe<Boolean>;
-}
-
-export interface OrganizationalUnitTypeUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  reportingUnit?: Maybe<Boolean>;
-  organizationalUnit?: Maybe<
-    OrganizationalUnitUpdateManyWithoutOrganizationalUnitTypeInput
+export interface OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput {
+  create?: Maybe<
+    | OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput[]
+    | OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput
+  >;
+  connect?: Maybe<
+    OrganizationalUnitWhereUniqueInput[] | OrganizationalUnitWhereUniqueInput
   >;
 }
 
@@ -2712,14 +2584,9 @@ export interface PersonUpdateWithoutRolesDataInput {
   user?: Maybe<UserUpdateOneWithoutPersonInput>;
 }
 
-export interface OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput {
-  id?: Maybe<ID_Input>;
-  name: String;
+export interface OrganizationalUnitUpdateManyMutationInput {
+  name?: Maybe<String>;
   description?: Maybe<String>;
-  children?: Maybe<OrganizationalUnitCreateManyWithoutParentInput>;
-  parent?: Maybe<OrganizationalUnitCreateOneWithoutChildrenInput>;
-  processes?: Maybe<ProcessCreateManyWithoutOrganizationalUnitInput>;
-  businessRoles?: Maybe<BusinessRoleCreateManyWithoutOrganizationalUnitInput>;
 }
 
 export interface UserUpdateOneWithoutPersonInput {
@@ -2729,31 +2596,6 @@ export interface UserUpdateOneWithoutPersonInput {
   delete?: Maybe<Boolean>;
   disconnect?: Maybe<Boolean>;
   connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface OrganizationalUnitTypeCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  reportingUnit?: Maybe<Boolean>;
-  organizationalUnit?: Maybe<
-    OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput
-  >;
-}
-
-export interface UserUpdateWithoutPersonDataInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  active?: Maybe<Boolean>;
-  specialPermissions?: Maybe<UserUpdatespecialPermissionsInput>;
-}
-
-export type RecipientsTypeWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface UserUpdatespecialPermissionsInput {
-  set?: Maybe<PERMISSION[] | PERMISSION>;
 }
 
 export interface OrganizationalUnitUpdateInput {
@@ -2768,9 +2610,11 @@ export interface OrganizationalUnitUpdateInput {
   >;
 }
 
-export interface UserUpsertWithoutPersonInput {
-  update: UserUpdateWithoutPersonDataInput;
-  create: UserCreateWithoutPersonInput;
+export interface UserUpdateWithoutPersonDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  active?: Maybe<Boolean>;
+  specialPermissions?: Maybe<UserUpdatespecialPermissionsInput>;
 }
 
 export interface LocationUpdateManyMutationInput {
@@ -2779,21 +2623,17 @@ export interface LocationUpdateManyMutationInput {
   address?: Maybe<String>;
 }
 
-export interface PersonUpsertWithoutRolesInput {
-  update: PersonUpdateWithoutRolesDataInput;
-  create: PersonCreateWithoutRolesInput;
+export interface UserUpdatespecialPermissionsInput {
+  set?: Maybe<PERMISSION[] | PERMISSION>;
 }
 
-export interface BusinessPartnerUpsertWithoutHeadOfficeInput {
-  update: BusinessPartnerUpdateWithoutHeadOfficeDataInput;
-  create: BusinessPartnerCreateWithoutHeadOfficeInput;
-}
+export type RetentionPolicyWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
-export interface OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput {
-  create?: Maybe<OrganizationalUnitCreateWithoutBusinessRolesInput>;
-  update?: Maybe<OrganizationalUnitUpdateWithoutBusinessRolesDataInput>;
-  upsert?: Maybe<OrganizationalUnitUpsertWithoutBusinessRolesInput>;
-  connect?: Maybe<OrganizationalUnitWhereUniqueInput>;
+export interface UserUpsertWithoutPersonInput {
+  update: UserUpdateWithoutPersonDataInput;
+  create: UserCreateWithoutPersonInput;
 }
 
 export interface BusinessPartnerUpdateOneWithoutHeadOfficeInput {
@@ -2802,6 +2642,28 @@ export interface BusinessPartnerUpdateOneWithoutHeadOfficeInput {
   upsert?: Maybe<BusinessPartnerUpsertWithoutHeadOfficeInput>;
   delete?: Maybe<Boolean>;
   disconnect?: Maybe<Boolean>;
+  connect?: Maybe<BusinessPartnerWhereUniqueInput>;
+}
+
+export interface PersonUpsertWithoutRolesInput {
+  update: PersonUpdateWithoutRolesDataInput;
+  create: PersonCreateWithoutRolesInput;
+}
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  email?: Maybe<String>;
+}>;
+
+export interface OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput {
+  create?: Maybe<OrganizationalUnitCreateWithoutBusinessRolesInput>;
+  update?: Maybe<OrganizationalUnitUpdateWithoutBusinessRolesDataInput>;
+  upsert?: Maybe<OrganizationalUnitUpsertWithoutBusinessRolesInput>;
+  connect?: Maybe<OrganizationalUnitWhereUniqueInput>;
+}
+
+export interface BusinessPartnerCreateOneWithoutHeadOfficeInput {
+  create?: Maybe<BusinessPartnerCreateWithoutHeadOfficeInput>;
   connect?: Maybe<BusinessPartnerWhereUniqueInput>;
 }
 
@@ -2816,10 +2678,11 @@ export interface OrganizationalUnitUpdateWithoutBusinessRolesDataInput {
   >;
 }
 
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  email?: Maybe<String>;
-}>;
+export interface LegalGroundUpdateManyMutationInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  specialCategoryCondition?: Maybe<Boolean>;
+}
 
 export interface OrganizationalUnitUpdateManyWithoutParentInput {
   create?: Maybe<
@@ -2852,33 +2715,6 @@ export interface OrganizationalUnitUpdateManyWithoutParentInput {
   updateMany?: Maybe<
     | OrganizationalUnitUpdateManyWithWhereNestedInput[]
     | OrganizationalUnitUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface BusinessPartnerCreateOneWithoutHeadOfficeInput {
-  create?: Maybe<BusinessPartnerCreateWithoutHeadOfficeInput>;
-  connect?: Maybe<BusinessPartnerWhereUniqueInput>;
-}
-
-export interface OrganizationalUnitUpdateWithWhereUniqueWithoutParentInput {
-  where: OrganizationalUnitWhereUniqueInput;
-  data: OrganizationalUnitUpdateWithoutParentDataInput;
-}
-
-export interface LegalGroundUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  specialCategoryCondition?: Maybe<Boolean>;
-}
-
-export interface OrganizationalUnitUpdateWithoutParentDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  children?: Maybe<OrganizationalUnitUpdateManyWithoutParentInput>;
-  processes?: Maybe<ProcessUpdateManyWithoutOrganizationalUnitInput>;
-  businessRoles?: Maybe<BusinessRoleUpdateManyWithoutOrganizationalUnitInput>;
-  organizationalUnitType?: Maybe<
-    OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
   >;
 }
 
@@ -2953,10 +2789,11 @@ export interface ProcessingActivityCreateInput {
   id?: Maybe<ID_Input>;
   name: String;
   purpose?: Maybe<String>;
-  iOwnThis?: Maybe<Boolean>;
+  imController?: Maybe<Boolean>;
   securityMeasures?: Maybe<String>;
   legalGroundComment?: Maybe<String>;
   profiling?: Maybe<Boolean>;
+  publicSource?: Maybe<Boolean>;
   linkToDpia?: Maybe<String>;
   linkToLia?: Maybe<String>;
   recipients?: Maybe<BusinessPartnerCreateManyInput>;
@@ -2967,9 +2804,15 @@ export interface ProcessingActivityCreateInput {
   process?: Maybe<ProcessCreateOneWithoutProcessingActivitiesInput>;
 }
 
-export interface ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput {
-  where: ProcessWhereUniqueInput;
-  data: ProcessUpdateWithoutOrganizationalUnitDataInput;
+export interface OrganizationalUnitUpdateWithoutParentDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  children?: Maybe<OrganizationalUnitUpdateManyWithoutParentInput>;
+  processes?: Maybe<ProcessUpdateManyWithoutOrganizationalUnitInput>;
+  businessRoles?: Maybe<BusinessRoleUpdateManyWithoutOrganizationalUnitInput>;
+  organizationalUnitType?: Maybe<
+    OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
+  >;
 }
 
 export interface BusinessPartnerCreateInput {
@@ -2981,12 +2824,53 @@ export interface BusinessPartnerCreateInput {
   representative?: Maybe<BusinessPartnerCreateOneInput>;
   processingTypes?: Maybe<ProcessingTypeCreateManyInput>;
   recipientsType?: Maybe<RecipientsTypeCreateOneInput>;
-  securityMeasures: String;
+  securityMeasures?: Maybe<String>;
   otherCountries?: Maybe<Json>;
   outsideEea?: Maybe<Boolean>;
   safeguards?: Maybe<String>;
   linkToDpa?: Maybe<String>;
   headOffice: LocationCreateOneWithoutBusinessPartnerInput;
+}
+
+export interface ProcessUpdateManyWithoutOrganizationalUnitInput {
+  create?: Maybe<
+    | ProcessCreateWithoutOrganizationalUnitInput[]
+    | ProcessCreateWithoutOrganizationalUnitInput
+  >;
+  delete?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
+  connect?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
+  set?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
+  disconnect?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
+  update?: Maybe<
+    | ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput[]
+    | ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput
+  >;
+  upsert?: Maybe<
+    | ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput[]
+    | ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput
+  >;
+  deleteMany?: Maybe<ProcessScalarWhereInput[] | ProcessScalarWhereInput>;
+  updateMany?: Maybe<
+    | ProcessUpdateManyWithWhereNestedInput[]
+    | ProcessUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface ProcessingTypeCreateManyInput {
+  create?: Maybe<ProcessingTypeCreateInput[] | ProcessingTypeCreateInput>;
+  connect?: Maybe<
+    ProcessingTypeWhereUniqueInput[] | ProcessingTypeWhereUniqueInput
+  >;
+}
+
+export interface ProcessUpdateWithWhereUniqueWithoutOrganizationalUnitInput {
+  where: ProcessWhereUniqueInput;
+  data: ProcessUpdateWithoutOrganizationalUnitDataInput;
+}
+
+export interface RecipientsTypeCreateOneInput {
+  create?: Maybe<RecipientsTypeCreateInput>;
+  connect?: Maybe<RecipientsTypeWhereUniqueInput>;
 }
 
 export interface ProcessUpdateWithoutOrganizationalUnitDataInput {
@@ -2996,11 +2880,9 @@ export interface ProcessUpdateWithoutOrganizationalUnitDataInput {
   processOwner?: Maybe<BusinessRoleUpdateOneWithoutProcessInput>;
 }
 
-export interface ProcessingTypeCreateManyInput {
-  create?: Maybe<ProcessingTypeCreateInput[] | ProcessingTypeCreateInput>;
-  connect?: Maybe<
-    ProcessingTypeWhereUniqueInput[] | ProcessingTypeWhereUniqueInput
-  >;
+export interface LocationCreateOneWithoutBusinessPartnerInput {
+  create?: Maybe<LocationCreateWithoutBusinessPartnerInput>;
+  connect?: Maybe<LocationWhereUniqueInput>;
 }
 
 export interface ProcessingActivityUpdateManyWithoutProcessInput {
@@ -3037,9 +2919,9 @@ export interface ProcessingActivityUpdateManyWithoutProcessInput {
   >;
 }
 
-export interface RecipientsTypeCreateOneInput {
-  create?: Maybe<RecipientsTypeCreateInput>;
-  connect?: Maybe<RecipientsTypeWhereUniqueInput>;
+export interface DataTypeCreateManyInput {
+  create?: Maybe<DataTypeCreateInput[] | DataTypeCreateInput>;
+  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
 }
 
 export interface ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput {
@@ -3047,18 +2929,21 @@ export interface ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput {
   data: ProcessingActivityUpdateWithoutProcessDataInput;
 }
 
-export interface LocationCreateOneWithoutBusinessPartnerInput {
-  create?: Maybe<LocationCreateWithoutBusinessPartnerInput>;
-  connect?: Maybe<LocationWhereUniqueInput>;
+export interface RetentionPolicyCreateManyInput {
+  create?: Maybe<RetentionPolicyCreateInput[] | RetentionPolicyCreateInput>;
+  connect?: Maybe<
+    RetentionPolicyWhereUniqueInput[] | RetentionPolicyWhereUniqueInput
+  >;
 }
 
 export interface ProcessingActivityUpdateWithoutProcessDataInput {
   name?: Maybe<String>;
   purpose?: Maybe<String>;
-  iOwnThis?: Maybe<Boolean>;
+  imController?: Maybe<Boolean>;
   securityMeasures?: Maybe<String>;
   legalGroundComment?: Maybe<String>;
   profiling?: Maybe<Boolean>;
+  publicSource?: Maybe<Boolean>;
   linkToDpia?: Maybe<String>;
   linkToLia?: Maybe<String>;
   recipients?: Maybe<BusinessPartnerUpdateManyInput>;
@@ -3068,9 +2953,14 @@ export interface ProcessingActivityUpdateWithoutProcessDataInput {
   legalGrounds?: Maybe<LegalGroundUpdateManyInput>;
 }
 
-export interface DataTypeCreateManyInput {
-  create?: Maybe<DataTypeCreateInput[] | DataTypeCreateInput>;
-  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+export interface DataSubjectTypeCreateManyWithoutDataTypesInput {
+  create?: Maybe<
+    | DataSubjectTypeCreateWithoutDataTypesInput[]
+    | DataSubjectTypeCreateWithoutDataTypesInput
+  >;
+  connect?: Maybe<
+    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
+  >;
 }
 
 export interface LegalGroundUpdateManyInput {
@@ -3098,32 +2988,6 @@ export interface LegalGroundUpdateManyInput {
   >;
 }
 
-export interface RetentionPolicyCreateOneInput {
-  create?: Maybe<RetentionPolicyCreateInput>;
-  connect?: Maybe<RetentionPolicyWhereUniqueInput>;
-}
-
-export interface LegalGroundUpdateWithWhereUniqueNestedInput {
-  where: LegalGroundWhereUniqueInput;
-  data: LegalGroundUpdateDataInput;
-}
-
-export interface DataSubjectTypeCreateManyWithoutDataTypesInput {
-  create?: Maybe<
-    | DataSubjectTypeCreateWithoutDataTypesInput[]
-    | DataSubjectTypeCreateWithoutDataTypesInput
-  >;
-  connect?: Maybe<
-    DataSubjectTypeWhereUniqueInput[] | DataSubjectTypeWhereUniqueInput
-  >;
-}
-
-export interface LegalGroundUpdateDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  specialCategoryCondition?: Maybe<Boolean>;
-}
-
 export interface ApplicationCreateManyWithoutDataTypesInput {
   create?: Maybe<
     | ApplicationCreateWithoutDataTypesInput[]
@@ -3132,15 +2996,36 @@ export interface ApplicationCreateManyWithoutDataTypesInput {
   connect?: Maybe<ApplicationWhereUniqueInput[] | ApplicationWhereUniqueInput>;
 }
 
+export interface LegalGroundUpdateWithWhereUniqueNestedInput {
+  where: LegalGroundWhereUniqueInput;
+  data: LegalGroundUpdateDataInput;
+}
+
+export interface BusinessRoleCreateOneWithoutAppBusinessOwnerInput {
+  create?: Maybe<BusinessRoleCreateWithoutAppBusinessOwnerInput>;
+  connect?: Maybe<BusinessRoleWhereUniqueInput>;
+}
+
+export interface LegalGroundUpdateDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  specialCategoryCondition?: Maybe<Boolean>;
+}
+
+export interface PersonCreateOneWithoutRolesInput {
+  create?: Maybe<PersonCreateWithoutRolesInput>;
+  connect?: Maybe<PersonWhereUniqueInput>;
+}
+
 export interface LegalGroundUpsertWithWhereUniqueNestedInput {
   where: LegalGroundWhereUniqueInput;
   update: LegalGroundUpdateDataInput;
   create: LegalGroundCreateInput;
 }
 
-export interface BusinessRoleCreateOneWithoutAppBusinessOwnerInput {
-  create?: Maybe<BusinessRoleCreateWithoutAppBusinessOwnerInput>;
-  connect?: Maybe<BusinessRoleWhereUniqueInput>;
+export interface UserCreateOneWithoutPersonInput {
+  create?: Maybe<UserCreateWithoutPersonInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
 }
 
 export interface LegalGroundScalarWhereInput {
@@ -3193,35 +3078,13 @@ export interface LegalGroundScalarWhereInput {
   NOT?: Maybe<LegalGroundScalarWhereInput[] | LegalGroundScalarWhereInput>;
 }
 
-export interface PersonCreateOneWithoutRolesInput {
-  create?: Maybe<PersonCreateWithoutRolesInput>;
-  connect?: Maybe<PersonWhereUniqueInput>;
+export interface UserCreatespecialPermissionsInput {
+  set?: Maybe<PERMISSION[] | PERMISSION>;
 }
 
 export interface LegalGroundUpdateManyWithWhereNestedInput {
   where: LegalGroundScalarWhereInput;
   data: LegalGroundUpdateManyDataInput;
-}
-
-export interface UserCreateOneWithoutPersonInput {
-  create?: Maybe<UserCreateWithoutPersonInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface LegalGroundUpdateManyDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  specialCategoryCondition?: Maybe<Boolean>;
-}
-
-export interface UserCreatespecialPermissionsInput {
-  set?: Maybe<PERMISSION[] | PERMISSION>;
-}
-
-export interface ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput {
-  where: ProcessingActivityWhereUniqueInput;
-  update: ProcessingActivityUpdateWithoutProcessDataInput;
-  create: ProcessingActivityCreateWithoutProcessInput;
 }
 
 export interface OrganizationalUnitCreateWithoutBusinessRolesInput {
@@ -3234,6 +3097,38 @@ export interface OrganizationalUnitCreateWithoutBusinessRolesInput {
   organizationalUnitType?: Maybe<
     OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
   >;
+}
+
+export interface LegalGroundUpdateManyDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  specialCategoryCondition?: Maybe<Boolean>;
+}
+
+export interface OrganizationalUnitCreateWithoutParentInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  children?: Maybe<OrganizationalUnitCreateManyWithoutParentInput>;
+  processes?: Maybe<ProcessCreateManyWithoutOrganizationalUnitInput>;
+  businessRoles?: Maybe<BusinessRoleCreateManyWithoutOrganizationalUnitInput>;
+  organizationalUnitType?: Maybe<
+    OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
+  >;
+}
+
+export interface ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput {
+  where: ProcessingActivityWhereUniqueInput;
+  update: ProcessingActivityUpdateWithoutProcessDataInput;
+  create: ProcessingActivityCreateWithoutProcessInput;
+}
+
+export interface ProcessCreateWithoutOrganizationalUnitInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  processingActivities?: Maybe<ProcessingActivityCreateManyWithoutProcessInput>;
+  processOwner?: Maybe<BusinessRoleCreateOneWithoutProcessInput>;
 }
 
 export interface ProcessingActivityScalarWhereInput {
@@ -3279,8 +3174,8 @@ export interface ProcessingActivityScalarWhereInput {
   purpose_not_starts_with?: Maybe<String>;
   purpose_ends_with?: Maybe<String>;
   purpose_not_ends_with?: Maybe<String>;
-  iOwnThis?: Maybe<Boolean>;
-  iOwnThis_not?: Maybe<Boolean>;
+  imController?: Maybe<Boolean>;
+  imController_not?: Maybe<Boolean>;
   securityMeasures?: Maybe<String>;
   securityMeasures_not?: Maybe<String>;
   securityMeasures_in?: Maybe<String[] | String>;
@@ -3311,6 +3206,8 @@ export interface ProcessingActivityScalarWhereInput {
   legalGroundComment_not_ends_with?: Maybe<String>;
   profiling?: Maybe<Boolean>;
   profiling_not?: Maybe<Boolean>;
+  publicSource?: Maybe<Boolean>;
+  publicSource_not?: Maybe<Boolean>;
   linkToDpia?: Maybe<String>;
   linkToDpia_not?: Maybe<String>;
   linkToDpia_in?: Maybe<String[] | String>;
@@ -3366,50 +3263,15 @@ export interface ProcessingActivityScalarWhereInput {
   >;
 }
 
-export interface OrganizationalUnitCreateWithoutParentInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  children?: Maybe<OrganizationalUnitCreateManyWithoutParentInput>;
-  processes?: Maybe<ProcessCreateManyWithoutOrganizationalUnitInput>;
-  businessRoles?: Maybe<BusinessRoleCreateManyWithoutOrganizationalUnitInput>;
-  organizationalUnitType?: Maybe<
-    OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
-  >;
-}
-
-export interface ProcessingActivityUpdateManyWithWhereNestedInput {
-  where: ProcessingActivityScalarWhereInput;
-  data: ProcessingActivityUpdateManyDataInput;
-}
-
-export interface ProcessCreateWithoutOrganizationalUnitInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  processingActivities?: Maybe<ProcessingActivityCreateManyWithoutProcessInput>;
-  processOwner?: Maybe<BusinessRoleCreateOneWithoutProcessInput>;
-}
-
-export interface ProcessingActivityUpdateManyDataInput {
-  name?: Maybe<String>;
-  purpose?: Maybe<String>;
-  iOwnThis?: Maybe<Boolean>;
-  securityMeasures?: Maybe<String>;
-  legalGroundComment?: Maybe<String>;
-  profiling?: Maybe<Boolean>;
-  linkToDpia?: Maybe<String>;
-  linkToLia?: Maybe<String>;
-}
-
 export interface ProcessingActivityCreateWithoutProcessInput {
   id?: Maybe<ID_Input>;
   name: String;
   purpose?: Maybe<String>;
-  iOwnThis?: Maybe<Boolean>;
+  imController?: Maybe<Boolean>;
   securityMeasures?: Maybe<String>;
   legalGroundComment?: Maybe<String>;
   profiling?: Maybe<Boolean>;
+  publicSource?: Maybe<Boolean>;
   linkToDpia?: Maybe<String>;
   linkToLia?: Maybe<String>;
   recipients?: Maybe<BusinessPartnerCreateManyInput>;
@@ -3417,6 +3279,45 @@ export interface ProcessingActivityCreateWithoutProcessInput {
   dataTypes?: Maybe<DataTypeCreateManyInput>;
   procesessingTypes?: Maybe<ProcessingTypeCreateManyInput>;
   legalGrounds?: Maybe<LegalGroundCreateManyInput>;
+}
+
+export interface ProcessingActivityUpdateManyWithWhereNestedInput {
+  where: ProcessingActivityScalarWhereInput;
+  data: ProcessingActivityUpdateManyDataInput;
+}
+
+export interface LegalGroundCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  specialCategoryCondition?: Maybe<Boolean>;
+}
+
+export interface ProcessingActivityUpdateManyDataInput {
+  name?: Maybe<String>;
+  purpose?: Maybe<String>;
+  imController?: Maybe<Boolean>;
+  securityMeasures?: Maybe<String>;
+  legalGroundComment?: Maybe<String>;
+  profiling?: Maybe<Boolean>;
+  publicSource?: Maybe<Boolean>;
+  linkToDpia?: Maybe<String>;
+  linkToLia?: Maybe<String>;
+}
+
+export interface BusinessRoleCreateWithoutProcessInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  raciPrivacy?: Maybe<RACI>;
+  raciSecurity?: Maybe<RACI>;
+  raciFinancial?: Maybe<RACI>;
+  raciExecutive?: Maybe<RACI>;
+  person?: Maybe<PersonCreateOneWithoutRolesInput>;
+  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
+  appBusinessOwner?: Maybe<ApplicationCreateManyWithoutBusinessOwnerInput>;
+  appItOwner?: Maybe<ApplicationCreateManyWithoutItOwnerInput>;
+  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
 }
 
 export interface BusinessRoleUpdateOneWithoutProcessInput {
@@ -3428,11 +3329,15 @@ export interface BusinessRoleUpdateOneWithoutProcessInput {
   connect?: Maybe<BusinessRoleWhereUniqueInput>;
 }
 
-export interface LegalGroundCreateInput {
+export interface ApplicationCreateWithoutBusinessOwnerInput {
   id?: Maybe<ID_Input>;
   name: String;
+  alias?: Maybe<Json>;
   description?: Maybe<String>;
-  specialCategoryCondition?: Maybe<Boolean>;
+  processingActivities?: Maybe<ProcessingActivityCreateManyInput>;
+  dataTypes?: Maybe<DataTypeCreateManyWithoutApplicationInput>;
+  itOwner?: Maybe<BusinessRoleCreateOneWithoutAppItOwnerInput>;
+  securityAdministrator?: Maybe<BusinessRoleCreateOneWithoutAppSecAdminInput>;
 }
 
 export interface BusinessRoleUpdateWithoutProcessDataInput {
@@ -3451,19 +3356,15 @@ export interface BusinessRoleUpdateWithoutProcessDataInput {
   appSecAdmin?: Maybe<ApplicationUpdateManyWithoutSecurityAdministratorInput>;
 }
 
-export interface BusinessRoleCreateWithoutProcessInput {
+export interface DataTypeCreateWithoutApplicationInput {
   id?: Maybe<ID_Input>;
   name: String;
   description?: Maybe<String>;
-  raciPrivacy?: Maybe<RACI>;
-  raciSecurity?: Maybe<RACI>;
-  raciFinancial?: Maybe<RACI>;
-  raciExecutive?: Maybe<RACI>;
-  person?: Maybe<PersonCreateOneWithoutRolesInput>;
-  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
-  appBusinessOwner?: Maybe<ApplicationCreateManyWithoutBusinessOwnerInput>;
-  appItOwner?: Maybe<ApplicationCreateManyWithoutItOwnerInput>;
-  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
+  retentionPolicy?: Maybe<RetentionPolicyCreateManyInput>;
+  dataSubjectType?: Maybe<DataSubjectTypeCreateManyWithoutDataTypesInput>;
+  classificationLabels?: Maybe<
+    ClassificationLabelCreateManyWithoutDataTypeInput
+  >;
 }
 
 export interface ApplicationUpdateManyWithoutBusinessOwnerInput {
@@ -3494,15 +3395,14 @@ export interface ApplicationUpdateManyWithoutBusinessOwnerInput {
   >;
 }
 
-export interface ApplicationCreateWithoutBusinessOwnerInput {
+export interface ClassificationLabelCreateWithoutDataTypeInput {
   id?: Maybe<ID_Input>;
-  name: String;
-  alias?: Maybe<Json>;
-  description?: Maybe<String>;
-  processingActivities?: Maybe<ProcessingActivityCreateManyInput>;
-  dataTypes?: Maybe<DataTypeCreateManyWithoutApplicationInput>;
-  itOwner?: Maybe<BusinessRoleCreateOneWithoutAppItOwnerInput>;
-  securityAdministrator?: Maybe<BusinessRoleCreateOneWithoutAppSecAdminInput>;
+  score: Int;
+  label: String;
+  criteria?: Maybe<String>;
+  qualityAttribute?: Maybe<
+    QualityAttributeCreateOneWithoutClassificationLabelsInput
+  >;
 }
 
 export interface ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput {
@@ -3510,15 +3410,11 @@ export interface ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput {
   data: ApplicationUpdateWithoutBusinessOwnerDataInput;
 }
 
-export interface DataTypeCreateWithoutApplicationInput {
+export interface QualityAttributeCreateWithoutClassificationLabelsInput {
   id?: Maybe<ID_Input>;
   name: String;
   description?: Maybe<String>;
-  retentionPolicy: RetentionPolicyCreateOneInput;
-  dataSubjectType?: Maybe<DataSubjectTypeCreateManyWithoutDataTypesInput>;
-  classificationLabels?: Maybe<
-    ClassificationLabelCreateManyWithoutDataTypeInput
-  >;
+  appliesToObject: CLASSIFICATIONOBJECT;
 }
 
 export interface ApplicationUpdateWithoutBusinessOwnerDataInput {
@@ -3531,14 +3427,19 @@ export interface ApplicationUpdateWithoutBusinessOwnerDataInput {
   securityAdministrator?: Maybe<BusinessRoleUpdateOneWithoutAppSecAdminInput>;
 }
 
-export interface ClassificationLabelCreateWithoutDataTypeInput {
+export interface BusinessRoleCreateWithoutAppItOwnerInput {
   id?: Maybe<ID_Input>;
-  score: Int;
-  label: String;
-  criteria?: Maybe<String>;
-  qualityAttribute?: Maybe<
-    QualityAttributeCreateOneWithoutClassificationLabelsInput
-  >;
+  name: String;
+  description?: Maybe<String>;
+  raciPrivacy?: Maybe<RACI>;
+  raciSecurity?: Maybe<RACI>;
+  raciFinancial?: Maybe<RACI>;
+  raciExecutive?: Maybe<RACI>;
+  person?: Maybe<PersonCreateOneWithoutRolesInput>;
+  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
+  process?: Maybe<ProcessCreateManyWithoutProcessOwnerInput>;
+  appBusinessOwner?: Maybe<ApplicationCreateManyWithoutBusinessOwnerInput>;
+  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
 }
 
 export interface DataTypeUpdateManyWithoutApplicationInput {
@@ -3565,11 +3466,12 @@ export interface DataTypeUpdateManyWithoutApplicationInput {
   >;
 }
 
-export interface QualityAttributeCreateWithoutClassificationLabelsInput {
+export interface ProcessCreateWithoutProcessOwnerInput {
   id?: Maybe<ID_Input>;
   name: String;
   description?: Maybe<String>;
-  appliesToObject: CLASSIFICATIONOBJECT;
+  organizationalUnit?: Maybe<OrganizationalUnitCreateOneWithoutProcessesInput>;
+  processingActivities?: Maybe<ProcessingActivityCreateManyWithoutProcessInput>;
 }
 
 export interface DataTypeUpdateWithWhereUniqueWithoutApplicationInput {
@@ -3577,37 +3479,38 @@ export interface DataTypeUpdateWithWhereUniqueWithoutApplicationInput {
   data: DataTypeUpdateWithoutApplicationDataInput;
 }
 
-export interface BusinessRoleCreateWithoutAppItOwnerInput {
+export interface OrganizationalUnitCreateWithoutProcessesInput {
   id?: Maybe<ID_Input>;
   name: String;
   description?: Maybe<String>;
-  raciPrivacy?: Maybe<RACI>;
-  raciSecurity?: Maybe<RACI>;
-  raciFinancial?: Maybe<RACI>;
-  raciExecutive?: Maybe<RACI>;
-  person?: Maybe<PersonCreateOneWithoutRolesInput>;
-  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
-  process?: Maybe<ProcessCreateManyWithoutProcessOwnerInput>;
-  appBusinessOwner?: Maybe<ApplicationCreateManyWithoutBusinessOwnerInput>;
-  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
+  children?: Maybe<OrganizationalUnitCreateManyWithoutParentInput>;
+  parent?: Maybe<OrganizationalUnitCreateOneWithoutChildrenInput>;
+  businessRoles?: Maybe<BusinessRoleCreateManyWithoutOrganizationalUnitInput>;
+  organizationalUnitType?: Maybe<
+    OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
+  >;
 }
 
 export interface DataTypeUpdateWithoutApplicationDataInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
-  retentionPolicy?: Maybe<RetentionPolicyUpdateOneRequiredInput>;
+  retentionPolicy?: Maybe<RetentionPolicyUpdateManyInput>;
   dataSubjectType?: Maybe<DataSubjectTypeUpdateManyWithoutDataTypesInput>;
   classificationLabels?: Maybe<
     ClassificationLabelUpdateManyWithoutDataTypeInput
   >;
 }
 
-export interface ProcessCreateWithoutProcessOwnerInput {
+export interface OrganizationalUnitCreateWithoutChildrenInput {
   id?: Maybe<ID_Input>;
   name: String;
   description?: Maybe<String>;
-  organizationalUnit?: Maybe<OrganizationalUnitCreateOneWithoutProcessesInput>;
-  processingActivities?: Maybe<ProcessingActivityCreateManyWithoutProcessInput>;
+  parent?: Maybe<OrganizationalUnitCreateOneWithoutChildrenInput>;
+  processes?: Maybe<ProcessCreateManyWithoutOrganizationalUnitInput>;
+  businessRoles?: Maybe<BusinessRoleCreateManyWithoutOrganizationalUnitInput>;
+  organizationalUnitType?: Maybe<
+    OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
+  >;
 }
 
 export interface ClassificationLabelUpdateManyWithoutDataTypeInput {
@@ -3644,44 +3547,6 @@ export interface ClassificationLabelUpdateManyWithoutDataTypeInput {
   >;
 }
 
-export interface OrganizationalUnitCreateWithoutProcessesInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  children?: Maybe<OrganizationalUnitCreateManyWithoutParentInput>;
-  parent?: Maybe<OrganizationalUnitCreateOneWithoutChildrenInput>;
-  businessRoles?: Maybe<BusinessRoleCreateManyWithoutOrganizationalUnitInput>;
-  organizationalUnitType?: Maybe<
-    OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
-  >;
-}
-
-export interface ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput {
-  where: ClassificationLabelWhereUniqueInput;
-  data: ClassificationLabelUpdateWithoutDataTypeDataInput;
-}
-
-export interface OrganizationalUnitCreateWithoutChildrenInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  parent?: Maybe<OrganizationalUnitCreateOneWithoutChildrenInput>;
-  processes?: Maybe<ProcessCreateManyWithoutOrganizationalUnitInput>;
-  businessRoles?: Maybe<BusinessRoleCreateManyWithoutOrganizationalUnitInput>;
-  organizationalUnitType?: Maybe<
-    OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
-  >;
-}
-
-export interface ClassificationLabelUpdateWithoutDataTypeDataInput {
-  score?: Maybe<Int>;
-  label?: Maybe<String>;
-  criteria?: Maybe<String>;
-  qualityAttribute?: Maybe<
-    QualityAttributeUpdateOneWithoutClassificationLabelsInput
-  >;
-}
-
 export interface BusinessRoleCreateWithoutOrganizationalUnitInput {
   id?: Maybe<ID_Input>;
   name: String;
@@ -3697,13 +3562,9 @@ export interface BusinessRoleCreateWithoutOrganizationalUnitInput {
   appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
 }
 
-export interface QualityAttributeUpdateOneWithoutClassificationLabelsInput {
-  create?: Maybe<QualityAttributeCreateWithoutClassificationLabelsInput>;
-  update?: Maybe<QualityAttributeUpdateWithoutClassificationLabelsDataInput>;
-  upsert?: Maybe<QualityAttributeUpsertWithoutClassificationLabelsInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<QualityAttributeWhereUniqueInput>;
+export interface ClassificationLabelUpdateWithWhereUniqueWithoutDataTypeInput {
+  where: ClassificationLabelWhereUniqueInput;
+  data: ClassificationLabelUpdateWithoutDataTypeDataInput;
 }
 
 export interface ApplicationCreateWithoutItOwnerInput {
@@ -3717,10 +3578,13 @@ export interface ApplicationCreateWithoutItOwnerInput {
   securityAdministrator?: Maybe<BusinessRoleCreateOneWithoutAppSecAdminInput>;
 }
 
-export interface QualityAttributeUpdateWithoutClassificationLabelsDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  appliesToObject?: Maybe<CLASSIFICATIONOBJECT>;
+export interface ClassificationLabelUpdateWithoutDataTypeDataInput {
+  score?: Maybe<Int>;
+  label?: Maybe<String>;
+  criteria?: Maybe<String>;
+  qualityAttribute?: Maybe<
+    QualityAttributeUpdateOneWithoutClassificationLabelsInput
+  >;
 }
 
 export interface BusinessRoleCreateWithoutAppSecAdminInput {
@@ -3738,9 +3602,13 @@ export interface BusinessRoleCreateWithoutAppSecAdminInput {
   appItOwner?: Maybe<ApplicationCreateManyWithoutItOwnerInput>;
 }
 
-export interface QualityAttributeUpsertWithoutClassificationLabelsInput {
-  update: QualityAttributeUpdateWithoutClassificationLabelsDataInput;
-  create: QualityAttributeCreateWithoutClassificationLabelsInput;
+export interface QualityAttributeUpdateOneWithoutClassificationLabelsInput {
+  create?: Maybe<QualityAttributeCreateWithoutClassificationLabelsInput>;
+  update?: Maybe<QualityAttributeUpdateWithoutClassificationLabelsDataInput>;
+  upsert?: Maybe<QualityAttributeUpsertWithoutClassificationLabelsInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<QualityAttributeWhereUniqueInput>;
 }
 
 export interface ApplicationCreateWithoutSecurityAdministratorInput {
@@ -3754,10 +3622,10 @@ export interface ApplicationCreateWithoutSecurityAdministratorInput {
   itOwner?: Maybe<BusinessRoleCreateOneWithoutAppItOwnerInput>;
 }
 
-export interface ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput {
-  where: ClassificationLabelWhereUniqueInput;
-  update: ClassificationLabelUpdateWithoutDataTypeDataInput;
-  create: ClassificationLabelCreateWithoutDataTypeInput;
+export interface QualityAttributeUpdateWithoutClassificationLabelsDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  appliesToObject?: Maybe<CLASSIFICATIONOBJECT>;
 }
 
 export interface OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput {
@@ -3765,6 +3633,84 @@ export interface OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput {
   name: String;
   description?: Maybe<String>;
   reportingUnit?: Maybe<Boolean>;
+}
+
+export interface QualityAttributeUpsertWithoutClassificationLabelsInput {
+  update: QualityAttributeUpdateWithoutClassificationLabelsDataInput;
+  create: QualityAttributeCreateWithoutClassificationLabelsInput;
+}
+
+export interface ProcessCreateWithoutProcessingActivitiesInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  organizationalUnit?: Maybe<OrganizationalUnitCreateOneWithoutProcessesInput>;
+  processOwner?: Maybe<BusinessRoleCreateOneWithoutProcessInput>;
+}
+
+export interface ClassificationLabelUpsertWithWhereUniqueWithoutDataTypeInput {
+  where: ClassificationLabelWhereUniqueInput;
+  update: ClassificationLabelUpdateWithoutDataTypeDataInput;
+  create: ClassificationLabelCreateWithoutDataTypeInput;
+}
+
+export interface OrganizationalUnitTypeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  reportingUnit?: Maybe<Boolean>;
+  reportingUnit_not?: Maybe<Boolean>;
+  organizationalUnit_every?: Maybe<OrganizationalUnitWhereInput>;
+  organizationalUnit_some?: Maybe<OrganizationalUnitWhereInput>;
+  organizationalUnit_none?: Maybe<OrganizationalUnitWhereInput>;
+  AND?: Maybe<
+    OrganizationalUnitTypeWhereInput[] | OrganizationalUnitTypeWhereInput
+  >;
+  OR?: Maybe<
+    OrganizationalUnitTypeWhereInput[] | OrganizationalUnitTypeWhereInput
+  >;
+  NOT?: Maybe<
+    OrganizationalUnitTypeWhereInput[] | OrganizationalUnitTypeWhereInput
+  >;
 }
 
 export interface ClassificationLabelScalarWhereInput {
@@ -3827,70 +3773,6 @@ export interface ClassificationLabelScalarWhereInput {
   NOT?: Maybe<
     ClassificationLabelScalarWhereInput[] | ClassificationLabelScalarWhereInput
   >;
-}
-
-export interface OrganizationalUnitTypeWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  reportingUnit?: Maybe<Boolean>;
-  reportingUnit_not?: Maybe<Boolean>;
-  organizationalUnit_every?: Maybe<OrganizationalUnitWhereInput>;
-  organizationalUnit_some?: Maybe<OrganizationalUnitWhereInput>;
-  organizationalUnit_none?: Maybe<OrganizationalUnitWhereInput>;
-  AND?: Maybe<
-    OrganizationalUnitTypeWhereInput[] | OrganizationalUnitTypeWhereInput
-  >;
-  OR?: Maybe<
-    OrganizationalUnitTypeWhereInput[] | OrganizationalUnitTypeWhereInput
-  >;
-  NOT?: Maybe<
-    OrganizationalUnitTypeWhereInput[] | OrganizationalUnitTypeWhereInput
-  >;
-}
-
-export interface ClassificationLabelUpdateManyWithWhereNestedInput {
-  where: ClassificationLabelScalarWhereInput;
-  data: ClassificationLabelUpdateManyDataInput;
 }
 
 export interface OrganizationalUnitWhereInput {
@@ -3968,10 +3850,9 @@ export interface OrganizationalUnitWhereInput {
   NOT?: Maybe<OrganizationalUnitWhereInput[] | OrganizationalUnitWhereInput>;
 }
 
-export interface ClassificationLabelUpdateManyDataInput {
-  score?: Maybe<Int>;
-  label?: Maybe<String>;
-  criteria?: Maybe<String>;
+export interface ClassificationLabelUpdateManyWithWhereNestedInput {
+  where: ClassificationLabelScalarWhereInput;
+  data: ClassificationLabelUpdateManyDataInput;
 }
 
 export interface UserWhereInput {
@@ -4041,21 +3922,114 @@ export interface UserWhereInput {
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
+export interface ClassificationLabelUpdateManyDataInput {
+  score?: Maybe<Int>;
+  label?: Maybe<String>;
+  criteria?: Maybe<String>;
+}
+
+export interface BusinessRoleWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  raciPrivacy?: Maybe<RACI>;
+  raciPrivacy_not?: Maybe<RACI>;
+  raciPrivacy_in?: Maybe<RACI[] | RACI>;
+  raciPrivacy_not_in?: Maybe<RACI[] | RACI>;
+  raciSecurity?: Maybe<RACI>;
+  raciSecurity_not?: Maybe<RACI>;
+  raciSecurity_in?: Maybe<RACI[] | RACI>;
+  raciSecurity_not_in?: Maybe<RACI[] | RACI>;
+  raciFinancial?: Maybe<RACI>;
+  raciFinancial_not?: Maybe<RACI>;
+  raciFinancial_in?: Maybe<RACI[] | RACI>;
+  raciFinancial_not_in?: Maybe<RACI[] | RACI>;
+  raciExecutive?: Maybe<RACI>;
+  raciExecutive_not?: Maybe<RACI>;
+  raciExecutive_in?: Maybe<RACI[] | RACI>;
+  raciExecutive_not_in?: Maybe<RACI[] | RACI>;
+  person?: Maybe<PersonWhereInput>;
+  organizationalUnit?: Maybe<OrganizationalUnitWhereInput>;
+  process_every?: Maybe<ProcessWhereInput>;
+  process_some?: Maybe<ProcessWhereInput>;
+  process_none?: Maybe<ProcessWhereInput>;
+  appBusinessOwner_every?: Maybe<ApplicationWhereInput>;
+  appBusinessOwner_some?: Maybe<ApplicationWhereInput>;
+  appBusinessOwner_none?: Maybe<ApplicationWhereInput>;
+  appItOwner_every?: Maybe<ApplicationWhereInput>;
+  appItOwner_some?: Maybe<ApplicationWhereInput>;
+  appItOwner_none?: Maybe<ApplicationWhereInput>;
+  appSecAdmin_every?: Maybe<ApplicationWhereInput>;
+  appSecAdmin_some?: Maybe<ApplicationWhereInput>;
+  appSecAdmin_none?: Maybe<ApplicationWhereInput>;
+  AND?: Maybe<BusinessRoleWhereInput[] | BusinessRoleWhereInput>;
+  OR?: Maybe<BusinessRoleWhereInput[] | BusinessRoleWhereInput>;
+  NOT?: Maybe<BusinessRoleWhereInput[] | BusinessRoleWhereInput>;
+}
+
 export interface DataTypeUpsertWithWhereUniqueWithoutApplicationInput {
   where: DataTypeWhereUniqueInput;
   update: DataTypeUpdateWithoutApplicationDataInput;
   create: DataTypeCreateWithoutApplicationInput;
 }
 
-export interface PersonSubscriptionWhereInput {
+export interface OrganizationalUnitTypeSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<PersonWhereInput>;
-  AND?: Maybe<PersonSubscriptionWhereInput[] | PersonSubscriptionWhereInput>;
-  OR?: Maybe<PersonSubscriptionWhereInput[] | PersonSubscriptionWhereInput>;
-  NOT?: Maybe<PersonSubscriptionWhereInput[] | PersonSubscriptionWhereInput>;
+  node?: Maybe<OrganizationalUnitTypeWhereInput>;
+  AND?: Maybe<
+    | OrganizationalUnitTypeSubscriptionWhereInput[]
+    | OrganizationalUnitTypeSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | OrganizationalUnitTypeSubscriptionWhereInput[]
+    | OrganizationalUnitTypeSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | OrganizationalUnitTypeSubscriptionWhereInput[]
+    | OrganizationalUnitTypeSubscriptionWhereInput
+  >;
 }
 
 export interface DataTypeScalarWhereInput {
@@ -4106,23 +4080,20 @@ export interface DataTypeScalarWhereInput {
   NOT?: Maybe<DataTypeScalarWhereInput[] | DataTypeScalarWhereInput>;
 }
 
-export interface OrganizationalUnitSubscriptionWhereInput {
+export interface LegalGroundSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<OrganizationalUnitWhereInput>;
+  node?: Maybe<LegalGroundWhereInput>;
   AND?: Maybe<
-    | OrganizationalUnitSubscriptionWhereInput[]
-    | OrganizationalUnitSubscriptionWhereInput
+    LegalGroundSubscriptionWhereInput[] | LegalGroundSubscriptionWhereInput
   >;
   OR?: Maybe<
-    | OrganizationalUnitSubscriptionWhereInput[]
-    | OrganizationalUnitSubscriptionWhereInput
+    LegalGroundSubscriptionWhereInput[] | LegalGroundSubscriptionWhereInput
   >;
   NOT?: Maybe<
-    | OrganizationalUnitSubscriptionWhereInput[]
-    | OrganizationalUnitSubscriptionWhereInput
+    LegalGroundSubscriptionWhereInput[] | LegalGroundSubscriptionWhereInput
   >;
 }
 
@@ -4131,19 +4102,52 @@ export interface DataTypeUpdateManyWithWhereNestedInput {
   data: DataTypeUpdateManyDataInput;
 }
 
-export interface DataTypeSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<DataTypeWhereInput>;
-  AND?: Maybe<
-    DataTypeSubscriptionWhereInput[] | DataTypeSubscriptionWhereInput
-  >;
-  OR?: Maybe<DataTypeSubscriptionWhereInput[] | DataTypeSubscriptionWhereInput>;
-  NOT?: Maybe<
-    DataTypeSubscriptionWhereInput[] | DataTypeSubscriptionWhereInput
-  >;
+export interface RecipientsTypeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  AND?: Maybe<RecipientsTypeWhereInput[] | RecipientsTypeWhereInput>;
+  OR?: Maybe<RecipientsTypeWhereInput[] | RecipientsTypeWhereInput>;
+  NOT?: Maybe<RecipientsTypeWhereInput[] | RecipientsTypeWhereInput>;
 }
 
 export interface DataTypeUpdateManyDataInput {
@@ -4151,24 +4155,52 @@ export interface DataTypeUpdateManyDataInput {
   description?: Maybe<String>;
 }
 
-export interface DataSubjectTypeSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<DataSubjectTypeWhereInput>;
-  AND?: Maybe<
-    | DataSubjectTypeSubscriptionWhereInput[]
-    | DataSubjectTypeSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | DataSubjectTypeSubscriptionWhereInput[]
-    | DataSubjectTypeSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | DataSubjectTypeSubscriptionWhereInput[]
-    | DataSubjectTypeSubscriptionWhereInput
-  >;
+export interface ProcessingTypeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  AND?: Maybe<ProcessingTypeWhereInput[] | ProcessingTypeWhereInput>;
+  OR?: Maybe<ProcessingTypeWhereInput[] | ProcessingTypeWhereInput>;
+  NOT?: Maybe<ProcessingTypeWhereInput[] | ProcessingTypeWhereInput>;
 }
 
 export interface BusinessRoleUpdateOneWithoutAppItOwnerInput {
@@ -4180,24 +4212,9 @@ export interface BusinessRoleUpdateOneWithoutAppItOwnerInput {
   connect?: Maybe<BusinessRoleWhereUniqueInput>;
 }
 
-export interface BusinessPartnerSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<BusinessPartnerWhereInput>;
-  AND?: Maybe<
-    | BusinessPartnerSubscriptionWhereInput[]
-    | BusinessPartnerSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | BusinessPartnerSubscriptionWhereInput[]
-    | BusinessPartnerSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | BusinessPartnerSubscriptionWhereInput[]
-    | BusinessPartnerSubscriptionWhereInput
-  >;
+export interface PersonUpsertWithoutUserInput {
+  update: PersonUpdateWithoutUserDataInput;
+  create: PersonCreateWithoutUserInput;
 }
 
 export interface BusinessRoleUpdateWithoutAppItOwnerDataInput {
@@ -4216,10 +4233,12 @@ export interface BusinessRoleUpdateWithoutAppItOwnerDataInput {
   appSecAdmin?: Maybe<ApplicationUpdateManyWithoutSecurityAdministratorInput>;
 }
 
-export interface PersonUpdateWithoutUserDataInput {
-  name?: Maybe<String>;
-  surname?: Maybe<String>;
-  roles?: Maybe<BusinessRoleUpdateManyWithoutPersonInput>;
+export interface UserUpdateInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  active?: Maybe<Boolean>;
+  specialPermissions?: Maybe<UserUpdatespecialPermissionsInput>;
+  person?: Maybe<PersonUpdateOneWithoutUserInput>;
 }
 
 export interface ProcessUpdateManyWithoutProcessOwnerInput {
@@ -4246,11 +4265,13 @@ export interface ProcessUpdateManyWithoutProcessOwnerInput {
   >;
 }
 
-export interface PersonCreateWithoutUserInput {
+export interface UserCreateInput {
   id?: Maybe<ID_Input>;
-  name: String;
-  surname?: Maybe<String>;
-  roles?: Maybe<BusinessRoleCreateManyWithoutPersonInput>;
+  email: String;
+  password: String;
+  active?: Maybe<Boolean>;
+  specialPermissions?: Maybe<UserCreatespecialPermissionsInput>;
+  person?: Maybe<PersonCreateOneWithoutUserInput>;
 }
 
 export interface ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput {
@@ -4258,7 +4279,7 @@ export interface ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput {
   data: ProcessUpdateWithoutProcessOwnerDataInput;
 }
 
-export interface RetentionPolicyUpdateManyMutationInput {
+export interface RecipientsTypeUpdateManyMutationInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
 }
@@ -4270,9 +4291,10 @@ export interface ProcessUpdateWithoutProcessOwnerDataInput {
   processingActivities?: Maybe<ProcessingActivityUpdateManyWithoutProcessInput>;
 }
 
-export interface RecipientsTypeUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
+export interface ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput {
+  where: ClassificationLabelWhereUniqueInput;
+  update: ClassificationLabelUpdateWithoutQualityAttributeDataInput;
+  create: ClassificationLabelCreateWithoutQualityAttributeInput;
 }
 
 export interface OrganizationalUnitUpdateOneWithoutProcessesInput {
@@ -4284,11 +4306,38 @@ export interface OrganizationalUnitUpdateOneWithoutProcessesInput {
   connect?: Maybe<OrganizationalUnitWhereUniqueInput>;
 }
 
-export interface ClassificationLabelUpdateWithoutQualityAttributeDataInput {
-  score?: Maybe<Int>;
-  label?: Maybe<String>;
-  criteria?: Maybe<String>;
-  dataType?: Maybe<DataTypeUpdateManyWithoutClassificationLabelsInput>;
+export interface ClassificationLabelUpdateManyWithoutQualityAttributeInput {
+  create?: Maybe<
+    | ClassificationLabelCreateWithoutQualityAttributeInput[]
+    | ClassificationLabelCreateWithoutQualityAttributeInput
+  >;
+  delete?: Maybe<
+    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
+  >;
+  connect?: Maybe<
+    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
+  >;
+  set?: Maybe<
+    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
+  >;
+  update?: Maybe<
+    | ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput[]
+    | ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput
+  >;
+  upsert?: Maybe<
+    | ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput[]
+    | ClassificationLabelUpsertWithWhereUniqueWithoutQualityAttributeInput
+  >;
+  deleteMany?: Maybe<
+    ClassificationLabelScalarWhereInput[] | ClassificationLabelScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | ClassificationLabelUpdateManyWithWhereNestedInput[]
+    | ClassificationLabelUpdateManyWithWhereNestedInput
+  >;
 }
 
 export interface OrganizationalUnitUpdateWithoutProcessesDataInput {
@@ -4302,12 +4351,13 @@ export interface OrganizationalUnitUpdateWithoutProcessesDataInput {
   >;
 }
 
-export interface QualityAttributeUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  appliesToObject?: Maybe<CLASSIFICATIONOBJECT>;
-  classificationLabels?: Maybe<
-    ClassificationLabelUpdateManyWithoutQualityAttributeInput
+export interface ClassificationLabelCreateManyWithoutQualityAttributeInput {
+  create?: Maybe<
+    | ClassificationLabelCreateWithoutQualityAttributeInput[]
+    | ClassificationLabelCreateWithoutQualityAttributeInput
+  >;
+  connect?: Maybe<
+    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
   >;
 }
 
@@ -4320,14 +4370,9 @@ export interface OrganizationalUnitUpdateOneWithoutChildrenInput {
   connect?: Maybe<OrganizationalUnitWhereUniqueInput>;
 }
 
-export interface QualityAttributeCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
+export interface ProcessingTypeUpdateManyMutationInput {
+  name?: Maybe<String>;
   description?: Maybe<String>;
-  appliesToObject: CLASSIFICATIONOBJECT;
-  classificationLabels?: Maybe<
-    ClassificationLabelCreateManyWithoutQualityAttributeInput
-  >;
 }
 
 export interface OrganizationalUnitUpdateWithoutChildrenDataInput {
@@ -4341,9 +4386,22 @@ export interface OrganizationalUnitUpdateWithoutChildrenDataInput {
   >;
 }
 
-export interface ProcessingTypeUpdateInput {
+export interface ProcessingActivityUpdateInput {
   name?: Maybe<String>;
-  description?: Maybe<String>;
+  purpose?: Maybe<String>;
+  imController?: Maybe<Boolean>;
+  securityMeasures?: Maybe<String>;
+  legalGroundComment?: Maybe<String>;
+  profiling?: Maybe<Boolean>;
+  publicSource?: Maybe<Boolean>;
+  linkToDpia?: Maybe<String>;
+  linkToLia?: Maybe<String>;
+  recipients?: Maybe<BusinessPartnerUpdateManyInput>;
+  controllers?: Maybe<BusinessPartnerUpdateManyInput>;
+  dataTypes?: Maybe<DataTypeUpdateManyInput>;
+  procesessingTypes?: Maybe<ProcessingTypeUpdateManyInput>;
+  legalGrounds?: Maybe<LegalGroundUpdateManyInput>;
+  process?: Maybe<ProcessUpdateOneWithoutProcessingActivitiesInput>;
 }
 
 export interface BusinessRoleUpdateManyWithoutOrganizationalUnitInput {
@@ -4376,16 +4434,6 @@ export interface BusinessRoleUpdateManyWithoutOrganizationalUnitInput {
   >;
 }
 
-export interface ProcessUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput {
-  where: BusinessRoleWhereUniqueInput;
-  data: BusinessRoleUpdateWithoutOrganizationalUnitDataInput;
-}
-
 export interface ProcessCreateInput {
   id?: Maybe<ID_Input>;
   name: String;
@@ -4394,6 +4442,15 @@ export interface ProcessCreateInput {
   processingActivities?: Maybe<ProcessingActivityCreateManyWithoutProcessInput>;
   processOwner?: Maybe<BusinessRoleCreateOneWithoutProcessInput>;
 }
+
+export interface BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput {
+  where: BusinessRoleWhereUniqueInput;
+  data: BusinessRoleUpdateWithoutOrganizationalUnitDataInput;
+}
+
+export type PersonWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface BusinessRoleUpdateWithoutOrganizationalUnitDataInput {
   name?: Maybe<String>;
@@ -4409,20 +4466,19 @@ export interface BusinessRoleUpdateWithoutOrganizationalUnitDataInput {
   appSecAdmin?: Maybe<ApplicationUpdateManyWithoutSecurityAdministratorInput>;
 }
 
-export interface BusinessRoleUpdateWithoutPersonDataInput {
-  name?: Maybe<String>;
+export interface BusinessRoleCreateWithoutPersonInput {
+  id?: Maybe<ID_Input>;
+  name: String;
   description?: Maybe<String>;
   raciPrivacy?: Maybe<RACI>;
   raciSecurity?: Maybe<RACI>;
   raciFinancial?: Maybe<RACI>;
   raciExecutive?: Maybe<RACI>;
-  organizationalUnit?: Maybe<
-    OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput
-  >;
-  process?: Maybe<ProcessUpdateManyWithoutProcessOwnerInput>;
-  appBusinessOwner?: Maybe<ApplicationUpdateManyWithoutBusinessOwnerInput>;
-  appItOwner?: Maybe<ApplicationUpdateManyWithoutItOwnerInput>;
-  appSecAdmin?: Maybe<ApplicationUpdateManyWithoutSecurityAdministratorInput>;
+  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
+  process?: Maybe<ProcessCreateManyWithoutProcessOwnerInput>;
+  appBusinessOwner?: Maybe<ApplicationCreateManyWithoutBusinessOwnerInput>;
+  appItOwner?: Maybe<ApplicationCreateManyWithoutItOwnerInput>;
+  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
 }
 
 export interface ApplicationUpdateManyWithoutItOwnerInput {
@@ -4453,18 +4509,21 @@ export interface ApplicationUpdateManyWithoutItOwnerInput {
   >;
 }
 
-export type ProcessWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface OrganizationalUnitTypeUpdateManyMutationInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  reportingUnit?: Maybe<Boolean>;
+}
 
 export interface ApplicationUpdateWithWhereUniqueWithoutItOwnerInput {
   where: ApplicationWhereUniqueInput;
   data: ApplicationUpdateWithoutItOwnerDataInput;
 }
 
-export type ProcessingActivityWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface OrganizationalUnitUpdateWithWhereUniqueWithoutOrganizationalUnitTypeInput {
+  where: OrganizationalUnitWhereUniqueInput;
+  data: OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput;
+}
 
 export interface ApplicationUpdateWithoutItOwnerDataInput {
   name?: Maybe<String>;
@@ -4476,9 +4535,15 @@ export interface ApplicationUpdateWithoutItOwnerDataInput {
   securityAdministrator?: Maybe<BusinessRoleUpdateOneWithoutAppSecAdminInput>;
 }
 
-export type ProcessingTypeWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  children?: Maybe<OrganizationalUnitCreateManyWithoutParentInput>;
+  parent?: Maybe<OrganizationalUnitCreateOneWithoutChildrenInput>;
+  processes?: Maybe<ProcessCreateManyWithoutOrganizationalUnitInput>;
+  businessRoles?: Maybe<BusinessRoleCreateManyWithoutOrganizationalUnitInput>;
+}
 
 export interface BusinessRoleUpdateOneWithoutAppSecAdminInput {
   create?: Maybe<BusinessRoleCreateWithoutAppSecAdminInput>;
@@ -4489,9 +4554,15 @@ export interface BusinessRoleUpdateOneWithoutAppSecAdminInput {
   connect?: Maybe<BusinessRoleWhereUniqueInput>;
 }
 
-export type QualityAttributeWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface OrganizationalUnitTypeCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  reportingUnit?: Maybe<Boolean>;
+  organizationalUnit?: Maybe<
+    OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput
+  >;
+}
 
 export interface BusinessRoleUpdateWithoutAppSecAdminDataInput {
   name?: Maybe<String>;
@@ -4509,16 +4580,6 @@ export interface BusinessRoleUpdateWithoutAppSecAdminDataInput {
   appItOwner?: Maybe<ApplicationUpdateManyWithoutItOwnerInput>;
 }
 
-export interface OrganizationalUnitUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface BusinessRoleUpsertWithoutAppSecAdminInput {
-  update: BusinessRoleUpdateWithoutAppSecAdminDataInput;
-  create: BusinessRoleCreateWithoutAppSecAdminInput;
-}
-
 export interface OrganizationalUnitCreateInput {
   id?: Maybe<ID_Input>;
   name: String;
@@ -4532,10 +4593,9 @@ export interface OrganizationalUnitCreateInput {
   >;
 }
 
-export interface ApplicationUpsertWithWhereUniqueWithoutItOwnerInput {
-  where: ApplicationWhereUniqueInput;
-  update: ApplicationUpdateWithoutItOwnerDataInput;
-  create: ApplicationCreateWithoutItOwnerInput;
+export interface BusinessRoleUpsertWithoutAppSecAdminInput {
+  update: BusinessRoleUpdateWithoutAppSecAdminDataInput;
+  create: BusinessRoleCreateWithoutAppSecAdminInput;
 }
 
 export interface BusinessPartnerUpdateWithoutHeadOfficeDataInput {
@@ -4546,6 +4606,28 @@ export interface BusinessPartnerUpdateWithoutHeadOfficeDataInput {
   representative?: Maybe<BusinessPartnerUpdateOneInput>;
   processingTypes?: Maybe<ProcessingTypeUpdateManyInput>;
   recipientsType?: Maybe<RecipientsTypeUpdateOneInput>;
+  securityMeasures?: Maybe<String>;
+  otherCountries?: Maybe<Json>;
+  outsideEea?: Maybe<Boolean>;
+  safeguards?: Maybe<String>;
+  linkToDpa?: Maybe<String>;
+}
+
+export interface ApplicationUpsertWithWhereUniqueWithoutItOwnerInput {
+  where: ApplicationWhereUniqueInput;
+  update: ApplicationUpdateWithoutItOwnerDataInput;
+  create: ApplicationCreateWithoutItOwnerInput;
+}
+
+export interface BusinessPartnerCreateWithoutHeadOfficeInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  contactDetails: String;
+  dpo: String;
+  representative?: Maybe<BusinessPartnerCreateOneInput>;
+  processingTypes?: Maybe<ProcessingTypeCreateManyInput>;
+  recipientsType?: Maybe<RecipientsTypeCreateOneInput>;
   securityMeasures?: Maybe<String>;
   otherCountries?: Maybe<Json>;
   outsideEea?: Maybe<Boolean>;
@@ -4601,20 +4683,11 @@ export interface ApplicationScalarWhereInput {
   NOT?: Maybe<ApplicationScalarWhereInput[] | ApplicationScalarWhereInput>;
 }
 
-export interface BusinessPartnerCreateWithoutHeadOfficeInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  contactDetails: String;
-  dpo: String;
-  representative?: Maybe<BusinessPartnerCreateOneInput>;
-  processingTypes?: Maybe<ProcessingTypeCreateManyInput>;
-  recipientsType?: Maybe<RecipientsTypeCreateOneInput>;
-  securityMeasures: String;
-  otherCountries?: Maybe<Json>;
-  outsideEea?: Maybe<Boolean>;
-  safeguards?: Maybe<String>;
-  linkToDpa?: Maybe<String>;
+export interface BusinessPartnerCreateManyInput {
+  create?: Maybe<BusinessPartnerCreateInput[] | BusinessPartnerCreateInput>;
+  connect?: Maybe<
+    BusinessPartnerWhereUniqueInput[] | BusinessPartnerWhereUniqueInput
+  >;
 }
 
 export interface ApplicationUpdateManyWithWhereNestedInput {
@@ -4622,11 +4695,10 @@ export interface ApplicationUpdateManyWithWhereNestedInput {
   data: ApplicationUpdateManyDataInput;
 }
 
-export interface BusinessPartnerCreateManyInput {
-  create?: Maybe<BusinessPartnerCreateInput[] | BusinessPartnerCreateInput>;
-  connect?: Maybe<
-    BusinessPartnerWhereUniqueInput[] | BusinessPartnerWhereUniqueInput
-  >;
+export interface ProcessingTypeCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
 }
 
 export interface ApplicationUpdateManyDataInput {
@@ -4635,10 +4707,11 @@ export interface ApplicationUpdateManyDataInput {
   description?: Maybe<String>;
 }
 
-export interface ProcessingTypeCreateInput {
+export interface LocationCreateWithoutBusinessPartnerInput {
   id?: Maybe<ID_Input>;
   name: String;
   description?: Maybe<String>;
+  address: String;
 }
 
 export interface ApplicationUpdateManyWithoutSecurityAdministratorInput {
@@ -4669,32 +4742,15 @@ export interface ApplicationUpdateManyWithoutSecurityAdministratorInput {
   >;
 }
 
-export interface LocationCreateWithoutBusinessPartnerInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  address: String;
-}
-
-export interface ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput {
-  where: ApplicationWhereUniqueInput;
-  data: ApplicationUpdateWithoutSecurityAdministratorDataInput;
-}
-
 export interface RetentionPolicyCreateInput {
   id?: Maybe<ID_Input>;
   name: String;
   description?: Maybe<String>;
 }
 
-export interface ApplicationUpdateWithoutSecurityAdministratorDataInput {
-  name?: Maybe<String>;
-  alias?: Maybe<Json>;
-  description?: Maybe<String>;
-  processingActivities?: Maybe<ProcessingActivityUpdateManyInput>;
-  dataTypes?: Maybe<DataTypeUpdateManyWithoutApplicationInput>;
-  businessOwner?: Maybe<BusinessRoleUpdateOneWithoutAppBusinessOwnerInput>;
-  itOwner?: Maybe<BusinessRoleUpdateOneWithoutAppItOwnerInput>;
+export interface ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput {
+  where: ApplicationWhereUniqueInput;
+  data: ApplicationUpdateWithoutSecurityAdministratorDataInput;
 }
 
 export interface ApplicationCreateWithoutDataTypesInput {
@@ -4708,10 +4764,14 @@ export interface ApplicationCreateWithoutDataTypesInput {
   securityAdministrator?: Maybe<BusinessRoleCreateOneWithoutAppSecAdminInput>;
 }
 
-export interface ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput {
-  where: ApplicationWhereUniqueInput;
-  update: ApplicationUpdateWithoutSecurityAdministratorDataInput;
-  create: ApplicationCreateWithoutSecurityAdministratorInput;
+export interface ApplicationUpdateWithoutSecurityAdministratorDataInput {
+  name?: Maybe<String>;
+  alias?: Maybe<Json>;
+  description?: Maybe<String>;
+  processingActivities?: Maybe<ProcessingActivityUpdateManyInput>;
+  dataTypes?: Maybe<DataTypeUpdateManyWithoutApplicationInput>;
+  businessOwner?: Maybe<BusinessRoleUpdateOneWithoutAppBusinessOwnerInput>;
+  itOwner?: Maybe<BusinessRoleUpdateOneWithoutAppItOwnerInput>;
 }
 
 export interface PersonCreateWithoutRolesInput {
@@ -4721,15 +4781,29 @@ export interface PersonCreateWithoutRolesInput {
   user?: Maybe<UserCreateOneWithoutPersonInput>;
 }
 
+export interface ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput {
+  where: ApplicationWhereUniqueInput;
+  update: ApplicationUpdateWithoutSecurityAdministratorDataInput;
+  create: ApplicationCreateWithoutSecurityAdministratorInput;
+}
+
+export interface OrganizationalUnitCreateOneWithoutBusinessRolesInput {
+  create?: Maybe<OrganizationalUnitCreateWithoutBusinessRolesInput>;
+  connect?: Maybe<OrganizationalUnitWhereUniqueInput>;
+}
+
 export interface BusinessRoleUpsertWithWhereUniqueWithoutOrganizationalUnitInput {
   where: BusinessRoleWhereUniqueInput;
   update: BusinessRoleUpdateWithoutOrganizationalUnitDataInput;
   create: BusinessRoleCreateWithoutOrganizationalUnitInput;
 }
 
-export interface OrganizationalUnitCreateOneWithoutBusinessRolesInput {
-  create?: Maybe<OrganizationalUnitCreateWithoutBusinessRolesInput>;
-  connect?: Maybe<OrganizationalUnitWhereUniqueInput>;
+export interface ProcessCreateManyWithoutOrganizationalUnitInput {
+  create?: Maybe<
+    | ProcessCreateWithoutOrganizationalUnitInput[]
+    | ProcessCreateWithoutOrganizationalUnitInput
+  >;
+  connect?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
 }
 
 export interface BusinessRoleScalarWhereInput {
@@ -4796,12 +4870,9 @@ export interface BusinessRoleScalarWhereInput {
   NOT?: Maybe<BusinessRoleScalarWhereInput[] | BusinessRoleScalarWhereInput>;
 }
 
-export interface ProcessCreateManyWithoutOrganizationalUnitInput {
-  create?: Maybe<
-    | ProcessCreateWithoutOrganizationalUnitInput[]
-    | ProcessCreateWithoutOrganizationalUnitInput
-  >;
-  connect?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
+export interface LegalGroundCreateManyInput {
+  create?: Maybe<LegalGroundCreateInput[] | LegalGroundCreateInput>;
+  connect?: Maybe<LegalGroundWhereUniqueInput[] | LegalGroundWhereUniqueInput>;
 }
 
 export interface BusinessRoleUpdateManyWithWhereNestedInput {
@@ -4809,9 +4880,12 @@ export interface BusinessRoleUpdateManyWithWhereNestedInput {
   data: BusinessRoleUpdateManyDataInput;
 }
 
-export interface LegalGroundCreateManyInput {
-  create?: Maybe<LegalGroundCreateInput[] | LegalGroundCreateInput>;
-  connect?: Maybe<LegalGroundWhereUniqueInput[] | LegalGroundWhereUniqueInput>;
+export interface ApplicationCreateManyWithoutBusinessOwnerInput {
+  create?: Maybe<
+    | ApplicationCreateWithoutBusinessOwnerInput[]
+    | ApplicationCreateWithoutBusinessOwnerInput
+  >;
+  connect?: Maybe<ApplicationWhereUniqueInput[] | ApplicationWhereUniqueInput>;
 }
 
 export interface BusinessRoleUpdateManyDataInput {
@@ -4823,12 +4897,14 @@ export interface BusinessRoleUpdateManyDataInput {
   raciExecutive?: Maybe<RACI>;
 }
 
-export interface ApplicationCreateManyWithoutBusinessOwnerInput {
+export interface ClassificationLabelCreateManyWithoutDataTypeInput {
   create?: Maybe<
-    | ApplicationCreateWithoutBusinessOwnerInput[]
-    | ApplicationCreateWithoutBusinessOwnerInput
+    | ClassificationLabelCreateWithoutDataTypeInput[]
+    | ClassificationLabelCreateWithoutDataTypeInput
   >;
-  connect?: Maybe<ApplicationWhereUniqueInput[] | ApplicationWhereUniqueInput>;
+  connect?: Maybe<
+    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
+  >;
 }
 
 export interface OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput {
@@ -4842,14 +4918,9 @@ export interface OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput {
   connect?: Maybe<OrganizationalUnitTypeWhereUniqueInput>;
 }
 
-export interface ClassificationLabelCreateManyWithoutDataTypeInput {
-  create?: Maybe<
-    | ClassificationLabelCreateWithoutDataTypeInput[]
-    | ClassificationLabelCreateWithoutDataTypeInput
-  >;
-  connect?: Maybe<
-    ClassificationLabelWhereUniqueInput[] | ClassificationLabelWhereUniqueInput
-  >;
+export interface BusinessRoleCreateOneWithoutAppItOwnerInput {
+  create?: Maybe<BusinessRoleCreateWithoutAppItOwnerInput>;
+  connect?: Maybe<BusinessRoleWhereUniqueInput>;
 }
 
 export interface OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInput {
@@ -4858,24 +4929,14 @@ export interface OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInput 
   reportingUnit?: Maybe<Boolean>;
 }
 
-export interface BusinessRoleCreateOneWithoutAppItOwnerInput {
-  create?: Maybe<BusinessRoleCreateWithoutAppItOwnerInput>;
-  connect?: Maybe<BusinessRoleWhereUniqueInput>;
-}
-
-export interface OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInput {
-  update: OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInput;
-  create: OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput;
-}
-
 export interface OrganizationalUnitCreateOneWithoutProcessesInput {
   create?: Maybe<OrganizationalUnitCreateWithoutProcessesInput>;
   connect?: Maybe<OrganizationalUnitWhereUniqueInput>;
 }
 
-export interface OrganizationalUnitUpsertWithoutChildrenInput {
-  update: OrganizationalUnitUpdateWithoutChildrenDataInput;
-  create: OrganizationalUnitCreateWithoutChildrenInput;
+export interface OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInput {
+  update: OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInput;
+  create: OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput;
 }
 
 export interface BusinessRoleCreateManyWithoutOrganizationalUnitInput {
@@ -4888,14 +4949,24 @@ export interface BusinessRoleCreateManyWithoutOrganizationalUnitInput {
   >;
 }
 
-export interface OrganizationalUnitUpsertWithoutProcessesInput {
-  update: OrganizationalUnitUpdateWithoutProcessesDataInput;
-  create: OrganizationalUnitCreateWithoutProcessesInput;
+export interface OrganizationalUnitUpsertWithoutChildrenInput {
+  update: OrganizationalUnitUpdateWithoutChildrenDataInput;
+  create: OrganizationalUnitCreateWithoutChildrenInput;
 }
 
 export interface BusinessRoleCreateOneWithoutAppSecAdminInput {
   create?: Maybe<BusinessRoleCreateWithoutAppSecAdminInput>;
   connect?: Maybe<BusinessRoleWhereUniqueInput>;
+}
+
+export interface OrganizationalUnitUpsertWithoutProcessesInput {
+  update: OrganizationalUnitUpdateWithoutProcessesDataInput;
+  create: OrganizationalUnitCreateWithoutProcessesInput;
+}
+
+export interface OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput {
+  create?: Maybe<OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput>;
+  connect?: Maybe<OrganizationalUnitTypeWhereUniqueInput>;
 }
 
 export interface ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput {
@@ -4904,9 +4975,64 @@ export interface ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput {
   create: ProcessCreateWithoutProcessOwnerInput;
 }
 
-export interface OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput {
-  create?: Maybe<OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput>;
-  connect?: Maybe<OrganizationalUnitTypeWhereUniqueInput>;
+export interface ClassificationLabelWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  score?: Maybe<Int>;
+  score_not?: Maybe<Int>;
+  score_in?: Maybe<Int[] | Int>;
+  score_not_in?: Maybe<Int[] | Int>;
+  score_lt?: Maybe<Int>;
+  score_lte?: Maybe<Int>;
+  score_gt?: Maybe<Int>;
+  score_gte?: Maybe<Int>;
+  label?: Maybe<String>;
+  label_not?: Maybe<String>;
+  label_in?: Maybe<String[] | String>;
+  label_not_in?: Maybe<String[] | String>;
+  label_lt?: Maybe<String>;
+  label_lte?: Maybe<String>;
+  label_gt?: Maybe<String>;
+  label_gte?: Maybe<String>;
+  label_contains?: Maybe<String>;
+  label_not_contains?: Maybe<String>;
+  label_starts_with?: Maybe<String>;
+  label_not_starts_with?: Maybe<String>;
+  label_ends_with?: Maybe<String>;
+  label_not_ends_with?: Maybe<String>;
+  criteria?: Maybe<String>;
+  criteria_not?: Maybe<String>;
+  criteria_in?: Maybe<String[] | String>;
+  criteria_not_in?: Maybe<String[] | String>;
+  criteria_lt?: Maybe<String>;
+  criteria_lte?: Maybe<String>;
+  criteria_gt?: Maybe<String>;
+  criteria_gte?: Maybe<String>;
+  criteria_contains?: Maybe<String>;
+  criteria_not_contains?: Maybe<String>;
+  criteria_starts_with?: Maybe<String>;
+  criteria_not_starts_with?: Maybe<String>;
+  criteria_ends_with?: Maybe<String>;
+  criteria_not_ends_with?: Maybe<String>;
+  qualityAttribute?: Maybe<QualityAttributeWhereInput>;
+  dataType_every?: Maybe<DataTypeWhereInput>;
+  dataType_some?: Maybe<DataTypeWhereInput>;
+  dataType_none?: Maybe<DataTypeWhereInput>;
+  AND?: Maybe<ClassificationLabelWhereInput[] | ClassificationLabelWhereInput>;
+  OR?: Maybe<ClassificationLabelWhereInput[] | ClassificationLabelWhereInput>;
+  NOT?: Maybe<ClassificationLabelWhereInput[] | ClassificationLabelWhereInput>;
 }
 
 export interface ProcessScalarWhereInput {
@@ -4973,7 +5099,32 @@ export interface ProcessScalarWhereInput {
   NOT?: Maybe<ProcessScalarWhereInput[] | ProcessScalarWhereInput>;
 }
 
-export interface ProcessWhereInput {
+export interface QualityAttributeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<QualityAttributeWhereInput>;
+  AND?: Maybe<
+    | QualityAttributeSubscriptionWhereInput[]
+    | QualityAttributeSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | QualityAttributeSubscriptionWhereInput[]
+    | QualityAttributeSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | QualityAttributeSubscriptionWhereInput[]
+    | QualityAttributeSubscriptionWhereInput
+  >;
+}
+
+export interface ProcessUpdateManyWithWhereNestedInput {
+  where: ProcessScalarWhereInput;
+  data: ProcessUpdateManyDataInput;
+}
+
+export interface ApplicationWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -5016,46 +5167,18 @@ export interface ProcessWhereInput {
   description_not_starts_with?: Maybe<String>;
   description_ends_with?: Maybe<String>;
   description_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  organizationalUnit?: Maybe<OrganizationalUnitWhereInput>;
   processingActivities_every?: Maybe<ProcessingActivityWhereInput>;
   processingActivities_some?: Maybe<ProcessingActivityWhereInput>;
   processingActivities_none?: Maybe<ProcessingActivityWhereInput>;
-  processOwner?: Maybe<BusinessRoleWhereInput>;
-  AND?: Maybe<ProcessWhereInput[] | ProcessWhereInput>;
-  OR?: Maybe<ProcessWhereInput[] | ProcessWhereInput>;
-  NOT?: Maybe<ProcessWhereInput[] | ProcessWhereInput>;
-}
-
-export interface ProcessUpdateManyWithWhereNestedInput {
-  where: ProcessScalarWhereInput;
-  data: ProcessUpdateManyDataInput;
-}
-
-export interface ProcessSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ProcessWhereInput>;
-  AND?: Maybe<ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput>;
-  OR?: Maybe<ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput>;
-  NOT?: Maybe<ProcessSubscriptionWhereInput[] | ProcessSubscriptionWhereInput>;
+  dataTypes_every?: Maybe<DataTypeWhereInput>;
+  dataTypes_some?: Maybe<DataTypeWhereInput>;
+  dataTypes_none?: Maybe<DataTypeWhereInput>;
+  businessOwner?: Maybe<BusinessRoleWhereInput>;
+  itOwner?: Maybe<BusinessRoleWhereInput>;
+  securityAdministrator?: Maybe<BusinessRoleWhereInput>;
+  AND?: Maybe<ApplicationWhereInput[] | ApplicationWhereInput>;
+  OR?: Maybe<ApplicationWhereInput[] | ApplicationWhereInput>;
+  NOT?: Maybe<ApplicationWhereInput[] | ApplicationWhereInput>;
 }
 
 export interface ProcessUpdateManyDataInput {
@@ -5063,19 +5186,64 @@ export interface ProcessUpdateManyDataInput {
   description?: Maybe<String>;
 }
 
-export interface LocationSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<LocationWhereInput>;
-  AND?: Maybe<
-    LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
-  >;
-  OR?: Maybe<LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput>;
-  NOT?: Maybe<
-    LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
-  >;
+export interface DataTypeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  retentionPolicy_every?: Maybe<RetentionPolicyWhereInput>;
+  retentionPolicy_some?: Maybe<RetentionPolicyWhereInput>;
+  retentionPolicy_none?: Maybe<RetentionPolicyWhereInput>;
+  dataSubjectType_every?: Maybe<DataSubjectTypeWhereInput>;
+  dataSubjectType_some?: Maybe<DataSubjectTypeWhereInput>;
+  dataSubjectType_none?: Maybe<DataSubjectTypeWhereInput>;
+  application_every?: Maybe<ApplicationWhereInput>;
+  application_some?: Maybe<ApplicationWhereInput>;
+  application_none?: Maybe<ApplicationWhereInput>;
+  classificationLabels_every?: Maybe<ClassificationLabelWhereInput>;
+  classificationLabels_some?: Maybe<ClassificationLabelWhereInput>;
+  classificationLabels_none?: Maybe<ClassificationLabelWhereInput>;
+  AND?: Maybe<DataTypeWhereInput[] | DataTypeWhereInput>;
+  OR?: Maybe<DataTypeWhereInput[] | DataTypeWhereInput>;
+  NOT?: Maybe<DataTypeWhereInput[] | DataTypeWhereInput>;
 }
 
 export interface BusinessRoleUpsertWithoutAppItOwnerInput {
@@ -5083,20 +5251,20 @@ export interface BusinessRoleUpsertWithoutAppItOwnerInput {
   create: BusinessRoleCreateWithoutAppItOwnerInput;
 }
 
-export interface BusinessRoleSubscriptionWhereInput {
+export interface ApplicationSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<BusinessRoleWhereInput>;
+  node?: Maybe<ApplicationWhereInput>;
   AND?: Maybe<
-    BusinessRoleSubscriptionWhereInput[] | BusinessRoleSubscriptionWhereInput
+    ApplicationSubscriptionWhereInput[] | ApplicationSubscriptionWhereInput
   >;
   OR?: Maybe<
-    BusinessRoleSubscriptionWhereInput[] | BusinessRoleSubscriptionWhereInput
+    ApplicationSubscriptionWhereInput[] | ApplicationSubscriptionWhereInput
   >;
   NOT?: Maybe<
-    BusinessRoleSubscriptionWhereInput[] | BusinessRoleSubscriptionWhereInput
+    ApplicationSubscriptionWhereInput[] | ApplicationSubscriptionWhereInput
   >;
 }
 
@@ -5106,24 +5274,18 @@ export interface ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput {
   create: ApplicationCreateWithoutBusinessOwnerInput;
 }
 
-export interface PersonUpdateOneWithoutUserInput {
-  create?: Maybe<PersonCreateWithoutUserInput>;
-  update?: Maybe<PersonUpdateWithoutUserDataInput>;
-  upsert?: Maybe<PersonUpsertWithoutUserInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<PersonWhereUniqueInput>;
-}
+export type BusinessRoleWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface BusinessRoleUpsertWithoutProcessInput {
   update: BusinessRoleUpdateWithoutProcessDataInput;
   create: BusinessRoleCreateWithoutProcessInput;
 }
 
-export interface RetentionPolicyUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-}
+export type DataSubjectTypeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput {
   where: ProcessWhereUniqueInput;
@@ -5131,10 +5293,9 @@ export interface ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput {
   create: ProcessCreateWithoutOrganizationalUnitInput;
 }
 
-export interface ClassificationLabelUpdateWithWhereUniqueWithoutQualityAttributeInput {
-  where: ClassificationLabelWhereUniqueInput;
-  data: ClassificationLabelUpdateWithoutQualityAttributeDataInput;
-}
+export type LegalGroundWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface OrganizationalUnitUpsertWithWhereUniqueWithoutParentInput {
   where: OrganizationalUnitWhereUniqueInput;
@@ -5142,52 +5303,16 @@ export interface OrganizationalUnitUpsertWithWhereUniqueWithoutParentInput {
   create: OrganizationalUnitCreateWithoutParentInput;
 }
 
-export interface ProcessingTypeWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
+export interface ProcessingActivityUpdateManyMutationInput {
   name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  AND?: Maybe<ProcessingTypeWhereInput[] | ProcessingTypeWhereInput>;
-  OR?: Maybe<ProcessingTypeWhereInput[] | ProcessingTypeWhereInput>;
-  NOT?: Maybe<ProcessingTypeWhereInput[] | ProcessingTypeWhereInput>;
+  purpose?: Maybe<String>;
+  imController?: Maybe<Boolean>;
+  securityMeasures?: Maybe<String>;
+  legalGroundComment?: Maybe<String>;
+  profiling?: Maybe<Boolean>;
+  publicSource?: Maybe<Boolean>;
+  linkToDpia?: Maybe<String>;
+  linkToLia?: Maybe<String>;
 }
 
 export interface OrganizationalUnitScalarWhereInput {
@@ -5260,390 +5385,30 @@ export interface OrganizationalUnitScalarWhereInput {
   >;
 }
 
-export type OrganizationalUnitTypeWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface OrganizationalUnitUpdateManyWithWhereNestedInput {
-  where: OrganizationalUnitScalarWhereInput;
-  data: OrganizationalUnitUpdateManyDataInput;
-}
-
-export interface BusinessRoleUpdateManyWithoutPersonInput {
-  create?: Maybe<
-    | BusinessRoleCreateWithoutPersonInput[]
-    | BusinessRoleCreateWithoutPersonInput
-  >;
-  delete?: Maybe<BusinessRoleWhereUniqueInput[] | BusinessRoleWhereUniqueInput>;
-  connect?: Maybe<
-    BusinessRoleWhereUniqueInput[] | BusinessRoleWhereUniqueInput
-  >;
-  set?: Maybe<BusinessRoleWhereUniqueInput[] | BusinessRoleWhereUniqueInput>;
-  disconnect?: Maybe<
-    BusinessRoleWhereUniqueInput[] | BusinessRoleWhereUniqueInput
-  >;
-  update?: Maybe<
-    | BusinessRoleUpdateWithWhereUniqueWithoutPersonInput[]
-    | BusinessRoleUpdateWithWhereUniqueWithoutPersonInput
-  >;
-  upsert?: Maybe<
-    | BusinessRoleUpsertWithWhereUniqueWithoutPersonInput[]
-    | BusinessRoleUpsertWithWhereUniqueWithoutPersonInput
-  >;
-  deleteMany?: Maybe<
-    BusinessRoleScalarWhereInput[] | BusinessRoleScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | BusinessRoleUpdateManyWithWhereNestedInput[]
-    | BusinessRoleUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface OrganizationalUnitUpdateManyDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface OrganizationalUnitUpsertWithWhereUniqueWithoutOrganizationalUnitTypeInput {
-  where: OrganizationalUnitWhereUniqueInput;
-  update: OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput;
-  create: OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput;
-}
-
-export interface OrganizationalUnitUpsertWithoutBusinessRolesInput {
-  update: OrganizationalUnitUpdateWithoutBusinessRolesDataInput;
-  create: OrganizationalUnitCreateWithoutBusinessRolesInput;
-}
-
-export interface OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput {
-  create?: Maybe<
-    | OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput[]
-    | OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput
-  >;
-  connect?: Maybe<
-    OrganizationalUnitWhereUniqueInput[] | OrganizationalUnitWhereUniqueInput
-  >;
-}
-
-export interface BusinessRoleUpsertWithoutAppBusinessOwnerInput {
-  update: BusinessRoleUpdateWithoutAppBusinessOwnerDataInput;
-  create: BusinessRoleCreateWithoutAppBusinessOwnerInput;
-}
-
-export type RetentionPolicyWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface ApplicationUpsertWithWhereUniqueWithoutDataTypesInput {
-  where: ApplicationWhereUniqueInput;
-  update: ApplicationUpdateWithoutDataTypesDataInput;
-  create: ApplicationCreateWithoutDataTypesInput;
-}
-
-export interface LocationCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  address: String;
-  businessPartner?: Maybe<BusinessPartnerCreateOneWithoutHeadOfficeInput>;
-}
-
-export interface DataTypeUpsertWithWhereUniqueNestedInput {
-  where: DataTypeWhereUniqueInput;
-  update: DataTypeUpdateDataInput;
-  create: DataTypeCreateInput;
-}
-
-export interface BusinessPartnerCreateOneInput {
-  create?: Maybe<BusinessPartnerCreateInput>;
-  connect?: Maybe<BusinessPartnerWhereUniqueInput>;
-}
-
-export interface ProcessUpdateOneWithoutProcessingActivitiesInput {
-  create?: Maybe<ProcessCreateWithoutProcessingActivitiesInput>;
-  update?: Maybe<ProcessUpdateWithoutProcessingActivitiesDataInput>;
-  upsert?: Maybe<ProcessUpsertWithoutProcessingActivitiesInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<ProcessWhereUniqueInput>;
-}
-
-export interface DataTypeCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  retentionPolicy: RetentionPolicyCreateOneInput;
-  dataSubjectType?: Maybe<DataSubjectTypeCreateManyWithoutDataTypesInput>;
-  application?: Maybe<ApplicationCreateManyWithoutDataTypesInput>;
-  classificationLabels?: Maybe<
-    ClassificationLabelCreateManyWithoutDataTypeInput
-  >;
-}
-
-export interface ProcessUpdateWithoutProcessingActivitiesDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  organizationalUnit?: Maybe<OrganizationalUnitUpdateOneWithoutProcessesInput>;
-  processOwner?: Maybe<BusinessRoleUpdateOneWithoutProcessInput>;
-}
-
-export interface BusinessRoleCreateWithoutAppBusinessOwnerInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  raciPrivacy?: Maybe<RACI>;
-  raciSecurity?: Maybe<RACI>;
-  raciFinancial?: Maybe<RACI>;
-  raciExecutive?: Maybe<RACI>;
-  person?: Maybe<PersonCreateOneWithoutRolesInput>;
-  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
-  process?: Maybe<ProcessCreateManyWithoutProcessOwnerInput>;
-  appItOwner?: Maybe<ApplicationCreateManyWithoutItOwnerInput>;
-  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
-}
-
-export interface ProcessUpsertWithoutProcessingActivitiesInput {
-  update: ProcessUpdateWithoutProcessingActivitiesDataInput;
-  create: ProcessCreateWithoutProcessingActivitiesInput;
-}
-
-export interface OrganizationalUnitCreateManyWithoutParentInput {
-  create?: Maybe<
-    | OrganizationalUnitCreateWithoutParentInput[]
-    | OrganizationalUnitCreateWithoutParentInput
-  >;
-  connect?: Maybe<
-    OrganizationalUnitWhereUniqueInput[] | OrganizationalUnitWhereUniqueInput
-  >;
-}
-
-export interface ProcessingActivityUpsertWithWhereUniqueNestedInput {
-  where: ProcessingActivityWhereUniqueInput;
-  update: ProcessingActivityUpdateDataInput;
-  create: ProcessingActivityCreateInput;
-}
-
-export interface BusinessRoleCreateOneWithoutProcessInput {
-  create?: Maybe<BusinessRoleCreateWithoutProcessInput>;
-  connect?: Maybe<BusinessRoleWhereUniqueInput>;
-}
-
-export interface ApplicationUpdateManyMutationInput {
-  name?: Maybe<String>;
-  alias?: Maybe<Json>;
-  description?: Maybe<String>;
-}
-
-export interface QualityAttributeCreateOneWithoutClassificationLabelsInput {
-  create?: Maybe<QualityAttributeCreateWithoutClassificationLabelsInput>;
-  connect?: Maybe<QualityAttributeWhereUniqueInput>;
-}
-
-export interface DataTypeUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface OrganizationalUnitCreateOneWithoutChildrenInput {
-  create?: Maybe<OrganizationalUnitCreateWithoutChildrenInput>;
-  connect?: Maybe<OrganizationalUnitWhereUniqueInput>;
-}
-
-export interface DataTypeUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  retentionPolicy?: Maybe<RetentionPolicyUpdateOneRequiredInput>;
-  dataSubjectType?: Maybe<DataSubjectTypeUpdateManyWithoutDataTypesInput>;
-  application?: Maybe<ApplicationUpdateManyWithoutDataTypesInput>;
-  classificationLabels?: Maybe<
-    ClassificationLabelUpdateManyWithoutDataTypeInput
-  >;
-}
-
-export interface ApplicationCreateManyWithoutSecurityAdministratorInput {
-  create?: Maybe<
-    | ApplicationCreateWithoutSecurityAdministratorInput[]
-    | ApplicationCreateWithoutSecurityAdministratorInput
-  >;
-  connect?: Maybe<ApplicationWhereUniqueInput[] | ApplicationWhereUniqueInput>;
-}
-
-export interface BusinessPartnerUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  contactDetails?: Maybe<String>;
-  dpo?: Maybe<String>;
-  representative?: Maybe<BusinessPartnerUpdateOneInput>;
-  processingTypes?: Maybe<ProcessingTypeUpdateManyInput>;
-  recipientsType?: Maybe<RecipientsTypeUpdateOneInput>;
-  securityMeasures?: Maybe<String>;
-  otherCountries?: Maybe<Json>;
-  outsideEea?: Maybe<Boolean>;
-  safeguards?: Maybe<String>;
-  linkToDpa?: Maybe<String>;
-  headOffice?: Maybe<LocationUpdateOneRequiredWithoutBusinessPartnerInput>;
-}
-
-export interface QualityAttributeSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<QualityAttributeWhereInput>;
-  AND?: Maybe<
-    | QualityAttributeSubscriptionWhereInput[]
-    | QualityAttributeSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | QualityAttributeSubscriptionWhereInput[]
-    | QualityAttributeSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | QualityAttributeSubscriptionWhereInput[]
-    | QualityAttributeSubscriptionWhereInput
-  >;
-}
-
-export interface BusinessPartnerUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  contactDetails?: Maybe<String>;
-  dpo?: Maybe<String>;
-  securityMeasures?: Maybe<String>;
-  otherCountries?: Maybe<Json>;
-  outsideEea?: Maybe<Boolean>;
-  safeguards?: Maybe<String>;
-  linkToDpa?: Maybe<String>;
-}
-
-export interface DataTypeWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  retentionPolicy?: Maybe<RetentionPolicyWhereInput>;
-  dataSubjectType_every?: Maybe<DataSubjectTypeWhereInput>;
-  dataSubjectType_some?: Maybe<DataSubjectTypeWhereInput>;
-  dataSubjectType_none?: Maybe<DataSubjectTypeWhereInput>;
-  application_every?: Maybe<ApplicationWhereInput>;
-  application_some?: Maybe<ApplicationWhereInput>;
-  application_none?: Maybe<ApplicationWhereInput>;
-  classificationLabels_every?: Maybe<ClassificationLabelWhereInput>;
-  classificationLabels_some?: Maybe<ClassificationLabelWhereInput>;
-  classificationLabels_none?: Maybe<ClassificationLabelWhereInput>;
-  AND?: Maybe<DataTypeWhereInput[] | DataTypeWhereInput>;
-  OR?: Maybe<DataTypeWhereInput[] | DataTypeWhereInput>;
-  NOT?: Maybe<DataTypeWhereInput[] | DataTypeWhereInput>;
-}
-
-export interface BusinessRoleCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  raciPrivacy?: Maybe<RACI>;
-  raciSecurity?: Maybe<RACI>;
-  raciFinancial?: Maybe<RACI>;
-  raciExecutive?: Maybe<RACI>;
-  person?: Maybe<PersonCreateOneWithoutRolesInput>;
-  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
-  process?: Maybe<ProcessCreateManyWithoutProcessOwnerInput>;
-  appBusinessOwner?: Maybe<ApplicationCreateManyWithoutBusinessOwnerInput>;
-  appItOwner?: Maybe<ApplicationCreateManyWithoutItOwnerInput>;
-  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
-}
-
-export interface PersonCreateOneWithoutUserInput {
-  create?: Maybe<PersonCreateWithoutUserInput>;
-  connect?: Maybe<PersonWhereUniqueInput>;
-}
-
-export interface BusinessRoleUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  raciPrivacy?: Maybe<RACI>;
-  raciSecurity?: Maybe<RACI>;
-  raciFinancial?: Maybe<RACI>;
-  raciExecutive?: Maybe<RACI>;
-  person?: Maybe<PersonUpdateOneWithoutRolesInput>;
-  organizationalUnit?: Maybe<
-    OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput
-  >;
-  process?: Maybe<ProcessUpdateManyWithoutProcessOwnerInput>;
-  appBusinessOwner?: Maybe<ApplicationUpdateManyWithoutBusinessOwnerInput>;
-  appItOwner?: Maybe<ApplicationUpdateManyWithoutItOwnerInput>;
-  appSecAdmin?: Maybe<ApplicationUpdateManyWithoutSecurityAdministratorInput>;
-}
-
-export interface ClassificationLabelCreateWithoutQualityAttributeInput {
-  id?: Maybe<ID_Input>;
-  score: Int;
-  label: String;
-  criteria?: Maybe<String>;
-  dataType?: Maybe<DataTypeCreateManyWithoutClassificationLabelsInput>;
-}
-
-export interface BusinessRoleUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  raciPrivacy?: Maybe<RACI>;
-  raciSecurity?: Maybe<RACI>;
-  raciFinancial?: Maybe<RACI>;
-  raciExecutive?: Maybe<RACI>;
-}
-
 export interface BusinessRoleUpsertWithWhereUniqueWithoutPersonInput {
   where: BusinessRoleWhereUniqueInput;
   update: BusinessRoleUpdateWithoutPersonDataInput;
   create: BusinessRoleCreateWithoutPersonInput;
 }
 
-export interface ClassificationLabelCreateInput {
-  id?: Maybe<ID_Input>;
-  score: Int;
-  label: String;
-  criteria?: Maybe<String>;
-  qualityAttribute?: Maybe<
-    QualityAttributeCreateOneWithoutClassificationLabelsInput
+export interface OrganizationalUnitUpdateManyWithWhereNestedInput {
+  where: OrganizationalUnitScalarWhereInput;
+  data: OrganizationalUnitUpdateManyDataInput;
+}
+
+export interface BusinessRoleCreateManyWithoutPersonInput {
+  create?: Maybe<
+    | BusinessRoleCreateWithoutPersonInput[]
+    | BusinessRoleCreateWithoutPersonInput
   >;
-  dataType?: Maybe<DataTypeCreateManyWithoutClassificationLabelsInput>;
+  connect?: Maybe<
+    BusinessRoleWhereUniqueInput[] | BusinessRoleWhereUniqueInput
+  >;
+}
+
+export interface OrganizationalUnitUpdateManyDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
 }
 
 export interface OrganizationalUnitUpdateManyWithoutOrganizationalUnitTypeInput {
@@ -5680,12 +5445,18 @@ export interface OrganizationalUnitUpdateManyWithoutOrganizationalUnitTypeInput 
   >;
 }
 
-export interface DataTypeCreateManyWithoutClassificationLabelsInput {
-  create?: Maybe<
-    | DataTypeCreateWithoutClassificationLabelsInput[]
-    | DataTypeCreateWithoutClassificationLabelsInput
-  >;
-  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+export interface OrganizationalUnitUpsertWithoutBusinessRolesInput {
+  update: OrganizationalUnitUpdateWithoutBusinessRolesDataInput;
+  create: OrganizationalUnitCreateWithoutBusinessRolesInput;
+}
+
+export type RecipientsTypeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface BusinessRoleUpsertWithoutAppBusinessOwnerInput {
+  update: BusinessRoleUpdateWithoutAppBusinessOwnerDataInput;
+  create: BusinessRoleCreateWithoutAppBusinessOwnerInput;
 }
 
 export interface LocationUpdateInput {
@@ -5695,13 +5466,25 @@ export interface LocationUpdateInput {
   businessPartner?: Maybe<BusinessPartnerUpdateOneWithoutHeadOfficeInput>;
 }
 
-export interface DataTypeCreateWithoutClassificationLabelsInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  retentionPolicy: RetentionPolicyCreateOneInput;
-  dataSubjectType?: Maybe<DataSubjectTypeCreateManyWithoutDataTypesInput>;
-  application?: Maybe<ApplicationCreateManyWithoutDataTypesInput>;
+export interface ApplicationUpsertWithWhereUniqueWithoutDataTypesInput {
+  where: ApplicationWhereUniqueInput;
+  update: ApplicationUpdateWithoutDataTypesDataInput;
+  create: ApplicationCreateWithoutDataTypesInput;
+}
+
+export interface ProcessingActivityCreateManyInput {
+  create?: Maybe<
+    ProcessingActivityCreateInput[] | ProcessingActivityCreateInput
+  >;
+  connect?: Maybe<
+    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
+  >;
+}
+
+export interface DataTypeUpsertWithWhereUniqueNestedInput {
+  where: DataTypeWhereUniqueInput;
+  update: DataTypeUpdateDataInput;
+  create: DataTypeCreateInput;
 }
 
 export interface RecipientsTypeCreateInput {
@@ -5710,14 +5493,26 @@ export interface RecipientsTypeCreateInput {
   description?: Maybe<String>;
 }
 
-export interface ClassificationLabelUpdateInput {
-  score?: Maybe<Int>;
-  label?: Maybe<String>;
-  criteria?: Maybe<String>;
-  qualityAttribute?: Maybe<
-    QualityAttributeUpdateOneWithoutClassificationLabelsInput
-  >;
-  dataType?: Maybe<DataTypeUpdateManyWithoutClassificationLabelsInput>;
+export interface ProcessUpdateOneWithoutProcessingActivitiesInput {
+  create?: Maybe<ProcessCreateWithoutProcessingActivitiesInput>;
+  update?: Maybe<ProcessUpdateWithoutProcessingActivitiesDataInput>;
+  upsert?: Maybe<ProcessUpsertWithoutProcessingActivitiesInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<ProcessWhereUniqueInput>;
+}
+
+export interface DataSubjectTypeCreateWithoutDataTypesInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+}
+
+export interface ProcessUpdateWithoutProcessingActivitiesDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  organizationalUnit?: Maybe<OrganizationalUnitUpdateOneWithoutProcessesInput>;
+  processOwner?: Maybe<BusinessRoleUpdateOneWithoutProcessInput>;
 }
 
 export interface UserCreateWithoutPersonInput {
@@ -5728,28 +5523,25 @@ export interface UserCreateWithoutPersonInput {
   specialPermissions?: Maybe<UserCreatespecialPermissionsInput>;
 }
 
-export interface DataTypeUpdateManyWithoutClassificationLabelsInput {
+export interface ProcessUpsertWithoutProcessingActivitiesInput {
+  update: ProcessUpdateWithoutProcessingActivitiesDataInput;
+  create: ProcessCreateWithoutProcessingActivitiesInput;
+}
+
+export interface ProcessingActivityCreateManyWithoutProcessInput {
   create?: Maybe<
-    | DataTypeCreateWithoutClassificationLabelsInput[]
-    | DataTypeCreateWithoutClassificationLabelsInput
+    | ProcessingActivityCreateWithoutProcessInput[]
+    | ProcessingActivityCreateWithoutProcessInput
   >;
-  delete?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
-  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
-  set?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
-  disconnect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
-  update?: Maybe<
-    | DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput[]
-    | DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput
+  connect?: Maybe<
+    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
   >;
-  upsert?: Maybe<
-    | DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput[]
-    | DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput
-  >;
-  deleteMany?: Maybe<DataTypeScalarWhereInput[] | DataTypeScalarWhereInput>;
-  updateMany?: Maybe<
-    | DataTypeUpdateManyWithWhereNestedInput[]
-    | DataTypeUpdateManyWithWhereNestedInput
-  >;
+}
+
+export interface ProcessingActivityUpsertWithWhereUniqueNestedInput {
+  where: ProcessingActivityWhereUniqueInput;
+  update: ProcessingActivityUpdateDataInput;
+  create: ProcessingActivityCreateInput;
 }
 
 export interface DataTypeCreateManyWithoutApplicationInput {
@@ -5760,9 +5552,23 @@ export interface DataTypeCreateManyWithoutApplicationInput {
   connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
 }
 
-export interface DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput {
-  where: DataTypeWhereUniqueInput;
-  data: DataTypeUpdateWithoutClassificationLabelsDataInput;
+export interface ApplicationUpdateManyMutationInput {
+  name?: Maybe<String>;
+  alias?: Maybe<Json>;
+  description?: Maybe<String>;
+}
+
+export interface ProcessCreateManyWithoutProcessOwnerInput {
+  create?: Maybe<
+    | ProcessCreateWithoutProcessOwnerInput[]
+    | ProcessCreateWithoutProcessOwnerInput
+  >;
+  connect?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
+}
+
+export interface DataTypeUpdateManyMutationInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
 }
 
 export interface ApplicationCreateManyWithoutItOwnerInput {
@@ -5773,15 +5579,39 @@ export interface ApplicationCreateManyWithoutItOwnerInput {
   connect?: Maybe<ApplicationWhereUniqueInput[] | ApplicationWhereUniqueInput>;
 }
 
-export interface DataTypeUpdateWithoutClassificationLabelsDataInput {
+export interface DataTypeUpdateInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
-  retentionPolicy?: Maybe<RetentionPolicyUpdateOneRequiredInput>;
+  retentionPolicy?: Maybe<RetentionPolicyUpdateManyInput>;
   dataSubjectType?: Maybe<DataSubjectTypeUpdateManyWithoutDataTypesInput>;
   application?: Maybe<ApplicationUpdateManyWithoutDataTypesInput>;
+  classificationLabels?: Maybe<
+    ClassificationLabelUpdateManyWithoutDataTypeInput
+  >;
 }
 
-export interface ApplicationWhereInput {
+export interface ProcessCreateOneWithoutProcessingActivitiesInput {
+  create?: Maybe<ProcessCreateWithoutProcessingActivitiesInput>;
+  connect?: Maybe<ProcessWhereUniqueInput>;
+}
+
+export interface BusinessPartnerUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  contactDetails?: Maybe<String>;
+  dpo?: Maybe<String>;
+  representative?: Maybe<BusinessPartnerUpdateOneInput>;
+  processingTypes?: Maybe<ProcessingTypeUpdateManyInput>;
+  recipientsType?: Maybe<RecipientsTypeUpdateOneInput>;
+  securityMeasures?: Maybe<String>;
+  otherCountries?: Maybe<Json>;
+  outsideEea?: Maybe<Boolean>;
+  safeguards?: Maybe<String>;
+  linkToDpa?: Maybe<String>;
+  headOffice?: Maybe<LocationUpdateOneRequiredWithoutBusinessPartnerInput>;
+}
+
+export interface PersonWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -5810,220 +5640,150 @@ export interface ApplicationWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  processingActivities_every?: Maybe<ProcessingActivityWhereInput>;
-  processingActivities_some?: Maybe<ProcessingActivityWhereInput>;
-  processingActivities_none?: Maybe<ProcessingActivityWhereInput>;
-  dataTypes_every?: Maybe<DataTypeWhereInput>;
-  dataTypes_some?: Maybe<DataTypeWhereInput>;
-  dataTypes_none?: Maybe<DataTypeWhereInput>;
-  businessOwner?: Maybe<BusinessRoleWhereInput>;
-  itOwner?: Maybe<BusinessRoleWhereInput>;
-  securityAdministrator?: Maybe<BusinessRoleWhereInput>;
-  AND?: Maybe<ApplicationWhereInput[] | ApplicationWhereInput>;
-  OR?: Maybe<ApplicationWhereInput[] | ApplicationWhereInput>;
-  NOT?: Maybe<ApplicationWhereInput[] | ApplicationWhereInput>;
+  surname?: Maybe<String>;
+  surname_not?: Maybe<String>;
+  surname_in?: Maybe<String[] | String>;
+  surname_not_in?: Maybe<String[] | String>;
+  surname_lt?: Maybe<String>;
+  surname_lte?: Maybe<String>;
+  surname_gt?: Maybe<String>;
+  surname_gte?: Maybe<String>;
+  surname_contains?: Maybe<String>;
+  surname_not_contains?: Maybe<String>;
+  surname_starts_with?: Maybe<String>;
+  surname_not_starts_with?: Maybe<String>;
+  surname_ends_with?: Maybe<String>;
+  surname_not_ends_with?: Maybe<String>;
+  user?: Maybe<UserWhereInput>;
+  roles_every?: Maybe<BusinessRoleWhereInput>;
+  roles_some?: Maybe<BusinessRoleWhereInput>;
+  roles_none?: Maybe<BusinessRoleWhereInput>;
+  AND?: Maybe<PersonWhereInput[] | PersonWhereInput>;
+  OR?: Maybe<PersonWhereInput[] | PersonWhereInput>;
+  NOT?: Maybe<PersonWhereInput[] | PersonWhereInput>;
 }
 
-export interface DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput {
-  where: DataTypeWhereUniqueInput;
-  update: DataTypeUpdateWithoutClassificationLabelsDataInput;
-  create: DataTypeCreateWithoutClassificationLabelsInput;
-}
-
-export interface QualityAttributeUpdateManyMutationInput {
+export interface BusinessPartnerUpdateManyMutationInput {
   name?: Maybe<String>;
   description?: Maybe<String>;
-  appliesToObject?: Maybe<CLASSIFICATIONOBJECT>;
+  contactDetails?: Maybe<String>;
+  dpo?: Maybe<String>;
+  securityMeasures?: Maybe<String>;
+  otherCountries?: Maybe<Json>;
+  outsideEea?: Maybe<Boolean>;
+  safeguards?: Maybe<String>;
+  linkToDpa?: Maybe<String>;
 }
 
-export interface ClassificationLabelUpdateManyMutationInput {
-  score?: Maybe<Int>;
-  label?: Maybe<String>;
-  criteria?: Maybe<String>;
+export interface ClassificationLabelSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<ClassificationLabelWhereInput>;
+  AND?: Maybe<
+    | ClassificationLabelSubscriptionWhereInput[]
+    | ClassificationLabelSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | ClassificationLabelSubscriptionWhereInput[]
+    | ClassificationLabelSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | ClassificationLabelSubscriptionWhereInput[]
+    | ClassificationLabelSubscriptionWhereInput
+  >;
 }
 
-export interface BusinessRoleCreateManyWithoutPersonInput {
+export interface BusinessRoleCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  raciPrivacy?: Maybe<RACI>;
+  raciSecurity?: Maybe<RACI>;
+  raciFinancial?: Maybe<RACI>;
+  raciExecutive?: Maybe<RACI>;
+  person?: Maybe<PersonCreateOneWithoutRolesInput>;
+  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
+  process?: Maybe<ProcessCreateManyWithoutProcessOwnerInput>;
+  appBusinessOwner?: Maybe<ApplicationCreateManyWithoutBusinessOwnerInput>;
+  appItOwner?: Maybe<ApplicationCreateManyWithoutItOwnerInput>;
+  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
+}
+
+export type ClassificationLabelWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface BusinessRoleUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  raciPrivacy?: Maybe<RACI>;
+  raciSecurity?: Maybe<RACI>;
+  raciFinancial?: Maybe<RACI>;
+  raciExecutive?: Maybe<RACI>;
+  person?: Maybe<PersonUpdateOneWithoutRolesInput>;
+  organizationalUnit?: Maybe<
+    OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput
+  >;
+  process?: Maybe<ProcessUpdateManyWithoutProcessOwnerInput>;
+  appBusinessOwner?: Maybe<ApplicationUpdateManyWithoutBusinessOwnerInput>;
+  appItOwner?: Maybe<ApplicationUpdateManyWithoutItOwnerInput>;
+  appSecAdmin?: Maybe<ApplicationUpdateManyWithoutSecurityAdministratorInput>;
+}
+
+export type LocationWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface BusinessRoleUpdateManyMutationInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  raciPrivacy?: Maybe<RACI>;
+  raciSecurity?: Maybe<RACI>;
+  raciFinancial?: Maybe<RACI>;
+  raciExecutive?: Maybe<RACI>;
+}
+
+export interface BusinessRoleUpdateManyWithoutPersonInput {
   create?: Maybe<
     | BusinessRoleCreateWithoutPersonInput[]
     | BusinessRoleCreateWithoutPersonInput
   >;
+  delete?: Maybe<BusinessRoleWhereUniqueInput[] | BusinessRoleWhereUniqueInput>;
   connect?: Maybe<
     BusinessRoleWhereUniqueInput[] | BusinessRoleWhereUniqueInput
   >;
-}
-
-export interface DataSubjectTypeCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  dataTypes?: Maybe<DataTypeCreateManyWithoutDataSubjectTypeInput>;
-}
-
-export interface ProcessingActivityCreateManyInput {
-  create?: Maybe<
-    ProcessingActivityCreateInput[] | ProcessingActivityCreateInput
+  set?: Maybe<BusinessRoleWhereUniqueInput[] | BusinessRoleWhereUniqueInput>;
+  disconnect?: Maybe<
+    BusinessRoleWhereUniqueInput[] | BusinessRoleWhereUniqueInput
   >;
-  connect?: Maybe<
-    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
-  >;
-}
-
-export interface DataTypeCreateManyWithoutDataSubjectTypeInput {
-  create?: Maybe<
-    | DataTypeCreateWithoutDataSubjectTypeInput[]
-    | DataTypeCreateWithoutDataSubjectTypeInput
-  >;
-  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
-}
-
-export interface ProcessingActivityCreateManyWithoutProcessInput {
-  create?: Maybe<
-    | ProcessingActivityCreateWithoutProcessInput[]
-    | ProcessingActivityCreateWithoutProcessInput
-  >;
-  connect?: Maybe<
-    ProcessingActivityWhereUniqueInput[] | ProcessingActivityWhereUniqueInput
-  >;
-}
-
-export interface DataTypeCreateWithoutDataSubjectTypeInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description?: Maybe<String>;
-  retentionPolicy: RetentionPolicyCreateOneInput;
-  application?: Maybe<ApplicationCreateManyWithoutDataTypesInput>;
-  classificationLabels?: Maybe<
-    ClassificationLabelCreateManyWithoutDataTypeInput
-  >;
-}
-
-export interface ClassificationLabelWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  score?: Maybe<Int>;
-  score_not?: Maybe<Int>;
-  score_in?: Maybe<Int[] | Int>;
-  score_not_in?: Maybe<Int[] | Int>;
-  score_lt?: Maybe<Int>;
-  score_lte?: Maybe<Int>;
-  score_gt?: Maybe<Int>;
-  score_gte?: Maybe<Int>;
-  label?: Maybe<String>;
-  label_not?: Maybe<String>;
-  label_in?: Maybe<String[] | String>;
-  label_not_in?: Maybe<String[] | String>;
-  label_lt?: Maybe<String>;
-  label_lte?: Maybe<String>;
-  label_gt?: Maybe<String>;
-  label_gte?: Maybe<String>;
-  label_contains?: Maybe<String>;
-  label_not_contains?: Maybe<String>;
-  label_starts_with?: Maybe<String>;
-  label_not_starts_with?: Maybe<String>;
-  label_ends_with?: Maybe<String>;
-  label_not_ends_with?: Maybe<String>;
-  criteria?: Maybe<String>;
-  criteria_not?: Maybe<String>;
-  criteria_in?: Maybe<String[] | String>;
-  criteria_not_in?: Maybe<String[] | String>;
-  criteria_lt?: Maybe<String>;
-  criteria_lte?: Maybe<String>;
-  criteria_gt?: Maybe<String>;
-  criteria_gte?: Maybe<String>;
-  criteria_contains?: Maybe<String>;
-  criteria_not_contains?: Maybe<String>;
-  criteria_starts_with?: Maybe<String>;
-  criteria_not_starts_with?: Maybe<String>;
-  criteria_ends_with?: Maybe<String>;
-  criteria_not_ends_with?: Maybe<String>;
-  qualityAttribute?: Maybe<QualityAttributeWhereInput>;
-  dataType_every?: Maybe<DataTypeWhereInput>;
-  dataType_some?: Maybe<DataTypeWhereInput>;
-  dataType_none?: Maybe<DataTypeWhereInput>;
-  AND?: Maybe<ClassificationLabelWhereInput[] | ClassificationLabelWhereInput>;
-  OR?: Maybe<ClassificationLabelWhereInput[] | ClassificationLabelWhereInput>;
-  NOT?: Maybe<ClassificationLabelWhereInput[] | ClassificationLabelWhereInput>;
-}
-
-export interface DataSubjectTypeUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  dataTypes?: Maybe<DataTypeUpdateManyWithoutDataSubjectTypeInput>;
-}
-
-export type OrganizationalUnitWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput {
-  where: DataTypeWhereUniqueInput;
-  update: DataTypeUpdateWithoutDataSubjectTypeDataInput;
-  create: DataTypeCreateWithoutDataSubjectTypeInput;
-}
-
-export interface DataTypeUpdateWithoutDataSubjectTypeDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  retentionPolicy?: Maybe<RetentionPolicyUpdateOneRequiredInput>;
-  application?: Maybe<ApplicationUpdateManyWithoutDataTypesInput>;
-  classificationLabels?: Maybe<
-    ClassificationLabelUpdateManyWithoutDataTypeInput
-  >;
-}
-
-export interface DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput {
-  where: DataTypeWhereUniqueInput;
-  data: DataTypeUpdateWithoutDataSubjectTypeDataInput;
-}
-
-export interface DataTypeUpdateManyWithoutDataSubjectTypeInput {
-  create?: Maybe<
-    | DataTypeCreateWithoutDataSubjectTypeInput[]
-    | DataTypeCreateWithoutDataSubjectTypeInput
-  >;
-  delete?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
-  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
-  set?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
-  disconnect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
   update?: Maybe<
-    | DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput[]
-    | DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput
+    | BusinessRoleUpdateWithWhereUniqueWithoutPersonInput[]
+    | BusinessRoleUpdateWithWhereUniqueWithoutPersonInput
   >;
   upsert?: Maybe<
-    | DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput[]
-    | DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput
+    | BusinessRoleUpsertWithWhereUniqueWithoutPersonInput[]
+    | BusinessRoleUpsertWithWhereUniqueWithoutPersonInput
   >;
-  deleteMany?: Maybe<DataTypeScalarWhereInput[] | DataTypeScalarWhereInput>;
+  deleteMany?: Maybe<
+    BusinessRoleScalarWhereInput[] | BusinessRoleScalarWhereInput
+  >;
   updateMany?: Maybe<
-    | DataTypeUpdateManyWithWhereNestedInput[]
-    | DataTypeUpdateManyWithWhereNestedInput
+    | BusinessRoleUpdateManyWithWhereNestedInput[]
+    | BusinessRoleUpdateManyWithWhereNestedInput
   >;
+}
+
+export interface ClassificationLabelCreateInput {
+  id?: Maybe<ID_Input>;
+  score: Int;
+  label: String;
+  criteria?: Maybe<String>;
+  qualityAttribute?: Maybe<
+    QualityAttributeCreateOneWithoutClassificationLabelsInput
+  >;
+  dataType?: Maybe<DataTypeCreateManyWithoutClassificationLabelsInput>;
 }
 
 export interface ProcessingActivityWhereInput {
@@ -6069,8 +5829,8 @@ export interface ProcessingActivityWhereInput {
   purpose_not_starts_with?: Maybe<String>;
   purpose_ends_with?: Maybe<String>;
   purpose_not_ends_with?: Maybe<String>;
-  iOwnThis?: Maybe<Boolean>;
-  iOwnThis_not?: Maybe<Boolean>;
+  imController?: Maybe<Boolean>;
+  imController_not?: Maybe<Boolean>;
   securityMeasures?: Maybe<String>;
   securityMeasures_not?: Maybe<String>;
   securityMeasures_in?: Maybe<String[] | String>;
@@ -6101,6 +5861,8 @@ export interface ProcessingActivityWhereInput {
   legalGroundComment_not_ends_with?: Maybe<String>;
   profiling?: Maybe<Boolean>;
   profiling_not?: Maybe<Boolean>;
+  publicSource?: Maybe<Boolean>;
+  publicSource_not?: Maybe<Boolean>;
   linkToDpia?: Maybe<String>;
   linkToDpia_not?: Maybe<String>;
   linkToDpia_in?: Maybe<String[] | String>;
@@ -6166,25 +5928,374 @@ export interface ProcessingActivityWhereInput {
   NOT?: Maybe<ProcessingActivityWhereInput[] | ProcessingActivityWhereInput>;
 }
 
-export interface UserUpdateManyMutationInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  active?: Maybe<Boolean>;
-  specialPermissions?: Maybe<UserUpdatespecialPermissionsInput>;
-}
-
-export interface ProcessCreateManyWithoutProcessOwnerInput {
+export interface DataTypeCreateManyWithoutClassificationLabelsInput {
   create?: Maybe<
-    | ProcessCreateWithoutProcessOwnerInput[]
-    | ProcessCreateWithoutProcessOwnerInput
+    | DataTypeCreateWithoutClassificationLabelsInput[]
+    | DataTypeCreateWithoutClassificationLabelsInput
   >;
-  connect?: Maybe<ProcessWhereUniqueInput[] | ProcessWhereUniqueInput>;
+  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
 }
 
-export interface DataSubjectTypeCreateWithoutDataTypesInput {
+export interface LocationCreateInput {
   id?: Maybe<ID_Input>;
   name: String;
   description?: Maybe<String>;
+  address: String;
+  businessPartner?: Maybe<BusinessPartnerCreateOneWithoutHeadOfficeInput>;
+}
+
+export interface DataTypeCreateWithoutClassificationLabelsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  retentionPolicy?: Maybe<RetentionPolicyCreateManyInput>;
+  dataSubjectType?: Maybe<DataSubjectTypeCreateManyWithoutDataTypesInput>;
+  application?: Maybe<ApplicationCreateManyWithoutDataTypesInput>;
+}
+
+export interface DataTypeCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  retentionPolicy?: Maybe<RetentionPolicyCreateManyInput>;
+  dataSubjectType?: Maybe<DataSubjectTypeCreateManyWithoutDataTypesInput>;
+  application?: Maybe<ApplicationCreateManyWithoutDataTypesInput>;
+  classificationLabels?: Maybe<
+    ClassificationLabelCreateManyWithoutDataTypeInput
+  >;
+}
+
+export interface ClassificationLabelUpdateInput {
+  score?: Maybe<Int>;
+  label?: Maybe<String>;
+  criteria?: Maybe<String>;
+  qualityAttribute?: Maybe<
+    QualityAttributeUpdateOneWithoutClassificationLabelsInput
+  >;
+  dataType?: Maybe<DataTypeUpdateManyWithoutClassificationLabelsInput>;
+}
+
+export interface OrganizationalUnitCreateManyWithoutParentInput {
+  create?: Maybe<
+    | OrganizationalUnitCreateWithoutParentInput[]
+    | OrganizationalUnitCreateWithoutParentInput
+  >;
+  connect?: Maybe<
+    OrganizationalUnitWhereUniqueInput[] | OrganizationalUnitWhereUniqueInput
+  >;
+}
+
+export interface DataTypeUpdateManyWithoutClassificationLabelsInput {
+  create?: Maybe<
+    | DataTypeCreateWithoutClassificationLabelsInput[]
+    | DataTypeCreateWithoutClassificationLabelsInput
+  >;
+  delete?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+  set?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+  disconnect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+  update?: Maybe<
+    | DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput[]
+    | DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput
+  >;
+  upsert?: Maybe<
+    | DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput[]
+    | DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput
+  >;
+  deleteMany?: Maybe<DataTypeScalarWhereInput[] | DataTypeScalarWhereInput>;
+  updateMany?: Maybe<
+    | DataTypeUpdateManyWithWhereNestedInput[]
+    | DataTypeUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface QualityAttributeCreateOneWithoutClassificationLabelsInput {
+  create?: Maybe<QualityAttributeCreateWithoutClassificationLabelsInput>;
+  connect?: Maybe<QualityAttributeWhereUniqueInput>;
+}
+
+export interface DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput {
+  where: DataTypeWhereUniqueInput;
+  data: DataTypeUpdateWithoutClassificationLabelsDataInput;
+}
+
+export interface ApplicationCreateManyWithoutSecurityAdministratorInput {
+  create?: Maybe<
+    | ApplicationCreateWithoutSecurityAdministratorInput[]
+    | ApplicationCreateWithoutSecurityAdministratorInput
+  >;
+  connect?: Maybe<ApplicationWhereUniqueInput[] | ApplicationWhereUniqueInput>;
+}
+
+export interface DataTypeUpdateWithoutClassificationLabelsDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  retentionPolicy?: Maybe<RetentionPolicyUpdateManyInput>;
+  dataSubjectType?: Maybe<DataSubjectTypeUpdateManyWithoutDataTypesInput>;
+  application?: Maybe<ApplicationUpdateManyWithoutDataTypesInput>;
+}
+
+export interface RetentionPolicyWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  AND?: Maybe<RetentionPolicyWhereInput[] | RetentionPolicyWhereInput>;
+  OR?: Maybe<RetentionPolicyWhereInput[] | RetentionPolicyWhereInput>;
+  NOT?: Maybe<RetentionPolicyWhereInput[] | RetentionPolicyWhereInput>;
+}
+
+export interface DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput {
+  where: DataTypeWhereUniqueInput;
+  update: DataTypeUpdateWithoutClassificationLabelsDataInput;
+  create: DataTypeCreateWithoutClassificationLabelsInput;
+}
+
+export type DataTypeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface ClassificationLabelUpdateManyMutationInput {
+  score?: Maybe<Int>;
+  label?: Maybe<String>;
+  criteria?: Maybe<String>;
+}
+
+export interface OrganizationalUnitUpsertWithWhereUniqueWithoutOrganizationalUnitTypeInput {
+  where: OrganizationalUnitWhereUniqueInput;
+  update: OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput;
+  create: OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput;
+}
+
+export interface DataSubjectTypeCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  dataTypes?: Maybe<DataTypeCreateManyWithoutDataSubjectTypeInput>;
+}
+
+export interface BusinessPartnerCreateOneInput {
+  create?: Maybe<BusinessPartnerCreateInput>;
+  connect?: Maybe<BusinessPartnerWhereUniqueInput>;
+}
+
+export interface DataTypeCreateManyWithoutDataSubjectTypeInput {
+  create?: Maybe<
+    | DataTypeCreateWithoutDataSubjectTypeInput[]
+    | DataTypeCreateWithoutDataSubjectTypeInput
+  >;
+  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+}
+
+export interface BusinessRoleCreateOneWithoutProcessInput {
+  create?: Maybe<BusinessRoleCreateWithoutProcessInput>;
+  connect?: Maybe<BusinessRoleWhereUniqueInput>;
+}
+
+export interface DataTypeCreateWithoutDataSubjectTypeInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  retentionPolicy?: Maybe<RetentionPolicyCreateManyInput>;
+  application?: Maybe<ApplicationCreateManyWithoutDataTypesInput>;
+  classificationLabels?: Maybe<
+    ClassificationLabelCreateManyWithoutDataTypeInput
+  >;
+}
+
+export interface ProcessWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  organizationalUnit?: Maybe<OrganizationalUnitWhereInput>;
+  processingActivities_every?: Maybe<ProcessingActivityWhereInput>;
+  processingActivities_some?: Maybe<ProcessingActivityWhereInput>;
+  processingActivities_none?: Maybe<ProcessingActivityWhereInput>;
+  processOwner?: Maybe<BusinessRoleWhereInput>;
+  AND?: Maybe<ProcessWhereInput[] | ProcessWhereInput>;
+  OR?: Maybe<ProcessWhereInput[] | ProcessWhereInput>;
+  NOT?: Maybe<ProcessWhereInput[] | ProcessWhereInput>;
+}
+
+export interface DataSubjectTypeUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  dataTypes?: Maybe<DataTypeUpdateManyWithoutDataSubjectTypeInput>;
+}
+
+export interface ProcessUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  organizationalUnit?: Maybe<OrganizationalUnitUpdateOneWithoutProcessesInput>;
+  processingActivities?: Maybe<ProcessingActivityUpdateManyWithoutProcessInput>;
+  processOwner?: Maybe<BusinessRoleUpdateOneWithoutProcessInput>;
+}
+
+export interface DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput {
+  where: DataTypeWhereUniqueInput;
+  update: DataTypeUpdateWithoutDataSubjectTypeDataInput;
+  create: DataTypeCreateWithoutDataSubjectTypeInput;
+}
+
+export interface DataTypeUpdateWithoutDataSubjectTypeDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  retentionPolicy?: Maybe<RetentionPolicyUpdateManyInput>;
+  application?: Maybe<ApplicationUpdateManyWithoutDataTypesInput>;
+  classificationLabels?: Maybe<
+    ClassificationLabelUpdateManyWithoutDataTypeInput
+  >;
+}
+
+export interface DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput {
+  where: DataTypeWhereUniqueInput;
+  data: DataTypeUpdateWithoutDataSubjectTypeDataInput;
+}
+
+export interface DataTypeUpdateManyWithoutDataSubjectTypeInput {
+  create?: Maybe<
+    | DataTypeCreateWithoutDataSubjectTypeInput[]
+    | DataTypeCreateWithoutDataSubjectTypeInput
+  >;
+  delete?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+  connect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+  set?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+  disconnect?: Maybe<DataTypeWhereUniqueInput[] | DataTypeWhereUniqueInput>;
+  update?: Maybe<
+    | DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput[]
+    | DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput
+  >;
+  upsert?: Maybe<
+    | DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput[]
+    | DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput
+  >;
+  deleteMany?: Maybe<DataTypeScalarWhereInput[] | DataTypeScalarWhereInput>;
+  updateMany?: Maybe<
+    | DataTypeUpdateManyWithWhereNestedInput[]
+    | DataTypeUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface BusinessPartnerUpsertWithoutHeadOfficeInput {
+  update: BusinessPartnerUpdateWithoutHeadOfficeDataInput;
+  create: BusinessPartnerCreateWithoutHeadOfficeInput;
+}
+
+export type BusinessPartnerWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface OrganizationalUnitCreateOneWithoutChildrenInput {
+  create?: Maybe<OrganizationalUnitCreateWithoutChildrenInput>;
+  connect?: Maybe<OrganizationalUnitWhereUniqueInput>;
+}
+
+export interface BusinessRoleCreateWithoutAppBusinessOwnerInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description?: Maybe<String>;
+  raciPrivacy?: Maybe<RACI>;
+  raciSecurity?: Maybe<RACI>;
+  raciFinancial?: Maybe<RACI>;
+  raciExecutive?: Maybe<RACI>;
+  person?: Maybe<PersonCreateOneWithoutRolesInput>;
+  organizationalUnit: OrganizationalUnitCreateOneWithoutBusinessRolesInput;
+  process?: Maybe<ProcessCreateManyWithoutProcessOwnerInput>;
+  appItOwner?: Maybe<ApplicationCreateManyWithoutItOwnerInput>;
+  appSecAdmin?: Maybe<ApplicationCreateManyWithoutSecurityAdministratorInput>;
 }
 
 export interface NodeNode {
@@ -6472,20 +6583,23 @@ export interface ApplicationConnectionSubscription
   aggregate: <T = AggregateApplicationSubscription>() => T;
 }
 
-export interface AggregateRecipientsType {
-  count: Int;
+export interface RecipientsTypeEdge {
+  node: RecipientsType;
+  cursor: String;
 }
 
-export interface AggregateRecipientsTypePromise
-  extends Promise<AggregateRecipientsType>,
+export interface RecipientsTypeEdgePromise
+  extends Promise<RecipientsTypeEdge>,
     Fragmentable {
-  count: () => Promise<Int>;
+  node: <T = RecipientsTypePromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface AggregateRecipientsTypeSubscription
-  extends Promise<AsyncIterator<AggregateRecipientsType>>,
+export interface RecipientsTypeEdgeSubscription
+  extends Promise<AsyncIterator<RecipientsTypeEdge>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = RecipientsTypeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Application {
@@ -6585,25 +6699,26 @@ export interface ApplicationNullablePromise
   securityAdministrator: <T = BusinessRolePromise>() => T;
 }
 
-export interface RecipientsTypeConnection {
-  pageInfo: PageInfo;
-  edges: RecipientsTypeEdge[];
+export interface RetentionPolicyPreviousValues {
+  id: ID_Output;
+  name: String;
+  description?: String;
 }
 
-export interface RecipientsTypeConnectionPromise
-  extends Promise<RecipientsTypeConnection>,
+export interface RetentionPolicyPreviousValuesPromise
+  extends Promise<RetentionPolicyPreviousValues>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<RecipientsTypeEdge>>() => T;
-  aggregate: <T = AggregateRecipientsTypePromise>() => T;
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
 }
 
-export interface RecipientsTypeConnectionSubscription
-  extends Promise<AsyncIterator<RecipientsTypeConnection>>,
+export interface RetentionPolicyPreviousValuesSubscription
+  extends Promise<AsyncIterator<RetentionPolicyPreviousValues>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<RecipientsTypeEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateRecipientsTypeSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ApplicationSubscriptionPayload {
@@ -6675,29 +6790,20 @@ export interface ApplicationPreviousValuesSubscription
   description: () => Promise<AsyncIterator<String>>;
 }
 
-export interface RetentionPolicySubscriptionPayload {
-  mutation: MutationType;
-  node: RetentionPolicy;
-  updatedFields: String[];
-  previousValues: RetentionPolicyPreviousValues;
+export interface AggregateProcessingType {
+  count: Int;
 }
 
-export interface RetentionPolicySubscriptionPayloadPromise
-  extends Promise<RetentionPolicySubscriptionPayload>,
+export interface AggregateProcessingTypePromise
+  extends Promise<AggregateProcessingType>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = RetentionPolicyPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = RetentionPolicyPreviousValuesPromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface RetentionPolicySubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<RetentionPolicySubscriptionPayload>>,
+export interface AggregateProcessingTypeSubscription
+  extends Promise<AsyncIterator<AggregateProcessingType>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = RetentionPolicySubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = RetentionPolicyPreviousValuesSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface OrganizationalUnitType {
@@ -6763,23 +6869,25 @@ export interface OrganizationalUnitTypeNullablePromise
   }) => T;
 }
 
-export interface ProcessingTypeEdge {
-  node: ProcessingType;
-  cursor: String;
+export interface ProcessingTypeConnection {
+  pageInfo: PageInfo;
+  edges: ProcessingTypeEdge[];
 }
 
-export interface ProcessingTypeEdgePromise
-  extends Promise<ProcessingTypeEdge>,
+export interface ProcessingTypeConnectionPromise
+  extends Promise<ProcessingTypeConnection>,
     Fragmentable {
-  node: <T = ProcessingTypePromise>() => T;
-  cursor: () => Promise<String>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProcessingTypeEdge>>() => T;
+  aggregate: <T = AggregateProcessingTypePromise>() => T;
 }
 
-export interface ProcessingTypeEdgeSubscription
-  extends Promise<AsyncIterator<ProcessingTypeEdge>>,
+export interface ProcessingTypeConnectionSubscription
+  extends Promise<AsyncIterator<ProcessingTypeConnection>>,
     Fragmentable {
-  node: <T = ProcessingTypeSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProcessingTypeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProcessingTypeSubscription>() => T;
 }
 
 export interface BusinessPartnerSubscriptionPayload {
@@ -6807,20 +6915,23 @@ export interface BusinessPartnerSubscriptionPayloadSubscription
   previousValues: <T = BusinessPartnerPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateProcessingActivity {
-  count: Int;
+export interface ProcessingActivityEdge {
+  node: ProcessingActivity;
+  cursor: String;
 }
 
-export interface AggregateProcessingActivityPromise
-  extends Promise<AggregateProcessingActivity>,
+export interface ProcessingActivityEdgePromise
+  extends Promise<ProcessingActivityEdge>,
     Fragmentable {
-  count: () => Promise<Int>;
+  node: <T = ProcessingActivityPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface AggregateProcessingActivitySubscription
-  extends Promise<AsyncIterator<AggregateProcessingActivity>>,
+export interface ProcessingActivityEdgeSubscription
+  extends Promise<AsyncIterator<ProcessingActivityEdge>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = ProcessingActivitySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface BusinessPartnerPreviousValues {
@@ -6829,7 +6940,7 @@ export interface BusinessPartnerPreviousValues {
   description?: String;
   contactDetails: String;
   dpo: String;
-  securityMeasures: String;
+  securityMeasures?: String;
   otherCountries?: Json;
   outsideEea?: Boolean;
   safeguards?: String;
@@ -6866,27 +6977,20 @@ export interface BusinessPartnerPreviousValuesSubscription
   linkToDpa: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ProcessingActivityConnection {
-  pageInfo: PageInfo;
-  edges: ProcessingActivityEdge[];
+export interface AggregateProcess {
+  count: Int;
 }
 
-export interface ProcessingActivityConnectionPromise
-  extends Promise<ProcessingActivityConnection>,
+export interface AggregateProcessPromise
+  extends Promise<AggregateProcess>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProcessingActivityEdge>>() => T;
-  aggregate: <T = AggregateProcessingActivityPromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface ProcessingActivityConnectionSubscription
-  extends Promise<AsyncIterator<ProcessingActivityConnection>>,
+export interface AggregateProcessSubscription
+  extends Promise<AsyncIterator<AggregateProcess>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <
-    T = Promise<AsyncIterator<ProcessingActivityEdgeSubscription>>
-  >() => T;
-  aggregate: <T = AggregateProcessingActivitySubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface User {
@@ -6936,21 +7040,25 @@ export interface UserNullablePromise
   person: <T = PersonPromise>() => T;
 }
 
-export interface ProcessEdge {
-  node: Process;
-  cursor: String;
+export interface ProcessConnection {
+  pageInfo: PageInfo;
+  edges: ProcessEdge[];
 }
 
-export interface ProcessEdgePromise extends Promise<ProcessEdge>, Fragmentable {
-  node: <T = ProcessPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProcessEdgeSubscription
-  extends Promise<AsyncIterator<ProcessEdge>>,
+export interface ProcessConnectionPromise
+  extends Promise<ProcessConnection>,
     Fragmentable {
-  node: <T = ProcessSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProcessEdge>>() => T;
+  aggregate: <T = AggregateProcessPromise>() => T;
+}
+
+export interface ProcessConnectionSubscription
+  extends Promise<AsyncIterator<ProcessConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProcessEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProcessSubscription>() => T;
 }
 
 export interface BusinessRoleSubscriptionPayload {
@@ -6978,20 +7086,21 @@ export interface BusinessRoleSubscriptionPayloadSubscription
   previousValues: <T = BusinessRolePreviousValuesSubscription>() => T;
 }
 
-export interface AggregatePerson {
-  count: Int;
+export interface PersonEdge {
+  node: Person;
+  cursor: String;
 }
 
-export interface AggregatePersonPromise
-  extends Promise<AggregatePerson>,
-    Fragmentable {
-  count: () => Promise<Int>;
+export interface PersonEdgePromise extends Promise<PersonEdge>, Fragmentable {
+  node: <T = PersonPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface AggregatePersonSubscription
-  extends Promise<AsyncIterator<AggregatePerson>>,
+export interface PersonEdgeSubscription
+  extends Promise<AsyncIterator<PersonEdge>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = PersonSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface BusinessRolePreviousValues {
@@ -7028,25 +7137,29 @@ export interface BusinessRolePreviousValuesSubscription
   raciExecutive: () => Promise<AsyncIterator<RACI>>;
 }
 
-export interface PersonConnection {
-  pageInfo: PageInfo;
-  edges: PersonEdge[];
+export interface RetentionPolicySubscriptionPayload {
+  mutation: MutationType;
+  node: RetentionPolicy;
+  updatedFields: String[];
+  previousValues: RetentionPolicyPreviousValues;
 }
 
-export interface PersonConnectionPromise
-  extends Promise<PersonConnection>,
+export interface RetentionPolicySubscriptionPayloadPromise
+  extends Promise<RetentionPolicySubscriptionPayload>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<PersonEdge>>() => T;
-  aggregate: <T = AggregatePersonPromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = RetentionPolicyPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RetentionPolicyPreviousValuesPromise>() => T;
 }
 
-export interface PersonConnectionSubscription
-  extends Promise<AsyncIterator<PersonConnection>>,
+export interface RetentionPolicySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RetentionPolicySubscriptionPayload>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<PersonEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatePersonSubscription>() => T;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = RetentionPolicySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = RetentionPolicyPreviousValuesSubscription>() => T;
 }
 
 export interface Person {
@@ -7107,20 +7220,23 @@ export interface PersonNullablePromise
   }) => T;
 }
 
-export interface AggregateOrganizationalUnitType {
-  count: Int;
+export interface OrganizationalUnitTypeEdge {
+  node: OrganizationalUnitType;
+  cursor: String;
 }
 
-export interface AggregateOrganizationalUnitTypePromise
-  extends Promise<AggregateOrganizationalUnitType>,
+export interface OrganizationalUnitTypeEdgePromise
+  extends Promise<OrganizationalUnitTypeEdge>,
     Fragmentable {
-  count: () => Promise<Int>;
+  node: <T = OrganizationalUnitTypePromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface AggregateOrganizationalUnitTypeSubscription
-  extends Promise<AsyncIterator<AggregateOrganizationalUnitType>>,
+export interface OrganizationalUnitTypeEdgeSubscription
+  extends Promise<AsyncIterator<OrganizationalUnitTypeEdge>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = OrganizationalUnitTypeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ClassificationLabelSubscriptionPayload {
@@ -7148,27 +7264,100 @@ export interface ClassificationLabelSubscriptionPayloadSubscription
   previousValues: <T = ClassificationLabelPreviousValuesSubscription>() => T;
 }
 
-export interface OrganizationalUnitTypeConnection {
-  pageInfo: PageInfo;
-  edges: OrganizationalUnitTypeEdge[];
+export interface BusinessPartner {
+  id: ID_Output;
+  name: String;
+  description?: String;
+  contactDetails: String;
+  dpo: String;
+  securityMeasures?: String;
+  otherCountries?: Json;
+  outsideEea?: Boolean;
+  safeguards?: String;
+  linkToDpa?: String;
 }
 
-export interface OrganizationalUnitTypeConnectionPromise
-  extends Promise<OrganizationalUnitTypeConnection>,
+export interface BusinessPartnerPromise
+  extends Promise<BusinessPartner>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<OrganizationalUnitTypeEdge>>() => T;
-  aggregate: <T = AggregateOrganizationalUnitTypePromise>() => T;
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+  contactDetails: () => Promise<String>;
+  dpo: () => Promise<String>;
+  representative: <T = BusinessPartnerPromise>() => T;
+  processingTypes: <T = FragmentableArray<ProcessingType>>(args?: {
+    where?: ProcessingTypeWhereInput;
+    orderBy?: ProcessingTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  recipientsType: <T = RecipientsTypePromise>() => T;
+  securityMeasures: () => Promise<String>;
+  otherCountries: () => Promise<Json>;
+  outsideEea: () => Promise<Boolean>;
+  safeguards: () => Promise<String>;
+  linkToDpa: () => Promise<String>;
+  headOffice: <T = LocationPromise>() => T;
 }
 
-export interface OrganizationalUnitTypeConnectionSubscription
-  extends Promise<AsyncIterator<OrganizationalUnitTypeConnection>>,
+export interface BusinessPartnerSubscription
+  extends Promise<AsyncIterator<BusinessPartner>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <
-    T = Promise<AsyncIterator<OrganizationalUnitTypeEdgeSubscription>>
-  >() => T;
-  aggregate: <T = AggregateOrganizationalUnitTypeSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  contactDetails: () => Promise<AsyncIterator<String>>;
+  dpo: () => Promise<AsyncIterator<String>>;
+  representative: <T = BusinessPartnerSubscription>() => T;
+  processingTypes: <
+    T = Promise<AsyncIterator<ProcessingTypeSubscription>>
+  >(args?: {
+    where?: ProcessingTypeWhereInput;
+    orderBy?: ProcessingTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  recipientsType: <T = RecipientsTypeSubscription>() => T;
+  securityMeasures: () => Promise<AsyncIterator<String>>;
+  otherCountries: () => Promise<AsyncIterator<Json>>;
+  outsideEea: () => Promise<AsyncIterator<Boolean>>;
+  safeguards: () => Promise<AsyncIterator<String>>;
+  linkToDpa: () => Promise<AsyncIterator<String>>;
+  headOffice: <T = LocationSubscription>() => T;
+}
+
+export interface BusinessPartnerNullablePromise
+  extends Promise<BusinessPartner | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+  contactDetails: () => Promise<String>;
+  dpo: () => Promise<String>;
+  representative: <T = BusinessPartnerPromise>() => T;
+  processingTypes: <T = FragmentableArray<ProcessingType>>(args?: {
+    where?: ProcessingTypeWhereInput;
+    orderBy?: ProcessingTypeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  recipientsType: <T = RecipientsTypePromise>() => T;
+  securityMeasures: () => Promise<String>;
+  otherCountries: () => Promise<Json>;
+  outsideEea: () => Promise<Boolean>;
+  safeguards: () => Promise<String>;
+  linkToDpa: () => Promise<String>;
+  headOffice: <T = LocationPromise>() => T;
 }
 
 export interface ClassificationLabelPreviousValues {
@@ -7975,10 +8164,11 @@ export interface ProcessingActivity {
   id: ID_Output;
   name: String;
   purpose?: String;
-  iOwnThis?: Boolean;
+  imController?: Boolean;
   securityMeasures?: String;
   legalGroundComment?: String;
   profiling?: Boolean;
+  publicSource?: Boolean;
   linkToDpia?: String;
   linkToLia?: String;
   createdAt: DateTimeOutput;
@@ -7991,10 +8181,11 @@ export interface ProcessingActivityPromise
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   purpose: () => Promise<String>;
-  iOwnThis: () => Promise<Boolean>;
+  imController: () => Promise<Boolean>;
   securityMeasures: () => Promise<String>;
   legalGroundComment: () => Promise<String>;
   profiling: () => Promise<Boolean>;
+  publicSource: () => Promise<Boolean>;
   linkToDpia: () => Promise<String>;
   linkToLia: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -8053,10 +8244,11 @@ export interface ProcessingActivitySubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
   purpose: () => Promise<AsyncIterator<String>>;
-  iOwnThis: () => Promise<AsyncIterator<Boolean>>;
+  imController: () => Promise<AsyncIterator<Boolean>>;
   securityMeasures: () => Promise<AsyncIterator<String>>;
   legalGroundComment: () => Promise<AsyncIterator<String>>;
   profiling: () => Promise<AsyncIterator<Boolean>>;
+  publicSource: () => Promise<AsyncIterator<Boolean>>;
   linkToDpia: () => Promise<AsyncIterator<String>>;
   linkToLia: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -8119,10 +8311,11 @@ export interface ProcessingActivityNullablePromise
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   purpose: () => Promise<String>;
-  iOwnThis: () => Promise<Boolean>;
+  imController: () => Promise<Boolean>;
   securityMeasures: () => Promise<String>;
   legalGroundComment: () => Promise<String>;
   profiling: () => Promise<Boolean>;
+  publicSource: () => Promise<Boolean>;
   linkToDpia: () => Promise<String>;
   linkToLia: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -8200,26 +8393,20 @@ export interface LocationPreviousValuesSubscription
   address: () => Promise<AsyncIterator<String>>;
 }
 
-export interface RetentionPolicyPreviousValues {
-  id: ID_Output;
-  name: String;
-  description?: String;
+export interface AggregateRecipientsType {
+  count: Int;
 }
 
-export interface RetentionPolicyPreviousValuesPromise
-  extends Promise<RetentionPolicyPreviousValues>,
+export interface AggregateRecipientsTypePromise
+  extends Promise<AggregateRecipientsType>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
+  count: () => Promise<Int>;
 }
 
-export interface RetentionPolicyPreviousValuesSubscription
-  extends Promise<AsyncIterator<RetentionPolicyPreviousValues>>,
+export interface AggregateRecipientsTypeSubscription
+  extends Promise<AsyncIterator<AggregateRecipientsType>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface QualityAttribute {
@@ -8326,20 +8513,23 @@ export interface OrganizationalUnitSubscriptionPayloadSubscription
   previousValues: <T = OrganizationalUnitPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateProcessingType {
-  count: Int;
+export interface ProcessingTypeEdge {
+  node: ProcessingType;
+  cursor: String;
 }
 
-export interface AggregateProcessingTypePromise
-  extends Promise<AggregateProcessingType>,
+export interface ProcessingTypeEdgePromise
+  extends Promise<ProcessingTypeEdge>,
     Fragmentable {
-  count: () => Promise<Int>;
+  node: <T = ProcessingTypePromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface AggregateProcessingTypeSubscription
-  extends Promise<AsyncIterator<AggregateProcessingType>>,
+export interface ProcessingTypeEdgeSubscription
+  extends Promise<AsyncIterator<ProcessingTypeEdge>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = ProcessingTypeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface OrganizationalUnitPreviousValues {
@@ -8370,23 +8560,27 @@ export interface OrganizationalUnitPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ProcessingActivityEdge {
-  node: ProcessingActivity;
-  cursor: String;
+export interface ProcessingActivityConnection {
+  pageInfo: PageInfo;
+  edges: ProcessingActivityEdge[];
 }
 
-export interface ProcessingActivityEdgePromise
-  extends Promise<ProcessingActivityEdge>,
+export interface ProcessingActivityConnectionPromise
+  extends Promise<ProcessingActivityConnection>,
     Fragmentable {
-  node: <T = ProcessingActivityPromise>() => T;
-  cursor: () => Promise<String>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProcessingActivityEdge>>() => T;
+  aggregate: <T = AggregateProcessingActivityPromise>() => T;
 }
 
-export interface ProcessingActivityEdgeSubscription
-  extends Promise<AsyncIterator<ProcessingActivityEdge>>,
+export interface ProcessingActivityConnectionSubscription
+  extends Promise<AsyncIterator<ProcessingActivityConnection>>,
     Fragmentable {
-  node: <T = ProcessingActivitySubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<ProcessingActivityEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateProcessingActivitySubscription>() => T;
 }
 
 export interface ClassificationLabel {
@@ -8453,25 +8647,20 @@ export interface ClassificationLabelNullablePromise
   }) => T;
 }
 
-export interface ProcessConnection {
-  pageInfo: PageInfo;
-  edges: ProcessEdge[];
+export interface AggregatePerson {
+  count: Int;
 }
 
-export interface ProcessConnectionPromise
-  extends Promise<ProcessConnection>,
+export interface AggregatePersonPromise
+  extends Promise<AggregatePerson>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProcessEdge>>() => T;
-  aggregate: <T = AggregateProcessPromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface ProcessConnectionSubscription
-  extends Promise<AsyncIterator<ProcessConnection>>,
+export interface AggregatePersonSubscription
+  extends Promise<AsyncIterator<AggregatePerson>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProcessEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProcessSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface OrganizationalUnitTypeSubscriptionPayload {
@@ -8499,100 +8688,20 @@ export interface OrganizationalUnitTypeSubscriptionPayloadSubscription
   previousValues: <T = OrganizationalUnitTypePreviousValuesSubscription>() => T;
 }
 
-export interface BusinessPartner {
-  id: ID_Output;
-  name: String;
-  description?: String;
-  contactDetails: String;
-  dpo: String;
-  securityMeasures: String;
-  otherCountries?: Json;
-  outsideEea?: Boolean;
-  safeguards?: String;
-  linkToDpa?: String;
+export interface AggregateOrganizationalUnitType {
+  count: Int;
 }
 
-export interface BusinessPartnerPromise
-  extends Promise<BusinessPartner>,
+export interface AggregateOrganizationalUnitTypePromise
+  extends Promise<AggregateOrganizationalUnitType>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  contactDetails: () => Promise<String>;
-  dpo: () => Promise<String>;
-  representative: <T = BusinessPartnerPromise>() => T;
-  processingTypes: <T = FragmentableArray<ProcessingType>>(args?: {
-    where?: ProcessingTypeWhereInput;
-    orderBy?: ProcessingTypeOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  recipientsType: <T = RecipientsTypePromise>() => T;
-  securityMeasures: () => Promise<String>;
-  otherCountries: () => Promise<Json>;
-  outsideEea: () => Promise<Boolean>;
-  safeguards: () => Promise<String>;
-  linkToDpa: () => Promise<String>;
-  headOffice: <T = LocationPromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface BusinessPartnerSubscription
-  extends Promise<AsyncIterator<BusinessPartner>>,
+export interface AggregateOrganizationalUnitTypeSubscription
+  extends Promise<AsyncIterator<AggregateOrganizationalUnitType>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  contactDetails: () => Promise<AsyncIterator<String>>;
-  dpo: () => Promise<AsyncIterator<String>>;
-  representative: <T = BusinessPartnerSubscription>() => T;
-  processingTypes: <
-    T = Promise<AsyncIterator<ProcessingTypeSubscription>>
-  >(args?: {
-    where?: ProcessingTypeWhereInput;
-    orderBy?: ProcessingTypeOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  recipientsType: <T = RecipientsTypeSubscription>() => T;
-  securityMeasures: () => Promise<AsyncIterator<String>>;
-  otherCountries: () => Promise<AsyncIterator<Json>>;
-  outsideEea: () => Promise<AsyncIterator<Boolean>>;
-  safeguards: () => Promise<AsyncIterator<String>>;
-  linkToDpa: () => Promise<AsyncIterator<String>>;
-  headOffice: <T = LocationSubscription>() => T;
-}
-
-export interface BusinessPartnerNullablePromise
-  extends Promise<BusinessPartner | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  contactDetails: () => Promise<String>;
-  dpo: () => Promise<String>;
-  representative: <T = BusinessPartnerPromise>() => T;
-  processingTypes: <T = FragmentableArray<ProcessingType>>(args?: {
-    where?: ProcessingTypeWhereInput;
-    orderBy?: ProcessingTypeOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  recipientsType: <T = RecipientsTypePromise>() => T;
-  securityMeasures: () => Promise<String>;
-  otherCountries: () => Promise<Json>;
-  outsideEea: () => Promise<Boolean>;
-  safeguards: () => Promise<String>;
-  linkToDpa: () => Promise<String>;
-  headOffice: <T = LocationPromise>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface OrganizationalUnitTypePreviousValues {
@@ -8948,7 +9057,15 @@ export interface DataTypePromise extends Promise<DataType>, Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   description: () => Promise<String>;
-  retentionPolicy: <T = RetentionPolicyPromise>() => T;
+  retentionPolicy: <T = FragmentableArray<RetentionPolicy>>(args?: {
+    where?: RetentionPolicyWhereInput;
+    orderBy?: RetentionPolicyOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   dataSubjectType: <T = FragmentableArray<DataSubjectType>>(args?: {
     where?: DataSubjectTypeWhereInput;
     orderBy?: DataSubjectTypeOrderByInput;
@@ -8984,7 +9101,17 @@ export interface DataTypeSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
-  retentionPolicy: <T = RetentionPolicySubscription>() => T;
+  retentionPolicy: <
+    T = Promise<AsyncIterator<RetentionPolicySubscription>>
+  >(args?: {
+    where?: RetentionPolicyWhereInput;
+    orderBy?: RetentionPolicyOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   dataSubjectType: <
     T = Promise<AsyncIterator<DataSubjectTypeSubscription>>
   >(args?: {
@@ -9024,7 +9151,15 @@ export interface DataTypeNullablePromise
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   description: () => Promise<String>;
-  retentionPolicy: <T = RetentionPolicyPromise>() => T;
+  retentionPolicy: <T = FragmentableArray<RetentionPolicy>>(args?: {
+    where?: RetentionPolicyWhereInput;
+    orderBy?: RetentionPolicyOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   dataSubjectType: <T = FragmentableArray<DataSubjectType>>(args?: {
     where?: DataSubjectTypeWhereInput;
     orderBy?: DataSubjectTypeOrderByInput;
@@ -9100,30 +9235,32 @@ export interface ProcessingActivitySubscriptionPayloadSubscription
   previousValues: <T = ProcessingActivityPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateProcess {
-  count: Int;
+export interface ProcessEdge {
+  node: Process;
+  cursor: String;
 }
 
-export interface AggregateProcessPromise
-  extends Promise<AggregateProcess>,
-    Fragmentable {
-  count: () => Promise<Int>;
+export interface ProcessEdgePromise extends Promise<ProcessEdge>, Fragmentable {
+  node: <T = ProcessPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface AggregateProcessSubscription
-  extends Promise<AsyncIterator<AggregateProcess>>,
+export interface ProcessEdgeSubscription
+  extends Promise<AsyncIterator<ProcessEdge>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = ProcessSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ProcessingActivityPreviousValues {
   id: ID_Output;
   name: String;
   purpose?: String;
-  iOwnThis?: Boolean;
+  imController?: Boolean;
   securityMeasures?: String;
   legalGroundComment?: String;
   profiling?: Boolean;
+  publicSource?: Boolean;
   linkToDpia?: String;
   linkToLia?: String;
   createdAt: DateTimeOutput;
@@ -9136,10 +9273,11 @@ export interface ProcessingActivityPreviousValuesPromise
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   purpose: () => Promise<String>;
-  iOwnThis: () => Promise<Boolean>;
+  imController: () => Promise<Boolean>;
   securityMeasures: () => Promise<String>;
   legalGroundComment: () => Promise<String>;
   profiling: () => Promise<Boolean>;
+  publicSource: () => Promise<Boolean>;
   linkToDpia: () => Promise<String>;
   linkToLia: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -9152,33 +9290,38 @@ export interface ProcessingActivityPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
   purpose: () => Promise<AsyncIterator<String>>;
-  iOwnThis: () => Promise<AsyncIterator<Boolean>>;
+  imController: () => Promise<AsyncIterator<Boolean>>;
   securityMeasures: () => Promise<AsyncIterator<String>>;
   legalGroundComment: () => Promise<AsyncIterator<String>>;
   profiling: () => Promise<AsyncIterator<Boolean>>;
+  publicSource: () => Promise<AsyncIterator<Boolean>>;
   linkToDpia: () => Promise<AsyncIterator<String>>;
   linkToLia: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface OrganizationalUnitTypeEdge {
-  node: OrganizationalUnitType;
-  cursor: String;
+export interface OrganizationalUnitTypeConnection {
+  pageInfo: PageInfo;
+  edges: OrganizationalUnitTypeEdge[];
 }
 
-export interface OrganizationalUnitTypeEdgePromise
-  extends Promise<OrganizationalUnitTypeEdge>,
+export interface OrganizationalUnitTypeConnectionPromise
+  extends Promise<OrganizationalUnitTypeConnection>,
     Fragmentable {
-  node: <T = OrganizationalUnitTypePromise>() => T;
-  cursor: () => Promise<String>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<OrganizationalUnitTypeEdge>>() => T;
+  aggregate: <T = AggregateOrganizationalUnitTypePromise>() => T;
 }
 
-export interface OrganizationalUnitTypeEdgeSubscription
-  extends Promise<AsyncIterator<OrganizationalUnitTypeEdge>>,
+export interface OrganizationalUnitTypeConnectionSubscription
+  extends Promise<AsyncIterator<OrganizationalUnitTypeConnection>>,
     Fragmentable {
-  node: <T = OrganizationalUnitTypeSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<OrganizationalUnitTypeEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateOrganizationalUnitTypeSubscription>() => T;
 }
 
 export interface Location {
@@ -9347,25 +9490,20 @@ export interface RecipientsTypeNullablePromise
   description: () => Promise<String>;
 }
 
-export interface ProcessingTypeConnection {
-  pageInfo: PageInfo;
-  edges: ProcessingTypeEdge[];
+export interface AggregateProcessingActivity {
+  count: Int;
 }
 
-export interface ProcessingTypeConnectionPromise
-  extends Promise<ProcessingTypeConnection>,
+export interface AggregateProcessingActivityPromise
+  extends Promise<AggregateProcessingActivity>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProcessingTypeEdge>>() => T;
-  aggregate: <T = AggregateProcessingTypePromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface ProcessingTypeConnectionSubscription
-  extends Promise<AsyncIterator<ProcessingTypeConnection>>,
+export interface AggregateProcessingActivitySubscription
+  extends Promise<AsyncIterator<AggregateProcessingActivity>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProcessingTypeEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProcessingTypeSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface OrganizationalUnitConnection {
@@ -9515,40 +9653,46 @@ export interface DataTypeEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface PersonEdge {
-  node: Person;
-  cursor: String;
+export interface PersonConnection {
+  pageInfo: PageInfo;
+  edges: PersonEdge[];
 }
 
-export interface PersonEdgePromise extends Promise<PersonEdge>, Fragmentable {
-  node: <T = PersonPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface PersonEdgeSubscription
-  extends Promise<AsyncIterator<PersonEdge>>,
+export interface PersonConnectionPromise
+  extends Promise<PersonConnection>,
     Fragmentable {
-  node: <T = PersonSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<PersonEdge>>() => T;
+  aggregate: <T = AggregatePersonPromise>() => T;
 }
 
-export interface RecipientsTypeEdge {
-  node: RecipientsType;
-  cursor: String;
-}
-
-export interface RecipientsTypeEdgePromise
-  extends Promise<RecipientsTypeEdge>,
+export interface PersonConnectionSubscription
+  extends Promise<AsyncIterator<PersonConnection>>,
     Fragmentable {
-  node: <T = RecipientsTypePromise>() => T;
-  cursor: () => Promise<String>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PersonEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePersonSubscription>() => T;
 }
 
-export interface RecipientsTypeEdgeSubscription
-  extends Promise<AsyncIterator<RecipientsTypeEdge>>,
+export interface RecipientsTypeConnection {
+  pageInfo: PageInfo;
+  edges: RecipientsTypeEdge[];
+}
+
+export interface RecipientsTypeConnectionPromise
+  extends Promise<RecipientsTypeConnection>,
     Fragmentable {
-  node: <T = RecipientsTypeSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<RecipientsTypeEdge>>() => T;
+  aggregate: <T = AggregateRecipientsTypePromise>() => T;
+}
+
+export interface RecipientsTypeConnectionSubscription
+  extends Promise<AsyncIterator<RecipientsTypeConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<RecipientsTypeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateRecipientsTypeSubscription>() => T;
 }
 
 export interface AggregateBusinessRole {

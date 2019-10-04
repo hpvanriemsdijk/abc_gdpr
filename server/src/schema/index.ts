@@ -38,16 +38,6 @@ const Mutation = prismaObjectType({
 			resolve: authenticateUser,
 			type: 'Token'
     });
-    t.field('createOrganizationalUnit', {
-			args: t.prismaType.createOrganizationalUnit.args,
-			resolve: createOrganizationalUnit,
-			type: 'OrganizationalUnit'
-    });
-    t.field('updateOrganizationalUnit', {
-			args: t.prismaType.updateOrganizationalUnit.args,
-			resolve: updateOrganizationalUnit,
-			type: 'OrganizationalUnit'
-		});
   },
 })
 

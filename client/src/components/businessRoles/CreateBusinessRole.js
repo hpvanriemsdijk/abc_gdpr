@@ -64,7 +64,7 @@ class CreateBusinessRoleModal extends React.Component {
       <React.Fragment>
         <Mutation 
           mutation={CREATE_BUSINESS_ROLE}
-          refetchQueries={["BusinessRoles"]}
+          refetchQueries={["BusinessRoles", "BusinessRole", "BusinessRoleByOu"]}
           >
           
           {(createBusinessRole, { loading }) => {

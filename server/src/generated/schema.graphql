@@ -6,6 +6,10 @@ type AggregateApplication {
   count: Int!
 }
 
+type AggregateBusinessPartner {
+  count: Int!
+}
+
 type AggregateBusinessRole {
   count: Int!
 }
@@ -14,15 +18,19 @@ type AggregateClassificationLabel {
   count: Int!
 }
 
+type AggregateDataSubjectType {
+  count: Int!
+}
+
 type AggregateDataType {
   count: Int!
 }
 
-type AggregateLocation {
+type AggregateLegalGround {
   count: Int!
 }
 
-type AggregateOrganization {
+type AggregateLocation {
   count: Int!
 }
 
@@ -46,7 +54,19 @@ type AggregateProcessingActivity {
   count: Int!
 }
 
+type AggregateProcessingType {
+  count: Int!
+}
+
 type AggregateQualityAttribute {
+  count: Int!
+}
+
+type AggregateRecipientsType {
+  count: Int!
+}
+
+type AggregateRetentionPolicy {
   count: Int!
 }
 
@@ -80,7 +100,7 @@ input ApplicationCreateInput {
   id: ID
   itOwner: BusinessRoleCreateOneWithoutAppItOwnerInput
   name: String!
-  processingActivities: ProcessingActivityCreateManyWithoutApplicationsInput
+  processingActivities: ProcessingActivityCreateManyInput
   securityAdministrator: BusinessRoleCreateOneWithoutAppSecAdminInput
 }
 
@@ -99,11 +119,6 @@ input ApplicationCreateManyWithoutItOwnerInput {
   create: [ApplicationCreateWithoutItOwnerInput!]
 }
 
-input ApplicationCreateManyWithoutProcessingActivitiesInput {
-  connect: [ApplicationWhereUniqueInput!]
-  create: [ApplicationCreateWithoutProcessingActivitiesInput!]
-}
-
 input ApplicationCreateManyWithoutSecurityAdministratorInput {
   connect: [ApplicationWhereUniqueInput!]
   create: [ApplicationCreateWithoutSecurityAdministratorInput!]
@@ -116,7 +131,7 @@ input ApplicationCreateWithoutBusinessOwnerInput {
   id: ID
   itOwner: BusinessRoleCreateOneWithoutAppItOwnerInput
   name: String!
-  processingActivities: ProcessingActivityCreateManyWithoutApplicationsInput
+  processingActivities: ProcessingActivityCreateManyInput
   securityAdministrator: BusinessRoleCreateOneWithoutAppSecAdminInput
 }
 
@@ -127,7 +142,7 @@ input ApplicationCreateWithoutDataTypesInput {
   id: ID
   itOwner: BusinessRoleCreateOneWithoutAppItOwnerInput
   name: String!
-  processingActivities: ProcessingActivityCreateManyWithoutApplicationsInput
+  processingActivities: ProcessingActivityCreateManyInput
   securityAdministrator: BusinessRoleCreateOneWithoutAppSecAdminInput
 }
 
@@ -138,18 +153,7 @@ input ApplicationCreateWithoutItOwnerInput {
   description: String
   id: ID
   name: String!
-  processingActivities: ProcessingActivityCreateManyWithoutApplicationsInput
-  securityAdministrator: BusinessRoleCreateOneWithoutAppSecAdminInput
-}
-
-input ApplicationCreateWithoutProcessingActivitiesInput {
-  alias: Json
-  businessOwner: BusinessRoleCreateOneWithoutAppBusinessOwnerInput
-  dataTypes: DataTypeCreateManyWithoutApplicationInput
-  description: String
-  id: ID
-  itOwner: BusinessRoleCreateOneWithoutAppItOwnerInput
-  name: String!
+  processingActivities: ProcessingActivityCreateManyInput
   securityAdministrator: BusinessRoleCreateOneWithoutAppSecAdminInput
 }
 
@@ -161,7 +165,7 @@ input ApplicationCreateWithoutSecurityAdministratorInput {
   id: ID
   itOwner: BusinessRoleCreateOneWithoutAppItOwnerInput
   name: String!
-  processingActivities: ProcessingActivityCreateManyWithoutApplicationsInput
+  processingActivities: ProcessingActivityCreateManyInput
 }
 
 type ApplicationEdge {
@@ -239,7 +243,7 @@ input ApplicationUpdateInput {
   description: String
   itOwner: BusinessRoleUpdateOneWithoutAppItOwnerInput
   name: String
-  processingActivities: ProcessingActivityUpdateManyWithoutApplicationsInput
+  processingActivities: ProcessingActivityUpdateManyInput
   securityAdministrator: BusinessRoleUpdateOneWithoutAppSecAdminInput
 }
 
@@ -291,18 +295,6 @@ input ApplicationUpdateManyWithoutItOwnerInput {
   upsert: [ApplicationUpsertWithWhereUniqueWithoutItOwnerInput!]
 }
 
-input ApplicationUpdateManyWithoutProcessingActivitiesInput {
-  connect: [ApplicationWhereUniqueInput!]
-  create: [ApplicationCreateWithoutProcessingActivitiesInput!]
-  delete: [ApplicationWhereUniqueInput!]
-  deleteMany: [ApplicationScalarWhereInput!]
-  disconnect: [ApplicationWhereUniqueInput!]
-  set: [ApplicationWhereUniqueInput!]
-  update: [ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput!]
-  updateMany: [ApplicationUpdateManyWithWhereNestedInput!]
-  upsert: [ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput!]
-}
-
 input ApplicationUpdateManyWithoutSecurityAdministratorInput {
   connect: [ApplicationWhereUniqueInput!]
   create: [ApplicationCreateWithoutSecurityAdministratorInput!]
@@ -326,7 +318,7 @@ input ApplicationUpdateWithoutBusinessOwnerDataInput {
   description: String
   itOwner: BusinessRoleUpdateOneWithoutAppItOwnerInput
   name: String
-  processingActivities: ProcessingActivityUpdateManyWithoutApplicationsInput
+  processingActivities: ProcessingActivityUpdateManyInput
   securityAdministrator: BusinessRoleUpdateOneWithoutAppSecAdminInput
 }
 
@@ -336,7 +328,7 @@ input ApplicationUpdateWithoutDataTypesDataInput {
   description: String
   itOwner: BusinessRoleUpdateOneWithoutAppItOwnerInput
   name: String
-  processingActivities: ProcessingActivityUpdateManyWithoutApplicationsInput
+  processingActivities: ProcessingActivityUpdateManyInput
   securityAdministrator: BusinessRoleUpdateOneWithoutAppSecAdminInput
 }
 
@@ -346,17 +338,7 @@ input ApplicationUpdateWithoutItOwnerDataInput {
   dataTypes: DataTypeUpdateManyWithoutApplicationInput
   description: String
   name: String
-  processingActivities: ProcessingActivityUpdateManyWithoutApplicationsInput
-  securityAdministrator: BusinessRoleUpdateOneWithoutAppSecAdminInput
-}
-
-input ApplicationUpdateWithoutProcessingActivitiesDataInput {
-  alias: Json
-  businessOwner: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput
-  dataTypes: DataTypeUpdateManyWithoutApplicationInput
-  description: String
-  itOwner: BusinessRoleUpdateOneWithoutAppItOwnerInput
-  name: String
+  processingActivities: ProcessingActivityUpdateManyInput
   securityAdministrator: BusinessRoleUpdateOneWithoutAppSecAdminInput
 }
 
@@ -367,7 +349,7 @@ input ApplicationUpdateWithoutSecurityAdministratorDataInput {
   description: String
   itOwner: BusinessRoleUpdateOneWithoutAppItOwnerInput
   name: String
-  processingActivities: ProcessingActivityUpdateManyWithoutApplicationsInput
+  processingActivities: ProcessingActivityUpdateManyInput
 }
 
 input ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput {
@@ -382,11 +364,6 @@ input ApplicationUpdateWithWhereUniqueWithoutDataTypesInput {
 
 input ApplicationUpdateWithWhereUniqueWithoutItOwnerInput {
   data: ApplicationUpdateWithoutItOwnerDataInput!
-  where: ApplicationWhereUniqueInput!
-}
-
-input ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput {
-  data: ApplicationUpdateWithoutProcessingActivitiesDataInput!
   where: ApplicationWhereUniqueInput!
 }
 
@@ -410,12 +387,6 @@ input ApplicationUpsertWithWhereUniqueWithoutDataTypesInput {
 input ApplicationUpsertWithWhereUniqueWithoutItOwnerInput {
   create: ApplicationCreateWithoutItOwnerInput!
   update: ApplicationUpdateWithoutItOwnerDataInput!
-  where: ApplicationWhereUniqueInput!
-}
-
-input ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput {
-  create: ApplicationCreateWithoutProcessingActivitiesInput!
-  update: ApplicationUpdateWithoutProcessingActivitiesDataInput!
   where: ApplicationWhereUniqueInput!
 }
 
@@ -488,6 +459,486 @@ input ApplicationWhereUniqueInput {
 
 type BatchPayload {
   count: Long!
+}
+
+type BusinessPartner {
+  contactDetails: String!
+  description: String
+  dpo: String!
+  headOffice: Location!
+  id: ID!
+  linkToDpa: String
+  name: String!
+  otherCountries: Json
+  outsideEea: Boolean
+  processingTypes(after: String, before: String, first: Int, last: Int, orderBy: ProcessingTypeOrderByInput, skip: Int, where: ProcessingTypeWhereInput): [ProcessingType!]
+  recipientsType: RecipientsType
+  representative: BusinessPartner
+  safeguards: String
+  securityMeasures: String
+}
+
+type BusinessPartnerConnection {
+  aggregate: AggregateBusinessPartner!
+  edges: [BusinessPartnerEdge!]!
+  pageInfo: PageInfo!
+}
+
+input BusinessPartnerCreateInput {
+  contactDetails: String!
+  description: String
+  dpo: String!
+  headOffice: LocationCreateOneWithoutBusinessPartnerInput!
+  id: ID
+  linkToDpa: String
+  name: String!
+  otherCountries: Json
+  outsideEea: Boolean
+  processingTypes: ProcessingTypeCreateManyInput
+  recipientsType: RecipientsTypeCreateOneInput
+  representative: BusinessPartnerCreateOneInput
+  safeguards: String
+  securityMeasures: String
+}
+
+input BusinessPartnerCreateManyInput {
+  connect: [BusinessPartnerWhereUniqueInput!]
+  create: [BusinessPartnerCreateInput!]
+}
+
+input BusinessPartnerCreateOneInput {
+  connect: BusinessPartnerWhereUniqueInput
+  create: BusinessPartnerCreateInput
+}
+
+input BusinessPartnerCreateOneWithoutHeadOfficeInput {
+  connect: BusinessPartnerWhereUniqueInput
+  create: BusinessPartnerCreateWithoutHeadOfficeInput
+}
+
+input BusinessPartnerCreateWithoutHeadOfficeInput {
+  contactDetails: String!
+  description: String
+  dpo: String!
+  id: ID
+  linkToDpa: String
+  name: String!
+  otherCountries: Json
+  outsideEea: Boolean
+  processingTypes: ProcessingTypeCreateManyInput
+  recipientsType: RecipientsTypeCreateOneInput
+  representative: BusinessPartnerCreateOneInput
+  safeguards: String
+  securityMeasures: String
+}
+
+type BusinessPartnerEdge {
+  cursor: String!
+  node: BusinessPartner!
+}
+
+enum BusinessPartnerOrderByInput {
+  contactDetails_ASC
+  contactDetails_DESC
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  dpo_ASC
+  dpo_DESC
+  id_ASC
+  id_DESC
+  linkToDpa_ASC
+  linkToDpa_DESC
+  name_ASC
+  name_DESC
+  otherCountries_ASC
+  otherCountries_DESC
+  outsideEea_ASC
+  outsideEea_DESC
+  safeguards_ASC
+  safeguards_DESC
+  securityMeasures_ASC
+  securityMeasures_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input BusinessPartnerScalarWhereInput {
+  AND: [BusinessPartnerScalarWhereInput!]
+  contactDetails: String
+  contactDetails_contains: String
+  contactDetails_ends_with: String
+  contactDetails_gt: String
+  contactDetails_gte: String
+  contactDetails_in: [String!]
+  contactDetails_lt: String
+  contactDetails_lte: String
+  contactDetails_not: String
+  contactDetails_not_contains: String
+  contactDetails_not_ends_with: String
+  contactDetails_not_in: [String!]
+  contactDetails_not_starts_with: String
+  contactDetails_starts_with: String
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  dpo: String
+  dpo_contains: String
+  dpo_ends_with: String
+  dpo_gt: String
+  dpo_gte: String
+  dpo_in: [String!]
+  dpo_lt: String
+  dpo_lte: String
+  dpo_not: String
+  dpo_not_contains: String
+  dpo_not_ends_with: String
+  dpo_not_in: [String!]
+  dpo_not_starts_with: String
+  dpo_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  linkToDpa: String
+  linkToDpa_contains: String
+  linkToDpa_ends_with: String
+  linkToDpa_gt: String
+  linkToDpa_gte: String
+  linkToDpa_in: [String!]
+  linkToDpa_lt: String
+  linkToDpa_lte: String
+  linkToDpa_not: String
+  linkToDpa_not_contains: String
+  linkToDpa_not_ends_with: String
+  linkToDpa_not_in: [String!]
+  linkToDpa_not_starts_with: String
+  linkToDpa_starts_with: String
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [BusinessPartnerScalarWhereInput!]
+  OR: [BusinessPartnerScalarWhereInput!]
+  outsideEea: Boolean
+  outsideEea_not: Boolean
+  safeguards: String
+  safeguards_contains: String
+  safeguards_ends_with: String
+  safeguards_gt: String
+  safeguards_gte: String
+  safeguards_in: [String!]
+  safeguards_lt: String
+  safeguards_lte: String
+  safeguards_not: String
+  safeguards_not_contains: String
+  safeguards_not_ends_with: String
+  safeguards_not_in: [String!]
+  safeguards_not_starts_with: String
+  safeguards_starts_with: String
+  securityMeasures: String
+  securityMeasures_contains: String
+  securityMeasures_ends_with: String
+  securityMeasures_gt: String
+  securityMeasures_gte: String
+  securityMeasures_in: [String!]
+  securityMeasures_lt: String
+  securityMeasures_lte: String
+  securityMeasures_not: String
+  securityMeasures_not_contains: String
+  securityMeasures_not_ends_with: String
+  securityMeasures_not_in: [String!]
+  securityMeasures_not_starts_with: String
+  securityMeasures_starts_with: String
+}
+
+input BusinessPartnerUpdateDataInput {
+  contactDetails: String
+  description: String
+  dpo: String
+  headOffice: LocationUpdateOneRequiredWithoutBusinessPartnerInput
+  linkToDpa: String
+  name: String
+  otherCountries: Json
+  outsideEea: Boolean
+  processingTypes: ProcessingTypeUpdateManyInput
+  recipientsType: RecipientsTypeUpdateOneInput
+  representative: BusinessPartnerUpdateOneInput
+  safeguards: String
+  securityMeasures: String
+}
+
+input BusinessPartnerUpdateInput {
+  contactDetails: String
+  description: String
+  dpo: String
+  headOffice: LocationUpdateOneRequiredWithoutBusinessPartnerInput
+  linkToDpa: String
+  name: String
+  otherCountries: Json
+  outsideEea: Boolean
+  processingTypes: ProcessingTypeUpdateManyInput
+  recipientsType: RecipientsTypeUpdateOneInput
+  representative: BusinessPartnerUpdateOneInput
+  safeguards: String
+  securityMeasures: String
+}
+
+input BusinessPartnerUpdateManyDataInput {
+  contactDetails: String
+  description: String
+  dpo: String
+  linkToDpa: String
+  name: String
+  otherCountries: Json
+  outsideEea: Boolean
+  safeguards: String
+  securityMeasures: String
+}
+
+input BusinessPartnerUpdateManyInput {
+  connect: [BusinessPartnerWhereUniqueInput!]
+  create: [BusinessPartnerCreateInput!]
+  delete: [BusinessPartnerWhereUniqueInput!]
+  deleteMany: [BusinessPartnerScalarWhereInput!]
+  disconnect: [BusinessPartnerWhereUniqueInput!]
+  set: [BusinessPartnerWhereUniqueInput!]
+  update: [BusinessPartnerUpdateWithWhereUniqueNestedInput!]
+  updateMany: [BusinessPartnerUpdateManyWithWhereNestedInput!]
+  upsert: [BusinessPartnerUpsertWithWhereUniqueNestedInput!]
+}
+
+input BusinessPartnerUpdateManyMutationInput {
+  contactDetails: String
+  description: String
+  dpo: String
+  linkToDpa: String
+  name: String
+  otherCountries: Json
+  outsideEea: Boolean
+  safeguards: String
+  securityMeasures: String
+}
+
+input BusinessPartnerUpdateManyWithWhereNestedInput {
+  data: BusinessPartnerUpdateManyDataInput!
+  where: BusinessPartnerScalarWhereInput!
+}
+
+input BusinessPartnerUpdateOneInput {
+  connect: BusinessPartnerWhereUniqueInput
+  create: BusinessPartnerCreateInput
+  delete: Boolean
+  disconnect: Boolean
+  update: BusinessPartnerUpdateDataInput
+  upsert: BusinessPartnerUpsertNestedInput
+}
+
+input BusinessPartnerUpdateOneWithoutHeadOfficeInput {
+  connect: BusinessPartnerWhereUniqueInput
+  create: BusinessPartnerCreateWithoutHeadOfficeInput
+  delete: Boolean
+  disconnect: Boolean
+  update: BusinessPartnerUpdateWithoutHeadOfficeDataInput
+  upsert: BusinessPartnerUpsertWithoutHeadOfficeInput
+}
+
+input BusinessPartnerUpdateWithoutHeadOfficeDataInput {
+  contactDetails: String
+  description: String
+  dpo: String
+  linkToDpa: String
+  name: String
+  otherCountries: Json
+  outsideEea: Boolean
+  processingTypes: ProcessingTypeUpdateManyInput
+  recipientsType: RecipientsTypeUpdateOneInput
+  representative: BusinessPartnerUpdateOneInput
+  safeguards: String
+  securityMeasures: String
+}
+
+input BusinessPartnerUpdateWithWhereUniqueNestedInput {
+  data: BusinessPartnerUpdateDataInput!
+  where: BusinessPartnerWhereUniqueInput!
+}
+
+input BusinessPartnerUpsertNestedInput {
+  create: BusinessPartnerCreateInput!
+  update: BusinessPartnerUpdateDataInput!
+}
+
+input BusinessPartnerUpsertWithoutHeadOfficeInput {
+  create: BusinessPartnerCreateWithoutHeadOfficeInput!
+  update: BusinessPartnerUpdateWithoutHeadOfficeDataInput!
+}
+
+input BusinessPartnerUpsertWithWhereUniqueNestedInput {
+  create: BusinessPartnerCreateInput!
+  update: BusinessPartnerUpdateDataInput!
+  where: BusinessPartnerWhereUniqueInput!
+}
+
+input BusinessPartnerWhereInput {
+  AND: [BusinessPartnerWhereInput!]
+  contactDetails: String
+  contactDetails_contains: String
+  contactDetails_ends_with: String
+  contactDetails_gt: String
+  contactDetails_gte: String
+  contactDetails_in: [String!]
+  contactDetails_lt: String
+  contactDetails_lte: String
+  contactDetails_not: String
+  contactDetails_not_contains: String
+  contactDetails_not_ends_with: String
+  contactDetails_not_in: [String!]
+  contactDetails_not_starts_with: String
+  contactDetails_starts_with: String
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  dpo: String
+  dpo_contains: String
+  dpo_ends_with: String
+  dpo_gt: String
+  dpo_gte: String
+  dpo_in: [String!]
+  dpo_lt: String
+  dpo_lte: String
+  dpo_not: String
+  dpo_not_contains: String
+  dpo_not_ends_with: String
+  dpo_not_in: [String!]
+  dpo_not_starts_with: String
+  dpo_starts_with: String
+  headOffice: LocationWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  linkToDpa: String
+  linkToDpa_contains: String
+  linkToDpa_ends_with: String
+  linkToDpa_gt: String
+  linkToDpa_gte: String
+  linkToDpa_in: [String!]
+  linkToDpa_lt: String
+  linkToDpa_lte: String
+  linkToDpa_not: String
+  linkToDpa_not_contains: String
+  linkToDpa_not_ends_with: String
+  linkToDpa_not_in: [String!]
+  linkToDpa_not_starts_with: String
+  linkToDpa_starts_with: String
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [BusinessPartnerWhereInput!]
+  OR: [BusinessPartnerWhereInput!]
+  outsideEea: Boolean
+  outsideEea_not: Boolean
+  processingTypes_every: ProcessingTypeWhereInput
+  processingTypes_none: ProcessingTypeWhereInput
+  processingTypes_some: ProcessingTypeWhereInput
+  recipientsType: RecipientsTypeWhereInput
+  representative: BusinessPartnerWhereInput
+  safeguards: String
+  safeguards_contains: String
+  safeguards_ends_with: String
+  safeguards_gt: String
+  safeguards_gte: String
+  safeguards_in: [String!]
+  safeguards_lt: String
+  safeguards_lte: String
+  safeguards_not: String
+  safeguards_not_contains: String
+  safeguards_not_ends_with: String
+  safeguards_not_in: [String!]
+  safeguards_not_starts_with: String
+  safeguards_starts_with: String
+  securityMeasures: String
+  securityMeasures_contains: String
+  securityMeasures_ends_with: String
+  securityMeasures_gt: String
+  securityMeasures_gte: String
+  securityMeasures_in: [String!]
+  securityMeasures_lt: String
+  securityMeasures_lte: String
+  securityMeasures_not: String
+  securityMeasures_not_contains: String
+  securityMeasures_not_ends_with: String
+  securityMeasures_not_in: [String!]
+  securityMeasures_not_starts_with: String
+  securityMeasures_starts_with: String
+}
+
+input BusinessPartnerWhereUniqueInput {
+  id: ID
 }
 
 type BusinessRole {
@@ -1324,12 +1775,215 @@ enum CLASSIFICATIONOBJECT {
   DATA
 }
 
-type DataType {
-  application(after: String, before: String, first: Int, last: Int, orderBy: ApplicationOrderByInput, skip: Int, where: ApplicationWhereInput): [Application!]
-  classificationLabels(after: String, before: String, first: Int, last: Int, orderBy: ClassificationLabelOrderByInput, skip: Int, where: ClassificationLabelWhereInput): [ClassificationLabel!]
+type DataSubjectType {
+  dataTypes(after: String, before: String, first: Int, last: Int, orderBy: DataTypeOrderByInput, skip: Int, where: DataTypeWhereInput): [DataType!]
   description: String
   id: ID!
   name: String!
+}
+
+type DataSubjectTypeConnection {
+  aggregate: AggregateDataSubjectType!
+  edges: [DataSubjectTypeEdge!]!
+  pageInfo: PageInfo!
+}
+
+input DataSubjectTypeCreateInput {
+  dataTypes: DataTypeCreateManyWithoutDataSubjectTypeInput
+  description: String
+  id: ID
+  name: String!
+}
+
+input DataSubjectTypeCreateManyWithoutDataTypesInput {
+  connect: [DataSubjectTypeWhereUniqueInput!]
+  create: [DataSubjectTypeCreateWithoutDataTypesInput!]
+}
+
+input DataSubjectTypeCreateWithoutDataTypesInput {
+  description: String
+  id: ID
+  name: String!
+}
+
+type DataSubjectTypeEdge {
+  cursor: String!
+  node: DataSubjectType!
+}
+
+enum DataSubjectTypeOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input DataSubjectTypeScalarWhereInput {
+  AND: [DataSubjectTypeScalarWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [DataSubjectTypeScalarWhereInput!]
+  OR: [DataSubjectTypeScalarWhereInput!]
+}
+
+input DataSubjectTypeUpdateInput {
+  dataTypes: DataTypeUpdateManyWithoutDataSubjectTypeInput
+  description: String
+  name: String
+}
+
+input DataSubjectTypeUpdateManyDataInput {
+  description: String
+  name: String
+}
+
+input DataSubjectTypeUpdateManyMutationInput {
+  description: String
+  name: String
+}
+
+input DataSubjectTypeUpdateManyWithoutDataTypesInput {
+  connect: [DataSubjectTypeWhereUniqueInput!]
+  create: [DataSubjectTypeCreateWithoutDataTypesInput!]
+  delete: [DataSubjectTypeWhereUniqueInput!]
+  deleteMany: [DataSubjectTypeScalarWhereInput!]
+  disconnect: [DataSubjectTypeWhereUniqueInput!]
+  set: [DataSubjectTypeWhereUniqueInput!]
+  update: [DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput!]
+  updateMany: [DataSubjectTypeUpdateManyWithWhereNestedInput!]
+  upsert: [DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput!]
+}
+
+input DataSubjectTypeUpdateManyWithWhereNestedInput {
+  data: DataSubjectTypeUpdateManyDataInput!
+  where: DataSubjectTypeScalarWhereInput!
+}
+
+input DataSubjectTypeUpdateWithoutDataTypesDataInput {
+  description: String
+  name: String
+}
+
+input DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput {
+  data: DataSubjectTypeUpdateWithoutDataTypesDataInput!
+  where: DataSubjectTypeWhereUniqueInput!
+}
+
+input DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput {
+  create: DataSubjectTypeCreateWithoutDataTypesInput!
+  update: DataSubjectTypeUpdateWithoutDataTypesDataInput!
+  where: DataSubjectTypeWhereUniqueInput!
+}
+
+input DataSubjectTypeWhereInput {
+  AND: [DataSubjectTypeWhereInput!]
+  dataTypes_every: DataTypeWhereInput
+  dataTypes_none: DataTypeWhereInput
+  dataTypes_some: DataTypeWhereInput
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [DataSubjectTypeWhereInput!]
+  OR: [DataSubjectTypeWhereInput!]
+}
+
+input DataSubjectTypeWhereUniqueInput {
+  id: ID
+}
+
+type DataType {
+  application(after: String, before: String, first: Int, last: Int, orderBy: ApplicationOrderByInput, skip: Int, where: ApplicationWhereInput): [Application!]
+  classificationLabels(after: String, before: String, first: Int, last: Int, orderBy: ClassificationLabelOrderByInput, skip: Int, where: ClassificationLabelWhereInput): [ClassificationLabel!]
+  dataSubjectType(after: String, before: String, first: Int, last: Int, orderBy: DataSubjectTypeOrderByInput, skip: Int, where: DataSubjectTypeWhereInput): [DataSubjectType!]
+  description: String
+  id: ID!
+  name: String!
+  retentionPolicy(after: String, before: String, first: Int, last: Int, orderBy: RetentionPolicyOrderByInput, skip: Int, where: RetentionPolicyWhereInput): [RetentionPolicy!]
 }
 
 type DataTypeConnection {
@@ -1341,9 +1995,16 @@ type DataTypeConnection {
 input DataTypeCreateInput {
   application: ApplicationCreateManyWithoutDataTypesInput
   classificationLabels: ClassificationLabelCreateManyWithoutDataTypeInput
+  dataSubjectType: DataSubjectTypeCreateManyWithoutDataTypesInput
   description: String
   id: ID
   name: String!
+  retentionPolicy: RetentionPolicyCreateManyInput
+}
+
+input DataTypeCreateManyInput {
+  connect: [DataTypeWhereUniqueInput!]
+  create: [DataTypeCreateInput!]
 }
 
 input DataTypeCreateManyWithoutApplicationInput {
@@ -1356,18 +2017,36 @@ input DataTypeCreateManyWithoutClassificationLabelsInput {
   create: [DataTypeCreateWithoutClassificationLabelsInput!]
 }
 
+input DataTypeCreateManyWithoutDataSubjectTypeInput {
+  connect: [DataTypeWhereUniqueInput!]
+  create: [DataTypeCreateWithoutDataSubjectTypeInput!]
+}
+
 input DataTypeCreateWithoutApplicationInput {
   classificationLabels: ClassificationLabelCreateManyWithoutDataTypeInput
+  dataSubjectType: DataSubjectTypeCreateManyWithoutDataTypesInput
   description: String
   id: ID
   name: String!
+  retentionPolicy: RetentionPolicyCreateManyInput
 }
 
 input DataTypeCreateWithoutClassificationLabelsInput {
   application: ApplicationCreateManyWithoutDataTypesInput
+  dataSubjectType: DataSubjectTypeCreateManyWithoutDataTypesInput
   description: String
   id: ID
   name: String!
+  retentionPolicy: RetentionPolicyCreateManyInput
+}
+
+input DataTypeCreateWithoutDataSubjectTypeInput {
+  application: ApplicationCreateManyWithoutDataTypesInput
+  classificationLabels: ClassificationLabelCreateManyWithoutDataTypeInput
+  description: String
+  id: ID
+  name: String!
+  retentionPolicy: RetentionPolicyCreateManyInput
 }
 
 type DataTypeEdge {
@@ -1436,16 +2115,39 @@ input DataTypeScalarWhereInput {
   OR: [DataTypeScalarWhereInput!]
 }
 
+input DataTypeUpdateDataInput {
+  application: ApplicationUpdateManyWithoutDataTypesInput
+  classificationLabels: ClassificationLabelUpdateManyWithoutDataTypeInput
+  dataSubjectType: DataSubjectTypeUpdateManyWithoutDataTypesInput
+  description: String
+  name: String
+  retentionPolicy: RetentionPolicyUpdateManyInput
+}
+
 input DataTypeUpdateInput {
   application: ApplicationUpdateManyWithoutDataTypesInput
   classificationLabels: ClassificationLabelUpdateManyWithoutDataTypeInput
+  dataSubjectType: DataSubjectTypeUpdateManyWithoutDataTypesInput
   description: String
   name: String
+  retentionPolicy: RetentionPolicyUpdateManyInput
 }
 
 input DataTypeUpdateManyDataInput {
   description: String
   name: String
+}
+
+input DataTypeUpdateManyInput {
+  connect: [DataTypeWhereUniqueInput!]
+  create: [DataTypeCreateInput!]
+  delete: [DataTypeWhereUniqueInput!]
+  deleteMany: [DataTypeScalarWhereInput!]
+  disconnect: [DataTypeWhereUniqueInput!]
+  set: [DataTypeWhereUniqueInput!]
+  update: [DataTypeUpdateWithWhereUniqueNestedInput!]
+  updateMany: [DataTypeUpdateManyWithWhereNestedInput!]
+  upsert: [DataTypeUpsertWithWhereUniqueNestedInput!]
 }
 
 input DataTypeUpdateManyMutationInput {
@@ -1477,6 +2179,18 @@ input DataTypeUpdateManyWithoutClassificationLabelsInput {
   upsert: [DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput!]
 }
 
+input DataTypeUpdateManyWithoutDataSubjectTypeInput {
+  connect: [DataTypeWhereUniqueInput!]
+  create: [DataTypeCreateWithoutDataSubjectTypeInput!]
+  delete: [DataTypeWhereUniqueInput!]
+  deleteMany: [DataTypeScalarWhereInput!]
+  disconnect: [DataTypeWhereUniqueInput!]
+  set: [DataTypeWhereUniqueInput!]
+  update: [DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput!]
+  updateMany: [DataTypeUpdateManyWithWhereNestedInput!]
+  upsert: [DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput!]
+}
+
 input DataTypeUpdateManyWithWhereNestedInput {
   data: DataTypeUpdateManyDataInput!
   where: DataTypeScalarWhereInput!
@@ -1484,14 +2198,31 @@ input DataTypeUpdateManyWithWhereNestedInput {
 
 input DataTypeUpdateWithoutApplicationDataInput {
   classificationLabels: ClassificationLabelUpdateManyWithoutDataTypeInput
+  dataSubjectType: DataSubjectTypeUpdateManyWithoutDataTypesInput
   description: String
   name: String
+  retentionPolicy: RetentionPolicyUpdateManyInput
 }
 
 input DataTypeUpdateWithoutClassificationLabelsDataInput {
   application: ApplicationUpdateManyWithoutDataTypesInput
+  dataSubjectType: DataSubjectTypeUpdateManyWithoutDataTypesInput
   description: String
   name: String
+  retentionPolicy: RetentionPolicyUpdateManyInput
+}
+
+input DataTypeUpdateWithoutDataSubjectTypeDataInput {
+  application: ApplicationUpdateManyWithoutDataTypesInput
+  classificationLabels: ClassificationLabelUpdateManyWithoutDataTypeInput
+  description: String
+  name: String
+  retentionPolicy: RetentionPolicyUpdateManyInput
+}
+
+input DataTypeUpdateWithWhereUniqueNestedInput {
+  data: DataTypeUpdateDataInput!
+  where: DataTypeWhereUniqueInput!
 }
 
 input DataTypeUpdateWithWhereUniqueWithoutApplicationInput {
@@ -1501,6 +2232,17 @@ input DataTypeUpdateWithWhereUniqueWithoutApplicationInput {
 
 input DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInput {
   data: DataTypeUpdateWithoutClassificationLabelsDataInput!
+  where: DataTypeWhereUniqueInput!
+}
+
+input DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput {
+  data: DataTypeUpdateWithoutDataSubjectTypeDataInput!
+  where: DataTypeWhereUniqueInput!
+}
+
+input DataTypeUpsertWithWhereUniqueNestedInput {
+  create: DataTypeCreateInput!
+  update: DataTypeUpdateDataInput!
   where: DataTypeWhereUniqueInput!
 }
 
@@ -1516,6 +2258,12 @@ input DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput {
   where: DataTypeWhereUniqueInput!
 }
 
+input DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput {
+  create: DataTypeCreateWithoutDataSubjectTypeInput!
+  update: DataTypeUpdateWithoutDataSubjectTypeDataInput!
+  where: DataTypeWhereUniqueInput!
+}
+
 input DataTypeWhereInput {
   AND: [DataTypeWhereInput!]
   application_every: ApplicationWhereInput
@@ -1524,6 +2272,9 @@ input DataTypeWhereInput {
   classificationLabels_every: ClassificationLabelWhereInput
   classificationLabels_none: ClassificationLabelWhereInput
   classificationLabels_some: ClassificationLabelWhereInput
+  dataSubjectType_every: DataSubjectTypeWhereInput
+  dataSubjectType_none: DataSubjectTypeWhereInput
+  dataSubjectType_some: DataSubjectTypeWhereInput
   description: String
   description_contains: String
   description_ends_with: String
@@ -1568,6 +2319,9 @@ input DataTypeWhereInput {
   name_starts_with: String
   NOT: [DataTypeWhereInput!]
   OR: [DataTypeWhereInput!]
+  retentionPolicy_every: RetentionPolicyWhereInput
+  retentionPolicy_none: RetentionPolicyWhereInput
+  retentionPolicy_some: RetentionPolicyWhereInput
 }
 
 input DataTypeWhereUniqueInput {
@@ -1578,12 +2332,213 @@ scalar DateTime
 
 scalar Json
 
-type Location {
-  address: String!
+type LegalGround {
   description: String
   id: ID!
   name: String!
-  organization: Organization
+  specialCategoryCondition: Boolean
+}
+
+type LegalGroundConnection {
+  aggregate: AggregateLegalGround!
+  edges: [LegalGroundEdge!]!
+  pageInfo: PageInfo!
+}
+
+input LegalGroundCreateInput {
+  description: String
+  id: ID
+  name: String!
+  specialCategoryCondition: Boolean
+}
+
+input LegalGroundCreateManyInput {
+  connect: [LegalGroundWhereUniqueInput!]
+  create: [LegalGroundCreateInput!]
+}
+
+type LegalGroundEdge {
+  cursor: String!
+  node: LegalGround!
+}
+
+enum LegalGroundOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  specialCategoryCondition_ASC
+  specialCategoryCondition_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input LegalGroundScalarWhereInput {
+  AND: [LegalGroundScalarWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [LegalGroundScalarWhereInput!]
+  OR: [LegalGroundScalarWhereInput!]
+  specialCategoryCondition: Boolean
+  specialCategoryCondition_not: Boolean
+}
+
+input LegalGroundUpdateDataInput {
+  description: String
+  name: String
+  specialCategoryCondition: Boolean
+}
+
+input LegalGroundUpdateInput {
+  description: String
+  name: String
+  specialCategoryCondition: Boolean
+}
+
+input LegalGroundUpdateManyDataInput {
+  description: String
+  name: String
+  specialCategoryCondition: Boolean
+}
+
+input LegalGroundUpdateManyInput {
+  connect: [LegalGroundWhereUniqueInput!]
+  create: [LegalGroundCreateInput!]
+  delete: [LegalGroundWhereUniqueInput!]
+  deleteMany: [LegalGroundScalarWhereInput!]
+  disconnect: [LegalGroundWhereUniqueInput!]
+  set: [LegalGroundWhereUniqueInput!]
+  update: [LegalGroundUpdateWithWhereUniqueNestedInput!]
+  updateMany: [LegalGroundUpdateManyWithWhereNestedInput!]
+  upsert: [LegalGroundUpsertWithWhereUniqueNestedInput!]
+}
+
+input LegalGroundUpdateManyMutationInput {
+  description: String
+  name: String
+  specialCategoryCondition: Boolean
+}
+
+input LegalGroundUpdateManyWithWhereNestedInput {
+  data: LegalGroundUpdateManyDataInput!
+  where: LegalGroundScalarWhereInput!
+}
+
+input LegalGroundUpdateWithWhereUniqueNestedInput {
+  data: LegalGroundUpdateDataInput!
+  where: LegalGroundWhereUniqueInput!
+}
+
+input LegalGroundUpsertWithWhereUniqueNestedInput {
+  create: LegalGroundCreateInput!
+  update: LegalGroundUpdateDataInput!
+  where: LegalGroundWhereUniqueInput!
+}
+
+input LegalGroundWhereInput {
+  AND: [LegalGroundWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [LegalGroundWhereInput!]
+  OR: [LegalGroundWhereInput!]
+  specialCategoryCondition: Boolean
+  specialCategoryCondition_not: Boolean
+}
+
+input LegalGroundWhereUniqueInput {
+  id: ID
+}
+
+type Location {
+  address: String!
+  businessPartner: BusinessPartner
+  description: String
+  id: ID!
+  name: String!
 }
 
 type LocationConnection {
@@ -1594,18 +2549,18 @@ type LocationConnection {
 
 input LocationCreateInput {
   address: String!
+  businessPartner: BusinessPartnerCreateOneWithoutHeadOfficeInput
   description: String
   id: ID
   name: String!
-  organization: OrganizationCreateOneWithoutHeadOfficeInput
 }
 
-input LocationCreateOneWithoutOrganizationInput {
+input LocationCreateOneWithoutBusinessPartnerInput {
   connect: LocationWhereUniqueInput
-  create: LocationCreateWithoutOrganizationInput
+  create: LocationCreateWithoutBusinessPartnerInput
 }
 
-input LocationCreateWithoutOrganizationInput {
+input LocationCreateWithoutBusinessPartnerInput {
   address: String!
   description: String
   id: ID
@@ -1634,9 +2589,9 @@ enum LocationOrderByInput {
 
 input LocationUpdateInput {
   address: String
+  businessPartner: BusinessPartnerUpdateOneWithoutHeadOfficeInput
   description: String
   name: String
-  organization: OrganizationUpdateOneWithoutHeadOfficeInput
 }
 
 input LocationUpdateManyMutationInput {
@@ -1645,22 +2600,22 @@ input LocationUpdateManyMutationInput {
   name: String
 }
 
-input LocationUpdateOneRequiredWithoutOrganizationInput {
+input LocationUpdateOneRequiredWithoutBusinessPartnerInput {
   connect: LocationWhereUniqueInput
-  create: LocationCreateWithoutOrganizationInput
-  update: LocationUpdateWithoutOrganizationDataInput
-  upsert: LocationUpsertWithoutOrganizationInput
+  create: LocationCreateWithoutBusinessPartnerInput
+  update: LocationUpdateWithoutBusinessPartnerDataInput
+  upsert: LocationUpsertWithoutBusinessPartnerInput
 }
 
-input LocationUpdateWithoutOrganizationDataInput {
+input LocationUpdateWithoutBusinessPartnerDataInput {
   address: String
   description: String
   name: String
 }
 
-input LocationUpsertWithoutOrganizationInput {
-  create: LocationCreateWithoutOrganizationInput!
-  update: LocationUpdateWithoutOrganizationDataInput!
+input LocationUpsertWithoutBusinessPartnerInput {
+  create: LocationCreateWithoutBusinessPartnerInput!
+  update: LocationUpdateWithoutBusinessPartnerDataInput!
 }
 
 input LocationWhereInput {
@@ -1679,6 +2634,7 @@ input LocationWhereInput {
   address_not_starts_with: String
   address_starts_with: String
   AND: [LocationWhereInput!]
+  businessPartner: BusinessPartnerWhereInput
   description: String
   description_contains: String
   description_ends_with: String
@@ -1723,7 +2679,6 @@ input LocationWhereInput {
   name_starts_with: String
   NOT: [LocationWhereInput!]
   OR: [LocationWhereInput!]
-  organization: OrganizationWhereInput
 }
 
 input LocationWhereUniqueInput {
@@ -1741,93 +2696,113 @@ type Mutation {
   authenticateUser(data: LoginInput): Token
   createAdmin(data: LoginInput): User
   createApplication(data: ApplicationCreateInput!): Application!
+  createBusinessPartner(data: BusinessPartnerCreateInput!): BusinessPartner!
   createBusinessRole(data: BusinessRoleCreateInput!): BusinessRole!
   createClassificationLabel(data: ClassificationLabelCreateInput!): ClassificationLabel!
+  createDataSubjectType(data: DataSubjectTypeCreateInput!): DataSubjectType!
   createDataType(data: DataTypeCreateInput!): DataType!
+  createLegalGround(data: LegalGroundCreateInput!): LegalGround!
   createLocation(data: LocationCreateInput!): Location!
-  createOrganization(data: OrganizationCreateInput!): Organization!
-  createOrganizationalUnit(data: OrganizationalUnitCreateInput!): OrganizationalUnit
+  createOrganizationalUnit(data: OrganizationalUnitCreateInput!): OrganizationalUnit!
   createOrganizationalUnitType(data: OrganizationalUnitTypeCreateInput!): OrganizationalUnitType!
   createPerson(data: PersonCreateInput!): Person!
   createProcess(data: ProcessCreateInput!): Process!
   createProcessingActivity(data: ProcessingActivityCreateInput!): ProcessingActivity!
+  createProcessingType(data: ProcessingTypeCreateInput!): ProcessingType!
   createQualityAttribute(data: QualityAttributeCreateInput!): QualityAttribute!
+  createRecipientsType(data: RecipientsTypeCreateInput!): RecipientsType!
+  createRetentionPolicy(data: RetentionPolicyCreateInput!): RetentionPolicy!
   createUser(data: UserCreateInput!): User
   deleteApplication(where: ApplicationWhereUniqueInput!): Application
+  deleteBusinessPartner(where: BusinessPartnerWhereUniqueInput!): BusinessPartner
   deleteBusinessRole(where: BusinessRoleWhereUniqueInput!): BusinessRole
   deleteClassificationLabel(where: ClassificationLabelWhereUniqueInput!): ClassificationLabel
+  deleteDataSubjectType(where: DataSubjectTypeWhereUniqueInput!): DataSubjectType
   deleteDataType(where: DataTypeWhereUniqueInput!): DataType
+  deleteLegalGround(where: LegalGroundWhereUniqueInput!): LegalGround
   deleteLocation(where: LocationWhereUniqueInput!): Location
   deleteManyApplications(where: ApplicationWhereInput): BatchPayload!
+  deleteManyBusinessPartners(where: BusinessPartnerWhereInput): BatchPayload!
   deleteManyBusinessRoles(where: BusinessRoleWhereInput): BatchPayload!
   deleteManyClassificationLabels(where: ClassificationLabelWhereInput): BatchPayload!
+  deleteManyDataSubjectTypes(where: DataSubjectTypeWhereInput): BatchPayload!
   deleteManyDataTypes(where: DataTypeWhereInput): BatchPayload!
+  deleteManyLegalGrounds(where: LegalGroundWhereInput): BatchPayload!
   deleteManyLocations(where: LocationWhereInput): BatchPayload!
   deleteManyOrganizationalUnits(where: OrganizationalUnitWhereInput): BatchPayload!
   deleteManyOrganizationalUnitTypes(where: OrganizationalUnitTypeWhereInput): BatchPayload!
-  deleteManyOrganizations(where: OrganizationWhereInput): BatchPayload!
   deleteManyPersons(where: PersonWhereInput): BatchPayload!
   deleteManyProcesses(where: ProcessWhereInput): BatchPayload!
   deleteManyProcessingActivities(where: ProcessingActivityWhereInput): BatchPayload!
+  deleteManyProcessingTypes(where: ProcessingTypeWhereInput): BatchPayload!
   deleteManyQualityAttributes(where: QualityAttributeWhereInput): BatchPayload!
+  deleteManyRecipientsTypes(where: RecipientsTypeWhereInput): BatchPayload!
+  deleteManyRetentionPolicies(where: RetentionPolicyWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
-  deleteOrganization(where: OrganizationWhereUniqueInput!): Organization
   deleteOrganizationalUnit(where: OrganizationalUnitWhereUniqueInput!): OrganizationalUnit
   deleteOrganizationalUnitType(where: OrganizationalUnitTypeWhereUniqueInput!): OrganizationalUnitType
   deletePerson(where: PersonWhereUniqueInput!): Person
   deleteProcess(where: ProcessWhereUniqueInput!): Process
   deleteProcessingActivity(where: ProcessingActivityWhereUniqueInput!): ProcessingActivity
+  deleteProcessingType(where: ProcessingTypeWhereUniqueInput!): ProcessingType
   deleteQualityAttribute(where: QualityAttributeWhereUniqueInput!): QualityAttribute
+  deleteRecipientsType(where: RecipientsTypeWhereUniqueInput!): RecipientsType
+  deleteRetentionPolicy(where: RetentionPolicyWhereUniqueInput!): RetentionPolicy
   deleteUser(where: UserWhereUniqueInput!): User
   updateApplication(data: ApplicationUpdateInput!, where: ApplicationWhereUniqueInput!): Application
+  updateBusinessPartner(data: BusinessPartnerUpdateInput!, where: BusinessPartnerWhereUniqueInput!): BusinessPartner
   updateBusinessRole(data: BusinessRoleUpdateInput!, where: BusinessRoleWhereUniqueInput!): BusinessRole
   updateClassificationLabel(data: ClassificationLabelUpdateInput!, where: ClassificationLabelWhereUniqueInput!): ClassificationLabel
+  updateDataSubjectType(data: DataSubjectTypeUpdateInput!, where: DataSubjectTypeWhereUniqueInput!): DataSubjectType
   updateDataType(data: DataTypeUpdateInput!, where: DataTypeWhereUniqueInput!): DataType
+  updateLegalGround(data: LegalGroundUpdateInput!, where: LegalGroundWhereUniqueInput!): LegalGround
   updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
   updateManyApplications(data: ApplicationUpdateManyMutationInput!, where: ApplicationWhereInput): BatchPayload!
+  updateManyBusinessPartners(data: BusinessPartnerUpdateManyMutationInput!, where: BusinessPartnerWhereInput): BatchPayload!
   updateManyBusinessRoles(data: BusinessRoleUpdateManyMutationInput!, where: BusinessRoleWhereInput): BatchPayload!
   updateManyClassificationLabels(data: ClassificationLabelUpdateManyMutationInput!, where: ClassificationLabelWhereInput): BatchPayload!
+  updateManyDataSubjectTypes(data: DataSubjectTypeUpdateManyMutationInput!, where: DataSubjectTypeWhereInput): BatchPayload!
   updateManyDataTypes(data: DataTypeUpdateManyMutationInput!, where: DataTypeWhereInput): BatchPayload!
+  updateManyLegalGrounds(data: LegalGroundUpdateManyMutationInput!, where: LegalGroundWhereInput): BatchPayload!
   updateManyLocations(data: LocationUpdateManyMutationInput!, where: LocationWhereInput): BatchPayload!
   updateManyOrganizationalUnits(data: OrganizationalUnitUpdateManyMutationInput!, where: OrganizationalUnitWhereInput): BatchPayload!
   updateManyOrganizationalUnitTypes(data: OrganizationalUnitTypeUpdateManyMutationInput!, where: OrganizationalUnitTypeWhereInput): BatchPayload!
-  updateManyOrganizations(data: OrganizationUpdateManyMutationInput!, where: OrganizationWhereInput): BatchPayload!
   updateManyPersons(data: PersonUpdateManyMutationInput!, where: PersonWhereInput): BatchPayload!
   updateManyProcesses(data: ProcessUpdateManyMutationInput!, where: ProcessWhereInput): BatchPayload!
   updateManyProcessingActivities(data: ProcessingActivityUpdateManyMutationInput!, where: ProcessingActivityWhereInput): BatchPayload!
+  updateManyProcessingTypes(data: ProcessingTypeUpdateManyMutationInput!, where: ProcessingTypeWhereInput): BatchPayload!
   updateManyQualityAttributes(data: QualityAttributeUpdateManyMutationInput!, where: QualityAttributeWhereInput): BatchPayload!
+  updateManyRecipientsTypes(data: RecipientsTypeUpdateManyMutationInput!, where: RecipientsTypeWhereInput): BatchPayload!
+  updateManyRetentionPolicies(data: RetentionPolicyUpdateManyMutationInput!, where: RetentionPolicyWhereInput): BatchPayload!
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
-  updateOrganization(data: OrganizationUpdateInput!, where: OrganizationWhereUniqueInput!): Organization
   updateOrganizationalUnit(data: OrganizationalUnitUpdateInput!, where: OrganizationalUnitWhereUniqueInput!): OrganizationalUnit
   updateOrganizationalUnitType(data: OrganizationalUnitTypeUpdateInput!, where: OrganizationalUnitTypeWhereUniqueInput!): OrganizationalUnitType
   updatePerson(data: PersonUpdateInput!, where: PersonWhereUniqueInput!): Person
   updateProcess(data: ProcessUpdateInput!, where: ProcessWhereUniqueInput!): Process
   updateProcessingActivity(data: ProcessingActivityUpdateInput!, where: ProcessingActivityWhereUniqueInput!): ProcessingActivity
+  updateProcessingType(data: ProcessingTypeUpdateInput!, where: ProcessingTypeWhereUniqueInput!): ProcessingType
   updateQualityAttribute(data: QualityAttributeUpdateInput!, where: QualityAttributeWhereUniqueInput!): QualityAttribute
+  updateRecipientsType(data: RecipientsTypeUpdateInput!, where: RecipientsTypeWhereUniqueInput!): RecipientsType
+  updateRetentionPolicy(data: RetentionPolicyUpdateInput!, where: RetentionPolicyWhereUniqueInput!): RetentionPolicy
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   upsertApplication(create: ApplicationCreateInput!, update: ApplicationUpdateInput!, where: ApplicationWhereUniqueInput!): Application!
+  upsertBusinessPartner(create: BusinessPartnerCreateInput!, update: BusinessPartnerUpdateInput!, where: BusinessPartnerWhereUniqueInput!): BusinessPartner!
   upsertBusinessRole(create: BusinessRoleCreateInput!, update: BusinessRoleUpdateInput!, where: BusinessRoleWhereUniqueInput!): BusinessRole!
   upsertClassificationLabel(create: ClassificationLabelCreateInput!, update: ClassificationLabelUpdateInput!, where: ClassificationLabelWhereUniqueInput!): ClassificationLabel!
+  upsertDataSubjectType(create: DataSubjectTypeCreateInput!, update: DataSubjectTypeUpdateInput!, where: DataSubjectTypeWhereUniqueInput!): DataSubjectType!
   upsertDataType(create: DataTypeCreateInput!, update: DataTypeUpdateInput!, where: DataTypeWhereUniqueInput!): DataType!
+  upsertLegalGround(create: LegalGroundCreateInput!, update: LegalGroundUpdateInput!, where: LegalGroundWhereUniqueInput!): LegalGround!
   upsertLocation(create: LocationCreateInput!, update: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location!
-  upsertOrganization(create: OrganizationCreateInput!, update: OrganizationUpdateInput!, where: OrganizationWhereUniqueInput!): Organization!
   upsertOrganizationalUnit(create: OrganizationalUnitCreateInput!, update: OrganizationalUnitUpdateInput!, where: OrganizationalUnitWhereUniqueInput!): OrganizationalUnit!
   upsertOrganizationalUnitType(create: OrganizationalUnitTypeCreateInput!, update: OrganizationalUnitTypeUpdateInput!, where: OrganizationalUnitTypeWhereUniqueInput!): OrganizationalUnitType!
   upsertPerson(create: PersonCreateInput!, update: PersonUpdateInput!, where: PersonWhereUniqueInput!): Person!
   upsertProcess(create: ProcessCreateInput!, update: ProcessUpdateInput!, where: ProcessWhereUniqueInput!): Process!
   upsertProcessingActivity(create: ProcessingActivityCreateInput!, update: ProcessingActivityUpdateInput!, where: ProcessingActivityWhereUniqueInput!): ProcessingActivity!
+  upsertProcessingType(create: ProcessingTypeCreateInput!, update: ProcessingTypeUpdateInput!, where: ProcessingTypeWhereUniqueInput!): ProcessingType!
   upsertQualityAttribute(create: QualityAttributeCreateInput!, update: QualityAttributeUpdateInput!, where: QualityAttributeWhereUniqueInput!): QualityAttribute!
+  upsertRecipientsType(create: RecipientsTypeCreateInput!, update: RecipientsTypeUpdateInput!, where: RecipientsTypeWhereUniqueInput!): RecipientsType!
+  upsertRetentionPolicy(create: RetentionPolicyCreateInput!, update: RetentionPolicyUpdateInput!, where: RetentionPolicyWhereUniqueInput!): RetentionPolicy!
   upsertUser(create: UserCreateInput!, update: UserUpdateInput!, where: UserWhereUniqueInput!): User!
-}
-
-type Organization {
-  contactDetails: String!
-  description: String
-  dpo: String!
-  headOffice: Location!
-  id: ID!
-  name: String!
-  representative: String!
 }
 
 type OrganizationalUnit {
@@ -2396,194 +3371,6 @@ input OrganizationalUnitWhereUniqueInput {
   id: ID
 }
 
-type OrganizationConnection {
-  aggregate: AggregateOrganization!
-  edges: [OrganizationEdge!]!
-  pageInfo: PageInfo!
-}
-
-input OrganizationCreateInput {
-  contactDetails: String!
-  description: String
-  dpo: String!
-  headOffice: LocationCreateOneWithoutOrganizationInput!
-  id: ID
-  name: String!
-  representative: String!
-}
-
-input OrganizationCreateOneWithoutHeadOfficeInput {
-  connect: OrganizationWhereUniqueInput
-  create: OrganizationCreateWithoutHeadOfficeInput
-}
-
-input OrganizationCreateWithoutHeadOfficeInput {
-  contactDetails: String!
-  description: String
-  dpo: String!
-  id: ID
-  name: String!
-  representative: String!
-}
-
-type OrganizationEdge {
-  cursor: String!
-  node: Organization!
-}
-
-enum OrganizationOrderByInput {
-  contactDetails_ASC
-  contactDetails_DESC
-  createdAt_ASC
-  createdAt_DESC
-  description_ASC
-  description_DESC
-  dpo_ASC
-  dpo_DESC
-  id_ASC
-  id_DESC
-  name_ASC
-  name_DESC
-  representative_ASC
-  representative_DESC
-  updatedAt_ASC
-  updatedAt_DESC
-}
-
-input OrganizationUpdateInput {
-  contactDetails: String
-  description: String
-  dpo: String
-  headOffice: LocationUpdateOneRequiredWithoutOrganizationInput
-  name: String
-  representative: String
-}
-
-input OrganizationUpdateManyMutationInput {
-  contactDetails: String
-  description: String
-  dpo: String
-  name: String
-  representative: String
-}
-
-input OrganizationUpdateOneWithoutHeadOfficeInput {
-  connect: OrganizationWhereUniqueInput
-  create: OrganizationCreateWithoutHeadOfficeInput
-  delete: Boolean
-  disconnect: Boolean
-  update: OrganizationUpdateWithoutHeadOfficeDataInput
-  upsert: OrganizationUpsertWithoutHeadOfficeInput
-}
-
-input OrganizationUpdateWithoutHeadOfficeDataInput {
-  contactDetails: String
-  description: String
-  dpo: String
-  name: String
-  representative: String
-}
-
-input OrganizationUpsertWithoutHeadOfficeInput {
-  create: OrganizationCreateWithoutHeadOfficeInput!
-  update: OrganizationUpdateWithoutHeadOfficeDataInput!
-}
-
-input OrganizationWhereInput {
-  AND: [OrganizationWhereInput!]
-  contactDetails: String
-  contactDetails_contains: String
-  contactDetails_ends_with: String
-  contactDetails_gt: String
-  contactDetails_gte: String
-  contactDetails_in: [String!]
-  contactDetails_lt: String
-  contactDetails_lte: String
-  contactDetails_not: String
-  contactDetails_not_contains: String
-  contactDetails_not_ends_with: String
-  contactDetails_not_in: [String!]
-  contactDetails_not_starts_with: String
-  contactDetails_starts_with: String
-  description: String
-  description_contains: String
-  description_ends_with: String
-  description_gt: String
-  description_gte: String
-  description_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_not: String
-  description_not_contains: String
-  description_not_ends_with: String
-  description_not_in: [String!]
-  description_not_starts_with: String
-  description_starts_with: String
-  dpo: String
-  dpo_contains: String
-  dpo_ends_with: String
-  dpo_gt: String
-  dpo_gte: String
-  dpo_in: [String!]
-  dpo_lt: String
-  dpo_lte: String
-  dpo_not: String
-  dpo_not_contains: String
-  dpo_not_ends_with: String
-  dpo_not_in: [String!]
-  dpo_not_starts_with: String
-  dpo_starts_with: String
-  headOffice: LocationWhereInput
-  id: ID
-  id_contains: ID
-  id_ends_with: ID
-  id_gt: ID
-  id_gte: ID
-  id_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_not: ID
-  id_not_contains: ID
-  id_not_ends_with: ID
-  id_not_in: [ID!]
-  id_not_starts_with: ID
-  id_starts_with: ID
-  name: String
-  name_contains: String
-  name_ends_with: String
-  name_gt: String
-  name_gte: String
-  name_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_not: String
-  name_not_contains: String
-  name_not_ends_with: String
-  name_not_in: [String!]
-  name_not_starts_with: String
-  name_starts_with: String
-  NOT: [OrganizationWhereInput!]
-  OR: [OrganizationWhereInput!]
-  representative: String
-  representative_contains: String
-  representative_ends_with: String
-  representative_gt: String
-  representative_gte: String
-  representative_in: [String!]
-  representative_lt: String
-  representative_lte: String
-  representative_not: String
-  representative_not_contains: String
-  representative_not_ends_with: String
-  representative_not_in: [String!]
-  representative_not_starts_with: String
-  representative_starts_with: String
-}
-
-input OrganizationWhereUniqueInput {
-  id: ID
-}
-
 type PageInfo {
   endCursor: String
   hasNextPage: Boolean!
@@ -2839,13 +3626,23 @@ type ProcessEdge {
 }
 
 type ProcessingActivity {
-  applications(after: String, before: String, first: Int, last: Int, orderBy: ApplicationOrderByInput, skip: Int, where: ApplicationWhereInput): [Application!]
+  controllers(after: String, before: String, first: Int, last: Int, orderBy: BusinessPartnerOrderByInput, skip: Int, where: BusinessPartnerWhereInput): [BusinessPartner!]
   createdAt: DateTime!
-  description: String
+  dataTypes(after: String, before: String, first: Int, last: Int, orderBy: DataTypeOrderByInput, skip: Int, where: DataTypeWhereInput): [DataType!]
   id: ID!
+  imController: Boolean
+  legalGroundComment: String
+  legalGrounds(after: String, before: String, first: Int, last: Int, orderBy: LegalGroundOrderByInput, skip: Int, where: LegalGroundWhereInput): [LegalGround!]
+  linkToDpia: String
+  linkToLia: String
   name: String!
+  procesessingTypes(after: String, before: String, first: Int, last: Int, orderBy: ProcessingTypeOrderByInput, skip: Int, where: ProcessingTypeWhereInput): [ProcessingType!]
   process: Process
+  profiling: Boolean
+  publicSource: Boolean
   purpose: String
+  recipients(after: String, before: String, first: Int, last: Int, orderBy: BusinessPartnerOrderByInput, skip: Int, where: BusinessPartnerWhereInput): [BusinessPartner!]
+  securityMeasures: String
   updatedAt: DateTime!
 }
 
@@ -2856,17 +3653,27 @@ type ProcessingActivityConnection {
 }
 
 input ProcessingActivityCreateInput {
-  applications: ApplicationCreateManyWithoutProcessingActivitiesInput
-  description: String
+  controllers: BusinessPartnerCreateManyInput
+  dataTypes: DataTypeCreateManyInput
   id: ID
+  imController: Boolean
+  legalGroundComment: String
+  legalGrounds: LegalGroundCreateManyInput
+  linkToDpia: String
+  linkToLia: String
   name: String!
+  procesessingTypes: ProcessingTypeCreateManyInput
   process: ProcessCreateOneWithoutProcessingActivitiesInput
+  profiling: Boolean
+  publicSource: Boolean
   purpose: String
+  recipients: BusinessPartnerCreateManyInput
+  securityMeasures: String
 }
 
-input ProcessingActivityCreateManyWithoutApplicationsInput {
+input ProcessingActivityCreateManyInput {
   connect: [ProcessingActivityWhereUniqueInput!]
-  create: [ProcessingActivityCreateWithoutApplicationsInput!]
+  create: [ProcessingActivityCreateInput!]
 }
 
 input ProcessingActivityCreateManyWithoutProcessInput {
@@ -2874,20 +3681,22 @@ input ProcessingActivityCreateManyWithoutProcessInput {
   create: [ProcessingActivityCreateWithoutProcessInput!]
 }
 
-input ProcessingActivityCreateWithoutApplicationsInput {
-  description: String
-  id: ID
-  name: String!
-  process: ProcessCreateOneWithoutProcessingActivitiesInput
-  purpose: String
-}
-
 input ProcessingActivityCreateWithoutProcessInput {
-  applications: ApplicationCreateManyWithoutProcessingActivitiesInput
-  description: String
+  controllers: BusinessPartnerCreateManyInput
+  dataTypes: DataTypeCreateManyInput
   id: ID
+  imController: Boolean
+  legalGroundComment: String
+  legalGrounds: LegalGroundCreateManyInput
+  linkToDpia: String
+  linkToLia: String
   name: String!
+  procesessingTypes: ProcessingTypeCreateManyInput
+  profiling: Boolean
+  publicSource: Boolean
   purpose: String
+  recipients: BusinessPartnerCreateManyInput
+  securityMeasures: String
 }
 
 type ProcessingActivityEdge {
@@ -2898,14 +3707,26 @@ type ProcessingActivityEdge {
 enum ProcessingActivityOrderByInput {
   createdAt_ASC
   createdAt_DESC
-  description_ASC
-  description_DESC
   id_ASC
   id_DESC
+  imController_ASC
+  imController_DESC
+  legalGroundComment_ASC
+  legalGroundComment_DESC
+  linkToDpia_ASC
+  linkToDpia_DESC
+  linkToLia_ASC
+  linkToLia_DESC
   name_ASC
   name_DESC
+  profiling_ASC
+  profiling_DESC
+  publicSource_ASC
+  publicSource_DESC
   purpose_ASC
   purpose_DESC
+  securityMeasures_ASC
+  securityMeasures_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
@@ -2920,20 +3741,6 @@ input ProcessingActivityScalarWhereInput {
   createdAt_lte: DateTime
   createdAt_not: DateTime
   createdAt_not_in: [DateTime!]
-  description: String
-  description_contains: String
-  description_ends_with: String
-  description_gt: String
-  description_gte: String
-  description_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_not: String
-  description_not_contains: String
-  description_not_ends_with: String
-  description_not_in: [String!]
-  description_not_starts_with: String
-  description_starts_with: String
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -2948,6 +3755,50 @@ input ProcessingActivityScalarWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
+  imController: Boolean
+  imController_not: Boolean
+  legalGroundComment: String
+  legalGroundComment_contains: String
+  legalGroundComment_ends_with: String
+  legalGroundComment_gt: String
+  legalGroundComment_gte: String
+  legalGroundComment_in: [String!]
+  legalGroundComment_lt: String
+  legalGroundComment_lte: String
+  legalGroundComment_not: String
+  legalGroundComment_not_contains: String
+  legalGroundComment_not_ends_with: String
+  legalGroundComment_not_in: [String!]
+  legalGroundComment_not_starts_with: String
+  legalGroundComment_starts_with: String
+  linkToDpia: String
+  linkToDpia_contains: String
+  linkToDpia_ends_with: String
+  linkToDpia_gt: String
+  linkToDpia_gte: String
+  linkToDpia_in: [String!]
+  linkToDpia_lt: String
+  linkToDpia_lte: String
+  linkToDpia_not: String
+  linkToDpia_not_contains: String
+  linkToDpia_not_ends_with: String
+  linkToDpia_not_in: [String!]
+  linkToDpia_not_starts_with: String
+  linkToDpia_starts_with: String
+  linkToLia: String
+  linkToLia_contains: String
+  linkToLia_ends_with: String
+  linkToLia_gt: String
+  linkToLia_gte: String
+  linkToLia_in: [String!]
+  linkToLia_lt: String
+  linkToLia_lte: String
+  linkToLia_not: String
+  linkToLia_not_contains: String
+  linkToLia_not_ends_with: String
+  linkToLia_not_in: [String!]
+  linkToLia_not_starts_with: String
+  linkToLia_starts_with: String
   name: String
   name_contains: String
   name_ends_with: String
@@ -2964,6 +3815,10 @@ input ProcessingActivityScalarWhereInput {
   name_starts_with: String
   NOT: [ProcessingActivityScalarWhereInput!]
   OR: [ProcessingActivityScalarWhereInput!]
+  profiling: Boolean
+  profiling_not: Boolean
+  publicSource: Boolean
+  publicSource_not: Boolean
   purpose: String
   purpose_contains: String
   purpose_ends_with: String
@@ -2978,6 +3833,20 @@ input ProcessingActivityScalarWhereInput {
   purpose_not_in: [String!]
   purpose_not_starts_with: String
   purpose_starts_with: String
+  securityMeasures: String
+  securityMeasures_contains: String
+  securityMeasures_ends_with: String
+  securityMeasures_gt: String
+  securityMeasures_gte: String
+  securityMeasures_in: [String!]
+  securityMeasures_lt: String
+  securityMeasures_lte: String
+  securityMeasures_not: String
+  securityMeasures_not_contains: String
+  securityMeasures_not_ends_with: String
+  securityMeasures_not_in: [String!]
+  securityMeasures_not_starts_with: String
+  securityMeasures_starts_with: String
   updatedAt: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
@@ -2988,36 +3857,76 @@ input ProcessingActivityScalarWhereInput {
   updatedAt_not_in: [DateTime!]
 }
 
-input ProcessingActivityUpdateInput {
-  applications: ApplicationUpdateManyWithoutProcessingActivitiesInput
-  description: String
+input ProcessingActivityUpdateDataInput {
+  controllers: BusinessPartnerUpdateManyInput
+  dataTypes: DataTypeUpdateManyInput
+  imController: Boolean
+  legalGroundComment: String
+  legalGrounds: LegalGroundUpdateManyInput
+  linkToDpia: String
+  linkToLia: String
   name: String
+  procesessingTypes: ProcessingTypeUpdateManyInput
   process: ProcessUpdateOneWithoutProcessingActivitiesInput
+  profiling: Boolean
+  publicSource: Boolean
   purpose: String
+  recipients: BusinessPartnerUpdateManyInput
+  securityMeasures: String
+}
+
+input ProcessingActivityUpdateInput {
+  controllers: BusinessPartnerUpdateManyInput
+  dataTypes: DataTypeUpdateManyInput
+  imController: Boolean
+  legalGroundComment: String
+  legalGrounds: LegalGroundUpdateManyInput
+  linkToDpia: String
+  linkToLia: String
+  name: String
+  procesessingTypes: ProcessingTypeUpdateManyInput
+  process: ProcessUpdateOneWithoutProcessingActivitiesInput
+  profiling: Boolean
+  publicSource: Boolean
+  purpose: String
+  recipients: BusinessPartnerUpdateManyInput
+  securityMeasures: String
 }
 
 input ProcessingActivityUpdateManyDataInput {
-  description: String
+  imController: Boolean
+  legalGroundComment: String
+  linkToDpia: String
+  linkToLia: String
   name: String
+  profiling: Boolean
+  publicSource: Boolean
   purpose: String
+  securityMeasures: String
 }
 
-input ProcessingActivityUpdateManyMutationInput {
-  description: String
-  name: String
-  purpose: String
-}
-
-input ProcessingActivityUpdateManyWithoutApplicationsInput {
+input ProcessingActivityUpdateManyInput {
   connect: [ProcessingActivityWhereUniqueInput!]
-  create: [ProcessingActivityCreateWithoutApplicationsInput!]
+  create: [ProcessingActivityCreateInput!]
   delete: [ProcessingActivityWhereUniqueInput!]
   deleteMany: [ProcessingActivityScalarWhereInput!]
   disconnect: [ProcessingActivityWhereUniqueInput!]
   set: [ProcessingActivityWhereUniqueInput!]
-  update: [ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput!]
+  update: [ProcessingActivityUpdateWithWhereUniqueNestedInput!]
   updateMany: [ProcessingActivityUpdateManyWithWhereNestedInput!]
-  upsert: [ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput!]
+  upsert: [ProcessingActivityUpsertWithWhereUniqueNestedInput!]
+}
+
+input ProcessingActivityUpdateManyMutationInput {
+  imController: Boolean
+  legalGroundComment: String
+  linkToDpia: String
+  linkToLia: String
+  name: String
+  profiling: Boolean
+  publicSource: Boolean
+  purpose: String
+  securityMeasures: String
 }
 
 input ProcessingActivityUpdateManyWithoutProcessInput {
@@ -3037,22 +3946,25 @@ input ProcessingActivityUpdateManyWithWhereNestedInput {
   where: ProcessingActivityScalarWhereInput!
 }
 
-input ProcessingActivityUpdateWithoutApplicationsDataInput {
-  description: String
-  name: String
-  process: ProcessUpdateOneWithoutProcessingActivitiesInput
-  purpose: String
-}
-
 input ProcessingActivityUpdateWithoutProcessDataInput {
-  applications: ApplicationUpdateManyWithoutProcessingActivitiesInput
-  description: String
+  controllers: BusinessPartnerUpdateManyInput
+  dataTypes: DataTypeUpdateManyInput
+  imController: Boolean
+  legalGroundComment: String
+  legalGrounds: LegalGroundUpdateManyInput
+  linkToDpia: String
+  linkToLia: String
   name: String
+  procesessingTypes: ProcessingTypeUpdateManyInput
+  profiling: Boolean
+  publicSource: Boolean
   purpose: String
+  recipients: BusinessPartnerUpdateManyInput
+  securityMeasures: String
 }
 
-input ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput {
-  data: ProcessingActivityUpdateWithoutApplicationsDataInput!
+input ProcessingActivityUpdateWithWhereUniqueNestedInput {
+  data: ProcessingActivityUpdateDataInput!
   where: ProcessingActivityWhereUniqueInput!
 }
 
@@ -3061,9 +3973,9 @@ input ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput {
   where: ProcessingActivityWhereUniqueInput!
 }
 
-input ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput {
-  create: ProcessingActivityCreateWithoutApplicationsInput!
-  update: ProcessingActivityUpdateWithoutApplicationsDataInput!
+input ProcessingActivityUpsertWithWhereUniqueNestedInput {
+  create: ProcessingActivityCreateInput!
+  update: ProcessingActivityUpdateDataInput!
   where: ProcessingActivityWhereUniqueInput!
 }
 
@@ -3075,9 +3987,9 @@ input ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput {
 
 input ProcessingActivityWhereInput {
   AND: [ProcessingActivityWhereInput!]
-  applications_every: ApplicationWhereInput
-  applications_none: ApplicationWhereInput
-  applications_some: ApplicationWhereInput
+  controllers_every: BusinessPartnerWhereInput
+  controllers_none: BusinessPartnerWhereInput
+  controllers_some: BusinessPartnerWhereInput
   createdAt: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime
@@ -3086,6 +3998,182 @@ input ProcessingActivityWhereInput {
   createdAt_lte: DateTime
   createdAt_not: DateTime
   createdAt_not_in: [DateTime!]
+  dataTypes_every: DataTypeWhereInput
+  dataTypes_none: DataTypeWhereInput
+  dataTypes_some: DataTypeWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  imController: Boolean
+  imController_not: Boolean
+  legalGroundComment: String
+  legalGroundComment_contains: String
+  legalGroundComment_ends_with: String
+  legalGroundComment_gt: String
+  legalGroundComment_gte: String
+  legalGroundComment_in: [String!]
+  legalGroundComment_lt: String
+  legalGroundComment_lte: String
+  legalGroundComment_not: String
+  legalGroundComment_not_contains: String
+  legalGroundComment_not_ends_with: String
+  legalGroundComment_not_in: [String!]
+  legalGroundComment_not_starts_with: String
+  legalGroundComment_starts_with: String
+  legalGrounds_every: LegalGroundWhereInput
+  legalGrounds_none: LegalGroundWhereInput
+  legalGrounds_some: LegalGroundWhereInput
+  linkToDpia: String
+  linkToDpia_contains: String
+  linkToDpia_ends_with: String
+  linkToDpia_gt: String
+  linkToDpia_gte: String
+  linkToDpia_in: [String!]
+  linkToDpia_lt: String
+  linkToDpia_lte: String
+  linkToDpia_not: String
+  linkToDpia_not_contains: String
+  linkToDpia_not_ends_with: String
+  linkToDpia_not_in: [String!]
+  linkToDpia_not_starts_with: String
+  linkToDpia_starts_with: String
+  linkToLia: String
+  linkToLia_contains: String
+  linkToLia_ends_with: String
+  linkToLia_gt: String
+  linkToLia_gte: String
+  linkToLia_in: [String!]
+  linkToLia_lt: String
+  linkToLia_lte: String
+  linkToLia_not: String
+  linkToLia_not_contains: String
+  linkToLia_not_ends_with: String
+  linkToLia_not_in: [String!]
+  linkToLia_not_starts_with: String
+  linkToLia_starts_with: String
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [ProcessingActivityWhereInput!]
+  OR: [ProcessingActivityWhereInput!]
+  procesessingTypes_every: ProcessingTypeWhereInput
+  procesessingTypes_none: ProcessingTypeWhereInput
+  procesessingTypes_some: ProcessingTypeWhereInput
+  process: ProcessWhereInput
+  profiling: Boolean
+  profiling_not: Boolean
+  publicSource: Boolean
+  publicSource_not: Boolean
+  purpose: String
+  purpose_contains: String
+  purpose_ends_with: String
+  purpose_gt: String
+  purpose_gte: String
+  purpose_in: [String!]
+  purpose_lt: String
+  purpose_lte: String
+  purpose_not: String
+  purpose_not_contains: String
+  purpose_not_ends_with: String
+  purpose_not_in: [String!]
+  purpose_not_starts_with: String
+  purpose_starts_with: String
+  recipients_every: BusinessPartnerWhereInput
+  recipients_none: BusinessPartnerWhereInput
+  recipients_some: BusinessPartnerWhereInput
+  securityMeasures: String
+  securityMeasures_contains: String
+  securityMeasures_ends_with: String
+  securityMeasures_gt: String
+  securityMeasures_gte: String
+  securityMeasures_in: [String!]
+  securityMeasures_lt: String
+  securityMeasures_lte: String
+  securityMeasures_not: String
+  securityMeasures_not_contains: String
+  securityMeasures_not_ends_with: String
+  securityMeasures_not_in: [String!]
+  securityMeasures_not_starts_with: String
+  securityMeasures_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input ProcessingActivityWhereUniqueInput {
+  id: ID
+}
+
+type ProcessingType {
+  description: String
+  id: ID!
+  name: String!
+}
+
+type ProcessingTypeConnection {
+  aggregate: AggregateProcessingType!
+  edges: [ProcessingTypeEdge!]!
+  pageInfo: PageInfo!
+}
+
+input ProcessingTypeCreateInput {
+  description: String
+  id: ID
+  name: String!
+}
+
+input ProcessingTypeCreateManyInput {
+  connect: [ProcessingTypeWhereUniqueInput!]
+  create: [ProcessingTypeCreateInput!]
+}
+
+type ProcessingTypeEdge {
+  cursor: String!
+  node: ProcessingType!
+}
+
+enum ProcessingTypeOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input ProcessingTypeScalarWhereInput {
+  AND: [ProcessingTypeScalarWhereInput!]
   description: String
   description_contains: String
   description_ends_with: String
@@ -3128,34 +4216,107 @@ input ProcessingActivityWhereInput {
   name_not_in: [String!]
   name_not_starts_with: String
   name_starts_with: String
-  NOT: [ProcessingActivityWhereInput!]
-  OR: [ProcessingActivityWhereInput!]
-  process: ProcessWhereInput
-  purpose: String
-  purpose_contains: String
-  purpose_ends_with: String
-  purpose_gt: String
-  purpose_gte: String
-  purpose_in: [String!]
-  purpose_lt: String
-  purpose_lte: String
-  purpose_not: String
-  purpose_not_contains: String
-  purpose_not_ends_with: String
-  purpose_not_in: [String!]
-  purpose_not_starts_with: String
-  purpose_starts_with: String
-  updatedAt: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_not: DateTime
-  updatedAt_not_in: [DateTime!]
+  NOT: [ProcessingTypeScalarWhereInput!]
+  OR: [ProcessingTypeScalarWhereInput!]
 }
 
-input ProcessingActivityWhereUniqueInput {
+input ProcessingTypeUpdateDataInput {
+  description: String
+  name: String
+}
+
+input ProcessingTypeUpdateInput {
+  description: String
+  name: String
+}
+
+input ProcessingTypeUpdateManyDataInput {
+  description: String
+  name: String
+}
+
+input ProcessingTypeUpdateManyInput {
+  connect: [ProcessingTypeWhereUniqueInput!]
+  create: [ProcessingTypeCreateInput!]
+  delete: [ProcessingTypeWhereUniqueInput!]
+  deleteMany: [ProcessingTypeScalarWhereInput!]
+  disconnect: [ProcessingTypeWhereUniqueInput!]
+  set: [ProcessingTypeWhereUniqueInput!]
+  update: [ProcessingTypeUpdateWithWhereUniqueNestedInput!]
+  updateMany: [ProcessingTypeUpdateManyWithWhereNestedInput!]
+  upsert: [ProcessingTypeUpsertWithWhereUniqueNestedInput!]
+}
+
+input ProcessingTypeUpdateManyMutationInput {
+  description: String
+  name: String
+}
+
+input ProcessingTypeUpdateManyWithWhereNestedInput {
+  data: ProcessingTypeUpdateManyDataInput!
+  where: ProcessingTypeScalarWhereInput!
+}
+
+input ProcessingTypeUpdateWithWhereUniqueNestedInput {
+  data: ProcessingTypeUpdateDataInput!
+  where: ProcessingTypeWhereUniqueInput!
+}
+
+input ProcessingTypeUpsertWithWhereUniqueNestedInput {
+  create: ProcessingTypeCreateInput!
+  update: ProcessingTypeUpdateDataInput!
+  where: ProcessingTypeWhereUniqueInput!
+}
+
+input ProcessingTypeWhereInput {
+  AND: [ProcessingTypeWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [ProcessingTypeWhereInput!]
+  OR: [ProcessingTypeWhereInput!]
+}
+
+input ProcessingTypeWhereUniqueInput {
   id: ID
 }
 
@@ -3563,29 +4724,35 @@ type Query {
   application(where: ApplicationWhereUniqueInput!): Application
   applications(after: String, before: String, first: Int, last: Int, orderBy: ApplicationOrderByInput, skip: Int, where: ApplicationWhereInput): [Application!]!
   applicationsConnection(after: String, before: String, first: Int, last: Int, orderBy: ApplicationOrderByInput, skip: Int, where: ApplicationWhereInput): ApplicationConnection!
+  businessPartner(where: BusinessPartnerWhereUniqueInput!): BusinessPartner
+  businessPartners(after: String, before: String, first: Int, last: Int, orderBy: BusinessPartnerOrderByInput, skip: Int, where: BusinessPartnerWhereInput): [BusinessPartner!]!
+  businessPartnersConnection(after: String, before: String, first: Int, last: Int, orderBy: BusinessPartnerOrderByInput, skip: Int, where: BusinessPartnerWhereInput): BusinessPartnerConnection!
   businessRole(where: BusinessRoleWhereUniqueInput!): BusinessRole
-  businessRoleByOu(where: OrganizationalUnitWhereUniqueInput!): [BusinessRole!]
+  businessRoleByOu(where: BusinessPartnerWhereUniqueInput!): [BusinessRole!]
   businessRoles(after: String, before: String, first: Int, last: Int, orderBy: BusinessRoleOrderByInput, skip: Int, where: BusinessRoleWhereInput): [BusinessRole!]!
   businessRolesConnection(after: String, before: String, first: Int, last: Int, orderBy: BusinessRoleOrderByInput, skip: Int, where: BusinessRoleWhereInput): BusinessRoleConnection!
   classificationLabel(where: ClassificationLabelWhereUniqueInput!): ClassificationLabel
   classificationLabels(after: String, before: String, first: Int, last: Int, orderBy: ClassificationLabelOrderByInput, skip: Int, where: ClassificationLabelWhereInput): [ClassificationLabel!]!
   classificationLabelsConnection(after: String, before: String, first: Int, last: Int, orderBy: ClassificationLabelOrderByInput, skip: Int, where: ClassificationLabelWhereInput): ClassificationLabelConnection!
+  dataSubjectType(where: DataSubjectTypeWhereUniqueInput!): DataSubjectType
+  dataSubjectTypes(after: String, before: String, first: Int, last: Int, orderBy: DataSubjectTypeOrderByInput, skip: Int, where: DataSubjectTypeWhereInput): [DataSubjectType!]!
+  dataSubjectTypesConnection(after: String, before: String, first: Int, last: Int, orderBy: DataSubjectTypeOrderByInput, skip: Int, where: DataSubjectTypeWhereInput): DataSubjectTypeConnection!
   dataType(where: DataTypeWhereUniqueInput!): DataType
   dataTypes(after: String, before: String, first: Int, last: Int, orderBy: DataTypeOrderByInput, skip: Int, where: DataTypeWhereInput): [DataType!]!
   dataTypesConnection(after: String, before: String, first: Int, last: Int, orderBy: DataTypeOrderByInput, skip: Int, where: DataTypeWhereInput): DataTypeConnection!
+  legalGround(where: LegalGroundWhereUniqueInput!): LegalGround
+  legalGrounds(after: String, before: String, first: Int, last: Int, orderBy: LegalGroundOrderByInput, skip: Int, where: LegalGroundWhereInput): [LegalGround!]!
+  legalGroundsConnection(after: String, before: String, first: Int, last: Int, orderBy: LegalGroundOrderByInput, skip: Int, where: LegalGroundWhereInput): LegalGroundConnection!
   location(where: LocationWhereUniqueInput!): Location
   locations(after: String, before: String, first: Int, last: Int, orderBy: LocationOrderByInput, skip: Int, where: LocationWhereInput): [Location!]!
   locationsConnection(after: String, before: String, first: Int, last: Int, orderBy: LocationOrderByInput, skip: Int, where: LocationWhereInput): LocationConnection!
   loggedInUser: User
-  organization(where: OrganizationWhereUniqueInput!): Organization
   organizationalUnit(where: OrganizationalUnitWhereUniqueInput!): OrganizationalUnit
   organizationalUnits(after: String, before: String, first: Int, last: Int, orderBy: OrganizationalUnitOrderByInput, skip: Int, where: OrganizationalUnitWhereInput): [OrganizationalUnit!]!
   organizationalUnitsConnection(after: String, before: String, first: Int, last: Int, orderBy: OrganizationalUnitOrderByInput, skip: Int, where: OrganizationalUnitWhereInput): OrganizationalUnitConnection!
   organizationalUnitType(where: OrganizationalUnitTypeWhereUniqueInput!): OrganizationalUnitType
   organizationalUnitTypes(after: String, before: String, first: Int, last: Int, orderBy: OrganizationalUnitTypeOrderByInput, skip: Int, where: OrganizationalUnitTypeWhereInput): [OrganizationalUnitType!]!
   organizationalUnitTypesConnection(after: String, before: String, first: Int, last: Int, orderBy: OrganizationalUnitTypeOrderByInput, skip: Int, where: OrganizationalUnitTypeWhereInput): OrganizationalUnitTypeConnection!
-  organizations(after: String, before: String, first: Int, last: Int, orderBy: OrganizationOrderByInput, skip: Int, where: OrganizationWhereInput): [Organization!]!
-  organizationsConnection(after: String, before: String, first: Int, last: Int, orderBy: OrganizationOrderByInput, skip: Int, where: OrganizationWhereInput): OrganizationConnection!
   person(where: PersonWhereUniqueInput!): Person
   persons(after: String, before: String, first: Int, last: Int, orderBy: PersonOrderByInput, skip: Int, where: PersonWhereInput): [Person!]!
   personsConnection(after: String, before: String, first: Int, last: Int, orderBy: PersonOrderByInput, skip: Int, where: PersonWhereInput): PersonConnection!
@@ -3597,9 +4764,18 @@ type Query {
   processingActivitiesByOu(where: ProcessingActivityWhereUniqueInput!): [ProcessingActivity!]
   processingActivitiesConnection(after: String, before: String, first: Int, last: Int, orderBy: ProcessingActivityOrderByInput, skip: Int, where: ProcessingActivityWhereInput): ProcessingActivityConnection!
   processingActivity(where: ProcessingActivityWhereUniqueInput!): ProcessingActivity
+  processingType(where: ProcessingTypeWhereUniqueInput!): ProcessingType
+  processingTypes(after: String, before: String, first: Int, last: Int, orderBy: ProcessingTypeOrderByInput, skip: Int, where: ProcessingTypeWhereInput): [ProcessingType!]!
+  processingTypesConnection(after: String, before: String, first: Int, last: Int, orderBy: ProcessingTypeOrderByInput, skip: Int, where: ProcessingTypeWhereInput): ProcessingTypeConnection!
   qualityAttribute(where: QualityAttributeWhereUniqueInput!): QualityAttribute
   qualityAttributes(after: String, before: String, first: Int, last: Int, orderBy: QualityAttributeOrderByInput, skip: Int, where: QualityAttributeWhereInput): [QualityAttribute!]!
   qualityAttributesConnection(after: String, before: String, first: Int, last: Int, orderBy: QualityAttributeOrderByInput, skip: Int, where: QualityAttributeWhereInput): QualityAttributeConnection!
+  recipientsType(where: RecipientsTypeWhereUniqueInput!): RecipientsType
+  recipientsTypes(after: String, before: String, first: Int, last: Int, orderBy: RecipientsTypeOrderByInput, skip: Int, where: RecipientsTypeWhereInput): [RecipientsType!]!
+  recipientsTypesConnection(after: String, before: String, first: Int, last: Int, orderBy: RecipientsTypeOrderByInput, skip: Int, where: RecipientsTypeWhereInput): RecipientsTypeConnection!
+  retentionPolicies(after: String, before: String, first: Int, last: Int, orderBy: RetentionPolicyOrderByInput, skip: Int, where: RetentionPolicyWhereInput): [RetentionPolicy!]!
+  retentionPoliciesConnection(after: String, before: String, first: Int, last: Int, orderBy: RetentionPolicyOrderByInput, skip: Int, where: RetentionPolicyWhereInput): RetentionPolicyConnection!
+  retentionPolicy(where: RetentionPolicyWhereUniqueInput!): RetentionPolicy
   user(where: UserWhereUniqueInput!): User
   users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
   usersConnection(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): UserConnection!
@@ -3610,6 +4786,317 @@ enum RACI {
   CONSULTED
   INFORMED
   RESPONDSABLE
+}
+
+type RecipientsType {
+  description: String
+  id: ID!
+  name: String!
+}
+
+type RecipientsTypeConnection {
+  aggregate: AggregateRecipientsType!
+  edges: [RecipientsTypeEdge!]!
+  pageInfo: PageInfo!
+}
+
+input RecipientsTypeCreateInput {
+  description: String
+  id: ID
+  name: String!
+}
+
+input RecipientsTypeCreateOneInput {
+  connect: RecipientsTypeWhereUniqueInput
+  create: RecipientsTypeCreateInput
+}
+
+type RecipientsTypeEdge {
+  cursor: String!
+  node: RecipientsType!
+}
+
+enum RecipientsTypeOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input RecipientsTypeUpdateDataInput {
+  description: String
+  name: String
+}
+
+input RecipientsTypeUpdateInput {
+  description: String
+  name: String
+}
+
+input RecipientsTypeUpdateManyMutationInput {
+  description: String
+  name: String
+}
+
+input RecipientsTypeUpdateOneInput {
+  connect: RecipientsTypeWhereUniqueInput
+  create: RecipientsTypeCreateInput
+  delete: Boolean
+  disconnect: Boolean
+  update: RecipientsTypeUpdateDataInput
+  upsert: RecipientsTypeUpsertNestedInput
+}
+
+input RecipientsTypeUpsertNestedInput {
+  create: RecipientsTypeCreateInput!
+  update: RecipientsTypeUpdateDataInput!
+}
+
+input RecipientsTypeWhereInput {
+  AND: [RecipientsTypeWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [RecipientsTypeWhereInput!]
+  OR: [RecipientsTypeWhereInput!]
+}
+
+input RecipientsTypeWhereUniqueInput {
+  id: ID
+}
+
+type RetentionPolicy {
+  description: String
+  id: ID!
+  name: String!
+}
+
+type RetentionPolicyConnection {
+  aggregate: AggregateRetentionPolicy!
+  edges: [RetentionPolicyEdge!]!
+  pageInfo: PageInfo!
+}
+
+input RetentionPolicyCreateInput {
+  description: String
+  id: ID
+  name: String!
+}
+
+input RetentionPolicyCreateManyInput {
+  connect: [RetentionPolicyWhereUniqueInput!]
+  create: [RetentionPolicyCreateInput!]
+}
+
+type RetentionPolicyEdge {
+  cursor: String!
+  node: RetentionPolicy!
+}
+
+enum RetentionPolicyOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input RetentionPolicyScalarWhereInput {
+  AND: [RetentionPolicyScalarWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [RetentionPolicyScalarWhereInput!]
+  OR: [RetentionPolicyScalarWhereInput!]
+}
+
+input RetentionPolicyUpdateDataInput {
+  description: String
+  name: String
+}
+
+input RetentionPolicyUpdateInput {
+  description: String
+  name: String
+}
+
+input RetentionPolicyUpdateManyDataInput {
+  description: String
+  name: String
+}
+
+input RetentionPolicyUpdateManyInput {
+  connect: [RetentionPolicyWhereUniqueInput!]
+  create: [RetentionPolicyCreateInput!]
+  delete: [RetentionPolicyWhereUniqueInput!]
+  deleteMany: [RetentionPolicyScalarWhereInput!]
+  disconnect: [RetentionPolicyWhereUniqueInput!]
+  set: [RetentionPolicyWhereUniqueInput!]
+  update: [RetentionPolicyUpdateWithWhereUniqueNestedInput!]
+  updateMany: [RetentionPolicyUpdateManyWithWhereNestedInput!]
+  upsert: [RetentionPolicyUpsertWithWhereUniqueNestedInput!]
+}
+
+input RetentionPolicyUpdateManyMutationInput {
+  description: String
+  name: String
+}
+
+input RetentionPolicyUpdateManyWithWhereNestedInput {
+  data: RetentionPolicyUpdateManyDataInput!
+  where: RetentionPolicyScalarWhereInput!
+}
+
+input RetentionPolicyUpdateWithWhereUniqueNestedInput {
+  data: RetentionPolicyUpdateDataInput!
+  where: RetentionPolicyWhereUniqueInput!
+}
+
+input RetentionPolicyUpsertWithWhereUniqueNestedInput {
+  create: RetentionPolicyCreateInput!
+  update: RetentionPolicyUpdateDataInput!
+  where: RetentionPolicyWhereUniqueInput!
+}
+
+input RetentionPolicyWhereInput {
+  AND: [RetentionPolicyWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [RetentionPolicyWhereInput!]
+  OR: [RetentionPolicyWhereInput!]
+}
+
+input RetentionPolicyWhereUniqueInput {
+  id: ID
 }
 
 type Token {

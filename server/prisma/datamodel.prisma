@@ -23,11 +23,13 @@ type User {
   email: String! @unique
   password: String!
   active: Boolean
-  specialPermissions: [PERMISSION!]! @scalarList(strategy: RELATION)
+
+  #system fields
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 
   # Relations
+  specialPermissions: [PERMISSION!]! @scalarList(strategy: RELATION)
   person: Person @relation(link: INLINE)
 }
 
@@ -45,12 +47,12 @@ type BusinessRole {
   id: ID! @id
   name: String!
   description: String
+   
+  # Relations
   raciPrivacy: RACI @scalar(strategy: RELATION)
   raciSecurity: RACI @scalar(strategy: RELATION)
   raciFinancial: RACI @scalar(strategy: RELATION)
   raciExecutive: RACI @scalar(strategy: RELATION)
-   
-  # Relations
   person: Person @relation(link: INLINE)
   organizationalUnit: OrganizationalUnit! @relation(link: INLINE)
   process: [Process!]!
@@ -63,6 +65,8 @@ type OrganizationalUnit {
   id: ID! @id
   name: String!
   description: String
+
+  #system fields
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   
@@ -91,6 +95,8 @@ type Process {
   id: ID! @id
   name: String!
   description: String
+
+  #system fields
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   
@@ -103,14 +109,26 @@ type Process {
 type ProcessingActivity {
   id: ID! @id
   name: String!
-  description: String
   purpose: String
+  imController: Boolean
+  securityMeasures: String
+  legalGroundComment: String 
+  profiling: Boolean
+  publicSource: Boolean
+  linkToDpia: String
+  linkToLia: String
+
+  #system fields
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   
   # Relations
+  recipients: [BusinessPartner!]! @relation(link: TABLE, name:"ProcessingActivityRecipients")
+  controllers: [BusinessPartner!]! @relation(link: TABLE, name:"ProcessingActivityControllers")
+  dataTypes: [DataType!]!
+  procesessingTypes: [ProcessingType!]!
+  legalGrounds: [LegalGround!]!
   process: Process @relation(link: INLINE)
-  applications: [Application!]! @relation(link: TABLE)
 }
 
 type Application {
@@ -133,8 +151,19 @@ type DataType {
   description: String
   
   # Relations
+  retentionPolicy: [RetentionPolicy]!
+  dataSubjectType: [DataSubjectType!]!
   application: [Application!]! 
   classificationLabels: [ClassificationLabel!]! 
+}
+
+type DataSubjectType {
+  id: ID! @id
+  name: String!
+  description: String
+  
+  # Relations
+  dataTypes: [DataType!]!
 }
 
 type QualityAttribute {
@@ -164,8 +193,15 @@ type BusinessPartner {
   description: String
   contactDetails: String!
   dpo: String!
-  representative: String!
-  
+  representative: BusinessPartner
+  processingTypes: [ProcessingType!]!
+  recipientsType: RecipientsType
+  securityMeasures: String
+  otherCountries: Json
+  outsideEea: Boolean
+  safeguards: String
+  linkToDpa: String
+
   # Relations
   headOffice: Location! @relation(onDelete: CASCADE)
 }
@@ -178,4 +214,30 @@ type Location {
 
   # Relations
   businessPartner: BusinessPartner @relation(link: INLINE)
+}
+
+type LegalGround {
+  id: ID! @id
+  name: String! 
+  description: String
+  specialCategoryCondition: Boolean
+}
+
+## Simple types ##
+type ProcessingType {
+  id: ID! @id
+  name: String! 
+  description: String
+}
+
+type RecipientsType {
+  id: ID! @id
+  name: String! 
+  description: String
+}
+
+type RetentionPolicy {
+  id: ID! @id
+  name: String! 
+  description: String
 }

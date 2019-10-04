@@ -108,14 +108,6 @@ class CreateBusinessPartnerModal extends React.Component {
                       <TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                   </Form.Item>                  
 
-                  <Form.Item label="Representative">
-                    {form.getFieldDecorator('representative', {
-                      rules: [
-                        { required: true, message: 'A representative is required' }
-                      ],
-                    })(<Input />)}
-                  </Form.Item>   
-
                   <Form.Item label="DPO">
                     {form.getFieldDecorator('dpo', {
                       rules: [

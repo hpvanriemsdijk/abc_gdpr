@@ -1,16 +1,3 @@
-/*
- * When optional relation is ommited, nullify to prefent error
- */
-async function createOrganizationalUnit(parent, {data, where}, ctx, info) {
-    if( !data.parent.connect.id ){ delete data.parent; } 
-	return await ctx.prisma.createOrganizationalUnit({...data}, info);
-}
-
-async function updateOrganizationalUnit(parent, {data, where}, ctx) {
-    if( !data.parent.connect.id ){ delete data.parent; } 
-	return await ctx.prisma.updateOrganizationalUnit({data: {...data}, where: {...where}});
-}
-
 async function businessRoleByOu(parent, {where}, ctx, info) {
     let organizationalUnitIds = [where.id]
     let parent1 = await ctx.prisma.organizationalUnit(where).parent()
@@ -28,6 +15,4 @@ async function businessRoleByOu(parent, {where}, ctx, info) {
 }
 
 module.exports = {
-    createOrganizationalUnit, 
-    updateOrganizationalUnit, 
     businessRoleByOu};

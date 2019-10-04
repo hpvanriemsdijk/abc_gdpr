@@ -26,13 +26,13 @@ class CreateProcessModal extends React.Component {
 
   // Modal
   onCreateProcess = createProcess => {
-    const { form } = this.props;
+    const { form, organizationalUnitId } = this.props;
    
     form.validateFields(async (err, values) => {
       if (!err) {
         let processOwner = values.processOwner ? {processOwner: {connect: {id: values.processOwner }}} : null;
-        let organizationalUnit = values.organizationalUnit || this.props.organizationalUnitId || undefined
-        organizationalUnit = values.organizationalUnit ? {organizationalUnit: {connect: {id: values.organizationalUnit }}} : null;
+        let organizationalUnit = organizationalUnitId || values.organizationalUnit || undefined;
+        organizationalUnit = organizationalUnit ? {organizationalUnit: {connect: {id: organizationalUnit }}} : null;
 
         await createProcess({ variables: {
           data: {
@@ -68,7 +68,7 @@ class CreateProcessModal extends React.Component {
       <React.Fragment>
           <Mutation 
             mutation={CREATE_PROCESS}
-            refetchQueries={["Processes", "OrganizationalUnits"]}
+            refetchQueries={["process", "processes", "processByOu"]}
             >
             {(createProcess, { loading }) => {
               return (

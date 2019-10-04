@@ -5,7 +5,7 @@ export const ALL_PROCESSING_ACTIVITIES = gql`
 		processingActivities(where: $filter){
 			id
 			name
-			description
+			imController
 			purpose
 			process { id, name }
 		}
@@ -17,7 +17,7 @@ export const PROCESSING_ACTIVITIES_BY_OU = gql`
 		processingActivitiesByOu(where:{id: $id}){
 			id
 			name
-			description
+			imController
 			purpose
 			process{
 				name
@@ -25,7 +25,6 @@ export const PROCESSING_ACTIVITIES_BY_OU = gql`
 		}
 	}
 `;
-
 
 export const CREATE_PROCESSING_ACTIVITY = gql`
 	mutation CreateProcessingActivity ($data: ProcessingActivityCreateInput!) {
@@ -40,8 +39,8 @@ export const GET_PROCESSING_ACTIVITY = gql`
 		processingActivity(where:{id: $id}) {
 			id
 			name
-			description
 			purpose
+			imController
 			process { id }
 		}
 	}

@@ -84,7 +84,7 @@ class ProcessingActivityTable extends React.Component {
                     onChange={this.handleToggle} 
                     />
                 </Form.Item>
-                <CreateProcessingActivity processId={this.props.processId}/>
+                <CreateProcessingActivity processId={this.props.processId} organizationalUnitId={this.props.organizationalUnitId}/>
               </Form>
               
               <Table 

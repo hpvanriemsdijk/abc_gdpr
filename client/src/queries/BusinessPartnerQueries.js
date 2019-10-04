@@ -9,6 +9,15 @@ export const ALL_BUSINESSPARTNERS = gql`
 	}
 `;
 
+export const BUSINESS_PARTNER_OPTIONS_LIST = gql`
+	query BusinessPartners {
+		businessPartners {
+			value: id
+			title: name
+		}
+	}
+`;
+
 export const CREATE_BUSINESSPARTNER = gql`
 	mutation CreateBusinessPartner ($data: BusinessPartnerCreateInput!) {
 		createBusinessPartner(data: $data) {
@@ -24,8 +33,15 @@ export const GET_BUSINESSPARTNER = gql`
 			name
 			description
 			dpo
- 			representative
 			contactDetails
+			representative {id, name}
+			processingTypes {id, name}
+			recipientsType {id, name}
+			securityMeasures
+			otherCountries
+			outsideEea
+			safeguards
+			linkToDpa
 			headOffice{
 				name
 				description

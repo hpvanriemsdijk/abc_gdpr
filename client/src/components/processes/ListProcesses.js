@@ -48,12 +48,12 @@ class ProcessTable extends React.Component {
     if(this.state.includeNested){
       return {
         query: PROCESSES_BY_OU,
-        filter: { id: this.props.organizationalUnitId }
+        variables: { id: this.props.organizationalUnitId }
       }
     } else {
       return {
         query: ALL_PROCESSES, 
-        filter: { 
+        variables: { 
           filter: {
             organizationalUnit: { 
               id: this.props.organizationalUnitId 
@@ -101,10 +101,7 @@ class ProcessTable extends React.Component {
 
   processesByOu = (columns) => {
     return (
-      <Query
-        query = { this.processQuery().query }
-        variables = { this.processQuery().filter }
-        >
+      <Query {...this.processQuery()} >
         
         {({ loading, error, data }) => {
           if(error) return <Card><Empty>Oeps, error..</Empty></Card>

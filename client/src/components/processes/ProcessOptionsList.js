@@ -6,9 +6,30 @@ import { Select } from 'antd';
 const Option = Select.Option;
 
 export class ProcessOptionsList extends React.Component {
+  processQuery = () => {
+    if(this.props.organizationalUnitId){
+      console.log(1);
+      return {
+        query: PROCESSS_OPTIONS_LIST, 
+        variables: { 
+          filter: {
+            organizationalUnit: { 
+              id: this.props.organizationalUnitId 
+            } 
+          }
+        }
+      }
+    } else {
+      console.log(2);
+      return {
+        query: PROCESSS_OPTIONS_LIST
+      }
+    }
+  }
+
   render() {
     return (
-      <Query query = { PROCESSS_OPTIONS_LIST } >
+      <Query {...this.processQuery()} >
         {({ loading, data, error }) => {     
           if (loading) return <Select placeholder="Loading..." />
           if (error) return <Select placeholder="Error loading..." />

@@ -29,8 +29,8 @@ export const PROCESSES_BY_OU = gql`
 
 
 export const PROCESSS_OPTIONS_LIST = gql`
-	query Processes  {
-		processes {
+	query Processes  ($filter: ProcessWhereInput) {
+		processes(orderBy: name_ASC, where: $filter){
 			value: id
 			title: name
 		}

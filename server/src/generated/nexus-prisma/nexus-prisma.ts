@@ -21,10 +21,17 @@ export interface NexusPrismaTypes {
       OrganizationalUnit: OrganizationalUnitObject
       Process: ProcessObject
       ProcessingActivity: ProcessingActivityObject
-      Application: ApplicationObject
+      BusinessPartner: BusinessPartnerObject
+      ProcessingType: ProcessingTypeObject
+      RecipientsType: RecipientsTypeObject
+      Location: LocationObject
       DataType: DataTypeObject
+      RetentionPolicy: RetentionPolicyObject
+      DataSubjectType: DataSubjectTypeObject
+      Application: ApplicationObject
       ClassificationLabel: ClassificationLabelObject
       QualityAttribute: QualityAttributeObject
+      LegalGround: LegalGroundObject
       OrganizationalUnitType: OrganizationalUnitTypeObject
       UserConnection: UserConnectionObject
       PageInfo: PageInfoObject
@@ -54,20 +61,33 @@ export interface NexusPrismaTypes {
       DataTypeConnection: DataTypeConnectionObject
       DataTypeEdge: DataTypeEdgeObject
       AggregateDataType: AggregateDataTypeObject
+      DataSubjectTypeConnection: DataSubjectTypeConnectionObject
+      DataSubjectTypeEdge: DataSubjectTypeEdgeObject
+      AggregateDataSubjectType: AggregateDataSubjectTypeObject
       QualityAttributeConnection: QualityAttributeConnectionObject
       QualityAttributeEdge: QualityAttributeEdgeObject
       AggregateQualityAttribute: AggregateQualityAttributeObject
       ClassificationLabelConnection: ClassificationLabelConnectionObject
       ClassificationLabelEdge: ClassificationLabelEdgeObject
       AggregateClassificationLabel: AggregateClassificationLabelObject
-      Organization: OrganizationObject
-      Location: LocationObject
-      OrganizationConnection: OrganizationConnectionObject
-      OrganizationEdge: OrganizationEdgeObject
-      AggregateOrganization: AggregateOrganizationObject
+      BusinessPartnerConnection: BusinessPartnerConnectionObject
+      BusinessPartnerEdge: BusinessPartnerEdgeObject
+      AggregateBusinessPartner: AggregateBusinessPartnerObject
       LocationConnection: LocationConnectionObject
       LocationEdge: LocationEdgeObject
       AggregateLocation: AggregateLocationObject
+      LegalGroundConnection: LegalGroundConnectionObject
+      LegalGroundEdge: LegalGroundEdgeObject
+      AggregateLegalGround: AggregateLegalGroundObject
+      ProcessingTypeConnection: ProcessingTypeConnectionObject
+      ProcessingTypeEdge: ProcessingTypeEdgeObject
+      AggregateProcessingType: AggregateProcessingTypeObject
+      RecipientsTypeConnection: RecipientsTypeConnectionObject
+      RecipientsTypeEdge: RecipientsTypeEdgeObject
+      AggregateRecipientsType: AggregateRecipientsTypeObject
+      RetentionPolicyConnection: RetentionPolicyConnectionObject
+      RetentionPolicyEdge: RetentionPolicyEdgeObject
+      AggregateRetentionPolicy: AggregateRetentionPolicyObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
@@ -89,14 +109,24 @@ export interface NexusPrismaTypes {
       ApplicationPreviousValues: ApplicationPreviousValuesObject
       DataTypeSubscriptionPayload: DataTypeSubscriptionPayloadObject
       DataTypePreviousValues: DataTypePreviousValuesObject
+      DataSubjectTypeSubscriptionPayload: DataSubjectTypeSubscriptionPayloadObject
+      DataSubjectTypePreviousValues: DataSubjectTypePreviousValuesObject
       QualityAttributeSubscriptionPayload: QualityAttributeSubscriptionPayloadObject
       QualityAttributePreviousValues: QualityAttributePreviousValuesObject
       ClassificationLabelSubscriptionPayload: ClassificationLabelSubscriptionPayloadObject
       ClassificationLabelPreviousValues: ClassificationLabelPreviousValuesObject
-      OrganizationSubscriptionPayload: OrganizationSubscriptionPayloadObject
-      OrganizationPreviousValues: OrganizationPreviousValuesObject
+      BusinessPartnerSubscriptionPayload: BusinessPartnerSubscriptionPayloadObject
+      BusinessPartnerPreviousValues: BusinessPartnerPreviousValuesObject
       LocationSubscriptionPayload: LocationSubscriptionPayloadObject
       LocationPreviousValues: LocationPreviousValuesObject
+      LegalGroundSubscriptionPayload: LegalGroundSubscriptionPayloadObject
+      LegalGroundPreviousValues: LegalGroundPreviousValuesObject
+      ProcessingTypeSubscriptionPayload: ProcessingTypeSubscriptionPayloadObject
+      ProcessingTypePreviousValues: ProcessingTypePreviousValuesObject
+      RecipientsTypeSubscriptionPayload: RecipientsTypeSubscriptionPayloadObject
+      RecipientsTypePreviousValues: RecipientsTypePreviousValuesObject
+      RetentionPolicySubscriptionPayload: RetentionPolicySubscriptionPayloadObject
+      RetentionPolicyPreviousValues: RetentionPolicyPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -106,10 +136,17 @@ export interface NexusPrismaTypes {
       OrganizationalUnit: OrganizationalUnitFieldDetails
       Process: ProcessFieldDetails
       ProcessingActivity: ProcessingActivityFieldDetails
-      Application: ApplicationFieldDetails
+      BusinessPartner: BusinessPartnerFieldDetails
+      ProcessingType: ProcessingTypeFieldDetails
+      RecipientsType: RecipientsTypeFieldDetails
+      Location: LocationFieldDetails
       DataType: DataTypeFieldDetails
+      RetentionPolicy: RetentionPolicyFieldDetails
+      DataSubjectType: DataSubjectTypeFieldDetails
+      Application: ApplicationFieldDetails
       ClassificationLabel: ClassificationLabelFieldDetails
       QualityAttribute: QualityAttributeFieldDetails
+      LegalGround: LegalGroundFieldDetails
       OrganizationalUnitType: OrganizationalUnitTypeFieldDetails
       UserConnection: UserConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
@@ -139,20 +176,33 @@ export interface NexusPrismaTypes {
       DataTypeConnection: DataTypeConnectionFieldDetails
       DataTypeEdge: DataTypeEdgeFieldDetails
       AggregateDataType: AggregateDataTypeFieldDetails
+      DataSubjectTypeConnection: DataSubjectTypeConnectionFieldDetails
+      DataSubjectTypeEdge: DataSubjectTypeEdgeFieldDetails
+      AggregateDataSubjectType: AggregateDataSubjectTypeFieldDetails
       QualityAttributeConnection: QualityAttributeConnectionFieldDetails
       QualityAttributeEdge: QualityAttributeEdgeFieldDetails
       AggregateQualityAttribute: AggregateQualityAttributeFieldDetails
       ClassificationLabelConnection: ClassificationLabelConnectionFieldDetails
       ClassificationLabelEdge: ClassificationLabelEdgeFieldDetails
       AggregateClassificationLabel: AggregateClassificationLabelFieldDetails
-      Organization: OrganizationFieldDetails
-      Location: LocationFieldDetails
-      OrganizationConnection: OrganizationConnectionFieldDetails
-      OrganizationEdge: OrganizationEdgeFieldDetails
-      AggregateOrganization: AggregateOrganizationFieldDetails
+      BusinessPartnerConnection: BusinessPartnerConnectionFieldDetails
+      BusinessPartnerEdge: BusinessPartnerEdgeFieldDetails
+      AggregateBusinessPartner: AggregateBusinessPartnerFieldDetails
       LocationConnection: LocationConnectionFieldDetails
       LocationEdge: LocationEdgeFieldDetails
       AggregateLocation: AggregateLocationFieldDetails
+      LegalGroundConnection: LegalGroundConnectionFieldDetails
+      LegalGroundEdge: LegalGroundEdgeFieldDetails
+      AggregateLegalGround: AggregateLegalGroundFieldDetails
+      ProcessingTypeConnection: ProcessingTypeConnectionFieldDetails
+      ProcessingTypeEdge: ProcessingTypeEdgeFieldDetails
+      AggregateProcessingType: AggregateProcessingTypeFieldDetails
+      RecipientsTypeConnection: RecipientsTypeConnectionFieldDetails
+      RecipientsTypeEdge: RecipientsTypeEdgeFieldDetails
+      AggregateRecipientsType: AggregateRecipientsTypeFieldDetails
+      RetentionPolicyConnection: RetentionPolicyConnectionFieldDetails
+      RetentionPolicyEdge: RetentionPolicyEdgeFieldDetails
+      AggregateRetentionPolicy: AggregateRetentionPolicyFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
@@ -174,14 +224,24 @@ export interface NexusPrismaTypes {
       ApplicationPreviousValues: ApplicationPreviousValuesFieldDetails
       DataTypeSubscriptionPayload: DataTypeSubscriptionPayloadFieldDetails
       DataTypePreviousValues: DataTypePreviousValuesFieldDetails
+      DataSubjectTypeSubscriptionPayload: DataSubjectTypeSubscriptionPayloadFieldDetails
+      DataSubjectTypePreviousValues: DataSubjectTypePreviousValuesFieldDetails
       QualityAttributeSubscriptionPayload: QualityAttributeSubscriptionPayloadFieldDetails
       QualityAttributePreviousValues: QualityAttributePreviousValuesFieldDetails
       ClassificationLabelSubscriptionPayload: ClassificationLabelSubscriptionPayloadFieldDetails
       ClassificationLabelPreviousValues: ClassificationLabelPreviousValuesFieldDetails
-      OrganizationSubscriptionPayload: OrganizationSubscriptionPayloadFieldDetails
-      OrganizationPreviousValues: OrganizationPreviousValuesFieldDetails
+      BusinessPartnerSubscriptionPayload: BusinessPartnerSubscriptionPayloadFieldDetails
+      BusinessPartnerPreviousValues: BusinessPartnerPreviousValuesFieldDetails
       LocationSubscriptionPayload: LocationSubscriptionPayloadFieldDetails
       LocationPreviousValues: LocationPreviousValuesFieldDetails
+      LegalGroundSubscriptionPayload: LegalGroundSubscriptionPayloadFieldDetails
+      LegalGroundPreviousValues: LegalGroundPreviousValuesFieldDetails
+      ProcessingTypeSubscriptionPayload: ProcessingTypeSubscriptionPayloadFieldDetails
+      ProcessingTypePreviousValues: ProcessingTypePreviousValuesFieldDetails
+      RecipientsTypeSubscriptionPayload: RecipientsTypeSubscriptionPayloadFieldDetails
+      RecipientsTypePreviousValues: RecipientsTypePreviousValuesFieldDetails
+      RetentionPolicySubscriptionPayload: RetentionPolicySubscriptionPayloadFieldDetails
+      RetentionPolicyPreviousValues: RetentionPolicyPreviousValuesFieldDetails
     }
   }
   inputTypes: {
@@ -193,10 +253,17 @@ export interface NexusPrismaTypes {
       OrganizationalUnitWhereInput: OrganizationalUnitWhereInputInputObject
       ProcessWhereInput: ProcessWhereInputInputObject
       ProcessingActivityWhereInput: ProcessingActivityWhereInputInputObject
-      ApplicationWhereInput: ApplicationWhereInputInputObject
+      BusinessPartnerWhereInput: BusinessPartnerWhereInputInputObject
+      ProcessingTypeWhereInput: ProcessingTypeWhereInputInputObject
+      RecipientsTypeWhereInput: RecipientsTypeWhereInputInputObject
+      LocationWhereInput: LocationWhereInputInputObject
       DataTypeWhereInput: DataTypeWhereInputInputObject
+      RetentionPolicyWhereInput: RetentionPolicyWhereInputInputObject
+      DataSubjectTypeWhereInput: DataSubjectTypeWhereInputInputObject
+      ApplicationWhereInput: ApplicationWhereInputInputObject
       ClassificationLabelWhereInput: ClassificationLabelWhereInputInputObject
       QualityAttributeWhereInput: QualityAttributeWhereInputInputObject
+      LegalGroundWhereInput: LegalGroundWhereInputInputObject
       OrganizationalUnitTypeWhereInput: OrganizationalUnitTypeWhereInputInputObject
       PersonWhereUniqueInput: PersonWhereUniqueInputInputObject
       BusinessRoleWhereUniqueInput: BusinessRoleWhereUniqueInputInputObject
@@ -206,12 +273,15 @@ export interface NexusPrismaTypes {
       ProcessingActivityWhereUniqueInput: ProcessingActivityWhereUniqueInputInputObject
       ApplicationWhereUniqueInput: ApplicationWhereUniqueInputInputObject
       DataTypeWhereUniqueInput: DataTypeWhereUniqueInputInputObject
+      DataSubjectTypeWhereUniqueInput: DataSubjectTypeWhereUniqueInputInputObject
       QualityAttributeWhereUniqueInput: QualityAttributeWhereUniqueInputInputObject
       ClassificationLabelWhereUniqueInput: ClassificationLabelWhereUniqueInputInputObject
-      OrganizationWhereUniqueInput: OrganizationWhereUniqueInputInputObject
-      OrganizationWhereInput: OrganizationWhereInputInputObject
-      LocationWhereInput: LocationWhereInputInputObject
+      BusinessPartnerWhereUniqueInput: BusinessPartnerWhereUniqueInputInputObject
       LocationWhereUniqueInput: LocationWhereUniqueInputInputObject
+      LegalGroundWhereUniqueInput: LegalGroundWhereUniqueInputInputObject
+      ProcessingTypeWhereUniqueInput: ProcessingTypeWhereUniqueInputInputObject
+      RecipientsTypeWhereUniqueInput: RecipientsTypeWhereUniqueInputInputObject
+      RetentionPolicyWhereUniqueInput: RetentionPolicyWhereUniqueInputInputObject
       UserCreateInput: UserCreateInputInputObject
       UserCreatespecialPermissionsInput: UserCreatespecialPermissionsInputInputObject
       PersonCreateOneWithoutUserInput: PersonCreateOneWithoutUserInputInputObject
@@ -226,46 +296,63 @@ export interface NexusPrismaTypes {
       ProcessCreateWithoutOrganizationalUnitInput: ProcessCreateWithoutOrganizationalUnitInputInputObject
       ProcessingActivityCreateManyWithoutProcessInput: ProcessingActivityCreateManyWithoutProcessInputInputObject
       ProcessingActivityCreateWithoutProcessInput: ProcessingActivityCreateWithoutProcessInputInputObject
-      ApplicationCreateManyWithoutProcessingActivitiesInput: ApplicationCreateManyWithoutProcessingActivitiesInputInputObject
-      ApplicationCreateWithoutProcessingActivitiesInput: ApplicationCreateWithoutProcessingActivitiesInputInputObject
-      DataTypeCreateManyWithoutApplicationInput: DataTypeCreateManyWithoutApplicationInputInputObject
-      DataTypeCreateWithoutApplicationInput: DataTypeCreateWithoutApplicationInputInputObject
-      ClassificationLabelCreateManyWithoutDataTypeInput: ClassificationLabelCreateManyWithoutDataTypeInputInputObject
-      ClassificationLabelCreateWithoutDataTypeInput: ClassificationLabelCreateWithoutDataTypeInputInputObject
-      QualityAttributeCreateOneWithoutClassificationLabelsInput: QualityAttributeCreateOneWithoutClassificationLabelsInputInputObject
-      QualityAttributeCreateWithoutClassificationLabelsInput: QualityAttributeCreateWithoutClassificationLabelsInputInputObject
-      BusinessRoleCreateOneWithoutAppBusinessOwnerInput: BusinessRoleCreateOneWithoutAppBusinessOwnerInputInputObject
-      BusinessRoleCreateWithoutAppBusinessOwnerInput: BusinessRoleCreateWithoutAppBusinessOwnerInputInputObject
-      PersonCreateOneWithoutRolesInput: PersonCreateOneWithoutRolesInputInputObject
-      PersonCreateWithoutRolesInput: PersonCreateWithoutRolesInputInputObject
-      UserCreateOneWithoutPersonInput: UserCreateOneWithoutPersonInputInputObject
-      UserCreateWithoutPersonInput: UserCreateWithoutPersonInputInputObject
-      ProcessCreateManyWithoutProcessOwnerInput: ProcessCreateManyWithoutProcessOwnerInputInputObject
-      ProcessCreateWithoutProcessOwnerInput: ProcessCreateWithoutProcessOwnerInputInputObject
+      BusinessPartnerCreateManyInput: BusinessPartnerCreateManyInputInputObject
+      BusinessPartnerCreateInput: BusinessPartnerCreateInputInputObject
+      BusinessPartnerCreateOneInput: BusinessPartnerCreateOneInputInputObject
+      ProcessingTypeCreateManyInput: ProcessingTypeCreateManyInputInputObject
+      ProcessingTypeCreateInput: ProcessingTypeCreateInputInputObject
+      RecipientsTypeCreateOneInput: RecipientsTypeCreateOneInputInputObject
+      RecipientsTypeCreateInput: RecipientsTypeCreateInputInputObject
+      LocationCreateOneWithoutBusinessPartnerInput: LocationCreateOneWithoutBusinessPartnerInputInputObject
+      LocationCreateWithoutBusinessPartnerInput: LocationCreateWithoutBusinessPartnerInputInputObject
+      DataTypeCreateManyInput: DataTypeCreateManyInputInputObject
+      DataTypeCreateInput: DataTypeCreateInputInputObject
+      RetentionPolicyCreateManyInput: RetentionPolicyCreateManyInputInputObject
+      RetentionPolicyCreateInput: RetentionPolicyCreateInputInputObject
+      DataSubjectTypeCreateManyWithoutDataTypesInput: DataSubjectTypeCreateManyWithoutDataTypesInputInputObject
+      DataSubjectTypeCreateWithoutDataTypesInput: DataSubjectTypeCreateWithoutDataTypesInputInputObject
+      ApplicationCreateManyWithoutDataTypesInput: ApplicationCreateManyWithoutDataTypesInputInputObject
+      ApplicationCreateWithoutDataTypesInput: ApplicationCreateWithoutDataTypesInputInputObject
+      ProcessingActivityCreateManyInput: ProcessingActivityCreateManyInputInputObject
+      ProcessingActivityCreateInput: ProcessingActivityCreateInputInputObject
+      LegalGroundCreateManyInput: LegalGroundCreateManyInputInputObject
+      LegalGroundCreateInput: LegalGroundCreateInputInputObject
+      ProcessCreateOneWithoutProcessingActivitiesInput: ProcessCreateOneWithoutProcessingActivitiesInputInputObject
+      ProcessCreateWithoutProcessingActivitiesInput: ProcessCreateWithoutProcessingActivitiesInputInputObject
       OrganizationalUnitCreateOneWithoutProcessesInput: OrganizationalUnitCreateOneWithoutProcessesInputInputObject
       OrganizationalUnitCreateWithoutProcessesInput: OrganizationalUnitCreateWithoutProcessesInputInputObject
       OrganizationalUnitCreateOneWithoutChildrenInput: OrganizationalUnitCreateOneWithoutChildrenInputInputObject
       OrganizationalUnitCreateWithoutChildrenInput: OrganizationalUnitCreateWithoutChildrenInputInputObject
       BusinessRoleCreateManyWithoutOrganizationalUnitInput: BusinessRoleCreateManyWithoutOrganizationalUnitInputInputObject
       BusinessRoleCreateWithoutOrganizationalUnitInput: BusinessRoleCreateWithoutOrganizationalUnitInputInputObject
+      PersonCreateOneWithoutRolesInput: PersonCreateOneWithoutRolesInputInputObject
+      PersonCreateWithoutRolesInput: PersonCreateWithoutRolesInputInputObject
+      UserCreateOneWithoutPersonInput: UserCreateOneWithoutPersonInputInputObject
+      UserCreateWithoutPersonInput: UserCreateWithoutPersonInputInputObject
+      ProcessCreateManyWithoutProcessOwnerInput: ProcessCreateManyWithoutProcessOwnerInputInputObject
+      ProcessCreateWithoutProcessOwnerInput: ProcessCreateWithoutProcessOwnerInputInputObject
       ApplicationCreateManyWithoutBusinessOwnerInput: ApplicationCreateManyWithoutBusinessOwnerInputInputObject
       ApplicationCreateWithoutBusinessOwnerInput: ApplicationCreateWithoutBusinessOwnerInputInputObject
-      ProcessingActivityCreateManyWithoutApplicationsInput: ProcessingActivityCreateManyWithoutApplicationsInputInputObject
-      ProcessingActivityCreateWithoutApplicationsInput: ProcessingActivityCreateWithoutApplicationsInputInputObject
-      ProcessCreateOneWithoutProcessingActivitiesInput: ProcessCreateOneWithoutProcessingActivitiesInputInputObject
-      ProcessCreateWithoutProcessingActivitiesInput: ProcessCreateWithoutProcessingActivitiesInputInputObject
-      BusinessRoleCreateOneWithoutProcessInput: BusinessRoleCreateOneWithoutProcessInputInputObject
-      BusinessRoleCreateWithoutProcessInput: BusinessRoleCreateWithoutProcessInputInputObject
+      DataTypeCreateManyWithoutApplicationInput: DataTypeCreateManyWithoutApplicationInputInputObject
+      DataTypeCreateWithoutApplicationInput: DataTypeCreateWithoutApplicationInputInputObject
+      ClassificationLabelCreateManyWithoutDataTypeInput: ClassificationLabelCreateManyWithoutDataTypeInputInputObject
+      ClassificationLabelCreateWithoutDataTypeInput: ClassificationLabelCreateWithoutDataTypeInputInputObject
+      QualityAttributeCreateOneWithoutClassificationLabelsInput: QualityAttributeCreateOneWithoutClassificationLabelsInputInputObject
+      QualityAttributeCreateWithoutClassificationLabelsInput: QualityAttributeCreateWithoutClassificationLabelsInputInputObject
+      BusinessRoleCreateOneWithoutAppItOwnerInput: BusinessRoleCreateOneWithoutAppItOwnerInputInputObject
+      BusinessRoleCreateWithoutAppItOwnerInput: BusinessRoleCreateWithoutAppItOwnerInputInputObject
+      ApplicationCreateManyWithoutSecurityAdministratorInput: ApplicationCreateManyWithoutSecurityAdministratorInputInputObject
+      ApplicationCreateWithoutSecurityAdministratorInput: ApplicationCreateWithoutSecurityAdministratorInputInputObject
+      BusinessRoleCreateOneWithoutAppBusinessOwnerInput: BusinessRoleCreateOneWithoutAppBusinessOwnerInputInputObject
+      BusinessRoleCreateWithoutAppBusinessOwnerInput: BusinessRoleCreateWithoutAppBusinessOwnerInputInputObject
       ApplicationCreateManyWithoutItOwnerInput: ApplicationCreateManyWithoutItOwnerInputInputObject
       ApplicationCreateWithoutItOwnerInput: ApplicationCreateWithoutItOwnerInputInputObject
       BusinessRoleCreateOneWithoutAppSecAdminInput: BusinessRoleCreateOneWithoutAppSecAdminInputInputObject
       BusinessRoleCreateWithoutAppSecAdminInput: BusinessRoleCreateWithoutAppSecAdminInputInputObject
-      ApplicationCreateManyWithoutSecurityAdministratorInput: ApplicationCreateManyWithoutSecurityAdministratorInputInputObject
-      ApplicationCreateWithoutSecurityAdministratorInput: ApplicationCreateWithoutSecurityAdministratorInputInputObject
-      BusinessRoleCreateOneWithoutAppItOwnerInput: BusinessRoleCreateOneWithoutAppItOwnerInputInputObject
-      BusinessRoleCreateWithoutAppItOwnerInput: BusinessRoleCreateWithoutAppItOwnerInputInputObject
       OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInputInputObject
       OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput: OrganizationalUnitTypeCreateWithoutOrganizationalUnitInputInputObject
+      BusinessRoleCreateOneWithoutProcessInput: BusinessRoleCreateOneWithoutProcessInputInputObject
+      BusinessRoleCreateWithoutProcessInput: BusinessRoleCreateWithoutProcessInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
       UserUpdatespecialPermissionsInput: UserUpdatespecialPermissionsInputInputObject
       PersonUpdateOneWithoutUserInput: PersonUpdateOneWithoutUserInputInputObject
@@ -284,9 +371,83 @@ export interface NexusPrismaTypes {
       ProcessingActivityUpdateManyWithoutProcessInput: ProcessingActivityUpdateManyWithoutProcessInputInputObject
       ProcessingActivityUpdateWithWhereUniqueWithoutProcessInput: ProcessingActivityUpdateWithWhereUniqueWithoutProcessInputInputObject
       ProcessingActivityUpdateWithoutProcessDataInput: ProcessingActivityUpdateWithoutProcessDataInputInputObject
-      ApplicationUpdateManyWithoutProcessingActivitiesInput: ApplicationUpdateManyWithoutProcessingActivitiesInputInputObject
-      ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput: ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInputInputObject
-      ApplicationUpdateWithoutProcessingActivitiesDataInput: ApplicationUpdateWithoutProcessingActivitiesDataInputInputObject
+      BusinessPartnerUpdateManyInput: BusinessPartnerUpdateManyInputInputObject
+      BusinessPartnerUpdateWithWhereUniqueNestedInput: BusinessPartnerUpdateWithWhereUniqueNestedInputInputObject
+      BusinessPartnerUpdateDataInput: BusinessPartnerUpdateDataInputInputObject
+      BusinessPartnerUpdateOneInput: BusinessPartnerUpdateOneInputInputObject
+      BusinessPartnerUpsertNestedInput: BusinessPartnerUpsertNestedInputInputObject
+      ProcessingTypeUpdateManyInput: ProcessingTypeUpdateManyInputInputObject
+      ProcessingTypeUpdateWithWhereUniqueNestedInput: ProcessingTypeUpdateWithWhereUniqueNestedInputInputObject
+      ProcessingTypeUpdateDataInput: ProcessingTypeUpdateDataInputInputObject
+      ProcessingTypeUpsertWithWhereUniqueNestedInput: ProcessingTypeUpsertWithWhereUniqueNestedInputInputObject
+      ProcessingTypeScalarWhereInput: ProcessingTypeScalarWhereInputInputObject
+      ProcessingTypeUpdateManyWithWhereNestedInput: ProcessingTypeUpdateManyWithWhereNestedInputInputObject
+      ProcessingTypeUpdateManyDataInput: ProcessingTypeUpdateManyDataInputInputObject
+      RecipientsTypeUpdateOneInput: RecipientsTypeUpdateOneInputInputObject
+      RecipientsTypeUpdateDataInput: RecipientsTypeUpdateDataInputInputObject
+      RecipientsTypeUpsertNestedInput: RecipientsTypeUpsertNestedInputInputObject
+      LocationUpdateOneRequiredWithoutBusinessPartnerInput: LocationUpdateOneRequiredWithoutBusinessPartnerInputInputObject
+      LocationUpdateWithoutBusinessPartnerDataInput: LocationUpdateWithoutBusinessPartnerDataInputInputObject
+      LocationUpsertWithoutBusinessPartnerInput: LocationUpsertWithoutBusinessPartnerInputInputObject
+      BusinessPartnerUpsertWithWhereUniqueNestedInput: BusinessPartnerUpsertWithWhereUniqueNestedInputInputObject
+      BusinessPartnerScalarWhereInput: BusinessPartnerScalarWhereInputInputObject
+      BusinessPartnerUpdateManyWithWhereNestedInput: BusinessPartnerUpdateManyWithWhereNestedInputInputObject
+      BusinessPartnerUpdateManyDataInput: BusinessPartnerUpdateManyDataInputInputObject
+      DataTypeUpdateManyInput: DataTypeUpdateManyInputInputObject
+      DataTypeUpdateWithWhereUniqueNestedInput: DataTypeUpdateWithWhereUniqueNestedInputInputObject
+      DataTypeUpdateDataInput: DataTypeUpdateDataInputInputObject
+      RetentionPolicyUpdateManyInput: RetentionPolicyUpdateManyInputInputObject
+      RetentionPolicyUpdateWithWhereUniqueNestedInput: RetentionPolicyUpdateWithWhereUniqueNestedInputInputObject
+      RetentionPolicyUpdateDataInput: RetentionPolicyUpdateDataInputInputObject
+      RetentionPolicyUpsertWithWhereUniqueNestedInput: RetentionPolicyUpsertWithWhereUniqueNestedInputInputObject
+      RetentionPolicyScalarWhereInput: RetentionPolicyScalarWhereInputInputObject
+      RetentionPolicyUpdateManyWithWhereNestedInput: RetentionPolicyUpdateManyWithWhereNestedInputInputObject
+      RetentionPolicyUpdateManyDataInput: RetentionPolicyUpdateManyDataInputInputObject
+      DataSubjectTypeUpdateManyWithoutDataTypesInput: DataSubjectTypeUpdateManyWithoutDataTypesInputInputObject
+      DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput: DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInputInputObject
+      DataSubjectTypeUpdateWithoutDataTypesDataInput: DataSubjectTypeUpdateWithoutDataTypesDataInputInputObject
+      DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput: DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInputInputObject
+      DataSubjectTypeScalarWhereInput: DataSubjectTypeScalarWhereInputInputObject
+      DataSubjectTypeUpdateManyWithWhereNestedInput: DataSubjectTypeUpdateManyWithWhereNestedInputInputObject
+      DataSubjectTypeUpdateManyDataInput: DataSubjectTypeUpdateManyDataInputInputObject
+      ApplicationUpdateManyWithoutDataTypesInput: ApplicationUpdateManyWithoutDataTypesInputInputObject
+      ApplicationUpdateWithWhereUniqueWithoutDataTypesInput: ApplicationUpdateWithWhereUniqueWithoutDataTypesInputInputObject
+      ApplicationUpdateWithoutDataTypesDataInput: ApplicationUpdateWithoutDataTypesDataInputInputObject
+      ProcessingActivityUpdateManyInput: ProcessingActivityUpdateManyInputInputObject
+      ProcessingActivityUpdateWithWhereUniqueNestedInput: ProcessingActivityUpdateWithWhereUniqueNestedInputInputObject
+      ProcessingActivityUpdateDataInput: ProcessingActivityUpdateDataInputInputObject
+      LegalGroundUpdateManyInput: LegalGroundUpdateManyInputInputObject
+      LegalGroundUpdateWithWhereUniqueNestedInput: LegalGroundUpdateWithWhereUniqueNestedInputInputObject
+      LegalGroundUpdateDataInput: LegalGroundUpdateDataInputInputObject
+      LegalGroundUpsertWithWhereUniqueNestedInput: LegalGroundUpsertWithWhereUniqueNestedInputInputObject
+      LegalGroundScalarWhereInput: LegalGroundScalarWhereInputInputObject
+      LegalGroundUpdateManyWithWhereNestedInput: LegalGroundUpdateManyWithWhereNestedInputInputObject
+      LegalGroundUpdateManyDataInput: LegalGroundUpdateManyDataInputInputObject
+      ProcessUpdateOneWithoutProcessingActivitiesInput: ProcessUpdateOneWithoutProcessingActivitiesInputInputObject
+      ProcessUpdateWithoutProcessingActivitiesDataInput: ProcessUpdateWithoutProcessingActivitiesDataInputInputObject
+      OrganizationalUnitUpdateOneWithoutProcessesInput: OrganizationalUnitUpdateOneWithoutProcessesInputInputObject
+      OrganizationalUnitUpdateWithoutProcessesDataInput: OrganizationalUnitUpdateWithoutProcessesDataInputInputObject
+      OrganizationalUnitUpdateOneWithoutChildrenInput: OrganizationalUnitUpdateOneWithoutChildrenInputInputObject
+      OrganizationalUnitUpdateWithoutChildrenDataInput: OrganizationalUnitUpdateWithoutChildrenDataInputInputObject
+      BusinessRoleUpdateManyWithoutOrganizationalUnitInput: BusinessRoleUpdateManyWithoutOrganizationalUnitInputInputObject
+      BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput: BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInputInputObject
+      BusinessRoleUpdateWithoutOrganizationalUnitDataInput: BusinessRoleUpdateWithoutOrganizationalUnitDataInputInputObject
+      PersonUpdateOneWithoutRolesInput: PersonUpdateOneWithoutRolesInputInputObject
+      PersonUpdateWithoutRolesDataInput: PersonUpdateWithoutRolesDataInputInputObject
+      UserUpdateOneWithoutPersonInput: UserUpdateOneWithoutPersonInputInputObject
+      UserUpdateWithoutPersonDataInput: UserUpdateWithoutPersonDataInputInputObject
+      UserUpsertWithoutPersonInput: UserUpsertWithoutPersonInputInputObject
+      PersonUpsertWithoutRolesInput: PersonUpsertWithoutRolesInputInputObject
+      ProcessUpdateManyWithoutProcessOwnerInput: ProcessUpdateManyWithoutProcessOwnerInputInputObject
+      ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput: ProcessUpdateWithWhereUniqueWithoutProcessOwnerInputInputObject
+      ProcessUpdateWithoutProcessOwnerDataInput: ProcessUpdateWithoutProcessOwnerDataInputInputObject
+      ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput: ProcessUpsertWithWhereUniqueWithoutProcessOwnerInputInputObject
+      ProcessScalarWhereInput: ProcessScalarWhereInputInputObject
+      ProcessUpdateManyWithWhereNestedInput: ProcessUpdateManyWithWhereNestedInputInputObject
+      ProcessUpdateManyDataInput: ProcessUpdateManyDataInputInputObject
+      ApplicationUpdateManyWithoutBusinessOwnerInput: ApplicationUpdateManyWithoutBusinessOwnerInputInputObject
+      ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput: ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInputInputObject
+      ApplicationUpdateWithoutBusinessOwnerDataInput: ApplicationUpdateWithoutBusinessOwnerDataInputInputObject
       DataTypeUpdateManyWithoutApplicationInput: DataTypeUpdateManyWithoutApplicationInputInputObject
       DataTypeUpdateWithWhereUniqueWithoutApplicationInput: DataTypeUpdateWithWhereUniqueWithoutApplicationInputInputObject
       DataTypeUpdateWithoutApplicationDataInput: DataTypeUpdateWithoutApplicationDataInputInputObject
@@ -304,34 +465,13 @@ export interface NexusPrismaTypes {
       DataTypeScalarWhereInput: DataTypeScalarWhereInputInputObject
       DataTypeUpdateManyWithWhereNestedInput: DataTypeUpdateManyWithWhereNestedInputInputObject
       DataTypeUpdateManyDataInput: DataTypeUpdateManyDataInputInputObject
+      BusinessRoleUpdateOneWithoutAppItOwnerInput: BusinessRoleUpdateOneWithoutAppItOwnerInputInputObject
+      BusinessRoleUpdateWithoutAppItOwnerDataInput: BusinessRoleUpdateWithoutAppItOwnerDataInputInputObject
+      ApplicationUpdateManyWithoutSecurityAdministratorInput: ApplicationUpdateManyWithoutSecurityAdministratorInputInputObject
+      ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput: ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInputInputObject
+      ApplicationUpdateWithoutSecurityAdministratorDataInput: ApplicationUpdateWithoutSecurityAdministratorDataInputInputObject
       BusinessRoleUpdateOneWithoutAppBusinessOwnerInput: BusinessRoleUpdateOneWithoutAppBusinessOwnerInputInputObject
       BusinessRoleUpdateWithoutAppBusinessOwnerDataInput: BusinessRoleUpdateWithoutAppBusinessOwnerDataInputInputObject
-      PersonUpdateOneWithoutRolesInput: PersonUpdateOneWithoutRolesInputInputObject
-      PersonUpdateWithoutRolesDataInput: PersonUpdateWithoutRolesDataInputInputObject
-      UserUpdateOneWithoutPersonInput: UserUpdateOneWithoutPersonInputInputObject
-      UserUpdateWithoutPersonDataInput: UserUpdateWithoutPersonDataInputInputObject
-      UserUpsertWithoutPersonInput: UserUpsertWithoutPersonInputInputObject
-      PersonUpsertWithoutRolesInput: PersonUpsertWithoutRolesInputInputObject
-      ProcessUpdateManyWithoutProcessOwnerInput: ProcessUpdateManyWithoutProcessOwnerInputInputObject
-      ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput: ProcessUpdateWithWhereUniqueWithoutProcessOwnerInputInputObject
-      ProcessUpdateWithoutProcessOwnerDataInput: ProcessUpdateWithoutProcessOwnerDataInputInputObject
-      OrganizationalUnitUpdateOneWithoutProcessesInput: OrganizationalUnitUpdateOneWithoutProcessesInputInputObject
-      OrganizationalUnitUpdateWithoutProcessesDataInput: OrganizationalUnitUpdateWithoutProcessesDataInputInputObject
-      OrganizationalUnitUpdateOneWithoutChildrenInput: OrganizationalUnitUpdateOneWithoutChildrenInputInputObject
-      OrganizationalUnitUpdateWithoutChildrenDataInput: OrganizationalUnitUpdateWithoutChildrenDataInputInputObject
-      BusinessRoleUpdateManyWithoutOrganizationalUnitInput: BusinessRoleUpdateManyWithoutOrganizationalUnitInputInputObject
-      BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput: BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInputInputObject
-      BusinessRoleUpdateWithoutOrganizationalUnitDataInput: BusinessRoleUpdateWithoutOrganizationalUnitDataInputInputObject
-      ApplicationUpdateManyWithoutBusinessOwnerInput: ApplicationUpdateManyWithoutBusinessOwnerInputInputObject
-      ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput: ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInputInputObject
-      ApplicationUpdateWithoutBusinessOwnerDataInput: ApplicationUpdateWithoutBusinessOwnerDataInputInputObject
-      ProcessingActivityUpdateManyWithoutApplicationsInput: ProcessingActivityUpdateManyWithoutApplicationsInputInputObject
-      ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput: ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInputInputObject
-      ProcessingActivityUpdateWithoutApplicationsDataInput: ProcessingActivityUpdateWithoutApplicationsDataInputInputObject
-      ProcessUpdateOneWithoutProcessingActivitiesInput: ProcessUpdateOneWithoutProcessingActivitiesInputInputObject
-      ProcessUpdateWithoutProcessingActivitiesDataInput: ProcessUpdateWithoutProcessingActivitiesDataInputInputObject
-      BusinessRoleUpdateOneWithoutProcessInput: BusinessRoleUpdateOneWithoutProcessInputInputObject
-      BusinessRoleUpdateWithoutProcessDataInput: BusinessRoleUpdateWithoutProcessDataInputInputObject
       ApplicationUpdateManyWithoutItOwnerInput: ApplicationUpdateManyWithoutItOwnerInputInputObject
       ApplicationUpdateWithWhereUniqueWithoutItOwnerInput: ApplicationUpdateWithWhereUniqueWithoutItOwnerInputInputObject
       ApplicationUpdateWithoutItOwnerDataInput: ApplicationUpdateWithoutItOwnerDataInputInputObject
@@ -342,19 +482,9 @@ export interface NexusPrismaTypes {
       ApplicationScalarWhereInput: ApplicationScalarWhereInputInputObject
       ApplicationUpdateManyWithWhereNestedInput: ApplicationUpdateManyWithWhereNestedInputInputObject
       ApplicationUpdateManyDataInput: ApplicationUpdateManyDataInputInputObject
-      ApplicationUpdateManyWithoutSecurityAdministratorInput: ApplicationUpdateManyWithoutSecurityAdministratorInputInputObject
-      ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput: ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInputInputObject
-      ApplicationUpdateWithoutSecurityAdministratorDataInput: ApplicationUpdateWithoutSecurityAdministratorDataInputInputObject
-      BusinessRoleUpdateOneWithoutAppItOwnerInput: BusinessRoleUpdateOneWithoutAppItOwnerInputInputObject
-      BusinessRoleUpdateWithoutAppItOwnerDataInput: BusinessRoleUpdateWithoutAppItOwnerDataInputInputObject
-      BusinessRoleUpsertWithoutAppItOwnerInput: BusinessRoleUpsertWithoutAppItOwnerInputInputObject
+      BusinessRoleUpsertWithoutAppBusinessOwnerInput: BusinessRoleUpsertWithoutAppBusinessOwnerInputInputObject
       ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput: ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInputInputObject
-      BusinessRoleUpsertWithoutProcessInput: BusinessRoleUpsertWithoutProcessInputInputObject
-      ProcessUpsertWithoutProcessingActivitiesInput: ProcessUpsertWithoutProcessingActivitiesInputInputObject
-      ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput: ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInputInputObject
-      ProcessingActivityScalarWhereInput: ProcessingActivityScalarWhereInputInputObject
-      ProcessingActivityUpdateManyWithWhereNestedInput: ProcessingActivityUpdateManyWithWhereNestedInputInputObject
-      ProcessingActivityUpdateManyDataInput: ProcessingActivityUpdateManyDataInputInputObject
+      BusinessRoleUpsertWithoutAppItOwnerInput: BusinessRoleUpsertWithoutAppItOwnerInputInputObject
       ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput: ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInputInputObject
       BusinessRoleUpsertWithWhereUniqueWithoutOrganizationalUnitInput: BusinessRoleUpsertWithWhereUniqueWithoutOrganizationalUnitInputInputObject
       BusinessRoleScalarWhereInput: BusinessRoleScalarWhereInputInputObject
@@ -365,12 +495,16 @@ export interface NexusPrismaTypes {
       OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInput: OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInputInputObject
       OrganizationalUnitUpsertWithoutChildrenInput: OrganizationalUnitUpsertWithoutChildrenInputInputObject
       OrganizationalUnitUpsertWithoutProcessesInput: OrganizationalUnitUpsertWithoutProcessesInputInputObject
-      ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput: ProcessUpsertWithWhereUniqueWithoutProcessOwnerInputInputObject
-      ProcessScalarWhereInput: ProcessScalarWhereInputInputObject
-      ProcessUpdateManyWithWhereNestedInput: ProcessUpdateManyWithWhereNestedInputInputObject
-      ProcessUpdateManyDataInput: ProcessUpdateManyDataInputInputObject
-      BusinessRoleUpsertWithoutAppBusinessOwnerInput: BusinessRoleUpsertWithoutAppBusinessOwnerInputInputObject
-      ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput: ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInputInputObject
+      BusinessRoleUpdateOneWithoutProcessInput: BusinessRoleUpdateOneWithoutProcessInputInputObject
+      BusinessRoleUpdateWithoutProcessDataInput: BusinessRoleUpdateWithoutProcessDataInputInputObject
+      BusinessRoleUpsertWithoutProcessInput: BusinessRoleUpsertWithoutProcessInputInputObject
+      ProcessUpsertWithoutProcessingActivitiesInput: ProcessUpsertWithoutProcessingActivitiesInputInputObject
+      ProcessingActivityUpsertWithWhereUniqueNestedInput: ProcessingActivityUpsertWithWhereUniqueNestedInputInputObject
+      ProcessingActivityScalarWhereInput: ProcessingActivityScalarWhereInputInputObject
+      ProcessingActivityUpdateManyWithWhereNestedInput: ProcessingActivityUpdateManyWithWhereNestedInputInputObject
+      ProcessingActivityUpdateManyDataInput: ProcessingActivityUpdateManyDataInputInputObject
+      ApplicationUpsertWithWhereUniqueWithoutDataTypesInput: ApplicationUpsertWithWhereUniqueWithoutDataTypesInputInputObject
+      DataTypeUpsertWithWhereUniqueNestedInput: DataTypeUpsertWithWhereUniqueNestedInputInputObject
       ProcessingActivityUpsertWithWhereUniqueWithoutProcessInput: ProcessingActivityUpsertWithWhereUniqueWithoutProcessInputInputObject
       ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInput: ProcessUpsertWithWhereUniqueWithoutOrganizationalUnitInputInputObject
       OrganizationalUnitUpsertWithWhereUniqueWithoutParentInput: OrganizationalUnitUpsertWithWhereUniqueWithoutParentInputInputObject
@@ -402,21 +536,22 @@ export interface NexusPrismaTypes {
       ProcessCreateInput: ProcessCreateInputInputObject
       ProcessUpdateInput: ProcessUpdateInputInputObject
       ProcessUpdateManyMutationInput: ProcessUpdateManyMutationInputInputObject
-      ProcessingActivityCreateInput: ProcessingActivityCreateInputInputObject
       ProcessingActivityUpdateInput: ProcessingActivityUpdateInputInputObject
       ProcessingActivityUpdateManyMutationInput: ProcessingActivityUpdateManyMutationInputInputObject
       ApplicationCreateInput: ApplicationCreateInputInputObject
       ApplicationUpdateInput: ApplicationUpdateInputInputObject
       ApplicationUpdateManyMutationInput: ApplicationUpdateManyMutationInputInputObject
-      DataTypeCreateInput: DataTypeCreateInputInputObject
-      ApplicationCreateManyWithoutDataTypesInput: ApplicationCreateManyWithoutDataTypesInputInputObject
-      ApplicationCreateWithoutDataTypesInput: ApplicationCreateWithoutDataTypesInputInputObject
       DataTypeUpdateInput: DataTypeUpdateInputInputObject
-      ApplicationUpdateManyWithoutDataTypesInput: ApplicationUpdateManyWithoutDataTypesInputInputObject
-      ApplicationUpdateWithWhereUniqueWithoutDataTypesInput: ApplicationUpdateWithWhereUniqueWithoutDataTypesInputInputObject
-      ApplicationUpdateWithoutDataTypesDataInput: ApplicationUpdateWithoutDataTypesDataInputInputObject
-      ApplicationUpsertWithWhereUniqueWithoutDataTypesInput: ApplicationUpsertWithWhereUniqueWithoutDataTypesInputInputObject
       DataTypeUpdateManyMutationInput: DataTypeUpdateManyMutationInputInputObject
+      DataSubjectTypeCreateInput: DataSubjectTypeCreateInputInputObject
+      DataTypeCreateManyWithoutDataSubjectTypeInput: DataTypeCreateManyWithoutDataSubjectTypeInputInputObject
+      DataTypeCreateWithoutDataSubjectTypeInput: DataTypeCreateWithoutDataSubjectTypeInputInputObject
+      DataSubjectTypeUpdateInput: DataSubjectTypeUpdateInputInputObject
+      DataTypeUpdateManyWithoutDataSubjectTypeInput: DataTypeUpdateManyWithoutDataSubjectTypeInputInputObject
+      DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput: DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInputInputObject
+      DataTypeUpdateWithoutDataSubjectTypeDataInput: DataTypeUpdateWithoutDataSubjectTypeDataInputInputObject
+      DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput: DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInputInputObject
+      DataSubjectTypeUpdateManyMutationInput: DataSubjectTypeUpdateManyMutationInputInputObject
       QualityAttributeCreateInput: QualityAttributeCreateInputInputObject
       ClassificationLabelCreateManyWithoutQualityAttributeInput: ClassificationLabelCreateManyWithoutQualityAttributeInputInputObject
       ClassificationLabelCreateWithoutQualityAttributeInput: ClassificationLabelCreateWithoutQualityAttributeInputInputObject
@@ -435,22 +570,24 @@ export interface NexusPrismaTypes {
       ClassificationLabelCreateInput: ClassificationLabelCreateInputInputObject
       ClassificationLabelUpdateInput: ClassificationLabelUpdateInputInputObject
       ClassificationLabelUpdateManyMutationInput: ClassificationLabelUpdateManyMutationInputInputObject
-      OrganizationCreateInput: OrganizationCreateInputInputObject
-      LocationCreateOneWithoutOrganizationInput: LocationCreateOneWithoutOrganizationInputInputObject
-      LocationCreateWithoutOrganizationInput: LocationCreateWithoutOrganizationInputInputObject
-      OrganizationUpdateInput: OrganizationUpdateInputInputObject
-      LocationUpdateOneRequiredWithoutOrganizationInput: LocationUpdateOneRequiredWithoutOrganizationInputInputObject
-      LocationUpdateWithoutOrganizationDataInput: LocationUpdateWithoutOrganizationDataInputInputObject
-      LocationUpsertWithoutOrganizationInput: LocationUpsertWithoutOrganizationInputInputObject
-      OrganizationUpdateManyMutationInput: OrganizationUpdateManyMutationInputInputObject
+      BusinessPartnerUpdateInput: BusinessPartnerUpdateInputInputObject
+      BusinessPartnerUpdateManyMutationInput: BusinessPartnerUpdateManyMutationInputInputObject
       LocationCreateInput: LocationCreateInputInputObject
-      OrganizationCreateOneWithoutHeadOfficeInput: OrganizationCreateOneWithoutHeadOfficeInputInputObject
-      OrganizationCreateWithoutHeadOfficeInput: OrganizationCreateWithoutHeadOfficeInputInputObject
+      BusinessPartnerCreateOneWithoutHeadOfficeInput: BusinessPartnerCreateOneWithoutHeadOfficeInputInputObject
+      BusinessPartnerCreateWithoutHeadOfficeInput: BusinessPartnerCreateWithoutHeadOfficeInputInputObject
       LocationUpdateInput: LocationUpdateInputInputObject
-      OrganizationUpdateOneWithoutHeadOfficeInput: OrganizationUpdateOneWithoutHeadOfficeInputInputObject
-      OrganizationUpdateWithoutHeadOfficeDataInput: OrganizationUpdateWithoutHeadOfficeDataInputInputObject
-      OrganizationUpsertWithoutHeadOfficeInput: OrganizationUpsertWithoutHeadOfficeInputInputObject
+      BusinessPartnerUpdateOneWithoutHeadOfficeInput: BusinessPartnerUpdateOneWithoutHeadOfficeInputInputObject
+      BusinessPartnerUpdateWithoutHeadOfficeDataInput: BusinessPartnerUpdateWithoutHeadOfficeDataInputInputObject
+      BusinessPartnerUpsertWithoutHeadOfficeInput: BusinessPartnerUpsertWithoutHeadOfficeInputInputObject
       LocationUpdateManyMutationInput: LocationUpdateManyMutationInputInputObject
+      LegalGroundUpdateInput: LegalGroundUpdateInputInputObject
+      LegalGroundUpdateManyMutationInput: LegalGroundUpdateManyMutationInputInputObject
+      ProcessingTypeUpdateInput: ProcessingTypeUpdateInputInputObject
+      ProcessingTypeUpdateManyMutationInput: ProcessingTypeUpdateManyMutationInputInputObject
+      RecipientsTypeUpdateInput: RecipientsTypeUpdateInputInputObject
+      RecipientsTypeUpdateManyMutationInput: RecipientsTypeUpdateManyMutationInputInputObject
+      RetentionPolicyUpdateInput: RetentionPolicyUpdateInputInputObject
+      RetentionPolicyUpdateManyMutationInput: RetentionPolicyUpdateManyMutationInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
       PersonSubscriptionWhereInput: PersonSubscriptionWhereInputInputObject
       BusinessRoleSubscriptionWhereInput: BusinessRoleSubscriptionWhereInputInputObject
@@ -460,10 +597,15 @@ export interface NexusPrismaTypes {
       ProcessingActivitySubscriptionWhereInput: ProcessingActivitySubscriptionWhereInputInputObject
       ApplicationSubscriptionWhereInput: ApplicationSubscriptionWhereInputInputObject
       DataTypeSubscriptionWhereInput: DataTypeSubscriptionWhereInputInputObject
+      DataSubjectTypeSubscriptionWhereInput: DataSubjectTypeSubscriptionWhereInputInputObject
       QualityAttributeSubscriptionWhereInput: QualityAttributeSubscriptionWhereInputInputObject
       ClassificationLabelSubscriptionWhereInput: ClassificationLabelSubscriptionWhereInputInputObject
-      OrganizationSubscriptionWhereInput: OrganizationSubscriptionWhereInputInputObject
+      BusinessPartnerSubscriptionWhereInput: BusinessPartnerSubscriptionWhereInputInputObject
       LocationSubscriptionWhereInput: LocationSubscriptionWhereInputInputObject
+      LegalGroundSubscriptionWhereInput: LegalGroundSubscriptionWhereInputInputObject
+      ProcessingTypeSubscriptionWhereInput: ProcessingTypeSubscriptionWhereInputInputObject
+      RecipientsTypeSubscriptionWhereInput: RecipientsTypeSubscriptionWhereInputInputObject
+      RetentionPolicySubscriptionWhereInput: RetentionPolicySubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
@@ -474,15 +616,20 @@ export interface NexusPrismaTypes {
     OrganizationalUnitOrderByInput: OrganizationalUnitOrderByInputValues,
     ProcessOrderByInput: ProcessOrderByInputValues,
     ProcessingActivityOrderByInput: ProcessingActivityOrderByInputValues,
-    ApplicationOrderByInput: ApplicationOrderByInputValues,
+    BusinessPartnerOrderByInput: BusinessPartnerOrderByInputValues,
+    ProcessingTypeOrderByInput: ProcessingTypeOrderByInputValues,
     DataTypeOrderByInput: DataTypeOrderByInputValues,
+    RetentionPolicyOrderByInput: RetentionPolicyOrderByInputValues,
+    DataSubjectTypeOrderByInput: DataSubjectTypeOrderByInputValues,
+    ApplicationOrderByInput: ApplicationOrderByInputValues,
     ClassificationLabelOrderByInput: ClassificationLabelOrderByInputValues,
+    LegalGroundOrderByInput: LegalGroundOrderByInputValues,
     UserOrderByInput: UserOrderByInputValues,
     PersonOrderByInput: PersonOrderByInputValues,
     OrganizationalUnitTypeOrderByInput: OrganizationalUnitTypeOrderByInputValues,
     QualityAttributeOrderByInput: QualityAttributeOrderByInputValues,
-    OrganizationOrderByInput: OrganizationOrderByInputValues,
     LocationOrderByInput: LocationOrderByInputValues,
+    RecipientsTypeOrderByInput: RecipientsTypeOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -518,18 +665,33 @@ type QueryObject =
   | { name: 'dataType', args?: QueryDataTypeArgs[] | false, alias?: string  } 
   | { name: 'dataTypes', args?: QueryDataTypesArgs[] | false, alias?: string  } 
   | { name: 'dataTypesConnection', args?: QueryDataTypesConnectionArgs[] | false, alias?: string  } 
+  | { name: 'dataSubjectType', args?: QueryDataSubjectTypeArgs[] | false, alias?: string  } 
+  | { name: 'dataSubjectTypes', args?: QueryDataSubjectTypesArgs[] | false, alias?: string  } 
+  | { name: 'dataSubjectTypesConnection', args?: QueryDataSubjectTypesConnectionArgs[] | false, alias?: string  } 
   | { name: 'qualityAttribute', args?: QueryQualityAttributeArgs[] | false, alias?: string  } 
   | { name: 'qualityAttributes', args?: QueryQualityAttributesArgs[] | false, alias?: string  } 
   | { name: 'qualityAttributesConnection', args?: QueryQualityAttributesConnectionArgs[] | false, alias?: string  } 
   | { name: 'classificationLabel', args?: QueryClassificationLabelArgs[] | false, alias?: string  } 
   | { name: 'classificationLabels', args?: QueryClassificationLabelsArgs[] | false, alias?: string  } 
   | { name: 'classificationLabelsConnection', args?: QueryClassificationLabelsConnectionArgs[] | false, alias?: string  } 
-  | { name: 'organization', args?: QueryOrganizationArgs[] | false, alias?: string  } 
-  | { name: 'organizations', args?: QueryOrganizationsArgs[] | false, alias?: string  } 
-  | { name: 'organizationsConnection', args?: QueryOrganizationsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'businessPartner', args?: QueryBusinessPartnerArgs[] | false, alias?: string  } 
+  | { name: 'businessPartners', args?: QueryBusinessPartnersArgs[] | false, alias?: string  } 
+  | { name: 'businessPartnersConnection', args?: QueryBusinessPartnersConnectionArgs[] | false, alias?: string  } 
   | { name: 'location', args?: QueryLocationArgs[] | false, alias?: string  } 
   | { name: 'locations', args?: QueryLocationsArgs[] | false, alias?: string  } 
   | { name: 'locationsConnection', args?: QueryLocationsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'legalGround', args?: QueryLegalGroundArgs[] | false, alias?: string  } 
+  | { name: 'legalGrounds', args?: QueryLegalGroundsArgs[] | false, alias?: string  } 
+  | { name: 'legalGroundsConnection', args?: QueryLegalGroundsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'processingType', args?: QueryProcessingTypeArgs[] | false, alias?: string  } 
+  | { name: 'processingTypes', args?: QueryProcessingTypesArgs[] | false, alias?: string  } 
+  | { name: 'processingTypesConnection', args?: QueryProcessingTypesConnectionArgs[] | false, alias?: string  } 
+  | { name: 'recipientsType', args?: QueryRecipientsTypeArgs[] | false, alias?: string  } 
+  | { name: 'recipientsTypes', args?: QueryRecipientsTypesArgs[] | false, alias?: string  } 
+  | { name: 'recipientsTypesConnection', args?: QueryRecipientsTypesConnectionArgs[] | false, alias?: string  } 
+  | { name: 'retentionPolicy', args?: QueryRetentionPolicyArgs[] | false, alias?: string  } 
+  | { name: 'retentionPolicies', args?: QueryRetentionPoliciesArgs[] | false, alias?: string  } 
+  | { name: 'retentionPoliciesConnection', args?: QueryRetentionPoliciesConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
@@ -559,18 +721,33 @@ type QueryFields =
   | 'dataType'
   | 'dataTypes'
   | 'dataTypesConnection'
+  | 'dataSubjectType'
+  | 'dataSubjectTypes'
+  | 'dataSubjectTypesConnection'
   | 'qualityAttribute'
   | 'qualityAttributes'
   | 'qualityAttributesConnection'
   | 'classificationLabel'
   | 'classificationLabels'
   | 'classificationLabelsConnection'
-  | 'organization'
-  | 'organizations'
-  | 'organizationsConnection'
+  | 'businessPartner'
+  | 'businessPartners'
+  | 'businessPartnersConnection'
   | 'location'
   | 'locations'
   | 'locationsConnection'
+  | 'legalGround'
+  | 'legalGrounds'
+  | 'legalGroundsConnection'
+  | 'processingType'
+  | 'processingTypes'
+  | 'processingTypesConnection'
+  | 'recipientsType'
+  | 'recipientsTypes'
+  | 'recipientsTypesConnection'
+  | 'retentionPolicy'
+  | 'retentionPolicies'
+  | 'retentionPoliciesConnection'
 
 
 type QueryUserArgs =
@@ -735,6 +912,24 @@ type QueryDataTypesConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
+type QueryDataSubjectTypeArgs =
+  | 'where'
+type QueryDataSubjectTypesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryDataSubjectTypesConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
 type QueryQualityAttributeArgs =
   | 'where'
 type QueryQualityAttributesArgs =
@@ -771,9 +966,9 @@ type QueryClassificationLabelsConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryOrganizationArgs =
+type QueryBusinessPartnerArgs =
   | 'where'
-type QueryOrganizationsArgs =
+type QueryBusinessPartnersArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -781,7 +976,7 @@ type QueryOrganizationsArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryOrganizationsConnectionArgs =
+type QueryBusinessPartnersConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -800,6 +995,78 @@ type QueryLocationsArgs =
   | 'first'
   | 'last'
 type QueryLocationsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryLegalGroundArgs =
+  | 'where'
+type QueryLegalGroundsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryLegalGroundsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryProcessingTypeArgs =
+  | 'where'
+type QueryProcessingTypesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryProcessingTypesConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryRecipientsTypeArgs =
+  | 'where'
+type QueryRecipientsTypesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryRecipientsTypesConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryRetentionPolicyArgs =
+  | 'where'
+type QueryRetentionPoliciesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryRetentionPoliciesConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1161,6 +1428,45 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.DataTypeConnection> | prisma.DataTypeConnection
   }
+  dataSubjectType: {
+    type: 'DataSubjectType'
+    args: Record<QueryDataSubjectTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: DataSubjectTypeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectType | null> | prisma.DataSubjectType | null
+  }
+  dataSubjectTypes: {
+    type: 'DataSubjectType'
+    args: Record<QueryDataSubjectTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: DataSubjectTypeWhereInput | null, orderBy?: prisma.DataSubjectTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectType[]> | prisma.DataSubjectType[]
+  }
+  dataSubjectTypesConnection: {
+    type: 'DataSubjectTypeConnection'
+    args: Record<QueryDataSubjectTypesConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: DataSubjectTypeWhereInput | null, orderBy?: prisma.DataSubjectTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectTypeConnection> | prisma.DataSubjectTypeConnection
+  }
   qualityAttribute: {
     type: 'QualityAttribute'
     args: Record<QueryQualityAttributeArgs, core.NexusArgDef<string>>
@@ -1239,44 +1545,44 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ClassificationLabelConnection> | prisma.ClassificationLabelConnection
   }
-  organization: {
-    type: 'Organization'
-    args: Record<QueryOrganizationArgs, core.NexusArgDef<string>>
+  businessPartner: {
+    type: 'BusinessPartner'
+    args: Record<QueryBusinessPartnerArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where: OrganizationWhereUniqueInput }  ,
+      args: { where: BusinessPartnerWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Organization | null> | prisma.Organization | null
+    ) => Promise<prisma.BusinessPartner | null> | prisma.BusinessPartner | null
   }
-  organizations: {
-    type: 'Organization'
-    args: Record<QueryOrganizationsArgs, core.NexusArgDef<string>>
+  businessPartners: {
+    type: 'BusinessPartner'
+    args: Record<QueryBusinessPartnersArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: OrganizationWhereInput | null, orderBy?: prisma.OrganizationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: BusinessPartnerWhereInput | null, orderBy?: prisma.BusinessPartnerOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Organization[]> | prisma.Organization[]
+    ) => Promise<prisma.BusinessPartner[]> | prisma.BusinessPartner[]
   }
-  organizationsConnection: {
-    type: 'OrganizationConnection'
-    args: Record<QueryOrganizationsConnectionArgs, core.NexusArgDef<string>>
+  businessPartnersConnection: {
+    type: 'BusinessPartnerConnection'
+    args: Record<QueryBusinessPartnersConnectionArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: OrganizationWhereInput | null, orderBy?: prisma.OrganizationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: BusinessPartnerWhereInput | null, orderBy?: prisma.BusinessPartnerOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.OrganizationConnection> | prisma.OrganizationConnection
+    ) => Promise<prisma.BusinessPartnerConnection> | prisma.BusinessPartnerConnection
   }
   location: {
     type: 'Location'
@@ -1317,6 +1623,162 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.LocationConnection> | prisma.LocationConnection
   }
+  legalGround: {
+    type: 'LegalGround'
+    args: Record<QueryLegalGroundArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: LegalGroundWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGround | null> | prisma.LegalGround | null
+  }
+  legalGrounds: {
+    type: 'LegalGround'
+    args: Record<QueryLegalGroundsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: LegalGroundWhereInput | null, orderBy?: prisma.LegalGroundOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGround[]> | prisma.LegalGround[]
+  }
+  legalGroundsConnection: {
+    type: 'LegalGroundConnection'
+    args: Record<QueryLegalGroundsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: LegalGroundWhereInput | null, orderBy?: prisma.LegalGroundOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGroundConnection> | prisma.LegalGroundConnection
+  }
+  processingType: {
+    type: 'ProcessingType'
+    args: Record<QueryProcessingTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: ProcessingTypeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType | null> | prisma.ProcessingType | null
+  }
+  processingTypes: {
+    type: 'ProcessingType'
+    args: Record<QueryProcessingTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ProcessingTypeWhereInput | null, orderBy?: prisma.ProcessingTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType[]> | prisma.ProcessingType[]
+  }
+  processingTypesConnection: {
+    type: 'ProcessingTypeConnection'
+    args: Record<QueryProcessingTypesConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ProcessingTypeWhereInput | null, orderBy?: prisma.ProcessingTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingTypeConnection> | prisma.ProcessingTypeConnection
+  }
+  recipientsType: {
+    type: 'RecipientsType'
+    args: Record<QueryRecipientsTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: RecipientsTypeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsType | null> | prisma.RecipientsType | null
+  }
+  recipientsTypes: {
+    type: 'RecipientsType'
+    args: Record<QueryRecipientsTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: RecipientsTypeWhereInput | null, orderBy?: prisma.RecipientsTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsType[]> | prisma.RecipientsType[]
+  }
+  recipientsTypesConnection: {
+    type: 'RecipientsTypeConnection'
+    args: Record<QueryRecipientsTypesConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: RecipientsTypeWhereInput | null, orderBy?: prisma.RecipientsTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsTypeConnection> | prisma.RecipientsTypeConnection
+  }
+  retentionPolicy: {
+    type: 'RetentionPolicy'
+    args: Record<QueryRetentionPolicyArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: RetentionPolicyWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicy | null> | prisma.RetentionPolicy | null
+  }
+  retentionPolicies: {
+    type: 'RetentionPolicy'
+    args: Record<QueryRetentionPoliciesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: RetentionPolicyWhereInput | null, orderBy?: prisma.RetentionPolicyOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicy[]> | prisma.RetentionPolicy[]
+  }
+  retentionPoliciesConnection: {
+    type: 'RetentionPolicyConnection'
+    args: Record<QueryRetentionPoliciesConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: RetentionPolicyWhereInput | null, orderBy?: prisma.RetentionPolicyOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicyConnection> | prisma.RetentionPolicyConnection
+  }
 }
   
 
@@ -1328,9 +1790,9 @@ type UserObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'active', args?: [] | false, alias?: string  } 
-  | { name: 'specialPermissions', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'specialPermissions', args?: [] | false, alias?: string  } 
   | { name: 'person', args?: [] | false, alias?: string  } 
 
 type UserFields =
@@ -1338,9 +1800,9 @@ type UserFields =
   | 'email'
   | 'password'
   | 'active'
-  | 'specialPermissions'
   | 'createdAt'
   | 'updatedAt'
+  | 'specialPermissions'
   | 'person'
 
 
@@ -1380,19 +1842,6 @@ export interface UserFieldDetails {
     nullable: true
     resolve: undefined
   }
-  specialPermissions: {
-    type: 'PERMISSION'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"User">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PERMISSION[]> | prisma.PERMISSION[]
-  }
   createdAt: {
     type: 'DateTime'
     args: {}
@@ -1408,6 +1857,19 @@ export interface UserFieldDetails {
     list: undefined
     nullable: false
     resolve: undefined
+  }
+  specialPermissions: {
+    type: 'PERMISSION'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"User">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PERMISSION[]> | prisma.PERMISSION[]
   }
   person: {
     type: 'Person'
@@ -2019,25 +2481,77 @@ type ProcessingActivityObject =
   | ProcessingActivityFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'description', args?: [] | false, alias?: string  } 
   | { name: 'purpose', args?: [] | false, alias?: string  } 
+  | { name: 'imController', args?: [] | false, alias?: string  } 
+  | { name: 'securityMeasures', args?: [] | false, alias?: string  } 
+  | { name: 'legalGroundComment', args?: [] | false, alias?: string  } 
+  | { name: 'profiling', args?: [] | false, alias?: string  } 
+  | { name: 'publicSource', args?: [] | false, alias?: string  } 
+  | { name: 'linkToDpia', args?: [] | false, alias?: string  } 
+  | { name: 'linkToLia', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'recipients', args?: ProcessingActivityRecipientsArgs[] | false, alias?: string  } 
+  | { name: 'controllers', args?: ProcessingActivityControllersArgs[] | false, alias?: string  } 
+  | { name: 'dataTypes', args?: ProcessingActivityDataTypesArgs[] | false, alias?: string  } 
+  | { name: 'procesessingTypes', args?: ProcessingActivityProcesessingTypesArgs[] | false, alias?: string  } 
+  | { name: 'legalGrounds', args?: ProcessingActivityLegalGroundsArgs[] | false, alias?: string  } 
   | { name: 'process', args?: [] | false, alias?: string  } 
-  | { name: 'applications', args?: ProcessingActivityApplicationsArgs[] | false, alias?: string  } 
 
 type ProcessingActivityFields =
   | 'id'
   | 'name'
-  | 'description'
   | 'purpose'
+  | 'imController'
+  | 'securityMeasures'
+  | 'legalGroundComment'
+  | 'profiling'
+  | 'publicSource'
+  | 'linkToDpia'
+  | 'linkToLia'
   | 'createdAt'
   | 'updatedAt'
+  | 'recipients'
+  | 'controllers'
+  | 'dataTypes'
+  | 'procesessingTypes'
+  | 'legalGrounds'
   | 'process'
-  | 'applications'
 
 
-type ProcessingActivityApplicationsArgs =
+type ProcessingActivityRecipientsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type ProcessingActivityControllersArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type ProcessingActivityDataTypesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type ProcessingActivityProcesessingTypesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type ProcessingActivityLegalGroundsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -2064,7 +2578,7 @@ export interface ProcessingActivityFieldDetails {
     nullable: false
     resolve: undefined
   }
-  description: {
+  purpose: {
     type: 'String'
     args: {}
     description: string
@@ -2072,7 +2586,55 @@ export interface ProcessingActivityFieldDetails {
     nullable: true
     resolve: undefined
   }
-  purpose: {
+  imController: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  securityMeasures: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  legalGroundComment: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  profiling: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  publicSource: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  linkToDpia: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  linkToLia: {
     type: 'String'
     args: {}
     description: string
@@ -2096,6 +2658,71 @@ export interface ProcessingActivityFieldDetails {
     nullable: false
     resolve: undefined
   }
+  recipients: {
+    type: 'BusinessPartner'
+    args: Record<ProcessingActivityRecipientsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingActivity">,
+      args: { where?: BusinessPartnerWhereInput | null, orderBy?: prisma.BusinessPartnerOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BusinessPartner[]> | prisma.BusinessPartner[]
+  }
+  controllers: {
+    type: 'BusinessPartner'
+    args: Record<ProcessingActivityControllersArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingActivity">,
+      args: { where?: BusinessPartnerWhereInput | null, orderBy?: prisma.BusinessPartnerOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BusinessPartner[]> | prisma.BusinessPartner[]
+  }
+  dataTypes: {
+    type: 'DataType'
+    args: Record<ProcessingActivityDataTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingActivity">,
+      args: { where?: DataTypeWhereInput | null, orderBy?: prisma.DataTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataType[]> | prisma.DataType[]
+  }
+  procesessingTypes: {
+    type: 'ProcessingType'
+    args: Record<ProcessingActivityProcesessingTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingActivity">,
+      args: { where?: ProcessingTypeWhereInput | null, orderBy?: prisma.ProcessingTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType[]> | prisma.ProcessingType[]
+  }
+  legalGrounds: {
+    type: 'LegalGround'
+    args: Record<ProcessingActivityLegalGroundsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingActivity">,
+      args: { where?: LegalGroundWhereInput | null, orderBy?: prisma.LegalGroundOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGround[]> | prisma.LegalGround[]
+  }
   process: {
     type: 'Process'
     args: {}
@@ -2109,18 +2736,595 @@ export interface ProcessingActivityFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Process | null> | prisma.Process | null
   }
-  applications: {
-    type: 'Application'
-    args: Record<ProcessingActivityApplicationsArgs, core.NexusArgDef<string>>
+}
+  
+
+// Types for BusinessPartner
+
+type BusinessPartnerObject =
+  | BusinessPartnerFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'contactDetails', args?: [] | false, alias?: string  } 
+  | { name: 'dpo', args?: [] | false, alias?: string  } 
+  | { name: 'representative', args?: [] | false, alias?: string  } 
+  | { name: 'processingTypes', args?: BusinessPartnerProcessingTypesArgs[] | false, alias?: string  } 
+  | { name: 'recipientsType', args?: [] | false, alias?: string  } 
+  | { name: 'securityMeasures', args?: [] | false, alias?: string  } 
+  | { name: 'otherCountries', args?: [] | false, alias?: string  } 
+  | { name: 'outsideEea', args?: [] | false, alias?: string  } 
+  | { name: 'safeguards', args?: [] | false, alias?: string  } 
+  | { name: 'linkToDpa', args?: [] | false, alias?: string  } 
+  | { name: 'headOffice', args?: [] | false, alias?: string  } 
+
+type BusinessPartnerFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'contactDetails'
+  | 'dpo'
+  | 'representative'
+  | 'processingTypes'
+  | 'recipientsType'
+  | 'securityMeasures'
+  | 'otherCountries'
+  | 'outsideEea'
+  | 'safeguards'
+  | 'linkToDpa'
+  | 'headOffice'
+
+
+type BusinessPartnerProcessingTypesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface BusinessPartnerFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  contactDetails: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  dpo: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  representative: {
+    type: 'BusinessPartner'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"BusinessPartner">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BusinessPartner | null> | prisma.BusinessPartner | null
+  }
+  processingTypes: {
+    type: 'ProcessingType'
+    args: Record<BusinessPartnerProcessingTypesArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"ProcessingActivity">,
+      root: core.RootValue<"BusinessPartner">,
+      args: { where?: ProcessingTypeWhereInput | null, orderBy?: prisma.ProcessingTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType[]> | prisma.ProcessingType[]
+  }
+  recipientsType: {
+    type: 'RecipientsType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"BusinessPartner">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsType | null> | prisma.RecipientsType | null
+  }
+  securityMeasures: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  otherCountries: {
+    type: 'Json'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  outsideEea: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  safeguards: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  linkToDpa: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  headOffice: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"BusinessPartner">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location> | prisma.Location
+  }
+}
+  
+
+// Types for ProcessingType
+
+type ProcessingTypeObject =
+  | ProcessingTypeFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type ProcessingTypeFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface ProcessingTypeFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for RecipientsType
+
+type RecipientsTypeObject =
+  | RecipientsTypeFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type RecipientsTypeFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface RecipientsTypeFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for Location
+
+type LocationObject =
+  | LocationFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'address', args?: [] | false, alias?: string  } 
+  | { name: 'businessPartner', args?: [] | false, alias?: string  } 
+
+type LocationFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'address'
+  | 'businessPartner'
+
+
+
+  
+
+export interface LocationFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  address: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  businessPartner: {
+    type: 'BusinessPartner'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Location">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BusinessPartner | null> | prisma.BusinessPartner | null
+  }
+}
+  
+
+// Types for DataType
+
+type DataTypeObject =
+  | DataTypeFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'retentionPolicy', args?: DataTypeRetentionPolicyArgs[] | false, alias?: string  } 
+  | { name: 'dataSubjectType', args?: DataTypeDataSubjectTypeArgs[] | false, alias?: string  } 
+  | { name: 'application', args?: DataTypeApplicationArgs[] | false, alias?: string  } 
+  | { name: 'classificationLabels', args?: DataTypeClassificationLabelsArgs[] | false, alias?: string  } 
+
+type DataTypeFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'retentionPolicy'
+  | 'dataSubjectType'
+  | 'application'
+  | 'classificationLabels'
+
+
+type DataTypeRetentionPolicyArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type DataTypeDataSubjectTypeArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type DataTypeApplicationArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type DataTypeClassificationLabelsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface DataTypeFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  retentionPolicy: {
+    type: 'RetentionPolicy'
+    args: Record<DataTypeRetentionPolicyArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataType">,
+      args: { where?: RetentionPolicyWhereInput | null, orderBy?: prisma.RetentionPolicyOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicy[]> | prisma.RetentionPolicy[]
+  }
+  dataSubjectType: {
+    type: 'DataSubjectType'
+    args: Record<DataTypeDataSubjectTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataType">,
+      args: { where?: DataSubjectTypeWhereInput | null, orderBy?: prisma.DataSubjectTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectType[]> | prisma.DataSubjectType[]
+  }
+  application: {
+    type: 'Application'
+    args: Record<DataTypeApplicationArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataType">,
       args: { where?: ApplicationWhereInput | null, orderBy?: prisma.ApplicationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Application[]> | prisma.Application[]
+  }
+  classificationLabels: {
+    type: 'ClassificationLabel'
+    args: Record<DataTypeClassificationLabelsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataType">,
+      args: { where?: ClassificationLabelWhereInput | null, orderBy?: prisma.ClassificationLabelOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ClassificationLabel[]> | prisma.ClassificationLabel[]
+  }
+}
+  
+
+// Types for RetentionPolicy
+
+type RetentionPolicyObject =
+  | RetentionPolicyFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type RetentionPolicyFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface RetentionPolicyFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for DataSubjectType
+
+type DataSubjectTypeObject =
+  | DataSubjectTypeFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'dataTypes', args?: DataSubjectTypeDataTypesArgs[] | false, alias?: string  } 
+
+type DataSubjectTypeFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'dataTypes'
+
+
+type DataSubjectTypeDataTypesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface DataSubjectTypeFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  dataTypes: {
+    type: 'DataType'
+    args: Record<DataSubjectTypeDataTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataSubjectType">,
+      args: { where?: DataTypeWhereInput | null, orderBy?: prisma.DataTypeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataType[]> | prisma.DataType[]
   }
 }
   
@@ -2266,96 +3470,6 @@ export interface ApplicationFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BusinessRole | null> | prisma.BusinessRole | null
-  }
-}
-  
-
-// Types for DataType
-
-type DataTypeObject =
-  | DataTypeFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'description', args?: [] | false, alias?: string  } 
-  | { name: 'application', args?: DataTypeApplicationArgs[] | false, alias?: string  } 
-  | { name: 'classificationLabels', args?: DataTypeClassificationLabelsArgs[] | false, alias?: string  } 
-
-type DataTypeFields =
-  | 'id'
-  | 'name'
-  | 'description'
-  | 'application'
-  | 'classificationLabels'
-
-
-type DataTypeApplicationArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type DataTypeClassificationLabelsArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-  
-
-export interface DataTypeFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  description: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  application: {
-    type: 'Application'
-    args: Record<DataTypeApplicationArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"DataType">,
-      args: { where?: ApplicationWhereInput | null, orderBy?: prisma.ApplicationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Application[]> | prisma.Application[]
-  }
-  classificationLabels: {
-    type: 'ClassificationLabel'
-    args: Record<DataTypeClassificationLabelsArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"DataType">,
-      args: { where?: ClassificationLabelWhereInput | null, orderBy?: prisma.ClassificationLabelOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.ClassificationLabel[]> | prisma.ClassificationLabel[]
   }
 }
   
@@ -2530,6 +3644,61 @@ export interface QualityAttributeFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ClassificationLabel[]> | prisma.ClassificationLabel[]
+  }
+}
+  
+
+// Types for LegalGround
+
+type LegalGroundObject =
+  | LegalGroundFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'specialCategoryCondition', args?: [] | false, alias?: string  } 
+
+type LegalGroundFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'specialCategoryCondition'
+
+
+
+  
+
+export interface LegalGroundFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  specialCategoryCondition: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
   }
 }
   
@@ -3791,6 +4960,131 @@ export interface AggregateDataTypeFieldDetails {
 }
   
 
+// Types for DataSubjectTypeConnection
+
+type DataSubjectTypeConnectionObject =
+  | DataSubjectTypeConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type DataSubjectTypeConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface DataSubjectTypeConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataSubjectTypeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'DataSubjectTypeEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataSubjectTypeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectTypeEdge[]> | prisma.DataSubjectTypeEdge[]
+  }
+  aggregate: {
+    type: 'AggregateDataSubjectType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataSubjectTypeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateDataSubjectType> | prisma.AggregateDataSubjectType
+  }
+}
+  
+
+// Types for DataSubjectTypeEdge
+
+type DataSubjectTypeEdgeObject =
+  | DataSubjectTypeEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type DataSubjectTypeEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface DataSubjectTypeEdgeFieldDetails {
+  node: {
+    type: 'DataSubjectType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataSubjectTypeEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectType> | prisma.DataSubjectType
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateDataSubjectType
+
+type AggregateDataSubjectTypeObject =
+  | AggregateDataSubjectTypeFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateDataSubjectTypeFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateDataSubjectTypeFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for QualityAttributeConnection
 
 type QualityAttributeConnectionObject =
@@ -4041,175 +5335,15 @@ export interface AggregateClassificationLabelFieldDetails {
 }
   
 
-// Types for Organization
+// Types for BusinessPartnerConnection
 
-type OrganizationObject =
-  | OrganizationFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'description', args?: [] | false, alias?: string  } 
-  | { name: 'contactDetails', args?: [] | false, alias?: string  } 
-  | { name: 'dpo', args?: [] | false, alias?: string  } 
-  | { name: 'representative', args?: [] | false, alias?: string  } 
-  | { name: 'headOffice', args?: [] | false, alias?: string  } 
-
-type OrganizationFields =
-  | 'id'
-  | 'name'
-  | 'description'
-  | 'contactDetails'
-  | 'dpo'
-  | 'representative'
-  | 'headOffice'
-
-
-
-  
-
-export interface OrganizationFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  description: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  contactDetails: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  dpo: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  representative: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  headOffice: {
-    type: 'Location'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Organization">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Location> | prisma.Location
-  }
-}
-  
-
-// Types for Location
-
-type LocationObject =
-  | LocationFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'description', args?: [] | false, alias?: string  } 
-  | { name: 'address', args?: [] | false, alias?: string  } 
-  | { name: 'organization', args?: [] | false, alias?: string  } 
-
-type LocationFields =
-  | 'id'
-  | 'name'
-  | 'description'
-  | 'address'
-  | 'organization'
-
-
-
-  
-
-export interface LocationFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  description: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  address: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  organization: {
-    type: 'Organization'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Location">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Organization | null> | prisma.Organization | null
-  }
-}
-  
-
-// Types for OrganizationConnection
-
-type OrganizationConnectionObject =
-  | OrganizationConnectionFields
+type BusinessPartnerConnectionObject =
+  | BusinessPartnerConnectionFields
   | { name: 'pageInfo', args?: [] | false, alias?: string  } 
   | { name: 'edges', args?: [] | false, alias?: string  } 
   | { name: 'aggregate', args?: [] | false, alias?: string  } 
 
-type OrganizationConnectionFields =
+type BusinessPartnerConnectionFields =
   | 'pageInfo'
   | 'edges'
   | 'aggregate'
@@ -4218,7 +5352,7 @@ type OrganizationConnectionFields =
 
   
 
-export interface OrganizationConnectionFieldDetails {
+export interface BusinessPartnerConnectionFieldDetails {
   pageInfo: {
     type: 'PageInfo'
     args: {}
@@ -4226,49 +5360,49 @@ export interface OrganizationConnectionFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"OrganizationConnection">,
+      root: core.RootValue<"BusinessPartnerConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PageInfo> | prisma.PageInfo
   }
   edges: {
-    type: 'OrganizationEdge'
+    type: 'BusinessPartnerEdge'
     args: {}
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"OrganizationConnection">,
+      root: core.RootValue<"BusinessPartnerConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.OrganizationEdge[]> | prisma.OrganizationEdge[]
+    ) => Promise<prisma.BusinessPartnerEdge[]> | prisma.BusinessPartnerEdge[]
   }
   aggregate: {
-    type: 'AggregateOrganization'
+    type: 'AggregateBusinessPartner'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"OrganizationConnection">,
+      root: core.RootValue<"BusinessPartnerConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateOrganization> | prisma.AggregateOrganization
+    ) => Promise<prisma.AggregateBusinessPartner> | prisma.AggregateBusinessPartner
   }
 }
   
 
-// Types for OrganizationEdge
+// Types for BusinessPartnerEdge
 
-type OrganizationEdgeObject =
-  | OrganizationEdgeFields
+type BusinessPartnerEdgeObject =
+  | BusinessPartnerEdgeFields
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'cursor', args?: [] | false, alias?: string  } 
 
-type OrganizationEdgeFields =
+type BusinessPartnerEdgeFields =
   | 'node'
   | 'cursor'
 
@@ -4276,19 +5410,19 @@ type OrganizationEdgeFields =
 
   
 
-export interface OrganizationEdgeFieldDetails {
+export interface BusinessPartnerEdgeFieldDetails {
   node: {
-    type: 'Organization'
+    type: 'BusinessPartner'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"OrganizationEdge">,
+      root: core.RootValue<"BusinessPartnerEdge">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Organization> | prisma.Organization
+    ) => Promise<prisma.BusinessPartner> | prisma.BusinessPartner
   }
   cursor: {
     type: 'String'
@@ -4301,20 +5435,20 @@ export interface OrganizationEdgeFieldDetails {
 }
   
 
-// Types for AggregateOrganization
+// Types for AggregateBusinessPartner
 
-type AggregateOrganizationObject =
-  | AggregateOrganizationFields
+type AggregateBusinessPartnerObject =
+  | AggregateBusinessPartnerFields
   | { name: 'count', args?: [] | false, alias?: string  } 
 
-type AggregateOrganizationFields =
+type AggregateBusinessPartnerFields =
   | 'count'
 
 
 
   
 
-export interface AggregateOrganizationFieldDetails {
+export interface AggregateBusinessPartnerFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -4451,6 +5585,506 @@ export interface AggregateLocationFieldDetails {
 }
   
 
+// Types for LegalGroundConnection
+
+type LegalGroundConnectionObject =
+  | LegalGroundConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type LegalGroundConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface LegalGroundConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LegalGroundConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'LegalGroundEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LegalGroundConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGroundEdge[]> | prisma.LegalGroundEdge[]
+  }
+  aggregate: {
+    type: 'AggregateLegalGround'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LegalGroundConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateLegalGround> | prisma.AggregateLegalGround
+  }
+}
+  
+
+// Types for LegalGroundEdge
+
+type LegalGroundEdgeObject =
+  | LegalGroundEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type LegalGroundEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface LegalGroundEdgeFieldDetails {
+  node: {
+    type: 'LegalGround'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LegalGroundEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGround> | prisma.LegalGround
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateLegalGround
+
+type AggregateLegalGroundObject =
+  | AggregateLegalGroundFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateLegalGroundFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateLegalGroundFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for ProcessingTypeConnection
+
+type ProcessingTypeConnectionObject =
+  | ProcessingTypeConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type ProcessingTypeConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface ProcessingTypeConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingTypeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'ProcessingTypeEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingTypeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingTypeEdge[]> | prisma.ProcessingTypeEdge[]
+  }
+  aggregate: {
+    type: 'AggregateProcessingType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingTypeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateProcessingType> | prisma.AggregateProcessingType
+  }
+}
+  
+
+// Types for ProcessingTypeEdge
+
+type ProcessingTypeEdgeObject =
+  | ProcessingTypeEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type ProcessingTypeEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface ProcessingTypeEdgeFieldDetails {
+  node: {
+    type: 'ProcessingType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingTypeEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType> | prisma.ProcessingType
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateProcessingType
+
+type AggregateProcessingTypeObject =
+  | AggregateProcessingTypeFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateProcessingTypeFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateProcessingTypeFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for RecipientsTypeConnection
+
+type RecipientsTypeConnectionObject =
+  | RecipientsTypeConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type RecipientsTypeConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface RecipientsTypeConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RecipientsTypeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'RecipientsTypeEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RecipientsTypeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsTypeEdge[]> | prisma.RecipientsTypeEdge[]
+  }
+  aggregate: {
+    type: 'AggregateRecipientsType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RecipientsTypeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateRecipientsType> | prisma.AggregateRecipientsType
+  }
+}
+  
+
+// Types for RecipientsTypeEdge
+
+type RecipientsTypeEdgeObject =
+  | RecipientsTypeEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type RecipientsTypeEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface RecipientsTypeEdgeFieldDetails {
+  node: {
+    type: 'RecipientsType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RecipientsTypeEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsType> | prisma.RecipientsType
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateRecipientsType
+
+type AggregateRecipientsTypeObject =
+  | AggregateRecipientsTypeFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateRecipientsTypeFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateRecipientsTypeFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for RetentionPolicyConnection
+
+type RetentionPolicyConnectionObject =
+  | RetentionPolicyConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type RetentionPolicyConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface RetentionPolicyConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RetentionPolicyConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'RetentionPolicyEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RetentionPolicyConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicyEdge[]> | prisma.RetentionPolicyEdge[]
+  }
+  aggregate: {
+    type: 'AggregateRetentionPolicy'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RetentionPolicyConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateRetentionPolicy> | prisma.AggregateRetentionPolicy
+  }
+}
+  
+
+// Types for RetentionPolicyEdge
+
+type RetentionPolicyEdgeObject =
+  | RetentionPolicyEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type RetentionPolicyEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface RetentionPolicyEdgeFieldDetails {
+  node: {
+    type: 'RetentionPolicy'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RetentionPolicyEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicy> | prisma.RetentionPolicy
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateRetentionPolicy
+
+type AggregateRetentionPolicyObject =
+  | AggregateRetentionPolicyFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateRetentionPolicyFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateRetentionPolicyFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -4509,6 +6143,12 @@ type MutationObject =
   | { name: 'upsertDataType', args?: MutationUpsertDataTypeArgs[] | false, alias?: string  } 
   | { name: 'deleteDataType', args?: MutationDeleteDataTypeArgs[] | false, alias?: string  } 
   | { name: 'deleteManyDataTypes', args?: MutationDeleteManyDataTypesArgs[] | false, alias?: string  } 
+  | { name: 'createDataSubjectType', args?: MutationCreateDataSubjectTypeArgs[] | false, alias?: string  } 
+  | { name: 'updateDataSubjectType', args?: MutationUpdateDataSubjectTypeArgs[] | false, alias?: string  } 
+  | { name: 'updateManyDataSubjectTypes', args?: MutationUpdateManyDataSubjectTypesArgs[] | false, alias?: string  } 
+  | { name: 'upsertDataSubjectType', args?: MutationUpsertDataSubjectTypeArgs[] | false, alias?: string  } 
+  | { name: 'deleteDataSubjectType', args?: MutationDeleteDataSubjectTypeArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyDataSubjectTypes', args?: MutationDeleteManyDataSubjectTypesArgs[] | false, alias?: string  } 
   | { name: 'createQualityAttribute', args?: MutationCreateQualityAttributeArgs[] | false, alias?: string  } 
   | { name: 'updateQualityAttribute', args?: MutationUpdateQualityAttributeArgs[] | false, alias?: string  } 
   | { name: 'updateManyQualityAttributes', args?: MutationUpdateManyQualityAttributesArgs[] | false, alias?: string  } 
@@ -4521,18 +6161,42 @@ type MutationObject =
   | { name: 'upsertClassificationLabel', args?: MutationUpsertClassificationLabelArgs[] | false, alias?: string  } 
   | { name: 'deleteClassificationLabel', args?: MutationDeleteClassificationLabelArgs[] | false, alias?: string  } 
   | { name: 'deleteManyClassificationLabels', args?: MutationDeleteManyClassificationLabelsArgs[] | false, alias?: string  } 
-  | { name: 'createOrganization', args?: MutationCreateOrganizationArgs[] | false, alias?: string  } 
-  | { name: 'updateOrganization', args?: MutationUpdateOrganizationArgs[] | false, alias?: string  } 
-  | { name: 'updateManyOrganizations', args?: MutationUpdateManyOrganizationsArgs[] | false, alias?: string  } 
-  | { name: 'upsertOrganization', args?: MutationUpsertOrganizationArgs[] | false, alias?: string  } 
-  | { name: 'deleteOrganization', args?: MutationDeleteOrganizationArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyOrganizations', args?: MutationDeleteManyOrganizationsArgs[] | false, alias?: string  } 
+  | { name: 'createBusinessPartner', args?: MutationCreateBusinessPartnerArgs[] | false, alias?: string  } 
+  | { name: 'updateBusinessPartner', args?: MutationUpdateBusinessPartnerArgs[] | false, alias?: string  } 
+  | { name: 'updateManyBusinessPartners', args?: MutationUpdateManyBusinessPartnersArgs[] | false, alias?: string  } 
+  | { name: 'upsertBusinessPartner', args?: MutationUpsertBusinessPartnerArgs[] | false, alias?: string  } 
+  | { name: 'deleteBusinessPartner', args?: MutationDeleteBusinessPartnerArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyBusinessPartners', args?: MutationDeleteManyBusinessPartnersArgs[] | false, alias?: string  } 
   | { name: 'createLocation', args?: MutationCreateLocationArgs[] | false, alias?: string  } 
   | { name: 'updateLocation', args?: MutationUpdateLocationArgs[] | false, alias?: string  } 
   | { name: 'updateManyLocations', args?: MutationUpdateManyLocationsArgs[] | false, alias?: string  } 
   | { name: 'upsertLocation', args?: MutationUpsertLocationArgs[] | false, alias?: string  } 
   | { name: 'deleteLocation', args?: MutationDeleteLocationArgs[] | false, alias?: string  } 
   | { name: 'deleteManyLocations', args?: MutationDeleteManyLocationsArgs[] | false, alias?: string  } 
+  | { name: 'createLegalGround', args?: MutationCreateLegalGroundArgs[] | false, alias?: string  } 
+  | { name: 'updateLegalGround', args?: MutationUpdateLegalGroundArgs[] | false, alias?: string  } 
+  | { name: 'updateManyLegalGrounds', args?: MutationUpdateManyLegalGroundsArgs[] | false, alias?: string  } 
+  | { name: 'upsertLegalGround', args?: MutationUpsertLegalGroundArgs[] | false, alias?: string  } 
+  | { name: 'deleteLegalGround', args?: MutationDeleteLegalGroundArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyLegalGrounds', args?: MutationDeleteManyLegalGroundsArgs[] | false, alias?: string  } 
+  | { name: 'createProcessingType', args?: MutationCreateProcessingTypeArgs[] | false, alias?: string  } 
+  | { name: 'updateProcessingType', args?: MutationUpdateProcessingTypeArgs[] | false, alias?: string  } 
+  | { name: 'updateManyProcessingTypes', args?: MutationUpdateManyProcessingTypesArgs[] | false, alias?: string  } 
+  | { name: 'upsertProcessingType', args?: MutationUpsertProcessingTypeArgs[] | false, alias?: string  } 
+  | { name: 'deleteProcessingType', args?: MutationDeleteProcessingTypeArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyProcessingTypes', args?: MutationDeleteManyProcessingTypesArgs[] | false, alias?: string  } 
+  | { name: 'createRecipientsType', args?: MutationCreateRecipientsTypeArgs[] | false, alias?: string  } 
+  | { name: 'updateRecipientsType', args?: MutationUpdateRecipientsTypeArgs[] | false, alias?: string  } 
+  | { name: 'updateManyRecipientsTypes', args?: MutationUpdateManyRecipientsTypesArgs[] | false, alias?: string  } 
+  | { name: 'upsertRecipientsType', args?: MutationUpsertRecipientsTypeArgs[] | false, alias?: string  } 
+  | { name: 'deleteRecipientsType', args?: MutationDeleteRecipientsTypeArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyRecipientsTypes', args?: MutationDeleteManyRecipientsTypesArgs[] | false, alias?: string  } 
+  | { name: 'createRetentionPolicy', args?: MutationCreateRetentionPolicyArgs[] | false, alias?: string  } 
+  | { name: 'updateRetentionPolicy', args?: MutationUpdateRetentionPolicyArgs[] | false, alias?: string  } 
+  | { name: 'updateManyRetentionPolicies', args?: MutationUpdateManyRetentionPoliciesArgs[] | false, alias?: string  } 
+  | { name: 'upsertRetentionPolicy', args?: MutationUpsertRetentionPolicyArgs[] | false, alias?: string  } 
+  | { name: 'deleteRetentionPolicy', args?: MutationDeleteRetentionPolicyArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyRetentionPolicies', args?: MutationDeleteManyRetentionPoliciesArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -4589,6 +6253,12 @@ type MutationFields =
   | 'upsertDataType'
   | 'deleteDataType'
   | 'deleteManyDataTypes'
+  | 'createDataSubjectType'
+  | 'updateDataSubjectType'
+  | 'updateManyDataSubjectTypes'
+  | 'upsertDataSubjectType'
+  | 'deleteDataSubjectType'
+  | 'deleteManyDataSubjectTypes'
   | 'createQualityAttribute'
   | 'updateQualityAttribute'
   | 'updateManyQualityAttributes'
@@ -4601,18 +6271,42 @@ type MutationFields =
   | 'upsertClassificationLabel'
   | 'deleteClassificationLabel'
   | 'deleteManyClassificationLabels'
-  | 'createOrganization'
-  | 'updateOrganization'
-  | 'updateManyOrganizations'
-  | 'upsertOrganization'
-  | 'deleteOrganization'
-  | 'deleteManyOrganizations'
+  | 'createBusinessPartner'
+  | 'updateBusinessPartner'
+  | 'updateManyBusinessPartners'
+  | 'upsertBusinessPartner'
+  | 'deleteBusinessPartner'
+  | 'deleteManyBusinessPartners'
   | 'createLocation'
   | 'updateLocation'
   | 'updateManyLocations'
   | 'upsertLocation'
   | 'deleteLocation'
   | 'deleteManyLocations'
+  | 'createLegalGround'
+  | 'updateLegalGround'
+  | 'updateManyLegalGrounds'
+  | 'upsertLegalGround'
+  | 'deleteLegalGround'
+  | 'deleteManyLegalGrounds'
+  | 'createProcessingType'
+  | 'updateProcessingType'
+  | 'updateManyProcessingTypes'
+  | 'upsertProcessingType'
+  | 'deleteProcessingType'
+  | 'deleteManyProcessingTypes'
+  | 'createRecipientsType'
+  | 'updateRecipientsType'
+  | 'updateManyRecipientsTypes'
+  | 'upsertRecipientsType'
+  | 'deleteRecipientsType'
+  | 'deleteManyRecipientsTypes'
+  | 'createRetentionPolicy'
+  | 'updateRetentionPolicy'
+  | 'updateManyRetentionPolicies'
+  | 'upsertRetentionPolicy'
+  | 'deleteRetentionPolicy'
+  | 'deleteManyRetentionPolicies'
 
 
 type MutationCreateUserArgs =
@@ -4759,6 +6453,22 @@ type MutationDeleteDataTypeArgs =
   | 'where'
 type MutationDeleteManyDataTypesArgs =
   | 'where'
+type MutationCreateDataSubjectTypeArgs =
+  | 'data'
+type MutationUpdateDataSubjectTypeArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyDataSubjectTypesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertDataSubjectTypeArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteDataSubjectTypeArgs =
+  | 'where'
+type MutationDeleteManyDataSubjectTypesArgs =
+  | 'where'
 type MutationCreateQualityAttributeArgs =
   | 'data'
 type MutationUpdateQualityAttributeArgs =
@@ -4791,21 +6501,21 @@ type MutationDeleteClassificationLabelArgs =
   | 'where'
 type MutationDeleteManyClassificationLabelsArgs =
   | 'where'
-type MutationCreateOrganizationArgs =
+type MutationCreateBusinessPartnerArgs =
   | 'data'
-type MutationUpdateOrganizationArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyOrganizationsArgs =
+type MutationUpdateBusinessPartnerArgs =
   | 'data'
   | 'where'
-type MutationUpsertOrganizationArgs =
+type MutationUpdateManyBusinessPartnersArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertBusinessPartnerArgs =
   | 'where'
   | 'create'
   | 'update'
-type MutationDeleteOrganizationArgs =
+type MutationDeleteBusinessPartnerArgs =
   | 'where'
-type MutationDeleteManyOrganizationsArgs =
+type MutationDeleteManyBusinessPartnersArgs =
   | 'where'
 type MutationCreateLocationArgs =
   | 'data'
@@ -4822,6 +6532,70 @@ type MutationUpsertLocationArgs =
 type MutationDeleteLocationArgs =
   | 'where'
 type MutationDeleteManyLocationsArgs =
+  | 'where'
+type MutationCreateLegalGroundArgs =
+  | 'data'
+type MutationUpdateLegalGroundArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyLegalGroundsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertLegalGroundArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteLegalGroundArgs =
+  | 'where'
+type MutationDeleteManyLegalGroundsArgs =
+  | 'where'
+type MutationCreateProcessingTypeArgs =
+  | 'data'
+type MutationUpdateProcessingTypeArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyProcessingTypesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertProcessingTypeArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteProcessingTypeArgs =
+  | 'where'
+type MutationDeleteManyProcessingTypesArgs =
+  | 'where'
+type MutationCreateRecipientsTypeArgs =
+  | 'data'
+type MutationUpdateRecipientsTypeArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyRecipientsTypesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertRecipientsTypeArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteRecipientsTypeArgs =
+  | 'where'
+type MutationDeleteManyRecipientsTypesArgs =
+  | 'where'
+type MutationCreateRetentionPolicyArgs =
+  | 'data'
+type MutationUpdateRetentionPolicyArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyRetentionPoliciesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertRetentionPolicyArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteRetentionPolicyArgs =
+  | 'where'
+type MutationDeleteManyRetentionPoliciesArgs =
   | 'where'
   
 
@@ -5528,6 +7302,84 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createDataSubjectType: {
+    type: 'DataSubjectType'
+    args: Record<MutationCreateDataSubjectTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: DataSubjectTypeCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectType> | prisma.DataSubjectType
+  }
+  updateDataSubjectType: {
+    type: 'DataSubjectType'
+    args: Record<MutationUpdateDataSubjectTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: DataSubjectTypeUpdateInput, where: DataSubjectTypeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectType | null> | prisma.DataSubjectType | null
+  }
+  updateManyDataSubjectTypes: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyDataSubjectTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: DataSubjectTypeUpdateManyMutationInput, where?: DataSubjectTypeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertDataSubjectType: {
+    type: 'DataSubjectType'
+    args: Record<MutationUpsertDataSubjectTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: DataSubjectTypeWhereUniqueInput, create: DataSubjectTypeCreateInput, update: DataSubjectTypeUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectType> | prisma.DataSubjectType
+  }
+  deleteDataSubjectType: {
+    type: 'DataSubjectType'
+    args: Record<MutationDeleteDataSubjectTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: DataSubjectTypeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectType | null> | prisma.DataSubjectType | null
+  }
+  deleteManyDataSubjectTypes: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyDataSubjectTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: DataSubjectTypeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
   createQualityAttribute: {
     type: 'QualityAttribute'
     args: Record<MutationCreateQualityAttributeArgs, core.NexusArgDef<string>>
@@ -5684,80 +7536,80 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  createOrganization: {
-    type: 'Organization'
-    args: Record<MutationCreateOrganizationArgs, core.NexusArgDef<string>>
+  createBusinessPartner: {
+    type: 'BusinessPartner'
+    args: Record<MutationCreateBusinessPartnerArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: OrganizationCreateInput }  ,
+      args: { data: BusinessPartnerCreateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Organization> | prisma.Organization
+    ) => Promise<prisma.BusinessPartner> | prisma.BusinessPartner
   }
-  updateOrganization: {
-    type: 'Organization'
-    args: Record<MutationUpdateOrganizationArgs, core.NexusArgDef<string>>
+  updateBusinessPartner: {
+    type: 'BusinessPartner'
+    args: Record<MutationUpdateBusinessPartnerArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: OrganizationUpdateInput, where: OrganizationWhereUniqueInput }  ,
+      args: { data: BusinessPartnerUpdateInput, where: BusinessPartnerWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Organization | null> | prisma.Organization | null
+    ) => Promise<prisma.BusinessPartner | null> | prisma.BusinessPartner | null
   }
-  updateManyOrganizations: {
+  updateManyBusinessPartners: {
     type: 'BatchPayload'
-    args: Record<MutationUpdateManyOrganizationsArgs, core.NexusArgDef<string>>
+    args: Record<MutationUpdateManyBusinessPartnersArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: OrganizationUpdateManyMutationInput, where?: OrganizationWhereInput | null }  ,
+      args: { data: BusinessPartnerUpdateManyMutationInput, where?: BusinessPartnerWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  upsertOrganization: {
-    type: 'Organization'
-    args: Record<MutationUpsertOrganizationArgs, core.NexusArgDef<string>>
+  upsertBusinessPartner: {
+    type: 'BusinessPartner'
+    args: Record<MutationUpsertBusinessPartnerArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: OrganizationWhereUniqueInput, create: OrganizationCreateInput, update: OrganizationUpdateInput }  ,
+      args: { where: BusinessPartnerWhereUniqueInput, create: BusinessPartnerCreateInput, update: BusinessPartnerUpdateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Organization> | prisma.Organization
+    ) => Promise<prisma.BusinessPartner> | prisma.BusinessPartner
   }
-  deleteOrganization: {
-    type: 'Organization'
-    args: Record<MutationDeleteOrganizationArgs, core.NexusArgDef<string>>
+  deleteBusinessPartner: {
+    type: 'BusinessPartner'
+    args: Record<MutationDeleteBusinessPartnerArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: OrganizationWhereUniqueInput }  ,
+      args: { where: BusinessPartnerWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Organization | null> | prisma.Organization | null
+    ) => Promise<prisma.BusinessPartner | null> | prisma.BusinessPartner | null
   }
-  deleteManyOrganizations: {
+  deleteManyBusinessPartners: {
     type: 'BatchPayload'
-    args: Record<MutationDeleteManyOrganizationsArgs, core.NexusArgDef<string>>
+    args: Record<MutationDeleteManyBusinessPartnersArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where?: OrganizationWhereInput | null }  ,
+      args: { where?: BusinessPartnerWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -5840,6 +7692,318 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createLegalGround: {
+    type: 'LegalGround'
+    args: Record<MutationCreateLegalGroundArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: LegalGroundCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGround> | prisma.LegalGround
+  }
+  updateLegalGround: {
+    type: 'LegalGround'
+    args: Record<MutationUpdateLegalGroundArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: LegalGroundUpdateInput, where: LegalGroundWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGround | null> | prisma.LegalGround | null
+  }
+  updateManyLegalGrounds: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyLegalGroundsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: LegalGroundUpdateManyMutationInput, where?: LegalGroundWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertLegalGround: {
+    type: 'LegalGround'
+    args: Record<MutationUpsertLegalGroundArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: LegalGroundWhereUniqueInput, create: LegalGroundCreateInput, update: LegalGroundUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGround> | prisma.LegalGround
+  }
+  deleteLegalGround: {
+    type: 'LegalGround'
+    args: Record<MutationDeleteLegalGroundArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: LegalGroundWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGround | null> | prisma.LegalGround | null
+  }
+  deleteManyLegalGrounds: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyLegalGroundsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: LegalGroundWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createProcessingType: {
+    type: 'ProcessingType'
+    args: Record<MutationCreateProcessingTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ProcessingTypeCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType> | prisma.ProcessingType
+  }
+  updateProcessingType: {
+    type: 'ProcessingType'
+    args: Record<MutationUpdateProcessingTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ProcessingTypeUpdateInput, where: ProcessingTypeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType | null> | prisma.ProcessingType | null
+  }
+  updateManyProcessingTypes: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyProcessingTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ProcessingTypeUpdateManyMutationInput, where?: ProcessingTypeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertProcessingType: {
+    type: 'ProcessingType'
+    args: Record<MutationUpsertProcessingTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ProcessingTypeWhereUniqueInput, create: ProcessingTypeCreateInput, update: ProcessingTypeUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType> | prisma.ProcessingType
+  }
+  deleteProcessingType: {
+    type: 'ProcessingType'
+    args: Record<MutationDeleteProcessingTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ProcessingTypeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType | null> | prisma.ProcessingType | null
+  }
+  deleteManyProcessingTypes: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyProcessingTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: ProcessingTypeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createRecipientsType: {
+    type: 'RecipientsType'
+    args: Record<MutationCreateRecipientsTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RecipientsTypeCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsType> | prisma.RecipientsType
+  }
+  updateRecipientsType: {
+    type: 'RecipientsType'
+    args: Record<MutationUpdateRecipientsTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RecipientsTypeUpdateInput, where: RecipientsTypeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsType | null> | prisma.RecipientsType | null
+  }
+  updateManyRecipientsTypes: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyRecipientsTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RecipientsTypeUpdateManyMutationInput, where?: RecipientsTypeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertRecipientsType: {
+    type: 'RecipientsType'
+    args: Record<MutationUpsertRecipientsTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: RecipientsTypeWhereUniqueInput, create: RecipientsTypeCreateInput, update: RecipientsTypeUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsType> | prisma.RecipientsType
+  }
+  deleteRecipientsType: {
+    type: 'RecipientsType'
+    args: Record<MutationDeleteRecipientsTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: RecipientsTypeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsType | null> | prisma.RecipientsType | null
+  }
+  deleteManyRecipientsTypes: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyRecipientsTypesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: RecipientsTypeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createRetentionPolicy: {
+    type: 'RetentionPolicy'
+    args: Record<MutationCreateRetentionPolicyArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RetentionPolicyCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicy> | prisma.RetentionPolicy
+  }
+  updateRetentionPolicy: {
+    type: 'RetentionPolicy'
+    args: Record<MutationUpdateRetentionPolicyArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RetentionPolicyUpdateInput, where: RetentionPolicyWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicy | null> | prisma.RetentionPolicy | null
+  }
+  updateManyRetentionPolicies: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyRetentionPoliciesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: RetentionPolicyUpdateManyMutationInput, where?: RetentionPolicyWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertRetentionPolicy: {
+    type: 'RetentionPolicy'
+    args: Record<MutationUpsertRetentionPolicyArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: RetentionPolicyWhereUniqueInput, create: RetentionPolicyCreateInput, update: RetentionPolicyUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicy> | prisma.RetentionPolicy
+  }
+  deleteRetentionPolicy: {
+    type: 'RetentionPolicy'
+    args: Record<MutationDeleteRetentionPolicyArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: RetentionPolicyWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicy | null> | prisma.RetentionPolicy | null
+  }
+  deleteManyRetentionPolicies: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyRetentionPoliciesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: RetentionPolicyWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -5881,10 +8045,15 @@ type SubscriptionObject =
   | { name: 'processingActivity', args?: SubscriptionProcessingActivityArgs[] | false, alias?: string  } 
   | { name: 'application', args?: SubscriptionApplicationArgs[] | false, alias?: string  } 
   | { name: 'dataType', args?: SubscriptionDataTypeArgs[] | false, alias?: string  } 
+  | { name: 'dataSubjectType', args?: SubscriptionDataSubjectTypeArgs[] | false, alias?: string  } 
   | { name: 'qualityAttribute', args?: SubscriptionQualityAttributeArgs[] | false, alias?: string  } 
   | { name: 'classificationLabel', args?: SubscriptionClassificationLabelArgs[] | false, alias?: string  } 
-  | { name: 'organization', args?: SubscriptionOrganizationArgs[] | false, alias?: string  } 
+  | { name: 'businessPartner', args?: SubscriptionBusinessPartnerArgs[] | false, alias?: string  } 
   | { name: 'location', args?: SubscriptionLocationArgs[] | false, alias?: string  } 
+  | { name: 'legalGround', args?: SubscriptionLegalGroundArgs[] | false, alias?: string  } 
+  | { name: 'processingType', args?: SubscriptionProcessingTypeArgs[] | false, alias?: string  } 
+  | { name: 'recipientsType', args?: SubscriptionRecipientsTypeArgs[] | false, alias?: string  } 
+  | { name: 'retentionPolicy', args?: SubscriptionRetentionPolicyArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
@@ -5896,10 +8065,15 @@ type SubscriptionFields =
   | 'processingActivity'
   | 'application'
   | 'dataType'
+  | 'dataSubjectType'
   | 'qualityAttribute'
   | 'classificationLabel'
-  | 'organization'
+  | 'businessPartner'
   | 'location'
+  | 'legalGround'
+  | 'processingType'
+  | 'recipientsType'
+  | 'retentionPolicy'
 
 
 type SubscriptionUserArgs =
@@ -5920,13 +8094,23 @@ type SubscriptionApplicationArgs =
   | 'where'
 type SubscriptionDataTypeArgs =
   | 'where'
+type SubscriptionDataSubjectTypeArgs =
+  | 'where'
 type SubscriptionQualityAttributeArgs =
   | 'where'
 type SubscriptionClassificationLabelArgs =
   | 'where'
-type SubscriptionOrganizationArgs =
+type SubscriptionBusinessPartnerArgs =
   | 'where'
 type SubscriptionLocationArgs =
+  | 'where'
+type SubscriptionLegalGroundArgs =
+  | 'where'
+type SubscriptionProcessingTypeArgs =
+  | 'where'
+type SubscriptionRecipientsTypeArgs =
+  | 'where'
+type SubscriptionRetentionPolicyArgs =
   | 'where'
   
 
@@ -6048,6 +8232,19 @@ export interface SubscriptionFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.DataTypeSubscriptionPayload | null> | prisma.DataTypeSubscriptionPayload | null
   }
+  dataSubjectType: {
+    type: 'DataSubjectTypeSubscriptionPayload'
+    args: Record<SubscriptionDataSubjectTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: DataSubjectTypeSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectTypeSubscriptionPayload | null> | prisma.DataSubjectTypeSubscriptionPayload | null
+  }
   qualityAttribute: {
     type: 'QualityAttributeSubscriptionPayload'
     args: Record<SubscriptionQualityAttributeArgs, core.NexusArgDef<string>>
@@ -6074,18 +8271,18 @@ export interface SubscriptionFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ClassificationLabelSubscriptionPayload | null> | prisma.ClassificationLabelSubscriptionPayload | null
   }
-  organization: {
-    type: 'OrganizationSubscriptionPayload'
-    args: Record<SubscriptionOrganizationArgs, core.NexusArgDef<string>>
+  businessPartner: {
+    type: 'BusinessPartnerSubscriptionPayload'
+    args: Record<SubscriptionBusinessPartnerArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Subscription">,
-      args: { where?: OrganizationSubscriptionWhereInput | null }  ,
+      args: { where?: BusinessPartnerSubscriptionWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.OrganizationSubscriptionPayload | null> | prisma.OrganizationSubscriptionPayload | null
+    ) => Promise<prisma.BusinessPartnerSubscriptionPayload | null> | prisma.BusinessPartnerSubscriptionPayload | null
   }
   location: {
     type: 'LocationSubscriptionPayload'
@@ -6099,6 +8296,58 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.LocationSubscriptionPayload | null> | prisma.LocationSubscriptionPayload | null
+  }
+  legalGround: {
+    type: 'LegalGroundSubscriptionPayload'
+    args: Record<SubscriptionLegalGroundArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: LegalGroundSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGroundSubscriptionPayload | null> | prisma.LegalGroundSubscriptionPayload | null
+  }
+  processingType: {
+    type: 'ProcessingTypeSubscriptionPayload'
+    args: Record<SubscriptionProcessingTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: ProcessingTypeSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingTypeSubscriptionPayload | null> | prisma.ProcessingTypeSubscriptionPayload | null
+  }
+  recipientsType: {
+    type: 'RecipientsTypeSubscriptionPayload'
+    args: Record<SubscriptionRecipientsTypeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: RecipientsTypeSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsTypeSubscriptionPayload | null> | prisma.RecipientsTypeSubscriptionPayload | null
+  }
+  retentionPolicy: {
+    type: 'RetentionPolicySubscriptionPayload'
+    args: Record<SubscriptionRetentionPolicyArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: RetentionPolicySubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicySubscriptionPayload | null> | prisma.RetentionPolicySubscriptionPayload | null
   }
 }
   
@@ -6181,18 +8430,18 @@ type UserPreviousValuesObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'active', args?: [] | false, alias?: string  } 
-  | { name: 'specialPermissions', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'specialPermissions', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
   | 'email'
   | 'password'
   | 'active'
-  | 'specialPermissions'
   | 'createdAt'
   | 'updatedAt'
+  | 'specialPermissions'
 
 
 
@@ -6231,19 +8480,6 @@ export interface UserPreviousValuesFieldDetails {
     nullable: true
     resolve: undefined
   }
-  specialPermissions: {
-    type: 'PERMISSION'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserPreviousValues">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PERMISSION[]> | prisma.PERMISSION[]
-  }
   createdAt: {
     type: 'DateTime'
     args: {}
@@ -6259,6 +8495,19 @@ export interface UserPreviousValuesFieldDetails {
     list: undefined
     nullable: false
     resolve: undefined
+  }
+  specialPermissions: {
+    type: 'PERMISSION'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PERMISSION[]> | prisma.PERMISSION[]
   }
 }
   
@@ -7024,16 +9273,28 @@ type ProcessingActivityPreviousValuesObject =
   | ProcessingActivityPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'description', args?: [] | false, alias?: string  } 
   | { name: 'purpose', args?: [] | false, alias?: string  } 
+  | { name: 'imController', args?: [] | false, alias?: string  } 
+  | { name: 'securityMeasures', args?: [] | false, alias?: string  } 
+  | { name: 'legalGroundComment', args?: [] | false, alias?: string  } 
+  | { name: 'profiling', args?: [] | false, alias?: string  } 
+  | { name: 'publicSource', args?: [] | false, alias?: string  } 
+  | { name: 'linkToDpia', args?: [] | false, alias?: string  } 
+  | { name: 'linkToLia', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type ProcessingActivityPreviousValuesFields =
   | 'id'
   | 'name'
-  | 'description'
   | 'purpose'
+  | 'imController'
+  | 'securityMeasures'
+  | 'legalGroundComment'
+  | 'profiling'
+  | 'publicSource'
+  | 'linkToDpia'
+  | 'linkToLia'
   | 'createdAt'
   | 'updatedAt'
 
@@ -7058,7 +9319,7 @@ export interface ProcessingActivityPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  description: {
+  purpose: {
     type: 'String'
     args: {}
     description: string
@@ -7066,7 +9327,55 @@ export interface ProcessingActivityPreviousValuesFieldDetails {
     nullable: true
     resolve: undefined
   }
-  purpose: {
+  imController: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  securityMeasures: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  legalGroundComment: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  profiling: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  publicSource: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  linkToDpia: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  linkToLia: {
     type: 'String'
     args: {}
     description: string
@@ -7306,6 +9615,121 @@ type DataTypePreviousValuesFields =
   
 
 export interface DataTypePreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for DataSubjectTypeSubscriptionPayload
+
+type DataSubjectTypeSubscriptionPayloadObject =
+  | DataSubjectTypeSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type DataSubjectTypeSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface DataSubjectTypeSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"DataSubjectTypeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'DataSubjectType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"DataSubjectTypeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectType | null> | prisma.DataSubjectType | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'DataSubjectTypePreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"DataSubjectTypeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.DataSubjectTypePreviousValues | null> | prisma.DataSubjectTypePreviousValues | null
+  }
+}
+  
+
+// Types for DataSubjectTypePreviousValues
+
+type DataSubjectTypePreviousValuesObject =
+  | DataSubjectTypePreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type DataSubjectTypePreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface DataSubjectTypePreviousValuesFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -7588,16 +10012,16 @@ export interface ClassificationLabelPreviousValuesFieldDetails {
 }
   
 
-// Types for OrganizationSubscriptionPayload
+// Types for BusinessPartnerSubscriptionPayload
 
-type OrganizationSubscriptionPayloadObject =
-  | OrganizationSubscriptionPayloadFields
+type BusinessPartnerSubscriptionPayloadObject =
+  | BusinessPartnerSubscriptionPayloadFields
   | { name: 'mutation', args?: [] | false, alias?: string  } 
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'updatedFields', args?: [] | false, alias?: string  } 
   | { name: 'previousValues', args?: [] | false, alias?: string  } 
 
-type OrganizationSubscriptionPayloadFields =
+type BusinessPartnerSubscriptionPayloadFields =
   | 'mutation'
   | 'node'
   | 'updatedFields'
@@ -7607,7 +10031,7 @@ type OrganizationSubscriptionPayloadFields =
 
   
 
-export interface OrganizationSubscriptionPayloadFieldDetails {
+export interface BusinessPartnerSubscriptionPayloadFieldDetails {
   mutation: {
     type: 'MutationType'
     args: {}
@@ -7615,24 +10039,24 @@ export interface OrganizationSubscriptionPayloadFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"OrganizationSubscriptionPayload">,
+      root: core.RootValue<"BusinessPartnerSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.MutationType> | prisma.MutationType
   }
   node: {
-    type: 'Organization'
+    type: 'BusinessPartner'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"OrganizationSubscriptionPayload">,
+      root: core.RootValue<"BusinessPartnerSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Organization | null> | prisma.Organization | null
+    ) => Promise<prisma.BusinessPartner | null> | prisma.BusinessPartner | null
   }
   updatedFields: {
     type: 'String'
@@ -7643,45 +10067,53 @@ export interface OrganizationSubscriptionPayloadFieldDetails {
     resolve: undefined
   }
   previousValues: {
-    type: 'OrganizationPreviousValues'
+    type: 'BusinessPartnerPreviousValues'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"OrganizationSubscriptionPayload">,
+      root: core.RootValue<"BusinessPartnerSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.OrganizationPreviousValues | null> | prisma.OrganizationPreviousValues | null
+    ) => Promise<prisma.BusinessPartnerPreviousValues | null> | prisma.BusinessPartnerPreviousValues | null
   }
 }
   
 
-// Types for OrganizationPreviousValues
+// Types for BusinessPartnerPreviousValues
 
-type OrganizationPreviousValuesObject =
-  | OrganizationPreviousValuesFields
+type BusinessPartnerPreviousValuesObject =
+  | BusinessPartnerPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
   | { name: 'contactDetails', args?: [] | false, alias?: string  } 
   | { name: 'dpo', args?: [] | false, alias?: string  } 
-  | { name: 'representative', args?: [] | false, alias?: string  } 
+  | { name: 'securityMeasures', args?: [] | false, alias?: string  } 
+  | { name: 'otherCountries', args?: [] | false, alias?: string  } 
+  | { name: 'outsideEea', args?: [] | false, alias?: string  } 
+  | { name: 'safeguards', args?: [] | false, alias?: string  } 
+  | { name: 'linkToDpa', args?: [] | false, alias?: string  } 
 
-type OrganizationPreviousValuesFields =
+type BusinessPartnerPreviousValuesFields =
   | 'id'
   | 'name'
   | 'description'
   | 'contactDetails'
   | 'dpo'
-  | 'representative'
+  | 'securityMeasures'
+  | 'otherCountries'
+  | 'outsideEea'
+  | 'safeguards'
+  | 'linkToDpa'
 
 
 
   
 
-export interface OrganizationPreviousValuesFieldDetails {
+export interface BusinessPartnerPreviousValuesFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -7722,12 +10154,44 @@ export interface OrganizationPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  representative: {
+  securityMeasures: {
     type: 'String'
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
+    resolve: undefined
+  }
+  otherCountries: {
+    type: 'Json'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  outsideEea: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  safeguards: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  linkToDpa: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
 }
@@ -7853,6 +10317,476 @@ export interface LocationPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for LegalGroundSubscriptionPayload
+
+type LegalGroundSubscriptionPayloadObject =
+  | LegalGroundSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type LegalGroundSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface LegalGroundSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LegalGroundSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'LegalGround'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"LegalGroundSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGround | null> | prisma.LegalGround | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'LegalGroundPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"LegalGroundSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LegalGroundPreviousValues | null> | prisma.LegalGroundPreviousValues | null
+  }
+}
+  
+
+// Types for LegalGroundPreviousValues
+
+type LegalGroundPreviousValuesObject =
+  | LegalGroundPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'specialCategoryCondition', args?: [] | false, alias?: string  } 
+
+type LegalGroundPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'specialCategoryCondition'
+
+
+
+  
+
+export interface LegalGroundPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  specialCategoryCondition: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for ProcessingTypeSubscriptionPayload
+
+type ProcessingTypeSubscriptionPayloadObject =
+  | ProcessingTypeSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type ProcessingTypeSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface ProcessingTypeSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ProcessingTypeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'ProcessingType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ProcessingTypeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingType | null> | prisma.ProcessingType | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'ProcessingTypePreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ProcessingTypeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ProcessingTypePreviousValues | null> | prisma.ProcessingTypePreviousValues | null
+  }
+}
+  
+
+// Types for ProcessingTypePreviousValues
+
+type ProcessingTypePreviousValuesObject =
+  | ProcessingTypePreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type ProcessingTypePreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface ProcessingTypePreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for RecipientsTypeSubscriptionPayload
+
+type RecipientsTypeSubscriptionPayloadObject =
+  | RecipientsTypeSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type RecipientsTypeSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface RecipientsTypeSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RecipientsTypeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'RecipientsType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"RecipientsTypeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsType | null> | prisma.RecipientsType | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'RecipientsTypePreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"RecipientsTypeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RecipientsTypePreviousValues | null> | prisma.RecipientsTypePreviousValues | null
+  }
+}
+  
+
+// Types for RecipientsTypePreviousValues
+
+type RecipientsTypePreviousValuesObject =
+  | RecipientsTypePreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type RecipientsTypePreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface RecipientsTypePreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for RetentionPolicySubscriptionPayload
+
+type RetentionPolicySubscriptionPayloadObject =
+  | RetentionPolicySubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type RetentionPolicySubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface RetentionPolicySubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"RetentionPolicySubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'RetentionPolicy'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"RetentionPolicySubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicy | null> | prisma.RetentionPolicy | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'RetentionPolicyPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"RetentionPolicySubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.RetentionPolicyPreviousValues | null> | prisma.RetentionPolicyPreviousValues | null
+  }
+}
+  
+
+// Types for RetentionPolicyPreviousValues
+
+type RetentionPolicyPreviousValuesObject =
+  | RetentionPolicyPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type RetentionPolicyPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface RetentionPolicyPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
 }
@@ -8574,20 +11508,6 @@ export interface ProcessingActivityWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
-  description?: string | null
-  description_not?: string | null
-  description_in?: string[]
-  description_not_in?: string[]
-  description_lt?: string | null
-  description_lte?: string | null
-  description_gt?: string | null
-  description_gte?: string | null
-  description_contains?: string | null
-  description_not_contains?: string | null
-  description_starts_with?: string | null
-  description_not_starts_with?: string | null
-  description_ends_with?: string | null
-  description_not_ends_with?: string | null
   purpose?: string | null
   purpose_not?: string | null
   purpose_in?: string[]
@@ -8602,6 +11522,68 @@ export interface ProcessingActivityWhereInput {
   purpose_not_starts_with?: string | null
   purpose_ends_with?: string | null
   purpose_not_ends_with?: string | null
+  imController?: boolean | null
+  imController_not?: boolean | null
+  securityMeasures?: string | null
+  securityMeasures_not?: string | null
+  securityMeasures_in?: string[]
+  securityMeasures_not_in?: string[]
+  securityMeasures_lt?: string | null
+  securityMeasures_lte?: string | null
+  securityMeasures_gt?: string | null
+  securityMeasures_gte?: string | null
+  securityMeasures_contains?: string | null
+  securityMeasures_not_contains?: string | null
+  securityMeasures_starts_with?: string | null
+  securityMeasures_not_starts_with?: string | null
+  securityMeasures_ends_with?: string | null
+  securityMeasures_not_ends_with?: string | null
+  legalGroundComment?: string | null
+  legalGroundComment_not?: string | null
+  legalGroundComment_in?: string[]
+  legalGroundComment_not_in?: string[]
+  legalGroundComment_lt?: string | null
+  legalGroundComment_lte?: string | null
+  legalGroundComment_gt?: string | null
+  legalGroundComment_gte?: string | null
+  legalGroundComment_contains?: string | null
+  legalGroundComment_not_contains?: string | null
+  legalGroundComment_starts_with?: string | null
+  legalGroundComment_not_starts_with?: string | null
+  legalGroundComment_ends_with?: string | null
+  legalGroundComment_not_ends_with?: string | null
+  profiling?: boolean | null
+  profiling_not?: boolean | null
+  publicSource?: boolean | null
+  publicSource_not?: boolean | null
+  linkToDpia?: string | null
+  linkToDpia_not?: string | null
+  linkToDpia_in?: string[]
+  linkToDpia_not_in?: string[]
+  linkToDpia_lt?: string | null
+  linkToDpia_lte?: string | null
+  linkToDpia_gt?: string | null
+  linkToDpia_gte?: string | null
+  linkToDpia_contains?: string | null
+  linkToDpia_not_contains?: string | null
+  linkToDpia_starts_with?: string | null
+  linkToDpia_not_starts_with?: string | null
+  linkToDpia_ends_with?: string | null
+  linkToDpia_not_ends_with?: string | null
+  linkToLia?: string | null
+  linkToLia_not?: string | null
+  linkToLia_in?: string[]
+  linkToLia_not_in?: string[]
+  linkToLia_lt?: string | null
+  linkToLia_lte?: string | null
+  linkToLia_gt?: string | null
+  linkToLia_gte?: string | null
+  linkToLia_contains?: string | null
+  linkToLia_not_contains?: string | null
+  linkToLia_starts_with?: string | null
+  linkToLia_not_starts_with?: string | null
+  linkToLia_ends_with?: string | null
+  linkToLia_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -8618,16 +11600,295 @@ export interface ProcessingActivityWhereInput {
   updatedAt_lte?: string | null
   updatedAt_gt?: string | null
   updatedAt_gte?: string | null
+  recipients_every?: BusinessPartnerWhereInput | null
+  recipients_some?: BusinessPartnerWhereInput | null
+  recipients_none?: BusinessPartnerWhereInput | null
+  controllers_every?: BusinessPartnerWhereInput | null
+  controllers_some?: BusinessPartnerWhereInput | null
+  controllers_none?: BusinessPartnerWhereInput | null
+  dataTypes_every?: DataTypeWhereInput | null
+  dataTypes_some?: DataTypeWhereInput | null
+  dataTypes_none?: DataTypeWhereInput | null
+  procesessingTypes_every?: ProcessingTypeWhereInput | null
+  procesessingTypes_some?: ProcessingTypeWhereInput | null
+  procesessingTypes_none?: ProcessingTypeWhereInput | null
+  legalGrounds_every?: LegalGroundWhereInput | null
+  legalGrounds_some?: LegalGroundWhereInput | null
+  legalGrounds_none?: LegalGroundWhereInput | null
   process?: ProcessWhereInput | null
-  applications_every?: ApplicationWhereInput | null
-  applications_some?: ApplicationWhereInput | null
-  applications_none?: ApplicationWhereInput | null
   AND?: ProcessingActivityWhereInput[]
   OR?: ProcessingActivityWhereInput[]
   NOT?: ProcessingActivityWhereInput[]
 }
 export type ProcessingActivityWhereInputInputObject =
   | Extract<keyof ProcessingActivityWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'purpose', alias?: string  } 
+  | { name: 'purpose_not', alias?: string  } 
+  | { name: 'purpose_in', alias?: string  } 
+  | { name: 'purpose_not_in', alias?: string  } 
+  | { name: 'purpose_lt', alias?: string  } 
+  | { name: 'purpose_lte', alias?: string  } 
+  | { name: 'purpose_gt', alias?: string  } 
+  | { name: 'purpose_gte', alias?: string  } 
+  | { name: 'purpose_contains', alias?: string  } 
+  | { name: 'purpose_not_contains', alias?: string  } 
+  | { name: 'purpose_starts_with', alias?: string  } 
+  | { name: 'purpose_not_starts_with', alias?: string  } 
+  | { name: 'purpose_ends_with', alias?: string  } 
+  | { name: 'purpose_not_ends_with', alias?: string  } 
+  | { name: 'imController', alias?: string  } 
+  | { name: 'imController_not', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'securityMeasures_not', alias?: string  } 
+  | { name: 'securityMeasures_in', alias?: string  } 
+  | { name: 'securityMeasures_not_in', alias?: string  } 
+  | { name: 'securityMeasures_lt', alias?: string  } 
+  | { name: 'securityMeasures_lte', alias?: string  } 
+  | { name: 'securityMeasures_gt', alias?: string  } 
+  | { name: 'securityMeasures_gte', alias?: string  } 
+  | { name: 'securityMeasures_contains', alias?: string  } 
+  | { name: 'securityMeasures_not_contains', alias?: string  } 
+  | { name: 'securityMeasures_starts_with', alias?: string  } 
+  | { name: 'securityMeasures_not_starts_with', alias?: string  } 
+  | { name: 'securityMeasures_ends_with', alias?: string  } 
+  | { name: 'securityMeasures_not_ends_with', alias?: string  } 
+  | { name: 'legalGroundComment', alias?: string  } 
+  | { name: 'legalGroundComment_not', alias?: string  } 
+  | { name: 'legalGroundComment_in', alias?: string  } 
+  | { name: 'legalGroundComment_not_in', alias?: string  } 
+  | { name: 'legalGroundComment_lt', alias?: string  } 
+  | { name: 'legalGroundComment_lte', alias?: string  } 
+  | { name: 'legalGroundComment_gt', alias?: string  } 
+  | { name: 'legalGroundComment_gte', alias?: string  } 
+  | { name: 'legalGroundComment_contains', alias?: string  } 
+  | { name: 'legalGroundComment_not_contains', alias?: string  } 
+  | { name: 'legalGroundComment_starts_with', alias?: string  } 
+  | { name: 'legalGroundComment_not_starts_with', alias?: string  } 
+  | { name: 'legalGroundComment_ends_with', alias?: string  } 
+  | { name: 'legalGroundComment_not_ends_with', alias?: string  } 
+  | { name: 'profiling', alias?: string  } 
+  | { name: 'profiling_not', alias?: string  } 
+  | { name: 'publicSource', alias?: string  } 
+  | { name: 'publicSource_not', alias?: string  } 
+  | { name: 'linkToDpia', alias?: string  } 
+  | { name: 'linkToDpia_not', alias?: string  } 
+  | { name: 'linkToDpia_in', alias?: string  } 
+  | { name: 'linkToDpia_not_in', alias?: string  } 
+  | { name: 'linkToDpia_lt', alias?: string  } 
+  | { name: 'linkToDpia_lte', alias?: string  } 
+  | { name: 'linkToDpia_gt', alias?: string  } 
+  | { name: 'linkToDpia_gte', alias?: string  } 
+  | { name: 'linkToDpia_contains', alias?: string  } 
+  | { name: 'linkToDpia_not_contains', alias?: string  } 
+  | { name: 'linkToDpia_starts_with', alias?: string  } 
+  | { name: 'linkToDpia_not_starts_with', alias?: string  } 
+  | { name: 'linkToDpia_ends_with', alias?: string  } 
+  | { name: 'linkToDpia_not_ends_with', alias?: string  } 
+  | { name: 'linkToLia', alias?: string  } 
+  | { name: 'linkToLia_not', alias?: string  } 
+  | { name: 'linkToLia_in', alias?: string  } 
+  | { name: 'linkToLia_not_in', alias?: string  } 
+  | { name: 'linkToLia_lt', alias?: string  } 
+  | { name: 'linkToLia_lte', alias?: string  } 
+  | { name: 'linkToLia_gt', alias?: string  } 
+  | { name: 'linkToLia_gte', alias?: string  } 
+  | { name: 'linkToLia_contains', alias?: string  } 
+  | { name: 'linkToLia_not_contains', alias?: string  } 
+  | { name: 'linkToLia_starts_with', alias?: string  } 
+  | { name: 'linkToLia_not_starts_with', alias?: string  } 
+  | { name: 'linkToLia_ends_with', alias?: string  } 
+  | { name: 'linkToLia_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'recipients_every', alias?: string  } 
+  | { name: 'recipients_some', alias?: string  } 
+  | { name: 'recipients_none', alias?: string  } 
+  | { name: 'controllers_every', alias?: string  } 
+  | { name: 'controllers_some', alias?: string  } 
+  | { name: 'controllers_none', alias?: string  } 
+  | { name: 'dataTypes_every', alias?: string  } 
+  | { name: 'dataTypes_some', alias?: string  } 
+  | { name: 'dataTypes_none', alias?: string  } 
+  | { name: 'procesessingTypes_every', alias?: string  } 
+  | { name: 'procesessingTypes_some', alias?: string  } 
+  | { name: 'procesessingTypes_none', alias?: string  } 
+  | { name: 'legalGrounds_every', alias?: string  } 
+  | { name: 'legalGrounds_some', alias?: string  } 
+  | { name: 'legalGrounds_none', alias?: string  } 
+  | { name: 'process', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface BusinessPartnerWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  contactDetails?: string | null
+  contactDetails_not?: string | null
+  contactDetails_in?: string[]
+  contactDetails_not_in?: string[]
+  contactDetails_lt?: string | null
+  contactDetails_lte?: string | null
+  contactDetails_gt?: string | null
+  contactDetails_gte?: string | null
+  contactDetails_contains?: string | null
+  contactDetails_not_contains?: string | null
+  contactDetails_starts_with?: string | null
+  contactDetails_not_starts_with?: string | null
+  contactDetails_ends_with?: string | null
+  contactDetails_not_ends_with?: string | null
+  dpo?: string | null
+  dpo_not?: string | null
+  dpo_in?: string[]
+  dpo_not_in?: string[]
+  dpo_lt?: string | null
+  dpo_lte?: string | null
+  dpo_gt?: string | null
+  dpo_gte?: string | null
+  dpo_contains?: string | null
+  dpo_not_contains?: string | null
+  dpo_starts_with?: string | null
+  dpo_not_starts_with?: string | null
+  dpo_ends_with?: string | null
+  dpo_not_ends_with?: string | null
+  representative?: BusinessPartnerWhereInput | null
+  processingTypes_every?: ProcessingTypeWhereInput | null
+  processingTypes_some?: ProcessingTypeWhereInput | null
+  processingTypes_none?: ProcessingTypeWhereInput | null
+  recipientsType?: RecipientsTypeWhereInput | null
+  securityMeasures?: string | null
+  securityMeasures_not?: string | null
+  securityMeasures_in?: string[]
+  securityMeasures_not_in?: string[]
+  securityMeasures_lt?: string | null
+  securityMeasures_lte?: string | null
+  securityMeasures_gt?: string | null
+  securityMeasures_gte?: string | null
+  securityMeasures_contains?: string | null
+  securityMeasures_not_contains?: string | null
+  securityMeasures_starts_with?: string | null
+  securityMeasures_not_starts_with?: string | null
+  securityMeasures_ends_with?: string | null
+  securityMeasures_not_ends_with?: string | null
+  outsideEea?: boolean | null
+  outsideEea_not?: boolean | null
+  safeguards?: string | null
+  safeguards_not?: string | null
+  safeguards_in?: string[]
+  safeguards_not_in?: string[]
+  safeguards_lt?: string | null
+  safeguards_lte?: string | null
+  safeguards_gt?: string | null
+  safeguards_gte?: string | null
+  safeguards_contains?: string | null
+  safeguards_not_contains?: string | null
+  safeguards_starts_with?: string | null
+  safeguards_not_starts_with?: string | null
+  safeguards_ends_with?: string | null
+  safeguards_not_ends_with?: string | null
+  linkToDpa?: string | null
+  linkToDpa_not?: string | null
+  linkToDpa_in?: string[]
+  linkToDpa_not_in?: string[]
+  linkToDpa_lt?: string | null
+  linkToDpa_lte?: string | null
+  linkToDpa_gt?: string | null
+  linkToDpa_gte?: string | null
+  linkToDpa_contains?: string | null
+  linkToDpa_not_contains?: string | null
+  linkToDpa_starts_with?: string | null
+  linkToDpa_not_starts_with?: string | null
+  linkToDpa_ends_with?: string | null
+  linkToDpa_not_ends_with?: string | null
+  headOffice?: LocationWhereInput | null
+  AND?: BusinessPartnerWhereInput[]
+  OR?: BusinessPartnerWhereInput[]
+  NOT?: BusinessPartnerWhereInput[]
+}
+export type BusinessPartnerWhereInputInputObject =
+  | Extract<keyof BusinessPartnerWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -8670,40 +11931,714 @@ export type ProcessingActivityWhereInputInputObject =
   | { name: 'description_not_starts_with', alias?: string  } 
   | { name: 'description_ends_with', alias?: string  } 
   | { name: 'description_not_ends_with', alias?: string  } 
-  | { name: 'purpose', alias?: string  } 
-  | { name: 'purpose_not', alias?: string  } 
-  | { name: 'purpose_in', alias?: string  } 
-  | { name: 'purpose_not_in', alias?: string  } 
-  | { name: 'purpose_lt', alias?: string  } 
-  | { name: 'purpose_lte', alias?: string  } 
-  | { name: 'purpose_gt', alias?: string  } 
-  | { name: 'purpose_gte', alias?: string  } 
-  | { name: 'purpose_contains', alias?: string  } 
-  | { name: 'purpose_not_contains', alias?: string  } 
-  | { name: 'purpose_starts_with', alias?: string  } 
-  | { name: 'purpose_not_starts_with', alias?: string  } 
-  | { name: 'purpose_ends_with', alias?: string  } 
-  | { name: 'purpose_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'process', alias?: string  } 
-  | { name: 'applications_every', alias?: string  } 
-  | { name: 'applications_some', alias?: string  } 
-  | { name: 'applications_none', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'contactDetails_not', alias?: string  } 
+  | { name: 'contactDetails_in', alias?: string  } 
+  | { name: 'contactDetails_not_in', alias?: string  } 
+  | { name: 'contactDetails_lt', alias?: string  } 
+  | { name: 'contactDetails_lte', alias?: string  } 
+  | { name: 'contactDetails_gt', alias?: string  } 
+  | { name: 'contactDetails_gte', alias?: string  } 
+  | { name: 'contactDetails_contains', alias?: string  } 
+  | { name: 'contactDetails_not_contains', alias?: string  } 
+  | { name: 'contactDetails_starts_with', alias?: string  } 
+  | { name: 'contactDetails_not_starts_with', alias?: string  } 
+  | { name: 'contactDetails_ends_with', alias?: string  } 
+  | { name: 'contactDetails_not_ends_with', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'dpo_not', alias?: string  } 
+  | { name: 'dpo_in', alias?: string  } 
+  | { name: 'dpo_not_in', alias?: string  } 
+  | { name: 'dpo_lt', alias?: string  } 
+  | { name: 'dpo_lte', alias?: string  } 
+  | { name: 'dpo_gt', alias?: string  } 
+  | { name: 'dpo_gte', alias?: string  } 
+  | { name: 'dpo_contains', alias?: string  } 
+  | { name: 'dpo_not_contains', alias?: string  } 
+  | { name: 'dpo_starts_with', alias?: string  } 
+  | { name: 'dpo_not_starts_with', alias?: string  } 
+  | { name: 'dpo_ends_with', alias?: string  } 
+  | { name: 'dpo_not_ends_with', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  | { name: 'processingTypes_every', alias?: string  } 
+  | { name: 'processingTypes_some', alias?: string  } 
+  | { name: 'processingTypes_none', alias?: string  } 
+  | { name: 'recipientsType', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'securityMeasures_not', alias?: string  } 
+  | { name: 'securityMeasures_in', alias?: string  } 
+  | { name: 'securityMeasures_not_in', alias?: string  } 
+  | { name: 'securityMeasures_lt', alias?: string  } 
+  | { name: 'securityMeasures_lte', alias?: string  } 
+  | { name: 'securityMeasures_gt', alias?: string  } 
+  | { name: 'securityMeasures_gte', alias?: string  } 
+  | { name: 'securityMeasures_contains', alias?: string  } 
+  | { name: 'securityMeasures_not_contains', alias?: string  } 
+  | { name: 'securityMeasures_starts_with', alias?: string  } 
+  | { name: 'securityMeasures_not_starts_with', alias?: string  } 
+  | { name: 'securityMeasures_ends_with', alias?: string  } 
+  | { name: 'securityMeasures_not_ends_with', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'outsideEea_not', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'safeguards_not', alias?: string  } 
+  | { name: 'safeguards_in', alias?: string  } 
+  | { name: 'safeguards_not_in', alias?: string  } 
+  | { name: 'safeguards_lt', alias?: string  } 
+  | { name: 'safeguards_lte', alias?: string  } 
+  | { name: 'safeguards_gt', alias?: string  } 
+  | { name: 'safeguards_gte', alias?: string  } 
+  | { name: 'safeguards_contains', alias?: string  } 
+  | { name: 'safeguards_not_contains', alias?: string  } 
+  | { name: 'safeguards_starts_with', alias?: string  } 
+  | { name: 'safeguards_not_starts_with', alias?: string  } 
+  | { name: 'safeguards_ends_with', alias?: string  } 
+  | { name: 'safeguards_not_ends_with', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
+  | { name: 'linkToDpa_not', alias?: string  } 
+  | { name: 'linkToDpa_in', alias?: string  } 
+  | { name: 'linkToDpa_not_in', alias?: string  } 
+  | { name: 'linkToDpa_lt', alias?: string  } 
+  | { name: 'linkToDpa_lte', alias?: string  } 
+  | { name: 'linkToDpa_gt', alias?: string  } 
+  | { name: 'linkToDpa_gte', alias?: string  } 
+  | { name: 'linkToDpa_contains', alias?: string  } 
+  | { name: 'linkToDpa_not_contains', alias?: string  } 
+  | { name: 'linkToDpa_starts_with', alias?: string  } 
+  | { name: 'linkToDpa_not_starts_with', alias?: string  } 
+  | { name: 'linkToDpa_ends_with', alias?: string  } 
+  | { name: 'linkToDpa_not_ends_with', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ProcessingTypeWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: ProcessingTypeWhereInput[]
+  OR?: ProcessingTypeWhereInput[]
+  NOT?: ProcessingTypeWhereInput[]
+}
+export type ProcessingTypeWhereInputInputObject =
+  | Extract<keyof ProcessingTypeWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface RecipientsTypeWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: RecipientsTypeWhereInput[]
+  OR?: RecipientsTypeWhereInput[]
+  NOT?: RecipientsTypeWhereInput[]
+}
+export type RecipientsTypeWhereInputInputObject =
+  | Extract<keyof RecipientsTypeWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface LocationWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  address?: string | null
+  address_not?: string | null
+  address_in?: string[]
+  address_not_in?: string[]
+  address_lt?: string | null
+  address_lte?: string | null
+  address_gt?: string | null
+  address_gte?: string | null
+  address_contains?: string | null
+  address_not_contains?: string | null
+  address_starts_with?: string | null
+  address_not_starts_with?: string | null
+  address_ends_with?: string | null
+  address_not_ends_with?: string | null
+  businessPartner?: BusinessPartnerWhereInput | null
+  AND?: LocationWhereInput[]
+  OR?: LocationWhereInput[]
+  NOT?: LocationWhereInput[]
+}
+export type LocationWhereInputInputObject =
+  | Extract<keyof LocationWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  | { name: 'address_not', alias?: string  } 
+  | { name: 'address_in', alias?: string  } 
+  | { name: 'address_not_in', alias?: string  } 
+  | { name: 'address_lt', alias?: string  } 
+  | { name: 'address_lte', alias?: string  } 
+  | { name: 'address_gt', alias?: string  } 
+  | { name: 'address_gte', alias?: string  } 
+  | { name: 'address_contains', alias?: string  } 
+  | { name: 'address_not_contains', alias?: string  } 
+  | { name: 'address_starts_with', alias?: string  } 
+  | { name: 'address_not_starts_with', alias?: string  } 
+  | { name: 'address_ends_with', alias?: string  } 
+  | { name: 'address_not_ends_with', alias?: string  } 
+  | { name: 'businessPartner', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface DataTypeWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  retentionPolicy_every?: RetentionPolicyWhereInput | null
+  retentionPolicy_some?: RetentionPolicyWhereInput | null
+  retentionPolicy_none?: RetentionPolicyWhereInput | null
+  dataSubjectType_every?: DataSubjectTypeWhereInput | null
+  dataSubjectType_some?: DataSubjectTypeWhereInput | null
+  dataSubjectType_none?: DataSubjectTypeWhereInput | null
+  application_every?: ApplicationWhereInput | null
+  application_some?: ApplicationWhereInput | null
+  application_none?: ApplicationWhereInput | null
+  classificationLabels_every?: ClassificationLabelWhereInput | null
+  classificationLabels_some?: ClassificationLabelWhereInput | null
+  classificationLabels_none?: ClassificationLabelWhereInput | null
+  AND?: DataTypeWhereInput[]
+  OR?: DataTypeWhereInput[]
+  NOT?: DataTypeWhereInput[]
+}
+export type DataTypeWhereInputInputObject =
+  | Extract<keyof DataTypeWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'retentionPolicy_every', alias?: string  } 
+  | { name: 'retentionPolicy_some', alias?: string  } 
+  | { name: 'retentionPolicy_none', alias?: string  } 
+  | { name: 'dataSubjectType_every', alias?: string  } 
+  | { name: 'dataSubjectType_some', alias?: string  } 
+  | { name: 'dataSubjectType_none', alias?: string  } 
+  | { name: 'application_every', alias?: string  } 
+  | { name: 'application_some', alias?: string  } 
+  | { name: 'application_none', alias?: string  } 
+  | { name: 'classificationLabels_every', alias?: string  } 
+  | { name: 'classificationLabels_some', alias?: string  } 
+  | { name: 'classificationLabels_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface RetentionPolicyWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: RetentionPolicyWhereInput[]
+  OR?: RetentionPolicyWhereInput[]
+  NOT?: RetentionPolicyWhereInput[]
+}
+export type RetentionPolicyWhereInputInputObject =
+  | Extract<keyof RetentionPolicyWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface DataSubjectTypeWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  dataTypes_every?: DataTypeWhereInput | null
+  dataTypes_some?: DataTypeWhereInput | null
+  dataTypes_none?: DataTypeWhereInput | null
+  AND?: DataSubjectTypeWhereInput[]
+  OR?: DataSubjectTypeWhereInput[]
+  NOT?: DataSubjectTypeWhereInput[]
+}
+export type DataSubjectTypeWhereInputInputObject =
+  | Extract<keyof DataSubjectTypeWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'dataTypes_every', alias?: string  } 
+  | { name: 'dataTypes_some', alias?: string  } 
+  | { name: 'dataTypes_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -8817,113 +12752,6 @@ export type ApplicationWhereInputInputObject =
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface DataTypeWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
-  description?: string | null
-  description_not?: string | null
-  description_in?: string[]
-  description_not_in?: string[]
-  description_lt?: string | null
-  description_lte?: string | null
-  description_gt?: string | null
-  description_gte?: string | null
-  description_contains?: string | null
-  description_not_contains?: string | null
-  description_starts_with?: string | null
-  description_not_starts_with?: string | null
-  description_ends_with?: string | null
-  description_not_ends_with?: string | null
-  application_every?: ApplicationWhereInput | null
-  application_some?: ApplicationWhereInput | null
-  application_none?: ApplicationWhereInput | null
-  classificationLabels_every?: ClassificationLabelWhereInput | null
-  classificationLabels_some?: ClassificationLabelWhereInput | null
-  classificationLabels_none?: ClassificationLabelWhereInput | null
-  AND?: DataTypeWhereInput[]
-  OR?: DataTypeWhereInput[]
-  NOT?: DataTypeWhereInput[]
-}
-export type DataTypeWhereInputInputObject =
-  | Extract<keyof DataTypeWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'description_not', alias?: string  } 
-  | { name: 'description_in', alias?: string  } 
-  | { name: 'description_not_in', alias?: string  } 
-  | { name: 'description_lt', alias?: string  } 
-  | { name: 'description_lte', alias?: string  } 
-  | { name: 'description_gt', alias?: string  } 
-  | { name: 'description_gte', alias?: string  } 
-  | { name: 'description_contains', alias?: string  } 
-  | { name: 'description_not_contains', alias?: string  } 
-  | { name: 'description_starts_with', alias?: string  } 
-  | { name: 'description_not_starts_with', alias?: string  } 
-  | { name: 'description_ends_with', alias?: string  } 
-  | { name: 'description_not_ends_with', alias?: string  } 
-  | { name: 'application_every', alias?: string  } 
-  | { name: 'application_some', alias?: string  } 
-  | { name: 'application_none', alias?: string  } 
-  | { name: 'classificationLabels_every', alias?: string  } 
-  | { name: 'classificationLabels_some', alias?: string  } 
-  | { name: 'classificationLabels_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -9156,6 +12984,105 @@ export type QualityAttributeWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface LegalGroundWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  specialCategoryCondition?: boolean | null
+  specialCategoryCondition_not?: boolean | null
+  AND?: LegalGroundWhereInput[]
+  OR?: LegalGroundWhereInput[]
+  NOT?: LegalGroundWhereInput[]
+}
+export type LegalGroundWhereInputInputObject =
+  | Extract<keyof LegalGroundWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'specialCategoryCondition', alias?: string  } 
+  | { name: 'specialCategoryCondition_not', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface OrganizationalUnitTypeWhereInput {
   id?: string | null
   id_not?: string | null
@@ -9317,6 +13244,13 @@ export type DataTypeWhereUniqueInputInputObject =
   | Extract<keyof DataTypeWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
+export interface DataSubjectTypeWhereUniqueInput {
+  id?: string | null
+}
+export type DataSubjectTypeWhereUniqueInputInputObject =
+  | Extract<keyof DataSubjectTypeWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
 export interface QualityAttributeWhereUniqueInput {
   id?: string | null
 }
@@ -9331,324 +13265,46 @@ export type ClassificationLabelWhereUniqueInputInputObject =
   | Extract<keyof ClassificationLabelWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
-export interface OrganizationWhereUniqueInput {
+export interface BusinessPartnerWhereUniqueInput {
   id?: string | null
 }
-export type OrganizationWhereUniqueInputInputObject =
-  | Extract<keyof OrganizationWhereUniqueInput, string>
+export type BusinessPartnerWhereUniqueInputInputObject =
+  | Extract<keyof BusinessPartnerWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
-  
-export interface OrganizationWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
-  description?: string | null
-  description_not?: string | null
-  description_in?: string[]
-  description_not_in?: string[]
-  description_lt?: string | null
-  description_lte?: string | null
-  description_gt?: string | null
-  description_gte?: string | null
-  description_contains?: string | null
-  description_not_contains?: string | null
-  description_starts_with?: string | null
-  description_not_starts_with?: string | null
-  description_ends_with?: string | null
-  description_not_ends_with?: string | null
-  contactDetails?: string | null
-  contactDetails_not?: string | null
-  contactDetails_in?: string[]
-  contactDetails_not_in?: string[]
-  contactDetails_lt?: string | null
-  contactDetails_lte?: string | null
-  contactDetails_gt?: string | null
-  contactDetails_gte?: string | null
-  contactDetails_contains?: string | null
-  contactDetails_not_contains?: string | null
-  contactDetails_starts_with?: string | null
-  contactDetails_not_starts_with?: string | null
-  contactDetails_ends_with?: string | null
-  contactDetails_not_ends_with?: string | null
-  dpo?: string | null
-  dpo_not?: string | null
-  dpo_in?: string[]
-  dpo_not_in?: string[]
-  dpo_lt?: string | null
-  dpo_lte?: string | null
-  dpo_gt?: string | null
-  dpo_gte?: string | null
-  dpo_contains?: string | null
-  dpo_not_contains?: string | null
-  dpo_starts_with?: string | null
-  dpo_not_starts_with?: string | null
-  dpo_ends_with?: string | null
-  dpo_not_ends_with?: string | null
-  representative?: string | null
-  representative_not?: string | null
-  representative_in?: string[]
-  representative_not_in?: string[]
-  representative_lt?: string | null
-  representative_lte?: string | null
-  representative_gt?: string | null
-  representative_gte?: string | null
-  representative_contains?: string | null
-  representative_not_contains?: string | null
-  representative_starts_with?: string | null
-  representative_not_starts_with?: string | null
-  representative_ends_with?: string | null
-  representative_not_ends_with?: string | null
-  headOffice?: LocationWhereInput | null
-  AND?: OrganizationWhereInput[]
-  OR?: OrganizationWhereInput[]
-  NOT?: OrganizationWhereInput[]
-}
-export type OrganizationWhereInputInputObject =
-  | Extract<keyof OrganizationWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'description_not', alias?: string  } 
-  | { name: 'description_in', alias?: string  } 
-  | { name: 'description_not_in', alias?: string  } 
-  | { name: 'description_lt', alias?: string  } 
-  | { name: 'description_lte', alias?: string  } 
-  | { name: 'description_gt', alias?: string  } 
-  | { name: 'description_gte', alias?: string  } 
-  | { name: 'description_contains', alias?: string  } 
-  | { name: 'description_not_contains', alias?: string  } 
-  | { name: 'description_starts_with', alias?: string  } 
-  | { name: 'description_not_starts_with', alias?: string  } 
-  | { name: 'description_ends_with', alias?: string  } 
-  | { name: 'description_not_ends_with', alias?: string  } 
-  | { name: 'contactDetails', alias?: string  } 
-  | { name: 'contactDetails_not', alias?: string  } 
-  | { name: 'contactDetails_in', alias?: string  } 
-  | { name: 'contactDetails_not_in', alias?: string  } 
-  | { name: 'contactDetails_lt', alias?: string  } 
-  | { name: 'contactDetails_lte', alias?: string  } 
-  | { name: 'contactDetails_gt', alias?: string  } 
-  | { name: 'contactDetails_gte', alias?: string  } 
-  | { name: 'contactDetails_contains', alias?: string  } 
-  | { name: 'contactDetails_not_contains', alias?: string  } 
-  | { name: 'contactDetails_starts_with', alias?: string  } 
-  | { name: 'contactDetails_not_starts_with', alias?: string  } 
-  | { name: 'contactDetails_ends_with', alias?: string  } 
-  | { name: 'contactDetails_not_ends_with', alias?: string  } 
-  | { name: 'dpo', alias?: string  } 
-  | { name: 'dpo_not', alias?: string  } 
-  | { name: 'dpo_in', alias?: string  } 
-  | { name: 'dpo_not_in', alias?: string  } 
-  | { name: 'dpo_lt', alias?: string  } 
-  | { name: 'dpo_lte', alias?: string  } 
-  | { name: 'dpo_gt', alias?: string  } 
-  | { name: 'dpo_gte', alias?: string  } 
-  | { name: 'dpo_contains', alias?: string  } 
-  | { name: 'dpo_not_contains', alias?: string  } 
-  | { name: 'dpo_starts_with', alias?: string  } 
-  | { name: 'dpo_not_starts_with', alias?: string  } 
-  | { name: 'dpo_ends_with', alias?: string  } 
-  | { name: 'dpo_not_ends_with', alias?: string  } 
-  | { name: 'representative', alias?: string  } 
-  | { name: 'representative_not', alias?: string  } 
-  | { name: 'representative_in', alias?: string  } 
-  | { name: 'representative_not_in', alias?: string  } 
-  | { name: 'representative_lt', alias?: string  } 
-  | { name: 'representative_lte', alias?: string  } 
-  | { name: 'representative_gt', alias?: string  } 
-  | { name: 'representative_gte', alias?: string  } 
-  | { name: 'representative_contains', alias?: string  } 
-  | { name: 'representative_not_contains', alias?: string  } 
-  | { name: 'representative_starts_with', alias?: string  } 
-  | { name: 'representative_not_starts_with', alias?: string  } 
-  | { name: 'representative_ends_with', alias?: string  } 
-  | { name: 'representative_not_ends_with', alias?: string  } 
-  | { name: 'headOffice', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface LocationWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
-  description?: string | null
-  description_not?: string | null
-  description_in?: string[]
-  description_not_in?: string[]
-  description_lt?: string | null
-  description_lte?: string | null
-  description_gt?: string | null
-  description_gte?: string | null
-  description_contains?: string | null
-  description_not_contains?: string | null
-  description_starts_with?: string | null
-  description_not_starts_with?: string | null
-  description_ends_with?: string | null
-  description_not_ends_with?: string | null
-  address?: string | null
-  address_not?: string | null
-  address_in?: string[]
-  address_not_in?: string[]
-  address_lt?: string | null
-  address_lte?: string | null
-  address_gt?: string | null
-  address_gte?: string | null
-  address_contains?: string | null
-  address_not_contains?: string | null
-  address_starts_with?: string | null
-  address_not_starts_with?: string | null
-  address_ends_with?: string | null
-  address_not_ends_with?: string | null
-  organization?: OrganizationWhereInput | null
-  AND?: LocationWhereInput[]
-  OR?: LocationWhereInput[]
-  NOT?: LocationWhereInput[]
-}
-export type LocationWhereInputInputObject =
-  | Extract<keyof LocationWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'description_not', alias?: string  } 
-  | { name: 'description_in', alias?: string  } 
-  | { name: 'description_not_in', alias?: string  } 
-  | { name: 'description_lt', alias?: string  } 
-  | { name: 'description_lte', alias?: string  } 
-  | { name: 'description_gt', alias?: string  } 
-  | { name: 'description_gte', alias?: string  } 
-  | { name: 'description_contains', alias?: string  } 
-  | { name: 'description_not_contains', alias?: string  } 
-  | { name: 'description_starts_with', alias?: string  } 
-  | { name: 'description_not_starts_with', alias?: string  } 
-  | { name: 'description_ends_with', alias?: string  } 
-  | { name: 'description_not_ends_with', alias?: string  } 
-  | { name: 'address', alias?: string  } 
-  | { name: 'address_not', alias?: string  } 
-  | { name: 'address_in', alias?: string  } 
-  | { name: 'address_not_in', alias?: string  } 
-  | { name: 'address_lt', alias?: string  } 
-  | { name: 'address_lte', alias?: string  } 
-  | { name: 'address_gt', alias?: string  } 
-  | { name: 'address_gte', alias?: string  } 
-  | { name: 'address_contains', alias?: string  } 
-  | { name: 'address_not_contains', alias?: string  } 
-  | { name: 'address_starts_with', alias?: string  } 
-  | { name: 'address_not_starts_with', alias?: string  } 
-  | { name: 'address_ends_with', alias?: string  } 
-  | { name: 'address_not_ends_with', alias?: string  } 
-  | { name: 'organization', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
   
 export interface LocationWhereUniqueInput {
   id?: string | null
 }
 export type LocationWhereUniqueInputInputObject =
   | Extract<keyof LocationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface LegalGroundWhereUniqueInput {
+  id?: string | null
+}
+export type LegalGroundWhereUniqueInputInputObject =
+  | Extract<keyof LegalGroundWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface ProcessingTypeWhereUniqueInput {
+  id?: string | null
+}
+export type ProcessingTypeWhereUniqueInputInputObject =
+  | Extract<keyof ProcessingTypeWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface RecipientsTypeWhereUniqueInput {
+  id?: string | null
+}
+export type RecipientsTypeWhereUniqueInputInputObject =
+  | Extract<keyof RecipientsTypeWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface RetentionPolicyWhereUniqueInput {
+  id?: string | null
+}
+export type RetentionPolicyWhereUniqueInputInputObject =
+  | Extract<keyof RetentionPolicyWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
 export interface UserCreateInput {
@@ -9827,223 +13483,340 @@ export type ProcessingActivityCreateManyWithoutProcessInputInputObject =
 export interface ProcessingActivityCreateWithoutProcessInput {
   id?: string | null
   name?: string
-  description?: string | null
   purpose?: string | null
-  applications?: ApplicationCreateManyWithoutProcessingActivitiesInput | null
+  imController?: boolean | null
+  securityMeasures?: string | null
+  legalGroundComment?: string | null
+  profiling?: boolean | null
+  publicSource?: boolean | null
+  linkToDpia?: string | null
+  linkToLia?: string | null
+  recipients?: BusinessPartnerCreateManyInput | null
+  controllers?: BusinessPartnerCreateManyInput | null
+  dataTypes?: DataTypeCreateManyInput | null
+  procesessingTypes?: ProcessingTypeCreateManyInput | null
+  legalGrounds?: LegalGroundCreateManyInput | null
 }
 export type ProcessingActivityCreateWithoutProcessInputInputObject =
   | Extract<keyof ProcessingActivityCreateWithoutProcessInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
   | { name: 'purpose', alias?: string  } 
-  | { name: 'applications', alias?: string  } 
+  | { name: 'imController', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'legalGroundComment', alias?: string  } 
+  | { name: 'profiling', alias?: string  } 
+  | { name: 'publicSource', alias?: string  } 
+  | { name: 'linkToDpia', alias?: string  } 
+  | { name: 'linkToLia', alias?: string  } 
+  | { name: 'recipients', alias?: string  } 
+  | { name: 'controllers', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
+  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'legalGrounds', alias?: string  } 
   
-export interface ApplicationCreateManyWithoutProcessingActivitiesInput {
-  create?: ApplicationCreateWithoutProcessingActivitiesInput[]
-  connect?: ApplicationWhereUniqueInput[]
+export interface BusinessPartnerCreateManyInput {
+  create?: BusinessPartnerCreateInput[]
+  connect?: BusinessPartnerWhereUniqueInput[]
 }
-export type ApplicationCreateManyWithoutProcessingActivitiesInputInputObject =
-  | Extract<keyof ApplicationCreateManyWithoutProcessingActivitiesInput, string>
+export type BusinessPartnerCreateManyInputInputObject =
+  | Extract<keyof BusinessPartnerCreateManyInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface ApplicationCreateWithoutProcessingActivitiesInput {
+export interface BusinessPartnerCreateInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  contactDetails?: string
+  dpo?: string
+  representative?: BusinessPartnerCreateOneInput | null
+  processingTypes?: ProcessingTypeCreateManyInput | null
+  recipientsType?: RecipientsTypeCreateOneInput | null
+  securityMeasures?: string | null
+  otherCountries?: undefined | null
+  outsideEea?: boolean | null
+  safeguards?: string | null
+  linkToDpa?: string | null
+  headOffice?: LocationCreateOneWithoutBusinessPartnerInput
+}
+export type BusinessPartnerCreateInputInputObject =
+  | Extract<keyof BusinessPartnerCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
+  | { name: 'recipientsType', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'otherCountries', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
+  
+export interface BusinessPartnerCreateOneInput {
+  create?: BusinessPartnerCreateInput | null
+  connect?: BusinessPartnerWhereUniqueInput | null
+}
+export type BusinessPartnerCreateOneInputInputObject =
+  | Extract<keyof BusinessPartnerCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProcessingTypeCreateManyInput {
+  create?: ProcessingTypeCreateInput[]
+  connect?: ProcessingTypeWhereUniqueInput[]
+}
+export type ProcessingTypeCreateManyInputInputObject =
+  | Extract<keyof ProcessingTypeCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProcessingTypeCreateInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+}
+export type ProcessingTypeCreateInputInputObject =
+  | Extract<keyof ProcessingTypeCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface RecipientsTypeCreateOneInput {
+  create?: RecipientsTypeCreateInput | null
+  connect?: RecipientsTypeWhereUniqueInput | null
+}
+export type RecipientsTypeCreateOneInputInputObject =
+  | Extract<keyof RecipientsTypeCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface RecipientsTypeCreateInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+}
+export type RecipientsTypeCreateInputInputObject =
+  | Extract<keyof RecipientsTypeCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface LocationCreateOneWithoutBusinessPartnerInput {
+  create?: LocationCreateWithoutBusinessPartnerInput | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationCreateOneWithoutBusinessPartnerInputInputObject =
+  | Extract<keyof LocationCreateOneWithoutBusinessPartnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationCreateWithoutBusinessPartnerInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  address?: string
+}
+export type LocationCreateWithoutBusinessPartnerInputInputObject =
+  | Extract<keyof LocationCreateWithoutBusinessPartnerInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  
+export interface DataTypeCreateManyInput {
+  create?: DataTypeCreateInput[]
+  connect?: DataTypeWhereUniqueInput[]
+}
+export type DataTypeCreateManyInputInputObject =
+  | Extract<keyof DataTypeCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface DataTypeCreateInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  retentionPolicy?: RetentionPolicyCreateManyInput | null
+  dataSubjectType?: DataSubjectTypeCreateManyWithoutDataTypesInput | null
+  application?: ApplicationCreateManyWithoutDataTypesInput | null
+  classificationLabels?: ClassificationLabelCreateManyWithoutDataTypeInput | null
+}
+export type DataTypeCreateInputInputObject =
+  | Extract<keyof DataTypeCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'retentionPolicy', alias?: string  } 
+  | { name: 'dataSubjectType', alias?: string  } 
+  | { name: 'application', alias?: string  } 
+  | { name: 'classificationLabels', alias?: string  } 
+  
+export interface RetentionPolicyCreateManyInput {
+  create?: RetentionPolicyCreateInput[]
+  connect?: RetentionPolicyWhereUniqueInput[]
+}
+export type RetentionPolicyCreateManyInputInputObject =
+  | Extract<keyof RetentionPolicyCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface RetentionPolicyCreateInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+}
+export type RetentionPolicyCreateInputInputObject =
+  | Extract<keyof RetentionPolicyCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface DataSubjectTypeCreateManyWithoutDataTypesInput {
+  create?: DataSubjectTypeCreateWithoutDataTypesInput[]
+  connect?: DataSubjectTypeWhereUniqueInput[]
+}
+export type DataSubjectTypeCreateManyWithoutDataTypesInputInputObject =
+  | Extract<keyof DataSubjectTypeCreateManyWithoutDataTypesInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface DataSubjectTypeCreateWithoutDataTypesInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+}
+export type DataSubjectTypeCreateWithoutDataTypesInputInputObject =
+  | Extract<keyof DataSubjectTypeCreateWithoutDataTypesInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ApplicationCreateManyWithoutDataTypesInput {
+  create?: ApplicationCreateWithoutDataTypesInput[]
+  connect?: ApplicationWhereUniqueInput[]
+}
+export type ApplicationCreateManyWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationCreateManyWithoutDataTypesInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ApplicationCreateWithoutDataTypesInput {
   id?: string | null
   name?: string
   alias?: undefined | null
   description?: string | null
-  dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
+  processingActivities?: ProcessingActivityCreateManyInput | null
   businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleCreateOneWithoutAppSecAdminInput | null
 }
-export type ApplicationCreateWithoutProcessingActivitiesInputInputObject =
-  | Extract<keyof ApplicationCreateWithoutProcessingActivitiesInput, string>
+export type ApplicationCreateWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationCreateWithoutDataTypesInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'dataTypes', alias?: string  } 
+  | { name: 'processingActivities', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
   
-export interface DataTypeCreateManyWithoutApplicationInput {
-  create?: DataTypeCreateWithoutApplicationInput[]
-  connect?: DataTypeWhereUniqueInput[]
+export interface ProcessingActivityCreateManyInput {
+  create?: ProcessingActivityCreateInput[]
+  connect?: ProcessingActivityWhereUniqueInput[]
 }
-export type DataTypeCreateManyWithoutApplicationInputInputObject =
-  | Extract<keyof DataTypeCreateManyWithoutApplicationInput, string>
+export type ProcessingActivityCreateManyInputInputObject =
+  | Extract<keyof ProcessingActivityCreateManyInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface DataTypeCreateWithoutApplicationInput {
+export interface ProcessingActivityCreateInput {
   id?: string | null
   name?: string
-  description?: string | null
-  classificationLabels?: ClassificationLabelCreateManyWithoutDataTypeInput | null
+  purpose?: string | null
+  imController?: boolean | null
+  securityMeasures?: string | null
+  legalGroundComment?: string | null
+  profiling?: boolean | null
+  publicSource?: boolean | null
+  linkToDpia?: string | null
+  linkToLia?: string | null
+  recipients?: BusinessPartnerCreateManyInput | null
+  controllers?: BusinessPartnerCreateManyInput | null
+  dataTypes?: DataTypeCreateManyInput | null
+  procesessingTypes?: ProcessingTypeCreateManyInput | null
+  legalGrounds?: LegalGroundCreateManyInput | null
+  process?: ProcessCreateOneWithoutProcessingActivitiesInput | null
 }
-export type DataTypeCreateWithoutApplicationInputInputObject =
-  | Extract<keyof DataTypeCreateWithoutApplicationInput, string>
+export type ProcessingActivityCreateInputInputObject =
+  | Extract<keyof ProcessingActivityCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'classificationLabels', alias?: string  } 
-  
-export interface ClassificationLabelCreateManyWithoutDataTypeInput {
-  create?: ClassificationLabelCreateWithoutDataTypeInput[]
-  connect?: ClassificationLabelWhereUniqueInput[]
-}
-export type ClassificationLabelCreateManyWithoutDataTypeInputInputObject =
-  | Extract<keyof ClassificationLabelCreateManyWithoutDataTypeInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ClassificationLabelCreateWithoutDataTypeInput {
-  id?: string | null
-  score?: number
-  label?: string
-  criteria?: string | null
-  qualityAttribute?: QualityAttributeCreateOneWithoutClassificationLabelsInput | null
-}
-export type ClassificationLabelCreateWithoutDataTypeInputInputObject =
-  | Extract<keyof ClassificationLabelCreateWithoutDataTypeInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'score', alias?: string  } 
-  | { name: 'label', alias?: string  } 
-  | { name: 'criteria', alias?: string  } 
-  | { name: 'qualityAttribute', alias?: string  } 
-  
-export interface QualityAttributeCreateOneWithoutClassificationLabelsInput {
-  create?: QualityAttributeCreateWithoutClassificationLabelsInput | null
-  connect?: QualityAttributeWhereUniqueInput | null
-}
-export type QualityAttributeCreateOneWithoutClassificationLabelsInputInputObject =
-  | Extract<keyof QualityAttributeCreateOneWithoutClassificationLabelsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface QualityAttributeCreateWithoutClassificationLabelsInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  appliesToObject?: prisma.CLASSIFICATIONOBJECT
-}
-export type QualityAttributeCreateWithoutClassificationLabelsInputInputObject =
-  | Extract<keyof QualityAttributeCreateWithoutClassificationLabelsInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'appliesToObject', alias?: string  } 
-  
-export interface BusinessRoleCreateOneWithoutAppBusinessOwnerInput {
-  create?: BusinessRoleCreateWithoutAppBusinessOwnerInput | null
-  connect?: BusinessRoleWhereUniqueInput | null
-}
-export type BusinessRoleCreateOneWithoutAppBusinessOwnerInputInputObject =
-  | Extract<keyof BusinessRoleCreateOneWithoutAppBusinessOwnerInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface BusinessRoleCreateWithoutAppBusinessOwnerInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  raciPrivacy?: prisma.RACI | null
-  raciSecurity?: prisma.RACI | null
-  raciFinancial?: prisma.RACI | null
-  raciExecutive?: prisma.RACI | null
-  person?: PersonCreateOneWithoutRolesInput | null
-  organizationalUnit?: OrganizationalUnitCreateOneWithoutBusinessRolesInput
-  process?: ProcessCreateManyWithoutProcessOwnerInput | null
-  appItOwner?: ApplicationCreateManyWithoutItOwnerInput | null
-  appSecAdmin?: ApplicationCreateManyWithoutSecurityAdministratorInput | null
-}
-export type BusinessRoleCreateWithoutAppBusinessOwnerInputInputObject =
-  | Extract<keyof BusinessRoleCreateWithoutAppBusinessOwnerInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'raciPrivacy', alias?: string  } 
-  | { name: 'raciSecurity', alias?: string  } 
-  | { name: 'raciFinancial', alias?: string  } 
-  | { name: 'raciExecutive', alias?: string  } 
-  | { name: 'person', alias?: string  } 
-  | { name: 'organizationalUnit', alias?: string  } 
+  | { name: 'purpose', alias?: string  } 
+  | { name: 'imController', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'legalGroundComment', alias?: string  } 
+  | { name: 'profiling', alias?: string  } 
+  | { name: 'publicSource', alias?: string  } 
+  | { name: 'linkToDpia', alias?: string  } 
+  | { name: 'linkToLia', alias?: string  } 
+  | { name: 'recipients', alias?: string  } 
+  | { name: 'controllers', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
+  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'legalGrounds', alias?: string  } 
   | { name: 'process', alias?: string  } 
-  | { name: 'appItOwner', alias?: string  } 
-  | { name: 'appSecAdmin', alias?: string  } 
   
-export interface PersonCreateOneWithoutRolesInput {
-  create?: PersonCreateWithoutRolesInput | null
-  connect?: PersonWhereUniqueInput | null
+export interface LegalGroundCreateManyInput {
+  create?: LegalGroundCreateInput[]
+  connect?: LegalGroundWhereUniqueInput[]
 }
-export type PersonCreateOneWithoutRolesInputInputObject =
-  | Extract<keyof PersonCreateOneWithoutRolesInput, string>
+export type LegalGroundCreateManyInputInputObject =
+  | Extract<keyof LegalGroundCreateManyInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface PersonCreateWithoutRolesInput {
+export interface LegalGroundCreateInput {
   id?: string | null
   name?: string
-  surname?: string | null
-  user?: UserCreateOneWithoutPersonInput | null
+  description?: string | null
+  specialCategoryCondition?: boolean | null
 }
-export type PersonCreateWithoutRolesInputInputObject =
-  | Extract<keyof PersonCreateWithoutRolesInput, string>
+export type LegalGroundCreateInputInputObject =
+  | Extract<keyof LegalGroundCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'surname', alias?: string  } 
-  | { name: 'user', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'specialCategoryCondition', alias?: string  } 
   
-export interface UserCreateOneWithoutPersonInput {
-  create?: UserCreateWithoutPersonInput | null
-  connect?: UserWhereUniqueInput | null
+export interface ProcessCreateOneWithoutProcessingActivitiesInput {
+  create?: ProcessCreateWithoutProcessingActivitiesInput | null
+  connect?: ProcessWhereUniqueInput | null
 }
-export type UserCreateOneWithoutPersonInputInputObject =
-  | Extract<keyof UserCreateOneWithoutPersonInput, string>
+export type ProcessCreateOneWithoutProcessingActivitiesInputInputObject =
+  | Extract<keyof ProcessCreateOneWithoutProcessingActivitiesInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface UserCreateWithoutPersonInput {
-  id?: string | null
-  email?: string
-  password?: string
-  active?: boolean | null
-  specialPermissions?: UserCreatespecialPermissionsInput | null
-}
-export type UserCreateWithoutPersonInputInputObject =
-  | Extract<keyof UserCreateWithoutPersonInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'active', alias?: string  } 
-  | { name: 'specialPermissions', alias?: string  } 
-  
-export interface ProcessCreateManyWithoutProcessOwnerInput {
-  create?: ProcessCreateWithoutProcessOwnerInput[]
-  connect?: ProcessWhereUniqueInput[]
-}
-export type ProcessCreateManyWithoutProcessOwnerInputInputObject =
-  | Extract<keyof ProcessCreateManyWithoutProcessOwnerInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ProcessCreateWithoutProcessOwnerInput {
+export interface ProcessCreateWithoutProcessingActivitiesInput {
   id?: string | null
   name?: string
   description?: string | null
   organizationalUnit?: OrganizationalUnitCreateOneWithoutProcessesInput | null
-  processingActivities?: ProcessingActivityCreateManyWithoutProcessInput | null
+  processOwner?: BusinessRoleCreateOneWithoutProcessInput | null
 }
-export type ProcessCreateWithoutProcessOwnerInputInputObject =
-  | Extract<keyof ProcessCreateWithoutProcessOwnerInput, string>
+export type ProcessCreateWithoutProcessingActivitiesInputInputObject =
+  | Extract<keyof ProcessCreateWithoutProcessingActivitiesInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'organizationalUnit', alias?: string  } 
-  | { name: 'processingActivities', alias?: string  } 
+  | { name: 'processOwner', alias?: string  } 
   
 export interface OrganizationalUnitCreateOneWithoutProcessesInput {
   create?: OrganizationalUnitCreateWithoutProcessesInput | null
@@ -10139,6 +13912,76 @@ export type BusinessRoleCreateWithoutOrganizationalUnitInputInputObject =
   | { name: 'appItOwner', alias?: string  } 
   | { name: 'appSecAdmin', alias?: string  } 
   
+export interface PersonCreateOneWithoutRolesInput {
+  create?: PersonCreateWithoutRolesInput | null
+  connect?: PersonWhereUniqueInput | null
+}
+export type PersonCreateOneWithoutRolesInputInputObject =
+  | Extract<keyof PersonCreateOneWithoutRolesInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface PersonCreateWithoutRolesInput {
+  id?: string | null
+  name?: string
+  surname?: string | null
+  user?: UserCreateOneWithoutPersonInput | null
+}
+export type PersonCreateWithoutRolesInputInputObject =
+  | Extract<keyof PersonCreateWithoutRolesInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'surname', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  
+export interface UserCreateOneWithoutPersonInput {
+  create?: UserCreateWithoutPersonInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutPersonInputInputObject =
+  | Extract<keyof UserCreateOneWithoutPersonInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutPersonInput {
+  id?: string | null
+  email?: string
+  password?: string
+  active?: boolean | null
+  specialPermissions?: UserCreatespecialPermissionsInput | null
+}
+export type UserCreateWithoutPersonInputInputObject =
+  | Extract<keyof UserCreateWithoutPersonInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'active', alias?: string  } 
+  | { name: 'specialPermissions', alias?: string  } 
+  
+export interface ProcessCreateManyWithoutProcessOwnerInput {
+  create?: ProcessCreateWithoutProcessOwnerInput[]
+  connect?: ProcessWhereUniqueInput[]
+}
+export type ProcessCreateManyWithoutProcessOwnerInputInputObject =
+  | Extract<keyof ProcessCreateManyWithoutProcessOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProcessCreateWithoutProcessOwnerInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  organizationalUnit?: OrganizationalUnitCreateOneWithoutProcessesInput | null
+  processingActivities?: ProcessingActivityCreateManyWithoutProcessInput | null
+}
+export type ProcessCreateWithoutProcessOwnerInputInputObject =
+  | Extract<keyof ProcessCreateWithoutProcessOwnerInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'organizationalUnit', alias?: string  } 
+  | { name: 'processingActivities', alias?: string  } 
+  
 export interface ApplicationCreateManyWithoutBusinessOwnerInput {
   create?: ApplicationCreateWithoutBusinessOwnerInput[]
   connect?: ApplicationWhereUniqueInput[]
@@ -10153,7 +13996,7 @@ export interface ApplicationCreateWithoutBusinessOwnerInput {
   name?: string
   alias?: undefined | null
   description?: string | null
-  processingActivities?: ProcessingActivityCreateManyWithoutApplicationsInput | null
+  processingActivities?: ProcessingActivityCreateManyInput | null
   dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
   itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleCreateOneWithoutAppSecAdminInput | null
@@ -10169,64 +14012,88 @@ export type ApplicationCreateWithoutBusinessOwnerInputInputObject =
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
   
-export interface ProcessingActivityCreateManyWithoutApplicationsInput {
-  create?: ProcessingActivityCreateWithoutApplicationsInput[]
-  connect?: ProcessingActivityWhereUniqueInput[]
+export interface DataTypeCreateManyWithoutApplicationInput {
+  create?: DataTypeCreateWithoutApplicationInput[]
+  connect?: DataTypeWhereUniqueInput[]
 }
-export type ProcessingActivityCreateManyWithoutApplicationsInputInputObject =
-  | Extract<keyof ProcessingActivityCreateManyWithoutApplicationsInput, string>
+export type DataTypeCreateManyWithoutApplicationInputInputObject =
+  | Extract<keyof DataTypeCreateManyWithoutApplicationInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface ProcessingActivityCreateWithoutApplicationsInput {
+export interface DataTypeCreateWithoutApplicationInput {
   id?: string | null
   name?: string
   description?: string | null
-  purpose?: string | null
-  process?: ProcessCreateOneWithoutProcessingActivitiesInput | null
+  retentionPolicy?: RetentionPolicyCreateManyInput | null
+  dataSubjectType?: DataSubjectTypeCreateManyWithoutDataTypesInput | null
+  classificationLabels?: ClassificationLabelCreateManyWithoutDataTypeInput | null
 }
-export type ProcessingActivityCreateWithoutApplicationsInputInputObject =
-  | Extract<keyof ProcessingActivityCreateWithoutApplicationsInput, string>
+export type DataTypeCreateWithoutApplicationInputInputObject =
+  | Extract<keyof DataTypeCreateWithoutApplicationInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'purpose', alias?: string  } 
-  | { name: 'process', alias?: string  } 
+  | { name: 'retentionPolicy', alias?: string  } 
+  | { name: 'dataSubjectType', alias?: string  } 
+  | { name: 'classificationLabels', alias?: string  } 
   
-export interface ProcessCreateOneWithoutProcessingActivitiesInput {
-  create?: ProcessCreateWithoutProcessingActivitiesInput | null
-  connect?: ProcessWhereUniqueInput | null
+export interface ClassificationLabelCreateManyWithoutDataTypeInput {
+  create?: ClassificationLabelCreateWithoutDataTypeInput[]
+  connect?: ClassificationLabelWhereUniqueInput[]
 }
-export type ProcessCreateOneWithoutProcessingActivitiesInputInputObject =
-  | Extract<keyof ProcessCreateOneWithoutProcessingActivitiesInput, string>
+export type ClassificationLabelCreateManyWithoutDataTypeInputInputObject =
+  | Extract<keyof ClassificationLabelCreateManyWithoutDataTypeInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface ProcessCreateWithoutProcessingActivitiesInput {
+export interface ClassificationLabelCreateWithoutDataTypeInput {
+  id?: string | null
+  score?: number
+  label?: string
+  criteria?: string | null
+  qualityAttribute?: QualityAttributeCreateOneWithoutClassificationLabelsInput | null
+}
+export type ClassificationLabelCreateWithoutDataTypeInputInputObject =
+  | Extract<keyof ClassificationLabelCreateWithoutDataTypeInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'score', alias?: string  } 
+  | { name: 'label', alias?: string  } 
+  | { name: 'criteria', alias?: string  } 
+  | { name: 'qualityAttribute', alias?: string  } 
+  
+export interface QualityAttributeCreateOneWithoutClassificationLabelsInput {
+  create?: QualityAttributeCreateWithoutClassificationLabelsInput | null
+  connect?: QualityAttributeWhereUniqueInput | null
+}
+export type QualityAttributeCreateOneWithoutClassificationLabelsInputInputObject =
+  | Extract<keyof QualityAttributeCreateOneWithoutClassificationLabelsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface QualityAttributeCreateWithoutClassificationLabelsInput {
   id?: string | null
   name?: string
   description?: string | null
-  organizationalUnit?: OrganizationalUnitCreateOneWithoutProcessesInput | null
-  processOwner?: BusinessRoleCreateOneWithoutProcessInput | null
+  appliesToObject?: prisma.CLASSIFICATIONOBJECT
 }
-export type ProcessCreateWithoutProcessingActivitiesInputInputObject =
-  | Extract<keyof ProcessCreateWithoutProcessingActivitiesInput, string>
+export type QualityAttributeCreateWithoutClassificationLabelsInputInputObject =
+  | Extract<keyof QualityAttributeCreateWithoutClassificationLabelsInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'organizationalUnit', alias?: string  } 
-  | { name: 'processOwner', alias?: string  } 
+  | { name: 'appliesToObject', alias?: string  } 
   
-export interface BusinessRoleCreateOneWithoutProcessInput {
-  create?: BusinessRoleCreateWithoutProcessInput | null
+export interface BusinessRoleCreateOneWithoutAppItOwnerInput {
+  create?: BusinessRoleCreateWithoutAppItOwnerInput | null
   connect?: BusinessRoleWhereUniqueInput | null
 }
-export type BusinessRoleCreateOneWithoutProcessInputInputObject =
-  | Extract<keyof BusinessRoleCreateOneWithoutProcessInput, string>
+export type BusinessRoleCreateOneWithoutAppItOwnerInputInputObject =
+  | Extract<keyof BusinessRoleCreateOneWithoutAppItOwnerInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface BusinessRoleCreateWithoutProcessInput {
+export interface BusinessRoleCreateWithoutAppItOwnerInput {
   id?: string | null
   name?: string
   description?: string | null
@@ -10236,12 +14103,12 @@ export interface BusinessRoleCreateWithoutProcessInput {
   raciExecutive?: prisma.RACI | null
   person?: PersonCreateOneWithoutRolesInput | null
   organizationalUnit?: OrganizationalUnitCreateOneWithoutBusinessRolesInput
+  process?: ProcessCreateManyWithoutProcessOwnerInput | null
   appBusinessOwner?: ApplicationCreateManyWithoutBusinessOwnerInput | null
-  appItOwner?: ApplicationCreateManyWithoutItOwnerInput | null
   appSecAdmin?: ApplicationCreateManyWithoutSecurityAdministratorInput | null
 }
-export type BusinessRoleCreateWithoutProcessInputInputObject =
-  | Extract<keyof BusinessRoleCreateWithoutProcessInput, string>
+export type BusinessRoleCreateWithoutAppItOwnerInputInputObject =
+  | Extract<keyof BusinessRoleCreateWithoutAppItOwnerInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
@@ -10251,7 +14118,75 @@ export type BusinessRoleCreateWithoutProcessInputInputObject =
   | { name: 'raciExecutive', alias?: string  } 
   | { name: 'person', alias?: string  } 
   | { name: 'organizationalUnit', alias?: string  } 
+  | { name: 'process', alias?: string  } 
   | { name: 'appBusinessOwner', alias?: string  } 
+  | { name: 'appSecAdmin', alias?: string  } 
+  
+export interface ApplicationCreateManyWithoutSecurityAdministratorInput {
+  create?: ApplicationCreateWithoutSecurityAdministratorInput[]
+  connect?: ApplicationWhereUniqueInput[]
+}
+export type ApplicationCreateManyWithoutSecurityAdministratorInputInputObject =
+  | Extract<keyof ApplicationCreateManyWithoutSecurityAdministratorInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ApplicationCreateWithoutSecurityAdministratorInput {
+  id?: string | null
+  name?: string
+  alias?: undefined | null
+  description?: string | null
+  processingActivities?: ProcessingActivityCreateManyInput | null
+  dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
+  businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
+  itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
+}
+export type ApplicationCreateWithoutSecurityAdministratorInputInputObject =
+  | Extract<keyof ApplicationCreateWithoutSecurityAdministratorInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'alias', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'processingActivities', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
+  | { name: 'businessOwner', alias?: string  } 
+  | { name: 'itOwner', alias?: string  } 
+  
+export interface BusinessRoleCreateOneWithoutAppBusinessOwnerInput {
+  create?: BusinessRoleCreateWithoutAppBusinessOwnerInput | null
+  connect?: BusinessRoleWhereUniqueInput | null
+}
+export type BusinessRoleCreateOneWithoutAppBusinessOwnerInputInputObject =
+  | Extract<keyof BusinessRoleCreateOneWithoutAppBusinessOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface BusinessRoleCreateWithoutAppBusinessOwnerInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  raciPrivacy?: prisma.RACI | null
+  raciSecurity?: prisma.RACI | null
+  raciFinancial?: prisma.RACI | null
+  raciExecutive?: prisma.RACI | null
+  person?: PersonCreateOneWithoutRolesInput | null
+  organizationalUnit?: OrganizationalUnitCreateOneWithoutBusinessRolesInput
+  process?: ProcessCreateManyWithoutProcessOwnerInput | null
+  appItOwner?: ApplicationCreateManyWithoutItOwnerInput | null
+  appSecAdmin?: ApplicationCreateManyWithoutSecurityAdministratorInput | null
+}
+export type BusinessRoleCreateWithoutAppBusinessOwnerInputInputObject =
+  | Extract<keyof BusinessRoleCreateWithoutAppBusinessOwnerInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'raciPrivacy', alias?: string  } 
+  | { name: 'raciSecurity', alias?: string  } 
+  | { name: 'raciFinancial', alias?: string  } 
+  | { name: 'raciExecutive', alias?: string  } 
+  | { name: 'person', alias?: string  } 
+  | { name: 'organizationalUnit', alias?: string  } 
+  | { name: 'process', alias?: string  } 
   | { name: 'appItOwner', alias?: string  } 
   | { name: 'appSecAdmin', alias?: string  } 
   
@@ -10269,7 +14204,7 @@ export interface ApplicationCreateWithoutItOwnerInput {
   name?: string
   alias?: undefined | null
   description?: string | null
-  processingActivities?: ProcessingActivityCreateManyWithoutApplicationsInput | null
+  processingActivities?: ProcessingActivityCreateManyInput | null
   dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
   securityAdministrator?: BusinessRoleCreateOneWithoutAppSecAdminInput | null
@@ -10323,74 +14258,6 @@ export type BusinessRoleCreateWithoutAppSecAdminInputInputObject =
   | { name: 'appBusinessOwner', alias?: string  } 
   | { name: 'appItOwner', alias?: string  } 
   
-export interface ApplicationCreateManyWithoutSecurityAdministratorInput {
-  create?: ApplicationCreateWithoutSecurityAdministratorInput[]
-  connect?: ApplicationWhereUniqueInput[]
-}
-export type ApplicationCreateManyWithoutSecurityAdministratorInputInputObject =
-  | Extract<keyof ApplicationCreateManyWithoutSecurityAdministratorInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ApplicationCreateWithoutSecurityAdministratorInput {
-  id?: string | null
-  name?: string
-  alias?: undefined | null
-  description?: string | null
-  processingActivities?: ProcessingActivityCreateManyWithoutApplicationsInput | null
-  dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
-  businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
-  itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
-}
-export type ApplicationCreateWithoutSecurityAdministratorInputInputObject =
-  | Extract<keyof ApplicationCreateWithoutSecurityAdministratorInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataTypes', alias?: string  } 
-  | { name: 'businessOwner', alias?: string  } 
-  | { name: 'itOwner', alias?: string  } 
-  
-export interface BusinessRoleCreateOneWithoutAppItOwnerInput {
-  create?: BusinessRoleCreateWithoutAppItOwnerInput | null
-  connect?: BusinessRoleWhereUniqueInput | null
-}
-export type BusinessRoleCreateOneWithoutAppItOwnerInputInputObject =
-  | Extract<keyof BusinessRoleCreateOneWithoutAppItOwnerInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface BusinessRoleCreateWithoutAppItOwnerInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  raciPrivacy?: prisma.RACI | null
-  raciSecurity?: prisma.RACI | null
-  raciFinancial?: prisma.RACI | null
-  raciExecutive?: prisma.RACI | null
-  person?: PersonCreateOneWithoutRolesInput | null
-  organizationalUnit?: OrganizationalUnitCreateOneWithoutBusinessRolesInput
-  process?: ProcessCreateManyWithoutProcessOwnerInput | null
-  appBusinessOwner?: ApplicationCreateManyWithoutBusinessOwnerInput | null
-  appSecAdmin?: ApplicationCreateManyWithoutSecurityAdministratorInput | null
-}
-export type BusinessRoleCreateWithoutAppItOwnerInputInputObject =
-  | Extract<keyof BusinessRoleCreateWithoutAppItOwnerInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'raciPrivacy', alias?: string  } 
-  | { name: 'raciSecurity', alias?: string  } 
-  | { name: 'raciFinancial', alias?: string  } 
-  | { name: 'raciExecutive', alias?: string  } 
-  | { name: 'person', alias?: string  } 
-  | { name: 'organizationalUnit', alias?: string  } 
-  | { name: 'process', alias?: string  } 
-  | { name: 'appBusinessOwner', alias?: string  } 
-  | { name: 'appSecAdmin', alias?: string  } 
-  
 export interface OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput {
   create?: OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput | null
   connect?: OrganizationalUnitTypeWhereUniqueInput | null
@@ -10412,6 +14279,44 @@ export type OrganizationalUnitTypeCreateWithoutOrganizationalUnitInputInputObjec
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'reportingUnit', alias?: string  } 
+  
+export interface BusinessRoleCreateOneWithoutProcessInput {
+  create?: BusinessRoleCreateWithoutProcessInput | null
+  connect?: BusinessRoleWhereUniqueInput | null
+}
+export type BusinessRoleCreateOneWithoutProcessInputInputObject =
+  | Extract<keyof BusinessRoleCreateOneWithoutProcessInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface BusinessRoleCreateWithoutProcessInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  raciPrivacy?: prisma.RACI | null
+  raciSecurity?: prisma.RACI | null
+  raciFinancial?: prisma.RACI | null
+  raciExecutive?: prisma.RACI | null
+  person?: PersonCreateOneWithoutRolesInput | null
+  organizationalUnit?: OrganizationalUnitCreateOneWithoutBusinessRolesInput
+  appBusinessOwner?: ApplicationCreateManyWithoutBusinessOwnerInput | null
+  appItOwner?: ApplicationCreateManyWithoutItOwnerInput | null
+  appSecAdmin?: ApplicationCreateManyWithoutSecurityAdministratorInput | null
+}
+export type BusinessRoleCreateWithoutProcessInputInputObject =
+  | Extract<keyof BusinessRoleCreateWithoutProcessInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'raciPrivacy', alias?: string  } 
+  | { name: 'raciSecurity', alias?: string  } 
+  | { name: 'raciFinancial', alias?: string  } 
+  | { name: 'raciExecutive', alias?: string  } 
+  | { name: 'person', alias?: string  } 
+  | { name: 'organizationalUnit', alias?: string  } 
+  | { name: 'appBusinessOwner', alias?: string  } 
+  | { name: 'appItOwner', alias?: string  } 
+  | { name: 'appSecAdmin', alias?: string  } 
   
 export interface UserUpdateInput {
   email?: string | null
@@ -10680,30 +14585,868 @@ export type ProcessingActivityUpdateWithWhereUniqueWithoutProcessInputInputObjec
   
 export interface ProcessingActivityUpdateWithoutProcessDataInput {
   name?: string | null
-  description?: string | null
   purpose?: string | null
-  applications?: ApplicationUpdateManyWithoutProcessingActivitiesInput | null
+  imController?: boolean | null
+  securityMeasures?: string | null
+  legalGroundComment?: string | null
+  profiling?: boolean | null
+  publicSource?: boolean | null
+  linkToDpia?: string | null
+  linkToLia?: string | null
+  recipients?: BusinessPartnerUpdateManyInput | null
+  controllers?: BusinessPartnerUpdateManyInput | null
+  dataTypes?: DataTypeUpdateManyInput | null
+  procesessingTypes?: ProcessingTypeUpdateManyInput | null
+  legalGrounds?: LegalGroundUpdateManyInput | null
 }
 export type ProcessingActivityUpdateWithoutProcessDataInputInputObject =
   | Extract<keyof ProcessingActivityUpdateWithoutProcessDataInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
   | { name: 'purpose', alias?: string  } 
-  | { name: 'applications', alias?: string  } 
+  | { name: 'imController', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'legalGroundComment', alias?: string  } 
+  | { name: 'profiling', alias?: string  } 
+  | { name: 'publicSource', alias?: string  } 
+  | { name: 'linkToDpia', alias?: string  } 
+  | { name: 'linkToLia', alias?: string  } 
+  | { name: 'recipients', alias?: string  } 
+  | { name: 'controllers', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
+  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'legalGrounds', alias?: string  } 
   
-export interface ApplicationUpdateManyWithoutProcessingActivitiesInput {
-  create?: ApplicationCreateWithoutProcessingActivitiesInput[]
-  delete?: ApplicationWhereUniqueInput[]
-  connect?: ApplicationWhereUniqueInput[]
-  set?: ApplicationWhereUniqueInput[]
-  disconnect?: ApplicationWhereUniqueInput[]
-  update?: ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput[]
-  upsert?: ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput[]
-  deleteMany?: ApplicationScalarWhereInput[]
-  updateMany?: ApplicationUpdateManyWithWhereNestedInput[]
+export interface BusinessPartnerUpdateManyInput {
+  create?: BusinessPartnerCreateInput[]
+  update?: BusinessPartnerUpdateWithWhereUniqueNestedInput[]
+  upsert?: BusinessPartnerUpsertWithWhereUniqueNestedInput[]
+  delete?: BusinessPartnerWhereUniqueInput[]
+  connect?: BusinessPartnerWhereUniqueInput[]
+  set?: BusinessPartnerWhereUniqueInput[]
+  disconnect?: BusinessPartnerWhereUniqueInput[]
+  deleteMany?: BusinessPartnerScalarWhereInput[]
+  updateMany?: BusinessPartnerUpdateManyWithWhereNestedInput[]
 }
-export type ApplicationUpdateManyWithoutProcessingActivitiesInputInputObject =
-  | Extract<keyof ApplicationUpdateManyWithoutProcessingActivitiesInput, string>
+export type BusinessPartnerUpdateManyInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface BusinessPartnerUpdateWithWhereUniqueNestedInput {
+  where?: BusinessPartnerWhereUniqueInput
+  data?: BusinessPartnerUpdateDataInput
+}
+export type BusinessPartnerUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface BusinessPartnerUpdateDataInput {
+  name?: string | null
+  description?: string | null
+  contactDetails?: string | null
+  dpo?: string | null
+  representative?: BusinessPartnerUpdateOneInput | null
+  processingTypes?: ProcessingTypeUpdateManyInput | null
+  recipientsType?: RecipientsTypeUpdateOneInput | null
+  securityMeasures?: string | null
+  otherCountries?: undefined | null
+  outsideEea?: boolean | null
+  safeguards?: string | null
+  linkToDpa?: string | null
+  headOffice?: LocationUpdateOneRequiredWithoutBusinessPartnerInput | null
+}
+export type BusinessPartnerUpdateDataInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
+  | { name: 'recipientsType', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'otherCountries', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
+  
+export interface BusinessPartnerUpdateOneInput {
+  create?: BusinessPartnerCreateInput | null
+  update?: BusinessPartnerUpdateDataInput | null
+  upsert?: BusinessPartnerUpsertNestedInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: BusinessPartnerWhereUniqueInput | null
+}
+export type BusinessPartnerUpdateOneInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface BusinessPartnerUpsertNestedInput {
+  update?: BusinessPartnerUpdateDataInput
+  create?: BusinessPartnerCreateInput
+}
+export type BusinessPartnerUpsertNestedInputInputObject =
+  | Extract<keyof BusinessPartnerUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ProcessingTypeUpdateManyInput {
+  create?: ProcessingTypeCreateInput[]
+  update?: ProcessingTypeUpdateWithWhereUniqueNestedInput[]
+  upsert?: ProcessingTypeUpsertWithWhereUniqueNestedInput[]
+  delete?: ProcessingTypeWhereUniqueInput[]
+  connect?: ProcessingTypeWhereUniqueInput[]
+  set?: ProcessingTypeWhereUniqueInput[]
+  disconnect?: ProcessingTypeWhereUniqueInput[]
+  deleteMany?: ProcessingTypeScalarWhereInput[]
+  updateMany?: ProcessingTypeUpdateManyWithWhereNestedInput[]
+}
+export type ProcessingTypeUpdateManyInputInputObject =
+  | Extract<keyof ProcessingTypeUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ProcessingTypeUpdateWithWhereUniqueNestedInput {
+  where?: ProcessingTypeWhereUniqueInput
+  data?: ProcessingTypeUpdateDataInput
+}
+export type ProcessingTypeUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof ProcessingTypeUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ProcessingTypeUpdateDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type ProcessingTypeUpdateDataInputInputObject =
+  | Extract<keyof ProcessingTypeUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ProcessingTypeUpsertWithWhereUniqueNestedInput {
+  where?: ProcessingTypeWhereUniqueInput
+  update?: ProcessingTypeUpdateDataInput
+  create?: ProcessingTypeCreateInput
+}
+export type ProcessingTypeUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof ProcessingTypeUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ProcessingTypeScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: ProcessingTypeScalarWhereInput[]
+  OR?: ProcessingTypeScalarWhereInput[]
+  NOT?: ProcessingTypeScalarWhereInput[]
+}
+export type ProcessingTypeScalarWhereInputInputObject =
+  | Extract<keyof ProcessingTypeScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ProcessingTypeUpdateManyWithWhereNestedInput {
+  where?: ProcessingTypeScalarWhereInput
+  data?: ProcessingTypeUpdateManyDataInput
+}
+export type ProcessingTypeUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ProcessingTypeUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ProcessingTypeUpdateManyDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type ProcessingTypeUpdateManyDataInputInputObject =
+  | Extract<keyof ProcessingTypeUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface RecipientsTypeUpdateOneInput {
+  create?: RecipientsTypeCreateInput | null
+  update?: RecipientsTypeUpdateDataInput | null
+  upsert?: RecipientsTypeUpsertNestedInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: RecipientsTypeWhereUniqueInput | null
+}
+export type RecipientsTypeUpdateOneInputInputObject =
+  | Extract<keyof RecipientsTypeUpdateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface RecipientsTypeUpdateDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type RecipientsTypeUpdateDataInputInputObject =
+  | Extract<keyof RecipientsTypeUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface RecipientsTypeUpsertNestedInput {
+  update?: RecipientsTypeUpdateDataInput
+  create?: RecipientsTypeCreateInput
+}
+export type RecipientsTypeUpsertNestedInputInputObject =
+  | Extract<keyof RecipientsTypeUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface LocationUpdateOneRequiredWithoutBusinessPartnerInput {
+  create?: LocationCreateWithoutBusinessPartnerInput | null
+  update?: LocationUpdateWithoutBusinessPartnerDataInput | null
+  upsert?: LocationUpsertWithoutBusinessPartnerInput | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationUpdateOneRequiredWithoutBusinessPartnerInputInputObject =
+  | Extract<keyof LocationUpdateOneRequiredWithoutBusinessPartnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationUpdateWithoutBusinessPartnerDataInput {
+  name?: string | null
+  description?: string | null
+  address?: string | null
+}
+export type LocationUpdateWithoutBusinessPartnerDataInputInputObject =
+  | Extract<keyof LocationUpdateWithoutBusinessPartnerDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  
+export interface LocationUpsertWithoutBusinessPartnerInput {
+  update?: LocationUpdateWithoutBusinessPartnerDataInput
+  create?: LocationCreateWithoutBusinessPartnerInput
+}
+export type LocationUpsertWithoutBusinessPartnerInputInputObject =
+  | Extract<keyof LocationUpsertWithoutBusinessPartnerInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface BusinessPartnerUpsertWithWhereUniqueNestedInput {
+  where?: BusinessPartnerWhereUniqueInput
+  update?: BusinessPartnerUpdateDataInput
+  create?: BusinessPartnerCreateInput
+}
+export type BusinessPartnerUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof BusinessPartnerUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface BusinessPartnerScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  contactDetails?: string | null
+  contactDetails_not?: string | null
+  contactDetails_in?: string[]
+  contactDetails_not_in?: string[]
+  contactDetails_lt?: string | null
+  contactDetails_lte?: string | null
+  contactDetails_gt?: string | null
+  contactDetails_gte?: string | null
+  contactDetails_contains?: string | null
+  contactDetails_not_contains?: string | null
+  contactDetails_starts_with?: string | null
+  contactDetails_not_starts_with?: string | null
+  contactDetails_ends_with?: string | null
+  contactDetails_not_ends_with?: string | null
+  dpo?: string | null
+  dpo_not?: string | null
+  dpo_in?: string[]
+  dpo_not_in?: string[]
+  dpo_lt?: string | null
+  dpo_lte?: string | null
+  dpo_gt?: string | null
+  dpo_gte?: string | null
+  dpo_contains?: string | null
+  dpo_not_contains?: string | null
+  dpo_starts_with?: string | null
+  dpo_not_starts_with?: string | null
+  dpo_ends_with?: string | null
+  dpo_not_ends_with?: string | null
+  securityMeasures?: string | null
+  securityMeasures_not?: string | null
+  securityMeasures_in?: string[]
+  securityMeasures_not_in?: string[]
+  securityMeasures_lt?: string | null
+  securityMeasures_lte?: string | null
+  securityMeasures_gt?: string | null
+  securityMeasures_gte?: string | null
+  securityMeasures_contains?: string | null
+  securityMeasures_not_contains?: string | null
+  securityMeasures_starts_with?: string | null
+  securityMeasures_not_starts_with?: string | null
+  securityMeasures_ends_with?: string | null
+  securityMeasures_not_ends_with?: string | null
+  outsideEea?: boolean | null
+  outsideEea_not?: boolean | null
+  safeguards?: string | null
+  safeguards_not?: string | null
+  safeguards_in?: string[]
+  safeguards_not_in?: string[]
+  safeguards_lt?: string | null
+  safeguards_lte?: string | null
+  safeguards_gt?: string | null
+  safeguards_gte?: string | null
+  safeguards_contains?: string | null
+  safeguards_not_contains?: string | null
+  safeguards_starts_with?: string | null
+  safeguards_not_starts_with?: string | null
+  safeguards_ends_with?: string | null
+  safeguards_not_ends_with?: string | null
+  linkToDpa?: string | null
+  linkToDpa_not?: string | null
+  linkToDpa_in?: string[]
+  linkToDpa_not_in?: string[]
+  linkToDpa_lt?: string | null
+  linkToDpa_lte?: string | null
+  linkToDpa_gt?: string | null
+  linkToDpa_gte?: string | null
+  linkToDpa_contains?: string | null
+  linkToDpa_not_contains?: string | null
+  linkToDpa_starts_with?: string | null
+  linkToDpa_not_starts_with?: string | null
+  linkToDpa_ends_with?: string | null
+  linkToDpa_not_ends_with?: string | null
+  AND?: BusinessPartnerScalarWhereInput[]
+  OR?: BusinessPartnerScalarWhereInput[]
+  NOT?: BusinessPartnerScalarWhereInput[]
+}
+export type BusinessPartnerScalarWhereInputInputObject =
+  | Extract<keyof BusinessPartnerScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'contactDetails_not', alias?: string  } 
+  | { name: 'contactDetails_in', alias?: string  } 
+  | { name: 'contactDetails_not_in', alias?: string  } 
+  | { name: 'contactDetails_lt', alias?: string  } 
+  | { name: 'contactDetails_lte', alias?: string  } 
+  | { name: 'contactDetails_gt', alias?: string  } 
+  | { name: 'contactDetails_gte', alias?: string  } 
+  | { name: 'contactDetails_contains', alias?: string  } 
+  | { name: 'contactDetails_not_contains', alias?: string  } 
+  | { name: 'contactDetails_starts_with', alias?: string  } 
+  | { name: 'contactDetails_not_starts_with', alias?: string  } 
+  | { name: 'contactDetails_ends_with', alias?: string  } 
+  | { name: 'contactDetails_not_ends_with', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'dpo_not', alias?: string  } 
+  | { name: 'dpo_in', alias?: string  } 
+  | { name: 'dpo_not_in', alias?: string  } 
+  | { name: 'dpo_lt', alias?: string  } 
+  | { name: 'dpo_lte', alias?: string  } 
+  | { name: 'dpo_gt', alias?: string  } 
+  | { name: 'dpo_gte', alias?: string  } 
+  | { name: 'dpo_contains', alias?: string  } 
+  | { name: 'dpo_not_contains', alias?: string  } 
+  | { name: 'dpo_starts_with', alias?: string  } 
+  | { name: 'dpo_not_starts_with', alias?: string  } 
+  | { name: 'dpo_ends_with', alias?: string  } 
+  | { name: 'dpo_not_ends_with', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'securityMeasures_not', alias?: string  } 
+  | { name: 'securityMeasures_in', alias?: string  } 
+  | { name: 'securityMeasures_not_in', alias?: string  } 
+  | { name: 'securityMeasures_lt', alias?: string  } 
+  | { name: 'securityMeasures_lte', alias?: string  } 
+  | { name: 'securityMeasures_gt', alias?: string  } 
+  | { name: 'securityMeasures_gte', alias?: string  } 
+  | { name: 'securityMeasures_contains', alias?: string  } 
+  | { name: 'securityMeasures_not_contains', alias?: string  } 
+  | { name: 'securityMeasures_starts_with', alias?: string  } 
+  | { name: 'securityMeasures_not_starts_with', alias?: string  } 
+  | { name: 'securityMeasures_ends_with', alias?: string  } 
+  | { name: 'securityMeasures_not_ends_with', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'outsideEea_not', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'safeguards_not', alias?: string  } 
+  | { name: 'safeguards_in', alias?: string  } 
+  | { name: 'safeguards_not_in', alias?: string  } 
+  | { name: 'safeguards_lt', alias?: string  } 
+  | { name: 'safeguards_lte', alias?: string  } 
+  | { name: 'safeguards_gt', alias?: string  } 
+  | { name: 'safeguards_gte', alias?: string  } 
+  | { name: 'safeguards_contains', alias?: string  } 
+  | { name: 'safeguards_not_contains', alias?: string  } 
+  | { name: 'safeguards_starts_with', alias?: string  } 
+  | { name: 'safeguards_not_starts_with', alias?: string  } 
+  | { name: 'safeguards_ends_with', alias?: string  } 
+  | { name: 'safeguards_not_ends_with', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
+  | { name: 'linkToDpa_not', alias?: string  } 
+  | { name: 'linkToDpa_in', alias?: string  } 
+  | { name: 'linkToDpa_not_in', alias?: string  } 
+  | { name: 'linkToDpa_lt', alias?: string  } 
+  | { name: 'linkToDpa_lte', alias?: string  } 
+  | { name: 'linkToDpa_gt', alias?: string  } 
+  | { name: 'linkToDpa_gte', alias?: string  } 
+  | { name: 'linkToDpa_contains', alias?: string  } 
+  | { name: 'linkToDpa_not_contains', alias?: string  } 
+  | { name: 'linkToDpa_starts_with', alias?: string  } 
+  | { name: 'linkToDpa_not_starts_with', alias?: string  } 
+  | { name: 'linkToDpa_ends_with', alias?: string  } 
+  | { name: 'linkToDpa_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface BusinessPartnerUpdateManyWithWhereNestedInput {
+  where?: BusinessPartnerScalarWhereInput
+  data?: BusinessPartnerUpdateManyDataInput
+}
+export type BusinessPartnerUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface BusinessPartnerUpdateManyDataInput {
+  name?: string | null
+  description?: string | null
+  contactDetails?: string | null
+  dpo?: string | null
+  securityMeasures?: string | null
+  otherCountries?: undefined | null
+  outsideEea?: boolean | null
+  safeguards?: string | null
+  linkToDpa?: string | null
+}
+export type BusinessPartnerUpdateManyDataInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'otherCountries', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
+  
+export interface DataTypeUpdateManyInput {
+  create?: DataTypeCreateInput[]
+  update?: DataTypeUpdateWithWhereUniqueNestedInput[]
+  upsert?: DataTypeUpsertWithWhereUniqueNestedInput[]
+  delete?: DataTypeWhereUniqueInput[]
+  connect?: DataTypeWhereUniqueInput[]
+  set?: DataTypeWhereUniqueInput[]
+  disconnect?: DataTypeWhereUniqueInput[]
+  deleteMany?: DataTypeScalarWhereInput[]
+  updateMany?: DataTypeUpdateManyWithWhereNestedInput[]
+}
+export type DataTypeUpdateManyInputInputObject =
+  | Extract<keyof DataTypeUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface DataTypeUpdateWithWhereUniqueNestedInput {
+  where?: DataTypeWhereUniqueInput
+  data?: DataTypeUpdateDataInput
+}
+export type DataTypeUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof DataTypeUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface DataTypeUpdateDataInput {
+  name?: string | null
+  description?: string | null
+  retentionPolicy?: RetentionPolicyUpdateManyInput | null
+  dataSubjectType?: DataSubjectTypeUpdateManyWithoutDataTypesInput | null
+  application?: ApplicationUpdateManyWithoutDataTypesInput | null
+  classificationLabels?: ClassificationLabelUpdateManyWithoutDataTypeInput | null
+}
+export type DataTypeUpdateDataInputInputObject =
+  | Extract<keyof DataTypeUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'retentionPolicy', alias?: string  } 
+  | { name: 'dataSubjectType', alias?: string  } 
+  | { name: 'application', alias?: string  } 
+  | { name: 'classificationLabels', alias?: string  } 
+  
+export interface RetentionPolicyUpdateManyInput {
+  create?: RetentionPolicyCreateInput[]
+  update?: RetentionPolicyUpdateWithWhereUniqueNestedInput[]
+  upsert?: RetentionPolicyUpsertWithWhereUniqueNestedInput[]
+  delete?: RetentionPolicyWhereUniqueInput[]
+  connect?: RetentionPolicyWhereUniqueInput[]
+  set?: RetentionPolicyWhereUniqueInput[]
+  disconnect?: RetentionPolicyWhereUniqueInput[]
+  deleteMany?: RetentionPolicyScalarWhereInput[]
+  updateMany?: RetentionPolicyUpdateManyWithWhereNestedInput[]
+}
+export type RetentionPolicyUpdateManyInputInputObject =
+  | Extract<keyof RetentionPolicyUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface RetentionPolicyUpdateWithWhereUniqueNestedInput {
+  where?: RetentionPolicyWhereUniqueInput
+  data?: RetentionPolicyUpdateDataInput
+}
+export type RetentionPolicyUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof RetentionPolicyUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface RetentionPolicyUpdateDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type RetentionPolicyUpdateDataInputInputObject =
+  | Extract<keyof RetentionPolicyUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface RetentionPolicyUpsertWithWhereUniqueNestedInput {
+  where?: RetentionPolicyWhereUniqueInput
+  update?: RetentionPolicyUpdateDataInput
+  create?: RetentionPolicyCreateInput
+}
+export type RetentionPolicyUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof RetentionPolicyUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface RetentionPolicyScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: RetentionPolicyScalarWhereInput[]
+  OR?: RetentionPolicyScalarWhereInput[]
+  NOT?: RetentionPolicyScalarWhereInput[]
+}
+export type RetentionPolicyScalarWhereInputInputObject =
+  | Extract<keyof RetentionPolicyScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface RetentionPolicyUpdateManyWithWhereNestedInput {
+  where?: RetentionPolicyScalarWhereInput
+  data?: RetentionPolicyUpdateManyDataInput
+}
+export type RetentionPolicyUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof RetentionPolicyUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface RetentionPolicyUpdateManyDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type RetentionPolicyUpdateManyDataInputInputObject =
+  | Extract<keyof RetentionPolicyUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface DataSubjectTypeUpdateManyWithoutDataTypesInput {
+  create?: DataSubjectTypeCreateWithoutDataTypesInput[]
+  delete?: DataSubjectTypeWhereUniqueInput[]
+  connect?: DataSubjectTypeWhereUniqueInput[]
+  set?: DataSubjectTypeWhereUniqueInput[]
+  disconnect?: DataSubjectTypeWhereUniqueInput[]
+  update?: DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput[]
+  upsert?: DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput[]
+  deleteMany?: DataSubjectTypeScalarWhereInput[]
+  updateMany?: DataSubjectTypeUpdateManyWithWhereNestedInput[]
+}
+export type DataSubjectTypeUpdateManyWithoutDataTypesInputInputObject =
+  | Extract<keyof DataSubjectTypeUpdateManyWithoutDataTypesInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -10714,31 +15457,921 @@ export type ApplicationUpdateManyWithoutProcessingActivitiesInputInputObject =
   | { name: 'deleteMany', alias?: string  } 
   | { name: 'updateMany', alias?: string  } 
   
-export interface ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput {
-  where?: ApplicationWhereUniqueInput
-  data?: ApplicationUpdateWithoutProcessingActivitiesDataInput
+export interface DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput {
+  where?: DataSubjectTypeWhereUniqueInput
+  data?: DataSubjectTypeUpdateWithoutDataTypesDataInput
 }
-export type ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInputInputObject =
-  | Extract<keyof ApplicationUpdateWithWhereUniqueWithoutProcessingActivitiesInput, string>
+export type DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInputInputObject =
+  | Extract<keyof DataSubjectTypeUpdateWithWhereUniqueWithoutDataTypesInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface ApplicationUpdateWithoutProcessingActivitiesDataInput {
+export interface DataSubjectTypeUpdateWithoutDataTypesDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type DataSubjectTypeUpdateWithoutDataTypesDataInputInputObject =
+  | Extract<keyof DataSubjectTypeUpdateWithoutDataTypesDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput {
+  where?: DataSubjectTypeWhereUniqueInput
+  update?: DataSubjectTypeUpdateWithoutDataTypesDataInput
+  create?: DataSubjectTypeCreateWithoutDataTypesInput
+}
+export type DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInputInputObject =
+  | Extract<keyof DataSubjectTypeUpsertWithWhereUniqueWithoutDataTypesInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface DataSubjectTypeScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: DataSubjectTypeScalarWhereInput[]
+  OR?: DataSubjectTypeScalarWhereInput[]
+  NOT?: DataSubjectTypeScalarWhereInput[]
+}
+export type DataSubjectTypeScalarWhereInputInputObject =
+  | Extract<keyof DataSubjectTypeScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface DataSubjectTypeUpdateManyWithWhereNestedInput {
+  where?: DataSubjectTypeScalarWhereInput
+  data?: DataSubjectTypeUpdateManyDataInput
+}
+export type DataSubjectTypeUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof DataSubjectTypeUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface DataSubjectTypeUpdateManyDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type DataSubjectTypeUpdateManyDataInputInputObject =
+  | Extract<keyof DataSubjectTypeUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ApplicationUpdateManyWithoutDataTypesInput {
+  create?: ApplicationCreateWithoutDataTypesInput[]
+  delete?: ApplicationWhereUniqueInput[]
+  connect?: ApplicationWhereUniqueInput[]
+  set?: ApplicationWhereUniqueInput[]
+  disconnect?: ApplicationWhereUniqueInput[]
+  update?: ApplicationUpdateWithWhereUniqueWithoutDataTypesInput[]
+  upsert?: ApplicationUpsertWithWhereUniqueWithoutDataTypesInput[]
+  deleteMany?: ApplicationScalarWhereInput[]
+  updateMany?: ApplicationUpdateManyWithWhereNestedInput[]
+}
+export type ApplicationUpdateManyWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationUpdateManyWithoutDataTypesInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ApplicationUpdateWithWhereUniqueWithoutDataTypesInput {
+  where?: ApplicationWhereUniqueInput
+  data?: ApplicationUpdateWithoutDataTypesDataInput
+}
+export type ApplicationUpdateWithWhereUniqueWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationUpdateWithWhereUniqueWithoutDataTypesInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ApplicationUpdateWithoutDataTypesDataInput {
   name?: string | null
   alias?: undefined | null
   description?: string | null
-  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
+  processingActivities?: ProcessingActivityUpdateManyInput | null
   businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
   securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
 }
-export type ApplicationUpdateWithoutProcessingActivitiesDataInputInputObject =
-  | Extract<keyof ApplicationUpdateWithoutProcessingActivitiesDataInput, string>
+export type ApplicationUpdateWithoutDataTypesDataInputInputObject =
+  | Extract<keyof ApplicationUpdateWithoutDataTypesDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'dataTypes', alias?: string  } 
+  | { name: 'processingActivities', alias?: string  } 
   | { name: 'businessOwner', alias?: string  } 
+  | { name: 'itOwner', alias?: string  } 
+  | { name: 'securityAdministrator', alias?: string  } 
+  
+export interface ProcessingActivityUpdateManyInput {
+  create?: ProcessingActivityCreateInput[]
+  update?: ProcessingActivityUpdateWithWhereUniqueNestedInput[]
+  upsert?: ProcessingActivityUpsertWithWhereUniqueNestedInput[]
+  delete?: ProcessingActivityWhereUniqueInput[]
+  connect?: ProcessingActivityWhereUniqueInput[]
+  set?: ProcessingActivityWhereUniqueInput[]
+  disconnect?: ProcessingActivityWhereUniqueInput[]
+  deleteMany?: ProcessingActivityScalarWhereInput[]
+  updateMany?: ProcessingActivityUpdateManyWithWhereNestedInput[]
+}
+export type ProcessingActivityUpdateManyInputInputObject =
+  | Extract<keyof ProcessingActivityUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ProcessingActivityUpdateWithWhereUniqueNestedInput {
+  where?: ProcessingActivityWhereUniqueInput
+  data?: ProcessingActivityUpdateDataInput
+}
+export type ProcessingActivityUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof ProcessingActivityUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ProcessingActivityUpdateDataInput {
+  name?: string | null
+  purpose?: string | null
+  imController?: boolean | null
+  securityMeasures?: string | null
+  legalGroundComment?: string | null
+  profiling?: boolean | null
+  publicSource?: boolean | null
+  linkToDpia?: string | null
+  linkToLia?: string | null
+  recipients?: BusinessPartnerUpdateManyInput | null
+  controllers?: BusinessPartnerUpdateManyInput | null
+  dataTypes?: DataTypeUpdateManyInput | null
+  procesessingTypes?: ProcessingTypeUpdateManyInput | null
+  legalGrounds?: LegalGroundUpdateManyInput | null
+  process?: ProcessUpdateOneWithoutProcessingActivitiesInput | null
+}
+export type ProcessingActivityUpdateDataInputInputObject =
+  | Extract<keyof ProcessingActivityUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'purpose', alias?: string  } 
+  | { name: 'imController', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'legalGroundComment', alias?: string  } 
+  | { name: 'profiling', alias?: string  } 
+  | { name: 'publicSource', alias?: string  } 
+  | { name: 'linkToDpia', alias?: string  } 
+  | { name: 'linkToLia', alias?: string  } 
+  | { name: 'recipients', alias?: string  } 
+  | { name: 'controllers', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
+  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'legalGrounds', alias?: string  } 
+  | { name: 'process', alias?: string  } 
+  
+export interface LegalGroundUpdateManyInput {
+  create?: LegalGroundCreateInput[]
+  update?: LegalGroundUpdateWithWhereUniqueNestedInput[]
+  upsert?: LegalGroundUpsertWithWhereUniqueNestedInput[]
+  delete?: LegalGroundWhereUniqueInput[]
+  connect?: LegalGroundWhereUniqueInput[]
+  set?: LegalGroundWhereUniqueInput[]
+  disconnect?: LegalGroundWhereUniqueInput[]
+  deleteMany?: LegalGroundScalarWhereInput[]
+  updateMany?: LegalGroundUpdateManyWithWhereNestedInput[]
+}
+export type LegalGroundUpdateManyInputInputObject =
+  | Extract<keyof LegalGroundUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface LegalGroundUpdateWithWhereUniqueNestedInput {
+  where?: LegalGroundWhereUniqueInput
+  data?: LegalGroundUpdateDataInput
+}
+export type LegalGroundUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof LegalGroundUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface LegalGroundUpdateDataInput {
+  name?: string | null
+  description?: string | null
+  specialCategoryCondition?: boolean | null
+}
+export type LegalGroundUpdateDataInputInputObject =
+  | Extract<keyof LegalGroundUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'specialCategoryCondition', alias?: string  } 
+  
+export interface LegalGroundUpsertWithWhereUniqueNestedInput {
+  where?: LegalGroundWhereUniqueInput
+  update?: LegalGroundUpdateDataInput
+  create?: LegalGroundCreateInput
+}
+export type LegalGroundUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof LegalGroundUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface LegalGroundScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  specialCategoryCondition?: boolean | null
+  specialCategoryCondition_not?: boolean | null
+  AND?: LegalGroundScalarWhereInput[]
+  OR?: LegalGroundScalarWhereInput[]
+  NOT?: LegalGroundScalarWhereInput[]
+}
+export type LegalGroundScalarWhereInputInputObject =
+  | Extract<keyof LegalGroundScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'specialCategoryCondition', alias?: string  } 
+  | { name: 'specialCategoryCondition_not', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface LegalGroundUpdateManyWithWhereNestedInput {
+  where?: LegalGroundScalarWhereInput
+  data?: LegalGroundUpdateManyDataInput
+}
+export type LegalGroundUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof LegalGroundUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface LegalGroundUpdateManyDataInput {
+  name?: string | null
+  description?: string | null
+  specialCategoryCondition?: boolean | null
+}
+export type LegalGroundUpdateManyDataInputInputObject =
+  | Extract<keyof LegalGroundUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'specialCategoryCondition', alias?: string  } 
+  
+export interface ProcessUpdateOneWithoutProcessingActivitiesInput {
+  create?: ProcessCreateWithoutProcessingActivitiesInput | null
+  update?: ProcessUpdateWithoutProcessingActivitiesDataInput | null
+  upsert?: ProcessUpsertWithoutProcessingActivitiesInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: ProcessWhereUniqueInput | null
+}
+export type ProcessUpdateOneWithoutProcessingActivitiesInputInputObject =
+  | Extract<keyof ProcessUpdateOneWithoutProcessingActivitiesInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProcessUpdateWithoutProcessingActivitiesDataInput {
+  name?: string | null
+  description?: string | null
+  organizationalUnit?: OrganizationalUnitUpdateOneWithoutProcessesInput | null
+  processOwner?: BusinessRoleUpdateOneWithoutProcessInput | null
+}
+export type ProcessUpdateWithoutProcessingActivitiesDataInputInputObject =
+  | Extract<keyof ProcessUpdateWithoutProcessingActivitiesDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'organizationalUnit', alias?: string  } 
+  | { name: 'processOwner', alias?: string  } 
+  
+export interface OrganizationalUnitUpdateOneWithoutProcessesInput {
+  create?: OrganizationalUnitCreateWithoutProcessesInput | null
+  update?: OrganizationalUnitUpdateWithoutProcessesDataInput | null
+  upsert?: OrganizationalUnitUpsertWithoutProcessesInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: OrganizationalUnitWhereUniqueInput | null
+}
+export type OrganizationalUnitUpdateOneWithoutProcessesInputInputObject =
+  | Extract<keyof OrganizationalUnitUpdateOneWithoutProcessesInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface OrganizationalUnitUpdateWithoutProcessesDataInput {
+  name?: string | null
+  description?: string | null
+  children?: OrganizationalUnitUpdateManyWithoutParentInput | null
+  parent?: OrganizationalUnitUpdateOneWithoutChildrenInput | null
+  businessRoles?: BusinessRoleUpdateManyWithoutOrganizationalUnitInput | null
+  organizationalUnitType?: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput | null
+}
+export type OrganizationalUnitUpdateWithoutProcessesDataInputInputObject =
+  | Extract<keyof OrganizationalUnitUpdateWithoutProcessesDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'children', alias?: string  } 
+  | { name: 'parent', alias?: string  } 
+  | { name: 'businessRoles', alias?: string  } 
+  | { name: 'organizationalUnitType', alias?: string  } 
+  
+export interface OrganizationalUnitUpdateOneWithoutChildrenInput {
+  create?: OrganizationalUnitCreateWithoutChildrenInput | null
+  update?: OrganizationalUnitUpdateWithoutChildrenDataInput | null
+  upsert?: OrganizationalUnitUpsertWithoutChildrenInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: OrganizationalUnitWhereUniqueInput | null
+}
+export type OrganizationalUnitUpdateOneWithoutChildrenInputInputObject =
+  | Extract<keyof OrganizationalUnitUpdateOneWithoutChildrenInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface OrganizationalUnitUpdateWithoutChildrenDataInput {
+  name?: string | null
+  description?: string | null
+  parent?: OrganizationalUnitUpdateOneWithoutChildrenInput | null
+  processes?: ProcessUpdateManyWithoutOrganizationalUnitInput | null
+  businessRoles?: BusinessRoleUpdateManyWithoutOrganizationalUnitInput | null
+  organizationalUnitType?: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput | null
+}
+export type OrganizationalUnitUpdateWithoutChildrenDataInputInputObject =
+  | Extract<keyof OrganizationalUnitUpdateWithoutChildrenDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'parent', alias?: string  } 
+  | { name: 'processes', alias?: string  } 
+  | { name: 'businessRoles', alias?: string  } 
+  | { name: 'organizationalUnitType', alias?: string  } 
+  
+export interface BusinessRoleUpdateManyWithoutOrganizationalUnitInput {
+  create?: BusinessRoleCreateWithoutOrganizationalUnitInput[]
+  delete?: BusinessRoleWhereUniqueInput[]
+  connect?: BusinessRoleWhereUniqueInput[]
+  set?: BusinessRoleWhereUniqueInput[]
+  disconnect?: BusinessRoleWhereUniqueInput[]
+  update?: BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput[]
+  upsert?: BusinessRoleUpsertWithWhereUniqueWithoutOrganizationalUnitInput[]
+  deleteMany?: BusinessRoleScalarWhereInput[]
+  updateMany?: BusinessRoleUpdateManyWithWhereNestedInput[]
+}
+export type BusinessRoleUpdateManyWithoutOrganizationalUnitInputInputObject =
+  | Extract<keyof BusinessRoleUpdateManyWithoutOrganizationalUnitInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput {
+  where?: BusinessRoleWhereUniqueInput
+  data?: BusinessRoleUpdateWithoutOrganizationalUnitDataInput
+}
+export type BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInputInputObject =
+  | Extract<keyof BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface BusinessRoleUpdateWithoutOrganizationalUnitDataInput {
+  name?: string | null
+  description?: string | null
+  raciPrivacy?: prisma.RACI | null
+  raciSecurity?: prisma.RACI | null
+  raciFinancial?: prisma.RACI | null
+  raciExecutive?: prisma.RACI | null
+  person?: PersonUpdateOneWithoutRolesInput | null
+  process?: ProcessUpdateManyWithoutProcessOwnerInput | null
+  appBusinessOwner?: ApplicationUpdateManyWithoutBusinessOwnerInput | null
+  appItOwner?: ApplicationUpdateManyWithoutItOwnerInput | null
+  appSecAdmin?: ApplicationUpdateManyWithoutSecurityAdministratorInput | null
+}
+export type BusinessRoleUpdateWithoutOrganizationalUnitDataInputInputObject =
+  | Extract<keyof BusinessRoleUpdateWithoutOrganizationalUnitDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'raciPrivacy', alias?: string  } 
+  | { name: 'raciSecurity', alias?: string  } 
+  | { name: 'raciFinancial', alias?: string  } 
+  | { name: 'raciExecutive', alias?: string  } 
+  | { name: 'person', alias?: string  } 
+  | { name: 'process', alias?: string  } 
+  | { name: 'appBusinessOwner', alias?: string  } 
+  | { name: 'appItOwner', alias?: string  } 
+  | { name: 'appSecAdmin', alias?: string  } 
+  
+export interface PersonUpdateOneWithoutRolesInput {
+  create?: PersonCreateWithoutRolesInput | null
+  update?: PersonUpdateWithoutRolesDataInput | null
+  upsert?: PersonUpsertWithoutRolesInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: PersonWhereUniqueInput | null
+}
+export type PersonUpdateOneWithoutRolesInputInputObject =
+  | Extract<keyof PersonUpdateOneWithoutRolesInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface PersonUpdateWithoutRolesDataInput {
+  name?: string | null
+  surname?: string | null
+  user?: UserUpdateOneWithoutPersonInput | null
+}
+export type PersonUpdateWithoutRolesDataInputInputObject =
+  | Extract<keyof PersonUpdateWithoutRolesDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'surname', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  
+export interface UserUpdateOneWithoutPersonInput {
+  create?: UserCreateWithoutPersonInput | null
+  update?: UserUpdateWithoutPersonDataInput | null
+  upsert?: UserUpsertWithoutPersonInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneWithoutPersonInputInputObject =
+  | Extract<keyof UserUpdateOneWithoutPersonInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateWithoutPersonDataInput {
+  email?: string | null
+  password?: string | null
+  active?: boolean | null
+  specialPermissions?: UserUpdatespecialPermissionsInput | null
+}
+export type UserUpdateWithoutPersonDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutPersonDataInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'active', alias?: string  } 
+  | { name: 'specialPermissions', alias?: string  } 
+  
+export interface UserUpsertWithoutPersonInput {
+  update?: UserUpdateWithoutPersonDataInput
+  create?: UserCreateWithoutPersonInput
+}
+export type UserUpsertWithoutPersonInputInputObject =
+  | Extract<keyof UserUpsertWithoutPersonInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface PersonUpsertWithoutRolesInput {
+  update?: PersonUpdateWithoutRolesDataInput
+  create?: PersonCreateWithoutRolesInput
+}
+export type PersonUpsertWithoutRolesInputInputObject =
+  | Extract<keyof PersonUpsertWithoutRolesInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ProcessUpdateManyWithoutProcessOwnerInput {
+  create?: ProcessCreateWithoutProcessOwnerInput[]
+  delete?: ProcessWhereUniqueInput[]
+  connect?: ProcessWhereUniqueInput[]
+  set?: ProcessWhereUniqueInput[]
+  disconnect?: ProcessWhereUniqueInput[]
+  update?: ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput[]
+  upsert?: ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput[]
+  deleteMany?: ProcessScalarWhereInput[]
+  updateMany?: ProcessUpdateManyWithWhereNestedInput[]
+}
+export type ProcessUpdateManyWithoutProcessOwnerInputInputObject =
+  | Extract<keyof ProcessUpdateManyWithoutProcessOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput {
+  where?: ProcessWhereUniqueInput
+  data?: ProcessUpdateWithoutProcessOwnerDataInput
+}
+export type ProcessUpdateWithWhereUniqueWithoutProcessOwnerInputInputObject =
+  | Extract<keyof ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ProcessUpdateWithoutProcessOwnerDataInput {
+  name?: string | null
+  description?: string | null
+  organizationalUnit?: OrganizationalUnitUpdateOneWithoutProcessesInput | null
+  processingActivities?: ProcessingActivityUpdateManyWithoutProcessInput | null
+}
+export type ProcessUpdateWithoutProcessOwnerDataInputInputObject =
+  | Extract<keyof ProcessUpdateWithoutProcessOwnerDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'organizationalUnit', alias?: string  } 
+  | { name: 'processingActivities', alias?: string  } 
+  
+export interface ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput {
+  where?: ProcessWhereUniqueInput
+  update?: ProcessUpdateWithoutProcessOwnerDataInput
+  create?: ProcessCreateWithoutProcessOwnerInput
+}
+export type ProcessUpsertWithWhereUniqueWithoutProcessOwnerInputInputObject =
+  | Extract<keyof ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ProcessScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: ProcessScalarWhereInput[]
+  OR?: ProcessScalarWhereInput[]
+  NOT?: ProcessScalarWhereInput[]
+}
+export type ProcessScalarWhereInputInputObject =
+  | Extract<keyof ProcessScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ProcessUpdateManyWithWhereNestedInput {
+  where?: ProcessScalarWhereInput
+  data?: ProcessUpdateManyDataInput
+}
+export type ProcessUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ProcessUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ProcessUpdateManyDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type ProcessUpdateManyDataInputInputObject =
+  | Extract<keyof ProcessUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ApplicationUpdateManyWithoutBusinessOwnerInput {
+  create?: ApplicationCreateWithoutBusinessOwnerInput[]
+  delete?: ApplicationWhereUniqueInput[]
+  connect?: ApplicationWhereUniqueInput[]
+  set?: ApplicationWhereUniqueInput[]
+  disconnect?: ApplicationWhereUniqueInput[]
+  update?: ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput[]
+  upsert?: ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput[]
+  deleteMany?: ApplicationScalarWhereInput[]
+  updateMany?: ApplicationUpdateManyWithWhereNestedInput[]
+}
+export type ApplicationUpdateManyWithoutBusinessOwnerInputInputObject =
+  | Extract<keyof ApplicationUpdateManyWithoutBusinessOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput {
+  where?: ApplicationWhereUniqueInput
+  data?: ApplicationUpdateWithoutBusinessOwnerDataInput
+}
+export type ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInputInputObject =
+  | Extract<keyof ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ApplicationUpdateWithoutBusinessOwnerDataInput {
+  name?: string | null
+  alias?: undefined | null
+  description?: string | null
+  processingActivities?: ProcessingActivityUpdateManyInput | null
+  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
+  itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
+  securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
+}
+export type ApplicationUpdateWithoutBusinessOwnerDataInputInputObject =
+  | Extract<keyof ApplicationUpdateWithoutBusinessOwnerDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'alias', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'processingActivities', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
   | { name: 'itOwner', alias?: string  } 
   | { name: 'securityAdministrator', alias?: string  } 
   
@@ -10777,12 +16410,16 @@ export type DataTypeUpdateWithWhereUniqueWithoutApplicationInputInputObject =
 export interface DataTypeUpdateWithoutApplicationDataInput {
   name?: string | null
   description?: string | null
+  retentionPolicy?: RetentionPolicyUpdateManyInput | null
+  dataSubjectType?: DataSubjectTypeUpdateManyWithoutDataTypesInput | null
   classificationLabels?: ClassificationLabelUpdateManyWithoutDataTypeInput | null
 }
 export type DataTypeUpdateWithoutApplicationDataInputInputObject =
   | Extract<keyof DataTypeUpdateWithoutApplicationDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'retentionPolicy', alias?: string  } 
+  | { name: 'dataSubjectType', alias?: string  } 
   | { name: 'classificationLabels', alias?: string  } 
   
 export interface ClassificationLabelUpdateManyWithoutDataTypeInput {
@@ -11133,6 +16770,101 @@ export type DataTypeUpdateManyDataInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   
+export interface BusinessRoleUpdateOneWithoutAppItOwnerInput {
+  create?: BusinessRoleCreateWithoutAppItOwnerInput | null
+  update?: BusinessRoleUpdateWithoutAppItOwnerDataInput | null
+  upsert?: BusinessRoleUpsertWithoutAppItOwnerInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: BusinessRoleWhereUniqueInput | null
+}
+export type BusinessRoleUpdateOneWithoutAppItOwnerInputInputObject =
+  | Extract<keyof BusinessRoleUpdateOneWithoutAppItOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface BusinessRoleUpdateWithoutAppItOwnerDataInput {
+  name?: string | null
+  description?: string | null
+  raciPrivacy?: prisma.RACI | null
+  raciSecurity?: prisma.RACI | null
+  raciFinancial?: prisma.RACI | null
+  raciExecutive?: prisma.RACI | null
+  person?: PersonUpdateOneWithoutRolesInput | null
+  organizationalUnit?: OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput | null
+  process?: ProcessUpdateManyWithoutProcessOwnerInput | null
+  appBusinessOwner?: ApplicationUpdateManyWithoutBusinessOwnerInput | null
+  appSecAdmin?: ApplicationUpdateManyWithoutSecurityAdministratorInput | null
+}
+export type BusinessRoleUpdateWithoutAppItOwnerDataInputInputObject =
+  | Extract<keyof BusinessRoleUpdateWithoutAppItOwnerDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'raciPrivacy', alias?: string  } 
+  | { name: 'raciSecurity', alias?: string  } 
+  | { name: 'raciFinancial', alias?: string  } 
+  | { name: 'raciExecutive', alias?: string  } 
+  | { name: 'person', alias?: string  } 
+  | { name: 'organizationalUnit', alias?: string  } 
+  | { name: 'process', alias?: string  } 
+  | { name: 'appBusinessOwner', alias?: string  } 
+  | { name: 'appSecAdmin', alias?: string  } 
+  
+export interface ApplicationUpdateManyWithoutSecurityAdministratorInput {
+  create?: ApplicationCreateWithoutSecurityAdministratorInput[]
+  delete?: ApplicationWhereUniqueInput[]
+  connect?: ApplicationWhereUniqueInput[]
+  set?: ApplicationWhereUniqueInput[]
+  disconnect?: ApplicationWhereUniqueInput[]
+  update?: ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput[]
+  upsert?: ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput[]
+  deleteMany?: ApplicationScalarWhereInput[]
+  updateMany?: ApplicationUpdateManyWithWhereNestedInput[]
+}
+export type ApplicationUpdateManyWithoutSecurityAdministratorInputInputObject =
+  | Extract<keyof ApplicationUpdateManyWithoutSecurityAdministratorInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput {
+  where?: ApplicationWhereUniqueInput
+  data?: ApplicationUpdateWithoutSecurityAdministratorDataInput
+}
+export type ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInputInputObject =
+  | Extract<keyof ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ApplicationUpdateWithoutSecurityAdministratorDataInput {
+  name?: string | null
+  alias?: undefined | null
+  description?: string | null
+  processingActivities?: ProcessingActivityUpdateManyInput | null
+  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
+  businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
+  itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
+}
+export type ApplicationUpdateWithoutSecurityAdministratorDataInputInputObject =
+  | Extract<keyof ApplicationUpdateWithoutSecurityAdministratorDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'alias', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'processingActivities', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
+  | { name: 'businessOwner', alias?: string  } 
+  | { name: 'itOwner', alias?: string  } 
+  
 export interface BusinessRoleUpdateOneWithoutAppBusinessOwnerInput {
   create?: BusinessRoleCreateWithoutAppBusinessOwnerInput | null
   update?: BusinessRoleUpdateWithoutAppBusinessOwnerDataInput | null
@@ -11177,424 +16909,6 @@ export type BusinessRoleUpdateWithoutAppBusinessOwnerDataInputInputObject =
   | { name: 'appItOwner', alias?: string  } 
   | { name: 'appSecAdmin', alias?: string  } 
   
-export interface PersonUpdateOneWithoutRolesInput {
-  create?: PersonCreateWithoutRolesInput | null
-  update?: PersonUpdateWithoutRolesDataInput | null
-  upsert?: PersonUpsertWithoutRolesInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: PersonWhereUniqueInput | null
-}
-export type PersonUpdateOneWithoutRolesInputInputObject =
-  | Extract<keyof PersonUpdateOneWithoutRolesInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface PersonUpdateWithoutRolesDataInput {
-  name?: string | null
-  surname?: string | null
-  user?: UserUpdateOneWithoutPersonInput | null
-}
-export type PersonUpdateWithoutRolesDataInputInputObject =
-  | Extract<keyof PersonUpdateWithoutRolesDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'surname', alias?: string  } 
-  | { name: 'user', alias?: string  } 
-  
-export interface UserUpdateOneWithoutPersonInput {
-  create?: UserCreateWithoutPersonInput | null
-  update?: UserUpdateWithoutPersonDataInput | null
-  upsert?: UserUpsertWithoutPersonInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserUpdateOneWithoutPersonInputInputObject =
-  | Extract<keyof UserUpdateOneWithoutPersonInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserUpdateWithoutPersonDataInput {
-  email?: string | null
-  password?: string | null
-  active?: boolean | null
-  specialPermissions?: UserUpdatespecialPermissionsInput | null
-}
-export type UserUpdateWithoutPersonDataInputInputObject =
-  | Extract<keyof UserUpdateWithoutPersonDataInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'active', alias?: string  } 
-  | { name: 'specialPermissions', alias?: string  } 
-  
-export interface UserUpsertWithoutPersonInput {
-  update?: UserUpdateWithoutPersonDataInput
-  create?: UserCreateWithoutPersonInput
-}
-export type UserUpsertWithoutPersonInputInputObject =
-  | Extract<keyof UserUpsertWithoutPersonInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface PersonUpsertWithoutRolesInput {
-  update?: PersonUpdateWithoutRolesDataInput
-  create?: PersonCreateWithoutRolesInput
-}
-export type PersonUpsertWithoutRolesInputInputObject =
-  | Extract<keyof PersonUpsertWithoutRolesInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ProcessUpdateManyWithoutProcessOwnerInput {
-  create?: ProcessCreateWithoutProcessOwnerInput[]
-  delete?: ProcessWhereUniqueInput[]
-  connect?: ProcessWhereUniqueInput[]
-  set?: ProcessWhereUniqueInput[]
-  disconnect?: ProcessWhereUniqueInput[]
-  update?: ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput[]
-  upsert?: ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput[]
-  deleteMany?: ProcessScalarWhereInput[]
-  updateMany?: ProcessUpdateManyWithWhereNestedInput[]
-}
-export type ProcessUpdateManyWithoutProcessOwnerInputInputObject =
-  | Extract<keyof ProcessUpdateManyWithoutProcessOwnerInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput {
-  where?: ProcessWhereUniqueInput
-  data?: ProcessUpdateWithoutProcessOwnerDataInput
-}
-export type ProcessUpdateWithWhereUniqueWithoutProcessOwnerInputInputObject =
-  | Extract<keyof ProcessUpdateWithWhereUniqueWithoutProcessOwnerInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ProcessUpdateWithoutProcessOwnerDataInput {
-  name?: string | null
-  description?: string | null
-  organizationalUnit?: OrganizationalUnitUpdateOneWithoutProcessesInput | null
-  processingActivities?: ProcessingActivityUpdateManyWithoutProcessInput | null
-}
-export type ProcessUpdateWithoutProcessOwnerDataInputInputObject =
-  | Extract<keyof ProcessUpdateWithoutProcessOwnerDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'organizationalUnit', alias?: string  } 
-  | { name: 'processingActivities', alias?: string  } 
-  
-export interface OrganizationalUnitUpdateOneWithoutProcessesInput {
-  create?: OrganizationalUnitCreateWithoutProcessesInput | null
-  update?: OrganizationalUnitUpdateWithoutProcessesDataInput | null
-  upsert?: OrganizationalUnitUpsertWithoutProcessesInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: OrganizationalUnitWhereUniqueInput | null
-}
-export type OrganizationalUnitUpdateOneWithoutProcessesInputInputObject =
-  | Extract<keyof OrganizationalUnitUpdateOneWithoutProcessesInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface OrganizationalUnitUpdateWithoutProcessesDataInput {
-  name?: string | null
-  description?: string | null
-  children?: OrganizationalUnitUpdateManyWithoutParentInput | null
-  parent?: OrganizationalUnitUpdateOneWithoutChildrenInput | null
-  businessRoles?: BusinessRoleUpdateManyWithoutOrganizationalUnitInput | null
-  organizationalUnitType?: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput | null
-}
-export type OrganizationalUnitUpdateWithoutProcessesDataInputInputObject =
-  | Extract<keyof OrganizationalUnitUpdateWithoutProcessesDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'children', alias?: string  } 
-  | { name: 'parent', alias?: string  } 
-  | { name: 'businessRoles', alias?: string  } 
-  | { name: 'organizationalUnitType', alias?: string  } 
-  
-export interface OrganizationalUnitUpdateOneWithoutChildrenInput {
-  create?: OrganizationalUnitCreateWithoutChildrenInput | null
-  update?: OrganizationalUnitUpdateWithoutChildrenDataInput | null
-  upsert?: OrganizationalUnitUpsertWithoutChildrenInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: OrganizationalUnitWhereUniqueInput | null
-}
-export type OrganizationalUnitUpdateOneWithoutChildrenInputInputObject =
-  | Extract<keyof OrganizationalUnitUpdateOneWithoutChildrenInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface OrganizationalUnitUpdateWithoutChildrenDataInput {
-  name?: string | null
-  description?: string | null
-  parent?: OrganizationalUnitUpdateOneWithoutChildrenInput | null
-  processes?: ProcessUpdateManyWithoutOrganizationalUnitInput | null
-  businessRoles?: BusinessRoleUpdateManyWithoutOrganizationalUnitInput | null
-  organizationalUnitType?: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput | null
-}
-export type OrganizationalUnitUpdateWithoutChildrenDataInputInputObject =
-  | Extract<keyof OrganizationalUnitUpdateWithoutChildrenDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'parent', alias?: string  } 
-  | { name: 'processes', alias?: string  } 
-  | { name: 'businessRoles', alias?: string  } 
-  | { name: 'organizationalUnitType', alias?: string  } 
-  
-export interface BusinessRoleUpdateManyWithoutOrganizationalUnitInput {
-  create?: BusinessRoleCreateWithoutOrganizationalUnitInput[]
-  delete?: BusinessRoleWhereUniqueInput[]
-  connect?: BusinessRoleWhereUniqueInput[]
-  set?: BusinessRoleWhereUniqueInput[]
-  disconnect?: BusinessRoleWhereUniqueInput[]
-  update?: BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput[]
-  upsert?: BusinessRoleUpsertWithWhereUniqueWithoutOrganizationalUnitInput[]
-  deleteMany?: BusinessRoleScalarWhereInput[]
-  updateMany?: BusinessRoleUpdateManyWithWhereNestedInput[]
-}
-export type BusinessRoleUpdateManyWithoutOrganizationalUnitInputInputObject =
-  | Extract<keyof BusinessRoleUpdateManyWithoutOrganizationalUnitInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput {
-  where?: BusinessRoleWhereUniqueInput
-  data?: BusinessRoleUpdateWithoutOrganizationalUnitDataInput
-}
-export type BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInputInputObject =
-  | Extract<keyof BusinessRoleUpdateWithWhereUniqueWithoutOrganizationalUnitInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface BusinessRoleUpdateWithoutOrganizationalUnitDataInput {
-  name?: string | null
-  description?: string | null
-  raciPrivacy?: prisma.RACI | null
-  raciSecurity?: prisma.RACI | null
-  raciFinancial?: prisma.RACI | null
-  raciExecutive?: prisma.RACI | null
-  person?: PersonUpdateOneWithoutRolesInput | null
-  process?: ProcessUpdateManyWithoutProcessOwnerInput | null
-  appBusinessOwner?: ApplicationUpdateManyWithoutBusinessOwnerInput | null
-  appItOwner?: ApplicationUpdateManyWithoutItOwnerInput | null
-  appSecAdmin?: ApplicationUpdateManyWithoutSecurityAdministratorInput | null
-}
-export type BusinessRoleUpdateWithoutOrganizationalUnitDataInputInputObject =
-  | Extract<keyof BusinessRoleUpdateWithoutOrganizationalUnitDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'raciPrivacy', alias?: string  } 
-  | { name: 'raciSecurity', alias?: string  } 
-  | { name: 'raciFinancial', alias?: string  } 
-  | { name: 'raciExecutive', alias?: string  } 
-  | { name: 'person', alias?: string  } 
-  | { name: 'process', alias?: string  } 
-  | { name: 'appBusinessOwner', alias?: string  } 
-  | { name: 'appItOwner', alias?: string  } 
-  | { name: 'appSecAdmin', alias?: string  } 
-  
-export interface ApplicationUpdateManyWithoutBusinessOwnerInput {
-  create?: ApplicationCreateWithoutBusinessOwnerInput[]
-  delete?: ApplicationWhereUniqueInput[]
-  connect?: ApplicationWhereUniqueInput[]
-  set?: ApplicationWhereUniqueInput[]
-  disconnect?: ApplicationWhereUniqueInput[]
-  update?: ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput[]
-  upsert?: ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput[]
-  deleteMany?: ApplicationScalarWhereInput[]
-  updateMany?: ApplicationUpdateManyWithWhereNestedInput[]
-}
-export type ApplicationUpdateManyWithoutBusinessOwnerInputInputObject =
-  | Extract<keyof ApplicationUpdateManyWithoutBusinessOwnerInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput {
-  where?: ApplicationWhereUniqueInput
-  data?: ApplicationUpdateWithoutBusinessOwnerDataInput
-}
-export type ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInputInputObject =
-  | Extract<keyof ApplicationUpdateWithWhereUniqueWithoutBusinessOwnerInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ApplicationUpdateWithoutBusinessOwnerDataInput {
-  name?: string | null
-  alias?: undefined | null
-  description?: string | null
-  processingActivities?: ProcessingActivityUpdateManyWithoutApplicationsInput | null
-  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
-  itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
-  securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
-}
-export type ApplicationUpdateWithoutBusinessOwnerDataInputInputObject =
-  | Extract<keyof ApplicationUpdateWithoutBusinessOwnerDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataTypes', alias?: string  } 
-  | { name: 'itOwner', alias?: string  } 
-  | { name: 'securityAdministrator', alias?: string  } 
-  
-export interface ProcessingActivityUpdateManyWithoutApplicationsInput {
-  create?: ProcessingActivityCreateWithoutApplicationsInput[]
-  delete?: ProcessingActivityWhereUniqueInput[]
-  connect?: ProcessingActivityWhereUniqueInput[]
-  set?: ProcessingActivityWhereUniqueInput[]
-  disconnect?: ProcessingActivityWhereUniqueInput[]
-  update?: ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput[]
-  upsert?: ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput[]
-  deleteMany?: ProcessingActivityScalarWhereInput[]
-  updateMany?: ProcessingActivityUpdateManyWithWhereNestedInput[]
-}
-export type ProcessingActivityUpdateManyWithoutApplicationsInputInputObject =
-  | Extract<keyof ProcessingActivityUpdateManyWithoutApplicationsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput {
-  where?: ProcessingActivityWhereUniqueInput
-  data?: ProcessingActivityUpdateWithoutApplicationsDataInput
-}
-export type ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInputInputObject =
-  | Extract<keyof ProcessingActivityUpdateWithWhereUniqueWithoutApplicationsInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ProcessingActivityUpdateWithoutApplicationsDataInput {
-  name?: string | null
-  description?: string | null
-  purpose?: string | null
-  process?: ProcessUpdateOneWithoutProcessingActivitiesInput | null
-}
-export type ProcessingActivityUpdateWithoutApplicationsDataInputInputObject =
-  | Extract<keyof ProcessingActivityUpdateWithoutApplicationsDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'purpose', alias?: string  } 
-  | { name: 'process', alias?: string  } 
-  
-export interface ProcessUpdateOneWithoutProcessingActivitiesInput {
-  create?: ProcessCreateWithoutProcessingActivitiesInput | null
-  update?: ProcessUpdateWithoutProcessingActivitiesDataInput | null
-  upsert?: ProcessUpsertWithoutProcessingActivitiesInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: ProcessWhereUniqueInput | null
-}
-export type ProcessUpdateOneWithoutProcessingActivitiesInputInputObject =
-  | Extract<keyof ProcessUpdateOneWithoutProcessingActivitiesInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ProcessUpdateWithoutProcessingActivitiesDataInput {
-  name?: string | null
-  description?: string | null
-  organizationalUnit?: OrganizationalUnitUpdateOneWithoutProcessesInput | null
-  processOwner?: BusinessRoleUpdateOneWithoutProcessInput | null
-}
-export type ProcessUpdateWithoutProcessingActivitiesDataInputInputObject =
-  | Extract<keyof ProcessUpdateWithoutProcessingActivitiesDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'organizationalUnit', alias?: string  } 
-  | { name: 'processOwner', alias?: string  } 
-  
-export interface BusinessRoleUpdateOneWithoutProcessInput {
-  create?: BusinessRoleCreateWithoutProcessInput | null
-  update?: BusinessRoleUpdateWithoutProcessDataInput | null
-  upsert?: BusinessRoleUpsertWithoutProcessInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: BusinessRoleWhereUniqueInput | null
-}
-export type BusinessRoleUpdateOneWithoutProcessInputInputObject =
-  | Extract<keyof BusinessRoleUpdateOneWithoutProcessInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface BusinessRoleUpdateWithoutProcessDataInput {
-  name?: string | null
-  description?: string | null
-  raciPrivacy?: prisma.RACI | null
-  raciSecurity?: prisma.RACI | null
-  raciFinancial?: prisma.RACI | null
-  raciExecutive?: prisma.RACI | null
-  person?: PersonUpdateOneWithoutRolesInput | null
-  organizationalUnit?: OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput | null
-  appBusinessOwner?: ApplicationUpdateManyWithoutBusinessOwnerInput | null
-  appItOwner?: ApplicationUpdateManyWithoutItOwnerInput | null
-  appSecAdmin?: ApplicationUpdateManyWithoutSecurityAdministratorInput | null
-}
-export type BusinessRoleUpdateWithoutProcessDataInputInputObject =
-  | Extract<keyof BusinessRoleUpdateWithoutProcessDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'raciPrivacy', alias?: string  } 
-  | { name: 'raciSecurity', alias?: string  } 
-  | { name: 'raciFinancial', alias?: string  } 
-  | { name: 'raciExecutive', alias?: string  } 
-  | { name: 'person', alias?: string  } 
-  | { name: 'organizationalUnit', alias?: string  } 
-  | { name: 'appBusinessOwner', alias?: string  } 
-  | { name: 'appItOwner', alias?: string  } 
-  | { name: 'appSecAdmin', alias?: string  } 
-  
 export interface ApplicationUpdateManyWithoutItOwnerInput {
   create?: ApplicationCreateWithoutItOwnerInput[]
   delete?: ApplicationWhereUniqueInput[]
@@ -11631,7 +16945,7 @@ export interface ApplicationUpdateWithoutItOwnerDataInput {
   name?: string | null
   alias?: undefined | null
   description?: string | null
-  processingActivities?: ProcessingActivityUpdateManyWithoutApplicationsInput | null
+  processingActivities?: ProcessingActivityUpdateManyInput | null
   dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
   securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
@@ -11825,107 +17139,12 @@ export type ApplicationUpdateManyDataInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   
-export interface ApplicationUpdateManyWithoutSecurityAdministratorInput {
-  create?: ApplicationCreateWithoutSecurityAdministratorInput[]
-  delete?: ApplicationWhereUniqueInput[]
-  connect?: ApplicationWhereUniqueInput[]
-  set?: ApplicationWhereUniqueInput[]
-  disconnect?: ApplicationWhereUniqueInput[]
-  update?: ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput[]
-  upsert?: ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInput[]
-  deleteMany?: ApplicationScalarWhereInput[]
-  updateMany?: ApplicationUpdateManyWithWhereNestedInput[]
+export interface BusinessRoleUpsertWithoutAppBusinessOwnerInput {
+  update?: BusinessRoleUpdateWithoutAppBusinessOwnerDataInput
+  create?: BusinessRoleCreateWithoutAppBusinessOwnerInput
 }
-export type ApplicationUpdateManyWithoutSecurityAdministratorInputInputObject =
-  | Extract<keyof ApplicationUpdateManyWithoutSecurityAdministratorInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput {
-  where?: ApplicationWhereUniqueInput
-  data?: ApplicationUpdateWithoutSecurityAdministratorDataInput
-}
-export type ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInputInputObject =
-  | Extract<keyof ApplicationUpdateWithWhereUniqueWithoutSecurityAdministratorInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ApplicationUpdateWithoutSecurityAdministratorDataInput {
-  name?: string | null
-  alias?: undefined | null
-  description?: string | null
-  processingActivities?: ProcessingActivityUpdateManyWithoutApplicationsInput | null
-  dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
-  businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
-  itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
-}
-export type ApplicationUpdateWithoutSecurityAdministratorDataInputInputObject =
-  | Extract<keyof ApplicationUpdateWithoutSecurityAdministratorDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'processingActivities', alias?: string  } 
-  | { name: 'dataTypes', alias?: string  } 
-  | { name: 'businessOwner', alias?: string  } 
-  | { name: 'itOwner', alias?: string  } 
-  
-export interface BusinessRoleUpdateOneWithoutAppItOwnerInput {
-  create?: BusinessRoleCreateWithoutAppItOwnerInput | null
-  update?: BusinessRoleUpdateWithoutAppItOwnerDataInput | null
-  upsert?: BusinessRoleUpsertWithoutAppItOwnerInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: BusinessRoleWhereUniqueInput | null
-}
-export type BusinessRoleUpdateOneWithoutAppItOwnerInputInputObject =
-  | Extract<keyof BusinessRoleUpdateOneWithoutAppItOwnerInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface BusinessRoleUpdateWithoutAppItOwnerDataInput {
-  name?: string | null
-  description?: string | null
-  raciPrivacy?: prisma.RACI | null
-  raciSecurity?: prisma.RACI | null
-  raciFinancial?: prisma.RACI | null
-  raciExecutive?: prisma.RACI | null
-  person?: PersonUpdateOneWithoutRolesInput | null
-  organizationalUnit?: OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput | null
-  process?: ProcessUpdateManyWithoutProcessOwnerInput | null
-  appBusinessOwner?: ApplicationUpdateManyWithoutBusinessOwnerInput | null
-  appSecAdmin?: ApplicationUpdateManyWithoutSecurityAdministratorInput | null
-}
-export type BusinessRoleUpdateWithoutAppItOwnerDataInputInputObject =
-  | Extract<keyof BusinessRoleUpdateWithoutAppItOwnerDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'raciPrivacy', alias?: string  } 
-  | { name: 'raciSecurity', alias?: string  } 
-  | { name: 'raciFinancial', alias?: string  } 
-  | { name: 'raciExecutive', alias?: string  } 
-  | { name: 'person', alias?: string  } 
-  | { name: 'organizationalUnit', alias?: string  } 
-  | { name: 'process', alias?: string  } 
-  | { name: 'appBusinessOwner', alias?: string  } 
-  | { name: 'appSecAdmin', alias?: string  } 
-  
-export interface BusinessRoleUpsertWithoutAppItOwnerInput {
-  update?: BusinessRoleUpdateWithoutAppItOwnerDataInput
-  create?: BusinessRoleCreateWithoutAppItOwnerInput
-}
-export type BusinessRoleUpsertWithoutAppItOwnerInputInputObject =
-  | Extract<keyof BusinessRoleUpsertWithoutAppItOwnerInput, string>
+export type BusinessRoleUpsertWithoutAppBusinessOwnerInputInputObject =
+  | Extract<keyof BusinessRoleUpsertWithoutAppBusinessOwnerInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
@@ -11940,209 +17159,14 @@ export type ApplicationUpsertWithWhereUniqueWithoutSecurityAdministratorInputInp
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface BusinessRoleUpsertWithoutProcessInput {
-  update?: BusinessRoleUpdateWithoutProcessDataInput
-  create?: BusinessRoleCreateWithoutProcessInput
+export interface BusinessRoleUpsertWithoutAppItOwnerInput {
+  update?: BusinessRoleUpdateWithoutAppItOwnerDataInput
+  create?: BusinessRoleCreateWithoutAppItOwnerInput
 }
-export type BusinessRoleUpsertWithoutProcessInputInputObject =
-  | Extract<keyof BusinessRoleUpsertWithoutProcessInput, string>
+export type BusinessRoleUpsertWithoutAppItOwnerInputInputObject =
+  | Extract<keyof BusinessRoleUpsertWithoutAppItOwnerInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
-  
-export interface ProcessUpsertWithoutProcessingActivitiesInput {
-  update?: ProcessUpdateWithoutProcessingActivitiesDataInput
-  create?: ProcessCreateWithoutProcessingActivitiesInput
-}
-export type ProcessUpsertWithoutProcessingActivitiesInputInputObject =
-  | Extract<keyof ProcessUpsertWithoutProcessingActivitiesInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput {
-  where?: ProcessingActivityWhereUniqueInput
-  update?: ProcessingActivityUpdateWithoutApplicationsDataInput
-  create?: ProcessingActivityCreateWithoutApplicationsInput
-}
-export type ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInputInputObject =
-  | Extract<keyof ProcessingActivityUpsertWithWhereUniqueWithoutApplicationsInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ProcessingActivityScalarWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
-  description?: string | null
-  description_not?: string | null
-  description_in?: string[]
-  description_not_in?: string[]
-  description_lt?: string | null
-  description_lte?: string | null
-  description_gt?: string | null
-  description_gte?: string | null
-  description_contains?: string | null
-  description_not_contains?: string | null
-  description_starts_with?: string | null
-  description_not_starts_with?: string | null
-  description_ends_with?: string | null
-  description_not_ends_with?: string | null
-  purpose?: string | null
-  purpose_not?: string | null
-  purpose_in?: string[]
-  purpose_not_in?: string[]
-  purpose_lt?: string | null
-  purpose_lte?: string | null
-  purpose_gt?: string | null
-  purpose_gte?: string | null
-  purpose_contains?: string | null
-  purpose_not_contains?: string | null
-  purpose_starts_with?: string | null
-  purpose_not_starts_with?: string | null
-  purpose_ends_with?: string | null
-  purpose_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
-  AND?: ProcessingActivityScalarWhereInput[]
-  OR?: ProcessingActivityScalarWhereInput[]
-  NOT?: ProcessingActivityScalarWhereInput[]
-}
-export type ProcessingActivityScalarWhereInputInputObject =
-  | Extract<keyof ProcessingActivityScalarWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'description_not', alias?: string  } 
-  | { name: 'description_in', alias?: string  } 
-  | { name: 'description_not_in', alias?: string  } 
-  | { name: 'description_lt', alias?: string  } 
-  | { name: 'description_lte', alias?: string  } 
-  | { name: 'description_gt', alias?: string  } 
-  | { name: 'description_gte', alias?: string  } 
-  | { name: 'description_contains', alias?: string  } 
-  | { name: 'description_not_contains', alias?: string  } 
-  | { name: 'description_starts_with', alias?: string  } 
-  | { name: 'description_not_starts_with', alias?: string  } 
-  | { name: 'description_ends_with', alias?: string  } 
-  | { name: 'description_not_ends_with', alias?: string  } 
-  | { name: 'purpose', alias?: string  } 
-  | { name: 'purpose_not', alias?: string  } 
-  | { name: 'purpose_in', alias?: string  } 
-  | { name: 'purpose_not_in', alias?: string  } 
-  | { name: 'purpose_lt', alias?: string  } 
-  | { name: 'purpose_lte', alias?: string  } 
-  | { name: 'purpose_gt', alias?: string  } 
-  | { name: 'purpose_gte', alias?: string  } 
-  | { name: 'purpose_contains', alias?: string  } 
-  | { name: 'purpose_not_contains', alias?: string  } 
-  | { name: 'purpose_starts_with', alias?: string  } 
-  | { name: 'purpose_not_starts_with', alias?: string  } 
-  | { name: 'purpose_ends_with', alias?: string  } 
-  | { name: 'purpose_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface ProcessingActivityUpdateManyWithWhereNestedInput {
-  where?: ProcessingActivityScalarWhereInput
-  data?: ProcessingActivityUpdateManyDataInput
-}
-export type ProcessingActivityUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof ProcessingActivityUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ProcessingActivityUpdateManyDataInput {
-  name?: string | null
-  description?: string | null
-  purpose?: string | null
-}
-export type ProcessingActivityUpdateManyDataInputInputObject =
-  | Extract<keyof ProcessingActivityUpdateManyDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'purpose', alias?: string  } 
   
 export interface ApplicationUpsertWithWhereUniqueWithoutBusinessOwnerInput {
   where?: ApplicationWhereUniqueInput
@@ -12374,18 +17398,80 @@ export type OrganizationalUnitUpsertWithoutProcessesInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput {
-  where?: ProcessWhereUniqueInput
-  update?: ProcessUpdateWithoutProcessOwnerDataInput
-  create?: ProcessCreateWithoutProcessOwnerInput
+export interface BusinessRoleUpdateOneWithoutProcessInput {
+  create?: BusinessRoleCreateWithoutProcessInput | null
+  update?: BusinessRoleUpdateWithoutProcessDataInput | null
+  upsert?: BusinessRoleUpsertWithoutProcessInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: BusinessRoleWhereUniqueInput | null
 }
-export type ProcessUpsertWithWhereUniqueWithoutProcessOwnerInputInputObject =
-  | Extract<keyof ProcessUpsertWithWhereUniqueWithoutProcessOwnerInput, string>
+export type BusinessRoleUpdateOneWithoutProcessInputInputObject =
+  | Extract<keyof BusinessRoleUpdateOneWithoutProcessInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface BusinessRoleUpdateWithoutProcessDataInput {
+  name?: string | null
+  description?: string | null
+  raciPrivacy?: prisma.RACI | null
+  raciSecurity?: prisma.RACI | null
+  raciFinancial?: prisma.RACI | null
+  raciExecutive?: prisma.RACI | null
+  person?: PersonUpdateOneWithoutRolesInput | null
+  organizationalUnit?: OrganizationalUnitUpdateOneRequiredWithoutBusinessRolesInput | null
+  appBusinessOwner?: ApplicationUpdateManyWithoutBusinessOwnerInput | null
+  appItOwner?: ApplicationUpdateManyWithoutItOwnerInput | null
+  appSecAdmin?: ApplicationUpdateManyWithoutSecurityAdministratorInput | null
+}
+export type BusinessRoleUpdateWithoutProcessDataInputInputObject =
+  | Extract<keyof BusinessRoleUpdateWithoutProcessDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'raciPrivacy', alias?: string  } 
+  | { name: 'raciSecurity', alias?: string  } 
+  | { name: 'raciFinancial', alias?: string  } 
+  | { name: 'raciExecutive', alias?: string  } 
+  | { name: 'person', alias?: string  } 
+  | { name: 'organizationalUnit', alias?: string  } 
+  | { name: 'appBusinessOwner', alias?: string  } 
+  | { name: 'appItOwner', alias?: string  } 
+  | { name: 'appSecAdmin', alias?: string  } 
+  
+export interface BusinessRoleUpsertWithoutProcessInput {
+  update?: BusinessRoleUpdateWithoutProcessDataInput
+  create?: BusinessRoleCreateWithoutProcessInput
+}
+export type BusinessRoleUpsertWithoutProcessInputInputObject =
+  | Extract<keyof BusinessRoleUpsertWithoutProcessInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ProcessUpsertWithoutProcessingActivitiesInput {
+  update?: ProcessUpdateWithoutProcessingActivitiesDataInput
+  create?: ProcessCreateWithoutProcessingActivitiesInput
+}
+export type ProcessUpsertWithoutProcessingActivitiesInputInputObject =
+  | Extract<keyof ProcessUpsertWithoutProcessingActivitiesInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ProcessingActivityUpsertWithWhereUniqueNestedInput {
+  where?: ProcessingActivityWhereUniqueInput
+  update?: ProcessingActivityUpdateDataInput
+  create?: ProcessingActivityCreateInput
+}
+export type ProcessingActivityUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof ProcessingActivityUpsertWithWhereUniqueNestedInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface ProcessScalarWhereInput {
+export interface ProcessingActivityScalarWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -12414,20 +17500,82 @@ export interface ProcessScalarWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
-  description?: string | null
-  description_not?: string | null
-  description_in?: string[]
-  description_not_in?: string[]
-  description_lt?: string | null
-  description_lte?: string | null
-  description_gt?: string | null
-  description_gte?: string | null
-  description_contains?: string | null
-  description_not_contains?: string | null
-  description_starts_with?: string | null
-  description_not_starts_with?: string | null
-  description_ends_with?: string | null
-  description_not_ends_with?: string | null
+  purpose?: string | null
+  purpose_not?: string | null
+  purpose_in?: string[]
+  purpose_not_in?: string[]
+  purpose_lt?: string | null
+  purpose_lte?: string | null
+  purpose_gt?: string | null
+  purpose_gte?: string | null
+  purpose_contains?: string | null
+  purpose_not_contains?: string | null
+  purpose_starts_with?: string | null
+  purpose_not_starts_with?: string | null
+  purpose_ends_with?: string | null
+  purpose_not_ends_with?: string | null
+  imController?: boolean | null
+  imController_not?: boolean | null
+  securityMeasures?: string | null
+  securityMeasures_not?: string | null
+  securityMeasures_in?: string[]
+  securityMeasures_not_in?: string[]
+  securityMeasures_lt?: string | null
+  securityMeasures_lte?: string | null
+  securityMeasures_gt?: string | null
+  securityMeasures_gte?: string | null
+  securityMeasures_contains?: string | null
+  securityMeasures_not_contains?: string | null
+  securityMeasures_starts_with?: string | null
+  securityMeasures_not_starts_with?: string | null
+  securityMeasures_ends_with?: string | null
+  securityMeasures_not_ends_with?: string | null
+  legalGroundComment?: string | null
+  legalGroundComment_not?: string | null
+  legalGroundComment_in?: string[]
+  legalGroundComment_not_in?: string[]
+  legalGroundComment_lt?: string | null
+  legalGroundComment_lte?: string | null
+  legalGroundComment_gt?: string | null
+  legalGroundComment_gte?: string | null
+  legalGroundComment_contains?: string | null
+  legalGroundComment_not_contains?: string | null
+  legalGroundComment_starts_with?: string | null
+  legalGroundComment_not_starts_with?: string | null
+  legalGroundComment_ends_with?: string | null
+  legalGroundComment_not_ends_with?: string | null
+  profiling?: boolean | null
+  profiling_not?: boolean | null
+  publicSource?: boolean | null
+  publicSource_not?: boolean | null
+  linkToDpia?: string | null
+  linkToDpia_not?: string | null
+  linkToDpia_in?: string[]
+  linkToDpia_not_in?: string[]
+  linkToDpia_lt?: string | null
+  linkToDpia_lte?: string | null
+  linkToDpia_gt?: string | null
+  linkToDpia_gte?: string | null
+  linkToDpia_contains?: string | null
+  linkToDpia_not_contains?: string | null
+  linkToDpia_starts_with?: string | null
+  linkToDpia_not_starts_with?: string | null
+  linkToDpia_ends_with?: string | null
+  linkToDpia_not_ends_with?: string | null
+  linkToLia?: string | null
+  linkToLia_not?: string | null
+  linkToLia_in?: string[]
+  linkToLia_not_in?: string[]
+  linkToLia_lt?: string | null
+  linkToLia_lte?: string | null
+  linkToLia_gt?: string | null
+  linkToLia_gte?: string | null
+  linkToLia_contains?: string | null
+  linkToLia_not_contains?: string | null
+  linkToLia_starts_with?: string | null
+  linkToLia_not_starts_with?: string | null
+  linkToLia_ends_with?: string | null
+  linkToLia_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -12444,12 +17592,12 @@ export interface ProcessScalarWhereInput {
   updatedAt_lte?: string | null
   updatedAt_gt?: string | null
   updatedAt_gte?: string | null
-  AND?: ProcessScalarWhereInput[]
-  OR?: ProcessScalarWhereInput[]
-  NOT?: ProcessScalarWhereInput[]
+  AND?: ProcessingActivityScalarWhereInput[]
+  OR?: ProcessingActivityScalarWhereInput[]
+  NOT?: ProcessingActivityScalarWhereInput[]
 }
-export type ProcessScalarWhereInputInputObject =
-  | Extract<keyof ProcessScalarWhereInput, string>
+export type ProcessingActivityScalarWhereInputInputObject =
+  | Extract<keyof ProcessingActivityScalarWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -12478,20 +17626,82 @@ export type ProcessScalarWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'description_not', alias?: string  } 
-  | { name: 'description_in', alias?: string  } 
-  | { name: 'description_not_in', alias?: string  } 
-  | { name: 'description_lt', alias?: string  } 
-  | { name: 'description_lte', alias?: string  } 
-  | { name: 'description_gt', alias?: string  } 
-  | { name: 'description_gte', alias?: string  } 
-  | { name: 'description_contains', alias?: string  } 
-  | { name: 'description_not_contains', alias?: string  } 
-  | { name: 'description_starts_with', alias?: string  } 
-  | { name: 'description_not_starts_with', alias?: string  } 
-  | { name: 'description_ends_with', alias?: string  } 
-  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'purpose', alias?: string  } 
+  | { name: 'purpose_not', alias?: string  } 
+  | { name: 'purpose_in', alias?: string  } 
+  | { name: 'purpose_not_in', alias?: string  } 
+  | { name: 'purpose_lt', alias?: string  } 
+  | { name: 'purpose_lte', alias?: string  } 
+  | { name: 'purpose_gt', alias?: string  } 
+  | { name: 'purpose_gte', alias?: string  } 
+  | { name: 'purpose_contains', alias?: string  } 
+  | { name: 'purpose_not_contains', alias?: string  } 
+  | { name: 'purpose_starts_with', alias?: string  } 
+  | { name: 'purpose_not_starts_with', alias?: string  } 
+  | { name: 'purpose_ends_with', alias?: string  } 
+  | { name: 'purpose_not_ends_with', alias?: string  } 
+  | { name: 'imController', alias?: string  } 
+  | { name: 'imController_not', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'securityMeasures_not', alias?: string  } 
+  | { name: 'securityMeasures_in', alias?: string  } 
+  | { name: 'securityMeasures_not_in', alias?: string  } 
+  | { name: 'securityMeasures_lt', alias?: string  } 
+  | { name: 'securityMeasures_lte', alias?: string  } 
+  | { name: 'securityMeasures_gt', alias?: string  } 
+  | { name: 'securityMeasures_gte', alias?: string  } 
+  | { name: 'securityMeasures_contains', alias?: string  } 
+  | { name: 'securityMeasures_not_contains', alias?: string  } 
+  | { name: 'securityMeasures_starts_with', alias?: string  } 
+  | { name: 'securityMeasures_not_starts_with', alias?: string  } 
+  | { name: 'securityMeasures_ends_with', alias?: string  } 
+  | { name: 'securityMeasures_not_ends_with', alias?: string  } 
+  | { name: 'legalGroundComment', alias?: string  } 
+  | { name: 'legalGroundComment_not', alias?: string  } 
+  | { name: 'legalGroundComment_in', alias?: string  } 
+  | { name: 'legalGroundComment_not_in', alias?: string  } 
+  | { name: 'legalGroundComment_lt', alias?: string  } 
+  | { name: 'legalGroundComment_lte', alias?: string  } 
+  | { name: 'legalGroundComment_gt', alias?: string  } 
+  | { name: 'legalGroundComment_gte', alias?: string  } 
+  | { name: 'legalGroundComment_contains', alias?: string  } 
+  | { name: 'legalGroundComment_not_contains', alias?: string  } 
+  | { name: 'legalGroundComment_starts_with', alias?: string  } 
+  | { name: 'legalGroundComment_not_starts_with', alias?: string  } 
+  | { name: 'legalGroundComment_ends_with', alias?: string  } 
+  | { name: 'legalGroundComment_not_ends_with', alias?: string  } 
+  | { name: 'profiling', alias?: string  } 
+  | { name: 'profiling_not', alias?: string  } 
+  | { name: 'publicSource', alias?: string  } 
+  | { name: 'publicSource_not', alias?: string  } 
+  | { name: 'linkToDpia', alias?: string  } 
+  | { name: 'linkToDpia_not', alias?: string  } 
+  | { name: 'linkToDpia_in', alias?: string  } 
+  | { name: 'linkToDpia_not_in', alias?: string  } 
+  | { name: 'linkToDpia_lt', alias?: string  } 
+  | { name: 'linkToDpia_lte', alias?: string  } 
+  | { name: 'linkToDpia_gt', alias?: string  } 
+  | { name: 'linkToDpia_gte', alias?: string  } 
+  | { name: 'linkToDpia_contains', alias?: string  } 
+  | { name: 'linkToDpia_not_contains', alias?: string  } 
+  | { name: 'linkToDpia_starts_with', alias?: string  } 
+  | { name: 'linkToDpia_not_starts_with', alias?: string  } 
+  | { name: 'linkToDpia_ends_with', alias?: string  } 
+  | { name: 'linkToDpia_not_ends_with', alias?: string  } 
+  | { name: 'linkToLia', alias?: string  } 
+  | { name: 'linkToLia_not', alias?: string  } 
+  | { name: 'linkToLia_in', alias?: string  } 
+  | { name: 'linkToLia_not_in', alias?: string  } 
+  | { name: 'linkToLia_lt', alias?: string  } 
+  | { name: 'linkToLia_lte', alias?: string  } 
+  | { name: 'linkToLia_gt', alias?: string  } 
+  | { name: 'linkToLia_gte', alias?: string  } 
+  | { name: 'linkToLia_contains', alias?: string  } 
+  | { name: 'linkToLia_not_contains', alias?: string  } 
+  | { name: 'linkToLia_starts_with', alias?: string  } 
+  | { name: 'linkToLia_not_starts_with', alias?: string  } 
+  | { name: 'linkToLia_ends_with', alias?: string  } 
+  | { name: 'linkToLia_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -12512,40 +17722,56 @@ export type ProcessScalarWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface ProcessUpdateManyWithWhereNestedInput {
-  where?: ProcessScalarWhereInput
-  data?: ProcessUpdateManyDataInput
+export interface ProcessingActivityUpdateManyWithWhereNestedInput {
+  where?: ProcessingActivityScalarWhereInput
+  data?: ProcessingActivityUpdateManyDataInput
 }
-export type ProcessUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof ProcessUpdateManyWithWhereNestedInput, string>
+export type ProcessingActivityUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ProcessingActivityUpdateManyWithWhereNestedInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface ProcessUpdateManyDataInput {
+export interface ProcessingActivityUpdateManyDataInput {
   name?: string | null
-  description?: string | null
+  purpose?: string | null
+  imController?: boolean | null
+  securityMeasures?: string | null
+  legalGroundComment?: string | null
+  profiling?: boolean | null
+  publicSource?: boolean | null
+  linkToDpia?: string | null
+  linkToLia?: string | null
 }
-export type ProcessUpdateManyDataInputInputObject =
-  | Extract<keyof ProcessUpdateManyDataInput, string>
+export type ProcessingActivityUpdateManyDataInputInputObject =
+  | Extract<keyof ProcessingActivityUpdateManyDataInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
+  | { name: 'purpose', alias?: string  } 
+  | { name: 'imController', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'legalGroundComment', alias?: string  } 
+  | { name: 'profiling', alias?: string  } 
+  | { name: 'publicSource', alias?: string  } 
+  | { name: 'linkToDpia', alias?: string  } 
+  | { name: 'linkToLia', alias?: string  } 
   
-export interface BusinessRoleUpsertWithoutAppBusinessOwnerInput {
-  update?: BusinessRoleUpdateWithoutAppBusinessOwnerDataInput
-  create?: BusinessRoleCreateWithoutAppBusinessOwnerInput
+export interface ApplicationUpsertWithWhereUniqueWithoutDataTypesInput {
+  where?: ApplicationWhereUniqueInput
+  update?: ApplicationUpdateWithoutDataTypesDataInput
+  create?: ApplicationCreateWithoutDataTypesInput
 }
-export type BusinessRoleUpsertWithoutAppBusinessOwnerInputInputObject =
-  | Extract<keyof BusinessRoleUpsertWithoutAppBusinessOwnerInput, string>
+export type ApplicationUpsertWithWhereUniqueWithoutDataTypesInputInputObject =
+  | Extract<keyof ApplicationUpsertWithWhereUniqueWithoutDataTypesInput, string>
+  | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput {
-  where?: ApplicationWhereUniqueInput
-  update?: ApplicationUpdateWithoutProcessingActivitiesDataInput
-  create?: ApplicationCreateWithoutProcessingActivitiesInput
+export interface DataTypeUpsertWithWhereUniqueNestedInput {
+  where?: DataTypeWhereUniqueInput
+  update?: DataTypeUpdateDataInput
+  create?: DataTypeCreateInput
 }
-export type ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInputInputObject =
-  | Extract<keyof ApplicationUpsertWithWhereUniqueWithoutProcessingActivitiesInput, string>
+export type DataTypeUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof DataTypeUpsertWithWhereUniqueNestedInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -13101,55 +18327,70 @@ export type ProcessUpdateManyMutationInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   
-export interface ProcessingActivityCreateInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  purpose?: string | null
-  process?: ProcessCreateOneWithoutProcessingActivitiesInput | null
-  applications?: ApplicationCreateManyWithoutProcessingActivitiesInput | null
-}
-export type ProcessingActivityCreateInputInputObject =
-  | Extract<keyof ProcessingActivityCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'purpose', alias?: string  } 
-  | { name: 'process', alias?: string  } 
-  | { name: 'applications', alias?: string  } 
-  
 export interface ProcessingActivityUpdateInput {
   name?: string | null
-  description?: string | null
   purpose?: string | null
+  imController?: boolean | null
+  securityMeasures?: string | null
+  legalGroundComment?: string | null
+  profiling?: boolean | null
+  publicSource?: boolean | null
+  linkToDpia?: string | null
+  linkToLia?: string | null
+  recipients?: BusinessPartnerUpdateManyInput | null
+  controllers?: BusinessPartnerUpdateManyInput | null
+  dataTypes?: DataTypeUpdateManyInput | null
+  procesessingTypes?: ProcessingTypeUpdateManyInput | null
+  legalGrounds?: LegalGroundUpdateManyInput | null
   process?: ProcessUpdateOneWithoutProcessingActivitiesInput | null
-  applications?: ApplicationUpdateManyWithoutProcessingActivitiesInput | null
 }
 export type ProcessingActivityUpdateInputInputObject =
   | Extract<keyof ProcessingActivityUpdateInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
   | { name: 'purpose', alias?: string  } 
+  | { name: 'imController', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'legalGroundComment', alias?: string  } 
+  | { name: 'profiling', alias?: string  } 
+  | { name: 'publicSource', alias?: string  } 
+  | { name: 'linkToDpia', alias?: string  } 
+  | { name: 'linkToLia', alias?: string  } 
+  | { name: 'recipients', alias?: string  } 
+  | { name: 'controllers', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
+  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'legalGrounds', alias?: string  } 
   | { name: 'process', alias?: string  } 
-  | { name: 'applications', alias?: string  } 
   
 export interface ProcessingActivityUpdateManyMutationInput {
   name?: string | null
-  description?: string | null
   purpose?: string | null
+  imController?: boolean | null
+  securityMeasures?: string | null
+  legalGroundComment?: string | null
+  profiling?: boolean | null
+  publicSource?: boolean | null
+  linkToDpia?: string | null
+  linkToLia?: string | null
 }
 export type ProcessingActivityUpdateManyMutationInputInputObject =
   | Extract<keyof ProcessingActivityUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
   | { name: 'purpose', alias?: string  } 
+  | { name: 'imController', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'legalGroundComment', alias?: string  } 
+  | { name: 'profiling', alias?: string  } 
+  | { name: 'publicSource', alias?: string  } 
+  | { name: 'linkToDpia', alias?: string  } 
+  | { name: 'linkToLia', alias?: string  } 
   
 export interface ApplicationCreateInput {
   id?: string | null
   name?: string
   alias?: undefined | null
   description?: string | null
-  processingActivities?: ProcessingActivityCreateManyWithoutApplicationsInput | null
+  processingActivities?: ProcessingActivityCreateManyInput | null
   dataTypes?: DataTypeCreateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
@@ -13171,7 +18412,7 @@ export interface ApplicationUpdateInput {
   name?: string | null
   alias?: undefined | null
   description?: string | null
-  processingActivities?: ProcessingActivityUpdateManyWithoutApplicationsInput | null
+  processingActivities?: ProcessingActivityUpdateManyInput | null
   dataTypes?: DataTypeUpdateManyWithoutApplicationInput | null
   businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
   itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
@@ -13199,54 +18440,11 @@ export type ApplicationUpdateManyMutationInputInputObject =
   | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
   
-export interface DataTypeCreateInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  application?: ApplicationCreateManyWithoutDataTypesInput | null
-  classificationLabels?: ClassificationLabelCreateManyWithoutDataTypeInput | null
-}
-export type DataTypeCreateInputInputObject =
-  | Extract<keyof DataTypeCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'application', alias?: string  } 
-  | { name: 'classificationLabels', alias?: string  } 
-  
-export interface ApplicationCreateManyWithoutDataTypesInput {
-  create?: ApplicationCreateWithoutDataTypesInput[]
-  connect?: ApplicationWhereUniqueInput[]
-}
-export type ApplicationCreateManyWithoutDataTypesInputInputObject =
-  | Extract<keyof ApplicationCreateManyWithoutDataTypesInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ApplicationCreateWithoutDataTypesInput {
-  id?: string | null
-  name?: string
-  alias?: undefined | null
-  description?: string | null
-  processingActivities?: ProcessingActivityCreateManyWithoutApplicationsInput | null
-  businessOwner?: BusinessRoleCreateOneWithoutAppBusinessOwnerInput | null
-  itOwner?: BusinessRoleCreateOneWithoutAppItOwnerInput | null
-  securityAdministrator?: BusinessRoleCreateOneWithoutAppSecAdminInput | null
-}
-export type ApplicationCreateWithoutDataTypesInputInputObject =
-  | Extract<keyof ApplicationCreateWithoutDataTypesInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'processingActivities', alias?: string  } 
-  | { name: 'businessOwner', alias?: string  } 
-  | { name: 'itOwner', alias?: string  } 
-  | { name: 'securityAdministrator', alias?: string  } 
-  
 export interface DataTypeUpdateInput {
   name?: string | null
   description?: string | null
+  retentionPolicy?: RetentionPolicyUpdateManyInput | null
+  dataSubjectType?: DataSubjectTypeUpdateManyWithoutDataTypesInput | null
   application?: ApplicationUpdateManyWithoutDataTypesInput | null
   classificationLabels?: ClassificationLabelUpdateManyWithoutDataTypeInput | null
 }
@@ -13254,22 +18452,83 @@ export type DataTypeUpdateInputInputObject =
   | Extract<keyof DataTypeUpdateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'retentionPolicy', alias?: string  } 
+  | { name: 'dataSubjectType', alias?: string  } 
   | { name: 'application', alias?: string  } 
   | { name: 'classificationLabels', alias?: string  } 
   
-export interface ApplicationUpdateManyWithoutDataTypesInput {
-  create?: ApplicationCreateWithoutDataTypesInput[]
-  delete?: ApplicationWhereUniqueInput[]
-  connect?: ApplicationWhereUniqueInput[]
-  set?: ApplicationWhereUniqueInput[]
-  disconnect?: ApplicationWhereUniqueInput[]
-  update?: ApplicationUpdateWithWhereUniqueWithoutDataTypesInput[]
-  upsert?: ApplicationUpsertWithWhereUniqueWithoutDataTypesInput[]
-  deleteMany?: ApplicationScalarWhereInput[]
-  updateMany?: ApplicationUpdateManyWithWhereNestedInput[]
+export interface DataTypeUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
 }
-export type ApplicationUpdateManyWithoutDataTypesInputInputObject =
-  | Extract<keyof ApplicationUpdateManyWithoutDataTypesInput, string>
+export type DataTypeUpdateManyMutationInputInputObject =
+  | Extract<keyof DataTypeUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface DataSubjectTypeCreateInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  dataTypes?: DataTypeCreateManyWithoutDataSubjectTypeInput | null
+}
+export type DataSubjectTypeCreateInputInputObject =
+  | Extract<keyof DataSubjectTypeCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
+  
+export interface DataTypeCreateManyWithoutDataSubjectTypeInput {
+  create?: DataTypeCreateWithoutDataSubjectTypeInput[]
+  connect?: DataTypeWhereUniqueInput[]
+}
+export type DataTypeCreateManyWithoutDataSubjectTypeInputInputObject =
+  | Extract<keyof DataTypeCreateManyWithoutDataSubjectTypeInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface DataTypeCreateWithoutDataSubjectTypeInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  retentionPolicy?: RetentionPolicyCreateManyInput | null
+  application?: ApplicationCreateManyWithoutDataTypesInput | null
+  classificationLabels?: ClassificationLabelCreateManyWithoutDataTypeInput | null
+}
+export type DataTypeCreateWithoutDataSubjectTypeInputInputObject =
+  | Extract<keyof DataTypeCreateWithoutDataSubjectTypeInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'retentionPolicy', alias?: string  } 
+  | { name: 'application', alias?: string  } 
+  | { name: 'classificationLabels', alias?: string  } 
+  
+export interface DataSubjectTypeUpdateInput {
+  name?: string | null
+  description?: string | null
+  dataTypes?: DataTypeUpdateManyWithoutDataSubjectTypeInput | null
+}
+export type DataSubjectTypeUpdateInputInputObject =
+  | Extract<keyof DataSubjectTypeUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'dataTypes', alias?: string  } 
+  
+export interface DataTypeUpdateManyWithoutDataSubjectTypeInput {
+  create?: DataTypeCreateWithoutDataSubjectTypeInput[]
+  delete?: DataTypeWhereUniqueInput[]
+  connect?: DataTypeWhereUniqueInput[]
+  set?: DataTypeWhereUniqueInput[]
+  disconnect?: DataTypeWhereUniqueInput[]
+  update?: DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput[]
+  upsert?: DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput[]
+  deleteMany?: DataTypeScalarWhereInput[]
+  updateMany?: DataTypeUpdateManyWithWhereNestedInput[]
+}
+export type DataTypeUpdateManyWithoutDataSubjectTypeInputInputObject =
+  | Extract<keyof DataTypeUpdateManyWithoutDataSubjectTypeInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -13280,51 +18539,47 @@ export type ApplicationUpdateManyWithoutDataTypesInputInputObject =
   | { name: 'deleteMany', alias?: string  } 
   | { name: 'updateMany', alias?: string  } 
   
-export interface ApplicationUpdateWithWhereUniqueWithoutDataTypesInput {
-  where?: ApplicationWhereUniqueInput
-  data?: ApplicationUpdateWithoutDataTypesDataInput
+export interface DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput {
+  where?: DataTypeWhereUniqueInput
+  data?: DataTypeUpdateWithoutDataSubjectTypeDataInput
 }
-export type ApplicationUpdateWithWhereUniqueWithoutDataTypesInputInputObject =
-  | Extract<keyof ApplicationUpdateWithWhereUniqueWithoutDataTypesInput, string>
+export type DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInputInputObject =
+  | Extract<keyof DataTypeUpdateWithWhereUniqueWithoutDataSubjectTypeInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface ApplicationUpdateWithoutDataTypesDataInput {
+export interface DataTypeUpdateWithoutDataSubjectTypeDataInput {
   name?: string | null
-  alias?: undefined | null
   description?: string | null
-  processingActivities?: ProcessingActivityUpdateManyWithoutApplicationsInput | null
-  businessOwner?: BusinessRoleUpdateOneWithoutAppBusinessOwnerInput | null
-  itOwner?: BusinessRoleUpdateOneWithoutAppItOwnerInput | null
-  securityAdministrator?: BusinessRoleUpdateOneWithoutAppSecAdminInput | null
+  retentionPolicy?: RetentionPolicyUpdateManyInput | null
+  application?: ApplicationUpdateManyWithoutDataTypesInput | null
+  classificationLabels?: ClassificationLabelUpdateManyWithoutDataTypeInput | null
 }
-export type ApplicationUpdateWithoutDataTypesDataInputInputObject =
-  | Extract<keyof ApplicationUpdateWithoutDataTypesDataInput, string>
+export type DataTypeUpdateWithoutDataSubjectTypeDataInputInputObject =
+  | Extract<keyof DataTypeUpdateWithoutDataSubjectTypeDataInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'alias', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'processingActivities', alias?: string  } 
-  | { name: 'businessOwner', alias?: string  } 
-  | { name: 'itOwner', alias?: string  } 
-  | { name: 'securityAdministrator', alias?: string  } 
+  | { name: 'retentionPolicy', alias?: string  } 
+  | { name: 'application', alias?: string  } 
+  | { name: 'classificationLabels', alias?: string  } 
   
-export interface ApplicationUpsertWithWhereUniqueWithoutDataTypesInput {
-  where?: ApplicationWhereUniqueInput
-  update?: ApplicationUpdateWithoutDataTypesDataInput
-  create?: ApplicationCreateWithoutDataTypesInput
+export interface DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput {
+  where?: DataTypeWhereUniqueInput
+  update?: DataTypeUpdateWithoutDataSubjectTypeDataInput
+  create?: DataTypeCreateWithoutDataSubjectTypeInput
 }
-export type ApplicationUpsertWithWhereUniqueWithoutDataTypesInputInputObject =
-  | Extract<keyof ApplicationUpsertWithWhereUniqueWithoutDataTypesInput, string>
+export type DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInputInputObject =
+  | Extract<keyof DataTypeUpsertWithWhereUniqueWithoutDataSubjectTypeInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface DataTypeUpdateManyMutationInput {
+export interface DataSubjectTypeUpdateManyMutationInput {
   name?: string | null
   description?: string | null
 }
-export type DataTypeUpdateManyMutationInputInputObject =
-  | Extract<keyof DataTypeUpdateManyMutationInput, string>
+export type DataSubjectTypeUpdateManyMutationInputInputObject =
+  | Extract<keyof DataSubjectTypeUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   
@@ -13380,6 +18635,8 @@ export interface DataTypeCreateWithoutClassificationLabelsInput {
   id?: string | null
   name?: string
   description?: string | null
+  retentionPolicy?: RetentionPolicyCreateManyInput | null
+  dataSubjectType?: DataSubjectTypeCreateManyWithoutDataTypesInput | null
   application?: ApplicationCreateManyWithoutDataTypesInput | null
 }
 export type DataTypeCreateWithoutClassificationLabelsInputInputObject =
@@ -13387,6 +18644,8 @@ export type DataTypeCreateWithoutClassificationLabelsInputInputObject =
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'retentionPolicy', alias?: string  } 
+  | { name: 'dataSubjectType', alias?: string  } 
   | { name: 'application', alias?: string  } 
   
 export interface QualityAttributeUpdateInput {
@@ -13482,12 +18741,16 @@ export type DataTypeUpdateWithWhereUniqueWithoutClassificationLabelsInputInputOb
 export interface DataTypeUpdateWithoutClassificationLabelsDataInput {
   name?: string | null
   description?: string | null
+  retentionPolicy?: RetentionPolicyUpdateManyInput | null
+  dataSubjectType?: DataSubjectTypeUpdateManyWithoutDataTypesInput | null
   application?: ApplicationUpdateManyWithoutDataTypesInput | null
 }
 export type DataTypeUpdateWithoutClassificationLabelsDataInputInputObject =
   | Extract<keyof DataTypeUpdateWithoutClassificationLabelsDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'retentionPolicy', alias?: string  } 
+  | { name: 'dataSubjectType', alias?: string  } 
   | { name: 'application', alias?: string  } 
   
 export interface DataTypeUpsertWithWhereUniqueWithoutClassificationLabelsInput {
@@ -13566,118 +18829,66 @@ export type ClassificationLabelUpdateManyMutationInputInputObject =
   | { name: 'label', alias?: string  } 
   | { name: 'criteria', alias?: string  } 
   
-export interface OrganizationCreateInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  contactDetails?: string
-  dpo?: string
-  representative?: string
-  headOffice?: LocationCreateOneWithoutOrganizationInput
-}
-export type OrganizationCreateInputInputObject =
-  | Extract<keyof OrganizationCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'contactDetails', alias?: string  } 
-  | { name: 'dpo', alias?: string  } 
-  | { name: 'representative', alias?: string  } 
-  | { name: 'headOffice', alias?: string  } 
-  
-export interface LocationCreateOneWithoutOrganizationInput {
-  create?: LocationCreateWithoutOrganizationInput | null
-  connect?: LocationWhereUniqueInput | null
-}
-export type LocationCreateOneWithoutOrganizationInputInputObject =
-  | Extract<keyof LocationCreateOneWithoutOrganizationInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface LocationCreateWithoutOrganizationInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  address?: string
-}
-export type LocationCreateWithoutOrganizationInputInputObject =
-  | Extract<keyof LocationCreateWithoutOrganizationInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'address', alias?: string  } 
-  
-export interface OrganizationUpdateInput {
+export interface BusinessPartnerUpdateInput {
   name?: string | null
   description?: string | null
   contactDetails?: string | null
   dpo?: string | null
-  representative?: string | null
-  headOffice?: LocationUpdateOneRequiredWithoutOrganizationInput | null
+  representative?: BusinessPartnerUpdateOneInput | null
+  processingTypes?: ProcessingTypeUpdateManyInput | null
+  recipientsType?: RecipientsTypeUpdateOneInput | null
+  securityMeasures?: string | null
+  otherCountries?: undefined | null
+  outsideEea?: boolean | null
+  safeguards?: string | null
+  linkToDpa?: string | null
+  headOffice?: LocationUpdateOneRequiredWithoutBusinessPartnerInput | null
 }
-export type OrganizationUpdateInputInputObject =
-  | Extract<keyof OrganizationUpdateInput, string>
+export type BusinessPartnerUpdateInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'contactDetails', alias?: string  } 
   | { name: 'dpo', alias?: string  } 
   | { name: 'representative', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
+  | { name: 'recipientsType', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'otherCountries', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
   | { name: 'headOffice', alias?: string  } 
   
-export interface LocationUpdateOneRequiredWithoutOrganizationInput {
-  create?: LocationCreateWithoutOrganizationInput | null
-  update?: LocationUpdateWithoutOrganizationDataInput | null
-  upsert?: LocationUpsertWithoutOrganizationInput | null
-  connect?: LocationWhereUniqueInput | null
-}
-export type LocationUpdateOneRequiredWithoutOrganizationInputInputObject =
-  | Extract<keyof LocationUpdateOneRequiredWithoutOrganizationInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface LocationUpdateWithoutOrganizationDataInput {
-  name?: string | null
-  description?: string | null
-  address?: string | null
-}
-export type LocationUpdateWithoutOrganizationDataInputInputObject =
-  | Extract<keyof LocationUpdateWithoutOrganizationDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'address', alias?: string  } 
-  
-export interface LocationUpsertWithoutOrganizationInput {
-  update?: LocationUpdateWithoutOrganizationDataInput
-  create?: LocationCreateWithoutOrganizationInput
-}
-export type LocationUpsertWithoutOrganizationInputInputObject =
-  | Extract<keyof LocationUpsertWithoutOrganizationInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface OrganizationUpdateManyMutationInput {
+export interface BusinessPartnerUpdateManyMutationInput {
   name?: string | null
   description?: string | null
   contactDetails?: string | null
   dpo?: string | null
-  representative?: string | null
+  securityMeasures?: string | null
+  otherCountries?: undefined | null
+  outsideEea?: boolean | null
+  safeguards?: string | null
+  linkToDpa?: string | null
 }
-export type OrganizationUpdateManyMutationInputInputObject =
-  | Extract<keyof OrganizationUpdateManyMutationInput, string>
+export type BusinessPartnerUpdateManyMutationInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'contactDetails', alias?: string  } 
   | { name: 'dpo', alias?: string  } 
-  | { name: 'representative', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'otherCountries', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
   
 export interface LocationCreateInput {
   id?: string | null
   name?: string
   description?: string | null
   address?: string
-  organization?: OrganizationCreateOneWithoutHeadOfficeInput | null
+  businessPartner?: BusinessPartnerCreateOneWithoutHeadOfficeInput | null
 }
 export type LocationCreateInputInputObject =
   | Extract<keyof LocationCreateInput, string>
@@ -13685,57 +18896,71 @@ export type LocationCreateInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'address', alias?: string  } 
-  | { name: 'organization', alias?: string  } 
+  | { name: 'businessPartner', alias?: string  } 
   
-export interface OrganizationCreateOneWithoutHeadOfficeInput {
-  create?: OrganizationCreateWithoutHeadOfficeInput | null
-  connect?: OrganizationWhereUniqueInput | null
+export interface BusinessPartnerCreateOneWithoutHeadOfficeInput {
+  create?: BusinessPartnerCreateWithoutHeadOfficeInput | null
+  connect?: BusinessPartnerWhereUniqueInput | null
 }
-export type OrganizationCreateOneWithoutHeadOfficeInputInputObject =
-  | Extract<keyof OrganizationCreateOneWithoutHeadOfficeInput, string>
+export type BusinessPartnerCreateOneWithoutHeadOfficeInputInputObject =
+  | Extract<keyof BusinessPartnerCreateOneWithoutHeadOfficeInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface OrganizationCreateWithoutHeadOfficeInput {
+export interface BusinessPartnerCreateWithoutHeadOfficeInput {
   id?: string | null
   name?: string
   description?: string | null
   contactDetails?: string
   dpo?: string
-  representative?: string
+  representative?: BusinessPartnerCreateOneInput | null
+  processingTypes?: ProcessingTypeCreateManyInput | null
+  recipientsType?: RecipientsTypeCreateOneInput | null
+  securityMeasures?: string | null
+  otherCountries?: undefined | null
+  outsideEea?: boolean | null
+  safeguards?: string | null
+  linkToDpa?: string | null
 }
-export type OrganizationCreateWithoutHeadOfficeInputInputObject =
-  | Extract<keyof OrganizationCreateWithoutHeadOfficeInput, string>
+export type BusinessPartnerCreateWithoutHeadOfficeInputInputObject =
+  | Extract<keyof BusinessPartnerCreateWithoutHeadOfficeInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'contactDetails', alias?: string  } 
   | { name: 'dpo', alias?: string  } 
   | { name: 'representative', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
+  | { name: 'recipientsType', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'otherCountries', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
   
 export interface LocationUpdateInput {
   name?: string | null
   description?: string | null
   address?: string | null
-  organization?: OrganizationUpdateOneWithoutHeadOfficeInput | null
+  businessPartner?: BusinessPartnerUpdateOneWithoutHeadOfficeInput | null
 }
 export type LocationUpdateInputInputObject =
   | Extract<keyof LocationUpdateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'address', alias?: string  } 
-  | { name: 'organization', alias?: string  } 
+  | { name: 'businessPartner', alias?: string  } 
   
-export interface OrganizationUpdateOneWithoutHeadOfficeInput {
-  create?: OrganizationCreateWithoutHeadOfficeInput | null
-  update?: OrganizationUpdateWithoutHeadOfficeDataInput | null
-  upsert?: OrganizationUpsertWithoutHeadOfficeInput | null
+export interface BusinessPartnerUpdateOneWithoutHeadOfficeInput {
+  create?: BusinessPartnerCreateWithoutHeadOfficeInput | null
+  update?: BusinessPartnerUpdateWithoutHeadOfficeDataInput | null
+  upsert?: BusinessPartnerUpsertWithoutHeadOfficeInput | null
   delete?: boolean | null
   disconnect?: boolean | null
-  connect?: OrganizationWhereUniqueInput | null
+  connect?: BusinessPartnerWhereUniqueInput | null
 }
-export type OrganizationUpdateOneWithoutHeadOfficeInputInputObject =
-  | Extract<keyof OrganizationUpdateOneWithoutHeadOfficeInput, string>
+export type BusinessPartnerUpdateOneWithoutHeadOfficeInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateOneWithoutHeadOfficeInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
@@ -13743,27 +18968,41 @@ export type OrganizationUpdateOneWithoutHeadOfficeInputInputObject =
   | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface OrganizationUpdateWithoutHeadOfficeDataInput {
+export interface BusinessPartnerUpdateWithoutHeadOfficeDataInput {
   name?: string | null
   description?: string | null
   contactDetails?: string | null
   dpo?: string | null
-  representative?: string | null
+  representative?: BusinessPartnerUpdateOneInput | null
+  processingTypes?: ProcessingTypeUpdateManyInput | null
+  recipientsType?: RecipientsTypeUpdateOneInput | null
+  securityMeasures?: string | null
+  otherCountries?: undefined | null
+  outsideEea?: boolean | null
+  safeguards?: string | null
+  linkToDpa?: string | null
 }
-export type OrganizationUpdateWithoutHeadOfficeDataInputInputObject =
-  | Extract<keyof OrganizationUpdateWithoutHeadOfficeDataInput, string>
+export type BusinessPartnerUpdateWithoutHeadOfficeDataInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateWithoutHeadOfficeDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'contactDetails', alias?: string  } 
   | { name: 'dpo', alias?: string  } 
   | { name: 'representative', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
+  | { name: 'recipientsType', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'otherCountries', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
   
-export interface OrganizationUpsertWithoutHeadOfficeInput {
-  update?: OrganizationUpdateWithoutHeadOfficeDataInput
-  create?: OrganizationCreateWithoutHeadOfficeInput
+export interface BusinessPartnerUpsertWithoutHeadOfficeInput {
+  update?: BusinessPartnerUpdateWithoutHeadOfficeDataInput
+  create?: BusinessPartnerCreateWithoutHeadOfficeInput
 }
-export type OrganizationUpsertWithoutHeadOfficeInputInputObject =
-  | Extract<keyof OrganizationUpsertWithoutHeadOfficeInput, string>
+export type BusinessPartnerUpsertWithoutHeadOfficeInputInputObject =
+  | Extract<keyof BusinessPartnerUpsertWithoutHeadOfficeInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
@@ -13777,6 +19016,82 @@ export type LocationUpdateManyMutationInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'address', alias?: string  } 
+  
+export interface LegalGroundUpdateInput {
+  name?: string | null
+  description?: string | null
+  specialCategoryCondition?: boolean | null
+}
+export type LegalGroundUpdateInputInputObject =
+  | Extract<keyof LegalGroundUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'specialCategoryCondition', alias?: string  } 
+  
+export interface LegalGroundUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+  specialCategoryCondition?: boolean | null
+}
+export type LegalGroundUpdateManyMutationInputInputObject =
+  | Extract<keyof LegalGroundUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'specialCategoryCondition', alias?: string  } 
+  
+export interface ProcessingTypeUpdateInput {
+  name?: string | null
+  description?: string | null
+}
+export type ProcessingTypeUpdateInputInputObject =
+  | Extract<keyof ProcessingTypeUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ProcessingTypeUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+}
+export type ProcessingTypeUpdateManyMutationInputInputObject =
+  | Extract<keyof ProcessingTypeUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface RecipientsTypeUpdateInput {
+  name?: string | null
+  description?: string | null
+}
+export type RecipientsTypeUpdateInputInputObject =
+  | Extract<keyof RecipientsTypeUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface RecipientsTypeUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+}
+export type RecipientsTypeUpdateManyMutationInputInputObject =
+  | Extract<keyof RecipientsTypeUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface RetentionPolicyUpdateInput {
+  name?: string | null
+  description?: string | null
+}
+export type RetentionPolicyUpdateInputInputObject =
+  | Extract<keyof RetentionPolicyUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface RetentionPolicyUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+}
+export type RetentionPolicyUpdateManyMutationInputInputObject =
+  | Extract<keyof RetentionPolicyUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
   
 export interface UserSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -13967,6 +19282,27 @@ export type DataTypeSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface DataSubjectTypeSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: DataSubjectTypeWhereInput | null
+  AND?: DataSubjectTypeSubscriptionWhereInput[]
+  OR?: DataSubjectTypeSubscriptionWhereInput[]
+  NOT?: DataSubjectTypeSubscriptionWhereInput[]
+}
+export type DataSubjectTypeSubscriptionWhereInputInputObject =
+  | Extract<keyof DataSubjectTypeSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface QualityAttributeSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
@@ -14009,18 +19345,18 @@ export type ClassificationLabelSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface OrganizationSubscriptionWhereInput {
+export interface BusinessPartnerSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
   updatedFields_contains_every?: string[]
   updatedFields_contains_some?: string[]
-  node?: OrganizationWhereInput | null
-  AND?: OrganizationSubscriptionWhereInput[]
-  OR?: OrganizationSubscriptionWhereInput[]
-  NOT?: OrganizationSubscriptionWhereInput[]
+  node?: BusinessPartnerWhereInput | null
+  AND?: BusinessPartnerSubscriptionWhereInput[]
+  OR?: BusinessPartnerSubscriptionWhereInput[]
+  NOT?: BusinessPartnerSubscriptionWhereInput[]
 }
-export type OrganizationSubscriptionWhereInputInputObject =
-  | Extract<keyof OrganizationSubscriptionWhereInput, string>
+export type BusinessPartnerSubscriptionWhereInputInputObject =
+  | Extract<keyof BusinessPartnerSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -14042,6 +19378,90 @@ export interface LocationSubscriptionWhereInput {
 }
 export type LocationSubscriptionWhereInputInputObject =
   | Extract<keyof LocationSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface LegalGroundSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: LegalGroundWhereInput | null
+  AND?: LegalGroundSubscriptionWhereInput[]
+  OR?: LegalGroundSubscriptionWhereInput[]
+  NOT?: LegalGroundSubscriptionWhereInput[]
+}
+export type LegalGroundSubscriptionWhereInputInputObject =
+  | Extract<keyof LegalGroundSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ProcessingTypeSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: ProcessingTypeWhereInput | null
+  AND?: ProcessingTypeSubscriptionWhereInput[]
+  OR?: ProcessingTypeSubscriptionWhereInput[]
+  NOT?: ProcessingTypeSubscriptionWhereInput[]
+}
+export type ProcessingTypeSubscriptionWhereInputInputObject =
+  | Extract<keyof ProcessingTypeSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface RecipientsTypeSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: RecipientsTypeWhereInput | null
+  AND?: RecipientsTypeSubscriptionWhereInput[]
+  OR?: RecipientsTypeSubscriptionWhereInput[]
+  NOT?: RecipientsTypeSubscriptionWhereInput[]
+}
+export type RecipientsTypeSubscriptionWhereInputInputObject =
+  | Extract<keyof RecipientsTypeSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface RetentionPolicySubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: RetentionPolicyWhereInput | null
+  AND?: RetentionPolicySubscriptionWhereInput[]
+  OR?: RetentionPolicySubscriptionWhereInput[]
+  NOT?: RetentionPolicySubscriptionWhereInput[]
+}
+export type RetentionPolicySubscriptionWhereInputInputObject =
+  | Extract<keyof RetentionPolicySubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -14115,22 +19535,58 @@ export type ProcessingActivityOrderByInputValues =
   | 'id_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'description_ASC'
-  | 'description_DESC'
   | 'purpose_ASC'
   | 'purpose_DESC'
+  | 'imController_ASC'
+  | 'imController_DESC'
+  | 'securityMeasures_ASC'
+  | 'securityMeasures_DESC'
+  | 'legalGroundComment_ASC'
+  | 'legalGroundComment_DESC'
+  | 'profiling_ASC'
+  | 'profiling_DESC'
+  | 'publicSource_ASC'
+  | 'publicSource_DESC'
+  | 'linkToDpia_ASC'
+  | 'linkToDpia_DESC'
+  | 'linkToLia_ASC'
+  | 'linkToLia_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type ApplicationOrderByInputValues =
+export type BusinessPartnerOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'alias_ASC'
-  | 'alias_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'contactDetails_ASC'
+  | 'contactDetails_DESC'
+  | 'dpo_ASC'
+  | 'dpo_DESC'
+  | 'securityMeasures_ASC'
+  | 'securityMeasures_DESC'
+  | 'otherCountries_ASC'
+  | 'otherCountries_DESC'
+  | 'outsideEea_ASC'
+  | 'outsideEea_DESC'
+  | 'safeguards_ASC'
+  | 'safeguards_DESC'
+  | 'linkToDpa_ASC'
+  | 'linkToDpa_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type ProcessingTypeOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
   | 'description_ASC'
   | 'description_DESC'
   | 'createdAt_ASC'
@@ -14150,6 +19606,44 @@ export type DataTypeOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
+export type RetentionPolicyOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type DataSubjectTypeOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type ApplicationOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'alias_ASC'
+  | 'alias_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
 export type ClassificationLabelOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -14159,6 +19653,20 @@ export type ClassificationLabelOrderByInputValues =
   | 'label_DESC'
   | 'criteria_ASC'
   | 'criteria_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type LegalGroundOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'specialCategoryCondition_ASC'
+  | 'specialCategoryCondition_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -14218,24 +19726,6 @@ export type QualityAttributeOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type OrganizationOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
-  | 'description_ASC'
-  | 'description_DESC'
-  | 'contactDetails_ASC'
-  | 'contactDetails_DESC'
-  | 'dpo_ASC'
-  | 'dpo_DESC'
-  | 'representative_ASC'
-  | 'representative_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
 export type LocationOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -14245,6 +19735,18 @@ export type LocationOrderByInputValues =
   | 'description_DESC'
   | 'address_ASC'
   | 'address_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type RecipientsTypeOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

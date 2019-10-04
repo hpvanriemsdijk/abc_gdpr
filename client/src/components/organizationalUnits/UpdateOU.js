@@ -29,8 +29,10 @@ class UpdateOU extends React.Component {
     const { form } = this.props;
     form.validateFields(async (err, values) => {
       if (!err) {
-        let parent = values.organizationalUnit ? {parent: {connect: {id: values.organizationalUnit }}} : null;
+        let parent = values.organizationalUnit ? {parent: {connect: {id: values.organizationalUnit }}} : {parent: { disconnect: true } };
         let organizationalUnitType = values.organizationalUnitType ? {organizationalUnitType: {connect: {id: values.organizationalUnitType }}} : null;
+
+        console.log(parent)
 
         await updateOU({ variables: {
           id: this.props.organizationalUnit.id,
@@ -74,7 +76,7 @@ class UpdateOU extends React.Component {
             return(
               <Mutation 
                 mutation={UPDATE_OU}
-                refetchQueries={["OrganizationalUnits"]}
+                refetchQueries={["AllOrganizationalUnits", "OrganizationalUnits"]}
                 >
                 {(updateOU, { loading } ) => {
                   return (
@@ -103,10 +105,7 @@ class UpdateOU extends React.Component {
                                 ],
                             })(<TextArea autosize={{ minRows: 2, maxRows: 4 }} />)}
                           </Form.Item>  
-                          <Form.Item 
-                            label="Unit type">
-                            { <OUTypesOptionsList form={form} id={ouTypeId} /> }
-                          </Form.Item>
+                          { <OUTypesOptionsList form={form} id={ouTypeId} /> }
                           <Form.Item 
                             label="Parent unit"
                             extra="Can't select yourself, childeren in own line or result in 3+ levels.">

@@ -1,6 +1,6 @@
 import React from 'react'
 import Moment from 'react-moment';
-import { Icon, Tag, Tooltip, Drawer } from 'antd';
+import { Icon, Tag, Tooltip, Drawer, Card, Row, Spin, Empty } from 'antd';
 import { Link } from 'react-router-dom'
 
 const ObjectModifiedDate = obj => {
@@ -102,4 +102,16 @@ class ShowInDrawer extends React.Component {
   }
 }
 
-export { ObjectModifiedDate, InfoLink, ShowInDrawer };
+function Loading(){
+  return(
+    <Card><Row type="flex" justify="center"><Spin tip="Loading..."/></Row></Card>
+  )
+}
+
+function Error(){
+  return(
+    <Card><Empty>Oeps, error..</Empty></Card>     
+  )
+}
+
+export { ObjectModifiedDate, InfoLink, ShowInDrawer, Loading, Error };
