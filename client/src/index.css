@@ -80,3 +80,7 @@ tr.drop-over-upward td {
   border-radius: 4px;
   padding: 4px 11px;
 }
+
+.optimisticColumn{
+  color: rgba(0, 0, 0, 0.3);
+}

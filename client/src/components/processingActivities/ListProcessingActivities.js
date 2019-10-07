@@ -4,6 +4,7 @@ import { Query } from 'react-apollo'
 import { Table, Divider, Card, Form, Switch } from 'antd';
 import { ALL_PROCESSING_ACTIVITIES, PROCESSING_ACTIVITIES_BY_OU } from '../../queries/ProcessingActivitiesQueries';
 import CreateProcessingActivity from './CreateProcessingActivity'
+import UpsertProcessingActivity from './UpsertProcessingActivity'
 import UpdateProcessingActivity from './UpdateProcessingActivity'
 import DeleteProcessingActivity from './DeleteProcessingActivity'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
@@ -74,8 +75,7 @@ class ProcessingActivityTable extends React.Component {
         variables = { this.processingActivityQuery().filter } >
         {({ loading, data, error }) => {
           if(error) return <Error />
-          const dataSource = data.processingActivities || data.processingActivitiesByOu || [];
-
+          
           return(            
             <div className="ant-table-title">
               <Form layout="inline" >
@@ -91,7 +91,7 @@ class ProcessingActivityTable extends React.Component {
               <Table 
                 loading={loading}
                 rowKey={record => record.id}
-                dataSource={dataSource}
+                dataSource={loading?[]:data.processingActivities || data.processingActivitiesByOu}
                 columns={columns} 
                 onChange={this.handleChange} 
                 />
@@ -121,13 +121,17 @@ class ProcessingActivityTable extends React.Component {
               />
           )
 
+            console.log(data)
           //Component called from regular ProcessingActivity list view
           return(
             <React.Fragment>  
-              <Card title="Processing activities" extra={<CreateProcessingActivity />} style={{ background: '#fff' }}>
+              <Card 
+                title="Processing activities" 
+                extra={<UpsertProcessingActivity { ...this.props } />} style={{ background: '#fff' }}>
               <Table 
                 loading={loading}
                 rowKey={record => record.id}
+                rowClassName={(record, index) => record.updatedAt < 0 ? 'optimisticColumn' : '' }
                 dataSource={loading?[]:data.processingActivities}
                 columns={columns} 
                 onChange={this.handleChange} 
@@ -165,7 +169,7 @@ class ProcessingActivityTable extends React.Component {
         <span>
           <Link to={`/processingActivities/${record.id}`}>Details</Link>
           <Divider type="vertical" />
-          <UpdateProcessingActivity processingActivity={record} />
+          <UpsertProcessingActivity { ...this.props } activityId={record.id} />
           <Divider type="vertical" />
           <DeleteProcessingActivity ProcessingActivity={record} />
         </span>

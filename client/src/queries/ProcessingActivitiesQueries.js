@@ -8,6 +8,7 @@ export const ALL_PROCESSING_ACTIVITIES = gql`
 			imController
 			purpose
 			process { id, name }
+			updatedAt
 		}
 	}
 `;
@@ -41,6 +42,17 @@ export const GET_PROCESSING_ACTIVITY = gql`
 			name
 			purpose
 			imController
+			securityMeasures
+			legalGroundComment
+			profiling
+			publicSource
+			linkToDpia
+			linkToLia
+			recipients { id }
+			controllers { id }
+			dataTypes { id }
+			procesessingTypes { id }
+			legalGrounds { id }
 			process { id }
 		}
 	}
@@ -51,8 +63,14 @@ export const UPDATE_PROCESSING_ACTIVITY = gql`
 		updateProcessingActivity(
 			data: $data, 
 			where: {id: $id}
-		) {
-			id
+		) { 
+			id, 
+			name, 
+			updatedAt,
+			process {
+				id,
+				name				
+			}
 		}
 	}
 `;

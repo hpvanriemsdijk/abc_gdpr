@@ -59,8 +59,6 @@ class CreateProcessingActivityModal extends React.Component {
   parentProcess = () => {
     const { form, organizationalUnitId, processId } = this.props;
 
-    console.log(organizationalUnitId, processId);
-
     if(processId){
       //Process is given and can't be selected
       return null
@@ -157,19 +155,19 @@ class CreateProcessingActivityModal extends React.Component {
                     <Divider orientation="left">Privacy Notices</Divider>
                     
                     <Form.Item label="Profiling">
-                      {form.getFieldDecorator('profiling')(<Switch />)}
+                      <Switch />
                     </Form.Item> 
 
                     <Form.Item label="Public source">
-                      {form.getFieldDecorator('publicSource')(<Switch />)}
-                    </Form.Item> 
+                      <Switch />
+                    </Form.Item>
 
                     <Form.Item label="Link to Pia">
                       {form.getFieldDecorator('linkToDpia')(<Input />)}
                     </Form.Item> 
 
                     <Form.Item label="Legal ground">
-                      {form.getFieldDecorator('legalGround', { initialValue: undefined, rules: [ rules.required ] })(<LegalGroundOptionsList form={form} field="legalGround"/>)}
+                      {form.getFieldDecorator('legalGround')(<LegalGroundOptionsList form={form} field="legalGround"/>)}
                     </Form.Item>
 
                     <Form.Item label="Legitimate interests">
