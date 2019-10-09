@@ -30,7 +30,13 @@ export const PROCESSING_ACTIVITIES_BY_OU = gql`
 export const CREATE_PROCESSING_ACTIVITY = gql`
 	mutation CreateProcessingActivity ($data: ProcessingActivityCreateInput!) {
 		createProcessingActivity(data: $data) {
-			id
+			id, 
+			name, 
+			updatedAt,
+			process {
+				id,
+				name				
+			}
 		}
 	}
 `;
@@ -48,12 +54,12 @@ export const GET_PROCESSING_ACTIVITY = gql`
 			publicSource
 			linkToDpia
 			linkToLia
-			recipients { id }
-			controllers { id }
-			dataTypes { id }
-			procesessingTypes { id }
-			legalGrounds { id }
-			process { id }
+			recipients { id, name }
+			controllers { id, name }
+			dataTypes { id, name }
+			procesessingTypes { id, name }
+			legalGrounds { id, name }
+			process { id, name }
 		}
 	}
 `;

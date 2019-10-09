@@ -1,71 +1,65 @@
-import React from 'react'
-import { Mutation } from 'react-apollo'
-import { DELETE_PROCESSING_ACTIVITY } from '../../queries/ProcessingActivitiesQueries';
+import React, { useState } from 'react';
+import { reject } from 'lodash';
+import { useMutation } from '@apollo/react-hooks';
+import { DELETE_PROCESSING_ACTIVITY, ALL_PROCESSING_ACTIVITIES } from '../../queries/ProcessingActivitiesQueries';
 import { Modal, notification } from 'antd';
 
-class DeleteProcessingActivity extends React.Component {
-  state = {
-    modalVisible: false
-  }; 
-
-  showModal = () => {
-    this.setState({ modalVisible: true });
-  };
-
-  closeModal = () => {
-    this.setState({ modalVisible: false });
-  };
-
-  // Modal
-  onDeleteProcessingActivity = DeleteProcessingActivity => {
-    DeleteProcessingActivity({ variables: {
-      id: this.props.ProcessingActivity.id
-    }}).catch( res => {
-      if ( res.graphQLErrors ) {
-        console.log('Received error: ', res.message);
-        notification['warning']({
-          message: "Could not delete processing Activity",
-          description: res.message,
-          duration: 10
+export default function DeleteProcessingActivity(props) {
+  const activityId = props.ProcessingActivity.id;
+  const [modalVisible, setModalVisible] = useState(false);
+  const [deleteProcessingActivity] = useMutation(
+    DELETE_PROCESSING_ACTIVITY, {
+      refetchQueries:["ProcessingActivities"],
+      onCompleted() {   
+        notification['success']({
+          message: "Processing activity deleted",
+          duration: 5
         });
+      },
+      onError(error){
+        notification['warning']({
+          message: "There was an issue deleteing the processing activity",
+          description: error.message,
+          duration: 5
+        });
+      }      
+    }
+  );
+
+  const onDelete = () => {
+    let variables = { 
+      variables: {
+        id: activityId
+      },
+      optimisticResponse: {
+        deleteProcessingActivity: {
+          id: activityId,
+          __typename: 'ProcessingActivity'
+        },
+      },
+      update: (proxy, { data: { deleteProcessingActivity } }) => {
+        const data = proxy.readQuery({ query: ALL_PROCESSING_ACTIVITIES });
+        data.processingActivities = reject(data.processingActivities, ['id', deleteProcessingActivity.id]);
+        proxy.writeQuery({ query: ALL_PROCESSING_ACTIVITIES, data });
       }
-    });
-
-    notification['success']({
-      message: "Processing activity deleted",
-      description: "Processing activity " + this.props.ProcessingActivity.name + " is deleted",
-      duration: 5
-    });
-
-    this.closeModal();
+    };
+  
+    deleteProcessingActivity(variables)
+    setModalVisible(false);
   };
 
-  render() {
-      return (
-        <React.Fragment>
-          <Mutation 
-            mutation={DELETE_PROCESSING_ACTIVITY}
-            refetchQueries={["ProcessingActivities"]}
-            >
-            {(DeleteProcessingActivity, { loading }) => {
-              return (
-                <Modal
-                  onOk={e => this.onDeleteProcessingActivity(DeleteProcessingActivity)}
-                  okType = 'danger'
-                  onCancel={this.closeModal}
-                  title= { "Are you sure you what to delete " + this.props.ProcessingActivity.name}
-                  confirmLoading={loading}
-                  visible={this.state.modalVisible}
-                >
-                <div>By deleting this activity, {this.props.ProcessingActivity.name} will be removed from and system, this is unrecoverable.</div>               
-                </Modal>
-              );
-            }}
-          </Mutation>
-          <button className="link" onClick={this.showModal}>Delete</button>  
-        </React.Fragment>
-      );
-
-    }
-  }
-export default DeleteProcessingActivity;
+  return (
+    <React.Fragment>
+      <Modal
+        onOk={e => onDelete()}
+        destroyOnClose={true}
+        onCancel={() => setModalVisible(false)}
+        title={"Are you sure you what to delete " + props.ProcessingActivity.name}
+        visible={modalVisible}
+      >
+      <div>By deleting this activity, {props.ProcessingActivity.name} will be removed from and system, this is unrecoverable.</div>               
+      </Modal>
+      <button className="link" onClick={() => setModalVisible(true)}>Delete</button>  
+    </React.Fragment>
+  );
+}

@@ -5,7 +5,6 @@ import { Table, Divider, Card, Form, Switch } from 'antd';
 import { ALL_PROCESSING_ACTIVITIES, PROCESSING_ACTIVITIES_BY_OU } from '../../queries/ProcessingActivitiesQueries';
 import CreateProcessingActivity from './CreateProcessingActivity'
 import UpsertProcessingActivity from './UpsertProcessingActivity'
-import UpdateProcessingActivity from './UpdateProcessingActivity'
 import DeleteProcessingActivity from './DeleteProcessingActivity'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
 import { Error } from '../generic/viewHelpers'
@@ -121,13 +120,13 @@ class ProcessingActivityTable extends React.Component {
               />
           )
 
-            console.log(data)
           //Component called from regular ProcessingActivity list view
           return(
             <React.Fragment>  
               <Card 
                 title="Processing activities" 
-                extra={<UpsertProcessingActivity { ...this.props } />} style={{ background: '#fff' }}>
+                extra={<UpsertProcessingActivity { ...this.props } />} style={{ background: '#fff' }}
+                >
               <Table 
                 loading={loading}
                 rowKey={record => record.id}

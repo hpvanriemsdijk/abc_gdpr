@@ -13,10 +13,17 @@ export class BusinessPartnerOptionsList extends React.Component {
           if (loading) return <Select placeholder="Loading..." />
           if (error) return <Select placeholder="Error loading..." />
           if(!data.businessPartners.length){return <Alert message="There are no business partners defined, please do so!" type="warning" showIcon />}
+  
+          let initialValues = [];
+          if(this.props.initialValue){
+            this.props.initialValue.map(d =>
+              initialValues.push(d.id)
+            )
+          }
 
           return(
             this.props.form.getFieldDecorator(this.props.field, {
-              initialValue: this.props.id,
+              initialValue: initialValues,
             })(
               <Select
                 placeholder="--- non selected ---"

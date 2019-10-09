@@ -14,14 +14,25 @@ export class LegalGroundOptionsList extends React.Component {
           if (error) return <Select placeholder="Error loading..." />
           if(!data.legalGrounds.length){return <Alert message="There are no legal grounds defined, please do so!" type="warning" showIcon />}
           
-          return(          
-            <Select
-              placeholder="--- non selected ---"
-              allowClear
-              mode="multiple"
-              >
-              {data.legalGrounds.map(d => (<Option key={d.value} >{d.title} </Option>))}
-            </Select>
+          let initialValues = [];
+          if(this.props.initialValue){
+            this.props.initialValue.map(d =>
+              initialValues.push(d.id)
+            )
+          }
+
+          return(  
+            this.props.form.getFieldDecorator(this.props.field, {
+              initialValue: initialValues,
+            })(        
+              <Select
+                placeholder="--- non selected ---"
+                allowClear
+                mode="multiple"
+                >
+                {data.legalGrounds.map(d => (<Option key={d.value} >{d.title} </Option>))}
+              </Select>
+            )
           )
         }}
       </Query>
