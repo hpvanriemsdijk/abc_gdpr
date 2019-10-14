@@ -21,7 +21,6 @@ import viewPerson from './persons/ViewPerson'
 import listBusinessRoles from './businessRoles/ListBusinessRoles'
 import viewBusinessRole from './businessRoles/ViewBusinessRole'
 import listProcessingActivities from './processingActivities/ListProcessingActivities'
-import viewProcessingActivity from './processingActivities/ViewProcessingActivity'
 import listApplications from './applications/ListApplications'
 import viewApplication from './applications/ViewApplication'
 import listDataTypes from './dataTypes/ListDataTypes'
@@ -121,7 +120,6 @@ class App extends React.Component {
           <AppRoute path='/persons' layout={ this.AuthenticatedLayout } component={listPersons} />
           <AppRoute path='/businessRoles/:businessRoleId' layout={ this.AuthenticatedLayout } component={viewBusinessRole} />
           <AppRoute path='/businessRoles' layout={ this.AuthenticatedLayout } component={listBusinessRoles} />
-          <AppRoute path='/processingActivities/:processingActivityId' layout={ this.AuthenticatedLayout } component={viewProcessingActivity} />
           <AppRoute path='/processingActivities' layout={ this.AuthenticatedLayout } component={listProcessingActivities} />
           <AppRoute path='/applications/:applicationId' layout={ this.AuthenticatedLayout } component={viewApplication} />
           <AppRoute path='/applications' layout={ this.AuthenticatedLayout } component={listApplications} />

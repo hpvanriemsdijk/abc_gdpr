@@ -22,8 +22,6 @@ export default function ViewProcessingActivity(props) {
     return tagList
   }
 
-  console.log(processingActivity)
-
   return(
     <React.Fragment>  
       <Card 

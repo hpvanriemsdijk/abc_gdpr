@@ -94,7 +94,6 @@ class ShowInDrawer extends React.Component {
           visible={this.state.visible}
           bodyStyle={{ padding: 0 }}
           >
-          
           <Component id={id} />
         </Drawer>
       </React.Fragment>  

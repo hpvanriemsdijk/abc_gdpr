@@ -1,41 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { GenericOptionsList } from '../generic/genericOptionList';
 import { LEGAL_GROUND_OPTIONS_LIST } from '../../queries/LegalGroundQueries';
-import { Query } from 'react-apollo'
-import { Select, Alert } from 'antd';
+import { useQuery } from '@apollo/react-hooks';
 
-const Option = Select.Option;
-
-export class LegalGroundOptionsList extends React.Component {
-  render() {
-    return (  
-      <Query query = { LEGAL_GROUND_OPTIONS_LIST } >
-        {({ loading, data, error }) => {     
-          if (loading) return <Select placeholder="Loading..." />
-          if (error) return <Select placeholder="Error loading..." />
-          if(!data.legalGrounds.length){return <Alert message="There are no legal grounds defined, please do so!" type="warning" showIcon />}
-          
-          let initialValues = [];
-          if(this.props.initialValue){
-            this.props.initialValue.map(d =>
-              initialValues.push(d.id)
-            )
-          }
-
-          return(  
-            this.props.form.getFieldDecorator(this.props.field, {
-              initialValue: initialValues,
-            })(        
-              <Select
-                placeholder="--- non selected ---"
-                allowClear
-                mode="multiple"
-                >
-                {data.legalGrounds.map(d => (<Option key={d.value} >{d.title} </Option>))}
-              </Select>
-            )
-          )
-        }}
-      </Query>
-    )
-  }
+export function LegalGroundOptionsList(props) {
+  let {relationName, label} = props;
+  const type = "legalGrounds"
+  const query = useQuery( LEGAL_GROUND_OPTIONS_LIST );
+    
+  return(
+    <GenericOptionsList 
+      {...props}
+      type = { type }
+      mode = "multiple"
+      relationName = { !relationName?relationName=type:relationName } 
+      label = { !label?label="Legal ground":label } 
+      query = { query } 
+      />
+  )
 }

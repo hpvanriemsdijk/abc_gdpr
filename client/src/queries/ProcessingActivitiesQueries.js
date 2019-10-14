@@ -70,13 +70,22 @@ export const UPDATE_PROCESSING_ACTIVITY = gql`
 			data: $data, 
 			where: {id: $id}
 		) { 
-			id, 
-			name, 
-			updatedAt,
-			process {
-				id,
-				name				
-			}
+			id
+			name
+			purpose
+			imController
+			securityMeasures
+			legalGroundComment
+			profiling
+			publicSource
+			linkToDpia
+			linkToLia
+			recipients { id, name }
+			controllers { id, name }
+			dataTypes { id, name }
+			procesessingTypes { id, name }
+			legalGrounds { id, name }
+			process { id, name }
 		}
 	}
 `;

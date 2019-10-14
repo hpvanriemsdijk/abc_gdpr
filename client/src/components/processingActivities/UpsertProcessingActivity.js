@@ -16,16 +16,17 @@ function UpsertProcessingActivityModal(props) {
   const { TextArea } = Input;
   const { form } = props;
   let { activityId } = props;
-  const title = "Upsert processingActivity";
+  let title = "Update processing activity";
   const { data, loading, error } = useQuery( GET_PROCESSING_ACTIVITY, { variables : { id: activityId }, skip:!modalVisible||!activityId } );
   const processingActivity = data?data.processingActivity:{};  
+  const createAction = activityId?false:true;
 
   const [createProcessingActivity] = useMutation(
     CREATE_PROCESSING_ACTIVITY, {
-      refetchQueries:["ProcessingActivities"],
+      refetchQueries:["ProcessingActivities", "ProcessingActivity"],
       onCompleted() {   
         notification['success']({
-          message: "Processing activity updated",
+          message: "Processing activity created",
           duration: 5
         });
       },
@@ -43,7 +44,7 @@ function UpsertProcessingActivityModal(props) {
     UPDATE_PROCESSING_ACTIVITY, {
       onCompleted() {   
         notification['success']({
-          message: "Processing activity added",
+          message: "Processing activity Updated",
           duration: 5
         });
       }, 
@@ -58,7 +59,7 @@ function UpsertProcessingActivityModal(props) {
   );
 
   const button = () => {
-    if(props.activityId){
+    if(!createAction){
       return(
         <button onClick={() => setModalVisible(true)} className="link">
           Edit
@@ -98,26 +99,37 @@ function UpsertProcessingActivityModal(props) {
     }else if(organizationalUnitId){
       //OU by parent call, only show processes fron this OU
       return(
-        <Form.Item 
+        <ProcessOptionsList 
+          form={form} 
+          organizationalUnitId={organizationalUnitId} 
+          initialValue={parentProcessId} 
+          relationName="parentProcess"
           extra="Only processes from the selected OU are shown."
-          label="Process">
-          { <ProcessOptionsList form={form} organizationalUnitId={organizationalUnitId} /> }
-        </Form.Item> 
+          required={true} />
       )
     }else{
       //Give them all
       return(
-        <Form.Item label="Process">
-          { <ProcessOptionsList form={form} id={parentProcessId} /> }
-        </Form.Item> 
+        <ProcessOptionsList 
+          form={form} 
+          relationName="parentProcess"
+          initialValue={parentProcessId} 
+          required={true} />
       )
     }
   }
 
   const connectRelation = (relation, name) => {
-    if(!relation) return null;
-    let idArray = relation.map(id =>{return {id: id }})
-    return idArray.length ? { [name]: {connect: idArray}} : null;
+    let idArray = [];
+    if(relation){
+      idArray = relation.map(id =>{return {id: id }})
+    }
+
+    if(createAction){
+      return { [name]: {connect: idArray}}
+    }else{
+      return { [name]: {set: idArray}}
+    }
   }
 
   const onSubmit = () => {
@@ -132,10 +144,11 @@ function UpsertProcessingActivityModal(props) {
         let legalGrounds = connectRelation(values.legalGrounds, 'legalGrounds');
         let optimisticFunction = "updateProcessingActivity";
 
-        if(!activityId){
+        if(createAction){
           //Creating
           activityId = Math.round(Math.random() * -1000000);
           optimisticFunction = "createProcessingActivity"
+          title = "Create processing activity";
         }
 
         let variables = { 
@@ -227,23 +240,35 @@ function UpsertProcessingActivityModal(props) {
             </Form.Item>                   
 
             {imController ? (<>
-              <Form.Item label="Joined controllers">
-                { <BusinessPartnerOptionsList form={form} field="controllers" initialValue={processingActivity.controllers} /> }
-              </Form.Item>
+              <BusinessPartnerOptionsList 
+                form={form} 
+                relationName="controllers" 
+                label="Joined controllers" 
+                initialValue={processingActivity.controllers}
+                required={false} /> 
+    
+              <BusinessPartnerOptionsList 
+                form={form} 
+                relationName="recipients" 
+                label="Recipients" 
+                initialValue={processingActivity.recipients}
+                required={false} /> 
 
-              <Form.Item label="Recipients">
-                { <BusinessPartnerOptionsList form={form} field="recipients" initialValue={processingActivity.recipients}/> }
-              </Form.Item>
-
-              <Form.Item label="Categories of data">
-                { <DataTypeOptionsList form={form} field="dataTypes" initialValue={processingActivity.dataTypes}/> }
-              </Form.Item>
+              <DataTypeOptionsList 
+                form={form} 
+                initialValue={processingActivity.dataTypes}
+                required={true} /> 
 
               <Form.Item label="Security measures">
                 {form.getFieldDecorator('securityMeasures', { initialValue: get(processingActivity, 'securityMeasures') } )(<TextArea />)}
               </Form.Item> 
 
               <Divider orientation="left">Privacy Notices</Divider>
+
+              <LegalGroundOptionsList 
+                form={form} 
+                initialValue={processingActivity.legalGrounds}
+                required={true} /> 
               
               <Form.Item label="Profiling">
                 {form.getFieldDecorator('profiling', { valuePropName: 'checked', initialValue: get(processingActivity, 'profiling') })(<Switch />)}
@@ -253,25 +278,24 @@ function UpsertProcessingActivityModal(props) {
                 {form.getFieldDecorator('publicSource', { valuePropName: 'checked', initialValue: get(processingActivity, 'publicSource') })(<Switch />)}
               </Form.Item>
 
+              <Form.Item label="Legal Ground comment">
+                {form.getFieldDecorator('legalGroundComment', { initialValue: get(processingActivity, 'legalGroundComment') } )(<TextArea />)}
+              </Form.Item>     
+
               <Form.Item label="Link to Pia">
                 {form.getFieldDecorator('linkToDpia', { initialValue: get(processingActivity, 'linkToDpia') } )(<Input />)}
               </Form.Item> 
-
-              <Form.Item label="Legal ground">
-                { <LegalGroundOptionsList form={form} field="legalGrounds" initialValue={processingActivity.legalGrounds}  /> }
-              </Form.Item>
-
-              <Form.Item label="Legitimate interests">
-                {form.getFieldDecorator('legalGroundComment', { initialValue: get(processingActivity, 'legalGroundComment') } )(<TextArea />)}
-              </Form.Item>     
 
               <Form.Item label="link to lia">
                 {form.getFieldDecorator('linkToLia', { initialValue: get(processingActivity, 'linkToLia') } )(<Input />)}
               </Form.Item> 
             </>) : (<>                    
-              <Form.Item label="Controllers">
-                { <BusinessPartnerOptionsList form={form} field="controllers"/> }
-              </Form.Item>
+              <BusinessPartnerOptionsList 
+                form={form} 
+                relationName="controllers" 
+                label="Controllers" 
+                initialValue={processingActivity.controllers}
+                required={true} /> 
 
               <Form.Item label="Processing types">
                 {form.getFieldDecorator('procesessingTypes', { initialValue: get(processingActivity, 'procesessingTypes') } )(<ProcessingTypesOptionsList form={form} field="procesessingTypes"/>)}

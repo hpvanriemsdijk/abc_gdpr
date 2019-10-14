@@ -109,7 +109,7 @@ type Process {
 type ProcessingActivity {
   id: ID! @id
   name: String!
-  purpose: String
+  purpose: String!
   imController: Boolean
   securityMeasures: String
   legalGroundComment: String 

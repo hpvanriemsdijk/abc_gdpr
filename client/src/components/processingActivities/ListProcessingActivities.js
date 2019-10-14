@@ -1,13 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { Table, Divider, Card, Form, Switch } from 'antd';
 import { ALL_PROCESSING_ACTIVITIES, PROCESSING_ACTIVITIES_BY_OU } from '../../queries/ProcessingActivitiesQueries';
-import CreateProcessingActivity from './CreateProcessingActivity'
 import UpsertProcessingActivity from './UpsertProcessingActivity'
 import DeleteProcessingActivity from './DeleteProcessingActivity'
 import { clientSideFilter, filterHighlighter } from '../generic/tableHelpers'
-import { Error } from '../generic/viewHelpers'
+import { ShowInDrawer, Error } from '../generic/viewHelpers'
+import ViewProcessingActivityDrawer from './ViewProcessingActivityDrawer'
 
 class ProcessingActivityTable extends React.Component {
   constructor(props) {
@@ -84,7 +83,7 @@ class ProcessingActivityTable extends React.Component {
                     onChange={this.handleToggle} 
                     />
                 </Form.Item>
-                <CreateProcessingActivity processId={this.props.processId} organizationalUnitId={this.props.organizationalUnitId}/>
+                <UpsertProcessingActivity processId={this.props.processId} organizationalUnitId={this.props.organizationalUnitId}/>
               </Form>
               
               <Table 
@@ -116,7 +115,7 @@ class ProcessingActivityTable extends React.Component {
               dataSource={loading?[]:data.processingActivities}
               columns={columns} 
               onChange={this.handleChange} 
-              title={() => <CreateProcessingActivity processId={this.props.processId}/>}
+              title={() => <UpsertProcessingActivity processId={this.props.processId}/>}
               />
           )
 
@@ -166,7 +165,7 @@ class ProcessingActivityTable extends React.Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          <Link to={`/processingActivities/${record.id}`}>Details</Link>
+          <ShowInDrawer id={record.id} Component={ViewProcessingActivityDrawer}>Details</ShowInDrawer>
           <Divider type="vertical" />
           <UpsertProcessingActivity { ...this.props } activityId={record.id} />
           <Divider type="vertical" />
