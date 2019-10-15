@@ -4776,6 +4776,8 @@ type Query {
   retentionPolicies(after: String, before: String, first: Int, last: Int, orderBy: RetentionPolicyOrderByInput, skip: Int, where: RetentionPolicyWhereInput): [RetentionPolicy!]!
   retentionPoliciesConnection(after: String, before: String, first: Int, last: Int, orderBy: RetentionPolicyOrderByInput, skip: Int, where: RetentionPolicyWhereInput): RetentionPolicyConnection!
   retentionPolicy(where: RetentionPolicyWhereUniqueInput!): RetentionPolicy
+  staticSettings: [StaticSetting!]
+  staticSettingsGroup(where: StaticSettingInput): [StaticSetting!]
   user(where: UserWhereUniqueInput!): User
   users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
   usersConnection(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): UserConnection!
@@ -5097,6 +5099,19 @@ input RetentionPolicyWhereInput {
 
 input RetentionPolicyWhereUniqueInput {
   id: ID
+}
+
+type StaticSetting {
+  comment: String
+  extra: String
+  group: String
+  id: String
+  label: String
+  name: String
+}
+
+input StaticSettingInput {
+  group: String
 }
 
 type Token {

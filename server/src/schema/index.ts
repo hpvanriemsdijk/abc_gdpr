@@ -7,9 +7,11 @@ import { arg } from 'nexus'
 //Import types
 const { authenticateUser, LoginInput, Token } = require('./authenticate');
 const { User, loggedInUser, createUser, createAdmin } = require('./user');
-const { createOrganizationalUnit, updateOrganizationalUnit, businessRoleByOu } = require('./organizationalUnit');
+const { businessRoleByOu } = require('./organizationalUnit');
 const { processByOu } = require('./processes');
 const { processingActivitiesByOu } = require('./processingActivities');
+const { StaticSetting, staticSettings, StaticSettingInput, staticSettingsGroup } = require('./staticSetting');
+
 
 const Mutation = prismaObjectType({
   name: 'Mutation',
@@ -64,13 +66,26 @@ const Query = prismaObjectType({
       args: t.prismaType.businessPartner.args,
 			resolve: businessRoleByOu,
 			type: 'BusinessRole'
-		});
+    });
+    t.list.field('staticSettings', {
+			resolve: staticSettings,
+			type: 'StaticSetting'
+    });
+    t.list.field('staticSettingsGroup', {
+      args: {
+				where: arg({
+					type: 'StaticSettingInput'
+				})
+			},
+			resolve: staticSettingsGroup,
+			type: 'StaticSetting'
+    });
   },
 })
 
 const baseSchema = makePrismaSchema({
   // Provide all the GraphQL types we've implemented
-  types: [Query, Mutation, LoginInput, User, Token],
+  types: [Query, Mutation, LoginInput, User, Token, StaticSetting, StaticSettingInput],
 
   // Configure the interface to Prisma
   prisma: {
