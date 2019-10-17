@@ -1,34 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { GenericOptionsList } from '../generic/genericOptionList';
 import { PROCESSING_TYPE_OPTIONS_LIST } from '../../queries/ProcessingTypeQueries';
-import { Query } from 'react-apollo'
-import { Select, Alert } from 'antd';
+import { useQuery } from '@apollo/react-hooks';
 
-const Option = Select.Option;
-
-export class ProcessingTypesOptionsList extends React.Component {
-  render() {
-    return (  
-      <Query query = { PROCESSING_TYPE_OPTIONS_LIST } >
-        {({ loading, data, error }) => {     
-          if (loading) return <Select placeholder="Loading..." />
-          if (error) return <Select placeholder="Error loading..." />
-          if(!data.processingTypes.length){return <Alert message="There are no processing types defined, please do so!" type="warning" showIcon />}
-
-          return(
-            this.props.form.getFieldDecorator(this.props.field, {
-              initialValue: this.props.id,
-            })(
-              <Select
-                placeholder="--- non selected ---"
-                allowClear
-                mode="multiple"
-                >
-                {data.processingTypes.map(d => <Option key={d.value}>{d.title}</Option>)}
-              </Select>
-            )
-          )
-        }}
-      </Query>
-    )
-  }
+export function ProcessingTypesOptionsList(props) {
+  let {relationName, label} = props;
+  const type = "processingTypes"
+  const query = useQuery( PROCESSING_TYPE_OPTIONS_LIST );
+    
+  return(
+    <GenericOptionsList 
+      {...props}
+      type = { type }
+      mode = "multiple"
+      relationName = { !relationName?relationName=type:relationName } 
+      label = { !label?label="Processing type":label } 
+      query = { query } 
+      />
+  )
 }

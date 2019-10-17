@@ -297,9 +297,10 @@ function UpsertProcessingActivityModal(props) {
                 initialValue={processingActivity.controllers}
                 required={true} /> 
 
-              <Form.Item label="Processing types">
-                {form.getFieldDecorator('procesessingTypes', { initialValue: get(processingActivity, 'procesessingTypes') } )(<ProcessingTypesOptionsList form={form} field="procesessingTypes"/>)}
-              </Form.Item> 
+              <ProcessingTypesOptionsList 
+                form={form} 
+                initialValue={get(processingActivity, 'procesessingTypes')}
+                required={false} /> 
 
               <Form.Item label="Security measures">
                 {form.getFieldDecorator('securityMeasures', { initialValue: get(processingActivity, 'securityMeasures') } )(<TextArea />)}
