@@ -5,10 +5,7 @@ export const ALL_PROCESSING_ACTIVITIES = gql`
 		processingActivities(where: $filter){
 			id
 			name
-			imController
-			purpose
 			process { id, name }
-			updatedAt
 		}
 	}
 `;
@@ -18,11 +15,7 @@ export const PROCESSING_ACTIVITIES_BY_OU = gql`
 		processingActivitiesByOu(where:{id: $id}){
 			id
 			name
-			imController
-			purpose
-			process{
-				name
-			}
+			process { id, name }
 		}
 	}
 `;
@@ -30,13 +23,9 @@ export const PROCESSING_ACTIVITIES_BY_OU = gql`
 export const CREATE_PROCESSING_ACTIVITY = gql`
 	mutation CreateProcessingActivity ($data: ProcessingActivityCreateInput!) {
 		createProcessingActivity(data: $data) {
-			id, 
-			name, 
-			updatedAt,
-			process {
-				id,
-				name				
-			}
+			id
+			name
+			process { id, name }
 		}
 	}
 `;
@@ -57,7 +46,7 @@ export const GET_PROCESSING_ACTIVITY = gql`
 			recipients { id, name }
 			controllers { id, name }
 			dataTypes { id, name }
-			procesessingTypes { id, name }
+			processingTypes { id, name }
 			legalGrounds { id, name }
 			process { id, name }
 		}
@@ -72,19 +61,6 @@ export const UPDATE_PROCESSING_ACTIVITY = gql`
 		) { 
 			id
 			name
-			purpose
-			imController
-			securityMeasures
-			legalGroundComment
-			profiling
-			publicSource
-			linkToDpia
-			linkToLia
-			recipients { id, name }
-			controllers { id, name }
-			dataTypes { id, name }
-			procesessingTypes { id, name }
-			legalGrounds { id, name }
 			process { id, name }
 		}
 	}

@@ -126,7 +126,7 @@ type ProcessingActivity {
   recipients: [BusinessPartner!]! @relation(link: TABLE, name:"ProcessingActivityRecipients")
   controllers: [BusinessPartner!]! @relation(link: TABLE, name:"ProcessingActivityControllers")
   dataTypes: [DataType!]!
-  procesessingTypes: [ProcessingType!]!
+  processingTypes: [ProcessingType!]!
   legalGrounds: [LegalGround!]!
   process: Process @relation(link: INLINE)
 }

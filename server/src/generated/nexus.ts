@@ -2973,11 +2973,11 @@ export interface NexusGenInputs {
     linkToDpia?: string | null; // String
     linkToLia?: string | null; // String
     name: string; // String!
-    procesessingTypes?: NexusGenInputs['ProcessingTypeCreateManyInput'] | null; // ProcessingTypeCreateManyInput
     process?: NexusGenInputs['ProcessCreateOneWithoutProcessingActivitiesInput'] | null; // ProcessCreateOneWithoutProcessingActivitiesInput
+    processingTypes?: NexusGenInputs['ProcessingTypeCreateManyInput'] | null; // ProcessingTypeCreateManyInput
     profiling?: boolean | null; // Boolean
     publicSource?: boolean | null; // Boolean
-    purpose?: string | null; // String
+    purpose: string; // String!
     recipients?: NexusGenInputs['BusinessPartnerCreateManyInput'] | null; // BusinessPartnerCreateManyInput
     securityMeasures?: string | null; // String
   }
@@ -2999,10 +2999,10 @@ export interface NexusGenInputs {
     linkToDpia?: string | null; // String
     linkToLia?: string | null; // String
     name: string; // String!
-    procesessingTypes?: NexusGenInputs['ProcessingTypeCreateManyInput'] | null; // ProcessingTypeCreateManyInput
+    processingTypes?: NexusGenInputs['ProcessingTypeCreateManyInput'] | null; // ProcessingTypeCreateManyInput
     profiling?: boolean | null; // Boolean
     publicSource?: boolean | null; // Boolean
-    purpose?: string | null; // String
+    purpose: string; // String!
     recipients?: NexusGenInputs['BusinessPartnerCreateManyInput'] | null; // BusinessPartnerCreateManyInput
     securityMeasures?: string | null; // String
   }
@@ -3140,8 +3140,8 @@ export interface NexusGenInputs {
     linkToDpia?: string | null; // String
     linkToLia?: string | null; // String
     name?: string | null; // String
-    procesessingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
     process?: NexusGenInputs['ProcessUpdateOneWithoutProcessingActivitiesInput'] | null; // ProcessUpdateOneWithoutProcessingActivitiesInput
+    processingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
     profiling?: boolean | null; // Boolean
     publicSource?: boolean | null; // Boolean
     purpose?: string | null; // String
@@ -3157,8 +3157,8 @@ export interface NexusGenInputs {
     linkToDpia?: string | null; // String
     linkToLia?: string | null; // String
     name?: string | null; // String
-    procesessingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
     process?: NexusGenInputs['ProcessUpdateOneWithoutProcessingActivitiesInput'] | null; // ProcessUpdateOneWithoutProcessingActivitiesInput
+    processingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
     profiling?: boolean | null; // Boolean
     publicSource?: boolean | null; // Boolean
     purpose?: string | null; // String
@@ -3230,7 +3230,7 @@ export interface NexusGenInputs {
     linkToDpia?: string | null; // String
     linkToLia?: string | null; // String
     name?: string | null; // String
-    procesessingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
+    processingTypes?: NexusGenInputs['ProcessingTypeUpdateManyInput'] | null; // ProcessingTypeUpdateManyInput
     profiling?: boolean | null; // Boolean
     publicSource?: boolean | null; // Boolean
     purpose?: string | null; // String
@@ -3340,10 +3340,10 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['ProcessingActivityWhereInput'][] | null; // [ProcessingActivityWhereInput!]
     OR?: NexusGenInputs['ProcessingActivityWhereInput'][] | null; // [ProcessingActivityWhereInput!]
-    procesessingTypes_every?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
-    procesessingTypes_none?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
-    procesessingTypes_some?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
     process?: NexusGenInputs['ProcessWhereInput'] | null; // ProcessWhereInput
+    processingTypes_every?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    processingTypes_none?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
+    processingTypes_some?: NexusGenInputs['ProcessingTypeWhereInput'] | null; // ProcessingTypeWhereInput
     profiling?: boolean | null; // Boolean
     profiling_not?: boolean | null; // Boolean
     publicSource?: boolean | null; // Boolean
@@ -4274,7 +4274,7 @@ export interface NexusGenRootTypes {
     name: string; // String!
     profiling?: boolean | null; // Boolean
     publicSource?: boolean | null; // Boolean
-    purpose?: string | null; // String
+    purpose: string; // String!
     securityMeasures?: string | null; // String
     updatedAt: any; // DateTime!
   }
@@ -5154,11 +5154,11 @@ export interface NexusGenFieldTypes {
     linkToDpia: string | null; // String
     linkToLia: string | null; // String
     name: string; // String!
-    procesessingTypes: NexusGenRootTypes['ProcessingType'][] | null; // [ProcessingType!]
     process: NexusGenRootTypes['Process'] | null; // Process
+    processingTypes: NexusGenRootTypes['ProcessingType'][] | null; // [ProcessingType!]
     profiling: boolean | null; // Boolean
     publicSource: boolean | null; // Boolean
-    purpose: string | null; // String
+    purpose: string; // String!
     recipients: NexusGenRootTypes['BusinessPartner'][] | null; // [BusinessPartner!]
     securityMeasures: string | null; // String
     updatedAt: any; // DateTime!
@@ -5947,7 +5947,7 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       where?: NexusGenInputs['LegalGroundWhereInput'] | null; // LegalGroundWhereInput
     }
-    procesessingTypes: { // args
+    processingTypes: { // args
       after?: string | null; // String
       before?: string | null; // String
       first?: number | null; // Int

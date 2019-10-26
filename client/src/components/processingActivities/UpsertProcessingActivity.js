@@ -17,10 +17,19 @@ function UpsertProcessingActivityModal(props) {
   const { form } = props;
   let { activityId } = props;
   let title = "Update processing activity";
-  const { data, loading, error } = useQuery( GET_PROCESSING_ACTIVITY, { variables : { id: activityId }, skip:!modalVisible||!activityId } );
-  const processingActivity = data?data.processingActivity:{};  
   const createAction = activityId?false:true;
 
+  const { data, loading, error } = useQuery( 
+    GET_PROCESSING_ACTIVITY, { 
+      variables : { id: activityId }, 
+      skip:!modalVisible||!activityId,
+      onCompleted() {  
+        setImController(processingActivity.imController); 
+      }
+    } 
+  );
+  const processingActivity = data?data.processingActivity:{};  
+  
   const [createProcessingActivity] = useMutation(
     CREATE_PROCESSING_ACTIVITY, {
       refetchQueries:["ProcessingActivities", "ProcessingActivity"],
@@ -140,7 +149,7 @@ function UpsertProcessingActivityModal(props) {
         let recipients = connectRelation(values.recipients, 'recipients');
         let controllers = connectRelation(values.controllers, 'controllers');
         let dataTypes = connectRelation(values.dataTypes, 'dataTypes');
-        let procesessingTypes = connectRelation(values.procesessingTypes, 'procesessingTypes');
+        let processingTypes = connectRelation(values.processingTypes, 'processingTypes');
         let legalGrounds = connectRelation(values.legalGrounds, 'legalGrounds');
         let optimisticFunction = "updateProcessingActivity";
 
@@ -167,7 +176,7 @@ function UpsertProcessingActivityModal(props) {
               ...recipients,
               ...controllers,
               ...dataTypes,
-              ...procesessingTypes,
+              ...processingTypes,
               ...legalGrounds
             } 
           },
@@ -177,8 +186,6 @@ function UpsertProcessingActivityModal(props) {
               id: activityId,
               name: values.name,
               updatedAt: -10, 
-              imController: values.imController,
-              purpose: values.purpose,
               process:{
                 id: parentProcess,
                 name: "...",
@@ -208,7 +215,7 @@ function UpsertProcessingActivityModal(props) {
   };
 
   if (error) return "...";
-
+  
   return(
     <React.Fragment>
       <Modal
@@ -225,7 +232,7 @@ function UpsertProcessingActivityModal(props) {
             </Form.Item> 
 
             <Form.Item label="We are the">
-              {form.getFieldDecorator('imController', {initialValue: imController } )(
+              {form.getFieldDecorator('imController', {initialValue: imController} )(
                 <Radio.Group buttonStyle="solid" onChange={ handleControllerChange }>                     
                   <Radio.Button value={true}>Controler</Radio.Button>
                   <Radio.Button value={false}>Processor</Radio.Button>
@@ -299,7 +306,7 @@ function UpsertProcessingActivityModal(props) {
 
               <ProcessingTypesOptionsList 
                 form={form} 
-                initialValue={get(processingActivity, 'procesessingTypes')}
+                initialValue={get(processingActivity, 'processingTypes')}
                 required={false} /> 
 
               <Form.Item label="Security measures">

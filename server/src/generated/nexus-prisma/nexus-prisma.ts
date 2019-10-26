@@ -2494,7 +2494,7 @@ type ProcessingActivityObject =
   | { name: 'recipients', args?: ProcessingActivityRecipientsArgs[] | false, alias?: string  } 
   | { name: 'controllers', args?: ProcessingActivityControllersArgs[] | false, alias?: string  } 
   | { name: 'dataTypes', args?: ProcessingActivityDataTypesArgs[] | false, alias?: string  } 
-  | { name: 'procesessingTypes', args?: ProcessingActivityProcesessingTypesArgs[] | false, alias?: string  } 
+  | { name: 'processingTypes', args?: ProcessingActivityProcessingTypesArgs[] | false, alias?: string  } 
   | { name: 'legalGrounds', args?: ProcessingActivityLegalGroundsArgs[] | false, alias?: string  } 
   | { name: 'process', args?: [] | false, alias?: string  } 
 
@@ -2514,7 +2514,7 @@ type ProcessingActivityFields =
   | 'recipients'
   | 'controllers'
   | 'dataTypes'
-  | 'procesessingTypes'
+  | 'processingTypes'
   | 'legalGrounds'
   | 'process'
 
@@ -2543,7 +2543,7 @@ type ProcessingActivityDataTypesArgs =
   | 'before'
   | 'first'
   | 'last'
-type ProcessingActivityProcesessingTypesArgs =
+type ProcessingActivityProcessingTypesArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -2583,7 +2583,7 @@ export interface ProcessingActivityFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   imController: {
@@ -2697,9 +2697,9 @@ export interface ProcessingActivityFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.DataType[]> | prisma.DataType[]
   }
-  procesessingTypes: {
+  processingTypes: {
     type: 'ProcessingType'
-    args: Record<ProcessingActivityProcesessingTypesArgs, core.NexusArgDef<string>>
+    args: Record<ProcessingActivityProcessingTypesArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
@@ -9324,7 +9324,7 @@ export interface ProcessingActivityPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   imController: {
@@ -11609,9 +11609,9 @@ export interface ProcessingActivityWhereInput {
   dataTypes_every?: DataTypeWhereInput | null
   dataTypes_some?: DataTypeWhereInput | null
   dataTypes_none?: DataTypeWhereInput | null
-  procesessingTypes_every?: ProcessingTypeWhereInput | null
-  procesessingTypes_some?: ProcessingTypeWhereInput | null
-  procesessingTypes_none?: ProcessingTypeWhereInput | null
+  processingTypes_every?: ProcessingTypeWhereInput | null
+  processingTypes_some?: ProcessingTypeWhereInput | null
+  processingTypes_none?: ProcessingTypeWhereInput | null
   legalGrounds_every?: LegalGroundWhereInput | null
   legalGrounds_some?: LegalGroundWhereInput | null
   legalGrounds_none?: LegalGroundWhereInput | null
@@ -11751,9 +11751,9 @@ export type ProcessingActivityWhereInputInputObject =
   | { name: 'dataTypes_every', alias?: string  } 
   | { name: 'dataTypes_some', alias?: string  } 
   | { name: 'dataTypes_none', alias?: string  } 
-  | { name: 'procesessingTypes_every', alias?: string  } 
-  | { name: 'procesessingTypes_some', alias?: string  } 
-  | { name: 'procesessingTypes_none', alias?: string  } 
+  | { name: 'processingTypes_every', alias?: string  } 
+  | { name: 'processingTypes_some', alias?: string  } 
+  | { name: 'processingTypes_none', alias?: string  } 
   | { name: 'legalGrounds_every', alias?: string  } 
   | { name: 'legalGrounds_some', alias?: string  } 
   | { name: 'legalGrounds_none', alias?: string  } 
@@ -13483,7 +13483,7 @@ export type ProcessingActivityCreateManyWithoutProcessInputInputObject =
 export interface ProcessingActivityCreateWithoutProcessInput {
   id?: string | null
   name?: string
-  purpose?: string | null
+  purpose?: string
   imController?: boolean | null
   securityMeasures?: string | null
   legalGroundComment?: string | null
@@ -13494,7 +13494,7 @@ export interface ProcessingActivityCreateWithoutProcessInput {
   recipients?: BusinessPartnerCreateManyInput | null
   controllers?: BusinessPartnerCreateManyInput | null
   dataTypes?: DataTypeCreateManyInput | null
-  procesessingTypes?: ProcessingTypeCreateManyInput | null
+  processingTypes?: ProcessingTypeCreateManyInput | null
   legalGrounds?: LegalGroundCreateManyInput | null
 }
 export type ProcessingActivityCreateWithoutProcessInputInputObject =
@@ -13512,7 +13512,7 @@ export type ProcessingActivityCreateWithoutProcessInputInputObject =
   | { name: 'recipients', alias?: string  } 
   | { name: 'controllers', alias?: string  } 
   | { name: 'dataTypes', alias?: string  } 
-  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
   | { name: 'legalGrounds', alias?: string  } 
   
 export interface BusinessPartnerCreateManyInput {
@@ -13738,7 +13738,7 @@ export type ProcessingActivityCreateManyInputInputObject =
 export interface ProcessingActivityCreateInput {
   id?: string | null
   name?: string
-  purpose?: string | null
+  purpose?: string
   imController?: boolean | null
   securityMeasures?: string | null
   legalGroundComment?: string | null
@@ -13749,7 +13749,7 @@ export interface ProcessingActivityCreateInput {
   recipients?: BusinessPartnerCreateManyInput | null
   controllers?: BusinessPartnerCreateManyInput | null
   dataTypes?: DataTypeCreateManyInput | null
-  procesessingTypes?: ProcessingTypeCreateManyInput | null
+  processingTypes?: ProcessingTypeCreateManyInput | null
   legalGrounds?: LegalGroundCreateManyInput | null
   process?: ProcessCreateOneWithoutProcessingActivitiesInput | null
 }
@@ -13768,7 +13768,7 @@ export type ProcessingActivityCreateInputInputObject =
   | { name: 'recipients', alias?: string  } 
   | { name: 'controllers', alias?: string  } 
   | { name: 'dataTypes', alias?: string  } 
-  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
   | { name: 'legalGrounds', alias?: string  } 
   | { name: 'process', alias?: string  } 
   
@@ -14596,7 +14596,7 @@ export interface ProcessingActivityUpdateWithoutProcessDataInput {
   recipients?: BusinessPartnerUpdateManyInput | null
   controllers?: BusinessPartnerUpdateManyInput | null
   dataTypes?: DataTypeUpdateManyInput | null
-  procesessingTypes?: ProcessingTypeUpdateManyInput | null
+  processingTypes?: ProcessingTypeUpdateManyInput | null
   legalGrounds?: LegalGroundUpdateManyInput | null
 }
 export type ProcessingActivityUpdateWithoutProcessDataInputInputObject =
@@ -14613,7 +14613,7 @@ export type ProcessingActivityUpdateWithoutProcessDataInputInputObject =
   | { name: 'recipients', alias?: string  } 
   | { name: 'controllers', alias?: string  } 
   | { name: 'dataTypes', alias?: string  } 
-  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
   | { name: 'legalGrounds', alias?: string  } 
   
 export interface BusinessPartnerUpdateManyInput {
@@ -15695,7 +15695,7 @@ export interface ProcessingActivityUpdateDataInput {
   recipients?: BusinessPartnerUpdateManyInput | null
   controllers?: BusinessPartnerUpdateManyInput | null
   dataTypes?: DataTypeUpdateManyInput | null
-  procesessingTypes?: ProcessingTypeUpdateManyInput | null
+  processingTypes?: ProcessingTypeUpdateManyInput | null
   legalGrounds?: LegalGroundUpdateManyInput | null
   process?: ProcessUpdateOneWithoutProcessingActivitiesInput | null
 }
@@ -15713,7 +15713,7 @@ export type ProcessingActivityUpdateDataInputInputObject =
   | { name: 'recipients', alias?: string  } 
   | { name: 'controllers', alias?: string  } 
   | { name: 'dataTypes', alias?: string  } 
-  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
   | { name: 'legalGrounds', alias?: string  } 
   | { name: 'process', alias?: string  } 
   
@@ -18340,7 +18340,7 @@ export interface ProcessingActivityUpdateInput {
   recipients?: BusinessPartnerUpdateManyInput | null
   controllers?: BusinessPartnerUpdateManyInput | null
   dataTypes?: DataTypeUpdateManyInput | null
-  procesessingTypes?: ProcessingTypeUpdateManyInput | null
+  processingTypes?: ProcessingTypeUpdateManyInput | null
   legalGrounds?: LegalGroundUpdateManyInput | null
   process?: ProcessUpdateOneWithoutProcessingActivitiesInput | null
 }
@@ -18358,7 +18358,7 @@ export type ProcessingActivityUpdateInputInputObject =
   | { name: 'recipients', alias?: string  } 
   | { name: 'controllers', alias?: string  } 
   | { name: 'dataTypes', alias?: string  } 
-  | { name: 'procesessingTypes', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
   | { name: 'legalGrounds', alias?: string  } 
   | { name: 'process', alias?: string  } 
   

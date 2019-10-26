@@ -9471,7 +9471,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "procesessingTypes_every",
+            "name": "processingTypes_every",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -9481,7 +9481,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "procesessingTypes_some",
+            "name": "processingTypes_some",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -9491,7 +9491,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "procesessingTypes_none",
+            "name": "processingTypes_none",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -19125,9 +19125,13 @@ export default {
             "description": null,
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -19522,7 +19526,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "procesessingTypes",
+            "name": "processingTypes",
             "description": null,
             "args": [
               {
@@ -30575,9 +30579,13 @@ export default {
             "name": "purpose",
             "description": null,
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "defaultValue": null
           },
@@ -30682,7 +30690,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "procesessingTypes",
+            "name": "processingTypes",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -31748,9 +31756,13 @@ export default {
             "name": "purpose",
             "description": null,
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "defaultValue": null
           },
@@ -31855,7 +31867,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "procesessingTypes",
+            "name": "processingTypes",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -35861,7 +35873,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "procesessingTypes",
+            "name": "processingTypes",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -41758,7 +41770,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "procesessingTypes",
+            "name": "processingTypes",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -55266,7 +55278,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "procesessingTypes",
+            "name": "processingTypes",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -61125,9 +61137,13 @@ export default {
             "description": null,
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null

@@ -3636,11 +3636,11 @@ type ProcessingActivity {
   linkToDpia: String
   linkToLia: String
   name: String!
-  procesessingTypes(after: String, before: String, first: Int, last: Int, orderBy: ProcessingTypeOrderByInput, skip: Int, where: ProcessingTypeWhereInput): [ProcessingType!]
   process: Process
+  processingTypes(after: String, before: String, first: Int, last: Int, orderBy: ProcessingTypeOrderByInput, skip: Int, where: ProcessingTypeWhereInput): [ProcessingType!]
   profiling: Boolean
   publicSource: Boolean
-  purpose: String
+  purpose: String!
   recipients(after: String, before: String, first: Int, last: Int, orderBy: BusinessPartnerOrderByInput, skip: Int, where: BusinessPartnerWhereInput): [BusinessPartner!]
   securityMeasures: String
   updatedAt: DateTime!
@@ -3662,11 +3662,11 @@ input ProcessingActivityCreateInput {
   linkToDpia: String
   linkToLia: String
   name: String!
-  procesessingTypes: ProcessingTypeCreateManyInput
   process: ProcessCreateOneWithoutProcessingActivitiesInput
+  processingTypes: ProcessingTypeCreateManyInput
   profiling: Boolean
   publicSource: Boolean
-  purpose: String
+  purpose: String!
   recipients: BusinessPartnerCreateManyInput
   securityMeasures: String
 }
@@ -3691,10 +3691,10 @@ input ProcessingActivityCreateWithoutProcessInput {
   linkToDpia: String
   linkToLia: String
   name: String!
-  procesessingTypes: ProcessingTypeCreateManyInput
+  processingTypes: ProcessingTypeCreateManyInput
   profiling: Boolean
   publicSource: Boolean
-  purpose: String
+  purpose: String!
   recipients: BusinessPartnerCreateManyInput
   securityMeasures: String
 }
@@ -3866,8 +3866,8 @@ input ProcessingActivityUpdateDataInput {
   linkToDpia: String
   linkToLia: String
   name: String
-  procesessingTypes: ProcessingTypeUpdateManyInput
   process: ProcessUpdateOneWithoutProcessingActivitiesInput
+  processingTypes: ProcessingTypeUpdateManyInput
   profiling: Boolean
   publicSource: Boolean
   purpose: String
@@ -3884,8 +3884,8 @@ input ProcessingActivityUpdateInput {
   linkToDpia: String
   linkToLia: String
   name: String
-  procesessingTypes: ProcessingTypeUpdateManyInput
   process: ProcessUpdateOneWithoutProcessingActivitiesInput
+  processingTypes: ProcessingTypeUpdateManyInput
   profiling: Boolean
   publicSource: Boolean
   purpose: String
@@ -3955,7 +3955,7 @@ input ProcessingActivityUpdateWithoutProcessDataInput {
   linkToDpia: String
   linkToLia: String
   name: String
-  procesessingTypes: ProcessingTypeUpdateManyInput
+  processingTypes: ProcessingTypeUpdateManyInput
   profiling: Boolean
   publicSource: Boolean
   purpose: String
@@ -4078,10 +4078,10 @@ input ProcessingActivityWhereInput {
   name_starts_with: String
   NOT: [ProcessingActivityWhereInput!]
   OR: [ProcessingActivityWhereInput!]
-  procesessingTypes_every: ProcessingTypeWhereInput
-  procesessingTypes_none: ProcessingTypeWhereInput
-  procesessingTypes_some: ProcessingTypeWhereInput
   process: ProcessWhereInput
+  processingTypes_every: ProcessingTypeWhereInput
+  processingTypes_none: ProcessingTypeWhereInput
+  processingTypes_some: ProcessingTypeWhereInput
   profiling: Boolean
   profiling_not: Boolean
   publicSource: Boolean
