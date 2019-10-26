@@ -22,8 +22,6 @@ class viewOUTypeDrawer extends React.Component {
           if(loading) return <Loading />
           const dataSource = data.organizationalUnitType|| [];
 
-          console.log(data)
-
           let list = [
             { lable: "Description", content: dataSource.description },
             { lable: "Reporting unit", content: this.formatReportingUnit(dataSource.reportingUnit) }

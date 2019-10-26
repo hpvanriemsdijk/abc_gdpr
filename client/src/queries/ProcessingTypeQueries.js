@@ -51,3 +51,11 @@ export const UPDATE_PROCESSING_TYPE = gql`
 		}
 	}
 `;
+
+export const DELETE_PROCESSING_TYPE = gql`
+	mutation DeleteProcessingType ($id: ID!) {
+		deleteProcessingType(where:{id: $id}) {
+			id
+		}
+	}
+`;

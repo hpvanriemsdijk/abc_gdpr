@@ -6,7 +6,7 @@ export function UpsertProcessingType(props) {
   return(
     <GenericUpsertModal
       typeId = {props.id}
-      typeName = "ProcessingType"
+      typeName = "processingType"
       typeLabel = "Processing type"
       allQuery = { ALL_PROCESSING_TYPES }
       getQuery = { GET_PROCESSING_TYPE }

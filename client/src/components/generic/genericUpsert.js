@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { get, lowerFirst, upperFirst } from 'lodash';
+import { get, upperFirst } from 'lodash';
 import { Modal, Form, Input, Button, notification, Spin } from 'antd';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
@@ -20,11 +20,23 @@ function GenericUpsertModal(props) {
   const { data, loading, error } = useQuery( getQuery, { variables : { id: typeId }, skip:!modalVisible||!typeId } );
   const typeData = data?data[typeName]:{};  
   const createAction = typeId?false:true;
-  let optimisticFunction = "update" + typeName;
+
+  let typeNames = typeName + "s";  
+  let getQueryName = upperFirst(typeName);
+  let getAllQueryName = upperFirst(typeNames);
+  let createFunction = "create" + upperFirst(typeName);
+  let updateFunction = "update" + upperFirst(typeName);
+  let optimisticFunction = updateFunction;
+
+  if(createAction){
+    typeId = Math.round(Math.random() * -1000000);
+    optimisticFunction = createFunction
+    title = "Create " + typeLabel;
+  }
 
   const [createType] = useMutation(
     createQuery, {
-      refetchQueries:[ typeName, typeName+"s" ],
+      refetchQueries:[ getQueryName, getAllQueryName ],
       onCompleted() {   
         notification['success']({
           message: typeLabel + " created",
@@ -89,12 +101,6 @@ function GenericUpsertModal(props) {
   const onSubmit = () => {
     form.validateFields(async (err, values) => {
       if (!err) {
-        if(createAction){
-          typeId = Math.round(Math.random() * -1000000);
-          optimisticFunction = "create" + typeName;
-          title = "Create " + typeLabel;
-        }
-
         let variables = { 
           variables: {
             data: {
@@ -104,26 +110,27 @@ function GenericUpsertModal(props) {
           },
           optimisticResponse: {
             [ optimisticFunction ]: {
-              __typename: typeName,
               id: typeId,
               name: values.name,
               description: values.description,
               updatedAt: -10, 
+              __typename: getQueryName
             },
           }          
         };
 
         if(createAction){
-            variables.update = (proxy, { data: { createQuery } }) => {
-                try {
-                    const data = proxy.readQuery({ query: allQuery });
-                    data[typeName].push( createQuery );
-                    proxy.writeQuery({ query: allQuery, data });
-                } catch (err) {
-                    console.log( typeName + " not in store")
-                }
-            }          
-            createType(variables)
+          variables.update = (proxy, data) => {
+            let optimisticData = data["data"][ optimisticFunction ];
+            try {
+              const data = proxy.readQuery({ query: allQuery });
+              data[typeNames].push( optimisticData );
+              proxy.writeQuery({ query: allQuery, data });
+            } catch (err) {
+              console.log( typeName + " not in store")
+            }
+          }          
+          createType(variables)
         }else{
             variables.variables.id = typeId;
             updateType(variables)

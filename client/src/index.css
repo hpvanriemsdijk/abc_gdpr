@@ -84,3 +84,8 @@ tr.drop-over-upward td {
 .optimisticColumn{
   color: rgba(0, 0, 0, 0.3);
 }
+
+span.actions{
+  display: inline-block;
+  width: max-content;
+}

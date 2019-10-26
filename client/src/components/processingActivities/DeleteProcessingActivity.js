@@ -40,10 +40,12 @@ export default function DeleteProcessingActivity(props) {
       update: (proxy, { data: { deleteProcessingActivity } }) => {
         const data = proxy.readQuery({ query: ALL_PROCESSING_ACTIVITIES });
         data.processingActivities = reject(data.processingActivities, ['id', deleteProcessingActivity.id]);
+        console.log(data)
         proxy.writeQuery({ query: ALL_PROCESSING_ACTIVITIES, data });
       }
     };
   
+    console.log(variables)
     deleteProcessingActivity(variables)
     setModalVisible(false);
   };

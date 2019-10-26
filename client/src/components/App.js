@@ -31,6 +31,7 @@ import listOrganizationalUnitTypes from './organizationalUnitTypes/ListOUTypes'
 import viewOrganizationalUnitTypes from './organizationalUnitTypes/ViewOUType'
 import listBusinessPartners from './businessPartners/ListBusinessPartners'
 import viewBusinessPartner from './businessPartners/ViewBusinessPartner'
+import listProcessingTypes from './processingTypes/ListProcessingTypes'
 const { Footer, Sider } = Layout;
 
 class App extends React.Component {
@@ -133,6 +134,7 @@ class App extends React.Component {
           <AppRoute path='/organizationalUnitTypes' layout={ this.AuthenticatedLayout } component={listOrganizationalUnitTypes} />
           <AppRoute path='/businessPartners/:organizationId' layout={ this.AuthenticatedLayout } component={viewBusinessPartner} />
           <AppRoute path='/businessPartners' layout={ this.AuthenticatedLayout } component={listBusinessPartners} />
+          <AppRoute path='/processingTypes' layout={ this.AuthenticatedLayout } component={listProcessingTypes} />
           <AppRoute exact path='/' layout={ this.AuthenticatedLayout } component={landingPage} />
           <Route path="*" component={error_404}/>
         </Switch>

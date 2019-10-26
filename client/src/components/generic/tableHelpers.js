@@ -1,6 +1,7 @@
 import React from 'react'
 import { Input, Button, Icon } from 'antd'
 import Highlighter from "react-highlight-words"
+import { truncate } from 'lodash';
 
 function getProperty( propertyName, object ) {
   var parts = propertyName.split( "." ),
@@ -63,11 +64,12 @@ const clientSideFilter = (dataIndex, searchInput, handleSearch, handleReset) => 
     }
   })
 
-  const filterHighlighter = (dataIndex, searchInput) => ({
+  const filterHighlighter = (dataIndex, searchInput, length = 0) => ({
     render: (text = "") => {
       let searchText = searchInput[dataIndex] || [null]
       if(!text) return null
-
+      if(length > 0) {text = truncate(text, {'length': length,'separator': ' '}) }
+      
       return(
         <Highlighter
           highlightStyle={{ backgroundColor: '#ffffb8', padding: 0 }}
