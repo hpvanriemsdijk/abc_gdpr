@@ -76,6 +76,7 @@ type OrganizationalUnit {
   processes: [Process!]!
   businessRoles: [BusinessRole!]!
   organizationalUnitType: OrganizationalUnitType @relation(link: INLINE)
+  headOffice: Location @relation(onDelete: CASCADE)
 }
 
 type OrganizationalUnitType {
@@ -214,6 +215,7 @@ type Location {
 
   # Relations
   businessPartner: BusinessPartner @relation(link: INLINE)
+  organizationalUnit: OrganizationalUnit @relation(link: INLINE)
 }
 
 type LegalGround {

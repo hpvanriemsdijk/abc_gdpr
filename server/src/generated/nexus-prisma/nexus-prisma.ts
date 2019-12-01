@@ -351,6 +351,10 @@ export interface NexusPrismaTypes {
       BusinessRoleCreateWithoutAppSecAdminInput: BusinessRoleCreateWithoutAppSecAdminInputInputObject
       OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInputInputObject
       OrganizationalUnitTypeCreateWithoutOrganizationalUnitInput: OrganizationalUnitTypeCreateWithoutOrganizationalUnitInputInputObject
+      LocationCreateOneInput: LocationCreateOneInputInputObject
+      LocationCreateInput: LocationCreateInputInputObject
+      BusinessPartnerCreateOneWithoutHeadOfficeInput: BusinessPartnerCreateOneWithoutHeadOfficeInputInputObject
+      BusinessPartnerCreateWithoutHeadOfficeInput: BusinessPartnerCreateWithoutHeadOfficeInputInputObject
       BusinessRoleCreateOneWithoutProcessInput: BusinessRoleCreateOneWithoutProcessInputInputObject
       BusinessRoleCreateWithoutProcessInput: BusinessRoleCreateWithoutProcessInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
@@ -493,6 +497,12 @@ export interface NexusPrismaTypes {
       OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInputInputObject
       OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInput: OrganizationalUnitTypeUpdateWithoutOrganizationalUnitDataInputInputObject
       OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInput: OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInputInputObject
+      LocationUpdateOneInput: LocationUpdateOneInputInputObject
+      LocationUpdateDataInput: LocationUpdateDataInputInputObject
+      BusinessPartnerUpdateOneWithoutHeadOfficeInput: BusinessPartnerUpdateOneWithoutHeadOfficeInputInputObject
+      BusinessPartnerUpdateWithoutHeadOfficeDataInput: BusinessPartnerUpdateWithoutHeadOfficeDataInputInputObject
+      BusinessPartnerUpsertWithoutHeadOfficeInput: BusinessPartnerUpsertWithoutHeadOfficeInputInputObject
+      LocationUpsertNestedInput: LocationUpsertNestedInputInputObject
       OrganizationalUnitUpsertWithoutChildrenInput: OrganizationalUnitUpsertWithoutChildrenInputInputObject
       OrganizationalUnitUpsertWithoutProcessesInput: OrganizationalUnitUpsertWithoutProcessesInputInputObject
       BusinessRoleUpdateOneWithoutProcessInput: BusinessRoleUpdateOneWithoutProcessInputInputObject
@@ -572,13 +582,7 @@ export interface NexusPrismaTypes {
       ClassificationLabelUpdateManyMutationInput: ClassificationLabelUpdateManyMutationInputInputObject
       BusinessPartnerUpdateInput: BusinessPartnerUpdateInputInputObject
       BusinessPartnerUpdateManyMutationInput: BusinessPartnerUpdateManyMutationInputInputObject
-      LocationCreateInput: LocationCreateInputInputObject
-      BusinessPartnerCreateOneWithoutHeadOfficeInput: BusinessPartnerCreateOneWithoutHeadOfficeInputInputObject
-      BusinessPartnerCreateWithoutHeadOfficeInput: BusinessPartnerCreateWithoutHeadOfficeInputInputObject
       LocationUpdateInput: LocationUpdateInputInputObject
-      BusinessPartnerUpdateOneWithoutHeadOfficeInput: BusinessPartnerUpdateOneWithoutHeadOfficeInputInputObject
-      BusinessPartnerUpdateWithoutHeadOfficeDataInput: BusinessPartnerUpdateWithoutHeadOfficeDataInputInputObject
-      BusinessPartnerUpsertWithoutHeadOfficeInput: BusinessPartnerUpsertWithoutHeadOfficeInputInputObject
       LocationUpdateManyMutationInput: LocationUpdateManyMutationInputInputObject
       LegalGroundUpdateInput: LegalGroundUpdateInputInputObject
       LegalGroundUpdateManyMutationInput: LegalGroundUpdateManyMutationInputInputObject
@@ -2209,6 +2213,7 @@ type OrganizationalUnitObject =
   | { name: 'processes', args?: OrganizationalUnitProcessesArgs[] | false, alias?: string  } 
   | { name: 'businessRoles', args?: OrganizationalUnitBusinessRolesArgs[] | false, alias?: string  } 
   | { name: 'organizationalUnitType', args?: [] | false, alias?: string  } 
+  | { name: 'headOffice', args?: [] | false, alias?: string  } 
 
 type OrganizationalUnitFields =
   | 'id'
@@ -2221,6 +2226,7 @@ type OrganizationalUnitFields =
   | 'processes'
   | 'businessRoles'
   | 'organizationalUnitType'
+  | 'headOffice'
 
 
 type OrganizationalUnitChildrenArgs =
@@ -2354,6 +2360,19 @@ export interface OrganizationalUnitFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.OrganizationalUnitType | null> | prisma.OrganizationalUnitType | null
+  }
+  headOffice: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"OrganizationalUnit">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
   }
 }
   
@@ -11263,6 +11282,7 @@ export interface OrganizationalUnitWhereInput {
   businessRoles_some?: BusinessRoleWhereInput | null
   businessRoles_none?: BusinessRoleWhereInput | null
   organizationalUnitType?: OrganizationalUnitTypeWhereInput | null
+  headOffice?: LocationWhereInput | null
   AND?: OrganizationalUnitWhereInput[]
   OR?: OrganizationalUnitWhereInput[]
   NOT?: OrganizationalUnitWhereInput[]
@@ -11338,6 +11358,7 @@ export type OrganizationalUnitWhereInputInputObject =
   | { name: 'businessRoles_some', alias?: string  } 
   | { name: 'businessRoles_none', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -13408,6 +13429,7 @@ export interface OrganizationalUnitCreateWithoutBusinessRolesInput {
   parent?: OrganizationalUnitCreateOneWithoutChildrenInput | null
   processes?: ProcessCreateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationCreateOneInput | null
 }
 export type OrganizationalUnitCreateWithoutBusinessRolesInputInputObject =
   | Extract<keyof OrganizationalUnitCreateWithoutBusinessRolesInput, string>
@@ -13418,6 +13440,7 @@ export type OrganizationalUnitCreateWithoutBusinessRolesInputInputObject =
   | { name: 'parent', alias?: string  } 
   | { name: 'processes', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface OrganizationalUnitCreateManyWithoutParentInput {
   create?: OrganizationalUnitCreateWithoutParentInput[]
@@ -13436,6 +13459,7 @@ export interface OrganizationalUnitCreateWithoutParentInput {
   processes?: ProcessCreateManyWithoutOrganizationalUnitInput | null
   businessRoles?: BusinessRoleCreateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationCreateOneInput | null
 }
 export type OrganizationalUnitCreateWithoutParentInputInputObject =
   | Extract<keyof OrganizationalUnitCreateWithoutParentInput, string>
@@ -13446,6 +13470,7 @@ export type OrganizationalUnitCreateWithoutParentInputInputObject =
   | { name: 'processes', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface ProcessCreateManyWithoutOrganizationalUnitInput {
   create?: ProcessCreateWithoutOrganizationalUnitInput[]
@@ -13835,6 +13860,7 @@ export interface OrganizationalUnitCreateWithoutProcessesInput {
   parent?: OrganizationalUnitCreateOneWithoutChildrenInput | null
   businessRoles?: BusinessRoleCreateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationCreateOneInput | null
 }
 export type OrganizationalUnitCreateWithoutProcessesInputInputObject =
   | Extract<keyof OrganizationalUnitCreateWithoutProcessesInput, string>
@@ -13845,6 +13871,7 @@ export type OrganizationalUnitCreateWithoutProcessesInputInputObject =
   | { name: 'parent', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface OrganizationalUnitCreateOneWithoutChildrenInput {
   create?: OrganizationalUnitCreateWithoutChildrenInput | null
@@ -13863,6 +13890,7 @@ export interface OrganizationalUnitCreateWithoutChildrenInput {
   processes?: ProcessCreateManyWithoutOrganizationalUnitInput | null
   businessRoles?: BusinessRoleCreateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationCreateOneInput | null
 }
 export type OrganizationalUnitCreateWithoutChildrenInputInputObject =
   | Extract<keyof OrganizationalUnitCreateWithoutChildrenInput, string>
@@ -13873,6 +13901,7 @@ export type OrganizationalUnitCreateWithoutChildrenInputInputObject =
   | { name: 'processes', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface BusinessRoleCreateManyWithoutOrganizationalUnitInput {
   create?: BusinessRoleCreateWithoutOrganizationalUnitInput[]
@@ -14280,6 +14309,70 @@ export type OrganizationalUnitTypeCreateWithoutOrganizationalUnitInputInputObjec
   | { name: 'description', alias?: string  } 
   | { name: 'reportingUnit', alias?: string  } 
   
+export interface LocationCreateOneInput {
+  create?: LocationCreateInput | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationCreateOneInputInputObject =
+  | Extract<keyof LocationCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationCreateInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  address?: string
+  businessPartner?: BusinessPartnerCreateOneWithoutHeadOfficeInput | null
+}
+export type LocationCreateInputInputObject =
+  | Extract<keyof LocationCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  | { name: 'businessPartner', alias?: string  } 
+  
+export interface BusinessPartnerCreateOneWithoutHeadOfficeInput {
+  create?: BusinessPartnerCreateWithoutHeadOfficeInput | null
+  connect?: BusinessPartnerWhereUniqueInput | null
+}
+export type BusinessPartnerCreateOneWithoutHeadOfficeInputInputObject =
+  | Extract<keyof BusinessPartnerCreateOneWithoutHeadOfficeInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface BusinessPartnerCreateWithoutHeadOfficeInput {
+  id?: string | null
+  name?: string
+  description?: string | null
+  contactDetails?: string
+  dpo?: string
+  representative?: BusinessPartnerCreateOneInput | null
+  processingTypes?: ProcessingTypeCreateManyInput | null
+  recipientsType?: RecipientsTypeCreateOneInput | null
+  securityMeasures?: string | null
+  otherCountries?: undefined | null
+  outsideEea?: boolean | null
+  safeguards?: string | null
+  linkToDpa?: string | null
+}
+export type BusinessPartnerCreateWithoutHeadOfficeInputInputObject =
+  | Extract<keyof BusinessPartnerCreateWithoutHeadOfficeInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
+  | { name: 'recipientsType', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'otherCountries', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
+  
 export interface BusinessRoleCreateOneWithoutProcessInput {
   create?: BusinessRoleCreateWithoutProcessInput | null
   connect?: BusinessRoleWhereUniqueInput | null
@@ -14447,6 +14540,7 @@ export interface OrganizationalUnitUpdateWithoutBusinessRolesDataInput {
   parent?: OrganizationalUnitUpdateOneWithoutChildrenInput | null
   processes?: ProcessUpdateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationUpdateOneInput | null
 }
 export type OrganizationalUnitUpdateWithoutBusinessRolesDataInputInputObject =
   | Extract<keyof OrganizationalUnitUpdateWithoutBusinessRolesDataInput, string>
@@ -14456,6 +14550,7 @@ export type OrganizationalUnitUpdateWithoutBusinessRolesDataInputInputObject =
   | { name: 'parent', alias?: string  } 
   | { name: 'processes', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface OrganizationalUnitUpdateManyWithoutParentInput {
   create?: OrganizationalUnitCreateWithoutParentInput[]
@@ -14496,6 +14591,7 @@ export interface OrganizationalUnitUpdateWithoutParentDataInput {
   processes?: ProcessUpdateManyWithoutOrganizationalUnitInput | null
   businessRoles?: BusinessRoleUpdateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationUpdateOneInput | null
 }
 export type OrganizationalUnitUpdateWithoutParentDataInputInputObject =
   | Extract<keyof OrganizationalUnitUpdateWithoutParentDataInput, string>
@@ -14505,6 +14601,7 @@ export type OrganizationalUnitUpdateWithoutParentDataInputInputObject =
   | { name: 'processes', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface ProcessUpdateManyWithoutOrganizationalUnitInput {
   create?: ProcessCreateWithoutOrganizationalUnitInput[]
@@ -15944,6 +16041,7 @@ export interface OrganizationalUnitUpdateWithoutProcessesDataInput {
   parent?: OrganizationalUnitUpdateOneWithoutChildrenInput | null
   businessRoles?: BusinessRoleUpdateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationUpdateOneInput | null
 }
 export type OrganizationalUnitUpdateWithoutProcessesDataInputInputObject =
   | Extract<keyof OrganizationalUnitUpdateWithoutProcessesDataInput, string>
@@ -15953,6 +16051,7 @@ export type OrganizationalUnitUpdateWithoutProcessesDataInputInputObject =
   | { name: 'parent', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface OrganizationalUnitUpdateOneWithoutChildrenInput {
   create?: OrganizationalUnitCreateWithoutChildrenInput | null
@@ -15978,6 +16077,7 @@ export interface OrganizationalUnitUpdateWithoutChildrenDataInput {
   processes?: ProcessUpdateManyWithoutOrganizationalUnitInput | null
   businessRoles?: BusinessRoleUpdateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationUpdateOneInput | null
 }
 export type OrganizationalUnitUpdateWithoutChildrenDataInputInputObject =
   | Extract<keyof OrganizationalUnitUpdateWithoutChildrenDataInput, string>
@@ -15987,6 +16087,7 @@ export type OrganizationalUnitUpdateWithoutChildrenDataInputInputObject =
   | { name: 'processes', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface BusinessRoleUpdateManyWithoutOrganizationalUnitInput {
   create?: BusinessRoleCreateWithoutOrganizationalUnitInput[]
@@ -17380,6 +17481,100 @@ export type OrganizationalUnitTypeUpsertWithoutOrganizationalUnitInputInputObjec
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
+export interface LocationUpdateOneInput {
+  create?: LocationCreateInput | null
+  update?: LocationUpdateDataInput | null
+  upsert?: LocationUpsertNestedInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationUpdateOneInputInputObject =
+  | Extract<keyof LocationUpdateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationUpdateDataInput {
+  name?: string | null
+  description?: string | null
+  address?: string | null
+  businessPartner?: BusinessPartnerUpdateOneWithoutHeadOfficeInput | null
+}
+export type LocationUpdateDataInputInputObject =
+  | Extract<keyof LocationUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'address', alias?: string  } 
+  | { name: 'businessPartner', alias?: string  } 
+  
+export interface BusinessPartnerUpdateOneWithoutHeadOfficeInput {
+  create?: BusinessPartnerCreateWithoutHeadOfficeInput | null
+  update?: BusinessPartnerUpdateWithoutHeadOfficeDataInput | null
+  upsert?: BusinessPartnerUpsertWithoutHeadOfficeInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: BusinessPartnerWhereUniqueInput | null
+}
+export type BusinessPartnerUpdateOneWithoutHeadOfficeInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateOneWithoutHeadOfficeInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface BusinessPartnerUpdateWithoutHeadOfficeDataInput {
+  name?: string | null
+  description?: string | null
+  contactDetails?: string | null
+  dpo?: string | null
+  representative?: BusinessPartnerUpdateOneInput | null
+  processingTypes?: ProcessingTypeUpdateManyInput | null
+  recipientsType?: RecipientsTypeUpdateOneInput | null
+  securityMeasures?: string | null
+  otherCountries?: undefined | null
+  outsideEea?: boolean | null
+  safeguards?: string | null
+  linkToDpa?: string | null
+}
+export type BusinessPartnerUpdateWithoutHeadOfficeDataInputInputObject =
+  | Extract<keyof BusinessPartnerUpdateWithoutHeadOfficeDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'contactDetails', alias?: string  } 
+  | { name: 'dpo', alias?: string  } 
+  | { name: 'representative', alias?: string  } 
+  | { name: 'processingTypes', alias?: string  } 
+  | { name: 'recipientsType', alias?: string  } 
+  | { name: 'securityMeasures', alias?: string  } 
+  | { name: 'otherCountries', alias?: string  } 
+  | { name: 'outsideEea', alias?: string  } 
+  | { name: 'safeguards', alias?: string  } 
+  | { name: 'linkToDpa', alias?: string  } 
+  
+export interface BusinessPartnerUpsertWithoutHeadOfficeInput {
+  update?: BusinessPartnerUpdateWithoutHeadOfficeDataInput
+  create?: BusinessPartnerCreateWithoutHeadOfficeInput
+}
+export type BusinessPartnerUpsertWithoutHeadOfficeInputInputObject =
+  | Extract<keyof BusinessPartnerUpsertWithoutHeadOfficeInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface LocationUpsertNestedInput {
+  update?: LocationUpdateDataInput
+  create?: LocationCreateInput
+}
+export type LocationUpsertNestedInputInputObject =
+  | Extract<keyof LocationUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
 export interface OrganizationalUnitUpsertWithoutChildrenInput {
   update?: OrganizationalUnitUpdateWithoutChildrenDataInput
   create?: OrganizationalUnitCreateWithoutChildrenInput
@@ -18119,6 +18314,7 @@ export interface OrganizationalUnitCreateInput {
   processes?: ProcessCreateManyWithoutOrganizationalUnitInput | null
   businessRoles?: BusinessRoleCreateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationCreateOneInput | null
 }
 export type OrganizationalUnitCreateInputInputObject =
   | Extract<keyof OrganizationalUnitCreateInput, string>
@@ -18130,6 +18326,7 @@ export type OrganizationalUnitCreateInputInputObject =
   | { name: 'processes', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface OrganizationalUnitUpdateInput {
   name?: string | null
@@ -18139,6 +18336,7 @@ export interface OrganizationalUnitUpdateInput {
   processes?: ProcessUpdateManyWithoutOrganizationalUnitInput | null
   businessRoles?: BusinessRoleUpdateManyWithoutOrganizationalUnitInput | null
   organizationalUnitType?: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput | null
+  headOffice?: LocationUpdateOneInput | null
 }
 export type OrganizationalUnitUpdateInputInputObject =
   | Extract<keyof OrganizationalUnitUpdateInput, string>
@@ -18149,6 +18347,7 @@ export type OrganizationalUnitUpdateInputInputObject =
   | { name: 'processes', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
   | { name: 'organizationalUnitType', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface OrganizationalUnitUpdateManyMutationInput {
   name?: string | null
@@ -18191,6 +18390,7 @@ export interface OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput {
   parent?: OrganizationalUnitCreateOneWithoutChildrenInput | null
   processes?: ProcessCreateManyWithoutOrganizationalUnitInput | null
   businessRoles?: BusinessRoleCreateManyWithoutOrganizationalUnitInput | null
+  headOffice?: LocationCreateOneInput | null
 }
 export type OrganizationalUnitCreateWithoutOrganizationalUnitTypeInputInputObject =
   | Extract<keyof OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput, string>
@@ -18201,6 +18401,7 @@ export type OrganizationalUnitCreateWithoutOrganizationalUnitTypeInputInputObjec
   | { name: 'parent', alias?: string  } 
   | { name: 'processes', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface OrganizationalUnitTypeUpdateInput {
   name?: string | null
@@ -18254,6 +18455,7 @@ export interface OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput 
   parent?: OrganizationalUnitUpdateOneWithoutChildrenInput | null
   processes?: ProcessUpdateManyWithoutOrganizationalUnitInput | null
   businessRoles?: BusinessRoleUpdateManyWithoutOrganizationalUnitInput | null
+  headOffice?: LocationUpdateOneInput | null
 }
 export type OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInputInputObject =
   | Extract<keyof OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput, string>
@@ -18263,6 +18465,7 @@ export type OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInputInputO
   | { name: 'parent', alias?: string  } 
   | { name: 'processes', alias?: string  } 
   | { name: 'businessRoles', alias?: string  } 
+  | { name: 'headOffice', alias?: string  } 
   
 export interface OrganizationalUnitUpsertWithWhereUniqueWithoutOrganizationalUnitTypeInput {
   where?: OrganizationalUnitWhereUniqueInput
@@ -18883,61 +19086,6 @@ export type BusinessPartnerUpdateManyMutationInputInputObject =
   | { name: 'safeguards', alias?: string  } 
   | { name: 'linkToDpa', alias?: string  } 
   
-export interface LocationCreateInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  address?: string
-  businessPartner?: BusinessPartnerCreateOneWithoutHeadOfficeInput | null
-}
-export type LocationCreateInputInputObject =
-  | Extract<keyof LocationCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'address', alias?: string  } 
-  | { name: 'businessPartner', alias?: string  } 
-  
-export interface BusinessPartnerCreateOneWithoutHeadOfficeInput {
-  create?: BusinessPartnerCreateWithoutHeadOfficeInput | null
-  connect?: BusinessPartnerWhereUniqueInput | null
-}
-export type BusinessPartnerCreateOneWithoutHeadOfficeInputInputObject =
-  | Extract<keyof BusinessPartnerCreateOneWithoutHeadOfficeInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface BusinessPartnerCreateWithoutHeadOfficeInput {
-  id?: string | null
-  name?: string
-  description?: string | null
-  contactDetails?: string
-  dpo?: string
-  representative?: BusinessPartnerCreateOneInput | null
-  processingTypes?: ProcessingTypeCreateManyInput | null
-  recipientsType?: RecipientsTypeCreateOneInput | null
-  securityMeasures?: string | null
-  otherCountries?: undefined | null
-  outsideEea?: boolean | null
-  safeguards?: string | null
-  linkToDpa?: string | null
-}
-export type BusinessPartnerCreateWithoutHeadOfficeInputInputObject =
-  | Extract<keyof BusinessPartnerCreateWithoutHeadOfficeInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'contactDetails', alias?: string  } 
-  | { name: 'dpo', alias?: string  } 
-  | { name: 'representative', alias?: string  } 
-  | { name: 'processingTypes', alias?: string  } 
-  | { name: 'recipientsType', alias?: string  } 
-  | { name: 'securityMeasures', alias?: string  } 
-  | { name: 'otherCountries', alias?: string  } 
-  | { name: 'outsideEea', alias?: string  } 
-  | { name: 'safeguards', alias?: string  } 
-  | { name: 'linkToDpa', alias?: string  } 
-  
 export interface LocationUpdateInput {
   name?: string | null
   description?: string | null
@@ -18950,61 +19098,6 @@ export type LocationUpdateInputInputObject =
   | { name: 'description', alias?: string  } 
   | { name: 'address', alias?: string  } 
   | { name: 'businessPartner', alias?: string  } 
-  
-export interface BusinessPartnerUpdateOneWithoutHeadOfficeInput {
-  create?: BusinessPartnerCreateWithoutHeadOfficeInput | null
-  update?: BusinessPartnerUpdateWithoutHeadOfficeDataInput | null
-  upsert?: BusinessPartnerUpsertWithoutHeadOfficeInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: BusinessPartnerWhereUniqueInput | null
-}
-export type BusinessPartnerUpdateOneWithoutHeadOfficeInputInputObject =
-  | Extract<keyof BusinessPartnerUpdateOneWithoutHeadOfficeInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface BusinessPartnerUpdateWithoutHeadOfficeDataInput {
-  name?: string | null
-  description?: string | null
-  contactDetails?: string | null
-  dpo?: string | null
-  representative?: BusinessPartnerUpdateOneInput | null
-  processingTypes?: ProcessingTypeUpdateManyInput | null
-  recipientsType?: RecipientsTypeUpdateOneInput | null
-  securityMeasures?: string | null
-  otherCountries?: undefined | null
-  outsideEea?: boolean | null
-  safeguards?: string | null
-  linkToDpa?: string | null
-}
-export type BusinessPartnerUpdateWithoutHeadOfficeDataInputInputObject =
-  | Extract<keyof BusinessPartnerUpdateWithoutHeadOfficeDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'contactDetails', alias?: string  } 
-  | { name: 'dpo', alias?: string  } 
-  | { name: 'representative', alias?: string  } 
-  | { name: 'processingTypes', alias?: string  } 
-  | { name: 'recipientsType', alias?: string  } 
-  | { name: 'securityMeasures', alias?: string  } 
-  | { name: 'otherCountries', alias?: string  } 
-  | { name: 'outsideEea', alias?: string  } 
-  | { name: 'safeguards', alias?: string  } 
-  | { name: 'linkToDpa', alias?: string  } 
-  
-export interface BusinessPartnerUpsertWithoutHeadOfficeInput {
-  update?: BusinessPartnerUpdateWithoutHeadOfficeDataInput
-  create?: BusinessPartnerCreateWithoutHeadOfficeInput
-}
-export type BusinessPartnerUpsertWithoutHeadOfficeInputInputObject =
-  | Extract<keyof BusinessPartnerUpsertWithoutHeadOfficeInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
   
 export interface LocationUpdateManyMutationInput {
   name?: string | null

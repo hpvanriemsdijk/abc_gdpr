@@ -2555,6 +2555,11 @@ input LocationCreateInput {
   name: String!
 }
 
+input LocationCreateOneInput {
+  connect: LocationWhereUniqueInput
+  create: LocationCreateInput
+}
+
 input LocationCreateOneWithoutBusinessPartnerInput {
   connect: LocationWhereUniqueInput
   create: LocationCreateWithoutBusinessPartnerInput
@@ -2587,6 +2592,13 @@ enum LocationOrderByInput {
   updatedAt_DESC
 }
 
+input LocationUpdateDataInput {
+  address: String
+  businessPartner: BusinessPartnerUpdateOneWithoutHeadOfficeInput
+  description: String
+  name: String
+}
+
 input LocationUpdateInput {
   address: String
   businessPartner: BusinessPartnerUpdateOneWithoutHeadOfficeInput
@@ -2600,6 +2612,15 @@ input LocationUpdateManyMutationInput {
   name: String
 }
 
+input LocationUpdateOneInput {
+  connect: LocationWhereUniqueInput
+  create: LocationCreateInput
+  delete: Boolean
+  disconnect: Boolean
+  update: LocationUpdateDataInput
+  upsert: LocationUpsertNestedInput
+}
+
 input LocationUpdateOneRequiredWithoutBusinessPartnerInput {
   connect: LocationWhereUniqueInput
   create: LocationCreateWithoutBusinessPartnerInput
@@ -2611,6 +2632,11 @@ input LocationUpdateWithoutBusinessPartnerDataInput {
   address: String
   description: String
   name: String
+}
+
+input LocationUpsertNestedInput {
+  create: LocationCreateInput!
+  update: LocationUpdateDataInput!
 }
 
 input LocationUpsertWithoutBusinessPartnerInput {
@@ -2810,6 +2836,7 @@ type OrganizationalUnit {
   children(after: String, before: String, first: Int, last: Int, orderBy: OrganizationalUnitOrderByInput, skip: Int, where: OrganizationalUnitWhereInput): [OrganizationalUnit!]
   createdAt: DateTime!
   description: String
+  headOffice: Location
   id: ID!
   name: String!
   organizationalUnitType: OrganizationalUnitType
@@ -2828,6 +2855,7 @@ input OrganizationalUnitCreateInput {
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
   children: OrganizationalUnitCreateManyWithoutParentInput
   description: String
+  headOffice: LocationCreateOneInput
   id: ID
   name: String!
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
@@ -2863,6 +2891,7 @@ input OrganizationalUnitCreateOneWithoutProcessesInput {
 input OrganizationalUnitCreateWithoutBusinessRolesInput {
   children: OrganizationalUnitCreateManyWithoutParentInput
   description: String
+  headOffice: LocationCreateOneInput
   id: ID
   name: String!
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
@@ -2873,6 +2902,7 @@ input OrganizationalUnitCreateWithoutBusinessRolesInput {
 input OrganizationalUnitCreateWithoutChildrenInput {
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
   description: String
+  headOffice: LocationCreateOneInput
   id: ID
   name: String!
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
@@ -2884,6 +2914,7 @@ input OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput {
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
   children: OrganizationalUnitCreateManyWithoutParentInput
   description: String
+  headOffice: LocationCreateOneInput
   id: ID
   name: String!
   parent: OrganizationalUnitCreateOneWithoutChildrenInput
@@ -2894,6 +2925,7 @@ input OrganizationalUnitCreateWithoutParentInput {
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
   children: OrganizationalUnitCreateManyWithoutParentInput
   description: String
+  headOffice: LocationCreateOneInput
   id: ID
   name: String!
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
@@ -2904,6 +2936,7 @@ input OrganizationalUnitCreateWithoutProcessesInput {
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
   children: OrganizationalUnitCreateManyWithoutParentInput
   description: String
+  headOffice: LocationCreateOneInput
   id: ID
   name: String!
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
@@ -3140,6 +3173,7 @@ input OrganizationalUnitUpdateInput {
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
   children: OrganizationalUnitUpdateManyWithoutParentInput
   description: String
+  headOffice: LocationUpdateOneInput
   name: String
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
   parent: OrganizationalUnitUpdateOneWithoutChildrenInput
@@ -3213,6 +3247,7 @@ input OrganizationalUnitUpdateOneWithoutProcessesInput {
 input OrganizationalUnitUpdateWithoutBusinessRolesDataInput {
   children: OrganizationalUnitUpdateManyWithoutParentInput
   description: String
+  headOffice: LocationUpdateOneInput
   name: String
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
   parent: OrganizationalUnitUpdateOneWithoutChildrenInput
@@ -3222,6 +3257,7 @@ input OrganizationalUnitUpdateWithoutBusinessRolesDataInput {
 input OrganizationalUnitUpdateWithoutChildrenDataInput {
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
   description: String
+  headOffice: LocationUpdateOneInput
   name: String
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
   parent: OrganizationalUnitUpdateOneWithoutChildrenInput
@@ -3232,6 +3268,7 @@ input OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput {
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
   children: OrganizationalUnitUpdateManyWithoutParentInput
   description: String
+  headOffice: LocationUpdateOneInput
   name: String
   parent: OrganizationalUnitUpdateOneWithoutChildrenInput
   processes: ProcessUpdateManyWithoutOrganizationalUnitInput
@@ -3241,6 +3278,7 @@ input OrganizationalUnitUpdateWithoutParentDataInput {
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
   children: OrganizationalUnitUpdateManyWithoutParentInput
   description: String
+  headOffice: LocationUpdateOneInput
   name: String
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
   processes: ProcessUpdateManyWithoutOrganizationalUnitInput
@@ -3250,6 +3288,7 @@ input OrganizationalUnitUpdateWithoutProcessesDataInput {
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
   children: OrganizationalUnitUpdateManyWithoutParentInput
   description: String
+  headOffice: LocationUpdateOneInput
   name: String
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
   parent: OrganizationalUnitUpdateOneWithoutChildrenInput
@@ -3322,6 +3361,7 @@ input OrganizationalUnitWhereInput {
   description_not_in: [String!]
   description_not_starts_with: String
   description_starts_with: String
+  headOffice: LocationWhereInput
   id: ID
   id_contains: ID
   id_ends_with: ID

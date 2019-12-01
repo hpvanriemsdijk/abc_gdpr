@@ -2709,6 +2709,11 @@ input LocationCreateInput {
   businessPartner: BusinessPartnerCreateOneWithoutHeadOfficeInput
 }
 
+input LocationCreateOneInput {
+  create: LocationCreateInput
+  connect: LocationWhereUniqueInput
+}
+
 input LocationCreateOneWithoutBusinessPartnerInput {
   create: LocationCreateWithoutBusinessPartnerInput
   connect: LocationWhereUniqueInput
@@ -2762,6 +2767,13 @@ input LocationSubscriptionWhereInput {
   NOT: [LocationSubscriptionWhereInput!]
 }
 
+input LocationUpdateDataInput {
+  name: String
+  description: String
+  address: String
+  businessPartner: BusinessPartnerUpdateOneWithoutHeadOfficeInput
+}
+
 input LocationUpdateInput {
   name: String
   description: String
@@ -2775,6 +2787,15 @@ input LocationUpdateManyMutationInput {
   address: String
 }
 
+input LocationUpdateOneInput {
+  create: LocationCreateInput
+  update: LocationUpdateDataInput
+  upsert: LocationUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: LocationWhereUniqueInput
+}
+
 input LocationUpdateOneRequiredWithoutBusinessPartnerInput {
   create: LocationCreateWithoutBusinessPartnerInput
   update: LocationUpdateWithoutBusinessPartnerDataInput
@@ -2786,6 +2807,11 @@ input LocationUpdateWithoutBusinessPartnerDataInput {
   name: String
   description: String
   address: String
+}
+
+input LocationUpsertNestedInput {
+  update: LocationUpdateDataInput!
+  create: LocationCreateInput!
 }
 
 input LocationUpsertWithoutBusinessPartnerInput {
@@ -2994,6 +3020,7 @@ type OrganizationalUnit {
   processes(where: ProcessWhereInput, orderBy: ProcessOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Process!]
   businessRoles(where: BusinessRoleWhereInput, orderBy: BusinessRoleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [BusinessRole!]
   organizationalUnitType: OrganizationalUnitType
+  headOffice: Location
 }
 
 type OrganizationalUnitConnection {
@@ -3011,6 +3038,7 @@ input OrganizationalUnitCreateInput {
   processes: ProcessCreateManyWithoutOrganizationalUnitInput
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
+  headOffice: LocationCreateOneInput
 }
 
 input OrganizationalUnitCreateManyWithoutOrganizationalUnitTypeInput {
@@ -3046,6 +3074,7 @@ input OrganizationalUnitCreateWithoutBusinessRolesInput {
   parent: OrganizationalUnitCreateOneWithoutChildrenInput
   processes: ProcessCreateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
+  headOffice: LocationCreateOneInput
 }
 
 input OrganizationalUnitCreateWithoutChildrenInput {
@@ -3056,6 +3085,7 @@ input OrganizationalUnitCreateWithoutChildrenInput {
   processes: ProcessCreateManyWithoutOrganizationalUnitInput
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
+  headOffice: LocationCreateOneInput
 }
 
 input OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput {
@@ -3066,6 +3096,7 @@ input OrganizationalUnitCreateWithoutOrganizationalUnitTypeInput {
   parent: OrganizationalUnitCreateOneWithoutChildrenInput
   processes: ProcessCreateManyWithoutOrganizationalUnitInput
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
+  headOffice: LocationCreateOneInput
 }
 
 input OrganizationalUnitCreateWithoutParentInput {
@@ -3076,6 +3107,7 @@ input OrganizationalUnitCreateWithoutParentInput {
   processes: ProcessCreateManyWithoutOrganizationalUnitInput
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
+  headOffice: LocationCreateOneInput
 }
 
 input OrganizationalUnitCreateWithoutProcessesInput {
@@ -3086,6 +3118,7 @@ input OrganizationalUnitCreateWithoutProcessesInput {
   parent: OrganizationalUnitCreateOneWithoutChildrenInput
   businessRoles: BusinessRoleCreateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput
+  headOffice: LocationCreateOneInput
 }
 
 type OrganizationalUnitEdge {
@@ -3369,6 +3402,7 @@ input OrganizationalUnitUpdateInput {
   processes: ProcessUpdateManyWithoutOrganizationalUnitInput
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
+  headOffice: LocationUpdateOneInput
 }
 
 input OrganizationalUnitUpdateManyDataInput {
@@ -3442,6 +3476,7 @@ input OrganizationalUnitUpdateWithoutBusinessRolesDataInput {
   parent: OrganizationalUnitUpdateOneWithoutChildrenInput
   processes: ProcessUpdateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
+  headOffice: LocationUpdateOneInput
 }
 
 input OrganizationalUnitUpdateWithoutChildrenDataInput {
@@ -3451,6 +3486,7 @@ input OrganizationalUnitUpdateWithoutChildrenDataInput {
   processes: ProcessUpdateManyWithoutOrganizationalUnitInput
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
+  headOffice: LocationUpdateOneInput
 }
 
 input OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput {
@@ -3460,6 +3496,7 @@ input OrganizationalUnitUpdateWithoutOrganizationalUnitTypeDataInput {
   parent: OrganizationalUnitUpdateOneWithoutChildrenInput
   processes: ProcessUpdateManyWithoutOrganizationalUnitInput
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
+  headOffice: LocationUpdateOneInput
 }
 
 input OrganizationalUnitUpdateWithoutParentDataInput {
@@ -3469,6 +3506,7 @@ input OrganizationalUnitUpdateWithoutParentDataInput {
   processes: ProcessUpdateManyWithoutOrganizationalUnitInput
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
+  headOffice: LocationUpdateOneInput
 }
 
 input OrganizationalUnitUpdateWithoutProcessesDataInput {
@@ -3478,6 +3516,7 @@ input OrganizationalUnitUpdateWithoutProcessesDataInput {
   parent: OrganizationalUnitUpdateOneWithoutChildrenInput
   businessRoles: BusinessRoleUpdateManyWithoutOrganizationalUnitInput
   organizationalUnitType: OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput
+  headOffice: LocationUpdateOneInput
 }
 
 input OrganizationalUnitUpdateWithWhereUniqueWithoutOrganizationalUnitTypeInput {
@@ -3587,6 +3626,7 @@ input OrganizationalUnitWhereInput {
   businessRoles_some: BusinessRoleWhereInput
   businessRoles_none: BusinessRoleWhereInput
   organizationalUnitType: OrganizationalUnitTypeWhereInput
+  headOffice: LocationWhereInput
   AND: [OrganizationalUnitWhereInput!]
   OR: [OrganizationalUnitWhereInput!]
   NOT: [OrganizationalUnitWhereInput!]

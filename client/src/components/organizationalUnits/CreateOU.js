@@ -4,6 +4,7 @@ import { CREATE_OU } from '../../queries/OUQueries';
 import { Modal, Form, Input, Button, notification } from 'antd';
 import { OUTypesOptionsList } from '../organizationalUnitTypes/OUTypesOptionsList'
 import { OuTree } from '../organizationalUnits/OuTree'
+import { LocationOptionsList } from '../locations/LocationOptionsList'
 
 class CreateOUModal extends React.Component {
   state = {
@@ -94,6 +95,10 @@ class CreateOUModal extends React.Component {
                     extra="Can't select yourself, childeren in own line or result in 3+ levels.">
                     { <OuTree form={form} parentTree={true} /> }
                   </Form.Item>
+                  <LocationOptionsList 
+                    form={form} 
+                    relationName="headOffice" 
+                    label="Head Office" />  
                 </Form>
               </Modal>
             );

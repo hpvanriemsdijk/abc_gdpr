@@ -7197,6 +7197,16 @@ export default {
             "defaultValue": null
           },
           {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "AND",
             "description": null,
             "type": {
@@ -18573,6 +18583,18 @@ export default {
             "type": {
               "kind": "OBJECT",
               "name": "OrganizationalUnitType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Location",
               "ofType": null
             },
             "isDeprecated": false,
@@ -30248,6 +30270,16 @@ export default {
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationCreateOneInput",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -30377,6 +30409,16 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationCreateOneInput",
               "ofType": null
             },
             "defaultValue": null
@@ -32209,6 +32251,16 @@ export default {
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationCreateOneInput",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -32322,6 +32374,16 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "OrganizationalUnitTypeCreateOneWithoutOrganizationalUnitInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationCreateOneInput",
               "ofType": null
             },
             "defaultValue": null
@@ -34163,6 +34225,290 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
+        "name": "LocationCreateOneInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "create",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationCreateInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "connect",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationWhereUniqueInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "LocationCreateInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "id",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "description",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "address",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "businessPartner",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerCreateOneWithoutHeadOfficeInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "BusinessPartnerCreateOneWithoutHeadOfficeInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "create",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerCreateWithoutHeadOfficeInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "connect",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerWhereUniqueInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "BusinessPartnerCreateWithoutHeadOfficeInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "id",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "description",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "contactDetails",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "dpo",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "representative",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerCreateOneInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "processingTypes",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ProcessingTypeCreateManyInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "recipientsType",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "RecipientsTypeCreateOneInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "securityMeasures",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "otherCountries",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Json",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "outsideEea",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "safeguards",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "linkToDpa",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
         "name": "BusinessRoleCreateOneWithoutProcessInput",
         "description": null,
         "fields": null,
@@ -34982,6 +35328,16 @@ export default {
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationUpdateOneInput",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -35262,6 +35618,16 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationUpdateOneInput",
               "ofType": null
             },
             "defaultValue": null
@@ -43001,6 +43367,16 @@ export default {
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationUpdateOneInput",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -43140,6 +43516,16 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationUpdateOneInput",
               "ofType": null
             },
             "defaultValue": null
@@ -50427,6 +50813,408 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
+        "name": "LocationUpdateOneInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "create",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationCreateInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "update",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationUpdateDataInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "upsert",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationUpsertNestedInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "delete",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "disconnect",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "connect",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationWhereUniqueInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "LocationUpdateDataInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "name",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "description",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "address",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "businessPartner",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerUpdateOneWithoutHeadOfficeInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "BusinessPartnerUpdateOneWithoutHeadOfficeInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "create",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerCreateWithoutHeadOfficeInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "update",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerUpdateWithoutHeadOfficeDataInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "upsert",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerUpsertWithoutHeadOfficeInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "delete",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "disconnect",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "connect",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerWhereUniqueInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "BusinessPartnerUpdateWithoutHeadOfficeDataInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "name",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "description",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "contactDetails",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "dpo",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "representative",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BusinessPartnerUpdateOneInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "processingTypes",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ProcessingTypeUpdateManyInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "recipientsType",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "RecipientsTypeUpdateOneInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "securityMeasures",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "otherCountries",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Json",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "outsideEea",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "safeguards",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "linkToDpa",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "BusinessPartnerUpsertWithoutHeadOfficeInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "update",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "BusinessPartnerUpdateWithoutHeadOfficeDataInput",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "create",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "BusinessPartnerCreateWithoutHeadOfficeInput",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "LocationUpsertNestedInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "update",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "LocationUpdateDataInput",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "create",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "LocationCreateInput",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
         "name": "OrganizationalUnitUpsertWithoutChildrenInput",
         "description": null,
         "fields": null,
@@ -54241,6 +55029,16 @@ export default {
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationCreateOneInput",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -54319,6 +55117,16 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "OrganizationalUnitTypeUpdateOneWithoutOrganizationalUnitInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationUpdateOneInput",
               "ofType": null
             },
             "defaultValue": null
@@ -54547,6 +55355,16 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "BusinessRoleCreateManyWithoutOrganizationalUnitInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationCreateOneInput",
               "ofType": null
             },
             "defaultValue": null
@@ -54881,6 +55699,16 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "BusinessRoleUpdateManyWithoutOrganizationalUnitInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "headOffice",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LocationUpdateOneInput",
               "ofType": null
             },
             "defaultValue": null
@@ -57793,259 +58621,6 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "LocationCreateInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "name",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "description",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "address",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "businessPartner",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BusinessPartnerCreateOneWithoutHeadOfficeInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "BusinessPartnerCreateOneWithoutHeadOfficeInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "create",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BusinessPartnerCreateWithoutHeadOfficeInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "connect",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BusinessPartnerWhereUniqueInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "BusinessPartnerCreateWithoutHeadOfficeInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "name",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "description",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "contactDetails",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "dpo",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "representative",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BusinessPartnerCreateOneInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "processingTypes",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "ProcessingTypeCreateManyInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "recipientsType",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "RecipientsTypeCreateOneInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "securityMeasures",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "otherCountries",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Json",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "outsideEea",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "safeguards",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "linkToDpa",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
         "name": "LocationUpdateInput",
         "description": null,
         "fields": null,
@@ -58087,247 +58662,6 @@ export default {
               "kind": "INPUT_OBJECT",
               "name": "BusinessPartnerUpdateOneWithoutHeadOfficeInput",
               "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "BusinessPartnerUpdateOneWithoutHeadOfficeInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "create",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BusinessPartnerCreateWithoutHeadOfficeInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "update",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BusinessPartnerUpdateWithoutHeadOfficeDataInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "upsert",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BusinessPartnerUpsertWithoutHeadOfficeInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "delete",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "disconnect",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "connect",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BusinessPartnerWhereUniqueInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "BusinessPartnerUpdateWithoutHeadOfficeDataInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "name",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "description",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "contactDetails",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "dpo",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "representative",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BusinessPartnerUpdateOneInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "processingTypes",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "ProcessingTypeUpdateManyInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "recipientsType",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "RecipientsTypeUpdateOneInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "securityMeasures",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "otherCountries",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Json",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "outsideEea",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "safeguards",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "linkToDpa",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "BusinessPartnerUpsertWithoutHeadOfficeInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "update",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "BusinessPartnerUpdateWithoutHeadOfficeDataInput",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "create",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "BusinessPartnerCreateWithoutHeadOfficeInput",
-                "ofType": null
-              }
             },
             "defaultValue": null
           }
