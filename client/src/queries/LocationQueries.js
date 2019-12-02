@@ -7,10 +7,8 @@ export const MY_LOCATIONS_OPTIONS_LIST = gql`
             businessPartner: null
             }
         ){
-            id
-            name
-            description
-            address
+			value: id
+			title: name
         }
     }
 `;

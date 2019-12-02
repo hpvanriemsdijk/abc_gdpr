@@ -2729,7 +2729,7 @@ type Mutation {
   createDataType(data: DataTypeCreateInput!): DataType!
   createLegalGround(data: LegalGroundCreateInput!): LegalGround!
   createLocation(data: LocationCreateInput!): Location!
-  createOrganizationalUnit(data: OrganizationalUnitCreateInput!): OrganizationalUnit!
+  createOrganizationalUnit(data: OrganizationalUnitCreateInput): OrganizationalUnit
   createOrganizationalUnitType(data: OrganizationalUnitTypeCreateInput!): OrganizationalUnitType!
   createPerson(data: PersonCreateInput!): Person!
   createProcess(data: ProcessCreateInput!): Process!
@@ -4816,6 +4816,7 @@ type Query {
   retentionPolicies(after: String, before: String, first: Int, last: Int, orderBy: RetentionPolicyOrderByInput, skip: Int, where: RetentionPolicyWhereInput): [RetentionPolicy!]!
   retentionPoliciesConnection(after: String, before: String, first: Int, last: Int, orderBy: RetentionPolicyOrderByInput, skip: Int, where: RetentionPolicyWhereInput): RetentionPolicyConnection!
   retentionPolicy(where: RetentionPolicyWhereUniqueInput!): RetentionPolicy
+  rootOu: [OrganizationalUnit!]
   staticSettings: [StaticSetting!]
   staticSettingsGroup(where: StaticSettingInput): [StaticSetting!]
   user(where: UserWhereUniqueInput!): User

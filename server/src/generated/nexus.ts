@@ -5003,7 +5003,7 @@ export interface NexusGenFieldTypes {
     createDataType: NexusGenRootTypes['DataType']; // DataType!
     createLegalGround: NexusGenRootTypes['LegalGround']; // LegalGround!
     createLocation: NexusGenRootTypes['Location']; // Location!
-    createOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit']; // OrganizationalUnit!
+    createOrganizationalUnit: NexusGenRootTypes['OrganizationalUnit'] | null; // OrganizationalUnit
     createOrganizationalUnitType: NexusGenRootTypes['OrganizationalUnitType']; // OrganizationalUnitType!
     createPerson: NexusGenRootTypes['Person']; // Person!
     createProcess: NexusGenRootTypes['Process']; // Process!
@@ -5298,6 +5298,7 @@ export interface NexusGenFieldTypes {
     retentionPolicies: NexusGenRootTypes['RetentionPolicy'][]; // [RetentionPolicy!]!
     retentionPoliciesConnection: NexusGenRootTypes['RetentionPolicyConnection']; // RetentionPolicyConnection!
     retentionPolicy: NexusGenRootTypes['RetentionPolicy'] | null; // RetentionPolicy
+    rootOu: NexusGenRootTypes['OrganizationalUnit'][] | null; // [OrganizationalUnit!]
     staticSettings: NexusGenRootTypes['StaticSetting'][] | null; // [StaticSetting!]
     staticSettingsGroup: NexusGenRootTypes['StaticSetting'][] | null; // [StaticSetting!]
     user: NexusGenRootTypes['User'] | null; // User
@@ -5525,7 +5526,7 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['LocationCreateInput']; // LocationCreateInput!
     }
     createOrganizationalUnit: { // args
-      data: NexusGenInputs['OrganizationalUnitCreateInput']; // OrganizationalUnitCreateInput!
+      data?: NexusGenInputs['OrganizationalUnitCreateInput'] | null; // OrganizationalUnitCreateInput
     }
     createOrganizationalUnitType: { // args
       data: NexusGenInputs['OrganizationalUnitTypeCreateInput']; // OrganizationalUnitTypeCreateInput!
