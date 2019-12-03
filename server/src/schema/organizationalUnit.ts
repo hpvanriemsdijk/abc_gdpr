@@ -19,13 +19,21 @@ async function businessRoleByOu(parent, {where}, ctx, info) {
 async function createOrganizationalUnit(parent, {data}, ctx, info) {
     const rootNodes = await ctx.prisma.organizationalUnits({ where: { parent: null } })
     const rootCount = rootNodes.length
+    const newRoot = (((data || {}).parent || {}).connect || {}).id;
 
-	if (rootCount > 0) {
+	if (rootCount > 0 && !newRoot) {
 		throw new ForbiddenError(`There can be only one root organizational unit`);
 	}
 
-	const organizationalUnit = await ctx.prisma.createOrganizationalUnit({...data}, info);
-	return organizationalUnit;
+	return await ctx.prisma.createOrganizationalUnit({...data}, info);
+}
+
+async function deleteOrganizationalUnit(parent, args ,ctx, info){
+    const id = args.where.id;
+    const parent1 = await ctx.prisma.organizationalUnits({ where: { id } }).parent();
+    if(!parent1[0].parent) throw new ForbiddenError('You can not delete the root organizational unit.');
+    
+    return await ctx.prisma.deleteOrganizationalUnit({ id }, info);
 }
 
 async function getRootOu(parent, {data}, ctx, info) {
@@ -35,4 +43,5 @@ async function getRootOu(parent, {data}, ctx, info) {
 module.exports = {
     businessRoleByOu, 
     createOrganizationalUnit, 
+    deleteOrganizationalUnit,
     getRootOu};

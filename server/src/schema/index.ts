@@ -7,7 +7,7 @@ import { arg } from 'nexus'
 //Import types
 const { authenticateUser, LoginInput, Token } = require('./authenticate');
 const { User, loggedInUser, createUser, createAdmin } = require('./user');
-const { businessRoleByOu, createOrganizationalUnit, getRootOu } = require('./organizationalUnit');
+const { businessRoleByOu, createOrganizationalUnit, deleteOrganizationalUnit, getRootOu } = require('./organizationalUnit');
 const { processByOu } = require('./processes');
 const { processingActivitiesByOu } = require('./processingActivities');
 const { StaticSetting, staticSettings, StaticSettingInput, staticSettingsGroup } = require('./staticSetting');
@@ -41,12 +41,13 @@ const Mutation = prismaObjectType({
 			type: 'Token'
     });
     t.field('createOrganizationalUnit', {
-			args: {
-				data: arg({
-					type: 'OrganizationalUnitCreateInput'
-				})
-			},
+      args: t.prismaType.createOrganizationalUnit.args,
 			resolve: createOrganizationalUnit,
+			type: 'OrganizationalUnit'
+    });
+    t.field('deleteOrganizationalUnit', {
+      args: t.prismaType.deleteOrganizationalUnit.args,
+			resolve: deleteOrganizationalUnit,
 			type: 'OrganizationalUnit'
     });
   },

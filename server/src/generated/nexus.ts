@@ -5526,7 +5526,7 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['LocationCreateInput']; // LocationCreateInput!
     }
     createOrganizationalUnit: { // args
-      data?: NexusGenInputs['OrganizationalUnitCreateInput'] | null; // OrganizationalUnitCreateInput
+      data: NexusGenInputs['OrganizationalUnitCreateInput']; // OrganizationalUnitCreateInput!
     }
     createOrganizationalUnitType: { // args
       data: NexusGenInputs['OrganizationalUnitTypeCreateInput']; // OrganizationalUnitTypeCreateInput!
