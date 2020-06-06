@@ -6,7 +6,7 @@
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/jsonwebtoken": "^8.3.4",
-    "apollo-server": "2.6.3",
+    "apollo-server": "2.14.2",
     "bcrypt": "3.0.6",
     "dotenv": "^6.2.0",
     "graphql": "14.3.1",
